@@ -1,0 +1,641 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Dark Ritual: Alpha, the boon cycle, Hypnotic Specter, Necropotence, Black Summer, Trix, Storm, rules history, artwork, reprints, and player memory."><title>Dark Ritual: The Spell That Made One Swamp Feel Like Three — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.ritual-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.ritual-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.ritual-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.cabal-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Cabal%20Ritual&format=image&version=art_crop)!important
+}
+.exchange-grid,.opening-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.opening-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.exchange-step,.opening-step{background:var(--white);padding:23px}
+.exchange-step b,.opening-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.exchange-step span,.opening-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.ritual-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.ritual-note b{color:var(--ink)}
+.mana-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mana-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.mana-row:last-child{border-bottom:0}.mana-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mana-row p{margin:0}
+@media(max-width:750px){.exchange-grid,.opening-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.exchange-grid,.opening-grid{grid-template-columns:1fr}}
+</style></head><body>
+<header class="hero ritual-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#wave-01">← Wave 01 · The Foundational Canon</a>
+<div class="eyebrow">Entry 013 · Wave 01 · The Foundational Canon</div>
+<h1>The Spell That Made One Swamp Feel Like Three</h1>
+<p class="deckline">Dark Ritual exchanged a card for two net mana and taught black decks to treat the future as a resource that could be spent immediately.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 26 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="012-counterspell.html">← Entry 012 · Counterspell</a><div class="center">Entry 013 of 1,000</div><a href="index.html#entry-014">Entry 014 · Swords to Plowshares →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong>
+<a href="#opening">One Swamp, three black mana</a><a href="#boon">The black boon</a><a href="#exchange">Two net mana and one missing card</a><a href="#rules">Interrupt, mana source, instant</a><a href="#openings">The opening-hand vocabulary</a><a href="#specter">Ritual into Hypnotic Specter</a><a href="#necro">The engine that paid the debt</a><a href="#fair">Not every Ritual was a combo</a><a href="#trix">When every best card fit in one deck</a><a href="#storm">Dark Ritual learns to count itself</a><a href="#migration">Black loses the clean ritual</a><a href="#descendants">Every ritual after Dark Ritual</a><a href="#formats">Where the ritual still burns</a><a href="#discipline">When not to cast Dark Ritual</a><a href="#art">The image of forbidden acceleration</a><a href="#memory">Swamp, Ritual…</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
+<article class="article"><section id="opening"><div class="chapter-number">I · The opening hand</div><h2>One Swamp, three black mana</h2><p class="opening dropcap">Dark Ritual is the sound of a turn arriving too early.</p><p>A player lays a <span class="card-name" data-card="Swamp" tabindex="0">Swamp</span>, taps it, and turns one black mana into three. The spell has not drawn a card, removed a permanent, or placed anything on the battlefield. It has only changed the clock. A three-mana play that belonged to turn three is now available before the opponent has played a land.</p><p>That compression produced some of the oldest sentences in competitive Magic: Ritual into <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span>. Ritual into <span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span>. Ritual, <span class="card-name" data-card="Duress" tabindex="0">Duress</span>, <span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span>. Ritual into <span class="card-name" data-card="Phyrexian Negator" tabindex="0">Phyrexian Negator</span>. In later decades the nouns changed—<span class="card-name" data-card="Entomb" tabindex="0">Entomb</span>, <span class="card-name" data-card="Doomsday" tabindex="0">Doomsday</span>, <span class="card-name" data-card="Ad Nauseam" tabindex="0">Ad Nauseam</span>, <span class="card-name" data-card="Beseech the Mirror" tabindex="0">Beseech the Mirror</span>—but the grammar remained the same. One card converted the ordinary first turn into a turn from a more dangerous game.</p><p>Dark Ritual is often introduced as “black’s Lightning Bolt for mana,” one member of Alpha’s cycle of one-mana spells built around the number three. That description is true and incomplete. Lightning Bolt ends with three damage. Dark Ritual begins with three mana and asks the deckbuilder to prove that the borrowed time was worth a card.</p><div class="card-lead"><img alt="Dark Ritual from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Dark%20Ritual&amp;set=lea&amp;format=image&amp;version=normal"><div><div class="oracle"><b>Dark Ritual</b> · {B}<br>Instant<br><br>Add {B}{B}{B}.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Designed by</b>Richard Garfield</div><div class="stat"><b>Illustrated by</b>Sandra Everingham</div><div class="stat"><b>Net exchange</b>One card and one mana for three mana</div></div></div></div><p>The card became a defining piece of black identity, then became so constraining that Magic deliberately moved unconditional temporary mana away from black. It left Standard, was banned out of old Extended, and survived where the game was willing to admit how explosive it had always been. Dark Ritual’s history is therefore not only a history of a powerful spell. It is a history of Magic learning that mana acceleration can be more dangerous than the spell it casts.</p></section><section id="boon"><div class="chapter-number">II · Limited Edition Alpha</div><h2>The black boon</h2><p>Alpha contained a loose cycle later called the boons: <span class="card-name" data-card="Healing Salve" tabindex="0">Healing Salve</span>, <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span>, Dark Ritual, <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, and <span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span>. Each cost one colored mana and offered a version of three—three life or prevented damage, three cards, three black mana, three damage, or +3/+3.</p><p>The cycle looked symmetrical when written as a design exercise. History revealed that the resources were not remotely equal. Three cards could define the ceiling of card draw. Three damage became the benchmark for efficient burn. Three temporary mana let black ignore the early turns entirely. Healing Salve demonstrated how little three life usually mattered; Ancestral Recall and Dark Ritual demonstrated how much three units of the right resource could matter.</p><p>The imbalance also exposed something fundamental about mana. Mana is not merely a quantity. It is permission to act before the opponent has developed the resources to respond. Three black mana on turn five is ordinary. Three black mana on turn one is a different category of event.</p><div class="pullquote">Dark Ritual did not make a spell cheaper. It moved the spell to a turn where the game had fewer defenses.<small>Alpha’s most dangerous kind of acceleration</small></div><p>Black’s flavor made the exchange feel natural. The color was willing to consume a card now for immediate power. The absence of an explicit life payment or sacrifice did not feel strange in 1993 because the card itself was the sacrifice: once the mana emptied, the caster had spent one piece of cardboard to force the future into the present.</p></section><section id="exchange"><div class="chapter-number">III · The arithmetic</div><h2>Two net mana and one missing card</h2><p>Dark Ritual says “add three,” but the useful strategic number is often two. The Swamp was already capable of producing one mana. Casting the Ritual replaces that one with three, producing a net increase of two mana while consuming the Ritual itself.</p><div class="exchange-grid"><div class="exchange-step"><b>1 mana</b><span>The Swamp is tapped to cast Dark Ritual.</span></div><div class="exchange-step"><b>3 mana</b><span>The spell resolves and adds three black mana.</span></div><div class="exchange-step"><b>+2 tempo</b><span>The turn has two more mana than the land alone provided.</span></div><div class="exchange-step"><b>−1 card</b><span>The Ritual leaves no permanent and does not replace itself.</span></div></div><p>In isolation, this is card disadvantage. A hand containing Swamp, Dark Ritual, and a three-mana spell uses three cards to produce one permanent or effect. A player who simply trades removal for that payoff may emerge ahead. The famous first-turn Hypnotic Specter was terrifying, but a single cheap answer could turn the entire opening into a favorable exchange for the opponent.</p><p>That weakness explains why Dark Ritual is not generically correct in every black deck. The card demands a payoff that converts time into something durable: repeated discard, a draw engine, a lock, a protected threat, or a combo that ends the game. It is strongest when the accelerated spell either replaces the lost card or makes ordinary card counting irrelevant.</p><div class="ritual-note"><b>The Ritual test:</b> If the accelerated spell is answered immediately, what remains? A deck should have a convincing answer before spending a card purely on speed.</div></section><section id="rules"><div class="chapter-number">IV · Rules history</div><h2>Interrupt, mana source, instant</h2><p>Dark Ritual’s type line records Magic’s changing rules language. It began life as an interrupt, a category used for effects that operated inside special timing windows. Under the Fifth Edition rules, nonpermanent spells that produced mana became “mana sources,” a short-lived card type designed to let players generate mana while paying for other spells. Sixth Edition removed both interrupts and mana sources from the game’s vocabulary, and Dark Ritual became an instant.</p><p>The modern card is therefore a spell that uses the stack. It can be responded to and countered. It increases storm count. A player may cast it during another player’s turn, although most of its historical uses occur while assembling a proactive sequence. Unlike a land’s mana ability, Dark Ritual does not resolve invisibly between decisions; the opponent receives a window to interfere.</p><div class="mana-sequence"><div class="mana-row"><strong>Cast</strong><p>Pay one black mana and put Dark Ritual on the stack.</p></div><div class="mana-row"><strong>Respond</strong><p>Players may counter it, copy it, or otherwise act before it resolves.</p></div><div class="mana-row"><strong>Resolve</strong><p>Add three black mana to the caster’s mana pool.</p></div><div class="mana-row"><strong>Spend</strong><p>Use that mana before the current step or phase ends, unless another effect says otherwise.</p></div></div><p>The rules changes made the card easier to explain without changing the essential play pattern. Dark Ritual remained a one-card bridge between the mana available and the mana required.</p></section><div class="art-break ritual-art"><div class="art-caption"><b>Sandra Everingham’s original Alpha artwork</b>The image treats mana production as ceremony rather than technology: power gathered from darkness, immediately available, and visibly dangerous to invoke.</div></div><section id="openings"><div class="chapter-number">V · The first turn</div><h2>The opening-hand vocabulary</h2><p>Few cards have generated as many recognizable openings from so little text. Dark Ritual acts like a prefix. The card that follows completes the sentence and reveals what kind of black deck is sitting across the table.</p><div class="opening-grid"><div class="opening-step"><b>Specter</b><span>Convert tempo into repeated random discard and evasive damage.</span></div><div class="opening-step"><b>Necropotence</b><span>Spend one card to deploy an engine capable of drawing many more.</span></div><div class="opening-step"><b>Combo</b><span>Transform the mana directly into tutors, rituals, and a lethal spell chain.</span></div></div><p>The most famous fair opening was Swamp, Dark Ritual, <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span>. If the 2/2 flier survived, every hit removed a random card from the opponent’s hand. The Ritual’s card disadvantage could be repaid after one attack and overwhelmed after two. The opponent was forced to answer immediately, often before possessing the mana or color required.</p><p>Other openings attacked different resources. Ritual into <span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span> plus a one-mana spell could reduce the opposing hand before it functioned. Ritual into <span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span> or a large threat attacked development. Later, Ritual into <span class="card-name" data-card="Duress" tabindex="0">Duress</span> plus another disruptive spell let combo decks inspect the path before committing their engine.</p><p>These sequences shaped mulligan decisions long before formal mulligan theory became widespread. A hand with Dark Ritual could be explosive but brittle. A hand with multiple Rituals and no payoff was nearly empty. The card rewarded players who could distinguish speed from purpose.</p></section><section id="specter"><div class="chapter-number">VI · The first icon</div><h2>Ritual into Hypnotic Specter</h2><p>Dark Ritual and <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span> became one of the earliest combinations that players learned by name. It was not a rules combo—neither card referenced the other—but it demonstrated how acceleration and snowballing advantage reinforce each other.</p><p>The Ritual paid the card up front. The Specter promised to collect that card from the opponent later. Random discard made the promise especially threatening because the opponent could not protect the most valuable card by choosing something expendable. A land, answer, or centerpiece could disappear after the first attack.</p><p>The opening also taught the counterlesson that would follow Dark Ritual throughout its life. If the Specter met Swords to Plowshares, Lightning Bolt, or another efficient answer before connecting, the black player had traded two cards for one. The opening’s reputation came not from being unbeatable but from forcing the opponent to possess the answer immediately.</p><p>Alexander Blumke’s 1995 World Championship Rack Control deck used four Dark Rituals and three Hypnotic Specters, but it was not merely an all-in aggression deck. The acceleration sat inside a larger resource-denial shell of Hymn to Tourach, The Rack, Icy Manipulator, removal, and recursive creatures. Ritual created the opening; the deck ensured that the opening mattered.</p></section><section id="necro"><div class="chapter-number">VII · Black Summer</div><h2>The engine that paid the debt</h2><p>If Hypnotic Specter could repay Dark Ritual one card at a time, <span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span> could erase the debt in a single end step. Swamp, Ritual, Necropotence became the defining expression of why fast mana and card drawing are so dangerous together.</p><p>Necropotence allowed the player to trade life for cards. Dark Ritual allowed the enchantment to arrive before conventional pressure had begun. The Ritual’s missing card stopped mattering because the Skull could refill the hand immediately. The life total stopped behaving like a defensive resource and became fuel for finding more disruption, removal, creatures, and Drain Life effects.</p><p>At the first Pro Tour in New York in 1996, early Necropotence decks demonstrated that the enchantment dismissed by many players was a real tournament engine. That summer, black decks spread so widely that the period became known as Black Summer. Dark Ritual was not the sole cause, but it was the card that turned a powerful three-mana engine into a first-turn engine.</p><p>Mark Justice’s famous 1996 World Championship final included a moment in which he used two <span class="card-name" data-card="Demonic Consultation" tabindex="0">Demonic Consultation</span>s to find Dark Rituals while responding to a devastating <span class="card-name" data-card="Balance" tabindex="0">Balance</span>. The line is remembered as a cautionary tale about how much rope black’s tutors and fast mana provided. The cards enabled extraordinary recoveries and extraordinary self-destruction.</p><div class="timeline"><div class="timeline-item"><time>1993</time><h3>Limited Edition Alpha</h3><p>Dark Ritual establishes black as the color of immediate, disposable mana.</p></div><div class="timeline-item"><time>1995</time><h3>World Championship</h3><p>Alexander Blumke wins with Ritual-fueled discard and control.</p></div><div class="timeline-item"><time>1996</time><h3>Black Summer</h3><p>Necropotence decks turn the one-mana spell into a first-turn draw engine.</p></div><div class="timeline-item"><time>2000</time><h3>Trix</h3><p>Extended combo uses Ritual, Necropotence, tutors, and free permission in one shell.</p></div><div class="timeline-item"><time>2001</time><h3>Extended ban</h3><p>The old format removes Dark Ritual as part of a broad effort to slow its fastest engines.</p></div></div></section><section id="fair"><div class="chapter-number">VIII · Midrange before the word</div><h2>Not every Ritual was a combo</h2><p>Dark Ritual’s history is often compressed into broken openings, but the card also powered ordinary black threats and disruption. Early black decks used it to deploy Knights, Sengir Vampire, Royal Assassin, Nevinyrral’s Disk, or multiple spells in a single turn. The goal was not always to win immediately. Sometimes the goal was to seize the initiative and make the opponent spend the rest of the game catching up.</p><p>George Baxter’s 1996 Pro Tour deck accelerated <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span>, <span class="card-name" data-card="Order of the Ebon Hand" tabindex="0">Order of the Ebon Hand</span>, and <span class="card-name" data-card="Knight of Stromgald" tabindex="0">Knight of Stromgald</span> while supporting them with Hymn to Tourach and red removal. Later Suicide Black lists used Ritual to cast <span class="card-name" data-card="Phyrexian Negator" tabindex="0">Phyrexian Negator</span>, <span class="card-name" data-card="Carnophage" tabindex="0">Carnophage</span>, discard, or land destruction ahead of curve.</p><p>These decks accepted the card disadvantage because their entire strategy treated time as the scarce resource. A Ritual spent on turn one was not supposed to be recouped on turn ten. It was supposed to create a battlefield or hand-state advantage large enough that turn ten never arrived.</p><p>This distinction separates Dark Ritual from conventional ramp. A mana creature or artifact remains available on later turns. Dark Ritual is a burst. It does not improve the deck’s long-term economy; it asks the deck to exploit one temporary discontinuity.</p></section><section id="trix"><div class="chapter-number">IX · Extended</div><h2>When every best card fit in one deck</h2><p>At the turn of the millennium, Extended gave Dark Ritual access to one of the most concentrated collections of power ever assembled outside Vintage. Trix combined <span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span>, <span class="card-name" data-card="Demonic Consultation" tabindex="0">Demonic Consultation</span>, <span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span>, <span class="card-name" data-card="Duress" tabindex="0">Duress</span>, <span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span>, and the two-card interaction between <span class="card-name" data-card="Illusions of Grandeur" tabindex="0">Illusions of Grandeur</span> and <span class="card-name" data-card="Donate" tabindex="0">Donate</span>.</p><p>Dark Ritual was the hinge between the fair-looking opening hand and the unfair game that followed. It accelerated Necropotence, helped cast Illusions, paid for tutors, or allowed several disruptive and combo pieces to fit into one turn. The deck could force through its engine, draw a new hand, gain twenty life, and transfer the cumulative-upkeep enchantment to the opponent.</p><p>Wizards’ later retrospective called full-powered Trix one of the most devastating decks in tournament history. That judgment rested partly on the way its cards covered one another’s costs. Ritual spent a card; Necropotence drew many. Illusions demanded mana; Ritual and Mana Vault supplied it. Combo needed protection; Force of Will and Duress provided it.</p><p>The environment eventually lost Dark Ritual, Mana Vault, and Necropotence through bans and rotation. Trix survived in weakened forms, but the complete machine illustrated a recurring truth: fast mana becomes most dangerous when paired with cheap tutoring, card draw, and protection.</p></section><section id="storm"><div class="chapter-number">X · The spell chain</div><h2>Dark Ritual learns to count itself</h2><p>The arrival of storm in 2003 gave Dark Ritual a new kind of payoff. Cards such as <span class="card-name" data-card="Tendrils of Agony" tabindex="0">Tendrils of Agony</span> did not merely spend the mana the Ritual produced; they counted the Ritual itself as part of the win condition.</p><p>A typical Storm turn converts cards among several resource forms. Cantrips improve selection. Discard clears interaction. Dark Ritual and Cabal Ritual increase mana. Lion’s Eye Diamond turns the hand into another burst. Infernal Tutor converts an empty hand into the exact spell required. Past in Flames reuses the graveyard. Tendrils copies itself for every earlier spell.</p><p>In that structure, Dark Ritual’s apparent disadvantage becomes almost meaningless. The card produces net mana, adds one to storm count, enters the graveyard for potential reuse, and helps empty the hand for Infernal Tutor. Every feature of the card aligns with the engine.</p><div class="mana-sequence"><div class="mana-row"><strong>Disrupt</strong><p>Use Duress or Thoughtseize to identify and remove the relevant answer.</p></div><div class="mana-row"><strong>Accelerate</strong><p>Chain Dark Ritual, Cabal Ritual, and artifact mana.</p></div><div class="mana-row"><strong>Convert</strong><p>Use tutors or Past in Flames to turn mana and graveyard into more spells.</p></div><div class="mana-row"><strong>Finish</strong><p>Cast Tendrils of Agony after the spell count is lethal.</p></div></div><p>Dark Ritual became not just an enabler of combo but one of the cleanest demonstrations of how combo decks redefine value. A card that looks like a minus-one in ordinary play can be mana, velocity, graveyard material, and damage inside the correct system.</p></section><section id="migration"><div class="chapter-number">XI · The color pie</div><h2>Black loses the clean ritual</h2><p>For early Magic, temporary mana acceleration was a black ability. The flavor was immediate power at the expense of the future. Over time, R&D concluded that unconditional bursts of mana fit red more naturally: red acts impulsively, spends resources quickly, and values the present over long-term planning.</p><p>The family resemblance moved into cards such as <span class="card-name" data-card="Seething Song" tabindex="0">Seething Song</span>, <span class="card-name" data-card="Desperate Ritual" tabindex="0">Desperate Ritual</span>, <span class="card-name" data-card="Pyretic Ritual" tabindex="0">Pyretic Ritual</span>, and <span class="card-name" data-card="Rite of Flame" tabindex="0">Rite of Flame</span>. Black continued to receive mana, but increasingly through explicit costs or narrower conditions: sacrificing creatures, exiling cards, counting the graveyard, paying life, or requiring threshold.</p><p>This was not merely philosophical housekeeping. Dark Ritual distorted every black card with a mana value of three. A three-mana enchantment or creature could not be evaluated as a turn-three object while Ritual remained in the primary environment. R&D had to consider what happened when it appeared on turn one.</p><p>Phasing the card out of Standard freed black design from that permanent shadow. The removal also changed what players understood black to be. For veteran players, “Swamp, Ritual” remains one of the color’s purest gestures. For newer players, temporary ritual mana is more immediately associated with red.</p></section><section id="descendants"><div class="chapter-number">XII · Design echo</div><h2>Every ritual after Dark Ritual</h2><p>Dark Ritual became the reference point for an entire mechanical family. Later designs preserve one part of the original and place a fence around another.</p><p><span class="card-name" data-card="Cabal Ritual" tabindex="0">Cabal Ritual</span> begins as a weaker exchange—two mana becomes three—but threshold turns it into five. <span class="card-name" data-card="Culling the Weak" tabindex="0">Culling the Weak</span> demands a creature sacrifice. <span class="card-name" data-card="Songs of the Damned" tabindex="0">Songs of the Damned</span> scales with dead creatures. <span class="card-name" data-card="Rain of Filth" tabindex="0">Rain of Filth</span> converts lands into one final burst. <span class="card-name" data-card="Sacrifice" tabindex="0">Sacrifice</span> and <span class="card-name" data-card="Burnt Offering" tabindex="0">Burnt Offering</span> turn creatures into mana according to their cost. <span class="card-name" data-card="Dark Petition" tabindex="0">Dark Petition</span> hides a ritual behind a five-mana tutor and spell mastery.</p><p>Red descendants generally ask for more initial mana and return a smaller proportional jump. Seething Song converts three into five. Desperate Ritual and Pyretic Ritual convert two into three. These cards can still be dangerous—especially when copied or chained—but they do not produce a three-mana play from a single basic land.</p><div class="inline-image cabal-descendant"><div class="image"></div><div class="copy"><div class="kicker">The conditional heir</div><h3>Cabal Ritual</h3><p>Cabal Ritual preserved black’s burst-mana identity while attaching the most explosive version to threshold. In Storm decks, the graveyard condition became less a drawback than another engine requirement the deck already wanted to satisfy.</p></div></div><p>The word “ritual” now functions as strategic vocabulary. Players use it for any spell that converts a smaller amount of mana or another disposable resource into a temporary burst. That language begins here.</p></section><section id="formats"><div class="chapter-number">XIII · Formats</div><h2>Where the ritual still burns</h2><p>Dark Ritual’s legality tells the story of how formats manage speed. It is absent from Standard, Pioneer, and Modern, formats whose starting card pools or rotation systems exclude Alpha’s cleanest fast mana. It remains legal in Legacy and Vintage, where free countermagic, discard, graveyard interaction, and extensive banned or restricted lists are expected to contain explosive openings.</p><p>In Legacy, Dark Ritual supports Storm, Reanimator, Doomsday, mono-black combo, and various prison or midrange experiments. Its role changes by shell. Storm treats it as engine fuel. Reanimator uses it to combine discard, Entomb, and reanimation in one turn. Doomsday uses it to cross demanding black mana requirements while preserving enough resources to execute the pile.</p><p>In Vintage, Black Lotus and the Moxen make Dark Ritual less singular, but four copies still matter in decks that need black specifically. Ritual can accelerate Doomsday, tutors, Necropotence effects, or disruptive sequences while counting as a spell for engines that care about density and velocity.</p><p>Pauper permits the card because it was printed at common. Commander embraces it as a one-shot accelerator, especially in high-powered black combo decks, although a single copy in a hundred-card deck makes the iconic opening less reliable. Cube designers use it when they want black to support Storm, reanimation, sacrifice, or a nostalgic burst of old-school power.</p><div class="format-strip"><div class="format-card"><span class="impact">Defining</span><h3>Legacy</h3><p>A core accelerator for black combo and graveyard strategies.</p></div><div class="format-card"><span class="impact">Specialized</span><h3>Vintage</h3><p>Black-specific fast mana alongside the game’s restricted artifacts.</p></div><div class="format-card"><span class="impact">Legal</span><h3>Pauper and Commander</h3><p>A common-format staple and a one-shot multiplayer accelerator.</p></div></div></section><section id="discipline"><div class="chapter-number">XIV · Technique</div><h2>When not to cast Dark Ritual</h2><p>The most visible Dark Ritual is cast on turn one. The best Dark Ritual is cast when its temporary mana changes the outcome of the game. Those are not always the same moment.</p><p>A Ritual held in hand can conceal a much larger turn. It can let a player cast discard and a payoff together, pay through soft countermagic, rebuild after a taxing effect, or begin a combo only after the opponent taps low. In Storm, firing the Ritual too early may expose it to a counterspell and reduce the resources available for the actual combo turn. In a threat deck, accelerating a creature into obvious removal may be worse than developing lands naturally.</p><p>The card also changes sequencing because black mana is not interchangeable with every cost. A player must plan colored requirements across the entire turn. Spending the first black mana on the wrong tutor or discard spell can strand a later card despite having enough total mana.</p><div class="ritual-note"><b>Dark Ritual rewards a complete-turn plan:</b> decide what the mana accomplishes, what interaction must be beaten, and what remains if the payoff fails before converting a card into speed.</div><p>This is why the card remains skill-testing despite its reputation for explosive openings. The obvious line is easy to see. The correct moment to compress the turn often is not.</p></section><section id="art"><div class="chapter-number">XV · The object</div><h2>The image of forbidden acceleration</h2><p>Sandra Everingham’s Alpha artwork presents Dark Ritual as a small, private ceremony. The composition is shadowed and ambiguous; the viewer sees the act of gathering power without receiving a literal diagram of three black mana. That abstraction helped the image become archetypal. The card does not depict a machine producing fuel. It depicts a choice to invoke something.</p><p>Later artworks repeatedly returned to circles, altars, sacrifice, smoke, figures bent over sources of darkness, and energy drawn through bodies or symbols. The visual tradition emphasizes that the mana is not ordinary. A Swamp produces one black mana as part of the world. Dark Ritual produces three because someone has deliberately crossed a line.</p><p>The card’s many printings also made it a gallery of Magic’s changing visual eras. Old-frame copies from different expansions could look dramatically unlike one another while carrying the same one-line effect. Players often identify a preferred Dark Ritual by artwork as much as by set, border, foil treatment, or flavor text.</p><p>Few spells with so little rules text have accumulated so many distinct visual identities. The repetition mirrors the gameplay: the ritual is always recognizably the same act, but every deck performs it for a different purpose.</p></section><section id="memory"><div class="chapter-number">XVI · Player memory</div><h2>Swamp, Ritual…</h2><p>Players remember Dark Ritual as an unfinished sentence. The Swamp is tapped. The black mana is spent. The opponent waits to learn what kind of game has begun.</p><p>For the caster, the pleasure is possibility. The opening hand contains a miniature puzzle: which sequence produces the most pressure, how much risk to accept, and whether to commit before seeing the opponent’s defenses. For the opponent, the card creates immediate vigilance. A single untapped Swamp no longer represents one mana. It represents the possibility that the entire hand is about to move.</p><p>The card also carries a strong generational identity. Early players associate it with Hypnotic Specter, Hymn to Tourach, Necropotence, and the phrase “mono-black.” Eternal players associate it with Tendrils, Entomb, Doomsday, and stacks of spells placed carefully beside a graveyard. Commander players may use the same Alpha text to power out a very different engine.</p><div class="memory"><div class="memory-grid"><blockquote>Dark Ritual is the pause after the first Swamp—the moment when both players understand that turn one may not behave like turn one.</blockquote><cite>The oldest black opening in Magic</cite></div></div><p>That continuity is the card’s deepest legacy. Strategies, rules, formats, and color philosophy changed around it. The gesture remained legible: spend tomorrow now.</p></section><section id="decklists"><div class="chapter-number">XVII · The record</div><h2>The deck archive</h2><p class="deck-intro">These four lists trace Dark Ritual from early resource-denial control through Necropotence, the peak of old Extended combo, and the mature Legacy Storm engine.</p><details class="deck"><summary><span><strong>Alexander Blumke — Rack Control</strong><small>World Champion · Worlds 1995</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">Dark Ritual accelerates Specter, disruption, or control pieces inside the deck that won the second World Championship.</p><button class="copy" data-target="dark-ritual-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Royal Assassin" tabindex="0">Royal Assassin</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sengir Vampire" tabindex="0">Sengir Vampire</span></div><h4>Instants · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dark Banishing" tabindex="0">Dark Banishing</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Terror" tabindex="0">Terror</span></div><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><h4>Artifacts · 8</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="The Rack" tabindex="0">The Rack</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="deck-col"><h4>Enchantments · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Dance of the Dead" tabindex="0">Dance of the Dead</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pestilence" tabindex="0">Pestilence</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spirit Link" tabindex="0">Spirit Link</span></div><h4>Lands · 25</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bottomless Vault" tabindex="0">Bottomless Vault</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">12</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground River" tabindex="0">Underground River</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Artifacts" tabindex="0">Circle of Protection: Artifacts</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Black" tabindex="0">Circle of Protection: Black</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gloom" tabindex="0">Gloom</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Prismatic Ward" tabindex="0">Prismatic Ward</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stromgald Cabal" tabindex="0">Stromgald Cabal</span></div></div></div><pre hidden id="dark-ritual-deck-0">Alexander Blumke — Rack Control
+World Champion · Worlds 1995
+
+Creatures · 6
+3 Hypnotic Specter
+1 Royal Assassin
+2 Sengir Vampire
+
+Instants · 12
+1 Dark Banishing
+4 Dark Ritual
+3 Disenchant
+1 Power Sink
+1 Swords to Plowshares
+2 Terror
+
+Sorceries · 6
+1 Balance
+4 Hymn to Tourach
+1 Mind Twist
+
+Artifacts · 8
+1 Disrupting Scepter
+2 Icy Manipulator
+3 The Rack
+2 Zuran Orb
+
+Enchantments · 6
+3 Dance of the Dead
+1 Land Tax
+1 Pestilence
+1 Spirit Link
+
+Lands · 25
+3 Adarkar Wastes
+1 Bottomless Vault
+4 Mishra&#x27;s Factory
+3 Plains
+1 Strip Mine
+12 Swamp
+1 Underground River
+
+Sideboard · 15
+1 Blue Elemental Blast
+1 Circle of Protection: Artifacts
+1 Circle of Protection: Black
+2 Circle of Protection: Red
+4 Gloom
+1 Land Tax
+1 Magical Hack
+1 Prismatic Ward
+1 Sleight of Mind
+2 Stromgald Cabal</pre><p class="small">Source: <a href="https://mtg.fandom.com/wiki/1995_World_Championships">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Leon Lindbäck — Necropotence</strong><small>Semifinalist · Pro Tour New York 1996</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">An early tournament Necropotence shell showing how Dark Ritual converted a three-mana draw engine into a first-turn play.</p><button class="copy" data-target="dark-ritual-deck-1">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 11</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Knight of Stromgald" tabindex="0">Knight of Stromgald</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of the Ebon Hand" tabindex="0">Order of the Ebon Hand</span></div><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dark Banishing" tabindex="0">Dark Banishing</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span></div><h4>Sorceries · 5</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Soul Burn" tabindex="0">Soul Burn</span></div><h4>Artifacts · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jalum Tome" tabindex="0">Jalum Tome</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="deck-col"><h4>Enchantments · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dance of the Dead" tabindex="0">Dance of the Dead</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span></div><h4>Lands · 23</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ebon Stronghold" tabindex="0">Ebon Stronghold</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">17</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Apocalypse Chime" tabindex="0">Apocalypse Chime</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ashes to Ashes" tabindex="0">Ashes to Ashes</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon&#x27;s Cane" tabindex="0">Feldon&#x27;s Cane</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jalum Tome" tabindex="0">Jalum Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Safe Haven" tabindex="0">Safe Haven</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Stromgald Cabal" tabindex="0">Stromgald Cabal</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="The Rack" tabindex="0">The Rack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Torture" tabindex="0">Torture</span></div></div></div><pre hidden id="dark-ritual-deck-1">Leon Lindbäck — Necropotence
+Semifinalist · Pro Tour New York 1996
+
+Creatures · 11
+4 Hypnotic Specter
+3 Knight of Stromgald
+4 Order of the Ebon Hand
+
+Instants · 9
+1 Dark Banishing
+4 Dark Ritual
+4 Drain Life
+
+Sorceries · 5
+4 Hymn to Tourach
+1 Soul Burn
+
+Artifacts · 7
+1 Ivory Tower
+1 Jalum Tome
+2 Nevinyrral&#x27;s Disk
+2 Serrated Arrows
+1 Zuran Orb
+
+Enchantments · 5
+1 Dance of the Dead
+4 Necropotence
+
+Lands · 23
+2 Ebon Stronghold
+4 Strip Mine
+17 Swamp
+
+Sideboard · 15
+1 Apocalypse Chime
+1 Ashes to Ashes
+1 City of Brass
+1 Feldon&#x27;s Cane
+1 Jalum Tome
+1 Meekstone
+2 Nevinyrral&#x27;s Disk
+1 Safe Haven
+1 Serrated Arrows
+1 Stromgald Cabal
+3 The Rack
+1 Torture</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/oral-history-first-pro-tour-2016-12-22">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Scott McCord — Trix</strong><small>Extended · 2000</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The full-powered Trix configuration used Dark Ritual, Necropotence, tutors, free permission, and the Illusions–Donate kill.</p><button class="copy" data-target="dark-ritual-deck-2">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Enchantments · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Illusions of Grandeur" tabindex="0">Illusions of Grandeur</span></div><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><h4>Instants · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Demonic Consultation" tabindex="0">Demonic Consultation</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hoodwink" tabindex="0">Hoodwink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Contagion" tabindex="0">Contagion</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div></div><div class="deck-col"><h4>Sorceries · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Donate" tabindex="0">Donate</span></div><h4>Lands · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground River" tabindex="0">Underground River</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gemstone Mine" tabindex="0">Gemstone Mine</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">6</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Phyrexian Negator" tabindex="0">Phyrexian Negator</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Unmask" tabindex="0">Unmask</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div></div></div><pre hidden id="dark-ritual-deck-2">Scott McCord — Trix
+Extended · 2000
+
+Enchantments · 8
+4 Necropotence
+4 Illusions of Grandeur
+
+Artifacts · 4
+4 Mana Vault
+
+Instants · 19
+4 Dark Ritual
+4 Demonic Consultation
+3 Vampiric Tutor
+1 Hoodwink
+1 Contagion
+4 Force of Will
+2 Brainstorm
+
+Sorceries · 8
+4 Duress
+4 Donate
+
+Lands · 21
+4 Underground Sea
+4 Underground River
+4 Gemstone Mine
+3 Island
+6 Swamp
+
+Sideboard · 15
+4 Phyrexian Negator
+4 Annul
+4 Unmask
+3 Hydroblast</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/top-10-extended-decks-all-time-2008-02-07">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Representative Ad Nauseam Tendrils</strong><small>Legacy · 2014</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">A period-representative ANT list illustrating Dark Ritual as mana, storm count, tutor support, and Past in Flames material.</p><button class="copy" data-target="dark-ritual-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Artifacts · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lion&#x27;s Eye Diamond" tabindex="0">Lion&#x27;s Eye Diamond</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span></div><h4>Instants · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cabal Ritual" tabindex="0">Cabal Ritual</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ad Nauseam" tabindex="0">Ad Nauseam</span></div><h4>Sorceries · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cabal Therapy" tabindex="0">Cabal Therapy</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Infernal Tutor" tabindex="0">Infernal Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Preordain" tabindex="0">Preordain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Grim Tutor" tabindex="0">Grim Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Past in Flames" tabindex="0">Past in Flames</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tendrils of Agony" tabindex="0">Tendrils of Agony</span></div></div><div class="deck-col"><h4>Lands · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bloodstained Mire" tabindex="0">Bloodstained Mire</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Abrupt Decay" tabindex="0">Abrupt Decay</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Xantid Swarm" tabindex="0">Xantid Swarm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dread of Night" tabindex="0">Dread of Night</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Empty the Warrens" tabindex="0">Empty the Warrens</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Massacre" tabindex="0">Massacre</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div></div></div><pre hidden id="dark-ritual-deck-3">Representative Ad Nauseam Tendrils
+Legacy · 2014
+
+Artifacts · 8
+4 Lion&#x27;s Eye Diamond
+4 Lotus Petal
+
+Instants · 13
+4 Brainstorm
+4 Cabal Ritual
+4 Dark Ritual
+1 Ad Nauseam
+
+Sorceries · 24
+4 Duress
+3 Cabal Therapy
+4 Gitaxian Probe
+4 Infernal Tutor
+4 Ponder
+2 Preordain
+1 Grim Tutor
+1 Past in Flames
+1 Tendrils of Agony
+
+Lands · 15
+2 Island
+1 Swamp
+2 Underground Sea
+1 Volcanic Island
+4 Polluted Delta
+4 Scalding Tarn
+1 Bloodstained Mire
+
+Sideboard · 15
+3 Abrupt Decay
+2 Xantid Swarm
+2 Chain of Vapor
+2 Dread of Night
+2 Surgical Extraction
+1 Empty the Warrens
+1 Massacre
+1 Tropical Island
+1 Karakas</pre><p class="small">Source: <a href="https://www.tcdecks.net/deck.php?id=12870&amp;iddeck=94404">open the period deck record</a></p></div></details></section><section id="printings"><div class="chapter-number">XVIII · Archive</div><h2>Printings and sources</h2><p>Dark Ritual has been printed across an unusually broad range of Magic’s history: early core sets, expansion reprints, promotional products, supplemental sets, old borders, modern frames, foils, and showcase treatments. Its text became shorter as the rules became clearer, while the card’s function remained almost perfectly recognizable.</p><p>The original Alpha printing identifies the spell as an interrupt. Fifth Edition-era copies may identify it as a mana source. Modern Oracle text presents the complete effect in four words and three mana symbols: “Add {B}{B}{B}.” The changing type line is therefore a compact tour through the rules history described earlier in the article.</p><p>Because the card has many artworks and print treatments, choosing copies has become a form of deck expression. Old-school players may select the original Sandra Everingham image or a favorite expansion illustration. Eternal players often match a particular border or foil era. The function is standardized; the ritual’s appearance remains personal.</p><ol class="sources">
+<li><a href="https://magic.wizards.com/en/news/making-magic/creation-magic-gathering-2013-03-12">Richard Garfield, “The Creation of Magic: The Gathering”</a><span>Alpha’s design context, discovery, and the original mana system.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/zen-and-art-cycle-maintenance-2002-07-08">Mark Rosewater, “Zen and the Art of Cycle Maintenance”</a><span>The original boon cycle and its deliberately loose symmetry.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/best-instants-all-time-2003-06-27">“Best Instants of All Time”</a><span>Dark Ritual’s historical ranking, iconic openings, phaseout, and Extended ban.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/my-day-2014-05-12-0">Mark Rosewater, “In My Day…”</a><span>The mana-source card type and the Sixth Edition rules transition.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/oral-history-first-pro-tour-2016-12-22">“An Oral History of the First Pro Tour”</a><span>Early Necropotence discovery and the 1996 New York tournament.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/tour-part-1-2004-07-26">Mark Rosewater, “On Tour, Part 1”</a><span>The 1996 World Championship and Mark Justice’s Dark Ritual consultation sequence.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/necropotence-2014-05-12">Mike Flores, “Necropotence”</a><span>Strategic history of the Skull and black resource conversion.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/top-10-extended-decks-all-time-2008-02-07">Mike Flores, “Top 10 Extended Decks of All Time”</a><span>Scott McCord’s Trix list and the full-powered Extended environment.</span></li>
+<li><a href="https://www.tcdecks.net/deck.php?id=12870&amp;iddeck=94404">TC Decks, 2014 Ad Nauseam Tendrils archive</a><span>A period Legacy Storm list using four Dark Rituals.</span></li>
+<li><a href="https://scryfall.com/card/lea/105/dark-ritual">Scryfall, Dark Ritual</a><span>Oracle text, Alpha printing, artwork credit, formats, and print history.</span></li>
+<li><a href="https://mtg.wtf/card/lea/105/Dark-Ritual">Dark Ritual printing archive</a><span>Historic frames, types, flavor text, and reprints across Magic’s visual eras.</span></li>
+</ol><nav class="end-nav"><a href="012-counterspell.html"><small>Previous entry · 012</small>Counterspell</a><a href="index.html#entry-014"><small>Next entry · 014</small>Swords to Plowshares</a></nav></section></article><aside class="margin-note"><b>Compulsive Research</b><p>A numbered archive about the cards that made Magic’s history, language, decks, and memories.</p></aside></div>
+<div class="preview" id="preview"><img alt="" src=""></div>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script>
+</body></html>
