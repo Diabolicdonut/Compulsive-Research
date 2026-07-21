@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Compulsive Research Wave 15: entries 701 through 750.">
+<title>Wave 15: Eternal Format Engines, Answers, and Archetype Signatures — Compulsive Research</title>
+<style>
+:root{
+ --paper:#f4f0e7;--paper2:#e9e2d4;--ink:#161918;--muted:#686a65;--night:#09100f;
+ --green:#355f52;--teal:#679b91;--gold:#b78b44;--rust:#9a5442;--line:#cbc3b4;
+ --white:#fffdf7;--wide:1180px;--radius:18px;--shadow:0 18px 50px rgba(22,25,24,.16)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{
+ margin:0;color:var(--ink);
+ background:radial-gradient(circle at 15% 0,rgba(183,139,68,.10),transparent 28rem),var(--paper);
+ font:17px/1.72 Georgia,"Times New Roman",serif
+}
+a{color:#276b68;text-underline-offset:.18em}
+img{max-width:100%}
+h1,h2,h3,.sans,.eyebrow,.pill,.wave-card,.entry,.footer,.archive-link,.search-bar{
+ font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+.hero{
+ min-height:78vh;display:flex;align-items:flex-end;color:white;position:relative;
+ isolation:isolate;overflow:hidden;background:var(--night)
+}
+.hero:before{
+ content:"";position:absolute;inset:0;z-index:-3;
+ background:var(--hero-art,url(https://api.scryfall.com/cards/named?exact=Compulsive%20Research&format=image&version=art_crop)) center/cover no-repeat;
+ transform:scale(1.02)
+}
+.hero:after{
+ content:"";position:absolute;inset:0;z-index:-2;
+ background:
+ linear-gradient(90deg,rgba(4,8,8,.97),rgba(4,8,8,.80) 50%,rgba(4,8,8,.17)),
+ linear-gradient(0deg,rgba(4,8,8,.98),transparent 58%)
+}
+.hero-grid{
+ position:absolute;inset:0;z-index:-1;opacity:.16;
+ background-image:linear-gradient(rgba(255,255,255,.17) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.17) 1px,transparent 1px);
+ background-size:52px 52px;mask-image:linear-gradient(#000,transparent 82%)
+}
+.hero-inner{width:min(var(--wide),calc(100% - 34px));margin:auto;padding:82px 0 62px}
+.archive-link{
+ display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.28);
+ border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.48);
+ font-size:.76rem;font-weight:850;margin-bottom:29px
+}
+.eyebrow{
+ color:#d8b878;text-transform:uppercase;letter-spacing:.18em;font-size:.73rem;font-weight:900
+}
+h1{font-size:clamp(3.7rem,10vw,8.8rem);line-height:.88;letter-spacing:-.075em;margin:.17em 0 .24em}
+h2{font-size:clamp(2.25rem,5vw,4.4rem);line-height:1.03;letter-spacing:-.045em;margin:.08em 0 .45em}
+h3{letter-spacing:-.025em}
+.dek{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.52;max-width:820px;color:#e7e6df}
+.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.pill{
+ display:inline-flex;border:1px solid rgba(255,255,255,.24);border-radius:999px;
+ padding:6px 11px;background:rgba(0,0,0,.24);font-size:.74rem;font-weight:850
+}
+.main{width:min(var(--wide),calc(100% - 28px));margin:55px auto 100px}
+.preservation{
+ max-width:870px;margin:0 auto 70px;text-align:center
+}
+.preservation p{font-size:1.17rem;line-height:1.72;color:var(--muted)}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:30px 0 78px}
+.feature{
+ min-height:500px;position:relative;isolation:isolate;display:flex;align-items:flex-end;
+ color:white;text-decoration:none;border-radius:var(--radius);overflow:hidden;
+ box-shadow:var(--shadow);background:var(--night)
+}
+.feature:before{
+ content:"";position:absolute;inset:0;z-index:-2;background:var(--art) center/cover no-repeat;transition:.35s
+}
+.feature:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(4,8,8,.98),rgba(4,8,8,.08) 74%)}
+.feature:hover:before{transform:scale(1.025)}
+.feature-copy{padding:29px}
+.feature-copy h3{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.7rem);line-height:1.04;margin:.24em 0}
+.feature-copy p{color:#d8ddd9;margin:.5em 0 1em}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:24px}
+.section-head p{max-width:530px;color:var(--muted);font:14px/1.58 Inter,system-ui,sans-serif}
+.wave-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.wave-card{
+ display:grid;grid-template-rows:245px minmax(160px,auto);background:var(--white);
+ border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+ color:inherit;text-decoration:none;box-shadow:0 10px 32px rgba(22,25,24,.08);transition:.2s
+}
+.wave-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.wave-art{background-position:center;background-size:cover;position:relative}
+.wave-art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,10,10,.52),transparent 60%)}
+.wave-copy{padding:20px}
+.wave-number{color:var(--rust);font-size:.7rem;text-transform:uppercase;letter-spacing:.13em;font-weight:900}
+.wave-card h3{font-family:Georgia,serif;font-size:1.46rem;line-height:1.12;margin:.48em 0}
+.wave-card p{font-size:.82rem;line-height:1.5;color:var(--muted);margin:0}
+.wave-card .range{display:block;margin-top:13px;color:var(--green);font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.09em}
+.wave-hero{min-height:66vh}
+.wave-main{width:min(1040px,calc(100% - 28px));margin:50px auto 95px}
+.wave-intro{max-width:780px;margin:0 0 37px}
+.wave-intro p{font-size:1.1rem;color:var(--muted)}
+.search-bar{display:grid;grid-template-columns:1fr auto;gap:10px;margin:25px 0}
+.search-bar input{
+ width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:10px;
+ background:var(--white);font:15px Inter,system-ui,sans-serif
+}
+.entry-list{border-top:3px solid var(--ink)}
+.entry{
+ display:grid;grid-template-columns:100px minmax(190px,1fr) minmax(240px,1.45fr) 120px;
+ gap:15px;align-items:center;padding:14px 9px;border-bottom:1px solid var(--line);font-size:.84rem
+}
+.entry:hover{background:rgba(255,255,255,.58)}
+.entry-number{color:var(--rust);font-weight:900}
+.entry-name{font-family:Georgia,serif;font-size:1.09rem;font-weight:700}
+.entry-lens{color:var(--muted);font-size:.76rem}
+.entry-status{justify-self:end;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:.64rem;text-transform:uppercase;letter-spacing:.09em;font-weight:900}
+.entry-status.live{background:var(--green);border-color:var(--green);color:white}
+.entry a{color:inherit;text-decoration:none}
+.wave-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.wave-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.wave-nav a:last-child{text-align:right}.wave-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.hidden{display:none!important}
+.footer{background:var(--night);color:#aeb5b0;text-align:center;padding:38px 18px;font-size:13px}
+@media(max-width:980px){.wave-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.entry{grid-template-columns:88px minmax(180px,1fr) 105px}.entry-lens{display:none}}
+@media(max-width:720px){
+ .main,.hero-inner,.wave-main{width:calc(100% - 22px)}
+ .features,.wave-grid{grid-template-columns:1fr}.feature{min-height:410px}
+ .section-head{display:block}.wave-card{grid-template-rows:225px auto}
+ .entry{grid-template-columns:75px minmax(0,1fr)}.entry-status{display:none}
+ .wave-nav{grid-template-columns:1fr}.wave-nav a:last-child{text-align:left}
+}
+</style>
+</head>
+<body>
+<header class="hero wave-hero" style="--hero-art:url('https://api.scryfall.com/cards/named?fuzzy=Doomsday&format=image&version=art_crop')">
+ <div class="hero-grid"></div>
+ <div class="hero-inner">
+  <a class="archive-link" href="index.html">← Compulsive Research</a>
+  <div class="eyebrow">Wave 15 · Entries 701–750</div>
+  <h1>Eternal Format Engines, Answers, and Archetype Signatures</h1>
+  <p class="dek">Combo engines, sideboard institutions, prison tools, and signature pieces from Legacy, Vintage, and other nonrotating formats.</p>
+ </div>
+</header>
+<main class="wave-main">
+ <section class="wave-intro">
+  <div class="eyebrow">Fifty preserved entries</div>
+  <h2>The collection</h2>
+  <p>The numbers establish a stable reading order within the archive. Published entries open as complete long-form articles; the remaining titles stay in place until their research is ready.</p>
+ </section>
+ <div class="search-bar">
+  <input id="wave-search" type="search" placeholder="Search this wave…" aria-label="Search this wave">
+  <span class="entry-status">50 entries</span>
+ </div>
+ <div class="entry-list">
+<div class="entry" id="entry-701" data-search="701 doomsday eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 701</span>
+ <span class="entry-name">Doomsday</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-702" data-search="702 ad nauseam eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 702</span>
+ <span class="entry-name">Ad Nauseam</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-703" data-search="703 dark petition eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 703</span>
+ <span class="entry-name">Dark Petition</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-704" data-search="704 infernal tutor eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 704</span>
+ <span class="entry-name">Infernal Tutor</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-705" data-search="705 flusterstorm eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 705</span>
+ <span class="entry-name">Flusterstorm</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-706" data-search="706 spell pierce eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 706</span>
+ <span class="entry-name">Spell Pierce</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-707" data-search="707 red elemental blast eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 707</span>
+ <span class="entry-name">Red Elemental Blast</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-708" data-search="708 blue elemental blast eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 708</span>
+ <span class="entry-name">Blue Elemental Blast</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-709" data-search="709 surgical extraction eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 709</span>
+ <span class="entry-name">Surgical Extraction</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-710" data-search="710 leyline of the void eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 710</span>
+ <span class="entry-name">Leyline of the Void</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-711" data-search="711 grafdigger&#x27;s cage eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 711</span>
+ <span class="entry-name">Grafdigger&#x27;s Cage</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-712" data-search="712 rest in peace eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 712</span>
+ <span class="entry-name">Rest in Peace</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-713" data-search="713 containment priest eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 713</span>
+ <span class="entry-name">Containment Priest</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-714" data-search="714 deafening silence eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 714</span>
+ <span class="entry-name">Deafening Silence</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-715" data-search="715 collector ouphe eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 715</span>
+ <span class="entry-name">Collector Ouphe</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-716" data-search="716 null rod eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 716</span>
+ <span class="entry-name">Null Rod</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-717" data-search="717 engineered plague eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 717</span>
+ <span class="entry-name">Engineered Plague</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-718" data-search="718 powder keg eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 718</span>
+ <span class="entry-name">Powder Keg</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-719" data-search="719 grindstone eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 719</span>
+ <span class="entry-name">Grindstone</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-720" data-search="720 painter&#x27;s servant eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 720</span>
+ <span class="entry-name">Painter&#x27;s Servant</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-721" data-search="721 dark depths eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 721</span>
+ <span class="entry-name">Dark Depths</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-722" data-search="722 thespian&#x27;s stage eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 722</span>
+ <span class="entry-name">Thespian&#x27;s Stage</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-723" data-search="723 vampire hexmage eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 723</span>
+ <span class="entry-name">Vampire Hexmage</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-724" data-search="724 omniscience eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 724</span>
+ <span class="entry-name">Omniscience</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-725" data-search="725 animate dead eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 725</span>
+ <span class="entry-name">Animate Dead</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-726" data-search="726 smokestack eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 726</span>
+ <span class="entry-name">Smokestack</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-727" data-search="727 necromancy eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 727</span>
+ <span class="entry-name">Necromancy</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-728" data-search="728 golgari thug eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 728</span>
+ <span class="entry-name">Golgari Thug</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-729" data-search="729 sphere of resistance eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 729</span>
+ <span class="entry-name">Sphere of Resistance</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-730" data-search="730 exploration eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 730</span>
+ <span class="entry-name">Exploration</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-731" data-search="731 manabond eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 731</span>
+ <span class="entry-name">Manabond</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-732" data-search="732 gamble eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 732</span>
+ <span class="entry-name">Gamble</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-733" data-search="733 crop rotation eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 733</span>
+ <span class="entry-name">Crop Rotation</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-734" data-search="734 punishing fire eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 734</span>
+ <span class="entry-name">Punishing Fire</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-735" data-search="735 grove of the burnwillows eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 735</span>
+ <span class="entry-name">Grove of the Burnwillows</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-736" data-search="736 glacial chasm eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 736</span>
+ <span class="entry-name">Glacial Chasm</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-737" data-search="737 crucible of worlds eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 737</span>
+ <span class="entry-name">Crucible of Worlds</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-738" data-search="738 heritage druid eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 738</span>
+ <span class="entry-name">Heritage Druid</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-739" data-search="739 urza, lord high artificer eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 739</span>
+ <span class="entry-name">Urza, Lord High Artificer</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-740" data-search="740 mishra&#x27;s bauble eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 740</span>
+ <span class="entry-name">Mishra&#x27;s Bauble</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-741" data-search="741 mother of runes eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 741</span>
+ <span class="entry-name">Mother of Runes</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-742" data-search="742 thalia, guardian of thraben eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 742</span>
+ <span class="entry-name">Thalia, Guardian of Thraben</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-743" data-search="743 flickerwisp eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 743</span>
+ <span class="entry-name">Flickerwisp</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-744" data-search="744 recruiter of the guard eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 744</span>
+ <span class="entry-name">Recruiter of the Guard</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-745" data-search="745 palace jailer eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 745</span>
+ <span class="entry-name">Palace Jailer</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-746" data-search="746 sanctum prelate eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 746</span>
+ <span class="entry-name">Sanctum Prelate</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-747" data-search="747 spirit of the labyrinth eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 747</span>
+ <span class="entry-name">Spirit of the Labyrinth</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-748" data-search="748 true-name nemesis eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 748</span>
+ <span class="entry-name">True-Name Nemesis</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-749" data-search="749 leovold, emissary of trest eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 749</span>
+ <span class="entry-name">Leovold, Emissary of Trest</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-750" data-search="750 baleful strix eternal specialists a signature eternal-format engine, answer, sideboard card, or archetype identity piece.">
+ <span class="entry-number">Entry 750</span>
+ <span class="entry-name">Baleful Strix</span>
+ <span class="entry-lens">Eternal Specialists</span>
+ <span class="entry-status ">Forthcoming</span>
+</div></div>
+ <nav class="wave-nav"><a href="wave-14.html"><small>Previous wave</small>Wave 14</a><a href="wave-16.html"><small>Next wave</small>Wave 16</a></nav>
+</main>
+<footer class="footer">Compulsive Research · Wave 15 · Entries 701–750</footer>
+<script>
+const q=document.getElementById('wave-search');
+const rows=[...document.querySelectorAll('.entry')];
+q.addEventListener('input',()=>{const term=q.value.trim().toLowerCase();rows.forEach(r=>r.classList.toggle('hidden',term&&!r.dataset.search.includes(term)))})
+</script>
+</body>
+</html>

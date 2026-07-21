@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Compulsive Research Wave 08: entries 351 through 400.">
+<title>Wave 08: Ravnica, Time Spiral, and Lorwyn — Compulsive Research</title>
+<style>
+:root{
+ --paper:#f4f0e7;--paper2:#e9e2d4;--ink:#161918;--muted:#686a65;--night:#09100f;
+ --green:#355f52;--teal:#679b91;--gold:#b78b44;--rust:#9a5442;--line:#cbc3b4;
+ --white:#fffdf7;--wide:1180px;--radius:18px;--shadow:0 18px 50px rgba(22,25,24,.16)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{
+ margin:0;color:var(--ink);
+ background:radial-gradient(circle at 15% 0,rgba(183,139,68,.10),transparent 28rem),var(--paper);
+ font:17px/1.72 Georgia,"Times New Roman",serif
+}
+a{color:#276b68;text-underline-offset:.18em}
+img{max-width:100%}
+h1,h2,h3,.sans,.eyebrow,.pill,.wave-card,.entry,.footer,.archive-link,.search-bar{
+ font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+.hero{
+ min-height:78vh;display:flex;align-items:flex-end;color:white;position:relative;
+ isolation:isolate;overflow:hidden;background:var(--night)
+}
+.hero:before{
+ content:"";position:absolute;inset:0;z-index:-3;
+ background:var(--hero-art,url(https://api.scryfall.com/cards/named?exact=Compulsive%20Research&format=image&version=art_crop)) center/cover no-repeat;
+ transform:scale(1.02)
+}
+.hero:after{
+ content:"";position:absolute;inset:0;z-index:-2;
+ background:
+ linear-gradient(90deg,rgba(4,8,8,.97),rgba(4,8,8,.80) 50%,rgba(4,8,8,.17)),
+ linear-gradient(0deg,rgba(4,8,8,.98),transparent 58%)
+}
+.hero-grid{
+ position:absolute;inset:0;z-index:-1;opacity:.16;
+ background-image:linear-gradient(rgba(255,255,255,.17) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.17) 1px,transparent 1px);
+ background-size:52px 52px;mask-image:linear-gradient(#000,transparent 82%)
+}
+.hero-inner{width:min(var(--wide),calc(100% - 34px));margin:auto;padding:82px 0 62px}
+.archive-link{
+ display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.28);
+ border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.48);
+ font-size:.76rem;font-weight:850;margin-bottom:29px
+}
+.eyebrow{
+ color:#d8b878;text-transform:uppercase;letter-spacing:.18em;font-size:.73rem;font-weight:900
+}
+h1{font-size:clamp(3.7rem,10vw,8.8rem);line-height:.88;letter-spacing:-.075em;margin:.17em 0 .24em}
+h2{font-size:clamp(2.25rem,5vw,4.4rem);line-height:1.03;letter-spacing:-.045em;margin:.08em 0 .45em}
+h3{letter-spacing:-.025em}
+.dek{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.52;max-width:820px;color:#e7e6df}
+.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.pill{
+ display:inline-flex;border:1px solid rgba(255,255,255,.24);border-radius:999px;
+ padding:6px 11px;background:rgba(0,0,0,.24);font-size:.74rem;font-weight:850
+}
+.main{width:min(var(--wide),calc(100% - 28px));margin:55px auto 100px}
+.preservation{
+ max-width:870px;margin:0 auto 70px;text-align:center
+}
+.preservation p{font-size:1.17rem;line-height:1.72;color:var(--muted)}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:30px 0 78px}
+.feature{
+ min-height:500px;position:relative;isolation:isolate;display:flex;align-items:flex-end;
+ color:white;text-decoration:none;border-radius:var(--radius);overflow:hidden;
+ box-shadow:var(--shadow);background:var(--night)
+}
+.feature:before{
+ content:"";position:absolute;inset:0;z-index:-2;background:var(--art) center/cover no-repeat;transition:.35s
+}
+.feature:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(4,8,8,.98),rgba(4,8,8,.08) 74%)}
+.feature:hover:before{transform:scale(1.025)}
+.feature-copy{padding:29px}
+.feature-copy h3{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.7rem);line-height:1.04;margin:.24em 0}
+.feature-copy p{color:#d8ddd9;margin:.5em 0 1em}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:24px}
+.section-head p{max-width:530px;color:var(--muted);font:14px/1.58 Inter,system-ui,sans-serif}
+.wave-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.wave-card{
+ display:grid;grid-template-rows:245px minmax(160px,auto);background:var(--white);
+ border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+ color:inherit;text-decoration:none;box-shadow:0 10px 32px rgba(22,25,24,.08);transition:.2s
+}
+.wave-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.wave-art{background-position:center;background-size:cover;position:relative}
+.wave-art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,10,10,.52),transparent 60%)}
+.wave-copy{padding:20px}
+.wave-number{color:var(--rust);font-size:.7rem;text-transform:uppercase;letter-spacing:.13em;font-weight:900}
+.wave-card h3{font-family:Georgia,serif;font-size:1.46rem;line-height:1.12;margin:.48em 0}
+.wave-card p{font-size:.82rem;line-height:1.5;color:var(--muted);margin:0}
+.wave-card .range{display:block;margin-top:13px;color:var(--green);font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.09em}
+.wave-hero{min-height:66vh}
+.wave-main{width:min(1040px,calc(100% - 28px));margin:50px auto 95px}
+.wave-intro{max-width:780px;margin:0 0 37px}
+.wave-intro p{font-size:1.1rem;color:var(--muted)}
+.search-bar{display:grid;grid-template-columns:1fr auto;gap:10px;margin:25px 0}
+.search-bar input{
+ width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:10px;
+ background:var(--white);font:15px Inter,system-ui,sans-serif
+}
+.entry-list{border-top:3px solid var(--ink)}
+.entry{
+ display:grid;grid-template-columns:100px minmax(190px,1fr) minmax(240px,1.45fr) 120px;
+ gap:15px;align-items:center;padding:14px 9px;border-bottom:1px solid var(--line);font-size:.84rem
+}
+.entry:hover{background:rgba(255,255,255,.58)}
+.entry-number{color:var(--rust);font-weight:900}
+.entry-name{font-family:Georgia,serif;font-size:1.09rem;font-weight:700}
+.entry-lens{color:var(--muted);font-size:.76rem}
+.entry-status{justify-self:end;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:.64rem;text-transform:uppercase;letter-spacing:.09em;font-weight:900}
+.entry-status.live{background:var(--green);border-color:var(--green);color:white}
+.entry a{color:inherit;text-decoration:none}
+.wave-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.wave-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.wave-nav a:last-child{text-align:right}.wave-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.hidden{display:none!important}
+.footer{background:var(--night);color:#aeb5b0;text-align:center;padding:38px 18px;font-size:13px}
+@media(max-width:980px){.wave-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.entry{grid-template-columns:88px minmax(180px,1fr) 105px}.entry-lens{display:none}}
+@media(max-width:720px){
+ .main,.hero-inner,.wave-main{width:calc(100% - 22px)}
+ .features,.wave-grid{grid-template-columns:1fr}.feature{min-height:410px}
+ .section-head{display:block}.wave-card{grid-template-rows:225px auto}
+ .entry{grid-template-columns:75px minmax(0,1fr)}.entry-status{display:none}
+ .wave-nav{grid-template-columns:1fr}.wave-nav a:last-child{text-align:left}
+}
+</style>
+</head>
+<body>
+<header class="hero wave-hero" style="--hero-art:url('https://api.scryfall.com/cards/named?fuzzy=Dark%20Confidant&format=image&version=art_crop')">
+ <div class="hero-grid"></div>
+ <div class="hero-inner">
+  <a class="archive-link" href="index.html">← Compulsive Research</a>
+  <div class="eyebrow">Wave 08 · Entries 351–400</div>
+  <h1>Ravnica, Time Spiral, and Lorwyn</h1>
+  <p class="dek">Ravnica, Time Spiral, and Lorwyn cards that established mana bases, planeswalkers, tribal tempo, and future Modern staples.</p>
+ </div>
+</header>
+<main class="wave-main">
+ <section class="wave-intro">
+  <div class="eyebrow">Fifty preserved entries</div>
+  <h2>The collection</h2>
+  <p>The numbers establish a stable reading order within the archive. Published entries open as complete long-form articles; the remaining titles stay in place until their research is ready.</p>
+ </section>
+ <div class="search-bar">
+  <input id="wave-search" type="search" placeholder="Search this wave…" aria-label="Search this wave">
+  <span class="entry-status">50 entries</span>
+ </div>
+ <div class="entry-list">
+<div class="entry" id="entry-351" data-search="351 dark confidant modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 351</span>
+ <span class="entry-name">Dark Confidant</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-352" data-search="352 life from the loam modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 352</span>
+ <span class="entry-name">Life from the Loam</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-353" data-search="353 golgari grave-troll modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 353</span>
+ <span class="entry-name">Golgari Grave-Troll</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-354" data-search="354 stinkweed imp modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 354</span>
+ <span class="entry-name">Stinkweed Imp</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-355" data-search="355 dread return modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 355</span>
+ <span class="entry-name">Dread Return</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-356" data-search="356 bridge from below modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 356</span>
+ <span class="entry-name">Bridge from Below</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-357" data-search="357 narcomoeba modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 357</span>
+ <span class="entry-name">Narcomoeba</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-358" data-search="358 lightning helix modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 358</span>
+ <span class="entry-name">Lightning Helix</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-359" data-search="359 remand modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 359</span>
+ <span class="entry-name">Remand</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-360" data-search="360 chord of calling modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 360</span>
+ <span class="entry-name">Chord of Calling</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-361" data-search="361 doubling season modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 361</span>
+ <span class="entry-name">Doubling Season</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-362" data-search="362 glimpse the unthinkable modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 362</span>
+ <span class="entry-name">Glimpse the Unthinkable</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-363" data-search="363 jace beleren modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 363</span>
+ <span class="entry-name">Jace Beleren</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-364" data-search="364 electrolyze modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 364</span>
+ <span class="entry-name">Electrolyze</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-365" data-search="365 spell snare modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 365</span>
+ <span class="entry-name">Spell Snare</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-366" data-search="366 ghost quarter modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 366</span>
+ <span class="entry-name">Ghost Quarter</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-367" data-search="367 hallowed fountain modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 367</span>
+ <span class="entry-name">Hallowed Fountain</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-368" data-search="368 watery grave modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 368</span>
+ <span class="entry-name">Watery Grave</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-369" data-search="369 blood crypt modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 369</span>
+ <span class="entry-name">Blood Crypt</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-370" data-search="370 stomping ground modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 370</span>
+ <span class="entry-name">Stomping Ground</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-371" data-search="371 temple garden modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 371</span>
+ <span class="entry-name">Temple Garden</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-372" data-search="372 godless shrine modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 372</span>
+ <span class="entry-name">Godless Shrine</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-373" data-search="373 steam vents modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 373</span>
+ <span class="entry-name">Steam Vents</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-374" data-search="374 overgrown tomb modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 374</span>
+ <span class="entry-name">Overgrown Tomb</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-375" data-search="375 sacred foundry modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 375</span>
+ <span class="entry-name">Sacred Foundry</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-376" data-search="376 breeding pool modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 376</span>
+ <span class="entry-name">Breeding Pool</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-377" data-search="377 tarmogoyf modern foundations the creature that reset expectations for rate and became the face of efficient midrange magic.">
+ <span class="entry-number">Entry 377</span>
+ <span class="entry-name">Tarmogoyf</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-378" data-search="378 ancestral vision modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 378</span>
+ <span class="entry-name">Ancestral Vision</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-379" data-search="379 living end modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 379</span>
+ <span class="entry-name">Living End</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-380" data-search="380 chandra nalaar modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 380</span>
+ <span class="entry-name">Chandra Nalaar</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-381" data-search="381 lotus bloom modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 381</span>
+ <span class="entry-name">Lotus Bloom</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-382" data-search="382 empty the warrens modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 382</span>
+ <span class="entry-name">Empty the Warrens</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-383" data-search="383 grapeshot modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 383</span>
+ <span class="entry-name">Grapeshot</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-384" data-search="384 academy ruins modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 384</span>
+ <span class="entry-name">Academy Ruins</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-385" data-search="385 teferi, mage of zhalfir modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 385</span>
+ <span class="entry-name">Teferi, Mage of Zhalfir</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-386" data-search="386 counterbalance modern foundations together with sensei&#x27;s divining top, the lock that defined years of legacy control and tournament procedure.">
+ <span class="entry-number">Entry 386</span>
+ <span class="entry-name">Counterbalance</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-387" data-search="387 liliana vess modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 387</span>
+ <span class="entry-name">Liliana Vess</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-388" data-search="388 urborg, tomb of yawgmoth modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 388</span>
+ <span class="entry-name">Urborg, Tomb of Yawgmoth</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-389" data-search="389 damnation modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 389</span>
+ <span class="entry-name">Damnation</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-390" data-search="390 ajani goldmane modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 390</span>
+ <span class="entry-name">Ajani Goldmane</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-391" data-search="391 thoughtseize modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 391</span>
+ <span class="entry-name">Thoughtseize</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-392" data-search="392 ponder modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 392</span>
+ <span class="entry-name">Ponder</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-393" data-search="393 cryptic command modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 393</span>
+ <span class="entry-name">Cryptic Command</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-394" data-search="394 bitterblossom modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 394</span>
+ <span class="entry-name">Bitterblossom</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-395" data-search="395 mistbind clique modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 395</span>
+ <span class="entry-name">Mistbind Clique</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-396" data-search="396 spellstutter sprite modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 396</span>
+ <span class="entry-name">Spellstutter Sprite</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-397" data-search="397 mulldrifter modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 397</span>
+ <span class="entry-name">Mulldrifter</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-398" data-search="398 reveillark modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 398</span>
+ <span class="entry-name">Reveillark</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-399" data-search="399 kitchen finks modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 399</span>
+ <span class="entry-name">Kitchen Finks</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-400" data-search="400 garruk wildspeaker modern foundations a foundational card for the ravnica-through-lorwyn era and the formats that followed.">
+ <span class="entry-number">Entry 400</span>
+ <span class="entry-name">Garruk Wildspeaker</span>
+ <span class="entry-lens">Modern Foundations</span>
+ <span class="entry-status ">Forthcoming</span>
+</div></div>
+ <nav class="wave-nav"><a href="wave-07.html"><small>Previous wave</small>Wave 07</a><a href="wave-09.html"><small>Next wave</small>Wave 09</a></nav>
+</main>
+<footer class="footer">Compulsive Research · Wave 08 · Entries 351–400</footer>
+<script>
+const q=document.getElementById('wave-search');
+const rows=[...document.querySelectorAll('.entry')];
+q.addEventListener('input',()=>{const term=q.value.trim().toLowerCase();rows.forEach(r=>r.classList.toggle('hidden',term&&!r.dataset.search.includes(term)))})
+</script>
+</body>
+</html>

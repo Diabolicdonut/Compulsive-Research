@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Compulsive Research Wave 01: entries 001 through 050.">
+<title>Wave 01: The Foundational Canon — Compulsive Research</title>
+<style>
+:root{
+ --paper:#f4f0e7;--paper2:#e9e2d4;--ink:#161918;--muted:#686a65;--night:#09100f;
+ --green:#355f52;--teal:#679b91;--gold:#b78b44;--rust:#9a5442;--line:#cbc3b4;
+ --white:#fffdf7;--wide:1180px;--radius:18px;--shadow:0 18px 50px rgba(22,25,24,.16)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{
+ margin:0;color:var(--ink);
+ background:radial-gradient(circle at 15% 0,rgba(183,139,68,.10),transparent 28rem),var(--paper);
+ font:17px/1.72 Georgia,"Times New Roman",serif
+}
+a{color:#276b68;text-underline-offset:.18em}
+img{max-width:100%}
+h1,h2,h3,.sans,.eyebrow,.pill,.wave-card,.entry,.footer,.archive-link,.search-bar{
+ font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+.hero{
+ min-height:78vh;display:flex;align-items:flex-end;color:white;position:relative;
+ isolation:isolate;overflow:hidden;background:var(--night)
+}
+.hero:before{
+ content:"";position:absolute;inset:0;z-index:-3;
+ background:var(--hero-art,url(https://api.scryfall.com/cards/named?exact=Compulsive%20Research&format=image&version=art_crop)) center/cover no-repeat;
+ transform:scale(1.02)
+}
+.hero:after{
+ content:"";position:absolute;inset:0;z-index:-2;
+ background:
+ linear-gradient(90deg,rgba(4,8,8,.97),rgba(4,8,8,.80) 50%,rgba(4,8,8,.17)),
+ linear-gradient(0deg,rgba(4,8,8,.98),transparent 58%)
+}
+.hero-grid{
+ position:absolute;inset:0;z-index:-1;opacity:.16;
+ background-image:linear-gradient(rgba(255,255,255,.17) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.17) 1px,transparent 1px);
+ background-size:52px 52px;mask-image:linear-gradient(#000,transparent 82%)
+}
+.hero-inner{width:min(var(--wide),calc(100% - 34px));margin:auto;padding:82px 0 62px}
+.archive-link{
+ display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.28);
+ border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.48);
+ font-size:.76rem;font-weight:850;margin-bottom:29px
+}
+.eyebrow{
+ color:#d8b878;text-transform:uppercase;letter-spacing:.18em;font-size:.73rem;font-weight:900
+}
+h1{font-size:clamp(3.7rem,10vw,8.8rem);line-height:.88;letter-spacing:-.075em;margin:.17em 0 .24em}
+h2{font-size:clamp(2.25rem,5vw,4.4rem);line-height:1.03;letter-spacing:-.045em;margin:.08em 0 .45em}
+h3{letter-spacing:-.025em}
+.dek{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.52;max-width:820px;color:#e7e6df}
+.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.pill{
+ display:inline-flex;border:1px solid rgba(255,255,255,.24);border-radius:999px;
+ padding:6px 11px;background:rgba(0,0,0,.24);font-size:.74rem;font-weight:850
+}
+.main{width:min(var(--wide),calc(100% - 28px));margin:55px auto 100px}
+.preservation{
+ max-width:870px;margin:0 auto 70px;text-align:center
+}
+.preservation p{font-size:1.17rem;line-height:1.72;color:var(--muted)}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:30px 0 78px}
+.feature{
+ min-height:500px;position:relative;isolation:isolate;display:flex;align-items:flex-end;
+ color:white;text-decoration:none;border-radius:var(--radius);overflow:hidden;
+ box-shadow:var(--shadow);background:var(--night)
+}
+.feature:before{
+ content:"";position:absolute;inset:0;z-index:-2;background:var(--art) center/cover no-repeat;transition:.35s
+}
+.feature:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(4,8,8,.98),rgba(4,8,8,.08) 74%)}
+.feature:hover:before{transform:scale(1.025)}
+.feature-copy{padding:29px}
+.feature-copy h3{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.7rem);line-height:1.04;margin:.24em 0}
+.feature-copy p{color:#d8ddd9;margin:.5em 0 1em}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:24px}
+.section-head p{max-width:530px;color:var(--muted);font:14px/1.58 Inter,system-ui,sans-serif}
+.wave-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.wave-card{
+ display:grid;grid-template-rows:245px minmax(160px,auto);background:var(--white);
+ border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+ color:inherit;text-decoration:none;box-shadow:0 10px 32px rgba(22,25,24,.08);transition:.2s
+}
+.wave-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.wave-art{background-position:center;background-size:cover;position:relative}
+.wave-art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,10,10,.52),transparent 60%)}
+.wave-copy{padding:20px}
+.wave-number{color:var(--rust);font-size:.7rem;text-transform:uppercase;letter-spacing:.13em;font-weight:900}
+.wave-card h3{font-family:Georgia,serif;font-size:1.46rem;line-height:1.12;margin:.48em 0}
+.wave-card p{font-size:.82rem;line-height:1.5;color:var(--muted);margin:0}
+.wave-card .range{display:block;margin-top:13px;color:var(--green);font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.09em}
+.wave-hero{min-height:66vh}
+.wave-main{width:min(1040px,calc(100% - 28px));margin:50px auto 95px}
+.wave-intro{max-width:780px;margin:0 0 37px}
+.wave-intro p{font-size:1.1rem;color:var(--muted)}
+.search-bar{display:grid;grid-template-columns:1fr auto;gap:10px;margin:25px 0}
+.search-bar input{
+ width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:10px;
+ background:var(--white);font:15px Inter,system-ui,sans-serif
+}
+.entry-list{border-top:3px solid var(--ink)}
+.entry{
+ display:grid;grid-template-columns:100px minmax(190px,1fr) minmax(240px,1.45fr) 120px;
+ gap:15px;align-items:center;padding:14px 9px;border-bottom:1px solid var(--line);font-size:.84rem
+}
+.entry:hover{background:rgba(255,255,255,.58)}
+.entry-number{color:var(--rust);font-weight:900}
+.entry-name{font-family:Georgia,serif;font-size:1.09rem;font-weight:700}
+.entry-lens{color:var(--muted);font-size:.76rem}
+.entry-status{justify-self:end;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:.64rem;text-transform:uppercase;letter-spacing:.09em;font-weight:900}
+.entry-status.live{background:var(--green);border-color:var(--green);color:white}
+.entry a{color:inherit;text-decoration:none}
+.wave-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.wave-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.wave-nav a:last-child{text-align:right}.wave-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.hidden{display:none!important}
+.footer{background:var(--night);color:#aeb5b0;text-align:center;padding:38px 18px;font-size:13px}
+@media(max-width:980px){.wave-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.entry{grid-template-columns:88px minmax(180px,1fr) 105px}.entry-lens{display:none}}
+@media(max-width:720px){
+ .main,.hero-inner,.wave-main{width:calc(100% - 22px)}
+ .features,.wave-grid{grid-template-columns:1fr}.feature{min-height:410px}
+ .section-head{display:block}.wave-card{grid-template-rows:225px auto}
+ .entry{grid-template-columns:75px minmax(0,1fr)}.entry-status{display:none}
+ .wave-nav{grid-template-columns:1fr}.wave-nav a:last-child{text-align:left}
+}
+
+.wave-feature{
+ display:grid;grid-template-columns:minmax(280px,430px) minmax(0,1fr);
+ margin:0 0 46px;background:var(--white);border:1px solid var(--line);
+ border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)
+}
+.wave-feature-art{
+ min-height:470px;background:var(--feature-art) center/cover no-repeat
+}
+.wave-feature-copy{padding:clamp(28px,5vw,58px);align-self:center}
+.wave-feature-copy h2{
+ font-family:Georgia,serif;font-size:clamp(2.5rem,5vw,4.8rem);
+ line-height:1.03;letter-spacing:-.045em;margin:.18em 0 .35em
+}
+.wave-feature-copy p{color:var(--muted)}
+.wave-feature-link{
+ display:inline-flex;margin-top:13px;padding:10px 14px;border-radius:999px;
+ background:var(--green);color:white;text-decoration:none;
+ font:850 .76rem/1 Inter,system-ui,sans-serif
+}
+.wave-feature-link:hover{color:white;background:#244b40}
+@media(max-width:760px){
+ .wave-feature{grid-template-columns:1fr}
+ .wave-feature-art{min-height:360px}
+}
+
+</style>
+</head>
+<body>
+<header class="hero wave-hero" style="--hero-art:url('https://api.scryfall.com/cards/named?fuzzy=Black%20Lotus&format=image&version=art_crop')">
+ <div class="hero-grid"></div>
+ <div class="hero-inner">
+  <a class="archive-link" href="index.html">← Compulsive Research</a>
+  <div class="eyebrow">Wave 01 · Entries 001–050</div>
+  <h1>The Foundational Canon</h1>
+  <p class="dek">The original vocabulary of Magic: power, color identity, card advantage, removal, finishers, and instantly recognizable fantasy.</p>
+ </div>
+</header>
+<main class="wave-main">
+ <section class="wave-intro">
+  <div class="eyebrow">Fifty preserved entries</div>
+  <h2>The collection</h2>
+  <p>The numbers establish a stable reading order within the archive. Published entries open as complete long-form articles; the remaining titles stay in place until their research is ready.</p>
+ </section>
+
+<section class="wave-feature" aria-labelledby="featured-article-title">
+ <div class="wave-feature-art" style="--feature-art:url('https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop')"></div>
+ <div class="wave-feature-copy">
+  <div class="eyebrow">Published article · Entry 001</div>
+  <h2 id="featured-article-title">The Card That Became the Game</h2>
+  <p><b>Black Lotus</b> — Power, discovery, restriction, artwork, collecting, and three decades of Vintage.</p>
+  <a class="wave-feature-link" href="articles/001-black-lotus.html">Read the complete article →</a>
+ </div>
+</section>
+
+ <div class="search-bar">
+  <input id="wave-search" type="search" placeholder="Search this wave…" aria-label="Search this wave">
+  <span class="entry-status">50 entries</span>
+ </div>
+ <div class="entry-list">
+<div class="entry" id="entry-001" data-search="1 black lotus foundational magic&#x27;s ultimate symbol of power, scarcity, collecting, and the game&#x27;s earliest design excesses.">
+ <span class="entry-number">Entry 001</span>
+ <span class="entry-name"><a href="articles/001-black-lotus.html">Black Lotus</a></span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status live">Published</span>
+</div>
+<div class="entry" id="entry-002" data-search="2 ancestral recall foundational the enduring benchmark for card-draw efficiency and one of the clearest expressions of the power nine.">
+ <span class="entry-number">Entry 002</span>
+ <span class="entry-name">Ancestral Recall</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-003" data-search="3 time walk foundational the original extra-turn card and a permanent reference point for evaluating turn economy.">
+ <span class="entry-number">Entry 003</span>
+ <span class="entry-name">Time Walk</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-004" data-search="4 mox pearl foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 004</span>
+ <span class="entry-name">Mox Pearl</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-005" data-search="5 mox sapphire foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 005</span>
+ <span class="entry-name">Mox Sapphire</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-006" data-search="6 mox jet foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 006</span>
+ <span class="entry-name">Mox Jet</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-007" data-search="7 mox ruby foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 007</span>
+ <span class="entry-name">Mox Ruby</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-008" data-search="8 mox emerald foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 008</span>
+ <span class="entry-name">Mox Emerald</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-009" data-search="9 timetwister foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 009</span>
+ <span class="entry-name">Timetwister</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-010" data-search="10 sol ring foundational from early constructed decks to commander ubiquity, perhaps the game&#x27;s most widely recognized mana accelerator.">
+ <span class="entry-number">Entry 010</span>
+ <span class="entry-name">Sol Ring</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-011" data-search="11 lightning bolt foundational the defining burn spell and a universal benchmark for efficient damage and creature removal.">
+ <span class="entry-number">Entry 011</span>
+ <span class="entry-name">Lightning Bolt</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-012" data-search="12 counterspell foundational the spell that named an entire strategic category and shaped blue&#x27;s identity for decades.">
+ <span class="entry-number">Entry 012</span>
+ <span class="entry-name">Counterspell</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-013" data-search="13 dark ritual foundational the original explosive mana spell, central to black&#x27;s identity and countless historic openings.">
+ <span class="entry-number">Entry 013</span>
+ <span class="entry-name">Dark Ritual</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-014" data-search="14 swords to plowshares foundational the benchmark for efficient creature removal and one of white&#x27;s most enduring eternal staples.">
+ <span class="entry-number">Entry 014</span>
+ <span class="entry-name">Swords to Plowshares</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-015" data-search="15 demonic tutor foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 015</span>
+ <span class="entry-name">Demonic Tutor</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-016" data-search="16 wheel of fortune foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 016</span>
+ <span class="entry-name">Wheel of Fortune</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-017" data-search="17 balance foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 017</span>
+ <span class="entry-name">Balance</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-018" data-search="18 wrath of god foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 018</span>
+ <span class="entry-name">Wrath of God</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-019" data-search="19 armageddon foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 019</span>
+ <span class="entry-name">Armageddon</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-020" data-search="20 birds of paradise foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 020</span>
+ <span class="entry-name">Birds of Paradise</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-021" data-search="21 llanowar elves foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 021</span>
+ <span class="entry-name">Llanowar Elves</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-022" data-search="22 serra angel foundational one of magic&#x27;s first true iconic finishers and a formative card for generations of players.">
+ <span class="entry-number">Entry 022</span>
+ <span class="entry-name">Serra Angel</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-023" data-search="23 shivan dragon foundational the quintessential early rare and one of the game&#x27;s most recognizable fantasy images.">
+ <span class="entry-number">Entry 023</span>
+ <span class="entry-name">Shivan Dragon</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-024" data-search="24 hypnotic specter foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 024</span>
+ <span class="entry-name">Hypnotic Specter</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-025" data-search="25 royal assassin foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 025</span>
+ <span class="entry-name">Royal Assassin</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-026" data-search="26 sengir vampire foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 026</span>
+ <span class="entry-name">Sengir Vampire</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-027" data-search="27 mahamoti djinn foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 027</span>
+ <span class="entry-name">Mahamoti Djinn</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-028" data-search="28 force of nature foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 028</span>
+ <span class="entry-name">Force of Nature</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-029" data-search="29 lord of the pit foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 029</span>
+ <span class="entry-name">Lord of the Pit</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-030" data-search="30 vesuvan doppelganger foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 030</span>
+ <span class="entry-name">Vesuvan Doppelganger</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-031" data-search="31 clone foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 031</span>
+ <span class="entry-name">Clone</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-032" data-search="32 control magic foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 032</span>
+ <span class="entry-name">Control Magic</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-033" data-search="33 disenchant foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 033</span>
+ <span class="entry-name">Disenchant</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-034" data-search="34 giant growth foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 034</span>
+ <span class="entry-name">Giant Growth</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-035" data-search="35 fireball foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 035</span>
+ <span class="entry-name">Fireball</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-036" data-search="36 channel foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 036</span>
+ <span class="entry-name">Channel</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-037" data-search="37 mind twist foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 037</span>
+ <span class="entry-name">Mind Twist</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-038" data-search="38 sinkhole foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 038</span>
+ <span class="entry-name">Sinkhole</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-039" data-search="39 stone rain foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 039</span>
+ <span class="entry-name">Stone Rain</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-040" data-search="40 howling mine foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 040</span>
+ <span class="entry-name">Howling Mine</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-041" data-search="41 icy manipulator foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 041</span>
+ <span class="entry-name">Icy Manipulator</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-042" data-search="42 nevinyrral&#x27;s disk foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 042</span>
+ <span class="entry-name">Nevinyrral&#x27;s Disk</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-043" data-search="43 jayemdae tome foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 043</span>
+ <span class="entry-name">Jayemdae Tome</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-044" data-search="44 black vise foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 044</span>
+ <span class="entry-name">Black Vise</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-045" data-search="45 the rack foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 045</span>
+ <span class="entry-name">The Rack</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-046" data-search="46 winter orb foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 046</span>
+ <span class="entry-name">Winter Orb</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-047" data-search="47 meekstone foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 047</span>
+ <span class="entry-name">Meekstone</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-048" data-search="48 chaos orb foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 048</span>
+ <span class="entry-name">Chaos Orb</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-049" data-search="49 shahrazad foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 049</span>
+ <span class="entry-name">Shahrazad</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div>
+<div class="entry" id="entry-050" data-search="50 stasis foundational foundational to magic&#x27;s original identity, strategic vocabulary, or public image.">
+ <span class="entry-number">Entry 050</span>
+ <span class="entry-name">Stasis</span>
+ <span class="entry-lens">Foundational</span>
+ <span class="entry-status ">Forthcoming</span>
+</div></div>
+ <nav class="wave-nav"><a href="index.html"><small>Archive home</small>Compulsive Research</a><a href="wave-02.html"><small>Next wave</small>Wave 02</a></nav>
+</main>
+<footer class="footer">Compulsive Research · Wave 01 · Entries 001–050</footer>
+<script>
+const q=document.getElementById('wave-search');
+const rows=[...document.querySelectorAll('.entry')];
+q.addEventListener('input',()=>{const term=q.value.trim().toLowerCase();rows.forEach(r=>r.classList.toggle('hidden',term&&!r.dataset.search.includes(term)))})
+</script>
+</body>
+</html>
