@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A long-form magazine history of Brainstorm: Ice Age, shuffle effects, fetchlands, Miracle Grow, Delver, Miracles, Vintage, Timeless, and the craft of card selection.">
+<title>Brainstorm: The Most Important Shuffle in Magic — Compulsive Research</title>
+<style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+.brainstorm-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Brainstorm&set=ice&format=image&version=art_crop)!important
+}
+.fetch-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Flooded%20Strand&format=image&version=art_crop)!important
+}
+.exchange-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.exchange-step{background:var(--white);padding:23px}
+.exchange-step b{
+  display:block;font:900 2.05rem/1 Inter,system-ui,sans-serif;
+  color:var(--green);margin-bottom:8px
+}
+.exchange-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.skill-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.skill-note b{color:var(--ink)}
+.sequence{
+  margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+.sequence-row{
+  display:grid;grid-template-columns:72px minmax(0,1fr);gap:18px;
+  padding:17px 0;border-bottom:1px solid var(--line)
+}
+.sequence-row:last-child{border-bottom:0}
+.sequence-row strong{
+  color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;
+  text-transform:uppercase;letter-spacing:.12em
+}
+.sequence-row p{margin:0}
+@media(max-width:750px){
+  .exchange-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .exchange-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="hero brainstorm-art">
+ <div class="hero-grid"></div>
+ <div class="hero-inner">
+  <a class="archive-link" href="index.html#wave-03">← Wave 03 · Ice Age through Visions</a>
+  <div class="eyebrow">Entry 103 · Wave 03 · Ice Age, Alliances, Mirage, and Visions</div>
+  <h1>The Most Important Shuffle in Magic</h1>
+  <p class="deckline">Brainstorm looks like a fair exchange—three cards seen, two cards returned—until a shuffle turns the cards you did not want into cards you have not drawn yet.</p>
+  <div class="byline">
+   <span>A Compulsive Research essay</span><span>·</span>
+   <span>Ice Age, 1995</span>
+   <span class="pill">Approximately 24 minute read</span>
+  </div>
+ </div>
+</header>
+
+<nav class="rank-nav">
+ <a href="index.html#entry-102">← Entry 102 · Demonic Consultation</a>
+ <div class="center">Entry 103 of 1,000</div>
+ <a href="index.html#entry-104">Entry 104 · Force of Will →</a>
+</nav>
+
+<div class="article-shell">
+ <nav class="toc">
+  <strong>In this article</strong>
+  <a href="#opening">The most important shuffle in Magic</a>
+  <a href="#origin">The Poor Man's Ancestral</a>
+  <a href="#exchange">Three cards, two back</a>
+  <a href="#before-fetches">Before the fetchland</a>
+  <a href="#fetchlands">The land that completed the spell</a>
+  <a href="#skill">The card that punishes impatience</a>
+  <a href="#grow">Miracle Grow and the ten-land deck</a>
+  <a href="#legacy">The architecture of Legacy</a>
+  <a href="#delver">Tempo learns to curate its hand</a>
+  <a href="#miracles">The top of the library becomes a zone</a>
+  <a href="#governance">Restricted here, protected there</a>
+  <a href="#formats">A life across formats</a>
+  <a href="#descendants">The family of fairer ideas</a>
+  <a href="#memory">What players remember</a>
+  <a href="#decklists">The deck archive</a>
+  <a href="#printings">Printings and sources</a>
+ </nav>
+
+ <article class="article">
+  <section id="opening">
+   <div class="chapter-number">I · The decision</div>
+   <h2>The most important shuffle in Magic</h2>
+   <p class="opening dropcap">Brainstorm is the card you cast because the hand is wrong—and the card you regret casting when the hand was not wrong enough.</p>
+   <p>For one blue mana, three new cards enter the hand. Then two cards go back on top of the library. Nothing has been gained in raw quantity. The player began with Brainstorm and some number of other cards; after the spell resolves, the Brainstorm is gone and the hand contains exactly as many cards as it would have contained without a net draw.</p>
+   <p>Yet the hand is not the same hand.</p>
+   <p>It may now contain the land that was missing, the Force of Will that makes the next turn survivable, the removal spell that matters in this matchup, or the combo piece that turns several ordinary cards into a win. The two cards placed back may be excess lands, dead removal, miracle cards that needed to be on top, or valuable cards hidden from a discard spell.</p>
+   <p>Then a fetchland is sacrificed. The library is shuffled. The cards returned to the top disappear into uncertainty, and Brainstorm's apparent drawback becomes the reason the spell is played.</p>
+
+   <div class="card-lead">
+    <img src="https://api.scryfall.com/cards/named?exact=Brainstorm&set=ice&format=image&version=normal" alt="Brainstorm from Ice Age">
+    <div>
+     <div class="oracle"><b>Brainstorm</b> · {U}<br>Instant<br><br>
+     Draw three cards, then put two cards from your hand on top of your library in any order.</div>
+     <div class="stats">
+      <div class="stat"><b>First printed</b>Ice Age · 1995</div>
+      <div class="stat"><b>Original rarity</b>Common</div>
+      <div class="stat"><b>Illustrated by</b>Christopher Rush</div>
+      <div class="stat"><b>Historical status</b>Legacy pillar · Vintage restricted</div>
+     </div>
+    </div>
+   </div>
+
+   <p>Brainstorm is not Ancestral Recall. It does not place its caster two cards ahead. Its influence comes from something more structural: it makes the rest of the deck behave as though the right cards were registered in slightly larger numbers and the wrong cards in slightly smaller ones.</p>
+  </section>
+
+  <section id="origin">
+   <div class="chapter-number">II · Ice Age</div>
+   <h2>The Poor Man's Ancestral</h2>
+   <p>Brainstorm entered Magic in Ice Age as a common, carrying one of the game's shortest and most deceptive blocks of rules text. Wizards later recorded its original design name as “the Poor Man's Ancestral,” a comparison that made sense on first reading. Both spells cost one blue mana and place three cards into the hand.</p>
+   <p>The comparison also concealed the difference that would define Brainstorm's life. Ancestral Recall creates cards. Brainstorm rearranges access to them. It borrows three cards from the top of the library, keeps the useful ones, and returns two others to be drawn later.</p>
+   <p>Mark Rosewater later praised the card as a simple, elegant one-mana design that rewards skill without announcing itself as the star of the deck. He also credited it with helping put cheap deck manipulation on the map and influencing later design, including the broad territory eventually occupied by scry and other selection mechanics.</p>
+   <p>That is an unusual legacy for a common from a set remembered for snow-covered lands, cumulative upkeep, Necropotence, and a famously uneven power level. Brainstorm did not create a deck on release. It created a kind of decision that more and more decks would learn to demand.</p>
+
+   <div class="pullquote">Ancestral Recall gives you more cards. Brainstorm asks whether the cards already in your hand deserve to stay there.<small>The distinction inside the nickname</small></div>
+  </section>
+
+  <div class="art-break brainstorm-art">
+   <div class="art-caption"><b>Christopher Rush's original Ice Age artwork</b>The crowded bolts of thought make the spell feel less like calm study than a sudden collision of possibilities—knowledge arriving faster than the mind can comfortably order it.</div>
+  </div>
+
+  <section id="exchange">
+   <div class="chapter-number">III · The arithmetic</div>
+   <h2>Three cards, two back</h2>
+   <p>Brainstorm is often described as “draw three,” but the phrase is strategically incomplete. The spell resolves as one event: draw three cards, then choose two cards from the entire hand and place them on top of the library.</p>
+
+   <div class="exchange-grid">
+    <div class="exchange-step"><b>−1</b><span>Brainstorm leaves the hand and becomes a spell.</span></div>
+    <div class="exchange-step"><b>+3</b><span>Three cards move from the library into the hand.</span></div>
+    <div class="exchange-step"><b>−2</b><span>Any two cards from the enlarged hand return to the top.</span></div>
+    <div class="exchange-step"><b>0</b><span>No net card advantage—only a radically different distribution of options.</span></div>
+   </div>
+
+   <p>The power lies in choosing from the whole hand rather than merely returning two of the three cards drawn. A land kept since the opening hand can be exchanged for a new draw on turn six. A sideboard card that matters only in one matchup can disappear when it is irrelevant. A seven-mana spell can be put back to satisfy a later effect.</p>
+   <p>This means the value of Brainstorm grows with the number of situational cards a deck wants to play. A broad format asks players to answer creatures, graveyards, artifacts, combo engines, lands, and control mirrors. Brainstorm lets a deck register narrow answers without accepting that each answer must remain useful in every game.</p>
+   <p>The spell is therefore less about seeing three random cards than about editing a hand under pressure.</p>
+  </section>
+
+  <section id="before-fetches">
+   <div class="chapter-number">IV · The first engines</div>
+   <h2>Before the fetchland</h2>
+   <p>The modern story of Brainstorm is so closely attached to fetchlands that it can make the earlier card look unfinished. It was not. Players found shuffle effects before Onslaught made them ubiquitous.</p>
+   <p>Wizards' own retrospective named <span class="card-name" tabindex="0" data-card="Thawing Glaciers">Thawing Glaciers</span>, <span class="card-name" tabindex="0" data-card="Ramosian Sergeant">Ramosian Sergeant</span>, and later <span class="card-name" tabindex="0" data-card="Flooded Strand">Flooded Strand</span> as examples of cards that transform Brainstorm from temporary rearrangement into lasting selection. A search effect changes the order of the library; the two returned cards are shuffled away before they can be drawn again.</p>
+   <p>Other decks used tutors, Land Grant, Mirage fetchlands, or Rebel search chains. The interaction was already understood: Brainstorm is strongest when the deck contains actions that touch the library after it resolves.</p>
+   <p>It also protected cards from discard. In response to <span class="card-name" tabindex="0" data-card="Duress">Duress</span> or <span class="card-name" tabindex="0" data-card="Hymn to Tourach">Hymn to Tourach</span>, a player could place the most valuable cards on top, leaving the opponent to choose among whatever remained. The top of the library became a temporary vault.</p>
+   <p>These uses established the spell's grammar before the mana bases caught up. Brainstorm did not wait for fetchlands to become good. Fetchlands made its best mode routine.</p>
+  </section>
+
+  <section id="fetchlands">
+   <div class="chapter-number">V · Onslaught</div>
+   <h2>The land that completed the spell</h2>
+   <p>Onslaught's allied-color fetchlands arrived in 2002. <span class="card-name" tabindex="0" data-card="Flooded Strand">Flooded Strand</span>, <span class="card-name" tabindex="0" data-card="Polluted Delta">Polluted Delta</span>, <span class="card-name" tabindex="0" data-card="Bloodstained Mire">Bloodstained Mire</span>, <span class="card-name" tabindex="0" data-card="Wooded Foothills">Wooded Foothills</span>, and <span class="card-name" tabindex="0" data-card="Windswept Heath">Windswept Heath</span> could sacrifice themselves to search for a land with the appropriate basic land type.</p>
+   <p>For Brainstorm, the important word was not <em>Island</em>. It was <em>shuffle</em>.</p>
+
+   <div class="inline-image fetch-descendant">
+    <div class="image"></div>
+    <div class="copy">
+     <div class="eyebrow">Onslaught · 2002</div>
+     <h3>The second half of the spell</h3>
+     <p>Brainstorm places two unwanted cards on top. Flooded Strand searches, shuffles, and prevents those cards from occupying the next two draw steps.</p>
+     <p>The fetchland fixes mana, conceals information, and turns temporary hand editing into permanent card selection.</p>
+    </div>
+   </div>
+
+   <p>The interaction is sometimes described as drawing three new cards for one mana. That is still not literal card advantage: the caster ends with the same number of cards. But the practical experience can feel close. Two poor cards in hand become two unknown future draws, while the useful cards among the top three remain available immediately.</p>
+   <p>Zendikar's enemy-color fetchlands widened the network. Legacy decks could play dense suites of fetches and typed dual lands, making the Brainstorm shuffle available across three-, four-, or even five-color strategies.</p>
+   <p>The mana base and the draw spell became one package. Fetchlands were no longer merely lands in Brainstorm decks. They were stored opportunities to improve a future hand.</p>
+  </section>
+
+  <section id="skill">
+   <div class="chapter-number">VI · Timing</div>
+   <h2>The card that punishes impatience</h2>
+   <p>Brainstorm is famous for rewarding skilled play because casting it creates more decisions than resolving it answers. The first decision is whether to cast it at all.</p>
+   <p>A turn-one Brainstorm may find the missing second land. It may also consume the only shuffle effect, expose the hand to a later problem, and strand two unwanted cards on top of the library. Players call that result a <em>Brainstorm lock</em>: the spell places bad cards back, but no shuffle appears, so the next two draw steps simply return the same cards.</p>
+
+   <div class="sequence">
+    <div class="sequence-row"><strong>Wait</strong><p>Every draw step naturally adds information. Holding Brainstorm keeps the option to respond to discard, find interaction, or repair the hand later.</p></div>
+    <div class="sequence-row"><strong>Draw</strong><p>Resolve Brainstorm before using the fetchland so the full hand can determine which two cards should disappear.</p></div>
+    <div class="sequence-row"><strong>Hide</strong><p>Place valuable cards on top when an opponent attacks the hand, or place miracle cards there when the deck wants to draw them next.</p></div>
+    <div class="sequence-row"><strong>Shuffle</strong><p>Only after the two unwanted cards are returned should the library be randomized—unless the top cards were deliberately preserved.</p></div>
+   </div>
+
+   <p>The best Brainstorm is not always followed by a shuffle. Miracles may want Terminus on top. Counterbalance may want a particular mana value there. Delver of Secrets may want an instant or sorcery waiting for the upkeep reveal. A player can also preserve a card from an opposing discard spell and draw it naturally next turn.</p>
+   <p>The skill is not executing one standard sequence. It is understanding what the top of the library should mean in this game.</p>
+
+   <div class="skill-note"><b>The discipline of the card:</b> Brainstorm is strongest when the player knows which future resource—shuffle, draw step, miracle trigger, Delver reveal, Counterbalance check, or discard protection—the two returned cards are being assigned to.</div>
+  </section>
+
+  <section id="grow">
+   <div class="chapter-number">VII · Extended</div>
+   <h2>Miracle Grow and the ten-land deck</h2>
+   <p>Alan Comer's Miracle Grow became one of the clearest early demonstrations that cheap selection could replace conventional structural safety.</p>
+   <p>The Grand Prix Las Vegas 2001 list played only ten lands: six Islands and four Tropical Islands. Land Grant could find a Tropical Island without mana. Sleight of Hand, Brainstorm, Merfolk Looter, and Gush kept cards moving. Free counters protected Quirion Dryad while Winter Orb punished opponents for trying to play a normal resource game.</p>
+   <p>This was before Onslaught fetchlands. Brainstorm's role was not yet the standardized “cast it, crack a fetch” pattern. It worked inside a deck whose whole construction was an experiment in reducing dead draws. Every cheap blue spell grew Quirion Dryad. Land Grant acted as mana access and a shuffle. Gush returned lands for reuse and added more cards to curate.</p>
+   <p>Wizards later described Miracle Grow as a deck that helped change how Magic was played. Brainstorm was central to that change because it allowed the deck to treat the top of the library as part of its mana base.</p>
+
+   <div class="pullquote">Miracle Grow did not play ten lands because mana stopped mattering. It played ten lands because its cheap spells made finding the correct card more reliable than drawing a conventional number of lands.<small>Alan Comer · Grand Prix Las Vegas 2001</small></div>
+  </section>
+
+  <section id="legacy">
+   <div class="chapter-number">VIII · Format identity</div>
+   <h2>The architecture of Legacy</h2>
+   <p>When Legacy separated from Vintage in 2004, it banned the Power Nine and many of the most explosive engines while retaining Brainstorm, Force of Will, dual lands, fetchlands, and the rest of a vast historical card pool.</p>
+   <p>Brainstorm became one of the format's defining institutions because Legacy asks decks to prepare for incompatible problems. A control deck wants graveyard hate against Reanimator, removal against creature decks, countermagic against combo, and long-game threats against other control decks. No sixty-card list can draw each narrow answer only when it is relevant.</p>
+   <p>Brainstorm reduces that cost. Dead removal can be returned in a combo matchup. Excess lands can disappear in a control mirror. A silver bullet can remain in the deck because the cantrip package makes it more likely to appear when needed and less likely to remain trapped when useless.</p>
+   <p>Drew Levin argued in 2011 that this flexibility was part of why Brainstorm belonged in Legacy: it enabled players to register more situational cards rather than forcing every deck toward only the broadest answers. Whether one agrees with the policy conclusion or not, the description captures the card's ecological role.</p>
+   <p>Brainstorm does not merely improve blue decks. It helps determine what a blue Legacy deck is allowed to look like.</p>
+  </section>
+
+  <section id="delver">
+   <div class="chapter-number">IX · Tempo</div>
+   <h2>Tempo learns to curate its hand</h2>
+   <p>RUG Delver used Brainstorm very differently from a patient control deck. Gaudenis Vidugiris's Grand Prix Atlanta-winning list in 2012 played eighteen lands, four Wastelands, Daze, Force of Will, Spell Pierce, Nimble Mongoose, Tarmogoyf, and Delver of Secrets.</p>
+   <p>The deck wanted to spend very little mana while preventing the opponent from spending mana effectively. Brainstorm supported that economy at every point.</p>
+   <p>It could hide a land returned by Daze, find a threat after an interactive opening, place an instant or sorcery on top for Delver, turn excess lands into spells, or supply a blue card to Force of Will. Fetchlands also filled the graveyard for threshold and ensured that the two cards placed back did not slow the pressure.</p>
+   <p>Most importantly, Brainstorm allowed the deck to play conditional cards without being destroyed by their expiration dates. Daze is excellent early and weak late. Spell Pierce follows a similar curve. Submerge may be devastating or uncastable depending on the opponent. Brainstorm lets tempo decks register these sharp tools because the cards can be exchanged when their window closes.</p>
+  </section>
+
+  <section id="miracles">
+   <div class="chapter-number">X · The top card</div>
+   <h2>The top of the library becomes a zone</h2>
+   <p>Miracles transformed Brainstorm from a card-selection spell into an instant-speed setup spell.</p>
+   <p><span class="card-name" tabindex="0" data-card="Terminus">Terminus</span> costs six mana when cast normally and one white mana when revealed as the first card drawn in a turn. <span class="card-name" tabindex="0" data-card="Entreat the Angels">Entreat the Angels</span> similarly changes scale when drawn at the correct moment. Brainstorm can place either card on top during the opponent's turn, then allow the control player to draw it and trigger miracle.</p>
+   <p>The deck also used <span class="card-name" tabindex="0" data-card="Counterbalance">Counterbalance</span>, <span class="card-name" tabindex="0" data-card="Sensei&#x27;s Divining Top">Sensei&#x27;s Divining Top</span>, and <span class="card-name" tabindex="0" data-card="Jace, the Mind Sculptor">Jace, the Mind Sculptor</span>. The top of the library was no longer waiting room storage. It was a managed zone whose order determined counterspells, sweepers, win conditions, and future draw steps.</p>
+   <p>Philipp Schönegger's Top 4 list from Grand Prix Paris 2014 used four Brainstorms, eleven fetchlands, four Tops, four Terminus, two Entreat the Angels, and three Jaces. Brainstorm was both the emergency button and the connective tissue between every top-deck mechanic in the list.</p>
+   <p>In most decks, putting a powerful card back is a cost. In Miracles, putting the right powerful card back could be the play that won the game.</p>
+  </section>
+
+  <section id="governance">
+   <div class="chapter-number">XI · The line between formats</div>
+   <h2>Restricted here, protected there</h2>
+   <p>Brainstorm's format history demonstrates that power is judged in context rather than by text alone.</p>
+   <p>The DCI restricted Brainstorm in Vintage in 2008. Vintage already contains Ancestral Recall, tutors, artifact mana, Yawgmoth's Will, and some of the strongest engines ever printed. Four Brainstorms added consistency to decks whose best cards were already restricted. One copy remains legal, and current championship lists still play it.</p>
+   <p>Legacy takes the opposite approach. The card is legal as a four-of and has become part of the format's identity. The discussion around banning it has lasted for years because the same qualities can be described as either homogenizing or enabling: it appears everywhere in blue decks, but it also lets those decks play narrow answers and intricate plans.</p>
+   <p>Historic provided a modern test. In July 2021, Wizards suspended Brainstorm after Izzet Phoenix and Jeskai Control maintained very high metagame shares despite win rates that were not individually overwhelming. The concern was diversity rather than a single unbeatable deck. The suspension was later converted into a ban.</p>
+   <p>As of this edition, Brainstorm remains restricted in Vintage, banned in Historic, and legal in Legacy, Pauper, Commander, and Timeless.</p>
+  </section>
+
+  <section id="formats">
+   <div class="chapter-number">XII · Migration</div>
+   <h2>A life across formats</h2>
+
+   <div class="format-strip">
+    <div class="format-card"><span class="impact">Defining pillar</span><h3>Legacy</h3><p>Four copies, fetchlands, Force of Will, and a card pool broad enough to reward highly situational answers.</p></div>
+    <div class="format-card"><span class="impact">Restricted</span><h3>Vintage</h3><p>One copy remains part of blue control, combo, and Xerox shells more than fifteen years after restriction.</p></div>
+    <div class="format-card"><span class="impact">Legal common</span><h3>Pauper</h3><p>The card retains its original common rarity and supports blue selection without the complete Legacy fetchland infrastructure.</p></div>
+    <div class="format-card"><span class="impact">Banned</span><h3>Historic</h3><p>High adoption in Phoenix and Jeskai strategies led first to suspension and then a permanent ban.</p></div>
+    <div class="format-card"><span class="impact">Current engine</span><h3>Timeless</h3><p>Fetchlands, free counters, Treasure Cruise, and four Brainstorms recreate an Eternal-style blue core on Arena.</p></div>
+    <div class="format-card"><span class="impact">Selective utility</span><h3>Commander and Cube</h3><p>Strongest when shuffle effects, miracle cards, top-deck synergies, or unusually high card quality justify the slot.</p></div>
+   </div>
+
+   <p>Timeless is the newest illustration. Wizards' June 2026 format discussion presented a Dimir Tempo list with four Brainstorms, ten fetchlands, Force of Will, Daze, Ponder, Treasure Cruise, and Strip Mine. The exact threats are contemporary; the architecture would be recognizable to a Legacy player from a decade earlier.</p>
+   <p>Pauper shows the card under different constraints. Brainstorm is legal because of its original common printing, but the format lacks the same density of fetchlands and typed dual lands. The spell can still protect cards, set up top-deck effects, and combine with shuffle sources, yet its most famous mode is less automatic.</p>
+   <p>Cube turns Brainstorm into a test of environment design. In a powered or fetch-heavy Cube, it can approach its Eternal reputation. In a Cube without reliable shuffling, it is closer to a delicate hand-smoothing spell that can punish careless drafting and sequencing.</p>
+  </section>
+
+  <section id="descendants">
+   <div class="chapter-number">XIII · Design echo</div>
+   <h2>The family of fairer ideas</h2>
+   <p>Brainstorm helped establish cheap card selection as one of blue's defining tools, but later designs usually separate its functions.</p>
+   <p><span class="card-name" tabindex="0" data-card="Ponder">Ponder</span> sees three cards and can shuffle, but it is a sorcery and does not edit the existing hand. <span class="card-name" tabindex="0" data-card="Preordain">Preordain</span> offers less depth and more controlled selection through scry. <span class="card-name" tabindex="0" data-card="Serum Visions">Serum Visions</span> draws first and arranges afterward. <span class="card-name" tabindex="0" data-card="Consider">Consider</span> looks only one card deep but can place that card into the graveyard.</p>
+   <p><span class="card-name" tabindex="0" data-card="Ancestral Vision">Ancestral Vision</span> echoes the one-blue-mana draw-three dream by charging time instead of mana. <span class="card-name" tabindex="0" data-card="Treasure Cruise">Treasure Cruise</span> charges graveyard resources. Neither reproduces Brainstorm's ability to move cards from hand back into the library.</p>
+   <p>That last ability is the difficult one. It protects cards from discard, fixes miracle draws, conceals information, clears dead cards with a shuffle, and makes hands with too many expensive or situational cards function more smoothly than their construction should permit.</p>
+   <p>Modern design can reproduce “look at cards,” “draw cards,” or “scry.” Reproducing Brainstorm's complete exchange would recreate the ecosystem that made it a format institution.</p>
+  </section>
+
+  <section id="memory">
+   <div class="chapter-number">XIV · Testimony</div>
+   <h2>What players remember</h2>
+   <p>Brainstorm generates memories of decisions rather than spectacles. Players remember the fetchland they cracked too early, the miracle card placed on top in response to an attack, the hand hidden from Duress, or the two dead cards they were forced to draw again after gambling without a shuffle.</p>
+   <p>The card has also produced its own vocabulary. A “Brainstorm lock” describes self-inflicted stagnation. A “perfect Brainstorm” suggests the clean sequence in which three useful cards are seen and two unwanted cards disappear immediately. “Hold the fetch” can be strategic advice even before Brainstorm is drawn.</p>
+
+   <div class="memory">
+    <div class="memory-grid">
+     <div><blockquote>Brainstorm creates the feeling that the correct card was always present—provided the player waited long enough to ask the right question.</blockquote><cite>Compulsive Research</cite></div>
+     <div><blockquote>The spell's most memorable failure is drawing the two cards you knowingly put back.</blockquote><cite>The Brainstorm lock</cite></div>
+    </div>
+   </div>
+
+   <p>Christopher Rush's original art gives that tension a visual form. The figure is not calmly considering three choices. Thought appears as a storm: branching, violent, and too abundant to process without ordering.</p>
+   <p>That is the card's lasting identity. Brainstorm does not grant knowledge without cost. It grants too much information at once and asks the player to decide what future they are willing to redraw.</p>
+  </section>
+
+  <section id="decklists">
+   <div class="chapter-number">XV · The evidence</div>
+   <h2>The deck archive</h2>
+   <div class="deck-intro">
+    <p>The five lists below follow Brainstorm from pre-fetchland Extended through Legacy's tempo and control eras, into restricted Vintage, and finally into the current Timeless environment.</p>
+    <p>The card count changes from four to one and back to four. The strategic purpose changes from mana repair to tempo, miracle setup, restricted selection, and digital Eternal infrastructure.</p>
+   </div>
+   <div class="deck-archive">
+<details class="deck" open>
+ <summary>
+  <span><strong>Alan Comer — Miracle Grow</strong><small>9th place · Grand Prix Las Vegas 2001 · Extended</small></span>
+  <span class="plus">+</span>
+ </summary>
+ <div class="deck-body">
+  <p>Before Onslaught fetchlands made the shuffle automatic, Miracle Grow used Land Grant, cantrips, Gush, and an astonishing ten-land manabase. Brainstorm helped the deck decide which pieces of a very small resource base actually belonged in hand.</p>
+  <div class="deck-meta">
+   <div><b>Alan Comer</b><div class="small">9th place · Grand Prix Las Vegas 2001 · Extended</div></div>
+   <button class="copy" data-target="brainstorm-deck-0">Copy decklist</button>
+  </div>
+  <div class="deck-columns">
+   <div class="deck-col"><div class="group"><h4>Creatures · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Gaea&#x27;s Skyfolk">Gaea&#x27;s Skyfolk</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Lord of Atlantis">Lord of Atlantis</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Merfolk Looter">Merfolk Looter</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Quirion Dryad">Quirion Dryad</span></div></div><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Land Grant">Land Grant</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Sleight of Hand">Sleight of Hand</span></div></div><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Winter Orb">Winter Orb</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Curiosity">Curiosity</span></div></div></div>
+   <div class="deck-col"><div class="group"><h4>Instants · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Brainstorm">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Daze">Daze</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Foil">Foil</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Force of Will">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Gush">Gush</span></div></div><div class="group"><h4>Lands · 10</h4><div class="row"><span class="qty">6</span><span class="card-name" tabindex="0" data-card="Island">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Tropical Island">Tropical Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Boomerang">Boomerang</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Chill">Chill</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Emerald Charm">Emerald Charm</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Misdirection">Misdirection</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Submerge">Submerge</span></div></div></div>
+  </div>
+  <pre id="brainstorm-deck-0" hidden>Alan Comer — Miracle Grow
+9th place · Grand Prix Las Vegas 2001 · Extended
+
+Creatures · 15
+3 Gaea&#x27;s Skyfolk
+4 Lord of Atlantis
+4 Merfolk Looter
+4 Quirion Dryad
+
+Sorceries · 8
+4 Land Grant
+4 Sleight of Hand
+
+Artifacts · 4
+4 Winter Orb
+
+Enchantments · 4
+4 Curiosity
+
+Instants · 19
+4 Brainstorm
+4 Daze
+3 Foil
+4 Force of Will
+4 Gush
+
+Lands · 10
+6 Island
+4 Tropical Island
+
+Sideboard · 15
+2 Boomerang
+4 Chill
+3 Emerald Charm
+2 Misdirection
+4 Submerge</pre>
+  <p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/top-10-extended-decks-all-time-2008-02-07">open the historical record</a></p>
+ </div>
+</details>
+
+<details class="deck" >
+ <summary>
+  <span><strong>Gaudenis Vidugiris — RUG Delver</strong><small>Champion · Grand Prix Atlanta 2012 · Legacy</small></span>
+  <span class="plus">+</span>
+ </summary>
+ <div class="deck-body">
+  <p>This is Brainstorm as tempo infrastructure: protect the low land count, transform Delver, hide cards from discard, feed Force of Will, and convert fetchlands into new draws without ever slowing the assault.</p>
+  <div class="deck-meta">
+   <div><b>Gaudenis Vidugiris</b><div class="small">Champion · Grand Prix Atlanta 2012 · Legacy</div></div>
+   <button class="copy" data-target="brainstorm-deck-1">Copy decklist</button>
+  </div>
+  <div class="deck-columns">
+   <div class="deck-col"><div class="group"><h4>Creatures · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Nimble Mongoose">Nimble Mongoose</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Tarmogoyf">Tarmogoyf</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Scavenging Ooze">Scavenging Ooze</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Delver of Secrets">Delver of Secrets</span></div></div><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Wasteland">Wasteland</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Volcanic Island">Volcanic Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Tropical Island">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Misty Rainforest">Misty Rainforest</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Scalding Tarn">Scalding Tarn</span></div></div></div>
+   <div class="deck-col"><div class="group"><h4>Spells · 30</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Brainstorm">Brainstorm</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Lightning Bolt">Lightning Bolt</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Force of Will">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Daze">Daze</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Spell Snare">Spell Snare</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Ponder">Ponder</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Spell Pierce">Spell Pierce</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Thought Scour">Thought Scour</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Fire // Ice">Fire // Ice</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Red Elemental Blast">Red Elemental Blast</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Cursed Totem">Cursed Totem</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Gilded Drake">Gilded Drake</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Pyroblast">Pyroblast</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Submerge">Submerge</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Ancient Grudge">Ancient Grudge</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Surgical Extraction">Surgical Extraction</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Scavenging Ooze">Scavenging Ooze</span></div></div></div>
+  </div>
+  <pre id="brainstorm-deck-1" hidden>Gaudenis Vidugiris — RUG Delver
+Champion · Grand Prix Atlanta 2012 · Legacy
+
+Creatures · 12
+4 Nimble Mongoose
+3 Tarmogoyf
+1 Scavenging Ooze
+4 Delver of Secrets
+
+Lands · 18
+4 Wasteland
+3 Volcanic Island
+3 Tropical Island
+4 Misty Rainforest
+4 Scalding Tarn
+
+Spells · 30
+4 Brainstorm
+3 Lightning Bolt
+4 Force of Will
+4 Daze
+2 Spell Snare
+4 Ponder
+4 Spell Pierce
+3 Thought Scour
+2 Fire // Ice
+
+Sideboard · 15
+1 Red Elemental Blast
+2 Cursed Totem
+1 Gilded Drake
+1 Pyroblast
+4 Submerge
+2 Ancient Grudge
+3 Surgical Extraction
+1 Scavenging Ooze</pre>
+  <p class="small">Source: <a href="https://articles.starcitygames.com/articles/victory-at-gp-atlanta-1st/">open the historical record</a></p>
+ </div>
+</details>
+
+<details class="deck" >
+ <summary>
+  <span><strong>Philipp Schönegger — UWR Miracles</strong><small>Top 4 · Grand Prix Paris 2014 · Legacy</small></span>
+  <span class="plus">+</span>
+ </summary>
+ <div class="deck-body">
+  <p>Miracles made the top of the library a second hand. Brainstorm could place Terminus or Entreat the Angels exactly where miracle required it, while also supporting Counterbalance, Jace, and the deck's extensive fetchland package.</p>
+  <div class="deck-meta">
+   <div><b>Philipp Schönegger</b><div class="small">Top 4 · Grand Prix Paris 2014 · Legacy</div></div>
+   <button class="copy" data-target="brainstorm-deck-2">Copy decklist</button>
+  </div>
+  <div class="deck-columns">
+   <div class="deck-col"><div class="group"><h4>Creatures · 4</h4><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Snapcaster Mage">Snapcaster Mage</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Vendilion Clique">Vendilion Clique</span></div></div><div class="group"><h4>Selection and engines · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Brainstorm">Brainstorm</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Ponder">Ponder</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Sensei&#x27;s Divining Top">Sensei&#x27;s Divining Top</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Counterbalance">Counterbalance</span></div></div><div class="group"><h4>Interaction · 12</h4><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Counterspell">Counterspell</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Spell Pierce">Spell Pierce</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Force of Will">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Swords to Plowshares">Swords to Plowshares</span></div></div></div>
+   <div class="deck-col"><div class="group"><h4>Finishers and sweepers · 9</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Terminus">Terminus</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Entreat the Angels">Entreat the Angels</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Jace, the Mind Sculptor">Jace, the Mind Sculptor</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Karakas">Karakas</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Flooded Strand">Flooded Strand</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Scalding Tarn">Scalding Tarn</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Arid Mesa">Arid Mesa</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Tundra">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Volcanic Island">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Island">Island</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Plains">Plains</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Red Elemental Blast">Red Elemental Blast</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Rest in Peace">Rest in Peace</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Pyroblast">Pyroblast</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Engineered Explosives">Engineered Explosives</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Supreme Verdict">Supreme Verdict</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Counterspell">Counterspell</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Flusterstorm">Flusterstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Disenchant">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Entreat the Angels">Entreat the Angels</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Vendilion Clique">Vendilion Clique</span></div></div></div>
+  </div>
+  <pre id="brainstorm-deck-2" hidden>Philipp Schönegger — UWR Miracles
+Top 4 · Grand Prix Paris 2014 · Legacy
+
+Creatures · 4
+3 Snapcaster Mage
+1 Vendilion Clique
+
+Selection and engines · 13
+4 Brainstorm
+2 Ponder
+4 Sensei&#x27;s Divining Top
+3 Counterbalance
+
+Interaction · 12
+2 Counterspell
+2 Spell Pierce
+4 Force of Will
+4 Swords to Plowshares
+
+Finishers and sweepers · 9
+4 Terminus
+2 Entreat the Angels
+3 Jace, the Mind Sculptor
+
+Lands · 22
+1 Karakas
+4 Flooded Strand
+4 Scalding Tarn
+2 Arid Mesa
+3 Tundra
+2 Volcanic Island
+4 Island
+2 Plains
+
+Sideboard · 15
+2 Red Elemental Blast
+2 Rest in Peace
+1 Pyroblast
+2 Engineered Explosives
+1 Supreme Verdict
+1 Counterspell
+3 Flusterstorm
+1 Disenchant
+1 Entreat the Angels
+1 Vendilion Clique</pre>
+  <p class="small">Source: <a href="https://www.mtgtop8.com/event?e=6650&amp;f=le">open the historical record</a></p>
+ </div>
+</details>
+
+<details class="deck" >
+ <summary>
+  <span><strong>Max Gilmore — Esper Control</strong><small>Champion · North American Vintage Championship 2024</small></span>
+  <span class="plus">+</span>
+ </summary>
+ <div class="deck-body">
+  <p>Vintage permits only one Brainstorm, yet the champion still registered it. The card joined Ancestral Recall, Ponder, restricted mana, and modern threats as one compact point of selection inside a highly interactive shell.</p>
+  <div class="deck-meta">
+   <div><b>Max Gilmore</b><div class="small">Champion · North American Vintage Championship 2024</div></div>
+   <button class="copy" data-target="brainstorm-deck-3">Copy decklist</button>
+  </div>
+  <div class="deck-columns">
+   <div class="deck-col"><div class="group"><h4>Creatures · 9</h4><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Lavinia, Azorius Renegade">Lavinia, Azorius Renegade</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Orcish Bowmasters">Orcish Bowmasters</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Psychic Frog">Psychic Frog</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Nethergoyf">Nethergoyf</span></div></div><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Strip Mine">Strip Mine</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Wasteland">Wasteland</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Underground Sea">Underground Sea</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Tundra">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Karakas">Karakas</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Flooded Strand">Flooded Strand</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Scalding Tarn">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Urza&#x27;s Saga">Urza&#x27;s Saga</span></div></div></div>
+   <div class="deck-col"><div class="group"><h4>Spells · 33</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Brainstorm">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Force of Will">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Swords to Plowshares">Swords to Plowshares</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Demonic Tutor">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Time Walk">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Ancestral Recall">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Black Lotus">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Lotus Petal">Lotus Petal</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Mox Jet">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Mox Pearl">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Mox Sapphire">Mox Sapphire</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Ponder">Ponder</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Spell Pierce">Spell Pierce</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Nihil Spellbomb">Nihil Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Mental Misstep">Mental Misstep</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Gitaxian Probe">Gitaxian Probe</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Treasure Cruise">Treasure Cruise</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Dig Through Time">Dig Through Time</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Force of Negation">Force of Negation</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Dress Down">Dress Down</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Lórien Revealed">Lórien Revealed</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Vexing Bauble">Vexing Bauble</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Null Rod">Null Rod</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="The Tabernacle at Pendrell Vale">The Tabernacle at Pendrell Vale</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Pithing Needle">Pithing Needle</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Mindbreak Trap">Mindbreak Trap</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Nihil Spellbomb">Nihil Spellbomb</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Containment Priest">Containment Priest</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Fatal Push">Fatal Push</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Lurrus of the Dream-Den">Lurrus of the Dream-Den</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Consign to Memory">Consign to Memory</span></div></div></div>
+  </div>
+  <pre id="brainstorm-deck-3" hidden>Max Gilmore — Esper Control
+Champion · North American Vintage Championship 2024
+
+Creatures · 9
+2 Lavinia, Azorius Renegade
+2 Orcish Bowmasters
+4 Psychic Frog
+1 Nethergoyf
+
+Lands · 18
+1 Strip Mine
+3 Wasteland
+3 Underground Sea
+3 Tundra
+1 Karakas
+3 Flooded Strand
+3 Scalding Tarn
+1 Urza&#x27;s Saga
+
+Spells · 33
+1 Brainstorm
+4 Force of Will
+4 Swords to Plowshares
+1 Demonic Tutor
+1 Time Walk
+1 Ancestral Recall
+1 Black Lotus
+1 Lotus Petal
+1 Mox Jet
+1 Mox Pearl
+1 Mox Sapphire
+2 Ponder
+2 Spell Pierce
+1 Nihil Spellbomb
+1 Mental Misstep
+1 Gitaxian Probe
+1 Treasure Cruise
+1 Dig Through Time
+3 Force of Negation
+1 Dress Down
+2 Lórien Revealed
+1 Vexing Bauble
+
+Sideboard · 15
+2 Null Rod
+1 The Tabernacle at Pendrell Vale
+1 Pithing Needle
+1 Mindbreak Trap
+1 Nihil Spellbomb
+4 Containment Priest
+2 Fatal Push
+1 Lurrus of the Dream-Den
+2 Consign to Memory</pre>
+  <p class="small">Source: <a href="https://articles.starcitygames.com/magic-the-gathering/top-decks-and-winners-from-north-american-eternal-weekend-2024/">open the historical record</a></p>
+ </div>
+</details>
+
+<details class="deck" >
+ <summary>
+  <span><strong>Dimir Tempo — Timeless</strong><small>Official format snapshot · June 29, 2026</small></span>
+  <span class="plus">+</span>
+ </summary>
+ <div class="deck-body">
+  <p>The newest list in the archive shows the old pattern intact on Arena: four Brainstorms, ten fetchlands, free countermagic, cheap interaction, and a low curve that rewards turning every draw step into the correct resource.</p>
+  <div class="deck-meta">
+   <div><b>Dimir Tempo</b><div class="small">Official format snapshot · June 29, 2026</div></div>
+   <button class="copy" data-target="brainstorm-deck-4">Copy decklist</button>
+  </div>
+  <div class="deck-columns">
+   <div class="deck-col"><div class="group"><h4>Creatures · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Hydroponics Architect">Hydroponics Architect</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Orcish Bowmasters">Orcish Bowmasters</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Psychic Frog">Psychic Frog</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Tamiyo, Inquisitive Student">Tamiyo, Inquisitive Student</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Island">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Misty Rainforest">Misty Rainforest</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Polluted Delta">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Scalding Tarn">Scalding Tarn</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Strip Mine">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Undercity Sewers">Undercity Sewers</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Watery Grave">Watery Grave</span></div></div></div>
+   <div class="deck-col"><div class="group"><h4>Spells · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Brainstorm">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Daze">Daze</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Fatal Push">Fatal Push</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Force of Will">Force of Will</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Snuff Out">Snuff Out</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Ponder">Ponder</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Treasure Cruise">Treasure Cruise</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Lurrus of the Dream-Den">Lurrus of the Dream-Den</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Surgical Extraction">Surgical Extraction</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Stern Scolding">Stern Scolding</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Disruptor Flute">Disruptor Flute</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Harbinger of the Seas">Harbinger of the Seas</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Bloodchief&#x27;s Thirst">Bloodchief&#x27;s Thirst</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Spell Pierce">Spell Pierce</span></div></div></div>
+  </div>
+  <pre id="brainstorm-deck-4" hidden>Dimir Tempo — Timeless
+Official format snapshot · June 29, 2026
+
+Creatures · 16
+4 Hydroponics Architect
+4 Orcish Bowmasters
+4 Psychic Frog
+4 Tamiyo, Inquisitive Student
+
+Lands · 20
+1 Island
+4 Misty Rainforest
+4 Polluted Delta
+2 Scalding Tarn
+4 Strip Mine
+1 Undercity Sewers
+4 Watery Grave
+
+Spells · 24
+4 Brainstorm
+4 Daze
+4 Fatal Push
+4 Force of Will
+2 Snuff Out
+3 Ponder
+3 Treasure Cruise
+
+Sideboard · 15
+1 Lurrus of the Dream-Den
+3 Surgical Extraction
+3 Stern Scolding
+1 Disruptor Flute
+3 Harbinger of the Seas
+2 Bloodchief&#x27;s Thirst
+2 Spell Pierce</pre>
+  <p class="small">Source: <a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-june-29-2026">open the historical record</a></p>
+ </div>
+</details></div>
+  </section>
+
+  <section id="printings">
+   <div class="chapter-number">XVI · The archive</div>
+   <h2>Printings and sources</h2>
+   <p>Unlike the Power Nine, Brainstorm became culturally important through abundance. It began at common and has been reprinted across core sets, supplemental products, Eternal Masters, premium releases, and the Strixhaven Mystical Archive. Different generations know different frames and illustrations, but Christopher Rush's Ice Age image remains the historical point of origin.</p>
+
+   <div class="printings">
+    <figure class="printing"><img loading="lazy" src="https://api.scryfall.com/cards/named?exact=Brainstorm&set=ice&format=image&version=normal" alt="Ice Age Brainstorm"><figcaption>Ice Age · 1995 · Christopher Rush</figcaption></figure>
+    <figure class="printing"><img loading="lazy" src="https://api.scryfall.com/cards/named?exact=Brainstorm&set=5ed&format=image&version=normal" alt="Fifth Edition Brainstorm"><figcaption>Fifth Edition · 1997</figcaption></figure>
+    <figure class="printing"><img loading="lazy" src="https://api.scryfall.com/cards/named?exact=Brainstorm&set=mmq&format=image&version=normal" alt="Mercadian Masques Brainstorm"><figcaption>Mercadian Masques · 1999</figcaption></figure>
+    <figure class="printing"><img loading="lazy" src="https://api.scryfall.com/cards/named?exact=Brainstorm&set=cns&format=image&version=normal" alt="Conspiracy Brainstorm"><figcaption>Conspiracy · 2014</figcaption></figure>
+    <figure class="printing"><img loading="lazy" src="https://api.scryfall.com/cards/named?exact=Brainstorm&set=ema&format=image&version=normal" alt="Eternal Masters Brainstorm"><figcaption>Eternal Masters · 2016</figcaption></figure>
+    <figure class="printing"><img loading="lazy" src="https://api.scryfall.com/cards/named?exact=Brainstorm&set=sta&format=image&version=normal" alt="Mystical Archive Brainstorm"><figcaption>Strixhaven Mystical Archive · 2021</figcaption></figure>
+   </div>
+
+   <h3>Research sources</h3>
+   <ol class="sources">
+    <li><a href="https://magic.wizards.com/en/news/feature/top-50-card-drawing-cards-2003-03-21-0">Wizards of the Coast, “The Top 50 Card Drawing Cards”</a><span>The “Poor Man's Ancestral” name, discard protection, and early shuffle interactions.</span></li>
+    <li><a href="https://magic.wizards.com/en/news/making-magic/ice-guys-finish-first-2004-08-02">Mark Rosewater, “Ice Guys Finish First”</a><span>Brainstorm's elegance, skill testing, one-mana design, and influence on cheap deck manipulation.</span></li>
+    <li><a href="https://magic.wizards.com/en/news/feature/miracle-grow-2008-09-01">Wizards of the Coast, “Miracle Grow”</a><span>Alan Comer's archetype and its influence on low-land cantrip deck construction.</span></li>
+    <li><a href="https://magic.wizards.com/en/news/feature/top-10-extended-decks-all-time-2008-02-07">Wizards of the Coast, “Top 10 Extended Decks of All Time”</a><span>Alan Comer's exact Grand Prix Las Vegas 2001 list.</span></li>
+    <li><a href="https://articles.starcitygames.com/articles/victory-at-gp-atlanta-1st/">Gaudenis Vidugiris, “Victory at GP Atlanta”</a><span>The winning 2012 RUG Delver list and tournament report.</span></li>
+    <li><a href="https://www.mtgtop8.com/event?e=6650&amp;f=le">Grand Prix Paris 2014 deck archive</a><span>Philipp Schönegger's Miracles placement and registered list.</span></li>
+    <li><a href="https://articles.starcitygames.com/articles/the-miracles-primer-part-1/">Philipp Schönegger, “The Miracles Primer: Part 1”</a><span>Period strategy and construction principles for Legacy Miracles.</span></li>
+    <li><a href="https://articles.starcitygames.com/articles/building-a-legacy-why-brainstorm-belongs/">Drew Levin, “Building a Legacy — Why Brainstorm Belongs”</a><span>The argument that Brainstorm enables flexible deck construction in a broad format.</span></li>
+    <li><a href="https://articles.starcitygames.com/articles/put-down-that-brainstorm/">“Put Down That Brainstorm!”</a><span>Timing discipline, fetchland management, and the dangers of casting the spell reflexively.</span></li>
+    <li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned and Restricted List</a><span>Current Vintage restriction, Historic ban, and status in other sanctioned formats.</span></li>
+    <li><a href="https://www.mtgbans.info/announcements">MTG Bans announcement timeline</a><span>The June 2008 Vintage restriction date.</span></li>
+    <li><a href="https://magic.wizards.com/en/news/announcements/july-21-2021-banned-and-restricted-announcement">July 21, 2021 Banned and Restricted Announcement</a><span>Historic suspension, metagame share, and diversity reasoning.</span></li>
+    <li><a href="https://magic.wizards.com/en/news/announcements/october-13-2021-banned-and-restricted-announcement">October 13, 2021 Banned and Restricted Announcement</a><span>The conversion of Brainstorm's Historic suspension into a ban.</span></li>
+    <li><a href="https://articles.starcitygames.com/magic-the-gathering/top-decks-and-winners-from-north-american-eternal-weekend-2024/">North American Eternal Weekend 2024 coverage</a><span>Max Gilmore's Vintage Championship victory.</span></li>
+    <li><a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-may-18-2026">May 18, 2026 Banned and Restricted Announcement</a><span>A current Vintage Esper control list containing the restricted Brainstorm.</span></li>
+    <li><a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-june-29-2026">June 29, 2026 Banned and Restricted Announcement</a><span>The official current Timeless Dimir Tempo list with four Brainstorms.</span></li>
+    <li><a href="https://scryfall.com/search?q=%21%22Brainstorm%22">Scryfall Brainstorm printing archive</a><span>Oracle text, printings, artwork, and set records.</span></li>
+   </ol>
+
+   <p class="editor-note"><b>Editorial note.</b> This is an independent, noncommercial fan-history project. Magic: The Gathering, card names, card images, and artwork belong to Wizards of the Coast and their respective artists. Scryfall image endpoints are used for reference and require internet access.</p>
+
+   <nav class="end-nav">
+    <a href="index.html#entry-102"><small>Previous entry · 102</small>Demonic Consultation</a>
+    <a href="index.html#entry-104"><small>Next entry · 104</small>Force of Will</a>
+   </nav>
+  </section>
+ </article>
+
+ <aside class="sidebar-note"><b>Compulsive Research</b><br>Entry 103 preserves Brainstorm as both a historical card and a learned practice: when to wait, what to return, and whether the next action should shuffle at all.</aside>
+</div>
+
+<div id="preview"><img alt=""></div>
+<footer class="footer">Compulsive Research · Entry 103 · Brainstorm · Independent Magic history project.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script>
+</body>
+</html>
