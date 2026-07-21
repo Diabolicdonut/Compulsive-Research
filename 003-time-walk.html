@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="A long-form magazine history of Time Walk: its playtest wording, turn economy, the Power Nine, early control, Vintage, descendants, artwork, and player memory." name="description"/>
+<title>Time Walk: The Turn That Did Not Belong to You — Compulsive Research</title>
+<style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.timewalk-title{
+  letter-spacing:-.045em;
+  font-kerning:none;
+  font-variant-ligatures:none
+}
+@media(max-width:750px){
+  .timewalk-title{
+    letter-spacing:0;
+    line-height:.91
+  }
+}
+
+.timewalk-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.timewalk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.timewalk-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important}
+.time-warp-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Warp&format=image&version=art_crop)!important
+}
+.turn-grid,.exchange-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.turn-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.turn-step,.exchange-step{background:var(--white);padding:20px}
+.turn-step b,.exchange-step b{display:block;font:900 1.5rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.turn-step span,.exchange-step span{font:12.5px/1.48 Inter,system-ui,sans-serif;color:var(--muted)}
+.time-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.time-note b{color:var(--ink)}
+.turn-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.turn-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.turn-row:last-child{border-bottom:0}.turn-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.turn-row p{margin:0}
+@media(max-width:900px){.turn-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:750px){.turn-grid,.exchange-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.turn-grid,.exchange-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header class="hero timewalk-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#wave-01">← Wave 01 · The Foundational Canon</a>
+<div class="eyebrow">Entry 003 · Wave 01 · The Foundational Canon</div>
+<h1 class="timewalk-title">The Turn That Did Not Belong to You</h1>
+<p class="deckline">Time Walk compressed an untap, a draw, a land drop, another combat, and another main phase into two blue mana—and taught Magic that a turn is the game’s largest indivisible resource.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 24 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="002-ancestral-recall.html">← Entry 002 · Ancestral Recall</a><div class="center">Entry 003 of 1,000</div><a href="index.html#entry-004">Entry 004 · Mox Pearl →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong>
+<a href="#opening">The turn that did not belong to you</a>
+<a href="#wording">Opponent loses next turn</a>
+<a href="#contents">What a turn contains</a>
+<a href="#cost">The entire mistake is the cost</a>
+<a href="#economy">Turn economy</a>
+<a href="#worlds">The first World Champion</a>
+<a href="#the-deck">The Deck and borrowed time</a>
+<a href="#restriction">Restriction, not repair</a>
+<a href="#vintage">The blue ritual of Vintage</a>
+<a href="#recursion">Taking the same turn twice</a>
+<a href="#combat">The extra attack step</a>
+<a href="#floor">When Time Walk is merely good</a>
+<a href="#descendants">The five-mana correction</a>
+<a href="#chains">The dream of never passing</a>
+<a href="#formats">A life across formats</a>
+<a href="#art">Amy Weber’s impossible procession</a>
+<a href="#memory">What players remember</a>
+<a href="#decklists">The deck archive</a>
+<a href="#printings">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The stolen interval</div><h2>The turn that did not belong to you</h2>
+<p class="opening dropcap">Time Walk does not draw three cards, make three mana, or remove a permanent. It gives you the next piece of the game.</p>
+<p>For one generic and one blue mana, the caster takes an extra turn after the current one. The text is now a single clean instruction, but the result is not a single effect. A turn is a container holding nearly every renewable resource Magic provides: permanents untap, upkeep triggers occur, a card is drawn, a land may be played, creatures may attack, planeswalkers may activate, and mana may be spent through two main phases. Time Walk buys the entire container.</p>
+<p>That is why the card can look modest on an empty battlefield and obscene on a developed one. Cast on turn two with nothing but lands, it resembles a cantrip that allows another land drop. Cast with a <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span> in play, it is also four damage and another vigilance attack. Cast with <span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span>, <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span>, a planeswalker, a draw engine, or a lethal board, it becomes whatever the rest of the battlefield is capable of producing.</p>
+<p>The card is not powerful because “extra turn” is secretly synonymous with “win the game.” It is powerful because two mana allows the caster to decide when every permanent, card draw, land drop, and attack they already possess will be duplicated before the opponent receives another opportunity to develop.</p>
+<div class="card-lead"><img alt="Time Walk from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Time%20Walk&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Time Walk</b> · {1}{U}<br/>Sorcery<br/><br/>Take an extra turn after this one.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Designed by</b>Richard Garfield</div><div class="stat"><b>Illustrated by</b>Amy Weber</div><div class="stat"><b>Historical status</b>Power Nine · Vintage restricted</div></div></div></div>
+<p>Among the Power Nine, Time Walk is the card that most clearly reveals how little Alpha understood the price of time. Black Lotus underpriced mana. Ancestral Recall underpriced cards. Time Walk underpriced the structure that turns mana and cards into action.</p></section>
+
+<section id="wording"><div class="chapter-number">II · The first wording lesson</div><h2>“Opponent loses next turn”</h2>
+<p>Before Magic had an established rules language, Richard Garfield’s playtest cards had to communicate unfamiliar concepts in ordinary English. The early version of the extra-turn effect reportedly read, “Opponent loses next turn.” Garfield meant that the opponent would lose the opportunity to take that turn. A playtester read it as something much stronger: the opponent would lose the game on their next turn.</p>
+<p>Garfield later described the exchange as one of his earliest lessons in templating. He could imagine the intended meaning because he already knew the design. The player encountered only the sentence, and the sentence carried two grammatically plausible outcomes. The final card abandoned the skip-turn construction and stated the result from the caster’s perspective: “Take an extra turn after this one.”</p>
+<p>The story became one of Magic’s foundational anecdotes because it captures two histories at once. It is the history of a famously overpowered card, and the history of the game learning that rules text must behave more like technical language than flavor prose. The released wording was still brief, but it removed the disastrous ambiguity.</p>
+<div class="pullquote">The first broken thing about Time Walk was not its mana cost. It was the sentence used to describe what time meant.<small>From playtest English to rules language</small></div>
+<p>The change also matters in multiplayer. Making one opponent skip a turn and taking an extra turn yourself are functionally similar in a duel, but radically different at a table with several players. Alpha was designed around two-player games; modern templating has to survive a much larger rules universe.</p></section>
+
+<div class="art-break timewalk-art"><div class="art-caption"><b>Amy Weber’s original Time Walk artwork</b>The elongated figures and impossible landscape make the card feel less like a clock being rewound than a procession stepping outside ordinary sequence.</div></div>
+
+<section id="contents"><div class="chapter-number">III · Anatomy of a turn</div><h2>What a turn contains</h2>
+<p>Calling Time Walk a two-mana cantrip is technically defensible and strategically evasive. The draw step means the card usually replaces itself, but replacement is only the beginning. Every object already under the caster’s control receives another cycle of use.</p>
+<div class="turn-grid"><div class="turn-step"><b>Untap</b><span>Lands, creatures, artifacts, and other permanents become available again.</span></div><div class="turn-step"><b>Upkeep</b><span>Triggers occur and upkeep-limited abilities become available.</span></div><div class="turn-step"><b>Draw</b><span>The sorcery replaces itself before any other draw engines are counted.</span></div><div class="turn-step"><b>Land</b><span>A second land drop accelerates every later turn.</span></div><div class="turn-step"><b>Combat</b><span>Every ready attacker threatens another full attack step.</span></div><div class="turn-step"><b>Main phase</b><span>Fresh mana and untapped engines convert the interval into spells.</span></div></div>
+<p>The value of those phases is contextual. If the caster controls only two Islands, the extra turn might produce a card, an untap, and a third land. If the caster controls <span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span>, <span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span>, several mana artifacts, and a finisher, each phase compounds with the others. The spell scales with every permanent already in play.</p>
+<p>This is the central difference between extra-turn effects and ordinary card draw. A draw spell brings future resources into hand. Time Walk allows current resources to function again immediately. It can therefore resemble card advantage, mana acceleration, haste, vigilance, protection, or a combo piece without containing any of those words.</p>
+<div class="time-note"><b>The hidden text:</b> Time Walk effectively says, “Untap all the resources you have assembled, draw a card, play another land, and attack again before the opponent receives another normal turn.”</div></section>
+
+<section id="cost"><div class="chapter-number">IV · Two mana</div><h2>The entire mistake is the cost</h2>
+<p>Extra turns have remained in blue for most of Magic’s history. The effect itself was not removed from the game. What changed was the price.</p>
+<p>At two mana, Time Walk can be cast before the game has meaningfully developed, inserted into a turn containing several other spells, protected with countermagic, found by cheap tutors, or replayed without requiring a dedicated ramp strategy. The caster does not have to choose between taking the extra turn and advancing the board; the cost is low enough to do both.</p>
+<p>That flexibility is more important than the spectacular ceiling. A five-mana extra-turn spell asks the deck to survive, make land drops, and devote most of a turn to the effect. Time Walk can bridge from the second land to the third, add another attack to a tempo turn, or serve as one link in a combo sequence. It fits into the game rather than demanding that the game be built around it.</p>
+<div class="exchange-grid"><div class="exchange-step"><b>2 mana</b><span>Time Walk leaves room for setup, protection, and payoff in the same turn.</span></div><div class="exchange-step"><b>5 mana</b><span>Time Warp established the long-term baseline for a clean extra turn.</span></div><div class="exchange-step"><b>6–7 mana</b><span>Modern versions often add upside, conditions, or deck-building hooks.</span></div><div class="exchange-step"><b>Restricted</b><span>Vintage permits only one copy because mana cost cannot be repaired by context.</span></div></div>
+<p>Alpha’s designers did not yet possess decades of evidence showing that a turn is worth closer to five mana than two. Time Walk became the evidence.</p></section>
+
+<section id="economy"><div class="chapter-number">V · Strategic vocabulary</div><h2>Turn economy</h2>
+<p>Magic strategy is often described through card advantage and tempo. Time Walk occupies both categories while fitting neatly into neither.</p>
+<p>In raw hand size, the spell normally replaces itself during the extra draw step. If nothing else happens, it is close to neutral. In mana, however, the extra untap can produce an entire turn’s worth of lands and artifacts. In tempo, the opponent loses the chance to untap, draw, play a land, deploy blockers, or attack before the caster acts again. On the battlefield, every permanent with a tap ability may be reused and every creature may attack a second time.</p>
+<p>The spell is therefore a converter. It takes the caster’s existing position and converts it into another interval of production. Strong positions become overwhelming; fragile positions receive a chance to stabilize; combo positions receive another draw and another main phase before disruption can be deployed.</p>
+<p>That explains why “Time Walk” became a generic strategic phrase. Players describe a bounce spell, a fog, a taxing effect, or a devastating tempo play as a “Time Walk” when it causes the opponent’s turn to accomplish nearly nothing. The phrase does not require a literal extra turn. It means one player gained an actionable interval while the other failed to use theirs.</p></section>
+
+<section id="worlds"><div class="chapter-number">VI · Worlds 1994</div><h2>The first World Champion</h2>
+<p>Zak Dolan’s winning deck from the first Magic World Championship was filled with the game’s earliest power: the five Moxen, Black Lotus, Ancestral Recall, Timetwister, and Time Walk. The deck was not a streamlined four-of machine. It was a many-colored control construction whose singletons could be found, recycled, or simply drawn over a long game.</p>
+<p>Time Walk belonged naturally in that environment. Dolan’s deck could use an extra turn to develop mana, untap after committing to a threat, obtain another activation from <span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span>, advance a <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span> position, or attack again with <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>. Because the surrounding cards were individually powerful, one more turn frequently contained more than an ordinary deck’s turn was expected to hold.</p>
+<p>The famous later recreation in which a first-turn Serra Angel appeared from artifact mana demonstrates the same principle. Time Walk does not create the threat, but once a threat arrives too early, it denies the opponent the time normally granted to answer it.</p>
+<div class="timeline"><div class="timeline-item"><time>August 1993</time><h3>Limited Edition Alpha</h3><p>Time Walk enters Magic at rare for {1}{U}.</p></div><div class="timeline-item"><time>January 1994</time><h3>The first restricted list</h3><p>Time Walk joins the cards limited to one copy in Type I.</p></div><div class="timeline-item"><time>August 1994</time><h3>World Championship</h3><p>Zak Dolan wins with Time Walk among the defining cards of his multicolor control deck.</p></div><div class="timeline-item"><time>Mid-1990s</time><h3>The Deck</h3><p>Brian Weissman’s control architecture turns extra time into more cards, activations, and inevitability.</p></div></div></section>
+
+<section id="the-deck"><div class="chapter-number">VII · Control doctrine</div><h2>The Deck and borrowed time</h2>
+<p>Brian Weissman’s The Deck converted early Magic from a collection of strong cards into a theory of control. It traded one-for-one, protected life total, generated card advantage, and eventually won with a small number of finishers. Time Walk was ideal inside that structure because it amplified whichever resource the deck had already established.</p>
+<p>With <span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span> in play, another turn meant another card. With <span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span>, it meant another attack on the opponent’s hand. With <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, it meant another four damage while the Angel remained ready to defend. With artifact mana, it meant a second burst of resources before the opponent could untap.</p>
+<p>The card also fit The Deck’s philosophy because it was almost never dead. Control decks fear drawing narrow answers against the wrong threat. Time Walk did not need a target. At minimum it cycled, developed mana, and moved the deck closer to its next answer. At maximum it converted a winning position into a game the opponent could no longer reenter.</p>
+<p>This is one reason Time Walk can be misunderstood when viewed only through combo. It is certainly capable of enabling explosive turns, but its historical home was also the slowest, most patient deck in early competitive Magic. The spell was not merely speed. It was control over sequence.</p></section>
+
+<section id="restriction"><div class="chapter-number">VIII · Format law</div><h2>Restriction, not repair</h2>
+<p>Time Walk appeared on Magic’s first restricted list. Like the other most extreme Alpha cards, it was too strong to permit as a four-of in the format that became Vintage. Restriction reduced consistency without pretending the effect could be made fair by metagame pressure alone.</p>
+<p>One copy remained enormously influential because early and modern Vintage decks possess tutors, cantrips, draw engines, graveyard recursion, and shuffle effects. A restricted card is not simply a card seen one quarter as often. It becomes an object decks are built to locate, reuse, and exploit at the exact moment its effect matters most.</p>
+<p>When Type 1.5 evolved into Legacy with its own banned list, Time Walk remained prohibited. It is also banned in Commander. The card’s sanctioned home is therefore Vintage, along with casual formats and Powered Cube environments that intentionally embrace the Power Nine.</p>
+<div class="format-strip"><div class="format-card"><span class="impact">Restricted</span><h3>Vintage</h3><p>One copy remains legal and widely desirable across blue archetypes.</p></div><div class="format-card"><span class="impact">Banned</span><h3>Legacy</h3><p>The two-mana original is excluded from the format’s otherwise enormous card pool.</p></div><div class="format-card"><span class="impact">Banned</span><h3>Commander</h3><p>Multiplayer does not legalize the Power Nine’s clean extra-turn spell.</p></div><div class="format-card"><span class="impact">Iconic</span><h3>Powered Cube</h3><p>The card becomes a first-pick-level expression of context-independent power.</p></div></div></section>
+
+<section id="vintage"><div class="chapter-number">IX · The surviving format</div><h2>The blue ritual of Vintage</h2>
+<p>In Vintage, Time Walk often feels less like a dedicated combo card than part of blue’s basic restricted package. Decks already interested in Ancestral Recall, artifact mana, tutors, and Force of Will frequently have little reason to omit a two-mana spell that replaces itself and opens another turn.</p>
+<p>The surrounding format changes what the extra turn contains. In a control deck, it may untap mana for countermagic and produce another draw. In a tempo deck, it may give <span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span>, <span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span>, or an older threat another combat. In a Tinker deck, it may provide the interval needed to attack with a huge artifact or safely activate an engine. In combo, it may function as a setup spell that also shields the next main phase from ordinary sorcery-speed disruption.</p>
+<p>The card is also unusually easy to splash. Vintage mana bases already use Mox Sapphire, Black Lotus, dual lands, and fetchlands. Two mana with a single blue requirement is not a serious color commitment. As Wizards observed in discussions of Powered Cube, Time Walk and Ancestral Recall are powerful enough to justify off-color blue sources.</p>
+<p>Modern Vintage lists still register the same single copy beside cards printed more than thirty years later. The shell changes; the interval remains underpriced.</p></section>
+
+<section id="recursion"><div class="chapter-number">X · Repetition</div><h2>Taking the same turn twice</h2>
+<p>Restriction limits the number of Time Walk cards, not the number of times the spell can be cast. From the earliest control decks onward, recursion turned one copy into a repeatable strategic event.</p>
+<p><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span> is the cleanest example. Two mana casts Time Walk; two mana returns it; two more mana casts it again. That sequence is expensive compared with the original spell, but it demonstrates why a restricted sorcery can define multiple turns of a game. <span class="card-name" data-card="Recall" tabindex="0">Recall</span> offered another route in early control. Later, <span class="card-name" data-card="Yawgmoth&#x27;s Will" tabindex="0">Yawgmoth&#x27;s Will</span> transformed the graveyard into a second hand and allowed Time Walk to appear inside a much larger combo turn.</p>
+<p>Modern Vintage adds <span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span>, <span class="card-name" data-card="Mystic Sanctuary" tabindex="0">Mystic Sanctuary</span> in formats where legal and relevant, and other forms of spell recursion, though deck construction and restrictions change which tools are practical. The enduring principle is that Time Walk’s low printed cost leaves room to pay for the card again.</p>
+<div class="turn-sequence"><div class="turn-row"><strong>Cast</strong><p>Spend two mana to create the extra turn and place Time Walk in the graveyard.</p></div><div class="turn-row"><strong>Recover</strong><p>Use Regrowth, Yawgmoth’s Will, or another recursion effect to make the same restricted card available again.</p></div><div class="turn-row"><strong>Recast</strong><p>Because the original costs only two, the recursion spell and Time Walk can fit into one developed turn.</p></div><div class="turn-row"><strong>Compound</strong><p>Each added turn brings another draw and another chance to find yet more recursion or a finishing line.</p></div></div>
+<p>Extra turns naturally compound because each one contains a draw step. The spell does not merely buy time; it buys another chance to find the means of buying time again.</p></section>
+
+<section id="combat"><div class="chapter-number">XI · The second attack</div><h2>The extra attack step</h2>
+<p>Time Walk is sometimes described as though it belongs only to control and combo, but creatures reveal its most immediate arithmetic. If the opponent expects one attack before their next untap, the spell creates two.</p>
+<p>That makes Time Walk function like haste for every creature already on the battlefield, plus vigilance through the intervening untap, plus protection from the blockers or sorcery-speed removal the opponent hoped to deploy on their turn. A threat that needed two combats to end the game suddenly needs one current turn and one borrowed turn.</p>
+<p>The interaction is particularly punishing when the first attack forces blocks or consumes removal. The caster gets to untap, draw, and attack again before the opponent can rebuild. Even a modest creature can convert the spell into several points of damage while larger threats make it effectively lethal.</p>
+<p>This is why tempo decks can value Time Walk as highly as slower decks. The spell is not asking whether the caster has more cards. It is asking whether the caster is ahead on the board. If the answer is yes, the opponent may never receive the turn needed to reverse that answer.</p></section>
+
+<section id="floor"><div class="chapter-number">XII · The modest case</div><h2>When Time Walk is merely good</h2>
+<p>Not every Time Walk wins immediately. On an empty board with no useful upkeep triggers or activated permanents, the spell may amount to drawing a card, untapping two lands, and making another land drop. Players sometimes summarize that floor as an expensive <span class="card-name" data-card="Explore" tabindex="0">Explore</span> without the explicit additional-land text.</p>
+<p>That modest case is strategically important because it explains the card’s reliability. Many broken cards require a particular board, hand, or engine. Time Walk’s weakest normal use still advances mana and replaces the card. The caster can deploy it early without sacrificing long-term material, or hold it until the board creates a larger return.</p>
+<p>There are exceptions. Drawing Time Walk when the caster cannot exploit the next turn, when an opponent controls a punishing extra-turn interaction, or when a combo must be answered immediately can make it less impressive than a direct answer. An extra turn does not remove an opposing permanent by itself. It does not guarantee a land or a relevant draw. It magnifies resources; it does not invent all of them.</p>
+<p>But a low floor of “cycle, untap, and develop” is extraordinary for a card whose ceiling is “the opponent never meaningfully gets another turn.”</p></section>
+
+<section id="descendants"><div class="chapter-number">XIII · The correction</div><h2>The five-mana correction</h2>
+<p>Every clean extra-turn spell after Time Walk begins with the same design question: how much should the interval actually cost?</p>
+<p><span class="card-name" data-card="Time Warp" tabindex="0">Time Warp</span> supplied the durable answer at five mana. The effect remained simple, but the caster generally had to devote most of a turn to acquiring the next one. <span class="card-name" data-card="Temporal Manipulation" tabindex="0">Temporal Manipulation</span> and <span class="card-name" data-card="Capture of Jingzhou" tabindex="0">Capture of Jingzhou</span> repeated that rate. Later designs experimented with buyback, exile clauses, miracle, rebound-like rewards, tribal conditions, planeswalker restrictions, or delayed losses.</p>
+<p><span class="card-name" data-card="Walk the Aeons" tabindex="0">Walk the Aeons</span> could be bought back by sacrificing lands. <span class="card-name" data-card="Temporal Mastery" tabindex="0">Temporal Mastery</span> recreated the two-mana cost only through miracle and exiled itself. <span class="card-name" data-card="Nexus of Fate" tabindex="0">Nexus of Fate</span> shuffled back into the library, creating the possibility of loops that eventually required format intervention. <span class="card-name" data-card="Alrund&#x27;s Epiphany" tabindex="0">Alrund&#x27;s Epiphany</span> added evasive tokens and became a Standard-defining threat before being banned in Standard. Red’s <span class="card-name" data-card="Final Fortune" tabindex="0">Final Fortune</span> family offers the turn cheaply but threatens to end the game afterward.</p>
+<p>Each descendant chooses a part of Time Walk to preserve and a part to tax: mana, timing, repetition, deck building, or survival.</p>
+<div class="inline-image time-warp-descendant"><div class="image"></div><div class="copy"><div class="kicker">The corrected baseline</div><h3>Time Warp</h3><p>Five mana became the enduring benchmark for a clean extra turn—high enough that the caster must build toward the effect rather than insert it casually into almost any blue turn.</p></div></div></section>
+
+<section id="chains"><div class="chapter-number">XIV · Taking Turns</div><h2>The dream of never passing</h2>
+<p>Once extra-turn effects existed at several mana costs, players built decks around chaining them. The goal was no longer to gain one interval but to reach a point where every extra draw step found another extra turn, another draw engine, or a recursion effect.</p>
+<p>Modern “Taking Turns” decks used cards such as <span class="card-name" data-card="Time Warp" tabindex="0">Time Warp</span>, <span class="card-name" data-card="Temporal Mastery" tabindex="0">Temporal Mastery</span>, <span class="card-name" data-card="Part the Waterveil" tabindex="0">Part the Waterveil</span>, <span class="card-name" data-card="Dictate of Kruphix" tabindex="0">Dictate of Kruphix</span>, and later variants to create the feeling of an infinite sequence without necessarily forming a deterministic loop. The deck played like control until five mana, then tried to make the opponent’s last completed turn remain their last meaningful one.</p>
+<p>The archetype demonstrates that Time Walk was not merely an isolated Alpha accident. It established a fantasy players continue to pursue: the complete conversion of tempo into monopoly. Drawing cards is powerful because it increases options. Taking turns is powerful because it controls when anyone else is permitted to use theirs.</p>
+<p>Designers continue to print extra turns because the effect is exciting, narratively resonant, and mechanically legible. They continue to attach restrictions because Time Walk demonstrated what happens when the excitement is allowed to cost two.</p></section>
+
+<section id="formats"><div class="chapter-number">XV · Where time survives</div><h2>A life across formats</h2>
+<p>Time Walk’s legal history is narrow, but its conceptual reach is enormous.</p>
+<div class="format-strip"><div class="format-card"><span class="impact">Canonical</span><h3>Vintage</h3><p>The original remains one of blue’s defining restricted cards.</p></div><div class="format-card"><span class="impact">Absent</span><h3>Legacy</h3><p>The format inherits nearly all of Magic’s history except cards at this power level.</p></div><div class="format-card"><span class="impact">Curated</span><h3>Old School</h3><p>Rulesets vary, but powered environments preserve the card’s earliest strategic role.</p></div><div class="format-card"><span class="impact">First pick</span><h3>Powered Cube</h3><p>Its low opportunity cost makes it among the strongest possible draft selections.</p></div><div class="format-card"><span class="impact">Forbidden</span><h3>Commander</h3><p>The multiplayer format bans the original while allowing many costlier descendants.</p></div><div class="format-card"><span class="impact">Vocabulary</span><h3>Every format</h3><p>Players still call any devastating loss of tempo a “Time Walk.”</p></div></div>
+<p>The card’s greatest format impact may be indirect. It established a benchmark so extreme that later formats are partly defined by its absence. A format with Time Walk is powered. A format without it evaluates every extra-turn spell against the correction required to avoid repeating Alpha.</p></section>
+
+<section id="art"><div class="chapter-number">XVI · The object</div><h2>Amy Weber’s impossible procession</h2>
+<p>Amy Weber’s Alpha artwork does not illustrate a mechanical clock, a mage casting a spell, or a conventional act of time travel. Two elongated, masklike figures move through a surreal landscape whose scale and geography resist ordinary reading. The image feels ceremonial, alien, and slightly dislocated.</p>
+<p>That abstraction suits a card whose effect is also difficult to visualize. The caster does not reverse a visible event or physically move faster. The sequence of play simply changes. One participant steps forward in the order while the other waits outside the frame.</p>
+<p>The original art became inseparable from the Power Nine object: small Alpha and Beta cards whose sparse text boxes and strange early illustrations seem to come from a version of Magic that had not yet standardized its visual language. Later extra-turn cards usually show clocks, portals, repeated figures, celestial cycles, or fractured moments. Time Walk looks older and less explanatory, like a relic representing time rather than a diagram of it.</p>
+<p>Official tournament-legal reprints never followed because Time Walk is on the Reserved List. Collector’s Edition, International Edition, and later commemorative products preserved versions that were not legal in sanctioned play, reinforcing the divide between the image’s ubiquity and the physical card’s scarcity.</p></section>
+
+<section id="memory"><div class="chapter-number">XVII · The phrase</div><h2>What players remember</h2>
+<p>Players remember Time Walk even when they have never seen one cast from an original card. The phrase appears in commentary whenever a player bounces an expensive permanent, taps an opponent’s team, counters a crucial development spell, or forces a turn to be replayed with no progress.</p>
+<p>That linguistic afterlife may be more influential than the card’s sanctioned play. “Ancestral” became shorthand for drawing three. “Lotus” became shorthand for explosive mana. “Time Walk” became shorthand for taking control of sequence itself.</p>
+<p>The card also represents the peculiar appeal of the Power Nine: effects so clean that their brokenness can be explained to a new player in one sentence. No elaborate combo is required. Two mana buys another turn. The explanation and the indictment are identical.</p>
+<div class="memory"><div class="memory-grid"><blockquote>Every player understands the desire behind Time Walk: I am not finished yet. You can have your turn when I am.</blockquote><cite>The fantasy of sequence as ownership</cite></div></div>
+<p>More than thirty years later, designers still make extra-turn spells, players still build decks to chain them, and commentators still use the original card’s name to describe stolen tempo. Time Walk did not merely enter Magic’s vocabulary. It named the experience of being denied the future you expected.</p></section>
+
+<section id="decklists" class="deck-archive"><div class="chapter-number">XVIII · The record</div><h2>The deck archive</h2><p class="deck-intro">These four lists trace Time Walk from the first World Champion and The Deck through Vintage tempo-control and a modern championship shell. Each uses the same restricted copy differently: development, inevitability, aggression, or a protected finishing interval.</p>
+<details class="deck" open="">
+<summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The first World Champion’s deck shows Ancestral Recall before competitive theory had stabilized. The card is simply the cleanest draw spell in a flexible control list full of restricted one-ofs.</p>
+<div class="deck-meta">
+<div><b>Zak Dolan</b><div class="small">World Champion · Worlds 1994</div></div>
+<button class="copy" data-target="timewalk-deck-0">Copy decklist</button>
+</div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div>
+</div>
+<pre hidden="" id="timewalk-deck-0">Zak Dolan — U/W/G Stasis Control
+World Champion · Worlds 1994
+
+Creatures · 11
+1 Clone
+2 Old Man of the Sea
+1 Time Elemental
+1 Vesuvan Doppelganger
+1 Birds of Paradise
+1 Ley Druid
+4 Serra Angel
+
+Sorceries · 6
+1 Recall
+1 Timetwister
+1 Time Walk
+1 Regrowth
+1 Armageddon
+1 Wrath of God
+
+Instants · 9
+1 Ancestral Recall
+1 Mana Drain
+1 Siren's Call
+2 Disenchant
+4 Swords to Plowshares
+
+Artifacts · 15
+1 Black Lotus
+1 Black Vise
+1 Howling Mine
+1 Icy Manipulator
+1 Ivory Tower
+1 Mana Vault
+2 Meekstone
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Winter Orb
+
+Enchantments · 4
+1 Control Magic
+2 Stasis
+1 Kismet
+
+Lands · 15
+1 Library of Alexandria
+4 Savannah
+4 Tropical Island
+4 Tundra
+2 Strip Mine
+
+Sideboard · 15
+1 Kismet
+1 Chaos Orb
+1 Circle of Protection: Red
+1 Copy Artifact
+1 Diamond Valley
+1 In the Eye of Chaos
+1 Floral Spuzzem
+2 Karma
+1 Magical Hack
+1 Power Sink
+1 Presence of the Master
+1 Reverse Damage
+1 Sleight of Mind
+1 Winter Blast</pre>
+<p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p>
+</div>
+</details>
+<details class="deck">
+<summary><span><strong>Brian Weissman — The Deck</strong><small>Foundational Type I control archetype · mid-1990s</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The Deck turned card advantage into doctrine. Ancestral Recall fit perfectly: one blue mana converted into options while the rest of the deck traded answers, attacked the hand, and prolonged the game.</p>
+<div class="deck-meta">
+<div><b>Brian Weissman</b><div class="small">Foundational Type I control archetype · mid-1990s</div></div>
+<button class="copy" data-target="timewalk-deck-1">Copy decklist</button>
+</div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div>
+</div>
+<pre hidden="" id="timewalk-deck-1">Brian Weissman — The Deck
+Foundational Type I control archetype · mid-1990s
+
+Creatures · 2
+2 Serra Angel
+
+Sorceries · 7
+1 Time Walk
+1 Timetwister
+1 Braingeyser
+1 Recall
+1 Demonic Tutor
+1 Mind Twist
+1 Regrowth
+
+Instants · 17
+4 Mana Drain
+2 Counterspell
+1 Ancestral Recall
+4 Disenchant
+4 Swords to Plowshares
+2 Red Elemental Blast
+
+Enchantments · 2
+2 Moat
+
+Artifacts · 11
+2 Disrupting Scepter
+1 Jayemdae Tome
+1 Ivory Tower
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Jet
+1 Mox Sapphire
+1 Mox Emerald
+1 Black Lotus
+1 Sol Ring
+
+Lands · 21
+2 Strip Mine
+1 Library of Alexandria
+3 City of Brass
+1 Plateau
+1 Underground Sea
+2 Volcanic Island
+4 Tundra
+3 Plains
+4 Island
+
+Sideboard · 15
+1 Plains
+1 Counterspell
+1 Moat
+1 Disrupting Scepter
+1 Jayemdae Tome
+1 Tormod's Crypt
+2 Control Magic
+2 Blood Moon
+3 Circle of Protection: Red
+2 Divine Offering</pre>
+<p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">open the historical record</a></p>
+</div>
+</details>
+<details class="deck">
+<summary><span><strong>Stephen Menendian — Gro-A-Tog</strong><small>Champion · Gen Con Vintage Championship 2007</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>In Gush-based Vintage, Ancestral Recall was simultaneously raw card advantage, a cheap blue spell for Quirion Dryad, a Merchant Scroll target, and material that could be replayed with Yawgmoth’s Will.</p>
+<div class="deck-meta">
+<div><b>Stephen Menendian</b><div class="small">Champion · Gen Con Vintage Championship 2007</div></div>
+<button class="copy" data-target="timewalk-deck-2">Copy decklist</button>
+</div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creatures · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Psychatog" tabindex="0">Psychatog</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span></div></div><div class="group"><h4>Lands · 14</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Instants and sorceries · 35</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div></div><div class="group"><h4>Other spells · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fastbond" tabindex="0">Fastbond</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancient Grudge" tabindex="0">Ancient Grudge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Berserk" tabindex="0">Berserk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fire / Ice" tabindex="0">Fire / Ice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oxidize" tabindex="0">Oxidize</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rack and Ruin" tabindex="0">Rack and Ruin</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div></div>
+</div>
+<pre hidden="" id="timewalk-deck-2">Stephen Menendian — Gro-A-Tog
+Champion · Gen Con Vintage Championship 2007
+
+Creatures · 5
+1 Psychatog
+4 Quirion Dryad
+
+Lands · 14
+3 Flooded Strand
+1 Island
+1 Library of Alexandria
+3 Polluted Delta
+2 Tropical Island
+3 Underground Sea
+1 Volcanic Island
+
+Instants and sorceries · 35
+1 Ancestral Recall
+4 Brainstorm
+1 Cunning Wish
+1 Demonic Tutor
+4 Duress
+4 Force of Will
+4 Gush
+2 Mana Drain
+4 Merchant Scroll
+2 Misdirection
+1 Mystical Tutor
+3 Opt
+1 Red Elemental Blast
+1 Time Walk
+1 Vampiric Tutor
+1 Yawgmoth's Will
+
+Other spells · 6
+1 Black Lotus
+1 Fastbond
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Sapphire
+
+Sideboard · 15
+1 Ancient Grudge
+1 Berserk
+1 Fire / Ice
+1 Island
+1 Oxidize
+2 Pithing Needle
+2 Pyroblast
+1 Rack and Ruin
+1 Red Elemental Blast
+1 Rushing River
+3 Yixlid Jailer</pre>
+<p class="small">Source: <a href="https://www.mtgtop8.com/event?e=15&amp;f=VI">open the historical record</a></p>
+</div>
+</details>
+<details class="deck">
+<summary><span><strong>Max Gilmore — Esper Control</strong><small>2024 North American Vintage Champion</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Thirty years after the first World Championship, the current shell is full of modern threats and free interaction. Ancestral Recall remains because no later draw spell replaced the original exchange.</p>
+<div class="deck-meta">
+<div><b>Max Gilmore</b><div class="small">2024 North American Vintage Champion</div></div>
+<button class="copy" data-target="timewalk-deck-3">Copy decklist</button>
+</div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creatures · 9</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lavinia, Azorius Renegade" tabindex="0">Lavinia, Azorius Renegade</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nethergoyf" tabindex="0">Nethergoyf</span></div></div><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza's Saga" tabindex="0">Urza's Saga</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Spells · 33</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Treasure Cruise" tabindex="0">Treasure Cruise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dig Through Time" tabindex="0">Dig Through Time</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dress Down" tabindex="0">Dress Down</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lorien Revealed" tabindex="0">Lorien Revealed</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vexing Bauble" tabindex="0">Vexing Bauble</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mindbreak Trap" tabindex="0">Mindbreak Trap</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Containment Priest" tabindex="0">Containment Priest</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lurrus of the Dream-Den" tabindex="0">Lurrus of the Dream-Den</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span></div></div></div>
+</div>
+<pre hidden="" id="timewalk-deck-3">Max Gilmore — Esper Control
+2024 North American Vintage Champion
+
+Creatures · 9
+2 Lavinia, Azorius Renegade
+2 Orcish Bowmasters
+4 Psychic Frog
+1 Nethergoyf
+
+Lands · 18
+1 Strip Mine
+3 Wasteland
+3 Underground Sea
+3 Tundra
+1 Karakas
+3 Flooded Strand
+3 Scalding Tarn
+1 Urza's Saga
+
+Spells · 33
+1 Brainstorm
+4 Force of Will
+4 Swords to Plowshares
+1 Demonic Tutor
+1 Time Walk
+1 Ancestral Recall
+1 Black Lotus
+1 Lotus Petal
+1 Mox Jet
+1 Mox Pearl
+1 Mox Sapphire
+2 Ponder
+2 Spell Pierce
+1 Nihil Spellbomb
+1 Mental Misstep
+1 Gitaxian Probe
+1 Treasure Cruise
+1 Dig Through Time
+3 Force of Negation
+1 Dress Down
+2 Lorien Revealed
+1 Vexing Bauble
+
+Sideboard · 15
+2 Null Rod
+1 The Tabernacle at Pendrell Vale
+1 Pithing Needle
+1 Mindbreak Trap
+1 Nihil Spellbomb
+4 Containment Priest
+2 Fatal Push
+1 Lurrus of the Dream-Den
+2 Consign to Memory</pre>
+<p class="small">Source: <a href="https://articles.starcitygames.com/magic-the-gathering/top-decks-and-winners-from-north-american-eternal-weekend-2024/">open the historical record</a></p>
+</div>
+</details>
+</section>
+
+<section id="printings"><div class="chapter-number">XIX · The paper trail</div><h2>Printings and sources</h2>
+<p>Time Walk appeared in Limited Edition Alpha, Beta, and Unlimited. It was also produced in non-tournament-legal Collector’s Edition and International Collector’s Edition, and later returned as a non-tournament-legal commemorative card in 30th Anniversary Edition. Its Reserved List status prevents an ordinary tournament-legal reprint.</p>
+<p>The card remains restricted in Vintage and banned in Legacy and Commander. Format policies change, so the official banned and restricted pages remain the authoritative source for current legality.</p>
+<ol class="sources">
+<li><a href="https://magic.wizards.com/en/news/making-magic/creation-magic-gathering-2013-03-12">Richard Garfield, “The Creation of Magic: The Gathering”</a><span>The playtest wording “Opponent loses next turn” and the lesson it taught about rules language.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/power-nine-2003-10-15">Wizards of the Coast, “The Power Nine”</a><span>Time Walk’s place among Alpha’s most rule-breaking cards.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned and Restricted List</a><span>Current Vintage restriction and other format legality.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">Mark Rosewater, “A Different Worlds”</a><span>Zak Dolan’s 1994 World Championship and complete decklist.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">Mike Flores, “The Deck”</a><span>Brian Weissman’s list and the architecture of early Type I control.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/design-files-tempest-part-1">Mark Rosewater, “Design Files: Tempest, Part 1”</a><span>Time Warp as the historical attempt to create a corrected Time Walk.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021">Mark Rosewater, “Mechanical Color Pie 2021”</a><span>Extra turns as a primary blue ability and rare red exception.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/modern-mono-blue-turns-2015-11-20">Melissa DeTora, “Modern Mono-Blue Turns”</a><span>The later archetype built around chaining Time Walk descendants.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/power-cubed-2012-11-27">Tom LaPille, “Power, Cubed”</a><span>Time Walk’s context-independent strength in Powered Cube.</span></li>
+<li><a href="https://www.mtgtop8.com/event?e=15&amp;f=VI">Gen Con Vintage Championship 2007</a><span>Stephen Menendian’s winning Gro-A-Tog deck.</span></li>
+<li><a href="https://articles.starcitygames.com/magic-the-gathering/top-decks-and-winners-from-north-american-eternal-weekend-2024/">Star City Games, North American Eternal Weekend 2024</a><span>Max Gilmore’s Vintage Championship victory and decklist.</span></li>
+<li><a href="https://magic.wizards.com/en/news/announcements/official-reprint-policy">Official Reprint Policy</a><span>Time Walk’s Reserved List status.</span></li>
+<li><a href="https://magic.wizards.com/en/news/announcements/celebrate-30-years-magic-gathering-30th-anniversary-edition-2022-10-04">30th Anniversary Edition announcement</a><span>The non-tournament-legal commemorative reappearance of the original card.</span></li>
+</ol>
+<p class="editor-note"><b>Editorial note.</b> This is an independent, noncommercial fan-history project. Magic: The Gathering, card names, card images, and artwork belong to Wizards of the Coast and their respective artists. Scryfall image endpoints are used for reference and require internet access.</p>
+<nav class="end-nav"><a href="002-ancestral-recall.html"><small>Previous entry · 002</small>Ancestral Recall</a><a href="index.html#entry-004"><small>Next entry · 004</small>Mox Pearl</a></nav>
+</section></article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 003 follows Ancestral Recall inside the Foundational Canon, examining the Power Nine card that turned the game’s sequence into a resource.</aside></div>
+<div id="preview"><img alt=""/></div>
+<footer class="footer">Compulsive Research · Entry 003 · Time Walk · Independent Magic history project.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script>
+</body>
+</html>
