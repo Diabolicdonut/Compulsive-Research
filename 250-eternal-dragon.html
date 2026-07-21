@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A long-form magazine history of Eternal Dragon, from Scourge and Astral Slide to Legacy, Premodern, and player memory.">
+<title>Eternal Dragon: The Creature You Almost Never Cast — Compulsive Research</title>
+<style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="hero-grid"></div>
+ <div class="hero-inner">
+  <a class="archive-link" href="../index.html#wave-05">← Wave 05 · Masques through Onslaught</a>
+  <div class="eyebrow">Entry 250 · Wave 05 · Masques through Onslaught</div>
+  <h1>The Creature You Almost Never Cast</h1>
+  <p class="deckline">Eternal Dragon became one of the defining control cards of its age by spending most of its life as a land, a cycling trigger, a promise in the graveyard—and only occasionally a Dragon.</p>
+  <div class="byline">
+   <span>A Compulsive Research essay</span>
+   <span>·</span>
+   <span>Scourge, 2003</span>
+   <span class="pill">Approximately 20 minute read</span>
+  </div>
+ </div>
+</header>
+<nav class="rank-nav">
+ <a href="../index.html#entry-249">← Entry 249 · Lightning Rift</a>
+ <div class="center">Entry 250 of 1,000</div>
+ <a href="../index.html#entry-251">Entry 251 · Decree of Justice →</a>
+</nav>
+
+
+<div class="article-shell">
+ <nav class="toc"><strong>In this article</strong><a href="#opening">The creature you almost never cast</a><a href="#origin">A Dragon built to become a land</a><a href="#engines">The ecology around the card</a><a href="#worlds">From Berlin to San Francisco</a><a href="#formats">A life across formats</a><a href="#legacy">The afterlife in Legacy</a><a href="#fading">Why the Dragon disappeared</a><a href="#memory">What players remember</a><a href="#descendant">The Timeless descendant</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
+ <article class="article">
+  <section id="opening">
+   <div class="chapter-number">I · The hand</div>
+   <h2>The creature you almost never cast</h2>
+   <p class="opening dropcap">The first thing most competitive players did with Eternal Dragon was throw it away.</p>
+   <p>They paid two mana, searched their libraries for a Plains, put the Dragon into the graveyard, shuffled, and continued playing Magic. No seven-mana creature entered the battlefield. No 5/5 flier attacked. The card’s magnificent old-frame portrait—Justin Sweet’s pale, spectral Dragon rolling through a burnt-orange sky—disappeared into the discard pile before it had done anything that looked remotely draconic.</p>
+   <p>That was the point.</p>
+   <p>In the control decks of 2003 and 2004, the distance between the second land and the seventh was the whole game. There were <span class="card-name" tabindex="0" data-card="Wrath of God">Wrath of God</span>s to cast, <span class="card-name" tabindex="0" data-card="Akroma&#x27;s Vengeance">Akroma&#x27;s Vengeance</span>s to reach, cycling engines to feed, and turns to survive. Eternal Dragon crossed that distance with the quiet efficiency of a card that understood it would be more useful as infrastructure than spectacle.</p>
+   <p>Later—sometimes much later—it could return. Five mana during upkeep brought it back to hand. Seven more put it into play. By then the battlefield had often been swept clean, both hands had been pared down, and a plain 5/5 flier was no longer plain at all. It was the last meaningful object in the game.</p>
+
+   <div class="card-lead">
+    <img src="https://api.scryfall.com/cards/scg/12?format=image&version=normal" alt="Eternal Dragon from Scourge">
+    <div>
+     <div class="oracle"><b>Eternal Dragon</b> · {5}{W}{W}<br>Creature — Dragon Spirit<br><br>
+     Flying<br><br>{3}{W}{W}: Return Eternal Dragon from your graveyard to your hand. Activate only during your upkeep.<br><br>
+     Plainscycling {2}<br><br><b>5/5</b></div>
+     <div class="stats">
+      <div class="stat"><b>First printed</b>Scourge · May 2003</div>
+      <div class="stat"><b>Designed by</b>Worth Wollpert</div>
+      <div class="stat"><b>Illustrated by</b>Justin Sweet</div>
+      <div class="stat"><b>Historical peak</b>World Champion · 2004</div>
+     </div>
+    </div>
+   </div>
+
+   <p>Eternal Dragon is one of those cards whose rules text preserves an entire philosophy of deckbuilding. It assumes that a control deck values land drops, that games will last long enough for an upkeep activation to matter, that a threat need not generate immediate value if it is difficult to exhaust permanently, and that the same card can perform different jobs at different stages without any one mode looking efficient by modern standards.</p>
+  </section>
+
+  <section id="origin">
+   <div class="chapter-number">II · Scourge</div>
+   <h2>A Dragon built to become a land</h2>
+   <p>Scourge presented itself as the Dragon set: the final escalation of Onslaught block, a place where enormous creatures and high mana values were meant to feel like rewards rather than liabilities. But expensive creatures create a basic design problem. They are exciting when drawn late and miserable when drawn early.</p>
+   <p>The landcycling creatures were an answer. A player who drew one before it could be cast was not trapped with dead cardboard; the creature could be converted into the land needed to reach the later turns. Mark Rosewater has described the cycle as growing from lead designer Brian Tinsman’s search for a clean way to let expensive creatures repair mana. Eternal Dragon, credited to former professional player Worth Wollpert, was the rare that completed the idea.</p>
+   <p>Its recursion changed landcycling from consolation into strategy. Cycling away a large creature normally concedes the creature. Eternal Dragon made the concession temporary. The early game received a Plains. The late game still possessed a Dragon. The graveyard became a waiting room.</p>
+
+   <div class="pullquote">The seven-mana creature became competitive because players were rarely forced to treat it as a seven-mana creature.<small>The central paradox of Eternal Dragon</small></div>
+
+   <p>That distinction mattered enormously. A control deck could register three or four finishers without accepting three or four dead opening draws. A plainscycled Dragon also solved white’s demanding mana costs. It found the second white source for Wrath, a basic against land destruction, or—once the card entered Eternal formats—a typed dual land such as <span class="card-name" tabindex="0" data-card="Tundra">Tundra</span>, <span class="card-name" tabindex="0" data-card="Savannah">Savannah</span>, <span class="card-name" tabindex="0" data-card="Scrubland">Scrubland</span>, or <span class="card-name" tabindex="0" data-card="Plateau">Plateau</span>.</p>
+   <p>The card did not draw an extra card when it cycled. It did something subtler. It let one physical card satisfy two different turns of the game. First it was the land drop. Later it was the threat. That is not conventional card advantage, but it feels like card advantage because the early utility does not consume the late-game object forever.</p>
+  </section>
+
+  <div class="art-break">
+   <div class="art-caption"><b>Justin Sweet’s original Scourge artwork</b>The apparition-like figure made the card feel less like a Dragon summoned once than a spirit perpetually moving between battlefield, library, hand, and graveyard.</div>
+  </div>
+
+  <section id="engines">
+   <div class="chapter-number">III · The ecosystem</div>
+   <h2>The card around the card</h2>
+   <p>Eternal Dragon was not merely a good standalone control card. It arrived inside one of the most coherent mechanical ecosystems Magic had yet produced.</p>
+   <p>Plainscycling is cycling. That simple rules fact meant discarding Eternal Dragon triggered <span class="card-name" tabindex="0" data-card="Astral Slide">Astral Slide</span> and <span class="card-name" tabindex="0" data-card="Lightning Rift">Lightning Rift</span>. A single activation could find a land, place a recursive threat in the graveyard, exile a creature until end step, or deal two damage. In Slide decks, the Dragon’s quiet setup became an interactive spell.</p>
+   <p>It also shared the format with <span class="card-name" tabindex="0" data-card="Decree of Justice">Decree of Justice</span>. The two cards divided the late game between them. Decree could become an instant-speed army without being cast in the ordinary sense; Eternal Dragon could become the same individual threat repeatedly. One asked for mass removal. The other asked for countermagic, graveyard hate, or a willingness to answer the same creature again.</p>
+   <p>Then there were the sweepers. <span class="card-name" tabindex="0" data-card="Wrath of God">Wrath of God</span> and <span class="card-name" tabindex="0" data-card="Akroma&#x27;s Vengeance">Akroma&#x27;s Vengeance</span> rewarded a finisher that could wait in the graveyard while the battlefield was erased. <span class="card-name" tabindex="0" data-card="Temple of the False God">Temple of the False God</span> and long land counts made the enormous total mana investment plausible. <span class="card-name" tabindex="0" data-card="Renewed Faith">Renewed Faith</span>, cycling lands, and Slide stretched the game until plausibility became inevitability.</p>
+
+   <div class="format-strip">
+    <div class="format-card"><span class="impact">Mana</span><h3>A land when the hand is fragile</h3><p>Two mana repairs the curve and protects the next several turns.</p></div>
+    <div class="format-card"><span class="impact">Engine</span><h3>A cycling trigger when the board matters</h3><p>Slide and Rift transform a land search into interaction.</p></div>
+    <div class="format-card"><span class="impact">Inevitability</span><h3>A threat when resources are gone</h3><p>The graveyard promises that the control deck will eventually draw a creature.</p></div>
+   </div>
+
+   <p>The important interaction is not a hidden combo. It is the way the surrounding cards all reward patience. Eternal Dragon belongs to a family of decks in which each individual play seems modest—cycle a land, gain six life, fetch a Plains, pass the turn—until the opponent discovers that the modest plays have assembled a game they can no longer win.</p>
+  </section>
+
+  <section id="worlds">
+   <div class="chapter-number">IV · The championship years</div>
+   <h2>From Berlin to San Francisco</h2>
+   <p>At Worlds 2003 in Berlin, Gabe Walls reached the Top 8 with red-white Astral Slide. His list used three Eternal Dragons in the main deck and another in the sideboard. The shell still looked like the first generation of the archetype: <span class="card-name" tabindex="0" data-card="Lightning Rift">Lightning Rift</span>, <span class="card-name" tabindex="0" data-card="Burning Wish">Burning Wish</span>, <span class="card-name" tabindex="0" data-card="Spark Spray">Spark Spray</span>, <span class="card-name" tabindex="0" data-card="Exalted Angel">Exalted Angel</span>, and a heavy cycling package.</p>
+   <p>The Dragon’s job was already complete. It smoothed the mana, triggered the enchantments, and ensured that a control deck whose removal was designed to exhaust creatures would not exhaust its own ability to win.</p>
+   <p>One year later the environment had become hostile in a different direction. Mirrodin and Darksteel had produced Affinity, then Skullclamp had distorted the entire format, and Fifth Dawn had added <span class="card-name" tabindex="0" data-card="Cranial Plating">Cranial Plating</span> and <span class="card-name" tabindex="0" data-card="Eternal Witness">Eternal Witness</span>. The best control deck could no longer merely survive creatures. It had to survive artifacts, explosive mana, sacrifice engines, and a deck capable of turning every permanent into damage.</p>
+   <p>Julien Nuijten’s green-white Slide deck answered that world. <span class="card-name" tabindex="0" data-card="Viridian Shaman">Viridian Shaman</span> destroyed artifacts and could be reused with Slide. Eternal Witness recovered sweepers, artifact hate, and land denial. Four Eternal Dragons remained—not because they destroyed artifacts, but because they held the deck together while all the specialized answers did their work.</p>
+
+   <div class="pullquote">At Worlds 2004, the defining Dragon deck defeated the defining artifact deck.<small>Julien Nuijten defeated Aeo Paquette’s Affinity in the final</small></div>
+
+   <p>The championship is the card’s cleanest historical image. Eternal Dragon was not a sideboard curiosity or a single-copy flourish. It was a full four-of in the World Champion’s deck. The format demanded that control draw exactly the right interaction in the early turns, yet the deck still devoted four slots to a seven-mana 5/5 because those slots were almost never stranded.</p>
+   <p>That is the card’s real competitive accomplishment. It made inevitability compatible with emergency.</p>
+
+   <div class="timeline">
+    <div class="timeline-item"><time>May 2003</time><h3>Scourge releases</h3><p>Eternal Dragon enters Standard beside Slide, Rift, cycling lands, Decree, and Vengeance.</p></div>
+    <div class="timeline-item"><time>August 2003</time><h3>Worlds in Berlin</h3><p>Gabe Walls brings R/W Slide and Eternal Dragon into the Top 8.</p></div>
+    <div class="timeline-item"><time>2003 Block season</time><h3>Onslaught control embraces the mirror</h3><p>U/W and white control use Dragon recursion as both mana development and the long-game threat.</p></div>
+    <div class="timeline-item"><time>September 2004</time><h3>Worlds in San Francisco</h3><p>Julien Nuijten wins the World Championship with four Eternal Dragons in G/W Astral Slide.</p></div>
+    <div class="timeline-item"><time>October 2004</time><h3>Onslaught rotates</h3><p>The original Standard ecosystem disappears at once, sending the Dragon toward Extended and the Eternal formats.</p></div>
+   </div>
+  </section>
+
+  <section id="formats">
+   <div class="chapter-number">V · Migration</div>
+   <h2>A life across formats</h2>
+   <p>Some cards dominate one format and vanish. Eternal Dragon migrated. Its role changed according to how much time each format allowed and how much value could be extracted from the word “Plains.”</p>
+
+   <div class="format-strip">
+    <div class="format-card"><span class="impact">Pillar</span><h3>Onslaught Block</h3><p>Dragon recursion, white control, Slide mirrors, and the question of who could maintain inevitability.</p></div>
+    <div class="format-card"><span class="impact">Champion</span><h3>Standard</h3><p>R/W Slide, G/W Slide, and U/W control from 2003 through rotation in 2004.</p></div>
+    <div class="format-card"><span class="impact">Specialist</span><h3>Extended</h3><p>Slide gained typed dual-land searches, but the format’s increasing speed squeezed the card.</p></div>
+    <div class="format-card"><span class="impact">Early staple</span><h3>Legacy</h3><p>Landstill and mono-white control reduced the count but preserved the role.</p></div>
+    <div class="format-card"><span class="impact">Niche</span><h3>Vintage</h3><p>The same Landstill logic appeared occasionally, though stronger engines and speed limited adoption.</p></div>
+    <div class="format-card"><span class="impact">Afterlife</span><h3>Premodern</h3><p>The closed card pool restores the old economy and again makes four copies sensible.</p></div>
+   </div>
+
+   <p>In Extended, plainscycling became more flexible because a “Plains card” could be a dual land. But Extended also exposed the card’s central vulnerability: every stage costs time. Two mana to cycle, five during upkeep to recover it, seven to cast it. As formats accelerate, that sequence changes from inevitability into indulgence.</p>
+   <p>Commander offers the card a different kind of survival. It is legal, flavorful, and useful in cycling or Plains-matters decks, and its inclusion in the 2020 <em>Timeless Wisdom</em> preconstructed deck acknowledged its history. Yet multiplayer Commander also demonstrates how far threat design has moved. Seven-mana creatures are now expected to change the board immediately. Eternal Dragon still asks the table to appreciate the patience of its construction.</p>
+   <p>Premodern is where that patience again feels current. In Astral Slide, U/W Landstill, and black-white control, land drops matter, sweepers matter, and a recursive threat can still be a plan rather than a sentimental inclusion. The card does not merely survive there as nostalgia. It wins matches for the same reasons it did two decades ago.</p>
+  </section>
+
+  <section id="legacy">
+   <div class="chapter-number">VI · The Eternal years</div>
+   <h2>Landstill and the art of doing nothing</h2>
+   <p>Early Legacy gave Eternal Dragon a new home in U/W/x Landstill. The deck wanted to place <span class="card-name" tabindex="0" data-card="Standstill">Standstill</span> on the battlefield, activate <span class="card-name" tabindex="0" data-card="Mishra&#x27;s Factory">Mishra&#x27;s Factory</span>, trade one-for-one, and make the opponent cast the first spell. Plainscycling fit this posture beautifully because it was not a spell. The Landstill player could improve the hand and secure the next land drop without breaking the enchantment.</p>
+   <p>The card count shrank. Standard Slide could play four because every copy fed the engine. Landstill often wanted only one or two: enough to find one eventually, not enough to clog a format defined by <span class="card-name" tabindex="0" data-card="Force of Will">Force of Will</span>, <span class="card-name" tabindex="0" data-card="Daze">Daze</span>, <span class="card-name" tabindex="0" data-card="Wasteland">Wasteland</span>, and combo.</p>
+   <p>That reduction tells the story of the card’s transition from pillar to specialist. Eternal Dragon was no longer the deck’s identity. It was a compact piece of long-game architecture.</p>
+   <p>Mono-white control decks such as The Mighty Quinn found a related use. With <span class="card-name" tabindex="0" data-card="Scrying Sheets">Scrying Sheets</span>, <span class="card-name" tabindex="0" data-card="Sensei&#x27;s Divining Top">Sensei&#x27;s Divining Top</span>, <span class="card-name" tabindex="0" data-card="Wrath of God">Wrath of God</span>, prison pieces, and later Painter–Grindstone, the Dragon supplied both land certainty and a threat that conventional creature removal could not permanently remove. These decks were willing to play longer than almost anyone else in the room. Eternal Dragon rewarded that willingness.</p>
+   <p>It also produced memorable rules texture. <span class="card-name" tabindex="0" data-card="Humility">Humility</span> could make a cast Dragon a 1/1 on the battlefield, but it did not touch plainscycling in hand or recursion in the graveyard. <span class="card-name" tabindex="0" data-card="Standstill">Standstill</span> did not trigger from cycling. <span class="card-name" tabindex="0" data-card="Stifle">Stifle</span> could counter the activated ability. <span class="card-name" tabindex="0" data-card="Tormod&#x27;s Crypt">Tormod&#x27;s Crypt</span> or <span class="card-name" tabindex="0" data-card="Scrabbling Claws">Scrabbling Claws</span> could erase the second half of the card before upkeep.</p>
+   <p>This was not merely a finisher. It was a small examination in understanding zones.</p>
+  </section>
+
+  <section id="fading">
+   <div class="chapter-number">VII · Obsolescence</div>
+   <h2>Why the Dragon disappeared</h2>
+   <p>No banning killed Eternal Dragon. No rules change invalidated it. The game simply became less willing to pay for patience.</p>
+   <p>Legacy threats grew cheaper. Creatures began producing value as they entered the battlefield. Planeswalkers supplied cards, removal, and win conditions in one permanent. Control decks gained finishers that could be cast earlier or that asked for no separate five-mana recovery payment. The Dragon’s cumulative price—two, then five, then seven—became impossible to ignore.</p>
+   <p>The card also belonged to a control philosophy built around inevitability through land drops. Modern control often achieves inevitability through engines that begin generating value immediately. Eternal Dragon waits. Its strength is that every stage is modest and difficult to punish permanently. Its weakness is exactly the same.</p>
+
+   <div class="pullquote">Eternal Dragon remembers a version of control Magic in which making every land drop was itself a win condition.<small>Why the card still feels different</small></div>
+
+   <p>Its disappearance therefore feels more revealing than a simple case of power creep. The Dragon is a fossil of tempo expectations. It marks how long a competitive game was once expected to last, how much mana a control player expected to possess, and how acceptable it was for a finisher to do nothing on entry so long as the opponent could never truly get rid of it.</p>
+  </section>
+
+  <section id="memory">
+   <div class="chapter-number">VIII · Testimony</div>
+   <h2>What players remember</h2>
+   <p>Players rarely reminisce about the exact turn on which Eternal Dragon dealt lethal damage. They remember the sensation of inevitability surrounding it.</p>
+
+   <div class="memory">
+    <div class="memory-grid">
+     <div><blockquote>“The combination of Decree and Eternal Dragon gave the deck an incredibly smooth play pattern.”</blockquote><cite>A retrospective history of green-white control</cite></div>
+     <div><blockquote>“The format was honestly about who could recur Dragons more reliably.”</blockquote><cite>A retrospective on Onslaught Block Constructed</cite></div>
+    </div>
+   </div>
+
+   <p>When the card returned in Commander products, public reactions were filled with references to Landstill, The Mighty Quinn, old Type 1 control, and “the olden days” of Legacy. That is telling. Eternal Dragon is a memory trigger because it was itself a memory card: a promise placed into the graveyard early, waiting to become relevant again.</p>
+   <p>The play pattern was almost ceremonial. Cycle the Dragon. Find the land. Sweep the board. Pass with mana open. Recur it only when the opponent has run out of meaningful ways to object.</p>
+   <p>For players who learned control through these decks, the card represented competence more than spectacle. It rewarded knowing when not to cast the creature, when not to activate the graveyard ability, when a basic Plains was safer than a dual, and when the game had finally narrowed enough that a 5/5 flier was all that remained necessary.</p>
+  </section>
+
+  <section id="descendant">
+   <div class="chapter-number">IX · Design echo</div>
+   <h2>The Timeless descendant</h2>
+   <p>Modern Horizons 2 revisited Eternal Dragon so directly that the new card reads like commentary on the old one. <span class="card-name" tabindex="0" data-card="Timeless Dragon">Timeless Dragon</span> is white, has Plainscycling for two mana, becomes a large flier, and carries a second life in the graveyard. Even the name acknowledges inheritance.</p>
+
+   <div class="inline-image">
+    <div class="image"></div>
+    <div class="copy">
+     <div class="eyebrow">Modern Horizons 2 · 2021</div>
+     <h3>What twenty years changed</h3>
+     <p>Five mana instead of seven. Four mana to eternalize instead of five merely to return to hand. A guaranteed 4/4 token rather than another full casting payment.</p>
+     <p>Timeless Dragon preserves the early-land, late-threat philosophy while compressing its tempo costs for a faster game.</p>
+    </div>
+   </div>
+
+   <p>The comparison clarifies Eternal Dragon’s legacy. The original did not merely inspire another white Dragon. It helped establish a durable design pattern: expensive cards can carry cheap early modes; a card can seed its own graveyard utility; and a threat can be valuable because its weakest stage is never truly dead.</p>
+  </section>
+
+  <section id="decklists">
+   <div class="chapter-number">X · The evidence</div>
+   <h2>The deck archive</h2>
+   <div class="deck-intro">
+    <p>The article’s argument can be seen in the lists themselves. In Berlin, Eternal Dragon sits inside Rift and Slide. In San Francisco, it supports Witness and Shaman against Affinity. In Legacy, it contracts to two or three copies beside Standstill, Humility, Scrying Sheets, and Painter. In Premodern, it returns to four.</p>
+    <p>Each registered 75 remains available below without interrupting the main essay. Card names support desktop hover and mobile tap previews.</p>
+   </div>
+   <div class="deck-archive"><details class="deck" open>
+ <summary><span><strong>Gabe Walls — Red-White Astral Slide</strong>
+ <small>Worlds Top 8 · Worlds 2003, Berlin</small></span><span class="plus">+</span></summary>
+ <div class="deck-body">
+  <p>The earliest major Worlds snapshot: Dragon is land access, a cycling trigger, and the recursive finisher of the red-white Slide engine.</p>
+  <div class="deck-meta"><div><b>Gabe Walls</b>
+  <div class="small">Worlds Top 8 · August 6–10, 2003</div></div>
+  <button class="copy" data-target="deck-0">Copy decklist</button></div>
+  <div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Eternal Dragon">Eternal Dragon</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Exalted Angel">Exalted Angel</span></div></div><div class="group"><h4>Enchantments · 7</h4><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Astral Slide">Astral Slide</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Lightning Rift">Lightning Rift</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants and sorceries · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Burning Wish">Burning Wish</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Decree of Justice">Decree of Justice</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Renewed Faith">Renewed Faith</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Slice and Dice">Slice and Dice</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Spark Spray">Spark Spray</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Wrath of God">Wrath of God</span></div></div><div class="group"><h4>Lands · 27</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Forgotten Cave">Forgotten Cave</span></div><div class="row"><span class="qty">8</span><span class="card-name" tabindex="0" data-card="Mountain">Mountain</span></div><div class="row"><span class="qty">8</span><span class="card-name" tabindex="0" data-card="Plains">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Secluded Steppe">Secluded Steppe</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Temple of the False God">Temple of the False God</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Ancestral Tribute">Ancestral Tribute</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Cleansing Meditation">Cleansing Meditation</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Decree of Annihilation">Decree of Annihilation</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Decree of Justice">Decree of Justice</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Demolish">Demolish</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Eternal Dragon">Eternal Dragon</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Exalted Angel">Exalted Angel</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Morningtide">Morningtide</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Obliterate">Obliterate</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Overmaster">Overmaster</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Slice and Dice">Slice and Dice</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Wrath of God">Wrath of God</span></div></div></div></div>
+  <pre id="deck-0" hidden>Gabe Walls — Red-White Astral Slide
+Worlds Top 8 — Worlds 2003, Berlin (August 6–10, 2003)
+
+Creatures · 6
+3 Eternal Dragon
+3 Exalted Angel
+
+Instants and sorceries · 20
+4 Burning Wish
+3 Decree of Justice
+4 Renewed Faith
+2 Slice and Dice
+4 Spark Spray
+3 Wrath of God
+
+Enchantments · 7
+3 Astral Slide
+4 Lightning Rift
+
+Lands · 27
+4 Forgotten Cave
+8 Mountain
+8 Plains
+4 Secluded Steppe
+3 Temple of the False God
+
+Sideboard · 15
+1 Ancestral Tribute
+2 Cleansing Meditation
+1 Decree of Annihilation
+1 Decree of Justice
+1 Demolish
+1 Eternal Dragon
+1 Exalted Angel
+2 Morningtide
+2 Obliterate
+1 Overmaster
+1 Slice and Dice
+1 Wrath of God</pre>
+  <p class="small">Source: <a href="https://www.mtgtop8.com/event?d=252491&amp;e=9174&amp;f=ST">open the historical record</a></p>
+ </div>
+</details>
+<details class="deck" >
+ <summary><span><strong>Riki Hayashi — Sound of Silence — U/W Control</strong>
+ <small>PTQ Top 8 · PTQ Mountain View, Onslaught Block Constructed</small></span><span class="plus">+</span></summary>
+ <div class="deck-body">
+  <p>Outside Slide, Eternal Dragon also anchored pure white-blue control: fixing early mana, consuming a counter late, and returning after sweepers.</p>
+  <div class="deck-meta"><div><b>Riki Hayashi</b>
+  <div class="small">PTQ Top 8 · September 2003</div></div>
+  <button class="copy" data-target="deck-1">Copy decklist</button></div>
+  <div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Silver Knight">Silver Knight</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Exalted Angel">Exalted Angel</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Eternal Dragon">Eternal Dragon</span></div></div><div class="group"><h4>Lands · 27</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Flooded Strand">Flooded Strand</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Grand Coliseum">Grand Coliseum</span></div><div class="row"><span class="qty">8</span><span class="card-name" tabindex="0" data-card="Island">Island</span></div><div class="row"><span class="qty">8</span><span class="card-name" tabindex="0" data-card="Plains">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Temple of the False God">Temple of the False God</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants and sorceries · 23</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Wing Shards">Wing Shards</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Akroma&#x27;s Vengeance">Akroma&#x27;s Vengeance</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Decree of Justice">Decree of Justice</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Chain of Vapor">Chain of Vapor</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Stifle">Stifle</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Complicate">Complicate</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Discombobulate">Discombobulate</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Decree of Silence">Decree of Silence</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Windborn Muse">Windborn Muse</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Starlight Invoker">Starlight Invoker</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Stabilizer">Stabilizer</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Chromeshell Crab">Chromeshell Crab</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Wipe Clean">Wipe Clean</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Discombobulate">Discombobulate</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Decree of Silence">Decree of Silence</span></div></div></div></div>
+  <pre id="deck-1" hidden>Riki Hayashi — Sound of Silence — U/W Control
+PTQ Top 8 — PTQ Mountain View, Onslaught Block Constructed (September 2003)
+
+Creatures · 10
+4 Silver Knight
+3 Exalted Angel
+3 Eternal Dragon
+
+Instants and sorceries · 23
+4 Wing Shards
+4 Akroma&#x27;s Vengeance
+2 Decree of Justice
+3 Chain of Vapor
+3 Stifle
+2 Complicate
+3 Discombobulate
+2 Decree of Silence
+
+Lands · 27
+4 Flooded Strand
+3 Grand Coliseum
+8 Island
+8 Plains
+4 Temple of the False God
+
+Sideboard · 15
+3 Windborn Muse
+2 Starlight Invoker
+3 Stabilizer
+3 Chromeshell Crab
+2 Wipe Clean
+1 Discombobulate
+1 Decree of Silence</pre>
+  <p class="small">Source: <a href="https://articles.starcitygames.com/articles/breaking-the-silence-ptq-top-8-report/">open the historical record</a></p>
+ </div>
+</details>
+<details class="deck" >
+ <summary><span><strong>Julien Nuijten — Green-White Astral Slide</strong>
+ <small>World Champion · Worlds 2004, San Francisco</small></span><span class="plus">+</span></summary>
+ <div class="deck-body">
+  <p>The canonical performance: four copies in the deck that defeated Affinity and won the 2004 World Championship.</p>
+  <div class="deck-meta"><div><b>Julien Nuijten</b>
+  <div class="small">World Champion · September 1–5, 2004</div></div>
+  <button class="copy" data-target="deck-2">Copy decklist</button></div>
+  <div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Eternal Dragon">Eternal Dragon</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Eternal Witness">Eternal Witness</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Viridian Shaman">Viridian Shaman</span></div></div><div class="group"><h4>Sorceries · 13</h4><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Akroma&#x27;s Vengeance">Akroma&#x27;s Vengeance</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Decree of Justice">Decree of Justice</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Plow Under">Plow Under</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Rampant Growth">Rampant Growth</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Wrath of God">Wrath of God</span></div></div><div class="group"><h4>Lands · 25</h4><div class="row"><span class="qty">7</span><span class="card-name" tabindex="0" data-card="Forest">Forest</span></div><div class="row"><span class="qty">6</span><span class="card-name" tabindex="0" data-card="Plains">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Secluded Steppe">Secluded Steppe</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Tranquil Thicket">Tranquil Thicket</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Windswept Heath">Windswept Heath</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants · 6</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Renewed Faith">Renewed Faith</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Wing Shards">Wing Shards</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Astral Slide">Astral Slide</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Circle of Protection: Red">Circle of Protection: Red</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Oxidize">Oxidize</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Plow Under">Plow Under</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Rude Awakening">Rude Awakening</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Scrabbling Claws">Scrabbling Claws</span></div></div></div></div>
+  <pre id="deck-2" hidden>Julien Nuijten — Green-White Astral Slide
+World Champion — Worlds 2004, San Francisco (September 1–5, 2004)
+
+Creatures · 12
+4 Eternal Dragon
+4 Eternal Witness
+4 Viridian Shaman
+
+Instants · 6
+4 Renewed Faith
+2 Wing Shards
+
+Sorceries · 13
+2 Akroma&#x27;s Vengeance
+2 Decree of Justice
+1 Plow Under
+4 Rampant Growth
+4 Wrath of God
+
+Enchantments · 4
+4 Astral Slide
+
+Lands · 25
+7 Forest
+6 Plains
+4 Secluded Steppe
+4 Tranquil Thicket
+4 Windswept Heath
+
+Sideboard · 15
+3 Circle of Protection: Red
+4 Oxidize
+3 Plow Under
+2 Rude Awakening
+3 Scrabbling Claws</pre>
+  <p class="small">Source: <a href="https://mtg.wtf/deck/wc04/julien-nuijten-green-white-astral-slide">open the historical record</a></p>
+ </div>
+</details>
+<details class="deck" >
+ <summary><span><strong>Raoul Behnert — U/W/x Landstill</strong>
+ <small>Top 4 · Legacy ASL Berlin 08/08</small></span><span class="plus">+</span></summary>
+ <div class="deck-body">
+  <p>Legacy compressed the card to one or two copies. Under Standstill, plainscycling improved mana without casting a spell; later the Dragon became a recursive clock.</p>
+  <div class="deck-meta"><div><b>Raoul Behnert</b>
+  <div class="small">Top 4 · August 16, 2008</div></div>
+  <button class="copy" data-target="deck-3">Copy decklist</button></div>
+  <div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Eternal Dragon">Eternal Dragon</span></div></div><div class="group"><h4>Instants · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Brainstorm">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Counterspell">Counterspell</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Cunning Wish">Cunning Wish</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Fact or Fiction">Fact or Fiction</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Force of Will">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Swords to Plowshares">Swords to Plowshares</span></div></div><div class="group"><h4>Enchantments · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Humility">Humility</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Standstill">Standstill</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Engineered Explosives">Engineered Explosives</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Nevinyrral&#x27;s Disk">Nevinyrral&#x27;s Disk</span></div></div><div class="group"><h4>Sorceries · 5</h4><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Decree of Justice">Decree of Justice</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Wrath of God">Wrath of God</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Academy Ruins">Academy Ruins</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Flooded Strand">Flooded Strand</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Island">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Mishra&#x27;s Factory">Mishra&#x27;s Factory</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Plains">Plains</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Polluted Delta">Polluted Delta</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Scrubland">Scrubland</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Tundra">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Underground Sea">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Wasteland">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Meddling Mage">Meddling Mage</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Blue Elemental Blast">Blue Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Enlightened Tutor">Enlightened Tutor</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Extirpate">Extirpate</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Hydroblast">Hydroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Pulse of the Fields">Pulse of the Fields</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Return to Dust">Return to Dust</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Slaughter Pact">Slaughter Pact</span></div></div></div></div>
+  <pre id="deck-3" hidden>Raoul Behnert — U/W/x Landstill
+Top 4 — Legacy ASL Berlin 08/08 (August 16, 2008)
+
+Creatures · 2
+2 Eternal Dragon
+
+Artifacts · 4
+3 Engineered Explosives
+1 Nevinyrral&#x27;s Disk
+
+Instants · 20
+4 Brainstorm
+4 Counterspell
+2 Cunning Wish
+2 Fact or Fiction
+4 Force of Will
+4 Swords to Plowshares
+
+Sorceries · 5
+3 Decree of Justice
+2 Wrath of God
+
+Enchantments · 6
+2 Humility
+4 Standstill
+
+Lands · 23
+1 Academy Ruins
+4 Flooded Strand
+3 Island
+4 Mishra&#x27;s Factory
+2 Plains
+2 Polluted Delta
+1 Scrubland
+4 Tundra
+1 Underground Sea
+1 Wasteland
+
+Sideboard · 15
+4 Meddling Mage
+2 Blue Elemental Blast
+1 Enlightened Tutor
+3 Extirpate
+2 Hydroblast
+1 Pulse of the Fields
+1 Return to Dust
+1 Slaughter Pact</pre>
+  <p class="small">Source: <a href="https://mtgdecks.net/Legacy/landstill-uwx-decklist-by-raoul-behnert-6327/visual">open the historical record</a></p>
+ </div>
+</details>
+<details class="deck" >
+ <summary><span><strong>Jack Elgin — The Mighty Quinn</strong>
+ <small>Top 16 · The Source 5th Anniversary Tournament — 127 players</small></span><span class="plus">+</span></summary>
+ <div class="deck-body">
+  <p>A second Legacy identity: mono-white control used Dragon as both land assurance and an endlessly recoverable threat beside Painter–Grindstone.</p>
+  <div class="deck-meta"><div><b>Jack Elgin</b>
+  <div class="small">Top 16 · October 18, 2008</div></div>
+  <button class="copy" data-target="deck-4">Copy decklist</button></div>
+  <div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 5</h4><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Eternal Dragon">Eternal Dragon</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Painter&#x27;s Servant">Painter&#x27;s Servant</span></div></div><div class="group"><h4>Instants · 14</h4><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Abeyance">Abeyance</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Enlightened Tutor">Enlightened Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Orim&#x27;s Chant">Orim&#x27;s Chant</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Swords to Plowshares">Swords to Plowshares</span></div></div><div class="group"><h4>Enchantments · 8</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Moat">Moat</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Oblivion Ring">Oblivion Ring</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Runed Halo">Runed Halo</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Sacred Mesa">Sacred Mesa</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Grindstone">Grindstone</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Isochron Scepter">Isochron Scepter</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Sensei&#x27;s Divining Top">Sensei&#x27;s Divining Top</span></div></div><div class="group"><h4>Sorceries · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Decree of Justice">Decree of Justice</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Wrath of God">Wrath of God</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Scrying Sheets">Scrying Sheets</span></div><div class="row"><span class="qty">19</span><span class="card-name" tabindex="0" data-card="Snow-Covered Plains">Snow-Covered Plains</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Aura of Silence">Aura of Silence</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Endless Horizons">Endless Horizons</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Sacred Ground">Sacred Ground</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Seal of Cleansing">Seal of Cleansing</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Story Circle">Story Circle</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Goblin Charbelcher">Goblin Charbelcher</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Tormod&#x27;s Crypt">Tormod&#x27;s Crypt</span></div></div></div></div>
+  <pre id="deck-4" hidden>Jack Elgin — The Mighty Quinn
+Top 16 — The Source 5th Anniversary Tournament — 127 players (October 18, 2008)
+
+Creatures · 5
+3 Eternal Dragon
+2 Painter&#x27;s Servant
+
+Artifacts · 7
+1 Grindstone
+2 Isochron Scepter
+4 Sensei&#x27;s Divining Top
+
+Instants · 14
+3 Abeyance
+3 Enlightened Tutor
+4 Orim&#x27;s Chant
+4 Swords to Plowshares
+
+Sorceries · 4
+1 Decree of Justice
+3 Wrath of God
+
+Enchantments · 8
+1 Moat
+3 Oblivion Ring
+3 Runed Halo
+1 Sacred Mesa
+
+Lands · 22
+3 Scrying Sheets
+19 Snow-Covered Plains
+
+Sideboard · 15
+2 Aura of Silence
+2 Endless Horizons
+3 Sacred Ground
+2 Seal of Cleansing
+2 Story Circle
+2 Goblin Charbelcher
+2 Tormod&#x27;s Crypt</pre>
+  <p class="small">Source: <a href="https://mtgdecks.net/Legacy/the-mighty-quinn-decklist-by-jack-elgin-5929">open the historical record</a></p>
+ </div>
+</details>
+<details class="deck" >
+ <summary><span><strong>Matti Hämäläinen — Red-White Astral Slide</strong>
+ <small>Recorded championship list · Premodern European Championships 2025</small></span><span class="plus">+</span></summary>
+ <div class="deck-body">
+  <p>More than twenty years later, the closed Premodern card pool restores the Dragon to a familiar four-copy role.</p>
+  <div class="deck-meta"><div><b>Matti Hämäläinen</b>
+  <div class="small">Recorded championship list · 2025</div></div>
+  <button class="copy" data-target="deck-5">Copy decklist</button></div>
+  <div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Eternal Dragon">Eternal Dragon</span></div></div><div class="group"><h4>Sorceries · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Decree of Justice">Decree of Justice</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Slice and Dice">Slice and Dice</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Wrath of God">Wrath of God</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Battlefield Forge">Battlefield Forge</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Forgotten Cave">Forgotten Cave</span></div><div class="row"><span class="qty">5</span><span class="card-name" tabindex="0" data-card="Mountain">Mountain</span></div><div class="row"><span class="qty">7</span><span class="card-name" tabindex="0" data-card="Plains">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Secluded Steppe">Secluded Steppe</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants · 13</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Enlightened Tutor">Enlightened Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Renewed Faith">Renewed Faith</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Spark Spray">Spark Spray</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Swords to Plowshares">Swords to Plowshares</span></div></div><div class="group"><h4>Enchantments · 9</h4><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Astral Slide">Astral Slide</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Lightning Rift">Lightning Rift</span></div><div class="row"><span class="qty">3</span><span class="card-name" tabindex="0" data-card="Seal of Cleansing">Seal of Cleansing</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Black Vise">Black Vise</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Cursed Totem">Cursed Totem</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Enlightened Tutor">Enlightened Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" tabindex="0" data-card="Exalted Angel">Exalted Angel</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Pyroblast">Pyroblast</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Red Elemental Blast">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" tabindex="0" data-card="Seal of Cleansing">Seal of Cleansing</span></div><div class="row"><span class="qty">2</span><span class="card-name" tabindex="0" data-card="Tormod&#x27;s Crypt">Tormod&#x27;s Crypt</span></div></div></div></div>
+  <pre id="deck-5" hidden>Matti Hämäläinen — Red-White Astral Slide
+Recorded championship list — Premodern European Championships 2025 (2025)
+
+Creatures · 4
+4 Eternal Dragon
+
+Instants · 13
+1 Enlightened Tutor
+4 Renewed Faith
+4 Spark Spray
+4 Swords to Plowshares
+
+Sorceries · 10
+4 Decree of Justice
+3 Slice and Dice
+3 Wrath of God
+
+Enchantments · 9
+2 Astral Slide
+4 Lightning Rift
+3 Seal of Cleansing
+
+Lands · 24
+4 Battlefield Forge
+4 Forgotten Cave
+5 Mountain
+7 Plains
+4 Secluded Steppe
+
+Sideboard · 15
+1 Black Vise
+2 Cursed Totem
+1 Enlightened Tutor
+4 Exalted Angel
+2 Pyroblast
+2 Red Elemental Blast
+1 Seal of Cleansing
+2 Tormod&#x27;s Crypt</pre>
+  <p class="small">Source: <a href="https://mtgdecks.net/Premodern/astral-slide-decklist-by-matti-haemaelaeinen-2610774">open the historical record</a></p>
+ </div>
+</details></div>
+  </section>
+
+  <section id="printings">
+   <div class="chapter-number">XI · The object</div>
+   <h2>Printings, artwork, and sources</h2>
+   <p>Justin Sweet’s original image has followed the card through its competitive and nostalgic lives. The frame has changed more than the art: old-frame Scourge rare, Commander reprint, cycling preconstructed deck, and another multiplayer appearance. The spectral Dragon remains suspended between presence and absence.</p>
+
+   <div class="printings">
+    <figure class="printing"><img src="https://api.scryfall.com/cards/scg/12?format=image&version=normal" alt="Scourge Eternal Dragon"><figcaption>Scourge · 2003<br>Original old-frame printing</figcaption></figure>
+    <figure class="printing"><img src="https://api.scryfall.com/cards/named?exact=Eternal%20Dragon&set=c13&format=image&version=normal" alt="Commander 2013 Eternal Dragon"><figcaption>Commander 2013<br>First Commander-era reprint</figcaption></figure>
+    <figure class="printing"><img src="https://api.scryfall.com/cards/c20/88?format=image&version=normal" alt="Commander 2020 Eternal Dragon"><figcaption>Commander 2020<br><em>Timeless Wisdom</em></figcaption></figure>
+    <figure class="printing"><img src="https://api.scryfall.com/cards/afc/66?format=image&version=normal" alt="Forgotten Realms Commander Eternal Dragon"><figcaption>Forgotten Realms Commander · 2021</figcaption></figure>
+   </div>
+
+   <h3>Research trail</h3>
+   <ol class="sources">
+    <li><a href="https://magic.wizards.com/en/news/making-magic/bigger-better-2003-05-12">Mark Rosewater, “The Bigger, the Better”</a><span>Scourge design team, set themes, and Worth Wollpert’s design credit.</span></li>
+    <li><a href="https://magic.wizards.com/en/news/making-magic/new-improved-2013-05-06">Mark Rosewater, “New & Improved”</a><span>The origin of the landcycling solution for expensive creatures.</span></li>
+    <li><a href="https://mtg.wtf/card/scg/12/Eternal-Dragon">Eternal Dragon card record</a><span>Oracle text, release date, artist, legalities, rulings, and printings.</span></li>
+    <li><a href="https://www.mtgtop8.com/event?d=252491&e=9174&f=ST">Gabe Walls, Worlds 2003 Astral Slide</a><span>Berlin Top 8 list and event record.</span></li>
+    <li><a href="https://mtg.wtf/deck/wc04/julien-nuijten-green-white-astral-slide">Julien Nuijten, Worlds 2004 Astral Slide</a><span>The World Championship list.</span></li>
+    <li><a href="https://articles.starcitygames.com/articles/breaking-the-silence-ptq-top-8-report/">Riki Hayashi, “Breaking the Silence”</a><span>Onslaught Block control list and tournament report.</span></li>
+    <li><a href="https://articles.starcitygames.com/articles/unlocking-legacy-looking-at-landstill/">“Unlocking Legacy — Looking at Landstill”</a><span>The Dragon’s land-drop role in early Legacy control.</span></li>
+    <li><a href="https://mtgdecks.net/Legacy/landstill-uwx-decklist-by-raoul-behnert-6327/visual">Raoul Behnert, U/W/x Landstill</a><span>2008 Legacy tournament list.</span></li>
+    <li><a href="https://mtgdecks.net/Legacy/the-mighty-quinn-decklist-by-jack-elgin-5929">Jack Elgin, The Mighty Quinn</a><span>2008 127-player Legacy tournament list.</span></li>
+    <li><a href="https://articles.starcitygames.com/articles/the-history-of-selesnya-part-two/">“The History of Selesnya: Part Two”</a><span>Retrospective on the Eternal Dragon–Decree package.</span></li>
+    <li><a href="https://articles.starcitygames.com/articles/the-best-decks/">“The Best Decks”</a><span>Retrospective on Onslaught Block Dragon recursion.</span></li>
+    <li><a href="https://magic.wizards.com/en/news/announcements/timeless-wisdom-2020-04-06">Timeless Wisdom decklist</a><span>Official Commander 2020 cycling-deck reprint.</span></li>
+    <li><a href="https://mtgdecks.net/Premodern/astral-slide-decklist-by-matti-haemaelaeinen-2610774">Premodern European Championships 2025 list</a><span>The card’s modern Premodern afterlife.</span></li>
+    <li><a href="https://www.reddit.com/r/magicTCG/comments/fvife2/">Commander 2020 reprint discussion</a><span>Public player memories of Landstill, The Mighty Quinn, Type 1, and old Legacy.</span></li>
+   </ol>
+
+   <p class="editor-note"><b>Editorial note:</b> This essay distinguishes defining competitive formats from niche or casual appearances. Tournament lists are reproduced as historical records. The testimony section uses brief public recollections rather than presenting nostalgia as tournament evidence.</p>
+  </section>
+ </article>
+
+ <aside class="sidebar-note">
+  <b>Compulsive Research</b><br>
+  A series about cards as historical objects: how they were designed, how players used them, what displaced them, and what remains in memory after the metagame moves on.
+ </aside>
+</div>
+
+
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px">
+ <div class="chapter-number">XIII · Continue reading</div>
+ <h2>The numbered archive</h2>
+ <p>Eternal Dragon is entry 250 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p>
+ <nav class="end-nav">
+  <a href="../index.html#entry-249"><small>Previous entry · 249</small>Lightning Rift</a>
+  <a href="../index.html#entry-251"><small>Next entry · 251</small>Decree of Justice</a>
+ </nav>
+</section>
+<div id="preview"><img alt=""></div>
+<footer class="footer">Compulsive Research · Independent Magic history project. Card images and artwork © Wizards of the Coast.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script>
+</body>
+</html>
