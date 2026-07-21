@@ -1,18 +1,18 @@
-COMPULSIVE RESEARCH — CANONICAL ARTICLE NAVIGATION EDITION
+COMPULSIVE RESEARCH — COUNTERSPELL ARTICLE EDITION
 
 Upload the contents of this folder to the root of a GitHub Pages repository.
 
-HTML pages
+Published HTML pages
 - index.html
 - 001-black-lotus.html
 - 002-ancestral-recall.html
+- 012-counterspell.html
+- 102-force-of-will.html
 - 103-brainstorm.html
 - 250-eternal-dragon.html
 
-The landing page contains all twenty collapsed waves. Each published entry links
-directly to its single canonical root-level article page. Articles are no longer
-opened inside a duplicate embedded reader.
+The landing page contains all twenty collapsed waves. Published entries link
+directly to their single canonical root-level article pages.
 
-Article table-of-contents links use ordinary page fragments and move directly to
-the corresponding section. The article's existing return link is the sole
-navigation control back to Compulsive Research.
+Entry 012 is a new long-form Counterspell article matching the established
+Compulsive Research visual, navigation, decklist, card-preview, and source style.
