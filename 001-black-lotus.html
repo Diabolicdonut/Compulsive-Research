@@ -777,5 +777,31 @@ addEventListener('scroll',updateProgress,{passive:true});updateProgress();
  addEventListener('scroll',progress,{passive:true});progress();
 })();
 </script>
+<script>
+(function(){
+  function scrollToArticleSection(hash, updateHistory){
+    if(!hash || hash.charAt(0) !== '#') return false;
+    let id;
+    try { id = decodeURIComponent(hash.slice(1)); }
+    catch (error) { id = hash.slice(1); }
+    const target = document.getElementById(id);
+    if(!target) return false;
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+    if(updateHistory && history.replaceState){ history.replaceState(null, '', '#' + encodeURIComponent(id)); }
+    document.querySelectorAll('.toc a').forEach(function(link){
+      link.classList.toggle('active', link.getAttribute('href') === '#' + id || link.hash === '#' + id);
+    });
+    return true;
+  }
+  document.addEventListener('click', function(event){
+    const link = event.target.closest('.toc a[href^="#"]');
+    if(!link) return;
+    const hash = link.getAttribute('href');
+    if(scrollToArticleSection(hash, true)) event.preventDefault();
+  });
+  window.addEventListener('hashchange', function(){ scrollToArticleSection(location.hash, false); });
+  if(location.hash){ setTimeout(function(){ scrollToArticleSection(location.hash, false); }, 80); }
+})();
+</script>
 </body>
 </html>

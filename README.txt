@@ -1,10 +1,14 @@
-COMPULSIVE RESEARCH — SELF-CONTAINED LANDING EDITION
+COMPULSIVE RESEARCH — BRAINSTORM EDITION
 
-Upload this folder to the root of a GitHub Pages repository.
+Upload the contents of this folder to the root of a GitHub Pages repository.
 
-- index.html contains all twenty collapsible waves
-- every wave is collapsed by default
-- the three published articles are embedded for reliable landing-page preview
-- published rows also retain normal links to root-level article files
-- article pages remain available separately
-- articles/ contains compatibility redirects for older links
+HTML pages
+- index.html
+- 001-black-lotus.html
+- 002-ancestral-recall.html
+- 103-brainstorm.html
+- 250-eternal-dragon.html
+
+The landing page contains all twenty collapsed waves and embeds all four
+published articles for reliable previewing. Each article also exists once as
+a canonical root-level page.
