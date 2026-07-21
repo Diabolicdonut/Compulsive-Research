@@ -1,0 +1,861 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Wrath of God: Alpha, symmetrical effects, card advantage, control, Worlds, regeneration, core sets, descendants, artwork, and player memory."><title>Wrath of God: The Spell That Punished the Extra Creature — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.ritual-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.ritual-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.ritual-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.cabal-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Cabal%20Ritual&format=image&version=art_crop)!important
+}
+.exchange-grid,.opening-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.opening-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.exchange-step,.opening-step{background:var(--white);padding:23px}
+.exchange-step b,.opening-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.exchange-step span,.opening-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.ritual-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.ritual-note b{color:var(--ink)}
+.mana-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mana-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.mana-row:last-child{border-bottom:0}.mana-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mana-row p{margin:0}
+@media(max-width:750px){.exchange-grid,.opening-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.exchange-grid,.opening-grid{grid-template-columns:1fr}}
+
+
+.wrath-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.wrath-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.wrath-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.day-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Day%20of%20Judgment&format=image&version=art_crop)!important
+}
+.exchange-grid,.discipline-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discipline-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.exchange-step,.discipline-step{background:var(--white);padding:23px}
+.exchange-step b,.discipline-step b{
+  display:block;font:900 1.95rem/1.03 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px
+}
+.exchange-step span,.discipline-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.wrath-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.wrath-note b{color:var(--ink)}
+.board-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.board-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.board-row:last-child{border-bottom:0}.board-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.board-row p{margin:0}
+@media(max-width:750px){.exchange-grid,.discipline-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.exchange-grid,.discipline-grid{grid-template-columns:1fr}}
+</style></head><body>
+<header class="hero wrath-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#wave-01">← Wave 01 · The Foundational Canon</a>
+<div class="eyebrow">Entry 018 · Wave 01 · The Foundational Canon</div>
+<h1>The Spell That Punished the Extra Creature</h1>
+<p class="deckline">Wrath of God taught players that a battlefield full of creatures could be a liability, that symmetry could be engineered into advantage, and that four untapped mana might erase an entire plan.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 24 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="index.html#entry-017">← Entry 017 · Balance</a><div class="center">Entry 018 of 1,000</div><a href="index.html#entry-019">Entry 019 · Armageddon →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong>
+<a href="#opening">The spell that punished the extra creature</a>
+<a href="#origin">Equality as a weapon</a>
+<a href="#symmetry">The symmetrical card that was never symmetrical</a>
+<a href="#advantage">One card for an army</a>
+<a href="#waiting">The threat of four mana</a>
+<a href="#regeneration">They cannot be regenerated</a>
+<a href="#worlds">The first World Champion</a>
+<a href="#permission">Wrath inside permission</a>
+<a href="#cycling">The sweeper in a cycling world</a>
+<a href="#worlds-2004">The Dragon control championship</a>
+<a href="#core">From Alpha through Tenth Edition</a>
+<a href="#formats">A life across formats</a>
+<a href="#play">How to play with and against Wrath</a>
+<a href="#descendants">The sweepers that followed</a>
+<a href="#art">The image of judgment</a>
+<a href="#memory">What players remember</a>
+<a href="#decklists">The deck archive</a>
+<a href="#printings">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The fourth land</div><h2>The spell that punished the extra creature</h2>
+<p class="opening dropcap">Wrath of God made the battlefield itself dangerous.</p>
+<p>Before the card existed, the natural lesson of a creature game seemed obvious: deploy more creatures, attack with more power, and make the opponent answer them one at a time. Wrath of God changed the arithmetic. A second creature could be useful. A third could be necessary. A fourth could be the mistake that turned one white card into an entire new hand.</p>
+<p>Its current text is five words: <em>Destroy all creatures. They can’t be regenerated.</em> The spell does not target, does not compare size, does not care who controls what, and does not preserve the creature that cost the most mana. It simply replaces a complicated battlefield with absence.</p>
+<p>That effect became so central to Magic that the card’s name escaped the card. Players do not merely cast Wrath of God. They “wrath” the board. A new mass-removal spell is a wrath even when it is black, red, multicolored, modal, conditional, or named after an event with no deity involved. The original rare became a grammatical category.</p>
+<div class="card-lead"><img alt="Wrath of God from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&amp;set=lea&amp;format=image&amp;version=normal"><div><div class="oracle"><b>Wrath of God</b> · {2}{W}{W}<br>Sorcery<br><br>Destroy all creatures. They can’t be regenerated.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Illustrated by</b>Quinton Hoover</div><div class="stat"><b>Historical status</b>The benchmark four-mana sweeper</div></div></div></div>
+<p>Wrath is not merely a reset button. It is a deck-building contract. The caster promises to construct a deck that needs the battlefield less than the opponent does. In return, the game permits one card to erase several.</p></section>
+<section id="origin"><div class="chapter-number">II · Limited Edition Alpha</div><h2>Equality as a weapon</h2>
+<p>Alpha gave white two of the game’s most enduring symmetrical catastrophes. <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span> destroyed every creature; <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span> destroyed every land. Both effects expressed white’s early relationship with order through a severe kind of equality: no creature is exempt, no land receives special treatment, and the world is returned to a condition the caster has chosen in advance.</p>
+<p>Mark Rosewater later described Wrath as a catch-up mechanism that gives white—normally the color of defense and fairness—a way to turn equality into offense. That is the design’s hidden aggression. The spell treats both players identically at resolution, but it rewards the player who anticipated the judgment and punishes the player who behaved as though the battlefield would persist.</p>
+<p>The original design also solved a practical game problem. Creature decks need reasons not to commit every card as quickly as possible. Without broad answers, the player ahead on the battlefield is encouraged to become further ahead, while the player behind must trade one removal spell for one creature until the gap becomes impossible. Wrath creates a point at which excess development becomes exposure.</p>
+<div class="pullquote">The text is symmetrical. The preparation is not.<small>Wrath of God’s central strategic principle</small></div>
+<p>That principle became foundational to control. White did not need the most efficient creature on each turn if it could make all creatures temporary. It could spend early turns drawing cards, making land drops, countering only the most dangerous spells, and allowing the opponent to build the very advantage Wrath would later convert into a liability.</p>
+<p>Alpha did not arrive with a settled theory explaining any of this. The card entered a game in which deck sizes, collection sizes, timing rules, and tournament conventions were still being discovered. Wrath helped players learn that the value of a card could not be measured only by what it added to your side. Removing several opposing cards at once could be a form of production.</p>
+<p>It also gave white a characteristic answer to creature quality. Green could make the largest creature, black could regenerate or recur its dead, and red could trade damage for bodies. White did not need to defeat those creatures individually. It could declare that the distinction between the best creature and the worst creature no longer mattered.</p></section>
+<section id="symmetry"><div class="chapter-number">III · The construction</div><h2>The symmetrical card that was never symmetrical</h2>
+<p>A literal reading says that Wrath destroys your creatures too. A strategic reading asks why the control deck was required to have creatures on the battlefield in the first place.</p>
+<p>Early control lists used very few finishers. A deck might contain two <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>s, a <span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra’s Factory</span> that was a land while Wrath resolved, or a recursive threat that could return after the battlefield was cleared. Later decks used planeswalkers, token-producing lands, cycling finishers, graveyard recursion, indestructible permanents, or creatures whose enters-the-battlefield effects had already paid for them.</p>
+<p>The creature deck, meanwhile, was built to win through battlefield presence. The same sentence therefore struck unequal resources. The control player might lose nothing. The opponent might lose three creatures and the mana spent casting them. The card was symmetrical only in the narrow sense that both sides received the same instruction.</p>
+<div class="exchange-grid"><div class="exchange-step"><b>0</b><span>Creatures the control deck can arrange to lose.</span></div><div class="exchange-step"><b>3</b><span>Creatures an opponent may need to commit to pressure life total.</span></div><div class="exchange-step"><b>1</b><span>Card spent to clear the entire battlefield.</span></div><div class="exchange-step"><b>Time</b><span>The hidden resource gained when the opponent must rebuild.</span></div></div>
+<p>This is one of Magic’s clearest examples of how deck construction breaks symmetry. The rules text does not identify a beneficiary. The surrounding sixty cards do.</p>
+<p>The same logic applies to sequencing. A control player may cast a utility creature, receive its value, trade it in combat, and then sweep away what remains. A creature land can attack while Wrath is absent and become only a land when the spell resolves. A finisher can wait in hand until the board is empty. What looks like self-destruction becomes planned depreciation.</p>
+<p>Symmetrical cards are often among the most demanding designs in Magic because their strength is hidden in preparation. Wrath does not tell the player how to make it unfair. It simply offers a universal rule and rewards the deck that has already decided how to live after it.</p></section>
+<section id="advantage"><div class="chapter-number">IV · The exchange</div><h2>One card for an army</h2>
+<p>Wrath of God became a textbook example of card advantage because its exchange is visible. If it destroys two opposing creatures and none of yours, one card has traded for two. At three creatures, the advantage is larger. At four, the opponent may have lost an entire opening hand’s worth of action to a single draw.</p>
+<p>But the exchange includes more than cards. Each destroyed creature represents mana already spent and turns already invested. After Wrath resolves, the control player untaps with the initiative. The opponent must spend another turn rebuilding, often one creature at a time to avoid repeating the disaster.</p>
+<p>The threat of Wrath can create advantage even before the card is cast. A careful opponent may hold creatures in hand, reducing pressure and giving the control deck time. An impatient opponent may commit them, increasing the eventual exchange. The card forces a choice between dealing enough damage and preserving enough resources.</p>
+<div class="wrath-note"><b>The important threshold is not always two-for-one.</b> Casting Wrath to destroy a single creature can be correct when that creature will otherwise end the game, when the spell protects a planeswalker, or when the tempo gained allows the control deck to take over. Card advantage is a tool, not a ritual requirement.</div>
+<p>The best control players therefore do not wait automatically for the largest possible battlefield. They ask how much life, time, and information are being purchased by waiting—and whether the opponent’s next creature will make the exchange better or make survival impossible.</p>
+<p>There is also virtual card advantage. When an opponent suspects Wrath and keeps two creatures in hand, those cards are not destroyed, but they are not attacking either. The sweeper has temporarily blanked them without being cast. The control deck gains draw steps and land drops while the creature player preserves resources that may never be deployed in time.</p>
+<p>Conversely, the threat of Wrath can make spot removal stronger. If one early creature is answered by Swords to Plowshares, the opponent may feel compelled to cast two more. If those are swept away, the control deck has used one-for-one interaction to shape the multi-card exchange it wanted all along.</p></section>
+<section id="waiting"><div class="chapter-number">V · The open mana</div><h2>The threat of four mana</h2>
+<p>Four mana became a psychological landmark. When the white control player made the fourth land drop, every attack and every post-combat creature acquired a second meaning. Was the opponent adding enough pressure to force action, or donating another card to the sweeper?</p>
+<p>The control player could exploit that uncertainty. Passing with four mana represented Wrath, countermagic, instant-speed card draw, or nothing at all. Even when Wrath was a sorcery, the opponent had to decide during their own turn how much to expose before the control player untapped.</p>
+<p>This produced one of the classic rhythms of constructed Magic. The creature deck developed. The control deck absorbed damage. The fourth land appeared. The creature deck either slowed down—granting time—or extended—granting cards. Wrath transformed untapped mana into a form of battlefield control before the spell left the hand.</p>
+<div class="discipline-grid"><div class="discipline-step"><b>Pressure</b><span>Commit enough power that the control player cannot wait forever.</span></div><div class="discipline-step"><b>Reserve</b><span>Keep enough creatures in hand to rebuild after the sweeper.</span></div><div class="discipline-step"><b>Read</b><span>Use attacks, mana, and prior choices to judge whether Wrath is actually present.</span></div></div>
+<p>That tension helped make control mirrors and control-versus-aggro games intellectually distinct. The creature player was not merely counting damage. They were managing exposure to a card that might or might not exist.</p>
+<p>Experienced players learned to represent Wrath with behavior. A control player who declined an early trade, accepted damage, or preserved a particular land pattern might be signaling confidence in a reset. The opponent could respond by withholding creatures—or decide the signal was a bluff. The card therefore created a contest of interpretation around a sorcery that could not even be cast during the opponent’s turn.</p>
+<p>The strongest pressure often came from creatures that made the fourth turn awkward: haste creatures that dealt damage before the reset, death triggers that survived destruction as value, or threats that demanded immediate spot removal and left Wrath for the next wave. Entire archetypes evolved around applying enough pressure to force the sweeper without losing every resource to it.</p></section>
+<section id="regeneration"><div class="chapter-number">VI · The final clause</div><h2>They cannot be regenerated</h2>
+<p>The second sentence mattered enormously in early Magic. Regeneration was a common defense in black and green, and many creatures could survive ordinary destruction if their controller paid a cost or used an ability. Wrath of God denied that escape.</p>
+<p>Under modern rules, regeneration creates a replacement shield that removes damage, taps the creature, and removes it from combat instead of allowing destruction. Wrath’s clause prevents those shields from saving anything it destroys. The language made the original sweeper feel absolute: this was not combat damage, ordinary murder, or a temporary disaster. It was judgment.</p>
+<p>The clause also distinguished Wrath from later descendants. <span class="card-name" data-card="Day of Judgment" tabindex="0">Day of Judgment</span> removes the regeneration prohibition and is otherwise nearly identical. In many modern games the distinction is invisible because regeneration has largely left contemporary design, but historically it could determine whether a battlefield was actually cleared.</p>
+<p>Wrath also taught generations of players what mass removal does not do. It does not target, so shroud and hexproof do not protect creatures. Protection from white does not stop a non-targeting destruction effect under modern rules. Indestructible does. Creatures can also survive by leaving the battlefield, becoming noncreatures, being phased out, or being replaced by death triggers and recursion.</p>
+<p>The historical rules were not always so clean. Under Alpha’s original protection rules, protection could prevent a creature from being affected by a card of the protected color, meaning a <span class="card-name" data-card="Black Knight" tabindex="0">Black Knight</span> could once survive a white Wrath. Later rules narrowed protection into the familiar damage, attachment, blocking, and targeting functions. The card remained the same while the game learned how to define what “all creatures” meant.</p>
+<p>That history is part of Wrath’s importance as a teaching tool. It sits at the intersection of simultaneous destruction, regeneration replacement effects, death triggers, indestructible, protection, creature lands, and timing. A five-word effect can expose a remarkable amount of rules architecture.</p>
+<div class="board-sequence"><div class="board-row"><strong>Cast</strong><p>Wrath of God is placed on the stack as a sorcery.</p></div><div class="board-row"><strong>Respond</strong><p>Players may counter it, sacrifice creatures, activate abilities, or move creatures out of danger.</p></div><div class="board-row"><strong>Destroy</strong><p>All creatures still on the battlefield are destroyed simultaneously.</p></div><div class="board-row"><strong>Aftermath</strong><p>Death triggers wait to be placed on the stack, and the active player continues with a cleared battlefield.</p></div></div></section>
+<div class="art-break wrath-art"><div class="art-caption"><b>Quinton Hoover’s original Wrath of God artwork</b>The image does not show a duel or a single victim. It shows a world overwhelmed by light, making the destruction feel universal rather than targeted.</div></div>
+<section id="worlds"><div class="chapter-number">VII · Worlds 1994</div><h2>The first World Champion</h2>
+<p>Zak Dolan’s World Championship deck demonstrated how Wrath could coexist with creatures. His U/W/G control list used four <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>s as finishers, utility creatures such as <span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span>, and only one Wrath of God.</p>
+<p>That single copy mattered because the deck was built around access rather than redundancy. <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span>, card drawing, and a large collection of one-of answers let Dolan find specialized tools. Wrath was not the deck’s default turn-four play. It was the reset available when the opponent’s battlefield outgrew spot removal, control magic, and blocking.</p>
+<p>The list also showed the earliest version of a pattern that would recur for decades: a control deck can play creatures and still benefit from mass removal if those creatures are few, resilient, replaceable, or deployed after the board is cleared. Serra Angel was not merely a threat. It was the threat that arrived after judgment.</p>
+<p>At the first World Championship, Wrath therefore appeared not as a four-copy identity card but as part of a broad language of control. It sat beside <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>, <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span>, <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span>, and the Power Nine—a compact answer to a problem that could not be solved one permanent at a time.</p>
+<p>Dolan’s use of Stasis and Kismet also reinforced the idea that Wrath was not required to win the game by itself. The control deck could reset creatures, constrain untapping, dominate individual permanents, and eventually finish with Serra Angel. The sweeper was one stage in converting a chaotic early game into a controlled late game.</p></section>
+<section id="permission"><div class="chapter-number">VIII · Pro Tour New York</div><h2>Wrath inside permission</h2>
+<p>Michael Loconto’s victory at the first Pro Tour presented a much more recognizable Wrath deck. His U/W Millstone control list contained four copies, four Counterspells, four Swords to Plowshares, card drawing, artifact control, and only two creatures.</p>
+<p>The structure was deliberate. Spot removal answered an early threat without forcing a full reset. Counterspell stopped cards that would be difficult to answer after resolution. Wrath punished the opponent for building around those one-for-one exchanges. Once the battlefield and hands were depleted, <span class="card-name" data-card="Millstone" tabindex="0">Millstone</span> or <span class="card-name" data-card="Blinking Spirit" tabindex="0">Blinking Spirit</span> could finish the game.</p>
+<p>Wrath and permission complement each other because they attack opposite mistakes. If the opponent casts one threat at a time, Counterspell and Swords can trade efficiently while the control deck develops. If the opponent casts several threats to overwhelm those answers, Wrath trades up. The creature deck is forced to choose which class of answer it wants to lose to.</p>
+<p>Loconto’s championship helped establish the four-mana sweeper as a structural pillar rather than an emergency singleton. A control deck could assume that the early battlefield would be temporary and organize every other card around reaching the turn when that assumption became true.</p>
+<p>The win condition mattered. Millstone did not need to expose itself to creature removal, and Blinking Spirit could return to hand before destruction. The deck’s route to victory therefore occupied different zones and timings from the resources Wrath destroyed. This separation—answer the battlefield with one class of cards, win through another—became a recurring feature of successful control.</p>
+<p>Four copies also changed mulligan and planning decisions. Loconto could expect to draw Wrath often enough to keep hands built around surviving to four mana. The card was no longer merely a possibility accessible through tutors. It was part of the deck’s expected curve.</p></section>
+<section id="cycling"><div class="chapter-number">IX · Worlds 2003</div><h2>The sweeper in a cycling world</h2>
+<p>By Worlds 2003, Wrath of God was operating inside a very different ecosystem. Gabe Walls’s red-white Astral Slide deck combined three main-deck Wraths with cycling creatures, <span class="card-name" data-card="Eternal Dragon" tabindex="0">Eternal Dragon</span>, <span class="card-name" data-card="Exalted Angel" tabindex="0">Exalted Angel</span>, <span class="card-name" data-card="Lightning Rift" tabindex="0">Lightning Rift</span>, and a sideboard copy accessible through <span class="card-name" data-card="Burning Wish" tabindex="0">Burning Wish</span>.</p>
+<p>The deck could use Wrath without surrendering its long game because its threats were designed to survive conceptually even when they did not survive physically. Eternal Dragon could be cycled early and returned from the graveyard later. Decree of Justice created an army after the sweeper. Astral Slide could temporarily exile a creature, allowing it to return after the battlefield had been cleared.</p>
+<p>This was Wrath as engine component rather than isolated reset. Cycling found lands and answers, Slide manipulated the battlefield, and Wrath converted the opponent’s attempt to establish pressure into another turn for the recursive cards to take over.</p>
+<p>The sideboard copy also illustrated the importance of access. A deck with Burning Wish could turn one sideboard slot into an additional virtual copy when the battlefield demanded it, while keeping room in the main deck for more flexible cycling effects.</p>
+<p>Astral Slide added tactical nuance to the supposedly indiscriminate spell. By cycling a card with Slide in play, Walls could exile one of his own creatures before Wrath resolved. The creature returned at end step to an otherwise empty battlefield, turning the symmetrical destruction into something close to a one-sided sweeper.</p>
+<p>The deck also made excellent use of Wrath’s tempo. After the opponent spent a turn rebuilding, a morphed Exalted Angel or recurring Eternal Dragon could take over combat. The reset was not the conclusion of the plan. It was the turn that created room for the plan’s expensive cards to become safe.</p></section>
+<section id="worlds-2004"><div class="chapter-number">X · Worlds 2004</div><h2>The Dragon control championship</h2>
+<p>Julien Nuijten won the 2004 World Championship with green-white Astral Slide and four Wrath of God. His deck was full of creatures—four Eternal Dragon, four <span class="card-name" data-card="Eternal Witness" tabindex="0">Eternal Witness</span>, and four <span class="card-name" data-card="Viridian Shaman" tabindex="0">Viridian Shaman</span>—yet Wrath remained central.</p>
+<p>The apparent contradiction was solved by value and recursion. Eternal Witness returned spent cards. Eternal Dragon returned itself. Astral Slide could exile a creature in response to Wrath, then bring it back at end of turn. The creatures had already generated value or were capable of returning, while opposing creatures often represented ordinary investments that disappeared permanently.</p>
+<p>Nuijten’s list demonstrated the mature form of symmetry-breaking. The control deck no longer needed to avoid creatures. It needed creatures whose relationship to death was better than the opponent’s. Wrath could destroy twelve creatures on paper and still favor the deck designed to rebuild from the graveyard, hand, and exile zone.</p>
+<p>The World Championship victory preserved the card’s relevance more than a decade after Alpha. Wrath had moved from a rare in a toolbox control deck to a four-copy centerpiece in an engine deck without changing a word of rules text.</p>
+<p>Nuijten’s championship also demonstrated why board sweepers remained important even when creature design improved. Better creatures did not make Wrath obsolete; they made it more important to understand what value survived their destruction. Eternal Witness and Viridian Shaman had already done their work when they entered. Wrath cleared their bodies while leaving the cards or permanents they generated behind.</p>
+<p>This is the modern answer to the classic sweeper: do not merely protect creatures from dying. Build creatures whose deaths do not erase the entire investment. Wrath’s presence helped push creature design toward immediate value, recursion, resilience, and diversity of threats.</p></section>
+<section id="core"><div class="chapter-number">XI · The core-set institution</div><h2>From Alpha through Tenth Edition</h2>
+<p>Wrath of God appeared in every core set through Tenth Edition. That continuity made it one of the game’s institutional cards: a benchmark that new creatures, regeneration effects, control decks, and entire Standard formats had to account for.</p>
+<p>Its presence established an expectation. Four mana was the historical price of unconditional creature destruction, double white was the color commitment, sorcery speed was the window, and “can’t be regenerated” was the mark of finality. Later sweepers were evaluated by the distance from that package.</p>
+<p>Magic 2010 broke the uninterrupted core-set run. The new core-set philosophy replaced many automatic reprints with newly designed cards and eventually offered <span class="card-name" data-card="Day of Judgment" tabindex="0">Day of Judgment</span> as the cleaner four-mana baseline. Day omitted the regeneration clause, making the design slightly less absolute and easier to understand in environments where regeneration was intended to matter.</p>
+<p>Wrath did not disappear from Magic. It remained legal in older formats, returned in supplemental products, received new artwork, and continued to define the category. The core set could move on because the game had absorbed the card’s name into its vocabulary.</p>
+<p>The end of its uninterrupted run marked a larger shift in core-set design. Reprints were no longer inherited automatically merely because they were historic. Each card had to serve the environment, teaching goals, and contemporary color pie. Wrath had become iconic enough that removing it felt dramatic, but its function could be recreated with slightly different text.</p>
+<p>That distinction—between the card and the role—explains its legacy. Standard could lose Wrath of God without losing wraths. The institution survived the specific printing.</p>
+<div class="inline-image day-descendant"><div class="image"></div><div class="copy"><div class="kicker">The successor</div><h3>Day of Judgment</h3><p>Day of Judgment preserved the four-mana universal sweeper while removing the anti-regeneration clause. Its existence showed how closely later designs could approach Wrath and still be discussed as descendants rather than replacements in memory.</p></div></div></section>
+<section id="formats"><div class="chapter-number">XII · The environments</div><h2>A life across formats</h2>
+<p><b>Standard</b> was Wrath’s great historical home. From early control through Fifth Edition, Invasion-era U/W control, Astral Slide, and Tenth Edition, creature decks learned to measure development against four white mana. The card’s departure changed the name on the answer more than the strategic role.</p>
+<p><b>Extended</b> and later <b>Modern</b> inherited the spell as a reliable benchmark. Modern often offers alternatives—<span class="card-name" data-card="Supreme Verdict" tabindex="0">Supreme Verdict</span> against countermagic, <span class="card-name" data-card="Damnation" tabindex="0">Damnation</span> in black, flexible sweepers with additional modes—but the original remains a clean option when double white is easier than additional colors and regeneration is relevant.</p>
+<p><b>Legacy</b> and <b>Vintage</b> generally demand faster or more specialized answers. Four-mana sorceries compete with free countermagic, combo, and efficient threats, yet Wrath has appeared in Landstill, mono-white control, and sideboards where a complete reset is worth the cost.</p>
+<p><b>Commander</b> transformed “wrath” into everyday vocabulary. Multiplayer battlefields naturally create the multi-creature exchanges the card wants, although the format also offers sweepers that exile, spare chosen permanents, scale with colors, or destroy several permanent types.</p>
+<p><b>Cube</b> preserves the original lesson in concentrated form. Drafters learn not to overextend, control players learn how long to wait, and the card remains a signal that white can convert a losing battlefield into a winning hand.</p>
+<div class="format-strip"><div class="format-card"><span class="impact">Defining</span><h3>Historical Standard</h3><p>The four-mana checkpoint around which creature development was planned.</p></div><div class="format-card"><span class="impact">Benchmark</span><h3>Modern</h3><p>A clean legal baseline competing with specialized descendants.</p></div><div class="format-card"><span class="impact">Vocabulary</span><h3>Commander and Cube</h3><p>The card whose name describes the entire category.</p></div></div></section>
+<section id="play"><div class="chapter-number">XIII · The discipline</div><h2>How to play with and against Wrath</h2>
+<p>Playing Wrath well begins before the game. The deck needs a plan for benefiting from an empty battlefield: planeswalkers, creature lands, recursive threats, card draw, a stronger late game, or simply more cards remaining in hand. A sweeper without an aftermath can delay defeat without producing victory.</p>
+<p>During play, the caster must measure life against greed. Waiting for one more creature increases card advantage but may allow too much damage or expose Wrath to discard and countermagic. Casting early preserves life and tempo but may leave the opponent free to rebuild with the cards they held back.</p>
+<p>Against Wrath, the first lesson is not “never play a third creature.” The correct amount of pressure depends on clock, resilience, haste, death triggers, card draw, and the quality of the control player’s other answers. Sometimes the opponent must have Wrath, and the best line is to force it. Sometimes the winning line is to attack for four each turn while keeping the rest of the hand safe.</p>
+<p>Creature lands and planeswalkers are particularly effective because they maintain pressure without existing as creatures when Wrath resolves. Recursive and indestructible creatures attack the answer directly. Countermagic and discard attack the spell. Card-advantage creatures make the exchange less favorable by replacing themselves before dying.</p>
+<div class="wrath-note"><b>Do not confuse playing around Wrath with playing slowly.</b> The objective is to preserve enough resources to win after the reset while applying enough pressure that the control player cannot simply draw cards forever.</div></section>
+<section id="descendants"><div class="chapter-number">XIV · The family name</div><h2>The sweepers that followed</h2>
+<p>Every later sweeper enters a conversation Wrath began. Some change color: <span class="card-name" data-card="Damnation" tabindex="0">Damnation</span> is the famous black colorshift. Some change certainty: <span class="card-name" data-card="Supreme Verdict" tabindex="0">Supreme Verdict</span> cannot be countered. Some change what survives: <span class="card-name" data-card="Austere Command" tabindex="0">Austere Command</span> offers modes, <span class="card-name" data-card="Toxic Deluge" tabindex="0">Toxic Deluge</span> uses life and negative toughness, and <span class="card-name" data-card="Farewell" tabindex="0">Farewell</span> can exile several permanent types and graveyards.</p>
+<p>Others shift the cost. <span class="card-name" data-card="Terminus" tabindex="0">Terminus</span> can cost one mana through miracle and places creatures on the bottom of libraries. <span class="card-name" data-card="Settle the Wreckage" tabindex="0">Settle the Wreckage</span> operates at instant speed but only against attackers and compensates with lands. <span class="card-name" data-card="Shatter the Sky" tabindex="0">Shatter the Sky</span> may give a card to the controller of a large creature.</p>
+<p>These designs reveal the original’s completeness. Wrath asks for no setup, no life payment, no creature-size condition, no attack, no color beyond white, and no compensation. Its only strategic demands are four mana, sorcery timing, and a deck capable of exploiting the result.</p>
+<p>Designers can tune a sweeper along many axes: mana cost, color intensity, speed, destruction versus exile, what permanent types are affected, what survives, what compensation is granted, whether the spell can be countered, and whether the controller chooses modes. Wrath occupies the center of that design map because it changes almost none of those variables. It is the plain statement from which complexity departs.</p>
+<p>The anti-regeneration clause is the one flourish, and even that became part of the benchmark. When later cards omit it, experienced players notice the absence. When they exile instead of destroy, the comparison immediately shifts toward graveyard recursion and indestructible.</p>
+<p>The descendants may be stronger in a particular environment, but the category still begins with a comparison: How is this wrath different from Wrath?</p></section>
+<section id="art"><div class="chapter-number">XV · The image</div><h2>The image of judgment</h2>
+<p>Quinton Hoover’s Alpha artwork is abstract catastrophe. Figures and structures dissolve beneath a radiant force that occupies the center of the composition. The scale is difficult to measure because scale has ceased to matter. The image suggests that whatever distinction existed between armies, individuals, and monuments is irrelevant to the light.</p>
+<p>The original card famously left room for flavor text and used none. The name, mana cost, effect, and image already formed a complete statement. Additional words would have softened the blow.</p>
+<p>Later art reinterpreted the event. Kev Walker’s Seventh Edition image became one of the best-known, depicting terrified figures beneath a descending celestial power. Other versions emphasized divine fire, shattered armies, or a distant force sweeping across a landscape. Each faced the same challenge: illustrating destruction that is universal rather than personal.</p>
+<p>The art helped distinguish Wrath from ordinary removal. <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> tells a story about one combatant. Wrath of God tells a story in which the idea of individual combatants has become beside the point.</p>
+<p>Hoover’s style was particularly suited to the early game’s mythic abstraction. The figures do not belong to a named plane or storyline. The image can therefore represent every battlefield the card has ever cleared. It is less an illustration of one event than an emblem of the effect itself.</p>
+<p>That universality is also why later artwork can change dramatically without changing the card’s identity. The decisive image is not a particular god or army. It is the moment the entire board recognizes that survival is no longer being decided creature by creature.</p></section>
+<section id="memory"><div class="chapter-number">XVI · The empty table</div><h2>What players remember</h2>
+<p>Players remember the pause after the fourth land. They remember deciding whether to cast the creature in hand. They remember the control player taking six damage, drawing a card, placing a Plains on the table, and saying two words that explained the rest.</p>
+<p>They also remember the physical reset: creatures gathered from both sides, graveyards suddenly thick, combat calculations erased. A complicated game state became lands, cards in hand, and the question of who could rebuild.</p>
+<p>For control players, Wrath offered relief and reversal. A battlefield that looked hopeless could disappear for one card. For creature players, it taught restraint and suspicion. The card’s emotional power came from the amount of prior effort it invalidated at once.</p>
+<p>That experience is why “wrath” became a verb. The community needed a short name for the moment when many creatures stopped being separate objects and became one exchange.</p>
+<p>The word also carries tactical memory. Saying that a format has a four-mana wrath tells players when to become cautious. Saying that a deck has access to six wraths describes its entire posture toward creature strategies. The original card became compressed strategic information.</p>
+<p>Few Alpha cards remain so legible to a modern player. The frame, wording, and rules terminology have changed, but the play pattern is immediately recognizable: develop, hesitate, commit, clear, rebuild. Wrath of God helped invent that sequence and then lent it a name.</p>
+<div class="memory"><div class="memory-grid"><blockquote>The fourth creature was not always more pressure. Sometimes it was the card that made Wrath unbeatable.</blockquote><cite>The lesson of overextension</cite></div></div></section>
+<section id="decklists" class="deck-archive"><div class="chapter-number">XVII · The record</div><h2>The deck archive</h2><p class="deck-intro">These four exact historical lists trace Wrath of God from the first World Championship through permission control and the cycling engines that carried the card to consecutive Worlds Top 8s and a 2004 title.</p><details class="deck"><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first World Champion used four copies as the immediate answer that allowed a strange, powerful control deck to survive until Serra Angel and its lock pieces took over.</p><button class="copy" data-target="wrath-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div><div class="deck-col"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div></div><pre hidden="" id="wrath-deck-0">Zak Dolan — U/W/G Stasis Control
+World Champion · Worlds 1994
+
+Creatures · 11
+1 Clone
+2 Old Man of the Sea
+1 Time Elemental
+1 Vesuvan Doppelganger
+1 Birds of Paradise
+1 Ley Druid
+4 Serra Angel
+
+Sorceries · 6
+1 Recall
+1 Timetwister
+1 Time Walk
+1 Regrowth
+1 Armageddon
+1 Wrath of God
+
+Instants · 9
+1 Ancestral Recall
+1 Mana Drain
+1 Siren's Call
+2 Disenchant
+4 Swords to Plowshares
+
+Artifacts · 15
+1 Black Lotus
+1 Black Vise
+1 Howling Mine
+1 Icy Manipulator
+1 Ivory Tower
+1 Mana Vault
+2 Meekstone
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Winter Orb
+
+Enchantments · 4
+1 Control Magic
+2 Stasis
+1 Kismet
+
+Lands · 15
+1 Library of Alexandria
+4 Savannah
+4 Tropical Island
+4 Tundra
+2 Strip Mine
+
+Sideboard · 15
+1 Kismet
+1 Chaos Orb
+1 Circle of Protection: Red
+1 Copy Artifact
+1 Diamond Valley
+1 In the Eye of Chaos
+1 Floral Spuzzem
+2 Karma
+1 Magical Hack
+1 Power Sink
+1 Presence of the Master
+1 Reverse Damage
+1 Sleight of Mind
+1 Winter Blast</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p></div></details>
+<details class="deck"><summary><span><strong>Michael Loconto — U/W Millstone</strong><small>Champion · Pro Tour New York 1996</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first Pro Tour champion registered a 62-card U/W control deck pairing four Swords with Counterspell, Wrath of God, Balance, and Millstone. One-mana exile bought the time required for a nearly creatureless deck to make the opponent draw the last card.</p><button class="copy" data-target="wrath-deck-1">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blinking Spirit" tabindex="0">Blinking Spirit</span></div><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><h4>Artifacts · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon's Cane" tabindex="0">Feldon's Cane</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fountain of Youth" tabindex="0">Fountain of Youth</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Millstone" tabindex="0">Millstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div><h4>Lands · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">7</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ruins of Trokair" tabindex="0">Ruins of Trokair</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Svyelunite Temple" tabindex="0">Svyelunite Temple</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wizards' School" tabindex="0">Wizards' School</span></div></div><div class="deck-col"><h4>Instants · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Deflection" tabindex="0">Deflection</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Enchantments · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hallowed Ground" tabindex="0">Hallowed Ground</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Aeolipile" tabindex="0">Aeolipile</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jester's Cap" tabindex="0">Jester's Cap</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sea Sprite" tabindex="0">Sea Sprite</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Steal Artifact" tabindex="0">Steal Artifact</span></div></div></div><pre hidden="" id="wrath-deck-1">Michael Loconto — U/W Millstone
+Champion · Pro Tour New York 1996
+
+Creatures · 2
+2 Blinking Spirit
+
+Instants · 13
+4 Counterspell
+1 Deflection
+4 Disenchant
+4 Swords to Plowshares
+
+Sorceries · 6
+1 Balance
+1 Recall
+4 Wrath of God
+
+Artifacts · 11
+1 Feldon's Cane
+2 Fountain of Youth
+2 Icy Manipulator
+1 Ivory Tower
+1 Jayemdae Tome
+3 Millstone
+1 Zuran Orb
+
+Enchantments · 6
+2 Control Magic
+2 Hallowed Ground
+2 Land Tax
+
+Lands · 24
+4 Adarkar Wastes
+4 Island
+4 Mishra's Factory
+7 Plains
+1 Ruins of Trokair
+1 Strip Mine
+2 Svyelunite Temple
+1 Wizards' School
+
+Sideboard · 15
+2 Aeolipile
+2 Circle of Protection: Red
+1 Control Magic
+1 Divine Offering
+2 Hydroblast
+1 Jester's Cap
+2 Sea Sprite
+2 Serrated Arrows
+2 Steal Artifact</pre><p class="small">Source: <a href="https://mtg.wtf/deck/ptc/michael-loconto-champion">open the historical record</a></p></div></details>
+<details class="deck" open="">
+<summary><span><strong>Gabe Walls — Red-White Astral Slide</strong>
+<small>Worlds Top 8 · Worlds 2003, Berlin</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The earliest major Worlds snapshot: Dragon is land access, a cycling trigger, and the recursive finisher of the red-white Slide engine.</p>
+<div class="deck-meta"><div><b>Gabe Walls</b>
+<div class="small">Worlds Top 8 · August 6–10, 2003</div></div>
+<button class="copy" data-target="wrath-deck-2">Copy decklist</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Eternal Dragon" tabindex="0">Eternal Dragon</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Exalted Angel" tabindex="0">Exalted Angel</span></div></div><div class="group"><h4>Enchantments · 7</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Astral Slide" tabindex="0">Astral Slide</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Rift" tabindex="0">Lightning Rift</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants and sorceries · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Burning Wish" tabindex="0">Burning Wish</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Decree of Justice" tabindex="0">Decree of Justice</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Renewed Faith" tabindex="0">Renewed Faith</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Slice and Dice" tabindex="0">Slice and Dice</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Spark Spray" tabindex="0">Spark Spray</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Lands · 27</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Forgotten Cave" tabindex="0">Forgotten Cave</span></div><div class="row"><span class="qty">8</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">8</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Secluded Steppe" tabindex="0">Secluded Steppe</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Temple of the False God" tabindex="0">Temple of the False God</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Tribute" tabindex="0">Ancestral Tribute</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cleansing Meditation" tabindex="0">Cleansing Meditation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Decree of Annihilation" tabindex="0">Decree of Annihilation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Decree of Justice" tabindex="0">Decree of Justice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demolish" tabindex="0">Demolish</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Eternal Dragon" tabindex="0">Eternal Dragon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Exalted Angel" tabindex="0">Exalted Angel</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Morningtide" tabindex="0">Morningtide</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Obliterate" tabindex="0">Obliterate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Overmaster" tabindex="0">Overmaster</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Slice and Dice" tabindex="0">Slice and Dice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div></div>
+<pre hidden="" id="wrath-deck-2">Gabe Walls — Red-White Astral Slide
+Worlds Top 8 — Worlds 2003, Berlin (August 6–10, 2003)
+
+Creatures · 6
+3 Eternal Dragon
+3 Exalted Angel
+
+Instants and sorceries · 20
+4 Burning Wish
+3 Decree of Justice
+4 Renewed Faith
+2 Slice and Dice
+4 Spark Spray
+3 Wrath of God
+
+Enchantments · 7
+3 Astral Slide
+4 Lightning Rift
+
+Lands · 27
+4 Forgotten Cave
+8 Mountain
+8 Plains
+4 Secluded Steppe
+3 Temple of the False God
+
+Sideboard · 15
+1 Ancestral Tribute
+2 Cleansing Meditation
+1 Decree of Annihilation
+1 Decree of Justice
+1 Demolish
+1 Eternal Dragon
+1 Exalted Angel
+2 Morningtide
+2 Obliterate
+1 Overmaster
+1 Slice and Dice
+1 Wrath of God</pre>
+<p class="small">Source: <a href="https://www.mtgtop8.com/event?d=252491&amp;e=9174&amp;f=ST">open the historical record</a></p>
+</div>
+</details>
+<details class="deck">
+<summary><span><strong>Julien Nuijten — Green-White Astral Slide</strong>
+<small>World Champion · Worlds 2004, San Francisco</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The canonical performance: four copies in the deck that defeated Affinity and won the 2004 World Championship.</p>
+<div class="deck-meta"><div><b>Julien Nuijten</b>
+<div class="small">World Champion · September 1–5, 2004</div></div>
+<button class="copy" data-target="wrath-deck-3">Copy decklist</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Eternal Dragon" tabindex="0">Eternal Dragon</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Eternal Witness" tabindex="0">Eternal Witness</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Viridian Shaman" tabindex="0">Viridian Shaman</span></div></div><div class="group"><h4>Sorceries · 13</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Akroma's Vengeance" tabindex="0">Akroma's Vengeance</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Decree of Justice" tabindex="0">Decree of Justice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plow Under" tabindex="0">Plow Under</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rampant Growth" tabindex="0">Rampant Growth</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Lands · 25</h4><div class="row"><span class="qty">7</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">6</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Secluded Steppe" tabindex="0">Secluded Steppe</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tranquil Thicket" tabindex="0">Tranquil Thicket</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Windswept Heath" tabindex="0">Windswept Heath</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants · 6</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Renewed Faith" tabindex="0">Renewed Faith</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wing Shards" tabindex="0">Wing Shards</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Astral Slide" tabindex="0">Astral Slide</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Oxidize" tabindex="0">Oxidize</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plow Under" tabindex="0">Plow Under</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Rude Awakening" tabindex="0">Rude Awakening</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Scrabbling Claws" tabindex="0">Scrabbling Claws</span></div></div></div></div>
+<pre hidden="" id="wrath-deck-3">Julien Nuijten — Green-White Astral Slide
+World Champion — Worlds 2004, San Francisco (September 1–5, 2004)
+
+Creatures · 12
+4 Eternal Dragon
+4 Eternal Witness
+4 Viridian Shaman
+
+Instants · 6
+4 Renewed Faith
+2 Wing Shards
+
+Sorceries · 13
+2 Akroma's Vengeance
+2 Decree of Justice
+1 Plow Under
+4 Rampant Growth
+4 Wrath of God
+
+Enchantments · 4
+4 Astral Slide
+
+Lands · 25
+7 Forest
+6 Plains
+4 Secluded Steppe
+4 Tranquil Thicket
+4 Windswept Heath
+
+Sideboard · 15
+3 Circle of Protection: Red
+4 Oxidize
+3 Plow Under
+2 Rude Awakening
+3 Scrabbling Claws</pre>
+<p class="small">Source: <a href="https://mtg.wtf/deck/wc04/julien-nuijten-green-white-astral-slide">open the historical record</a></p>
+</div>
+</details></section>
+<section id="printings"><div class="chapter-number">XVIII · The archive</div><h2>Printings and sources</h2>
+<p>Wrath of God debuted in Limited Edition Alpha in 1993 and remained in every core set through Tenth Edition. Its many reprints include white-border core sets, Portal, promotional treatments, From the Vault, Commander products, Eternal Masters, Amonkhet Invocations, Double Masters, and Secret Lair treatments. The wording evolved with the rules, but the essential exchange remained unchanged.</p>
+<ul class="sources">
+<li><a href="https://magic.wizards.com/en/news/making-magic/design-times-2005-02-21">Mark Rosewater, “Design of the Times”</a><span>Wrath as white’s equality weapon, catch-up feature, and iconic flavor design.</span></li>
+<li><a href="https://magic.wizards.com/en/news/card-preview/three-small-words-one-great-effect-2020-07-22">Wizards of the Coast, “Three Small Words, One Great Effect”</a><span>Alpha origin, core-set continuity through Tenth Edition, and the word “wrath” as game vocabulary.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/symmetry-symmetrical-effects-2014-04-07">Mark Rosewater, “Symmetry”</a><span>How deck construction turns symmetrical destruction into card advantage.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/now-or-later-2016-09-15">Wizards of the Coast, “Now or Later”</a><span>Wrath as the benchmark for early control and low-creature deck construction.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/oral-history-first-pro-tour-2016-12-22">Wizards of the Coast, “An Oral History of the First Pro Tour”</a><span>Historical context for Michael Loconto’s championship.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">Mark Rosewater, “A Different Worlds”</a><span>Historical context for Zak Dolan and the 1994 World Championship.</span></li>
+<li><a href="250-eternal-dragon.html#decklists">Compulsive Research, “Eternal Dragon” deck archive</a><span>Exact Gabe Walls and Julien Nuijten tournament lists used in this article.</span></li>
+</ul>
+<div class="end-nav"><a href="index.html#entry-017"><small>Previous entry</small>017 · Balance</a><a href="index.html#entry-019"><small>Next entry</small>019 · Armageddon</a></div></section>
+</article><aside class="margin-note"><div class="kicker">The benchmark</div><h3>Four mana, all creatures</h3><p>Wrath of God established the scale by which sweepers are still measured: unconditional destruction, sorcery speed, double white, and no regeneration.</p></aside></div>
+<div class="card-preview" id="preview"><img alt=""/><div class="label"></div></div><script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script></body></html>
