@@ -1,0 +1,714 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Lightning Bolt: Alpha, the boon cycle, Worlds 1994, Sligh, the Philosophy of Fire, Shock, Magic 2010, Modern, artwork, descendants, and player memory."><title>Lightning Bolt: Three Damage, One Mana, Every Decision — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero.serra-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Serra%20Angel&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.serra-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Serra%20Angel&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Serra%20Angel&set=lea&format=image&version=art_crop)!important}
+.baneslayer-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Baneslayer%20Angel&format=image&version=art_crop)!important
+}
+.role-grid,.benchmark-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.benchmark-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-step,.benchmark-step{background:var(--white);padding:23px}
+.role-step b,.benchmark-step b{
+  display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.role-step span,.benchmark-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.serra-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.serra-note b{color:var(--ink)}
+@media(max-width:750px){
+  .role-grid,.benchmark-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.role-grid,.benchmark-grid{grid-template-columns:1fr}}
+
+.bolt-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lightning%20Bolt&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important
+}
+.hero.bolt-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lightning%20Bolt&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important
+}
+.shock-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Shock&set=sth&format=image&version=art_crop)!important
+}
+.damage-grid,.choice-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.damage-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.choice-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.damage-step,.choice-step{background:var(--white);padding:23px}
+.damage-step b,.choice-step b{
+  display:block;font:900 2.05rem/1 Inter,system-ui,sans-serif;color:var(--rust);margin-bottom:8px
+}
+.damage-step span,.choice-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.bolt-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.bolt-note b{color:var(--ink)}
+.decision-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.decision-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.decision-row:last-child{border-bottom:0}.decision-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.decision-row p{margin:0}
+@media(max-width:750px){.damage-grid,.choice-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.damage-grid,.choice-grid{grid-template-columns:1fr}}
+
+</style></head><body>
+<header class="hero bolt-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#wave-01">← Wave 01 · The Foundational Canon</a>
+<div class="eyebrow">Entry 011 · Wave 01 · The Foundational Canon</div>
+<h1>Three Damage, One Mana, Every Decision</h1>
+<p class="deckline">Lightning Bolt compressed removal, tempo, combat, and the final points of a game into one red mana—and became the number against which direct damage would be measured forever.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 25 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="index.html#entry-010">← Entry 010 · Sol Ring</a><div class="center">Entry 011 of 1,000</div><a href="012-counterspell.html">Entry 012 · Counterspell →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong>
+<a href="#opening">Three damage, one mana</a><a href="#boon">The red boon</a><a href="#three">Why three is so much more than two</a><a href="#choice">Creature or player</a><a href="#worlds">The first World Championship</a><a href="#sligh">The curve becomes a strategy</a><a href="#philosophy">The Philosophy of Fire</a><a href="#retirement">When Bolt became Shock</a><a href="#return">The impossible reprint</a><a href="#standard">The two-year experiment</a><a href="#modern">Modern's common language</a><a href="#eternal">Legacy, Vintage, and Pauper</a><a href="#formats">A life across formats</a><a href="#descendants">Every burn spell after Bolt</a><a href="#art">The image of impact</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
+<article class="article">
+<section id="opening"><div class="chapter-number">I · The exchange</div><h2>Three damage, one mana</h2>
+<p class="opening dropcap">Lightning Bolt asks the most important question in red Magic: is this three damage worth more on the battlefield or on the opponent?</p>
+<p>The text is almost aggressively complete. For one red mana, at instant speed, the spell deals 3 damage to any target. A small creature dies before it can attack, block, activate, or carry an Aura. A planeswalker loses three loyalty. A combat step changes shape after blockers. An opponent at three life loses the game. The same card can preserve a creature, create a tempo advantage, protect a planeswalker, or ignore the battlefield entirely.</p>
+<p>Most efficient cards are efficient within a narrow job. Lightning Bolt is efficient across several jobs that compete with one another. The caster must decide not only whether to spend a card, but which version of the card the game needs. Removal spent early is reach unavailable later. Damage held for the opponent may allow a creature to deal more than three. A Bolt aimed at a blocker can effectively deal six or nine by allowing attackers through. A Bolt aimed upstairs may be worthless if the board is lost before the next draw step.</p>
+<div class="card-lead"><img alt="Lightning Bolt from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Lightning%20Bolt&amp;set=lea&amp;format=image&amp;version=normal"><div><div class="oracle"><b>Lightning Bolt</b> · {R}<br>Instant<br><br>Lightning Bolt deals 3 damage to any target.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Common</div><div class="stat"><b>Illustrated by</b>Christopher Rush</div><div class="stat"><b>Historical role</b>The defining rate for direct damage</div></div></div></div>
+<p>That flexibility explains why the card has belonged to so many archetypes. Burn treats it as the ideal unit of damage. Zoo uses it to remove blockers or finish a race. Tempo decks pair it with cheap threats and mana denial. Control decks use it to survive the early game, then discover that three damage can shorten the late game. Combo-control shells use it as interaction that never becomes completely dead.</p>
+<p>Lightning Bolt is not the most powerful card in Alpha. It may be the most perfectly useful.</p></section>
+
+<section id="boon"><div class="chapter-number">II · Limited Edition Alpha</div><h2>The red boon</h2>
+<p>Richard Garfield created a five-card cycle of one-mana spells built around the number three: <span class="card-name" data-card="Healing Salve" tabindex="0">Healing Salve</span> gained or prevented three life or damage, <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span> drew three cards, <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span> produced three black mana, <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span> dealt three damage, and <span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span> granted +3/+3. The cycle is now remembered as the boons.</p>
+<p>The symmetry was conceptual rather than balanced. Three life, three cards, three mana, three damage, and three power or toughness are not equivalent resources. Alpha was discovering its own exchange rates in public. Ancestral Recall and Dark Ritual dramatically exceeded later standards; Healing Salve fell below them. Lightning Bolt landed in the most productive territory: too efficient to remain an ordinary recurring Standard tool, but interactive enough to create good games and flexible enough to become beloved.</p>
+<p>Red's boon also matched its flavor unusually well. A lightning strike is immediate, directional, and indifferent to whether the target is a summoned creature or the opposing wizard. The spell explains itself before the player learns the rules vocabulary. One mana buys one violent event. The target takes three.</p>
+<div class="pullquote">The boon cycle tried to make five colors equal by giving each of them three. Lightning Bolt taught the game that the meaning of three depends entirely on what is being counted.<small>Limited Edition Alpha · 1993</small></div>
+<p>The original common rarity mattered. Bolt was not presented as a distant treasure. It was a practical tool players could acquire, trade, and place in multiples. Its cultural status grew from repeated use: four copies in a deck, one red mana left untapped, three life remaining, the possibility represented in every draw.</p></section>
+<div class="art-break bolt-art"><div class="art-caption"><b>Christopher Rush's original Lightning Bolt artwork</b>The blast is not a distant storm. It is a violent red-white impact at the center of the frame, close enough to feel less like weather than a spell leaving the card.</div></div>
+
+<section id="three"><div class="chapter-number">III · The rate</div><h2>Why three is so much more than two</h2>
+<p>The difference between two damage and three damage looks small until a format is built around it. Three kills creatures that survive <span class="card-name" data-card="Shock" tabindex="0">Shock</span>. It removes two-toughness creatures after a small combat exchange and three-toughness creatures without help. It converts seven cards into twenty-one potential damage rather than fourteen. It ends a game from a life total that would require two lesser spells.</p>
+<p>Mana efficiency compounds the difference. Because Bolt costs one, it can share a turn with a creature, a cantrip, another Bolt, or countermagic. The red player can develop the battlefield while interacting rather than choosing between them. In later formats, a single untapped red source represents removal without meaningfully announcing that the rest of the turn has been surrendered.</p>
+<div class="damage-grid"><div class="damage-step"><b>1 mana</b><span>The spell fits almost anywhere in a curve and leaves the rest of the turn available.</span></div><div class="damage-step"><b>3 damage</b><span>The number crosses a major creature-toughness threshold and closes games efficiently.</span></div><div class="damage-step"><b>Instant</b><span>The target can be chosen after attacks, blocks, activations, or an end step.</span></div><div class="damage-step"><b>Any target</b><span>The same card answers creatures, planeswalkers, battles, or the opponent.</span></div></div>
+<p>The clean exchange also makes deck construction predictable. If an environment contains important creatures with three or fewer toughness, Bolt can become the default red answer. Creatures are then evaluated partly by whether they “die to Bolt.” Four toughness is not merely a statistic; it is shelter from the most efficient removal spell available.</p>
+<p>This benchmark changes behavior before the card is cast. A player may delay a three-toughness threat, protect it with mana, or sequence around open red. The possibility of one mana trading for a more expensive card creates tempo pressure even when the Bolt remains in the library.</p></section>
+
+<section id="choice"><div class="chapter-number">IV · The target</div><h2>Creature or player</h2>
+<p>“Bolt the Bird” is one of Magic's oldest strategic arguments. An opposing <span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span> may be worth only one card and one mana, but killing it can deny several future mana, delay a key spell, or destabilize an entire hand. The Bolt deals three damage, yet its actual value may be measured in turns.</p>
+<p>The opposite argument is equally important. Every Bolt spent on a creature is three points not dealt to the opponent. Burn decks survive on a finite damage budget. A creature should be killed only if it threatens to gain more life, prevent more attack damage, or win faster than the saved Bolt can.</p>
+<div class="choice-grid"><div class="choice-step"><b>Remove</b><span>Kill the creature whose future damage, mana, or value exceeds the three points being saved.</span></div><div class="choice-step"><b>Clear</b><span>Remove a blocker so creatures can deal more than Bolt would have dealt directly.</span></div><div class="choice-step"><b>Finish</b><span>Ignore the board when the opponent's life total has become the only relevant permanent.</span></div></div>
+<div class="decision-sequence"><div class="decision-row"><strong>Board</strong><p>How much damage or advantage will the target create if it remains?</p></div><div class="decision-row"><strong>Clock</strong><p>Which player wins the race if no creature is removed?</p></div><div class="decision-row"><strong>Hand</strong><p>How many future points are already represented, and can another card answer the creature?</p></div><div class="decision-row"><strong>Window</strong><p>Does waiting create a better target, a combat blowout, or the danger of protection?</p></div></div>
+<p>That decision is the heart of the card. Lightning Bolt rewards arithmetic, prediction, and restraint while appearing to be the simplest spell imaginable.</p></section>
+
+<section id="worlds"><div class="chapter-number">V · The first championship</div><h2>The first World Championship</h2>
+<p>Lightning Bolt reached the finals of the first Magic World Championship in 1994. Bertrand Lestree's red-green weenie deck used four copies beside <span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span>, <span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span>, <span class="card-name" data-card="Fireball" tabindex="0">Fireball</span>, and <span class="card-name" data-card="Psionic Blast" tabindex="0">Psionic Blast</span>. The list was multicolored and powered, but its aggressive structure is immediately recognizable: efficient creatures establish pressure, then direct damage removes resistance or ends the game.</p>
+<p>Lestree lost the final to Zak Dolan's control deck, yet Bolt's role in the match represented one of Magic's permanent strategic poles. Dolan intended to extend the game until cards such as <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span>, and <span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span> took control. Lestree intended to convert mana and cards into damage before that future arrived.</p>
+<p>The deck's four Bolts were more consistent than its restricted power cards. A single <span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span> could create an explosive turn; four Lightning Bolts defined what every turn might contain. They killed blockers, punished life paid to effects, and made the last portion of the opponent's life total unsafe even after the battlefield stabilized.</p>
+<div class="bolt-note"><b>The earliest lesson:</b> Lightning Bolt was already strongest when it did not have one fixed assignment. In Lestree's deck, the same four copies were removal against small creatures, tempo against mana development, and reach against a control deck trying to survive.</div>
+<p>The first championship therefore placed Bolt at the center of an argument that never ended: whether damage should be spent controlling the battlefield or shortening the game.</p></section>
+
+<section id="sligh"><div class="chapter-number">VI · The curve</div><h2>The curve becomes a strategy</h2>
+<p>Paul Sligh's 1996 deck did not look like a future classic. It contained <span class="card-name" data-card="Dwarven Trader" tabindex="0">Dwarven Trader</span>, <span class="card-name" data-card="Goblins of the Flarg" tabindex="0">Goblins of the Flarg</span>, <span class="card-name" data-card="Brothers of Fire" tabindex="0">Brothers of Fire</span>, and other cards that appeared individually modest. Yet the deck reached the final of an Atlanta Pro Tour Qualifier because Jay Schneider had built it according to a rigorous mana curve.</p>
+<p>The idea was to use nearly every available mana on nearly every turn. One-drops were not compared only to the strongest cards in the format; they were valued because they filled the first turn. Two-drops followed on turn two, and the curve narrowed as costs rose. Direct damage occupied the flexible spaces between creature deployment.</p>
+<p>Lightning Bolt was ideal for this mathematics. It could be cast on turn one, but did not need to be. It could remove a blocker while a two-drop entered, combine with <span class="card-name" data-card="Incinerate" tabindex="0">Incinerate</span> on a later turn, or wait until the opponent entered lethal range. Unlike a narrow one-drop creature, Bolt never truly missed its place on the curve.</p>
+<p>The archetype inherited Sligh's name and helped normalize the concept of mana curve across all of Magic. Bolt became one of the clearest examples of why low mana cost is not merely about speed. Cheap spells create combinations. A one-mana card allows a deck to use the leftover mana that would otherwise disappear at end of turn.</p>
+<p>Sligh also clarified the meaning of reach. Creatures might be blocked or destroyed, but damage spells allowed the aggressive deck to win after combat had ceased to be favorable. The opponent could stabilize the board and still not stabilize the game.</p></section>
+
+<section id="philosophy"><div class="chapter-number">VII · Life as a resource</div><h2>The Philosophy of Fire</h2>
+<p>Adrian Sullivan's Philosophy of Fire formalized the arithmetic underlying burn strategies. If <span class="card-name" data-card="Shock" tabindex="0">Shock</span> is the baseline—one card for two damage—then ten such cards equal the opponent's starting life total. A deck begins with seven cards and draws more over time, so direct damage can be evaluated as a resource conversion rather than merely as removal.</p>
+<p>Lightning Bolt improves that exchange dramatically. Seven Bolts represent twenty-one damage. Real decks cannot play twenty or thirty copies of the same card, so they assemble functional redundancy from <span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span>, <span class="card-name" data-card="Lava Spike" tabindex="0">Lava Spike</span>, <span class="card-name" data-card="Rift Bolt" tabindex="0">Rift Bolt</span>, <span class="card-name" data-card="Boros Charm" tabindex="0">Boros Charm</span>, and other approximations. Bolt remains the perfect version every imitation approaches.</p>
+<p>The Philosophy of Fire does not say that every spell should target the opponent. It says that life totals and cards can be translated into one another. Killing a creature is correct when doing so preserves more damage than the Bolt would deal directly. A blocker that prevents six attack damage is effectively worth two Bolts. A creature that gains four life must be removed before its effect becomes a negative exchange.</p>
+<div class="pullquote">Burn does not ignore the battlefield. It asks whether the battlefield is worth more or less than three.<small>The arithmetic inside every Lightning Bolt decision</small></div>
+<p>This framework spread far beyond dedicated Burn. Aggro decks learned to count how many draw steps remained, control decks learned when their life total had become a finite stack of opposing cards, and combo decks learned that fetch lands, shock lands, and incidental damage could quietly reduce the number of resources required to win.</p></section>
+
+<section id="retirement"><div class="chapter-number">VIII · The correction</div><h2>When Bolt became Shock</h2>
+<p>Lightning Bolt remained in the core game through Fourth Edition, but its efficiency became increasingly difficult to treat as normal. When the card was retired, R&amp;D created <span class="card-name" data-card="Shock" tabindex="0">Shock</span> as the corrected baseline: the same cost, speed, and targeting flexibility, but two damage rather than three.</p>
+<p>The change preserved the part of the design that made Bolt elegant. Red still had a one-mana instant that could target creatures or players. What disappeared was the extra point that crossed so many thresholds. Three-toughness creatures became safer. Two copies represented four rather than six. An opponent at three life was no longer dead to one card.</p>
+<p>Shock proved strong enough to appear repeatedly without defining every environment around it. It established the modern default rate from which countless variants could be built: damage conditional on controlling a creature, damage with exile, damage with a drawback, damage that scales, damage restricted to creatures, or damage that becomes efficient only after another condition is met.</p>
+<div class="inline-image shock-descendant"><div class="image"></div><div class="copy"><div class="kicker">The corrected baseline</div><h3>Shock</h3><p>Reducing the damage by one retained Bolt's identity while reopening design space for small creatures and more specialized burn spells. The missing point became one of the most meaningful numbers in Magic design.</p></div></div>
+<p>Lightning Bolt's absence increased its mythology. Players could still use it in older formats, but new Standard environments learned the spell as a historical excess—the card that Shock admitted could not be printed anymore.</p></section>
+
+<section id="return"><div class="chapter-number">IX · Magic 2010</div><h2>The impossible reprint</h2>
+<p>Magic 2010 was designed to make the core set feel exciting rather than merely instructional. Aaron Forsythe wanted a reprint players would not expect. Lightning Bolt was the choice precisely because Shock had convinced the community that the original rate was gone for good.</p>
+<p>The announcement carried more weight than the return of an efficient common normally would. It was a test of whether modern creatures, planeswalkers, and deck construction could absorb a spell once considered too efficient. It also restored one of Alpha's most resonant names and effects to ordinary booster packs.</p>
+<p>Wizards later described the card as being at the top of what was safe. That phrase captures Bolt's enduring design position. It is not structurally broken like Ancestral Recall; it trades one card for one card and asks for colored mana. But the rate is so compressed that it can crowd out alternatives and dictate which small creatures are viable.</p>
+<p>Its return was also a lesson in context. The same text can have different consequences in different environments. Creatures had grown stronger, but they also generated more value. Planeswalkers created new targets. Fetch lands and multicolor mana made splashing easier. Bolt was not merely returning to the game it had left.</p></section>
+
+<section id="standard"><div class="chapter-number">X · The experiment</div><h2>The two-year experiment</h2>
+<p>Lightning Bolt remained in Standard through Magic 2010 and Magic 2011. It immediately became one of the era's most played cards. Red decks gained the cleanest possible burn spell, but so did Jund, control, combo, and midrange strategies willing to produce a red mana.</p>
+<p>Its targets included mana creatures, early attackers, utility creatures, and planeswalkers. The card's flexibility made it valuable even in decks whose primary plan was not direct damage. Gerry Thompson's 2011 UWR Caw-Blade list used three copies alongside <span class="card-name" data-card="Jace, the Mind Sculptor" tabindex="0">Jace, the Mind Sculptor</span>, <span class="card-name" data-card="Gideon Jura" tabindex="0">Gideon Jura</span>, <span class="card-name" data-card="Stoneforge Mystic" tabindex="0">Stoneforge Mystic</span>, sweepers, and countermagic. Bolt protected expensive engines while giving the control deck a way to close unexpected races.</p>
+<p>The reprint did not produce the catastrophic failure some players anticipated, but it did confirm that Bolt reshapes an environment. Wizards later described it as environment warping even while acknowledging that the experiment was playable. The distinction matters: a card can create acceptable games and still become too central to print routinely.</p>
+<p>When Bolt rotated again, Standard returned to weaker or more conditional one-mana damage. The card had proven it could come back. It had not proven it should remain.</p></section>
+
+<section id="modern"><div class="chapter-number">XI · The nonrotating format</div><h2>Modern's common language</h2>
+<p>Modern began in 2011 with Eighth Edition forward as its basic card pool, and Lightning Bolt entered through Magic 2010. It became one of the format's foundational cards immediately.</p>
+<p>Modern gave Bolt everything it wanted: fetch lands that made red easy to access, creatures whose early deployment had to be answered efficiently, planeswalkers that could be finished after one activation, and aggressive decks capable of converting incidental damage into a real clock. The card appeared in Burn, Jund, Zoo, Splinter Twin, Delver, Prowess, Death's Shadow, Izzet tempo, Creativity, and countless red midrange shells.</p>
+<p>Its presence established “the Bolt test.” A three-toughness creature needed immediate value, protection, or a mana cost low enough that trading with Bolt was acceptable. A planeswalker entering at three loyalty could not assume it would survive. A player at six life had to consider two cards, not merely one combat step.</p>
+<p>Modern also demonstrated Bolt's capacity to unify different strategies. Burn counts it as three points. Jund treats it as cheap interaction that remains live in the late game. Tempo decks use it to protect a lead. Combo decks use it to buy time and clear hate creatures. Control decks use it because a one-mana answer allows mana to remain open for something larger.</p>
+<p>In a 2022 survey of 767 Modern decks, Lightning Bolt was tied among the most-played cards across main decks and sideboards. That level of adoption reflects not one dominant archetype, but the spell's ability to make nearly any red deck function more smoothly.</p></section>
+
+<section id="eternal"><div class="chapter-number">XII · Older card pools</div><h2>Legacy, Vintage, and Pauper</h2>
+<p>Lightning Bolt is legal in Legacy, Vintage, and Pauper, but each format changes its meaning.</p>
+<p>Legacy Burn uses Bolt as the original member of a dense family that includes <span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span>, <span class="card-name" data-card="Lava Spike" tabindex="0">Lava Spike</span>, <span class="card-name" data-card="Rift Bolt" tabindex="0">Rift Bolt</span>, <span class="card-name" data-card="Price of Progress" tabindex="0">Price of Progress</span>, and <span class="card-name" data-card="Fireblast" tabindex="0">Fireblast</span>. In Delver and tempo shells, Bolt performs a different job: remove the blocker or utility creature, preserve the initiative, and convert the final turn into reach.</p>
+<p>Vintage contains more powerful mana and interaction, yet Bolt can still appear where efficiency and flexibility matter. Its ability to kill creatures such as mana accelerants, hate bears, or planeswalkers without becoming dead against a creatureless opponent remains valuable. The card is modest by Vintage standards and still recognizably excellent.</p>
+<p>Pauper's all-common card pool gives Bolt special importance. It is one of the cleanest removal spells available and a central Burn piece. The rarity that made it ordinary in 1993 ensures that it remains legal in a format built around commons, where its Alpha efficiency becomes extraordinary again.</p>
+<p>Commander reduces the direct-damage mode. Forty life and multiple opponents make three points a poor plan by itself. Bolt survives there as cheap utility—an answer to a creature, planeswalker, or combo piece—rather than as a complete strategy. The card's changing role demonstrates that efficiency is always relative to the scale of the game.</p></section>
+
+<section id="formats"><div class="chapter-number">XIII · The map</div><h2>A life across formats</h2>
+<div class="format-strip"><div class="format-card"><span class="impact">Historic</span><h3>Old School and early Type I</h3><p>A foundational four-of in aggressive and midrange decks from the beginning.</p></div><div class="format-card"><span class="impact">Defining</span><h3>Modern</h3><p>The default red interactive spell and a benchmark for creatures, planeswalkers, and life totals.</p></div><div class="format-card"><span class="impact">Enduring</span><h3>Legacy and Pauper</h3><p>A core burn spell and flexible tempo answer in formats with enormous card pools.</p></div><div class="format-card"><span class="impact">Contextual</span><h3>Commander</h3><p>Still efficient removal, but three damage scales poorly against forty life and multiple opponents.</p></div></div>
+<p>Lightning Bolt's career is unusually broad because its text contains no mechanical dependency. It does not require a creature type, graveyard, artifact count, multicolor permanent, or set-specific resource. As long as creatures have toughness and players have life totals, the spell has a job.</p>
+<p>Its limitations are equally clean. Three damage does not answer large creatures. Damage prevention, protection, ward, and hexproof can interfere. Life gain can erase several copies. A one-for-one spell can be strategically poor against cards that have already generated value. Bolt's perfection is not that it solves everything; it is that its strengths and failures are immediately legible.</p></section>
+
+<section id="descendants"><div class="chapter-number">XIV · Design echo</div><h2>Every burn spell after Bolt</h2>
+<p>Lightning Bolt became the reference point for red direct damage. Later cards are described by the piece of Bolt they keep and the price paid for keeping it.</p>
+<p><span class="card-name" data-card="Shock" tabindex="0">Shock</span> keeps one mana, instant speed, and any target, but loses a damage. <span class="card-name" data-card="Incinerate" tabindex="0">Incinerate</span> keeps three damage and instant speed but costs two, originally adding a regeneration clause. <span class="card-name" data-card="Lightning Strike" tabindex="0">Lightning Strike</span> became the clean modern version of that rate. <span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span> keeps three for one mana but moves to sorcery speed and carries a strange reciprocal clause. <span class="card-name" data-card="Lava Spike" tabindex="0">Lava Spike</span> keeps the rate but narrows the target. <span class="card-name" data-card="Rift Bolt" tabindex="0">Rift Bolt</span> preserves the damage and delays the payment through suspend.</p>
+<p>Other descendants combine Bolt with another effect. <span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span> adds three life for a second color and mana. <span class="card-name" data-card="Searing Blaze" tabindex="0">Searing Blaze</span> damages a creature and its controller under landfall. <span class="card-name" data-card="Skewer the Critics" tabindex="0">Skewer the Critics</span> asks spectacle to earn the old rate. <span class="card-name" data-card="Play with Fire" tabindex="0">Play with Fire</span> offers two damage plus selection. <span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span> is not a burn spell, yet its design occupies the same strategic space: one mana, narrow conditions, enormous tempo.</p>
+<p>Red's entire removal suite exists in conversation with Bolt. A new spell that deals three for one mana needs a restriction. A spell that costs two is expected to add flexibility, certainty, or value. A one-mana spell that deals two may receive upside because Shock established the safe floor.</p>
+<div class="bolt-note"><b>The design shadow:</b> Lightning Bolt did not merely create a family of imitations. It created a missing point. Every two-damage spell reminds the player that the original dealt three.</div></section>
+
+<section id="art"><div class="chapter-number">XV · The object</div><h2>The image of impact</h2>
+<p>Christopher Rush's Alpha illustration places the impact at the center. Red and white energy tears through a dark field, framed by rough shapes that suggest rock, smoke, or a target already disappearing. The image has the immediacy of the card: no preparation, no caster, no explanation after the strike.</p>
+<p>The original art became inseparable from early Magic's visual language. It is abstract enough to be elemental and specific enough to be recognized instantly. Later versions have shown lightning striking towers, creatures, landscapes, and figures, but Rush's image remains the card's historical face.</p>
+<p>Lightning Bolt has also attracted some of Magic's most memorable reillustrations. Magic 2010 used Christopher Moeller's enormous descending strike to announce the card's return. Promotional and Masters versions emphasized speed and destructive scale. Strixhaven's Mystical Archive treated the spell as a piece of magical calligraphy, proof that the same three-word action could support radically different visual interpretations.</p>
+<p>The flavor text changed across printings, but the best-known line—“The sparkmage shrieked, calling on the rage of the storms of his youth. To his surprise, the sky responded with a fierce energy he'd never thought to see again.”—became especially appropriate when the card returned in Magic 2010. A spell the game had outgrown appeared again as weather remembered.</p></section>
+
+<section id="memory"><div class="chapter-number">XVI · The last card</div><h2>What players remember</h2>
+<p>Players remember the pause at three life. The red player has one card in hand. The opponent has stabilized, but cannot behave as though the game is stable. Every draw step might contain the same common printed in 1993.</p>
+<p>They remember being punished for tapping out a three-toughness creature, and the small satisfaction of presenting four toughness. They remember Bolting a mana creature on the first turn and wondering whether they had just won several future turns or wasted the card that would have ended the game.</p>
+<p>They remember the sound of the phrase. “Bolt you.” No card name is needed after the verb has become the action. The spell is both object and unit: a Bolt is a card, three damage, one mana, and a category of effects.</p>
+<p>For many players, Lightning Bolt is the ideal Magic card because it creates meaningful choices without requiring complicated text. It rewards sequencing, bluffing, format knowledge, combat calculation, and deck construction while remaining understandable to someone opening a first booster.</p>
+<div class="memory"><div class="memory-grid"><blockquote>At three life, every Mountain is also the top of the opponent's library.</blockquote><cite>The pressure represented by one red mana</cite></div></div>
+<p>The card's legacy is not simply that it is efficient. It is that efficiency made every decision around it matter.</p></section>
+
+<section id="decklists" class="deck-archive"><div class="chapter-number">XVII · The record</div><h2>The deck archive</h2><p class="deck-intro">These four lists show Lightning Bolt as early championship reach, the mathematical center of Sligh, flexible control interaction during its Standard return, and the defining unit of Modern Burn.</p><details class="deck"><summary><span><strong>Bertrand Lestree — R/G Weenie</strong><small>Finalist · World Championship 1994 · Constructed</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first World Championship finalist used four Bolts beside Chain Lightning, Fireball, Kird Ape, and the Power Nine. Bolt was already both removal and the final three points.</p><button class="copy" data-target="bolt-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 12</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Argothian Pixies" tabindex="0">Argothian Pixies</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div><h4>Sorceries · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Channel" tabindex="0">Channel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><h4>Instants · 7</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Psionic Blast" tabindex="0">Psionic Blast</span></div></div><div class="deck-col"><h4>Artifacts · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><h4>Enchantments · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><h4>Lands · 20</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Bayou" tabindex="0">Bayou</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="City in a Bottle" tabindex="0">City in a Bottle</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disintegrate" tabindex="0">Disintegrate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flashfires" tabindex="0">Flashfires</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Forcefield" tabindex="0">Forcefield</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lifeforce" tabindex="0">Lifeforce</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serendib Efreet" tabindex="0">Serendib Efreet</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tsunami" tabindex="0">Tsunami</span></div></div></div><pre hidden id="bolt-deck-0">Bertrand Lestree — R/G Weenie
+Finalist · World Championship 1994 · Constructed
+
+Creatures
+3 Argothian Pixies
+4 Kird Ape
+3 Birds of Paradise
+2 Whirling Dervish
+
+Sorceries
+4 Fireball
+4 Chain Lightning
+1 Channel
+1 Time Walk
+1 Regrowth
+1 Demonic Tutor
+1 Mind Twist
+
+Instants
+4 Lightning Bolt
+1 Ancestral Recall
+2 Psionic Blast
+
+Artifacts
+1 Mox Emerald
+1 Mox Jet
+1 Mox Ruby
+1 Black Lotus
+1 Chaos Orb
+1 Icy Manipulator
+1 Mox Sapphire
+
+Enchantments
+1 Control Magic
+
+Lands
+2 City of Brass
+4 Taiga
+2 Bayou
+4 Tropical Island
+4 Mishra&#x27;s Factory
+4 Volcanic Island
+
+Sideboard
+1 Control Magic
+1 City in a Bottle
+3 Disintegrate
+1 Flashfires
+1 Forcefield
+2 Lifeforce
+4 Serendib Efreet
+2 Tsunami</pre></div></details><details class="deck"><summary><span><strong>Paul Sligh — Sligh</strong><small>2nd place · Atlanta Pro Tour Qualifier · April 21, 1996</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The list that gave the archetype its name. Its unusual creatures mattered less than its mathematical curve, and Lightning Bolt was the perfect one-mana bridge between board control and reach.</p><button class="copy" data-target="bolt-deck-1">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 25</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dragon Whelp" tabindex="0">Dragon Whelp</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Brothers of Fire" tabindex="0">Brothers of Fire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Artillery" tabindex="0">Orcish Artillery</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Cannoneers" tabindex="0">Orcish Cannoneers</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ironclaw Orcs" tabindex="0">Ironclaw Orcs</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Dwarven Lieutenant" tabindex="0">Dwarven Lieutenant</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Librarian" tabindex="0">Orcish Librarian</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brass Man" tabindex="0">Brass Man</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dwarven Trader" tabindex="0">Dwarven Trader</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Goblins of the Flarg" tabindex="0">Goblins of the Flarg</span></div><h4>Sorceries · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Detonate" tabindex="0">Detonate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Incinerate" tabindex="0">Incinerate</span></div></div><div class="deck-col"><h4>Artifacts · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><h4>Enchantments · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Immolation" tabindex="0">Immolation</span></div><h4>Lands · 23</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dwarven Ruins" tabindex="0">Dwarven Ruins</span></div><div class="row"><span class="qty">13</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Detonate" tabindex="0">Detonate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Active Volcano" tabindex="0">Active Volcano</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="An-Zerrin Ruins" tabindex="0">An-Zerrin Ruins</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Manabarbs" tabindex="0">Manabarbs</span></div></div></div><pre hidden id="bolt-deck-1">Paul Sligh — Sligh
+2nd place · Atlanta Pro Tour Qualifier · April 21, 1996
+
+Creatures
+2 Dragon Whelp
+2 Brothers of Fire
+2 Orcish Artillery
+2 Orcish Cannoneers
+4 Ironclaw Orcs
+3 Dwarven Lieutenant
+2 Orcish Librarian
+4 Brass Man
+2 Dwarven Trader
+2 Goblins of the Flarg
+
+Sorceries
+1 Detonate
+1 Fireball
+
+Instants
+1 Shatter
+4 Lightning Bolt
+4 Incinerate
+
+Artifacts
+1 Black Vise
+
+Enchantments
+1 Immolation
+
+Lands
+4 Strip Mine
+4 Mishra&#x27;s Factory
+2 Dwarven Ruins
+13 Mountain
+
+Sideboard
+1 Shatter
+1 Detonate
+1 Fireball
+1 Meekstone
+1 Zuran Orb
+3 Active Volcano
+2 Serrated Arrows
+1 An-Zerrin Ruins
+4 Manabarbs</pre></div></details><details class="deck"><summary><span><strong>Gerry Thompson — UWR Caw-Blade</strong><small>1st place · StarCityGames Open Washington, D.C. · 2011 Standard</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">A reminder that Bolt was never merely a burn-deck card. Here it protected planeswalkers, cleared equipment carriers, and gave a control deck a sudden closing line.</p><button class="copy" data-target="bolt-deck-2">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Planeswalkers · 7</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Gideon Jura" tabindex="0">Gideon Jura</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Jace, the Mind Sculptor" tabindex="0">Jace, the Mind Sculptor</span></div><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Squadron Hawk" tabindex="0">Squadron Hawk</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stoneforge Mystic" tabindex="0">Stoneforge Mystic</span></div><h4>Sorceries · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Day of Judgment" tabindex="0">Day of Judgment</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Preordain" tabindex="0">Preordain</span></div><h4>Instants · 8</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div></div><div class="deck-col"><h4>Artifacts · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sword of Body and Mind" tabindex="0">Sword of Body and Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sword of Feast and Famine" tabindex="0">Sword of Feast and Famine</span></div><h4>Lands · 27</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Arid Mesa" tabindex="0">Arid Mesa</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Celestial Colonnade" tabindex="0">Celestial Colonnade</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Evolving Wilds" tabindex="0">Evolving Wilds</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Glacial Fortress" tabindex="0">Glacial Fortress</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Seachrome Coast" tabindex="0">Seachrome Coast</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Basilisk Collar" tabindex="0">Basilisk Collar</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cunning Sparkmage" tabindex="0">Cunning Sparkmage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Inferno Titan" tabindex="0">Inferno Titan</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sun Titan" tabindex="0">Sun Titan</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dispel" tabindex="0">Dispel</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flashfreeze" tabindex="0">Flashfreeze</span></div></div></div><pre hidden id="bolt-deck-2">Gerry Thompson — UWR Caw-Blade
+1st place · StarCityGames Open Washington, D.C. · 2011 Standard
+
+Planeswalkers
+3 Gideon Jura
+4 Jace, the Mind Sculptor
+
+Creatures
+4 Squadron Hawk
+4 Stoneforge Mystic
+
+Sorceries
+4 Day of Judgment
+4 Preordain
+
+Instants
+3 Lightning Bolt
+2 Mana Leak
+3 Spell Pierce
+
+Artifacts
+1 Sword of Body and Mind
+1 Sword of Feast and Famine
+
+Lands
+3 Island
+3 Mountain
+4 Plains
+4 Arid Mesa
+3 Celestial Colonnade
+2 Evolving Wilds
+2 Glacial Fortress
+3 Scalding Tarn
+3 Seachrome Coast
+
+Sideboard
+1 Basilisk Collar
+4 Cunning Sparkmage
+1 Inferno Titan
+1 Sun Titan
+1 Dispel
+3 Divine Offering
+4 Flashfreeze</pre></div></details><details class="deck"><summary><span><strong>Aggregate Modern Burn</strong><small>Modern metagame reference list · August 2022</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">Modern Burn turns the original Bolt into the unit of account. Nearly every nonland card is judged by how closely it approximates three damage for one card and little mana.</p><button class="copy" data-target="bolt-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Eidolon of the Great Revel" tabindex="0">Eidolon of the Great Revel</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Goblin Guide" tabindex="0">Goblin Guide</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Monastery Swiftspear" tabindex="0">Monastery Swiftspear</span></div><h4>Sorceries · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lava Spike" tabindex="0">Lava Spike</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rift Bolt" tabindex="0">Rift Bolt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Skewer the Critics" tabindex="0">Skewer the Critics</span></div><h4>Instants · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Searing Blaze" tabindex="0">Searing Blaze</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Boros Charm" tabindex="0">Boros Charm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Skullcrack" tabindex="0">Skullcrack</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div></div><div class="deck-col"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sunbaked Canyon" tabindex="0">Sunbaked Canyon</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Inspiring Vantage" tabindex="0">Inspiring Vantage</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Bloodstained Mire" tabindex="0">Bloodstained Mire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Arid Mesa" tabindex="0">Arid Mesa</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fiery Islet" tabindex="0">Fiery Islet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wooded Foothills" tabindex="0">Wooded Foothills</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Roiling Vortex" tabindex="0">Roiling Vortex</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Smash to Smithereens" tabindex="0">Smash to Smithereens</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Path to Exile" tabindex="0">Path to Exile</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Deflecting Palm" tabindex="0">Deflecting Palm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sanctifier en-Vec" tabindex="0">Sanctifier en-Vec</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kor Firewalker" tabindex="0">Kor Firewalker</span></div></div></div><pre hidden id="bolt-deck-3">Aggregate Modern Burn
+Modern metagame reference list · August 2022
+
+Creatures
+4 Eidolon of the Great Revel
+4 Goblin Guide
+4 Monastery Swiftspear
+
+Sorceries
+4 Lava Spike
+4 Rift Bolt
+4 Skewer the Critics
+
+Instants
+4 Searing Blaze
+4 Boros Charm
+4 Lightning Bolt
+2 Skullcrack
+2 Lightning Helix
+
+Lands
+4 Sunbaked Canyon
+4 Inspiring Vantage
+3 Mountain
+2 Sacred Foundry
+2 Bloodstained Mire
+2 Arid Mesa
+1 Fiery Islet
+1 Wooded Foothills
+1 Scalding Tarn
+
+Sideboard
+4 Roiling Vortex
+3 Smash to Smithereens
+3 Path to Exile
+2 Deflecting Palm
+2 Sanctifier en-Vec
+1 Kor Firewalker</pre></div></details></section>
+
+<section id="printings"><div class="chapter-number">XVIII · The physical history</div><h2>Printings and sources</h2>
+<p>Lightning Bolt began as an Alpha common, remained through Fourth Edition, disappeared from premier sets, and returned dramatically in Magic 2010 and Magic 2011. Supplemental sets, Masters products, promotional treatments, Secret Lairs, and the Strixhaven Mystical Archive have since made it one of Magic's most frequently reinterpreted iconic spells.</p>
+<div class="printings"><figure class="printing"><img alt="Alpha Lightning Bolt" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Lightning%20Bolt&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993</figcaption></figure><figure class="printing"><img alt="Fourth Edition Lightning Bolt" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Lightning%20Bolt&amp;set=4ed&amp;format=image&amp;version=normal"><figcaption>Fourth Edition · 1995</figcaption></figure><figure class="printing"><img alt="Magic 2010 Lightning Bolt" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Lightning%20Bolt&amp;set=m10&amp;format=image&amp;version=normal"><figcaption>Magic 2010 · 2009</figcaption></figure><figure class="printing"><img alt="Magic 2011 Lightning Bolt" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Lightning%20Bolt&amp;set=m11&amp;format=image&amp;version=normal"><figcaption>Magic 2011 · 2010</figcaption></figure><figure class="printing"><img alt="Modern Masters 2015 Lightning Bolt" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Lightning%20Bolt&amp;set=mm2&amp;format=image&amp;version=normal"><figcaption>Modern Masters 2015</figcaption></figure><figure class="printing"><img alt="Strixhaven Mystical Archive Lightning Bolt" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Lightning%20Bolt&amp;set=sta&amp;format=image&amp;version=normal"><figcaption>Strixhaven Mystical Archive · 2021</figcaption></figure></div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://magic.wizards.com/en/news/making-magic/the-history-of-two-in-ones-part-1">Mark Rosewater, “The History of Two-in-Ones, Part 1”</a><span>The Alpha boon cycle and its one-mana, number-three structure.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">Mark Rosewater, “A Different Worlds”</a><span>The 1994 World Championship final and Bertrand Lestree's complete decklist.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/famous-red-decks-magic-history-2004-07-22-0">Alex Shvartsman, “Famous Red Decks in Magic History”</a><span>Paul Sligh's exact list, the Atlanta qualifier result, the mana curve, and the history of red archetypes.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/how-build-aggro-2017-02-02">Reid Duke, “How to Build Aggro”</a><span>Lightning Bolt as the clearest example of reach and the strategic logic of using burn on blockers or players.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/life-and-cards-i-philosophy-fire-2014-04-28">Mark Rosewater, “Life and Cards I: Philosophy of Fire”</a><span>Adrian Sullivan's framework for translating cards into damage and the Shock baseline.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/some-day-my-reprints-will-come-2020-06-22">Mark Rosewater, “Some Day, My Reprints Will Come”</a><span>Shock as the deliberate correction to Lightning Bolt.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/walking-undead-2011-10-17">Mark Rosewater, “The Walking Undead”</a><span>Lightning Bolt's retirement, Aaron Forsythe's Magic 2010 reprint decision, and the two-year Standard experiment.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/caw-blade-2011-03-01">Wizards of the Coast, “Caw-Blade”</a><span>Gerry Thompson's UWR Caw-Blade list showing Bolt as flexible control interaction.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/metagame-mentor-modern-roundup-august-2022">Frank Karsten, “Modern Metagame Roundup — August 2022”</a><span>The aggregate Modern Burn list and its six-Bolts-at-eighteen arithmetic.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/metagame-mentor-modern-with-dominaria-united">Frank Karsten, “Modern with Dominaria United”</a><span>Lightning Bolt among the most-played cards in a 767-deck Modern sample.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/best-instants-all-time-2003-06-27">Wizards of the Coast, “Best Instants of All Time”</a><span>A contemporary official ranking placing Lightning Bolt first among red instants.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast, Banned &amp; Restricted Lists</a><span>Current sanctioned-format status and official format policy.</span></li>
+<li><a href="https://scryfall.com/search?order=released&amp;q=%21%22Lightning%20Bolt%22&amp;unique=prints">Scryfall Lightning Bolt printing archive</a><span>Oracle text, printings, artists, release records, legality, and image references.</span></li></ol>
+<p class="editor-note"><b>Editorial note.</b> This is an independent, noncommercial fan-history project. Magic: The Gathering, card names, card images, and artwork belong to Wizards of the Coast and their respective artists. Scryfall image endpoints are used for reference and require internet access.</p>
+<nav class="end-nav"><a href="index.html#entry-010"><small>Previous entry · 010</small>Sol Ring</a><a href="012-counterspell.html"><small>Next entry · 012</small>Counterspell</a></nav></section>
+</article><aside class="sidebar-note"><b>Compulsive Research</b><br>Entry 011 sits between Sol Ring's acceleration and Counterspell's refusal: the one-mana red spell that made three damage a universal unit of Magic strategy.</aside></div>
+<div id="preview"><img alt=""></div><footer class="footer">Compulsive Research · Entry 011 · Lightning Bolt · Independent Magic history project.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script></body></html>
