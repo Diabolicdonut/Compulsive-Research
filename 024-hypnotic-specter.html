@@ -1,0 +1,695 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Hypnotic Specter: Alpha, Dark Ritual, random discard, Worlds 1995, the first Pro Tour, Necropotence, Ninth Edition, artwork, descendants, and player memory."><title>Hypnotic Specter: The Creature That Stole the Next Draw — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+</style></head><body>
+
+<header class="hero hypnotic-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#wave-01">← Wave 01 · The Foundational Canon</a>
+<div class="eyebrow">Entry 024 · Wave 01 · The Foundational Canon</div>
+<h1>The Creature That Stole the Next Draw</h1>
+<p class="deckline">Hypnotic Specter turned an evasive two-power creature into a repeating attack on hidden information—and made one Swamp plus Dark Ritual among the most feared opening hands in early Magic.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 25 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="index.html#entry-023">← Entry 023 · Shivan Dragon</a><div class="center">Entry 024 of 1,000</div><a href="index.html#entry-025">Entry 025 · Royal Assassin →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong>
+<a href="#opening">The creature that stole the next draw</a><a href="#origin">Black's airborne thief</a><a href="#ritual">The first-turn nightmare</a><a href="#random">Why the discard was random</a><a href="#pressure">Two damage, one card, no safe hand</a><a href="#worlds">The 1995 World Champion</a><a href="#rack">The Rack and the empty hand</a><a href="#pro-tour">The first Pro Tour</a><a href="#necro">Inside Black Summer</a><a href="#absence">The years outside the core set</a><a href="#return">Ninth Edition brings back the Hippie</a><a href="#honolulu">A different Specter in 2006</a><a href="#formats">A life across formats</a><a href="#descendants">The entire Specter bloodline</a><a href="#art">The rider in the violet sky</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
+<article class="article">
+<section id="opening"><div class="chapter-number">I · The attack</div><h2>The creature that stole the next draw</h2>
+<p class="opening dropcap">Hypnotic Specter did not merely deal two damage. It removed the card the opponent had been planning to use after the damage was over.</p>
+<p>The body is modest even by early Magic standards: a 2/2 flier for three mana. The trigger is what made the creature feel larger. Whenever the Specter damages an opponent, that player discards a card at random. The controller does not have to choose between attacking life total and attacking resources. Every clean hit does both.</p>
+<p>That combination changes the ordinary meaning of an evasive creature. A two-power flier normally promises a ten-turn clock from twenty life. Hypnotic Specter promises a much shorter game because each attack can erase a land drop, removal spell, finisher, or carefully saved answer. The life total says there is time. The shrinking hand says there may not be.</p>
+<div class="card-lead"><img alt="Hypnotic Specter from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&amp;set=lea&amp;format=image&amp;version=normal"><div><div class="oracle"><b>Hypnotic Specter</b> · {1}{B}{B}<br>Creature — Specter<br><br>Flying<br><br>Whenever Hypnotic Specter deals damage to an opponent, that player discards a card at random.<br><br><b>2/2</b></div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Illustrated by</b>Douglas Shuler</div><div class="stat"><b>Historical identity</b>“Hippie” · Ritual threat · Specter template</div></div></div></div>
+<p>It was also one of the first creatures to teach a basic lesson about removal: the correct time to answer a threat can be before it has generated any visible advantage. Killing Hypnotic Specter after one hit often means the exchange is already unfavorable. Killing it before combat can feel wasteful when a larger creature might appear later. The Specter makes that hesitation dangerous.</p>
+<p>More than three decades later, the card is no longer a universal competitive staple. Creatures are faster, removal is broader, and three mana now buys much more immediate value. Yet Hypnotic Specter remains one of the defining creatures of early Magic because its gameplay, artwork, nickname, and most famous opening all fused into one perfect memory: Swamp, Dark Ritual, Hippie.</p></section>
+
+<section id="origin"><div class="chapter-number">II · Alpha</div><h2>Black's airborne thief</h2>
+<p>Alpha assigned black several ways to attack the opponent before the battlefield could stabilize. <span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span> destroyed a hand in one concentrated event. <span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span> denied mana. <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span> converted a card into temporary speed. <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span> joined those ideas inside a creature: acceleration could deploy it early, flight could carry it past defenders, and repeated damage could dismantle whatever remained in hand.</p>
+<p>The design was unusually complete. Flying ensured the trigger mattered. Two power meant the card still advanced the game when the opponent had little left to discard. The double-black cost made the Specter feel strongly tied to its color while remaining castable through the Ritual printed beside it in the same set.</p>
+<p>Richard Garfield's first set did not yet possess a settled model for creature efficiency. Many early creatures paid heavily for abilities that later became routine. Hypnotic Specter was an exception: the body was serviceable, the evasion was relevant, and the triggered ability could create a new card of advantage every turn. In a 2008 discussion of creature power, Mark Rosewater described Hypnotic Specter and <span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span> as the two best creatures in Alpha that had remained core-set staples.</p>
+<div class="pullquote">The Specter did not ask black to choose between aggression and disruption. It made disruption the reward for attacking.<small>Limited Edition Alpha · 1993</small></div>
+<p>The creature type itself became inseparable from the effect. Mark Rosewater later identified Hypnotic Specter as the card that established a recurring archetype: flying black creatures that damage a player and interfere with that player's hand. Magic would print many different Specters, but the family continued to resemble its first member because the first design was so legible.</p></section>
+
+<div class="art-break hypnotic-art"><div class="art-caption"><b>Douglas Shuler's original Hypnotic Specter artwork</b>The mounted apparition, violet storm, and impossible perspective made the creature feel less like a conventional monster than a thought descending from somewhere outside the battlefield.</div></div>
+
+<section id="ritual"><div class="chapter-number">III · The opening hand</div><h2>The first-turn nightmare</h2>
+<p>One of Magic's oldest named combinations requires only two cards. Play a Swamp. Cast <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span>. Use the three black mana to cast Hypnotic Specter.</p>
+<p>The play does not immediately win. It spends two cards to produce one creature, and the Specter can die to <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>, <span class="card-name" data-card="Terror" tabindex="0">Terror</span>, or any other timely answer. But the sequence moves a three-mana repeating-discard engine onto the battlefield before the opponent has played a land. If the answer is not already in hand—or if the random trigger removes it first—the game can become structurally one-sided.</p>
+<p>Wizards has repeatedly used Dark Ritual plus Hypnotic Specter as an example of the two-card combination as old as Magic itself. The phrase survives because the cards solve each other's timing. Specter is strongest before the opponent can empty a hand or establish blockers. Ritual exists to make “before” happen two turns early.</p>
+<div class="pressure-grid"><div class="pressure-step"><b>Turn one</b><span>Swamp and Dark Ritual produce the three mana normally available on turn three.</span></div><div class="pressure-step"><b>Turn two</b><span>The Specter attacks before many decks can cast their first broad creature answer.</span></div><div class="pressure-step"><b>Random</b><span>The opponent cannot protect the best card by choosing something expendable.</span></div><div class="pressure-step"><b>Repeat</b><span>Every unanswered attack converts the creature into another discard spell.</span></div></div>
+<p>The play also taught players to evaluate temporary mana correctly. Ritual into a creature is nominal card disadvantage: two cards become one permanent. But if that permanent forces one discard, the exchange becomes even; if it forces a second, the black player is ahead before counting four points of flying damage. The Specter is the bridge that converts short-term mana into long-term cards.</p>
+<div class="hypnotic-note"><b>The historical fear was conditional, not mythical.</b> A turn-one Specter was devastating when the opponent lacked immediate removal. It was also a risky investment into the efficient answers of the era. Its reputation came from the severity of the games where the answer was absent, not from literal inevitability.</div></section>
+
+<section id="random"><div class="chapter-number">IV · Hidden information</div><h2>Why the discard was random</h2>
+<p>Most discard effects grant someone a choice. <span class="card-name" data-card="Mind Rot" tabindex="0">Mind Rot</span> lets the affected player decide which two cards are least valuable. <span class="card-name" data-card="Duress" tabindex="0">Duress</span> reveals the hand and lets the caster select within a restricted category. Hypnotic Specter grants neither form of control. The card is selected at random from information hidden from the Specter's controller.</p>
+<p>Random discard produces a distinctive kind of pressure. The opponent cannot keep a single crucial card safe by discarding excess lands. A hand containing five mediocre cards and one winning card still exposes the winning card to the same chance as everything else. The Specter therefore attacks plans, not merely quantity.</p>
+<p>That uncertainty is strategically powerful and emotionally memorable. A player can accept losing a chosen land because the choice was theirs. Losing the only removal spell, the fourth land, or the expensive card they kept the opening hand to cast feels like the game reached into private information and selected the worst possible outcome.</p>
+<div class="discard-grid"><div class="discard-step"><b>Chosen</b><span>The affected player discards the card that costs the least to lose.</span></div><div class="discard-step"><b>Targeted</b><span>The caster sees the hand and removes the most relevant legal card.</span></div><div class="discard-step"><b>Random</b><span>Neither player controls the result; every card remains exposed.</span></div></div>
+<p>Randomness also prevents perfect play from neutralizing the trigger. Against ordinary discard, hand management can preserve a key card. Against Hypnotic Specter, the best defense is to remove the creature, empty the hand, prevent the damage, or accept the probability. The skill lies around the die roll, not inside it.</p></section>
+
+<section id="pressure"><div class="chapter-number">V · The clock</div><h2>Two damage, one card, no safe hand</h2>
+<p>Hypnotic Specter is often described as a card-advantage engine, but its real strength was the interaction between three clocks.</p>
+<p>The first clock is life. Two damage is not much, but flight makes it reliable, and five attacks reduce twenty life to ten before any other threat is counted. The second clock is hand size. A seven-card opening hand naturally contracts through land drops and spells; the Specter accelerates that contraction by another card each turn. The third clock is quality. Random discard may remove the card that was supposed to reverse the other two clocks.</p>
+<p>This combination creates a dilemma for the defending player. Holding cards preserves future options but gives the Specter targets. Casting cards quickly protects them from random discard but may force inefficient sequencing. Spending premium removal on a 2/2 can feel disproportionate, yet saving it risks losing the removal itself.</p>
+<p>The Specter's controller faces decisions too. Attacking is usually obvious, but protecting the creature is not. A pump spell, counterspell, or removal spell spent to clear a blocker can be justified because it preserves a repeating source of advantage. At the same time, overprotecting a 2/2 can magnify the original Ritual investment and create a devastating multi-card loss.</p>
+<p>That tension is why the card produced stories rather than just statistics. The memorable games are not the ones where it traded immediately with removal. They are the games where it hit once, removed the answer, hit again, removed the land, and transformed an apparently functional hand into a sequence of topdecks.</p></section>
+
+<section id="worlds"><div class="chapter-number">VI · Seattle, 1995</div><h2>The 1995 World Champion</h2>
+<p>Alexander Blumke won the 1995 World Championship with a black-white discard-control deck splashing blue. The list registered three Hypnotic Specters beside four <span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span>, <span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span>, <span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span>, and three copies of <span class="card-name" data-card="The Rack" tabindex="0">The Rack</span>.</p>
+<p>The Specter gave the deck a way to turn hand destruction into battlefield pressure. Hymn and Mind Twist could strip cards without ending the game. The Rack punished the opponent for remaining empty. Hypnotic Specter connected those phases: it reduced the hand while dealing the damage needed to make the artifact's clock decisive.</p>
+<p>Blumke's deck was not mono-black and was not a simple Ritual aggro deck. White supplied <span class="card-name" data-card="Balance" tabindex="0">Balance</span>, <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span>, <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>, and sideboard protection. Blue supplied <span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span> and utility cards. The core identity remained black control through resource denial.</p>
+<p>The World Championship victory demonstrated that Hypnotic Specter was not merely a flashy opening. It belonged in a patient strategy capable of winning long games. A turn-one Specter could steal the game; a turn-five Specter could arrive after Hymn and force an already depleted opponent to answer a repeating threat.</p>
+<div class="timeline"><div class="timeline-item"><time>August 1993</time><h3>Limited Edition Alpha</h3><p>Hypnotic Specter appears as an uncommon 2/2 flier with random discard.</p></div><div class="timeline-item"><time>August 1995</time><h3>World Championship</h3><p>Alexander Blumke wins with three copies in black-white Rack control.</p></div><div class="timeline-item"><time>February 1996</time><h3>First Pro Tour</h3><p>George Baxter and Leon Lindbäck both reach the Top 8 with four copies.</p></div><div class="timeline-item"><time>July 2005</time><h3>Ninth Edition</h3><p>The card returns to the core set at rare with new Greg Staples artwork.</p></div></div></section>
+
+<section id="rack"><div class="chapter-number">VII · The empty hand</div><h2>The Rack and the last card</h2>
+<p>Discard has a natural problem: it becomes weaker as it succeeds. A player with no cards cannot discard another one. Drawing <span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span> against an empty hand accomplishes nothing. The Rack solves the problem by turning emptiness into damage, while Hypnotic Specter solves it by remaining a flying creature after the discard mode stops functioning.</p>
+<p>This makes the Specter unusually compatible with resource-denial strategies. Early in the game it removes cards. Late in the game it attacks for two. At exactly one card in the opponent's hand, it can force a particularly cruel pattern: the opponent draws for the turn, attempts to decide whether to cast the card, and may lose it on the next attack if it remains.</p>
+<p>The phrase “stole the next draw” is not literal rules text, but it describes the experience. Once the opponent is empty, every draw exists under a deadline. Sorceries and permanents may be cast immediately. Reactive cards, expensive spells, and lands being saved for later remain vulnerable. The Specter turns the normal privilege of holding a card into a risk.</p>
+<p>Blumke's 1995 deck is the cleanest historical expression of this relationship, but the principle continued through mono-black aggro, Necropotence, Suicide Black, Old School, and Premodern. The creature does not require The Rack to function. It simply shares the same goal: make the opponent's hand too small to support a coherent game.</p></section>
+
+<section id="pro-tour"><div class="chapter-number">VIII · New York, 1996</div><h2>The first Pro Tour</h2>
+<p>The first Pro Tour in New York produced two Top 8 decks with four Hypnotic Specters, and the contrast between them shows the card's range.</p>
+<p>George Baxter played an aggressive multicolor “Good Stuff” deck. Dark Ritual and Specter occupied the early turns; <span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span> attacked the hand; pump knights and <span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span> supplied pressure; <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span> and <span class="card-name" data-card="Fireball" tabindex="0">Fireball</span> closed games. Wizards' later analysis of the deck described the Ritual–Specter opening as the dreaded exception to an otherwise quiet first turn.</p>
+<p>Leon Lindbäck played mono-black Necropotence. His Specters shared the deck with <span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span>, Hymn, <span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span>, <span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span>, and efficient black creatures. Baxter used the Specter to accelerate aggression. Lindbäck used it to ensure the opponent could not keep pace with the cards Necropotence was generating.</p>
+<p>The same 2/2 therefore sat comfortably in decks with different resource philosophies. One wanted to end the game before the opponent recovered. The other wanted to exchange resources and then draw far more cards than the opponent. Hypnotic Specter served both because connecting even once could justify its cost, while connecting repeatedly supported either plan.</p>
+<p>The card's presence in the first Pro Tour also helped cement its public identity. The Pro Tour Collector Set later reproduced the Top 8 decklists with gold-bordered cards, creating distinctive George Baxter and Leon Lindbäck printings of Hypnotic Specter signed in facsimile by the players whose decks used it.</p></section>
+
+<section id="necro"><div class="chapter-number">IX · Black Summer</div><h2>Inside Necropotence</h2>
+<p><span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span> and Hypnotic Specter attack opposite sides of the card-advantage equation. Necropotence lets its controller pay life to refill a hand. Specter makes the opponent's hand smaller. Together they create a gap that ordinary one-for-one answers struggle to close.</p>
+<p>Classic Necro decks did not need the Specter to generate cards; the enchantment already did that at a rate unmatched by fair draw spells. They needed ways to convert those cards into control and pressure. Dark Ritual enabled first-turn Necropotence or first-turn Hypnotic Specter. Hymn removed two cards. Strip Mine attacked mana. Drain Life stabilized life total and ended games.</p>
+<p>Mike Flores' discussion of card advantage used a representative Necropotence deck containing Hymn, Hypnotic Specter, Nevinyrral's Disk, and Necropotence to explain why drawing extra cards eventually overwhelms an opponent trading one for one. The Specter contributes from the other direction: it makes the opponent's normal draw step less able to keep up.</p>
+<p>The era made black's philosophy unusually coherent. Life was a resource to spend. Ritual mana was time borrowed from later turns. Cards in the opponent's hand were threats that could be destroyed before they were cast. Hypnotic Specter embodied all three: Ritual could summon it early, life total could be ignored while it attacked, and hidden cards became vulnerable to damage.</p>
+<p>Its limitations were equally visible. Cheap removal could undo the Ritual opening. Decks that emptied their hands quickly reduced the discard value. Necropotence itself was much more powerful than any creature in the shell. The Specter was not the engine of Black Summer, but it was one of the cards that made the engine's advantage oppressive on the battlefield.</p></section>
+
+<section id="absence"><div class="chapter-number">X · The missing years</div><h2>The years outside the core set</h2>
+<p>Hypnotic Specter appeared in Alpha, Beta, Unlimited, Revised, and Fourth Edition. Then it vanished from the main core-set line for a decade.</p>
+<p>The absence coincided with a broader reassessment of black's early tools. Dark Ritual created development problems by allowing three-mana black cards to appear on turn one. Random discard could produce severe game-to-game variance. Creatures that repeatedly attacked hidden resources were difficult to balance when acceleration made their first trigger arrive before normal defenses.</p>
+<p>Magic did not abandon the Specter idea. It changed the price and shape. <span class="card-name" data-card="Abyssal Specter" tabindex="0">Abyssal Specter</span> cost four mana and let the opponent choose the discarded card. <span class="card-name" data-card="Blazing Specter" tabindex="0">Blazing Specter</span> added haste and red but cost four. <span class="card-name" data-card="Shimian Specter" tabindex="0">Shimian Specter</span> exiled matching cards after combat damage but asked for four mana and a more elaborate effect. The original remained the benchmark against which all of them were measured.</p>
+<p>Anthologies and special products kept the card physically available, while older formats preserved its historical decks. But players entering during Tempest, Urza, Masques, or early Mirrodin could know the Hippie as a famous old card without ever opening one in a contemporary booster.</p>
+<p>That distance improved its legend. The card belonged to stories about Ritual openings, random discards, and a harsher early game. By the time Wizards considered returning it, Hypnotic Specter had become both a playable object and a symbol of what old black cards were allowed to do.</p></section>
+
+<section id="return"><div class="chapter-number">XI · Ninth Edition</div><h2>Ninth Edition brings back the Hippie</h2>
+<p>Ninth Edition returned Hypnotic Specter to the core set in July 2005. The card moved from uncommon to rare and received new artwork by Greg Staples. It was the same rules object entering a very different Magic.</p>
+<p>The most important missing partner was Dark Ritual. Without one mana becoming three, the Specter usually arrived on turn three. Opponents had more time to develop mana, cast removal, or deploy creatures that could race it. The card was still threatening, but the famous opening was now history rather than Standard procedure.</p>
+<p>The promotion to rare reflected both Limited concerns and reputation. Repeated random discard can dominate a draft game if it appears too frequently. Rarity also presented the card as a returning icon, closer to a marquee black rare than an ordinary utility creature.</p>
+<p>The new environment gave it different allies: <span class="card-name" data-card="Dark Confidant" tabindex="0">Dark Confidant</span> for card flow, <span class="card-name" data-card="Umezawa&#x27;s Jitte" tabindex="0">Umezawa&#x27;s Jitte</span> for combat dominance, <span class="card-name" data-card="Ravenous Rats" tabindex="0">Ravenous Rats</span> and <span class="card-name" data-card="Shrieking Grotesque" tabindex="0">Shrieking Grotesque</span> for creature-based discard, <span class="card-name" data-card="Mortify" tabindex="0">Mortify</span> for broad removal, and Orzhov mana for multicolor aggression. Hypnotic Specter was no longer the fastest thing black could do. It was one link in a sustained chain of pressure.</p>
+<div class="inline-image blazing-descendant"><div class="image"></div><div class="copy"><div class="kicker">The multicolor heir</div><h3>Blazing Specter</h3><p>Blazing Specter preserved the flying discard attack, added haste, and shifted the cost to black-red. The design shows how later Specters paid more mana or demanded more colors to reproduce the original's pressure.</p></div></div>
+<p>The return also proved how much creatures had changed. A card once considered among Alpha's best creatures was strong enough to see tournament play in 2005 and 2006, but it no longer defined the ceiling. Its success depended on shell, matchup, and support rather than simple rate.</p></section>
+
+<section id="honolulu"><div class="chapter-number">XII · Pro Tour Honolulu</div><h2>A different Specter in 2006</h2>
+<p>Rudd Warmenhoven reached seventh place at Pro Tour Honolulu in 2006 with Roxodon Hierarchy, an Orzhov aggro deck containing four Hypnotic Specters.</p>
+<p>The list illustrates the card's second competitive life. There was no Dark Ritual and no attempt to lock the opponent beneath one accelerated threat. Instead, the deck presented a sequence of creatures that each strained a different resource. <span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span> and <span class="card-name" data-card="Isamaru, Hound of Konda" tabindex="0">Isamaru, Hound of Konda</span> attacked life quickly. Ravenous Rats and Shrieking Grotesque removed cards immediately. Dark Confidant kept the Orzhov player supplied. Jitte made every surviving creature dangerous.</p>
+<p>Hypnotic Specter occupied the middle. Unlike the Rats, it did not guarantee a discard when cast. Unlike the one-drops, it was not maximally efficient damage. What it offered was escalation. If the opponent spent removal on earlier creatures, the Specter could survive and begin taking random cards. If the opponent saved removal for it, the smaller attackers and Jitte gained time.</p>
+<p>This is a different strategic identity from the 1993–96 version. The old Specter often arrived before the opponent could participate. The 2006 Specter asked the opponent to answer several overlapping threats and punished any gap. The card had become fairer without becoming harmless.</p>
+<p>The distinction explains why the Ninth Edition return mattered even though it did not recreate the old world. Hypnotic Specter was capable of competing under modernized conditions, but the conditions now required a deck rather than a two-card opening to make the pressure overwhelming.</p></section>
+
+<section id="formats"><div class="chapter-number">XIII · Afterlife</div><h2>A life across formats</h2>
+<p>Hypnotic Specter's present significance depends heavily on the format.</p>
+<div class="format-strip"><div class="format-card"><span class="impact">Defining</span><h3>Old School 93/94</h3><p>Dark Ritual into Hippie remains one of mono-black's signature openings and one of the format's central historical experiences.</p></div><div class="format-card"><span class="impact">Recognizable</span><h3>Premodern</h3><p>Suicide Black can still combine Ritual, Specter, Duress, Hatred, and efficient black creatures, though the format contains many stronger engines.</p></div><div class="format-card"><span class="impact">Legal, marginal</span><h3>Modern and Eternal</h3><p>Ninth Edition makes the card Modern-legal, but contemporary threats and removal generally outclass a three-mana 2/2 that must connect.</p></div><div class="format-card"><span class="impact">Thematic</span><h3>Commander</h3><p>It appears in discard and Specter collections, but one random card from one opponent is modest in multiplayer.</p></div></div>
+<p>Old School preserves the card at something close to its original scale. Lightning Bolt and Swords to Plowshares remain efficient answers, but creature quality is low enough that an unanswered Specter can dominate. The Ritual opening is not an anecdote imported from another game; it is a live strategic threat.</p>
+<p>Premodern offers a later ecosystem of black aggression. <span class="card-name" data-card="Carnophage" tabindex="0">Carnophage</span>, <span class="card-name" data-card="Sarcomancy" tabindex="0">Sarcomancy</span>, <span class="card-name" data-card="Dauthi Slayer" tabindex="0">Dauthi Slayer</span>, <span class="card-name" data-card="Nantuko Shade" tabindex="0">Nantuko Shade</span>, <span class="card-name" data-card="Duress" tabindex="0">Duress</span>, and <span class="card-name" data-card="Hatred" tabindex="0">Hatred</span> compete with or support the Specter. The card is recognizable, functional, and no longer automatically the best three-drop.</p>
+<p>Modern exposes the passage of time most clearly. Three-mana creatures are expected to generate value immediately, resist removal, or threaten enormous damage. Hypnotic Specter must survive, attack, connect, and then produce a random one-card result. Its legality is historical; its absence from top decks is a lesson in creature development.</p>
+<p>That decline does not reduce its importance. Compulsive Research is concerned with cards that shaped how players understood the game, not merely cards that remain optimal. Hypnotic Specter taught that a creature could be a discard engine, that temporary mana could become lasting advantage, and that one unblocked attack could change the entire texture of a hand.</p></section>
+
+<section id="descendants"><div class="chapter-number">XIV · Design echo</div><h2>The entire Specter bloodline</h2>
+<p>Hypnotic Specter did more than inspire similar cards. It effectively defined what “Specter” means in Magic.</p>
+<p>Mark Rosewater has described the connection directly: the original created an archetype that designers revisit so consistently that Specters are largely isolated to the role of flying creatures that damage a player and interfere with that player's hand. Few creature types are so tightly attached to one mechanical sentence.</p>
+<p><span class="card-name" data-card="Abyssal Specter" tabindex="0">Abyssal Specter</span> is the straightforward weakened version: four mana, the same body, and discard chosen by the opponent. <span class="card-name" data-card="Blazing Specter" tabindex="0">Blazing Specter</span> adds haste and a second color. <span class="card-name" data-card="Silent Specter" tabindex="0">Silent Specter</span> amplifies the discard through morph and a larger body. <span class="card-name" data-card="Shimian Specter" tabindex="0">Shimian Specter</span> attacks all copies of a chosen nonland card. <span class="card-name" data-card="Guul Draz Specter" tabindex="0">Guul Draz Specter</span> grows when the opponent has no cards. <span class="card-name" data-card="Nightveil Specter" tabindex="0">Nightveil Specter</span> replaces discard with stealing cards from the top of the library, preserving the feeling that combat damage invades private resources.</p>
+<p>The family also escaped the creature type. <span class="card-name" data-card="Ophidian" tabindex="0">Ophidian</span>, <span class="card-name" data-card="Thieving Magpie" tabindex="0">Thieving Magpie</span>, and later saboteur creatures reward connecting with cards for their controller rather than cards taken from the opponent. <span class="card-name" data-card="Okiba-Gang Shinobi" tabindex="0">Okiba-Gang Shinobi</span> turns an unblocked attacker into a large discard event. <span class="card-name" data-card="Rankle, Master of Pranks" tabindex="0">Rankle, Master of Pranks</span> offers a menu of combat-damage consequences including discard.</p>
+<p>Every descendant reveals something about the original's rate. Designers add a mana, narrow the trigger to combat damage, let the opponent choose, require multiple colors, reduce toughness, or delay the effect. Hypnotic Specter needs none of those qualifications. That is why it remained the name players used to explain the family even after individual descendants became stronger in particular formats.</p></section>
+
+<section id="art"><div class="chapter-number">XV · The apparition</div><h2>The rider in the violet sky</h2>
+<p>Douglas Shuler's Alpha artwork is among the most dreamlike images in the original set. A dark rider or winged apparition advances through a violet storm, its mount and body difficult to separate. The perspective is unstable. The creature seems to be flying toward the viewer, but the background offers little ground by which to measure distance.</p>
+<p>That ambiguity suits a card that attacks the hand. Hypnotic Specter does not destroy a visible permanent. It removes something known only to the player holding it. Shuler's image feels similarly inaccessible: recognizable as a threat, difficult to describe as an ordinary animal or person.</p>
+<p>The Alpha flavor text quotes Samuel Taylor Coleridge's “Phantom”: “There was no trace / Of aught on that illumined face.” The fragment reinforces absence rather than anatomy. The Specter is defined by what cannot be read, just as the random card cannot be known before it is selected.</p>
+<p>Greg Staples' Ninth Edition artwork reinterpreted the creature for the modern frame. The figure is clearer, more physical, and more overtly monstrous, emerging through blue-black energy. The change reflects two eras of Magic art. Shuler's original functions as an uncanny emblem. Staples' version presents a creature that could occupy a contemporary fantasy scene.</p>
+<p>The original art nevertheless remains the cultural default. The “Hippie” nickname usually summons the old-frame card, the purple sky, and the memory of a Swamp beside Dark Ritual. Later art depicts Hypnotic Specter. Shuler's image depicts the period in which Hypnotic Specter became famous.</p></section>
+
+<section id="memory"><div class="chapter-number">XVI · The nickname</div><h2>What players remember</h2>
+<p>Players rarely give enduring nicknames to cards whose official names are easy to say. Hypnotic Specter became “Hippie” anyway. The abbreviation is quick, affectionate, and old enough to identify a generation of Magic vocabulary.</p>
+<p>The nickname often appears inside a complete phrase: “Ritual out a Hippie.” That phrase contains an opening hand, a strategic plan, and an emotional forecast. The black player hopes to connect before the opponent can stabilize. The opponent counts removal and imagines the wrong card being selected at random.</p>
+<p>What players remember most is not always competitive accuracy. They remember the sound of shuffling cards before a random choice. They remember spreading a hand facedown or rolling a die. They remember the Specter taking the only land, or missing the crucial spell three attacks in a row. They remember keeping a hand because it had an answer and then watching the answer disappear.</p>
+<p>They also remember the card as a measurement of change. A 2/2 flier for three mana with no enters-the-battlefield effect was once one of the best creatures in the game. When it returned in Ninth Edition, it was exciting and playable but no longer extraordinary. In current formats it is mostly a historical choice. The same text records three different eras of creature design without changing a word.</p>
+<div class="memory"><div class="memory-grid"><blockquote>Swamp. Dark Ritual. Hypnotic Specter. The entire story fits inside a first turn.</blockquote><cite>The opening remembered as “Ritual–Hippie”</cite></div></div>
+<p>That is why the card belongs near Serra Angel, Shivan Dragon, Royal Assassin, and Sengir Vampire in the Foundational Canon. Hypnotic Specter is not merely an efficient old creature. It is a piece of the language through which early players learned what black was supposed to feel like.</p></section>
+
+<section id="decklists" class="deck-archive"><div class="chapter-number">XVII · The record</div><h2>The deck archive</h2><p class="deck-intro">These four lists trace Hypnotic Specter from a World Championship discard shell through the first Pro Tour and Black Summer to its successful Ninth Edition return in Orzhov aggro.</p><details class="deck"><summary><span><strong>Alexander Blumke — Rack Control</strong><small>World Champion · Worlds 1995</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>The 1995 World Champion used Hypnotic Specter as the attacking half of a broad discard strategy. Hymn to Tourach, Mind Twist, Disrupting Scepter, and The Rack ensured that every successful Specter hit pushed the opponent closer to playing from the top of the library.</p><div class="deck-meta"><div><b>Alexander Blumke</b><div class="small">World Champion · Worlds 1995</div></div><button class="copy" data-target="hypnotic-deck-0">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><h4>Creatures · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Royal Assassin" tabindex="0">Royal Assassin</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sengir Vampire" tabindex="0">Sengir Vampire</span></div><h4>Instants · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dark Banishing" tabindex="0">Dark Banishing</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Terror" tabindex="0">Terror</span></div><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><h4>Artifacts · 8</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="The Rack" tabindex="0">The Rack</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div><h4>Enchantments · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Dance of the Dead" tabindex="0">Dance of the Dead</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pestilence" tabindex="0">Pestilence</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spirit Link" tabindex="0">Spirit Link</span></div></div><div class="deck-col"><h4>Lands · 25</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bottomless Vault" tabindex="0">Bottomless Vault</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">12</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground River" tabindex="0">Underground River</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Artifacts" tabindex="0">Circle of Protection: Artifacts</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Black" tabindex="0">Circle of Protection: Black</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gloom" tabindex="0">Gloom</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Prismatic Ward" tabindex="0">Prismatic Ward</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stromgald Cabal" tabindex="0">Stromgald Cabal</span></div></div></div><pre hidden id="hypnotic-deck-0">Alexander Blumke — Rack Control
+World Champion · Worlds 1995
+
+Creatures · 6
+3 Hypnotic Specter
+1 Royal Assassin
+2 Sengir Vampire
+
+Instants · 12
+1 Dark Banishing
+4 Dark Ritual
+3 Disenchant
+1 Power Sink
+1 Swords to Plowshares
+2 Terror
+
+Sorceries · 6
+1 Balance
+4 Hymn to Tourach
+1 Mind Twist
+
+Artifacts · 8
+1 Disrupting Scepter
+2 Icy Manipulator
+3 The Rack
+2 Zuran Orb
+
+Enchantments · 6
+3 Dance of the Dead
+1 Land Tax
+1 Pestilence
+1 Spirit Link
+
+Lands · 25
+3 Adarkar Wastes
+1 Bottomless Vault
+4 Mishra&#x27;s Factory
+3 Plains
+1 Strip Mine
+12 Swamp
+1 Underground River
+
+Sideboard · 15
+1 Blue Elemental Blast
+1 Circle of Protection: Artifacts
+1 Circle of Protection: Black
+2 Circle of Protection: Red
+4 Gloom
+1 Land Tax
+1 Magical Hack
+1 Prismatic Ward
+1 Sleight of Mind
+2 Stromgald Cabal</pre>
+<p class="small">Source: <a href="https://www.mtggoldfish.com/deck/3762934">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>George Baxter — Good Stuff</strong><small>Quarterfinalist · Pro Tour New York 1996</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>Baxter’s aggressive multicolor deck made the feared first-turn Specter one of its defining openings. The follow-up pressure came from Hymn to Tourach, pump knights, Erhnam Djinn, and burn rather than from a dedicated control shell.</p><div class="deck-meta"><div><b>George Baxter</b><div class="small">Quarterfinalist · Pro Tour New York 1996</div></div><button class="copy" data-target="hypnotic-deck-1">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><h4>Creatures · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ihsan&#x27;s Shade" tabindex="0">Ihsan&#x27;s Shade</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Knight of Stromgald" tabindex="0">Knight of Stromgald</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of the Ebon Hand" tabindex="0">Order of the Ebon Hand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sengir Vampire" tabindex="0">Sengir Vampire</span></div><h4>Instants · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><h4>Sorceries · 7</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div><h4>Artifacts · 3</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Barbed Sextant" tabindex="0">Barbed Sextant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="deck-col"><h4>Lands · 23</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Karplusan Forest" tabindex="0">Karplusan Forest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lava Tubes" tabindex="0">Lava Tubes</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sulfurous Springs" tabindex="0">Sulfurous Springs</span></div><div class="row"><span class="qty">12</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dark Banishing" tabindex="0">Dark Banishing</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ihsan&#x27;s Shade" tabindex="0">Ihsan&#x27;s Shade</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tranquility" tabindex="0">Tranquility</span></div></div></div><pre hidden id="hypnotic-deck-1">George Baxter — Good Stuff
+Quarterfinalist · Pro Tour New York 1996
+
+Creatures · 19
+4 Erhnam Djinn
+4 Hypnotic Specter
+1 Ihsan&#x27;s Shade
+4 Knight of Stromgald
+4 Order of the Ebon Hand
+2 Sengir Vampire
+
+Instants · 8
+4 Dark Ritual
+4 Lightning Bolt
+
+Sorceries · 7
+3 Fireball
+4 Hymn to Tourach
+
+Artifacts · 3
+2 Barbed Sextant
+1 Zuran Orb
+
+Lands · 23
+3 City of Brass
+3 Karplusan Forest
+1 Lava Tubes
+2 Mishra&#x27;s Factory
+2 Sulfurous Springs
+12 Swamp
+
+Sideboard · 15
+2 Dark Banishing
+2 Ihsan&#x27;s Shade
+2 Nevinyrral&#x27;s Disk
+3 Red Elemental Blast
+2 Serrated Arrows
+2 Shatter
+2 Tranquility</pre>
+<p class="small">Source: <a href="https://mtg.wtf/deck/ptc/george-baxter-quarterfinalist">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Leon Lindbäck — Necropotence</strong><small>Semifinalist · Pro Tour New York 1996</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>Lindbäck’s mono-black list placed Hypnotic Specter inside the deck that defined “Black Summer.” Necropotence refilled the black player’s hand while Specter, Hymn, and The Rack attacked the opponent’s ability to do the same.</p><div class="deck-meta"><div><b>Leon Lindbäck</b><div class="small">Semifinalist · Pro Tour New York 1996</div></div><button class="copy" data-target="hypnotic-deck-2">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><h4>Creatures · 11</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Knight of Stromgald" tabindex="0">Knight of Stromgald</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of the Ebon Hand" tabindex="0">Order of the Ebon Hand</span></div><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dark Banishing" tabindex="0">Dark Banishing</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span></div><h4>Sorceries · 5</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Soul Burn" tabindex="0">Soul Burn</span></div><h4>Artifacts · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jalum Tome" tabindex="0">Jalum Tome</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div><h4>Enchantments · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dance of the Dead" tabindex="0">Dance of the Dead</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span></div></div><div class="deck-col"><h4>Lands · 23</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ebon Stronghold" tabindex="0">Ebon Stronghold</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">17</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Apocalypse Chime" tabindex="0">Apocalypse Chime</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ashes to Ashes" tabindex="0">Ashes to Ashes</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon&#x27;s Cane" tabindex="0">Feldon&#x27;s Cane</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jalum Tome" tabindex="0">Jalum Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Safe Haven" tabindex="0">Safe Haven</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Stromgald Cabal" tabindex="0">Stromgald Cabal</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="The Rack" tabindex="0">The Rack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Torture" tabindex="0">Torture</span></div></div></div><pre hidden id="hypnotic-deck-2">Leon Lindbäck — Necropotence
+Semifinalist · Pro Tour New York 1996
+
+Creatures · 11
+4 Hypnotic Specter
+3 Knight of Stromgald
+4 Order of the Ebon Hand
+
+Instants · 9
+1 Dark Banishing
+4 Dark Ritual
+4 Drain Life
+
+Sorceries · 5
+4 Hymn to Tourach
+1 Soul Burn
+
+Artifacts · 7
+1 Ivory Tower
+1 Jalum Tome
+2 Nevinyrral&#x27;s Disk
+2 Serrated Arrows
+1 Zuran Orb
+
+Enchantments · 5
+1 Dance of the Dead
+4 Necropotence
+
+Lands · 23
+2 Ebon Stronghold
+4 Strip Mine
+17 Swamp
+
+Sideboard · 15
+1 Apocalypse Chime
+1 Ashes to Ashes
+1 City of Brass
+1 Feldon&#x27;s Cane
+1 Jalum Tome
+1 Meekstone
+2 Nevinyrral&#x27;s Disk
+1 Safe Haven
+1 Serrated Arrows
+1 Stromgald Cabal
+3 The Rack
+1 Torture</pre>
+<p class="small">Source: <a href="https://mtg.wtf/deck/ptc/leon-lindback-semifinalist">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Rudd Warmenhoven — Roxodon Hierarchy</strong><small>7th place · Pro Tour Honolulu 2006</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>Ninth Edition returned Hypnotic Specter to Standard, but not to its old Dark Ritual environment. Warmenhoven’s Orzhov deck used it as one layer of creature-based hand pressure alongside Ravenous Rats and Shrieking Grotesque, supported by Dark Confidant and Umezawa’s Jitte.</p><div class="deck-meta"><div><b>Rudd Warmenhoven</b><div class="small">7th place · Pro Tour Honolulu 2006</div></div><button class="copy" data-target="hypnotic-deck-3">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><h4>Creatures · 27</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Confidant" tabindex="0">Dark Confidant</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hand of Cruelty" tabindex="0">Hand of Cruelty</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kami of Ancient Law" tabindex="0">Kami of Ancient Law</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ravenous Rats" tabindex="0">Ravenous Rats</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Shrieking Grotesque" tabindex="0">Shrieking Grotesque</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ghost Council of Orzhova" tabindex="0">Ghost Council of Orzhova</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Isamaru, Hound of Konda" tabindex="0">Isamaru, Hound of Konda</span></div><h4>Other spells · 10</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Faith&#x27;s Fetters" tabindex="0">Faith&#x27;s Fetters</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mortify" tabindex="0">Mortify</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Umezawa&#x27;s Jitte" tabindex="0">Umezawa&#x27;s Jitte</span></div><h4>Lands · 23</h4><div class="row"><span class="qty">5</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">8</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Caves of Koilos" tabindex="0">Caves of Koilos</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Godless Shrine" tabindex="0">Godless Shrine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Eiganjo Castle" tabindex="0">Eiganjo Castle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shizo, Death&#x27;s Storehouse" tabindex="0">Shizo, Death&#x27;s Storehouse</span></div></div><div class="deck-col"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Manriki-Gusari" tabindex="0">Manriki-Gusari</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kami of Ancient Law" tabindex="0">Kami of Ancient Law</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nekrataal" tabindex="0">Nekrataal</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Okiba-Gang Shinobi" tabindex="0">Okiba-Gang Shinobi</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Last Gasp" tabindex="0">Last Gasp</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Otherworldly Journey" tabindex="0">Otherworldly Journey</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Castigate" tabindex="0">Castigate</span></div></div></div><pre hidden id="hypnotic-deck-3">Rudd Warmenhoven — Roxodon Hierarchy
+7th place · Pro Tour Honolulu 2006
+
+Creatures · 27
+4 Dark Confidant
+2 Hand of Cruelty
+4 Hypnotic Specter
+1 Kami of Ancient Law
+4 Ravenous Rats
+3 Savannah Lions
+4 Shrieking Grotesque
+2 Ghost Council of Orzhova
+3 Isamaru, Hound of Konda
+
+Other spells · 10
+2 Faith&#x27;s Fetters
+4 Mortify
+4 Umezawa&#x27;s Jitte
+
+Lands · 23
+5 Plains
+8 Swamp
+4 Caves of Koilos
+4 Godless Shrine
+1 Eiganjo Castle
+1 Shizo, Death&#x27;s Storehouse
+
+Sideboard · 15
+2 Manriki-Gusari
+1 Kami of Ancient Law
+1 Nekrataal
+2 Okiba-Gang Shinobi
+3 Last Gasp
+2 Otherworldly Journey
+4 Castigate</pre>
+<p class="small">Source: <a href="https://old.starcitygames.com/decks/16418">open the historical record</a></p></div></details></section>
+
+<section id="printings"><div class="chapter-number">XVIII · The archive</div><h2>Printings and sources</h2>
+<p>Hypnotic Specter's printing history divides cleanly into two eras: its original run from Alpha through Fourth Edition, and its return as a rare beginning with Ninth Edition. Special products, promotional treatments, Historic Anthology 1, The List, and 30th Anniversary Edition have continued to preserve both the original identity and later presentation.</p>
+<div class="printings"><figure class="printing"><img alt="Alpha Hypnotic Specter" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993 · Douglas Shuler</figcaption></figure><figure class="printing"><img alt="Fourth Edition Hypnotic Specter" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&amp;set=4ed&amp;format=image&amp;version=normal"><figcaption>Fourth Edition · 1995 · final original core-set appearance</figcaption></figure><figure class="printing"><img alt="Ninth Edition Hypnotic Specter" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&amp;set=9ed&amp;format=image&amp;version=normal"><figcaption>Ninth Edition · 2005 · Greg Staples return at rare</figcaption></figure><figure class="printing"><img alt="Magic Player Rewards Hypnotic Specter" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&amp;set=p06&amp;format=image&amp;version=normal"><figcaption>Magic Player Rewards · 2006 · textless promotion</figcaption></figure><figure class="printing"><img alt="Tenth Edition Hypnotic Specter" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&amp;set=10e&amp;format=image&amp;version=normal"><figcaption>Tenth Edition · 2007</figcaption></figure><figure class="printing"><img alt="Magic 2010 Hypnotic Specter" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&amp;set=m10&amp;format=image&amp;version=normal"><figcaption>Magic 2010 · 2009</figcaption></figure></div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://magic.wizards.com/en/news/feature/it-takes-two-2013-08-29">Wizards of the Coast, “It Takes Two”</a><span>Dark Ritual plus Hypnotic Specter identified as one of Magic's oldest two-card combinations.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/mana-curve-2014-03-24">Mike Flores, “Mana Curve”</a><span>George Baxter's Pro Tour New York deck, the dreaded Ritual–Specter opening, and its place in an aggressive curve.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/topical-blend-3-sessions-2007-08-27-0">Mark Rosewater, “Topical Blend #3: Sessions”</a><span>Hypnotic Specter as the creature that created the recurring Specter mechanical archetype.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/mailbag-2008-08-11">Mark Rosewater, “In the Mailbag”</a><span>Hypnotic Specter and Llanowar Elves identified as Alpha's best creatures that remained core-set staples.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/card-advantage-2014-02-10">Mike Flores, “Card Advantage”</a><span>Hypnotic Specter inside the classic Necropotence resource engine and the theory of card advantage.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/outwit-outplay-outlast-2005-07-25-0">Mark Rosewater, “Outwit, Outplay, Outlast”</a><span>Ninth Edition core-set selection context and the card's 2005 return.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/oral-history-first-pro-tour-2016-12-22">Wizards of the Coast, “An Oral History of the First Pro Tour”</a><span>Contemporary recollections of the first Pro Tour and Hypnotic Specter's role in its play.</span></li>
+<li><a href="https://www.mtggoldfish.com/deck/3762934">Alexander Blumke 1995 World Championship deck archive</a><span>The complete black-white-blue Rack Control championship list.</span></li>
+<li><a href="https://mtg.wtf/deck/ptc/george-baxter-quarterfinalist">Pro Tour Collector Set: George Baxter</a><span>The complete Good Stuff quarterfinal deck from Pro Tour New York 1996.</span></li>
+<li><a href="https://mtg.wtf/deck/ptc/leon-lindback-semifinalist">Pro Tour Collector Set: Leon Lindbäck</a><span>The complete Necropotence semifinal deck from Pro Tour New York 1996.</span></li>
+<li><a href="https://old.starcitygames.com/decks/16418">Rudd Warmenhoven, Roxodon Hierarchy</a><span>The complete seventh-place Pro Tour Honolulu 2006 Standard deck.</span></li>
+<li><a href="https://mtg.wtf/card/lea/112/Hypnotic-Specter">Hypnotic Specter card and printing archive</a><span>Oracle text, original rarity, artist, release date, legalities, rulings, and complete printing chronology.</span></li>
+<li><a href="https://scryfall.com/search?order=released&amp;q=%21%22Hypnotic%20Specter%22&amp;unique=prints">Scryfall Hypnotic Specter printing archive</a><span>Card images, artists, set data, and printing references used throughout the article.</span></li>
+</ol>
+<p class="editor-note"><b>Editorial note.</b> This is an independent, noncommercial fan-history project. Magic: The Gathering, card names, card images, and artwork belong to Wizards of the Coast and their respective artists. Scryfall image endpoints are used for reference and require internet access.</p>
+<nav class="end-nav"><a href="index.html#entry-023"><small>Previous entry · 023</small>Shivan Dragon</a><a href="index.html#entry-025"><small>Next entry · 025</small>Royal Assassin</a></nav></section>
+</article><aside class="sidebar-note"><b>Compulsive Research</b><br>Entry 024 follows Magic's first iconic Dragon with black's original airborne hand thief: a creature whose first-turn opening, random trigger, nickname, and descendants helped define black for the game's earliest competitive generations.</aside></div>
+<div id="preview"><img alt=""></div><footer class="footer">Compulsive Research · Entry 024 · Hypnotic Specter · Independent Magic history project.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script></body></html>
