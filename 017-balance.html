@@ -1,0 +1,815 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Balance: Alpha, symmetrical effects, resource engineering, Zuran Orb, Land Tax, early control, the first Pro Tour, Vintage, artwork, descendants, and player memory."><title>Balance: The Symmetry That Was Never Fair — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.ritual-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.ritual-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.ritual-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.cabal-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Cabal%20Ritual&format=image&version=art_crop)!important
+}
+.exchange-grid,.opening-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.opening-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.exchange-step,.opening-step{background:var(--white);padding:23px}
+.exchange-step b,.opening-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.exchange-step span,.opening-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.ritual-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.ritual-note b{color:var(--ink)}
+.mana-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mana-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.mana-row:last-child{border-bottom:0}.mana-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mana-row p{margin:0}
+@media(max-width:750px){.exchange-grid,.opening-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.exchange-grid,.opening-grid{grid-template-columns:1fr}}
+
+
+
+.balance-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Balance&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.balance-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Balance&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.balance-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Balance&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.restore-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Restore%20Balance&format=image&version=art_crop)!important
+}
+.axis-grid,.blindspot-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.axis-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.blindspot-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.axis-step,.blindspot-step{background:var(--white);padding:23px}
+.axis-step b,.blindspot-step b{
+  display:block;font:900 1.72rem/1.04 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.axis-step span,.blindspot-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.balance-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.balance-note b{color:var(--ink)}
+.resolution-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.resolution-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.resolution-row:last-child{border-bottom:0}.resolution-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.resolution-row p{margin:0}
+@media(max-width:750px){.axis-grid,.blindspot-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.axis-grid,.blindspot-grid{grid-template-columns:1fr}.resolution-row{grid-template-columns:1fr;gap:5px}}
+</style>
+</head>
+<body>
+<header class="hero balance-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#entry-017">← Wave 01 · The Foundational Canon</a>
+<div class="eyebrow">Entry 017 · Wave 01 · The Foundational Canon</div>
+<h1>The Symmetry That Was Never Fair</h1>
+<p class="deckline">Balance promises to equalize lands, hands, and creatures. Competitive players learned to choose the moment when equality meant the opponent lost everything.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 24 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="016-wheel-of-fortune.html">← Entry 016 · Wheel of Fortune</a><div class="center">Entry 017 of 1,000</div><a href="018-wrath-of-god.html">Entry 018 · Wrath of God →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong>
+<a href="#opening">The symmetry that was never fair</a><a href="#origin">Alpha's impossible equalizer</a><a href="#three">Three games in one sentence</a><a href="#symmetry">Equality is not neutrality</a><a href="#blindspots">What Balance does not see</a><a href="#hand">Empty the hand first</a><a href="#lands">The lowest land count wins</a><a href="#creatures">A two-mana wrath</a><a href="#sequence">The sequence of resolution</a><a href="#engine">Land Tax, Zuran Orb, and artifacts</a><a href="#early">The Balance Deck</a><a href="#protour">The first Pro Tour</a><a href="#worlds">World Champion White Weenie</a><a href="#restriction">From four copies to one</a><a href="#vintage">The modern restricted tool</a><a href="#formats">A life across formats</a><a href="#descendants">The cards designed in its shadow</a><a href="#art">The image of judgment</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
+<article class="article">
+<section id="opening"><div class="chapter-number">I · The promise</div><h2>The symmetry that was never fair</h2>
+<p class="opening dropcap">Balance is named for the condition it creates, not for the game that follows.</p>
+<p>For two mana, the card compares three resources: lands, cards in hand, and creatures. In each category, the player with the fewest establishes the number everyone else must keep. The rest are lost. A crowded battlefield can collapse to nothing. A carefully accumulated hand can become empty. A player who has developed five lands may suddenly own one.</p>
+<p>Read literally, the card sounds corrective. The player who is behind receives relief, and the player who is ahead pays for excess. That is the moral logic suggested by the name and by Mark Poole’s scales. But Magic is not a neutral accounting exercise. Players choose what to cast, what to hold, what to sacrifice before resolution, and which permanent types to invest in. The caster knows Balance is coming. The opponent does not.</p>
+<p>That one-sided knowledge is enough to turn equality into violence.</p>
+<div class="card-lead"><img alt="Balance from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Balance&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Balance</b> · {1}{W}<br/>Sorcery<br/><br/>Each player chooses a number of lands they control equal to the number of lands controlled by the player who controls the fewest, then sacrifices the rest. Players discard cards and sacrifice creatures the same way.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Illustrated by</b>Mark Poole</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical status</b>Restricted in Vintage · banned in Legacy</div></div></div></div>
+<p>Balance does not ask how much mana a permanent cost, how valuable a card is, or who created the imbalance. It counts. A Black Lotus and a basic land are different resources strategically but irrelevant to the comparison because only the land is included. A useless card and a perfect answer are both one card in hand. A token and a twelve-mana creature both occupy one creature slot.</p>
+<p>The card is therefore a machine for converting preparation into disproportionate loss. The better the caster understands what Balance counts—and what it ignores—the less symmetrical the result becomes.</p></section>
+<section id="origin"><div class="chapter-number">II · Limited Edition Alpha</div><h2>Alpha's impossible equalizer</h2>
+<p>Alpha was full of effects that established the upper limits of Magic before those limits were understood. Black Lotus compressed mana. Ancestral Recall compressed card drawing. Time Walk compressed turns. Balance compressed three separate classes of mass interaction into a two-mana white sorcery.</p>
+<p>The card reflects an early design instinct: a symmetrical effect should be cheaper because it appears to harm both players. That instinct produced some of Magic’s most educational mistakes. Symmetry is not a reliable drawback when a deck can be designed around the effect and the caster chooses when it happens.</p>
+<p>Mark Rosewater later summarized the lessons unusually bluntly: mass creature destruction should not be cheap, mass land destruction should not be cheap, total hand denial should not be cheap, and all three should not be placed on one two-mana card. Balance is less a single rate error than a stack of rate errors hidden beneath one reassuring name.</p>
+<div class="pullquote">The text says both players. The strategy says one player prepared.<small>The central lesson of Balance</small></div>
+<p>White’s association with equality and rules made the flavor intuitive. White can punish players for possessing more than an agreed amount; it can reset a battlefield to restore order. Yet Balance pushed that philosophy into areas modern color design treats with great caution. It could function as hand destruction, mass land destruction, and creature sweeping, sometimes all at once.</p>
+<p>Later white cards would retain the idea of imposed equality but narrow the objects, raise the cost, allow each player to choose a permanent, or build in timing restrictions. Alpha simply wrote the ideal in absolute terms and charged two mana.</p></section>
+<section id="three"><div class="chapter-number">III · The axes</div><h2>Three games in one sentence</h2>
+<p>Most sweepers answer one battlefield category. Wrath of God destroys creatures. Armageddon destroys lands. Mind Twist attacks a hand. Balance can approximate all three, but only after comparing each resource independently.</p>
+<div class="axis-grid"><div class="axis-step"><b>Lands</b><span>Each player keeps only as many lands as the player with the fewest.</span></div><div class="axis-step"><b>Cards</b><span>Each player discards until hand sizes match the smallest hand.</span></div><div class="axis-step"><b>Creatures</b><span>Each player sacrifices until creature counts match the smallest battlefield.</span></div></div>
+<p>The separation matters. A player can be ahead on lands, behind on creatures, and even on cards. Balance does not assign one global winner and loser. It recalculates each category. The card may help a player on one axis while punishing them on another.</p>
+<p>This complexity is part of why Balance rewards planning. The caster is not merely asking, “Am I behind?” The useful question is, “Can I arrange the three comparisons so that the opponent pays more than I do?” A hand can be emptied. Lands can be sacrificed. Creatures can be withheld. Artifacts can carry mana and card advantage outside the comparison entirely.</p>
+<p>Because the card measures quantities rather than quality, even a modest difference can contain enormous strategic value. Trading one expendable creature for three opposing threats, or sacrificing two lands after banking mana in artifacts, can decide a game despite leaving the final counts equal.</p></section>
+<section id="symmetry"><div class="chapter-number">IV · The false drawback</div><h2>Equality is not neutrality</h2>
+<p>Symmetrical Magic cards are often invitations to deck building. The effect applies to everyone, but only one player chose to include it. That player can select cards that survive, exploit, or recover from the event. The opponent merely arrives with whatever strategy they intended to play.</p>
+<p>Balance adds another asymmetry: timing. The caster chooses the turn, phase, and game state. If the opponent’s hand is full while the caster has deployed theirs, Balance becomes discard. If the opponent has committed creatures while the caster has none, it becomes a sweeper. If the caster has converted lands into other resources, it becomes land destruction.</p>
+<p>The spell can even punish success. A player who curved out normally—three lands, two creatures, several cards remaining—may be precisely the player most exposed. The Balance deck can operate from a deliberately strange position: few lands, few creatures, an almost empty hand, and a battlefield full of artifacts or enchantments the card does not count.</p>
+<div class="balance-note"><b>The key distinction:</b> Balance equalizes visible quantities after one player has chosen where to store value. It does not equalize total mana produced, cards already converted into permanents, graveyard resources, life, or the quality of anything that remains.</div>
+<p>This is why the word “fair” is misleading. The spell may create matching numbers, but matching numbers are not a fair division when one player has arranged for their important resources to exist elsewhere.</p></section>
+<div class="art-break balance-art"><div class="art-caption"><b>Mark Poole’s original Balance artwork</b>The scales promise impartial judgment, but the card’s history is about learning how to place all the real weight on the side the spell does not measure.</div></div>
+<section id="blindspots"><div class="chapter-number">V · The exclusions</div><h2>What Balance does not see</h2>
+<p>The most important words on Balance may be the permanent types it never mentions.</p>
+<div class="blindspot-grid"><div class="blindspot-step"><b>Artifacts</b><span>Moxen, Fellwar Stone, The Rack, Millstone, and other noncreature artifacts remain.</span></div><div class="blindspot-step"><b>Enchantments</b><span>Land Tax, Sylvan Library, Moat, and engines survive untouched.</span></div><div class="blindspot-step"><b>Life totals</b><span>The spell does not repair damage already dealt or life gained from sacrificed lands.</span></div><div class="blindspot-step"><b>Graveyards</b><span>Discarded cards and sacrificed permanents may become future resources.</span></div></div>
+<p>Artifact mana is especially important. A player can have fewer lands without having less mana. In early Type I, Moxen, Black Lotus, Sol Ring, Fellwar Stone, and Candelabra of Tawnos allowed the Balance player to continue operating after the land comparison stripped the opponent’s battlefield.</p>
+<p>Noncreature artifacts also preserve win conditions and card advantage. The Rack can remain after both hands are emptied. Millstone can remain after creatures and lands disappear. Jayemdae Tome and Ivory Tower can outlast the reset and begin rebuilding immediately.</p>
+<p>There is an important boundary: artifact creatures are still creatures and are counted. Balance does not ignore a permanent simply because it has another type. The distinction is not “artifacts are safe”; it is “noncreature artifacts are outside the creature comparison.”</p></section>
+<section id="hand"><div class="chapter-number">VI · The hand</div><h2>Empty the hand first</h2>
+<p>A symmetrical discard spell becomes one-sided when one player has already spent their cards. Fast mana, cheap permanents, and low-cost interaction let the Balance player move value from hand to battlefield before casting the reset.</p>
+<p>Suppose the opponent has five cards and the Balance player has one: Balance itself. After the spell is cast, it is no longer in hand. When the discard comparison occurs, the caster may have zero cards. The opponent discards their entire hand.</p>
+<p>This is not a rare corner case; it is one of the card’s defining patterns. The Balance deck wants to deploy Moxen, artifacts, enchantments, and cheap spells, then use the final card to erase the opponent’s unspent options. What looked like a two-mana symmetrical adjustment becomes a scalable Mind Twist.</p>
+<p>Library of Leng and Bazaar of Baghdad created further texture in early lists. Bazaar could filter through cards while putting resources into the graveyard; Library of Leng could change how discards were handled under older rules and preserve control over a shrinking hand. The exact rules technology changed over time, but the strategic principle remained: the Balance player wanted to control not only the number of cards but where value went when cards left the hand.</p>
+<p>The spell also punished players for saving answers. Against a normal threat, holding removal or countermagic is prudent. Against Balance, patience can become liability because every unspent card increases the size of the discard.</p></section>
+<section id="lands"><div class="chapter-number">VII · The battlefield</div><h2>The lowest land count wins</h2>
+<p>Balance does not destroy all lands. It forces every player down to the lowest land count currently present. That difference is what makes the land mode both flexible and abusable.</p>
+<p>A caster with two lands can reduce an opponent from five to two. A caster with no lands can remove every land. The second case became practical when cards allowed lands to be sacrificed for value before Balance resolved.</p>
+<p><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span> is the famous partner. Lands can be sacrificed to gain life without spending mana. The Balance player converts their mana base into life, establishes a land count of zero, then casts Balance using floating mana or artifact sources. The opponent sacrifices every land while the caster keeps the life and any surviving artifacts or enchantments.</p>
+<p>The interaction demonstrates why resource counts are not resource equality. Before the spell, both players may control four lands. One player turns those lands into eight life and then forces the other player to lose four lands for nothing. The final land count is equal. The exchange is not.</p>
+<p><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span>, <span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span>, bounce lands, sacrifice lands, and artifact mana all offered other ways to approach the comparison from below. Balance rewarded the player who could remain functional while appearing underdeveloped.</p></section>
+<section id="creatures"><div class="chapter-number">VIII · The army</div><h2>A two-mana wrath</h2>
+<p>When the caster controls no creatures, Balance asks every other player to sacrifice all of theirs. At two mana, this is already far beyond the normal rate for a sweeper.</p>
+<p>The use of sacrifice is significant. Regeneration does not help. Indestructible does not help. Protection does not help. The creatures are not targeted or destroyed; their controller chooses which ones to keep, if any, and sacrifices the rest.</p>
+<p>Unlike Wrath of God, however, Balance may allow some creatures to survive if the caster controls one or more. That gives aggressive decks a different application. White Weenie could keep a single creature while forcing the opponent to reduce a larger battlefield to the same count. The caster chooses its best creature; the opponent may be forced to abandon an army built for synergy.</p>
+<p>Token decks are especially vulnerable because quantity is their advantage. A dozen tokens and one Serra Angel are not equal in board presence, but if the lowest creature count is one, each player keeps one creature. Balance translates strategic diversity into a crude number and lets the caster decide when that translation is favorable.</p></section>
+<section id="sequence"><div class="chapter-number">IX · Resolution</div><h2>The sequence of resolution</h2>
+<p>Balance resolves as one spell, but its comparisons occur in a defined sequence. The current wording handles lands first, then cards in hand, then creatures. Decisions and losses in an earlier category can affect the strategic meaning of what follows even though the counts are evaluated within their own categories.</p>
+<div class="resolution-sequence"><div class="resolution-row"><strong>1 · Lands</strong><p>Find the player with the fewest lands. Each player chooses that many and sacrifices the rest.</p></div><div class="resolution-row"><strong>2 · Hands</strong><p>Find the player with the fewest cards in hand. Each other player discards until the hand sizes match.</p></div><div class="resolution-row"><strong>3 · Creatures</strong><p>Find the player with the fewest creatures. Each player chooses that many and sacrifices the rest.</p></div></div>
+<p>The choices belong to each permanent’s controller. The caster does not choose which opposing lands or creatures survive. That creates some counterplay: an opponent may retain the land colors or creature most likely to rebuild. But the Balance player controls the larger question of whether anything survives at all.</p>
+<p>Players can respond before Balance resolves by casting instants, activating abilities, sacrificing permanents, or otherwise changing the relevant counts. Once resolution begins, however, players do not receive priority between categories. The setup must happen before the spell starts resolving.</p>
+<p>This creates a characteristic pause around the card. The critical game may occur in response: float mana, sacrifice lands, activate a creature, deploy an instant, decide whether a counterspell must be spent. Balance turns the board state into a calculation that will become irreversible once the spell is allowed to proceed.</p></section>
+<section id="engine"><div class="chapter-number">X · The ecosystem</div><h2>Land Tax, Zuran Orb, and artifacts</h2>
+<p>Balance’s strongest partners are cards that reward being behind by the measurements Balance uses, or cards that move resources outside those measurements.</p>
+<p><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span> rewards the player with fewer lands by searching for basics. The Balance deck can decline to deploy every land it finds, maintaining a low land count while accumulating cards. Those lands can later be discarded, played after a reset, or sacrificed to Zuran Orb.</p>
+<p>Zuran Orb converts the land comparison into both life and annihilation. Artifact mana allows the deck to cast spells while keeping the land count low. <span class="card-name" data-card="The Rack" tabindex="0">The Rack</span> punishes the empty hand Balance creates. <span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span> rewards a hand rebuilt through Land Tax or card draw. <span class="card-name" data-card="Millstone" tabindex="0">Millstone</span> survives the entire event and provides a win condition requiring no creature commitment.</p>
+<p>The engines reveal the true deck-building cost of symmetry. Balance is most unfair in a deck that looks structurally unlike a normal deck: fewer creatures, unusually powerful artifacts, lands designed to be sacrificed or withheld, and win conditions that survive the reset.</p>
+<p>That architecture later became familiar across Magic. Build around a global effect; store your value in the permanent types or zones it ignores; cast it when the opponent has invested in the vulnerable resource. Balance is one of the earliest and most extreme demonstrations of the method.</p></section>
+<section id="early"><div class="chapter-number">XI · Early Type I</div><h2>The Balance Deck</h2>
+<p>Wizards’ historical archive preserves a list identified simply as “The Balance Deck.” The name is appropriate because the card is not a singleton catch-up spell. It is a four-copy engine around which the entire list is organized.</p>
+<p>The deck uses only three creatures, all <span class="card-name" data-card="Atog" tabindex="0">Atog</span>. Its battlefield value lives in artifacts and enchantments: Moxen, Black Lotus, The Rack, Relic Barrier, Library of Leng, Sylvan Library, and Consecrate Land. Bazaar of Baghdad filters the hand; Maze of Ith consumes a land slot without developing mana; Mishra’s Factory offers a threat that begins as a land.</p>
+<p>Four Balances can attack every conventional resource the opponent develops. Chain Lightning and Lightning Bolt pressure life total. The Rack turns the hand reset into damage. Atog converts artifacts into lethal power if the game requires a creature finish.</p>
+<p>The list is also a snapshot of a period before restriction fully defined Balance’s role. Four copies make the deck’s strange resource posture consistent. It can repeatedly rebuild from a low count and force the opponent back down. Once the card became a restricted one-of, decks could still exploit it, but they could no longer assume the effect would appear every game.</p>
+<p>Few decklists explain a card’s hidden text so clearly. The Balance Deck reads as though every nonland slot asks the same question: “Will this still matter after both players are reduced to almost nothing?”</p></section>
+<section id="protour"><div class="chapter-number">XII · New York 1996</div><h2>The first Pro Tour</h2>
+<p>At the first Pro Tour, Michael Loconto won with a 62-card blue-white Millstone control deck. The list is remembered for its unusual construction requirements, its patient game plan, and the way it embodied an early form of tournament control.</p>
+<p>Balance appears as a singleton beside four Wrath of God, four Counterspell, four Swords to Plowshares, Land Tax, Zuran Orb, Icy Manipulator, Jayemdae Tome, and Millstone. The surrounding cards allow the deck to survive, trade resources, and eventually win without maintaining a creature battlefield.</p>
+<p>In this shell, Balance has several identities. Against aggression, it can be a fifth sweeper that costs half as much as Wrath. Against a slower opponent, it can punish an expanded hand or mana base. With Zuran Orb and Land Tax, it can engineer the land comparison. Because the deck wins through Millstone or Blinking Spirit, it can remain nearly creatureless without sacrificing inevitability.</p>
+<p>The card’s presence at the birth of the Pro Tour is fitting. Organized Magic was becoming more formal at the same moment players were learning to turn early design excess into structured competitive strategy. Balance was no longer merely a shocking Alpha rare. It was a calibrated tool inside a championship deck.</p></section>
+<section id="worlds"><div class="chapter-number">XIII · Seattle 1996</div><h2>World Champion White Weenie</h2>
+<p>Tom Chanpheng’s 1996 World Championship deck approached Balance from the opposite direction. It was a White Weenie deck built to fight the Necropotence-dominated environment, filled with Savannah Lions, White Knight, Order of Leitbur, Order of the White Shield, manlands, and efficient interaction.</p>
+<p>A creature deck seems like an awkward home for a card that can sacrifice its own army. The answer is sequencing. Cheap threats let Chanpheng establish pressure using fewer lands and fewer cards than the opponent. Balance could then punish a black deck that had used Necropotence to fill its hand or had committed more mana and creatures to stabilize.</p>
+<p>The deck also contained Land Tax and Zuran Orb. These cards let White Weenie play the same resource-engineering game as control: remain below the opponent on lands, convert lands into life, and rebuild quickly after the reset. Mishra’s Factory and Kjeldoran Outpost offered threats tied to the mana base, while a single Armageddon provided a more absolute version of the land plan.</p>
+<p>Balance therefore did not belong only to slow decks. It belonged to any strategy capable of creating a favorable comparison. In control, that meant hiding value in artifacts and enchantments. In White Weenie, it meant spending cards and mana faster, then erasing the opponent’s attempt to catch up.</p></section>
+<section id="restriction"><div class="chapter-number">XIV · Format policy</div><h2>From four copies to one</h2>
+<p>Balance became one of the cards that taught organized Magic the difference between a powerful effect and a format-defining structural error. Four copies allowed decks to build around repeated resets. Restriction changed the card from an engine to a tactical one-of.</p>
+<p>The card remains restricted in Vintage, where a player may include only one copy across the main deck and sideboard. It is banned in Legacy, where four copies would be legal without a restricted list, and banned in Commander, where a two-mana spell that equalizes multiple opponents to the lowest resource count would be both explosive and socially corrosive.</p>
+<p>Restriction does not make Balance fair. Tutors, card selection, recursion, and the compact power of Vintage mean the single copy can still be found or replayed. But it prevents the repeated pattern demonstrated by The Balance Deck and forces players to decide whether the card belongs in the main deck or as a matchup-specific sideboard tool.</p>
+<p>The policy history is part of the card’s legacy. Balance does not merely occupy a banned list because one interaction was discovered. Its entire design is the interaction: three scalable mass effects, combined at a cost below any one of them.</p></section>
+<section id="vintage"><div class="chapter-number">XV · The one-of</div><h2>The modern restricted tool</h2>
+<p>Modern Vintage is faster, more redundant, and more specialized than the environments in which Balance first dominated. Creature decks can rebuild with one-card engines. Combo decks may not care about creature counts. Artifact decks may be almost immune to the card’s most obvious modes. Free countermagic changes whether a two-mana sorcery can resolve at all.</p>
+<p>Balance nevertheless retains a unique tactical ceiling. Against a board of creatures and lands, it can compress resources at a rate no modern card matches. Against a player who has accumulated cards through draw engines, it can become hand destruction. Against decks built around noncreature artifacts, however, it may be embarrassingly incomplete.</p>
+<p>That volatility explains its modern sideboard appearances. The 2023 Bant Beanstalk control list in this archive placed Balance in the sideboard rather than the main deck. The card could enter for matchups where a broad reset mattered and remain absent where the opponent’s resources lived in artifacts, graveyards, or spell-based combo.</p>
+<p>The modern Balance player must therefore answer the same question as the Alpha player with much more information: which resource is the opponent actually using to win, and does Balance count it?</p></section>
+<section id="formats"><div class="chapter-number">XVI · Where it lives</div><h2>A life across formats</h2>
+<div class="format-strip"><div class="format-card"><span class="impact">Restricted</span><h3>Vintage</h3><p>A legal one-of with extraordinary ceiling and highly contextual modern applications.</p></div><div class="format-card"><span class="impact">Banned</span><h3>Legacy</h3><p>Four-copy legality would recreate a structural problem the format cannot reasonably absorb.</p></div><div class="format-card"><span class="impact">Banned</span><h3>Commander</h3><p>Two mana can reduce several players to the lowest land, hand, and creature counts at once.</p></div><div class="format-card"><span class="impact">House rules</span><h3>Old School and Cube</h3><p>Its inclusion, restriction, or exclusion helps define how much Alpha power an environment wants.</p></div></div>
+<p>Balance is not legal in Modern, Pioneer, or Standard because its original printings fall outside those card pools. That absence is more than chronology. Modern design has deliberately avoided reproducing the full effect at two mana.</p>
+<p>In Old School communities, legality depends on the specific ruleset. Some environments restrict or ban the card; others allow it as part of the format’s deliberately extreme identity. In Powered Cube, Balance can be a first-pick-quality card or an awkward sideboard option depending on the cube’s density of artifact mana, sacrifice outlets, and creature decks.</p>
+<p>The card is a useful calibration device. An environment that includes Balance is not merely allowing a strong white sorcery. It is announcing that players may build around one of Alpha’s most compressive resource effects.</p></section>
+<section id="descendants"><div class="chapter-number">XVII · Design shadow</div><h2>The cards designed in its shadow</h2>
+<p>Balance’s descendants rarely copy the original. They isolate one portion, increase the cost, delay the effect, or give players more control over what survives.</p>
+<p><span class="card-name" data-card="Balancing Act" tabindex="0">Balancing Act</span> costs four mana and compares all permanents together with cards in hand, creating a different puzzle. <span class="card-name" data-card="Restore Balance" tabindex="0">Restore Balance</span> has no mana cost and must be suspended or cast through another effect, delaying the reset and giving opponents time to prepare. <span class="card-name" data-card="Magus of the Balance" tabindex="0">Magus of the Balance</span> places a version of the effect on a vulnerable creature and requires additional mana and sacrifice.</p>
+<p><span class="card-name" data-card="Cataclysm" tabindex="0">Cataclysm</span> allows each player to keep one artifact, creature, enchantment, and land. <span class="card-name" data-card="Tragic Arrogance" tabindex="0">Tragic Arrogance</span> lets the caster choose which opposing permanents survive. These cards preserve the dramatic image of imposed equality while moving away from Balance’s cheap, three-axis arithmetic.</p>
+<p>Restore Balance produced its own competitive archetypes with <span class="card-name" data-card="Greater Gargadon" tabindex="0">Greater Gargadon</span>, cascade spells, and sacrifice effects. The deck suspended the reset, sacrificed lands and creatures to Gargadon, then resolved Restore Balance while the opponent still possessed the resources being compared. The old lesson survived even when the mana cost and timing were rebuilt: symmetrical text rewards the player who knows exactly when it will happen.</p>
+<div class="inline-image restore-descendant"><div class="image"></div><div class="copy"><div class="kicker">The delayed descendant</div><h3>Restore Balance</h3><p>Time Spiral removed the mana cost, added suspend, and turned the original’s immediate ambush into a scheduled event—then players found ways to cast it without waiting.</p></div></div></section>
+<section id="art"><div class="chapter-number">XVIII · The object</div><h2>The image of judgment</h2>
+<p>Mark Poole’s Alpha artwork depicts a set of scales suspended beneath a luminous celestial body. One side holds a figure or weight; the other suggests a landscape or structure. The image is quiet and ceremonial, far removed from the destruction the rules text can produce.</p>
+<p>That restraint is essential. Wrath of God shows devastation. Armageddon names catastrophe. Balance presents judgment. The card does not describe itself as annihilation because annihilation is supposedly only the process required to restore equilibrium.</p>
+<p>The image also captures the card’s deception. Scales are impartial only when the measured objects represent the whole value being judged. Balance’s scales measure three quantities and ignore everything else. Artifacts, enchantments, life, graveyards, and preparation remain off the scale.</p>
+<p>Later treatments have emphasized abstraction, cosmic order, or the literal weighing of armies and resources. The original remains the definitive image because it makes the effect look reasonable. The card’s strategic history supplies the menace the art withholds.</p></section>
+<section id="memory"><div class="chapter-number">XIX · The reset</div><h2>What players remember</h2>
+<p>Players remember Balance as a card that requires counting before it requires reading. How many lands? How many cards? How many creatures? Then the count expands into a second set of questions: what can be sacrificed, what mana can float, which instants can be cast, what survives outside the named categories?</p>
+<p>For the caster, the pleasure is architectural. A game state that looks desperate can reveal itself as prepared. Zero creatures is not vulnerability if Balance is in hand. Fewer lands is not failure if artifact mana remains. An empty hand is not exhaustion if the final card removes the opponent’s hand too.</p>
+<p>For the opponent, the memory is often disbelief. A two-mana sorcery can make several turns of normal development disappear. The battlefield and hand may end with matching counts, yet the player who planned the reset begins rebuilding immediately while the other has lost the structure of their game.</p>
+<p>Balance became a vocabulary word in two directions. It names an abstract goal of game design, and it names one of the clearest examples of early Magic failing to achieve that goal. Few cards contain their own critique so completely.</p>
+<div class="memory"><div class="memory-grid"><blockquote>The card does not catch a player up. It rewards the player who learned to look behind while moving forward.</blockquote><cite>Balance as strategic preparation</cite></div></div></section>
+<section id="decklists" class="deck-archive"><div class="chapter-number">XX · The record</div><h2>The deck archive</h2><p class="deck-intro">These four lists trace Balance from a four-copy early Type I engine through championship control and White Weenie to a restricted modern Vintage sideboard tool.</p><details class="deck"><summary><span><strong>The Balance Deck</strong><small>Wizards historical archive · Early Type I</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">This archival list makes the thesis literal: four Balances, artifact mana, Bazaar of Baghdad, Library of Leng, The Rack, and almost no creatures. The deck empties or externalizes its own resources, then forces the opponent down to the same visible counts.</p><button class="copy" data-target="balance-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Atog" tabindex="0">Atog</span></div><h4>Sorceries · 9</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><h4>Instants · 7</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Candelabra of Tawnos" tabindex="0">Candelabra of Tawnos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Library of Leng" tabindex="0">Library of Leng</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="The Rack" tabindex="0">The Rack</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Relic Barrier" tabindex="0">Relic Barrier</span></div></div><div class="deck-col"><h4>Enchantments · 5</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Consecrate Land" tabindex="0">Consecrate Land</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div><h4>Lands · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Bazaar of Baghdad" tabindex="0">Bazaar of Baghdad</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Consecrate Land" tabindex="0">Consecrate Land</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Relic Barrier" tabindex="0">Relic Barrier</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tranquility" tabindex="0">Tranquility</span></div></div></div><pre hidden id="balance-deck-0">The Balance Deck
+Wizards historical archive · Early Type I
+
+Creatures · 3
+3 Atog
+
+Sorceries · 9
+4 Balance
+4 Chain Lightning
+1 Regrowth
+
+Instants · 7
+3 Disenchant
+4 Lightning Bolt
+
+Artifacts · 15
+1 Black Lotus
+1 Candelabra of Tawnos
+1 Chaos Orb
+3 Library of Leng
+1 Mox Emerald
+1 Mox Ruby
+1 Mox Pearl
+4 The Rack
+2 Relic Barrier
+
+Enchantments · 5
+2 Consecrate Land
+3 Sylvan Library
+
+Lands · 21
+4 Bazaar of Baghdad
+1 Maze of Ith
+4 Mishra&#x27;s Factory
+4 Plateau
+4 Savannah
+4 Taiga
+
+Sideboard · 15
+2 Consecrate Land
+1 Disenchant
+2 Relic Barrier
+2 Circle of Protection: Red
+3 Red Elemental Blast
+3 Swords to Plowshares
+2 Tranquility</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/top-50-white-cards-2003-02-07-0">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Michael Loconto — U/W Millstone</strong><small>Champion · Pro Tour New York 1996</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first Pro Tour champion used a singleton Balance beside Wrath of God, Land Tax, Zuran Orb, artifact card advantage, and only two creatures. In this shell, Balance was not redundancy for Wrath; it was a two-mana recovery mechanism that could also attack mana and hand size.</p><button class="copy" data-target="balance-deck-1">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blinking Spirit" tabindex="0">Blinking Spirit</span></div><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><h4>Artifacts · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon&#x27;s Cane" tabindex="0">Feldon&#x27;s Cane</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fountain of Youth" tabindex="0">Fountain of Youth</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Millstone" tabindex="0">Millstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div><h4>Lands · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div><div class="row"><span class="qty">7</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ruins of Trokair" tabindex="0">Ruins of Trokair</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Svyelunite Temple" tabindex="0">Svyelunite Temple</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wizards&#x27; School" tabindex="0">Wizards&#x27; School</span></div></div><div class="deck-col"><h4>Instants · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Deflection" tabindex="0">Deflection</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Enchantments · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hallowed Ground" tabindex="0">Hallowed Ground</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Aeolipile" tabindex="0">Aeolipile</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jester&#x27;s Cap" tabindex="0">Jester&#x27;s Cap</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sea Sprite" tabindex="0">Sea Sprite</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Steal Artifact" tabindex="0">Steal Artifact</span></div></div></div><pre hidden id="balance-deck-1">Michael Loconto — U/W Millstone
+Champion · Pro Tour New York 1996
+
+Creatures · 2
+2 Blinking Spirit
+
+Sorceries · 6
+1 Balance
+1 Recall
+4 Wrath of God
+
+Artifacts · 11
+1 Feldon&#x27;s Cane
+2 Fountain of Youth
+2 Icy Manipulator
+1 Ivory Tower
+1 Jayemdae Tome
+3 Millstone
+1 Zuran Orb
+
+Lands · 24
+4 Adarkar Wastes
+4 Island
+4 Mishra&#x27;s Factory
+7 Plains
+1 Ruins of Trokair
+1 Strip Mine
+2 Svyelunite Temple
+1 Wizards&#x27; School
+
+Instants · 13
+4 Counterspell
+1 Deflection
+4 Disenchant
+4 Swords to Plowshares
+
+Enchantments · 6
+2 Control Magic
+2 Hallowed Ground
+2 Land Tax
+
+Sideboard · 15
+2 Aeolipile
+2 Circle of Protection: Red
+1 Control Magic
+1 Divine Offering
+2 Hydroblast
+1 Jester&#x27;s Cap
+2 Sea Sprite
+2 Serrated Arrows
+2 Steal Artifact</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/oral-history-first-pro-tour-2016-12-22">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Tom Chanpheng — White Weenie</strong><small>World Champion · Worlds 1996</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">Chanpheng’s deck demonstrates the opposite use. A creature deck could deploy cheap threats, convert excess lands through Land Tax and Zuran Orb, then use a single Balance as a reset that spared its artifacts and left manlands or fresh draws to rebuild first.</p><button class="copy" data-target="balance-deck-2">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of Leitbur" tabindex="0">Order of Leitbur</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of the White Shield" tabindex="0">Order of the White Shield</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Phyrexian War Beast" tabindex="0">Phyrexian War Beast</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="White Knight" tabindex="0">White Knight</span></div><h4>Instants · 11</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reinforcements" tabindex="0">Reinforcements</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reprisal" tabindex="0">Reprisal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Sorceries · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div></div><div class="deck-col"><h4>Artifacts and enchantments · 3</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lodestone Bauble" tabindex="0">Lodestone Bauble</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div><h4>Lands · 24</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kjeldoran Outpost" tabindex="0">Kjeldoran Outpost</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div><div class="row"><span class="qty">15</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Arenson&#x27;s Aura" tabindex="0">Arenson&#x27;s Aura</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Energy Storm" tabindex="0">Energy Storm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Exile" tabindex="0">Exile</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kjeldoran Outpost" tabindex="0">Kjeldoran Outpost</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reprisal" tabindex="0">Reprisal</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spirit Link" tabindex="0">Spirit Link</span></div></div></div><pre hidden id="balance-deck-2">Tom Chanpheng — White Weenie
+World Champion · Worlds 1996
+
+Creatures · 20
+4 Order of Leitbur
+4 Order of the White Shield
+2 Phyrexian War Beast
+4 Savannah Lions
+2 Serra Angel
+4 White Knight
+
+Instants · 11
+4 Disenchant
+1 Reinforcements
+1 Reprisal
+1 Sleight of Mind
+4 Swords to Plowshares
+
+Sorceries · 2
+1 Armageddon
+1 Balance
+
+Artifacts and enchantments · 3
+1 Lodestone Bauble
+1 Zuran Orb
+1 Land Tax
+
+Lands · 24
+1 Kjeldoran Outpost
+4 Mishra&#x27;s Factory
+15 Plains
+4 Strip Mine
+
+Sideboard · 15
+2 Arenson&#x27;s Aura
+1 Black Vise
+4 Divine Offering
+1 Energy Storm
+1 Exile
+1 Kjeldoran Outpost
+1 Reprisal
+2 Serrated Arrows
+1 Sleight of Mind
+1 Spirit Link</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/top-50-white-cards-2003-02-07-0">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>LogT1 — Bant Beanstalk Control</strong><small>2023 Asia Vintage Championship · Bant Control</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">A modern Vintage example shows how far the card’s role has narrowed. Balance sits in the sideboard as a restricted, matchup-specific reset for creature swarms, mana-heavy boards, or hands that have expanded beyond the control deck’s resources.</p><button class="copy" data-target="balance-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ethereal Forager" tabindex="0">Ethereal Forager</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lavinia, Azorius Renegade" tabindex="0">Lavinia, Azorius Renegade</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Monastery Mentor" tabindex="0">Monastery Mentor</span></div><h4>Artifacts · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><h4>Instants · 17</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dig Through Time" tabindex="0">Dig Through Time</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Sorceries · 14</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Prismatic Ending" tabindex="0">Prismatic Ending</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Preordain" tabindex="0">Preordain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Treasure Cruise" tabindex="0">Treasure Cruise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lórien Revealed" tabindex="0">Lórien Revealed</span></div></div><div class="deck-col"><h4>Enchantments · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Up the Beanstalk" tabindex="0">Up the Beanstalk</span></div><h4>Lands · 16</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Containment Priest" tabindex="0">Containment Priest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dress Down" tabindex="0">Dress Down</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Murktide Regent" tabindex="0">Murktide Regent</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nature&#x27;s Claim" tabindex="0">Nature&#x27;s Claim</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Collector Ouphe" tabindex="0">Collector Ouphe</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Soul-Guide Lantern" tabindex="0">Soul-Guide Lantern</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Grafdigger&#x27;s Cage" tabindex="0">Grafdigger&#x27;s Cage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div></div></div><pre hidden id="balance-deck-3">LogT1 — Bant Beanstalk Control
+2023 Asia Vintage Championship · Bant Control
+
+Creatures · 6
+3 Ethereal Forager
+2 Lavinia, Azorius Renegade
+1 Monastery Mentor
+
+Artifacts · 4
+1 Black Lotus
+1 Mox Emerald
+1 Mox Pearl
+1 Mox Sapphire
+
+Instants · 17
+1 Ancestral Recall
+1 Brainstorm
+1 Dig Through Time
+3 Force of Negation
+4 Force of Will
+1 Gush
+1 Mental Misstep
+2 Spell Pierce
+3 Swords to Plowshares
+
+Sorceries · 14
+1 Gitaxian Probe
+1 Prismatic Ending
+1 Ponder
+4 Preordain
+1 Regrowth
+1 Time Walk
+1 Treasure Cruise
+4 Lórien Revealed
+
+Enchantments · 3
+3 Up the Beanstalk
+
+Lands · 16
+1 Flooded Strand
+2 Island
+1 Misty Rainforest
+1 Polluted Delta
+1 Scalding Tarn
+1 Strip Mine
+2 Tropical Island
+3 Tundra
+4 Wasteland
+
+Sideboard · 15
+2 Containment Priest
+1 Dress Down
+1 Murktide Regent
+2 Nature&#x27;s Claim
+2 Collector Ouphe
+1 Balance
+1 Soul-Guide Lantern
+1 Surgical Extraction
+1 Pithing Needle
+1 Swords to Plowshares
+1 Grafdigger&#x27;s Cage
+1 The Tabernacle at Pendrell Vale</pre><p class="small">Source: <a href="https://mtgdecks.net/Vintage/bant-control-decklist-by-logt1-1812565">open the historical record</a></p></div></details></section>
+<section id="printings"><div class="chapter-number">XXI · The record</div><h2>Printings and sources</h2>
+<p>Balance appeared in Alpha, Beta, Unlimited, Revised, and Fourth Edition before leaving normal core-set circulation. Later specialty printings preserved it as a historical object rather than returning it to ordinary tournament environments, including judge and premium products.</p>
+<p>The original Mark Poole artwork remains inseparable from the card, while later treatments have interpreted the scales and judgment through different visual languages. Its competitive legality is now defined less by print availability than by format policy.</p>
+<ul class="source-list"><li><a href="https://magic.wizards.com/en/news/making-magic/danger-will-robinson-2003-03-17">Mark Rosewater, “Danger, Will Robinson”</a><span>R&D’s explicit lessons from combining cheap mass creature destruction, land destruction, and hand denial.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/symmetry-symmetrical-effects-2014-04-07">Mark Rosewater, “Symmetry”</a><span>Why symmetrical effects invite deck-building asymmetry rather than guaranteeing fairness.</span></li><li><a href="https://magic.wizards.com/en/news/feature/top-50-white-cards-2003-02-07-0">Ben Bleiweiss, “The Top 50 White Cards”</a><span>The Balance Deck and Tom Chanpheng historical deck records.</span></li><li><a href="https://magic.wizards.com/en/news/feature/oral-history-first-pro-tour-2016-12-22">Wizards, “An Oral History of the First Pro Tour”</a><span>Michael Loconto, the 1996 format, and Balance artwork context.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards Banned and Restricted List</a><span>Current Vintage restriction and Legacy legality.</span></li><li><a href="https://mtgdecks.net/Vintage/bant-control-decklist-by-logt1-1812565">2023 Asia Vintage Championship Bant Control</a><span>A documented modern Vintage sideboard appearance.</span></li><li><a href="https://scryfall.com/card/lea/3/balance">Scryfall, Balance printing record</a><span>Oracle text, printings, artwork, and card metadata.</span></li><li><a href="https://magic.wizards.com/en/news/feature/all-banned-cards%E2%80%94ever-2009-03-19">Wizards, “All Banned Cards—Ever!”</a><span>Balance’s inclusion in From the Vault: Exiled and its long history across banned and restricted lists.</span></li></ul>
+<div class="end-nav"><a href="016-wheel-of-fortune.html"><small>Previous entry</small>016 · Wheel of Fortune</a><a href="018-wrath-of-god.html"><small>Next entry</small>018 · Wrath of God</a></div></section>
+</article><aside class="margin-note"><div class="kicker">The card in one sentence</div><h3>Three mass effects, two mana</h3><p>Balance equalizes lands, hands, and creatures after the caster has chosen where to hide value and when the comparison will occur.</p></aside></div>
+<div class="card-preview" id="preview"><img alt=""/><div class="label"></div></div>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script></body></html>
