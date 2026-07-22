@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="A long-form magazine history of Timetwister: Alpha, the Power Nine, symmetrical draw-sevens, recursion, combo, Vintage, Commander, artwork, descendants, and player memory." name="description"/>
+<title>Sol Ring: The Mana Rock That Starts the Game Ahead — Compulsive Research</title>
+<style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.timewalk-title{
+  letter-spacing:-.045em;
+  font-kerning:none;
+  font-variant-ligatures:none
+}
+@media(max-width:750px){
+  .timewalk-title{
+    letter-spacing:0;
+    line-height:.91
+  }
+}
+
+.timewalk-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.timewalk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.timewalk-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important}
+.time-warp-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Warp&format=image&version=art_crop)!important
+}
+.turn-grid,.exchange-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.turn-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.turn-step,.exchange-step{background:var(--white);padding:20px}
+.turn-step b,.exchange-step b{display:block;font:900 1.5rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.turn-step span,.exchange-step span{font:12.5px/1.48 Inter,system-ui,sans-serif;color:var(--muted)}
+.time-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.time-note b{color:var(--ink)}
+.turn-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.turn-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.turn-row:last-child{border-bottom:0}.turn-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.turn-row p{margin:0}
+@media(max-width:900px){.turn-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:750px){.turn-grid,.exchange-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.turn-grid,.exchange-grid{grid-template-columns:1fr}}
+
+
+.moxpearl-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.hero.moxpearl-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.art-break.moxpearl-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important}
+.mox-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chrome%20Mox&format=image&version=art_crop)!important
+}
+.mana-grid,.pearl-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.mana-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pearl-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mana-step,.pearl-step{background:var(--white);padding:23px}
+.mana-step b,.pearl-step b{display:block;font:900 1.55rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.mana-step span,.pearl-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.mox-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.mox-note b{color:var(--ink)}
+.mox-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mox-row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.mox-row:last-child{border-bottom:0}.mox-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mox-row p{margin:0}
+@media(max-width:750px){.mana-grid,.pearl-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.mana-grid,.pearl-grid{grid-template-columns:1fr}}
+
+
+
+.moxsapphire-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.hero.moxsapphire-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.art-break.moxsapphire-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important}
+.blue-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Opal&format=image&version=art_crop)!important
+}
+.sapphire-grid,.blue-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.sapphire-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.blue-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sapphire-step,.blue-step{background:var(--white);padding:23px}
+.sapphire-step b,.blue-step b{display:block;font:900 1.48rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.sapphire-step span,.blue-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.sapphire-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.sapphire-note b{color:var(--ink)}
+.blue-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.blue-row{display:grid;grid-template-columns:126px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.blue-row:last-child{border-bottom:0}.blue-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.blue-row p{margin:0}
+@media(max-width:750px){.sapphire-grid,.blue-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.sapphire-grid,.blue-grid{grid-template-columns:1fr}}
+
+
+.moxjet-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.moxjet-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.moxjet-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important}
+.black-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chrome%20Mox&format=image&version=art_crop)!important
+}
+.jet-grid,.black-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.jet-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.black-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.jet-step,.black-step{background:var(--white);padding:23px}
+.jet-step b,.black-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.jet-step span,.black-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.jet-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.jet-note b{color:var(--ink)}
+@media(max-width:750px){.jet-grid,.black-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.jet-grid,.black-grid{grid-template-columns:1fr}}
+
+
+.moxruby-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.moxruby-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.moxruby-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important}
+.ruby-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Opal&format=image&version=art_crop)!important
+}
+.ruby-grid,.red-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.ruby-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.red-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ruby-step,.red-step{background:var(--white);padding:23px}
+.ruby-step b,.red-step b{display:block;font:900 1.58rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.ruby-step span,.red-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.ruby-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.ruby-note b{color:var(--ink)}
+.red-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.red-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.red-row:last-child{border-bottom:0}.red-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.red-row p{margin:0}
+@media(max-width:750px){.ruby-grid,.red-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ruby-grid,.red-grid{grid-template-columns:1fr}}
+
+
+.moxemerald-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.moxemerald-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.moxemerald-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important}
+.emerald-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Diamond&format=image&version=art_crop)!important
+}
+.emerald-grid,.green-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.emerald-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.green-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.emerald-step,.green-step{background:var(--white);padding:23px}
+.emerald-step b,.green-step b{display:block;font:900 1.55rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.emerald-step span,.green-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.emerald-note{border-left:4px solid var(--green);background:rgba(53,95,82,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.emerald-note b{color:var(--ink)}
+.green-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.green-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.green-row:last-child{border-bottom:0}.green-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.green-row p{margin:0}
+@media(max-width:750px){.emerald-grid,.green-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.emerald-grid,.green-grid{grid-template-columns:1fr}}
+
+.sol-ring-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sol%20Ring&set=lea&format=image&version=art_crop)!important;
+  background-position:center 38%!important
+}
+.hero.sol-ring-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sol%20Ring&set=lea&format=image&version=art_crop)!important;
+  background-position:center 38%!important
+}
+.art-break.sol-ring-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sol%20Ring&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Sol%20Ring&set=lea&format=image&version=art_crop)!important}
+.ring-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.ring-step{background:var(--white);padding:23px}
+.ring-step b{display:block;font:900 1.55rem/1.04 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.ring-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.ring-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.ring-note b{color:var(--ink)}
+.mana-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mana-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.mana-row:last-child{border-bottom:0}.mana-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mana-row p{margin:0}
+@media(max-width:750px){
+  .ring-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+  .mana-row{grid-template-columns:84px minmax(0,1fr)}
+}
+@media(max-width:480px){.ring-grid{grid-template-columns:1fr}}
+</style></head><body class="sol-ring-page">
+<header class="hero sol-ring-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#entry-010">← Wave 01 · The Foundational Canon</a>
+<div class="eyebrow">Entry 010 · Wave 01 · The Foundational Canon</div>
+<h1>The Mana Rock That Starts the Game Ahead</h1>
+<p class="deckline">Sol Ring asks for one mana once and returns two mana every turn thereafter, turning a tiny colorless artifact into the most familiar unfair opening in Magic.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 23 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="009-timetwister.html">← Entry 009 · Timetwister</a><div class="center">Entry 010 of 1,000</div><a href="011-lightning-bolt.html">Entry 011 · Lightning Bolt →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong>
+<a href="#opening">The mana rock that starts the game ahead</a><a href="#alpha">Alpha’s quiet tenth piece of power</a><a href="#math">From one mana to three</a><a href="#colorless">The limitation that barely limits</a><a href="#worlds">The first World Champion</a><a href="#the-deck">The Deck and permanent development</a><a href="#restriction">Restricted almost from the beginning</a><a href="#engines">The artifact that powers artifacts</a><a href="#combo">Storm, Tinker, and the compressed turn</a><a href="#prison">Prison and the asymmetry of speed</a><a href="#commander">The card Commander adopted</a><a href="#precons">One Ring in every box</a><a href="#debate">The format’s acknowledged exception</a><a href="#multiplayer">The arch-enemy problem</a><a href="#sequencing">How to spend the head start</a><a href="#formats">A life across formats</a><a href="#cube">Power without the Power Nine label</a><a href="#descendants">The mana rocks that learned restraint</a><a href="#object">The image, the object, and the reprints</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The opening hand</div><h2>The mana rock that starts the game ahead</h2>
+<p class="opening dropcap">A first-turn Sol Ring does not merely accelerate the next spell. It changes which turn the game believes it is.</p>
+<p>A player begins with one land, taps it for one mana, casts Sol Ring, and immediately taps the artifact for two. The same first turn that should have contained one mana now contains enough for a two-mana spell after the Ring has already entered the battlefield. On the following turn, the player can make a second land drop and begin with four available mana. A normal curve reaches that point on turn four. Sol Ring reaches it on turn two.</p>
+<p>The card does this without sacrificing itself, discarding another card, paying life, skipping an untap, or restricting the mana to one specific class of spell. Its text is almost aggressively modest: one generic mana to cast; tap to add two colorless mana. Nothing in the sentence sounds ceremonial enough to explain why the artifact is restricted in Vintage, banned in Legacy, and treated as a near-default inclusion in Commander.</p>
+<div class="card-lead"><img alt="Sol Ring from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Sol%20Ring&amp;set=lea&amp;format=image&amp;version=normal"><div><div class="oracle"><b>Sol Ring</b> · {1}<br>Artifact<br><br>{T}: Add {C}{C}.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Illustrated by</b>Mark Tedin</div><div class="stat"><b>Current identity</b>Restricted Vintage staple · Commander icon</div></div></div></div>
+<p>Sol Ring is the purest example of a mana rock: an artifact whose primary purpose is to produce mana. Yet the generic term makes the original sound ordinary. Modern mana rocks are usually priced so that the turn spent casting them roughly balances the future acceleration they provide. Sol Ring repays its entire casting cost immediately and produces an additional mana before the first turn is over.</p>
+<p>That head start is useful in almost any deck. It does not care about color identity, creature type, graveyard plan, commander, or win condition. It simply offers more game sooner. The mystery is not why players include it. The mystery is how one of Alpha’s most extreme mana designs became the familiar card shuffled into casual decks by the millions.</p></section>
+<section id="alpha"><div class="chapter-number">II · Limited Edition Alpha</div><h2>Alpha’s quiet tenth piece of power</h2>
+<p>Alpha contained a cluster of cards that treated mana as something far cheaper than later Magic could afford: Black Lotus, the five Moxen, Dark Ritual, Mana Vault, and Sol Ring. The Power Nine became the famous category because its members were rare, spectacular, and historically inseparable. Sol Ring was printed at uncommon, which spared it from the name even though its actual game play belongs beside them.</p>
+<p>In Wizards’ 2005 ranking of the greatest artifacts, Sol Ring placed second—behind only Black Lotus and ahead of every Mox. The argument was numerical rather than romantic. A Mox provides one mana for no mana; Sol Ring converts one mana into two, and the jump from a one-mana first turn to a three-mana first turn can open a much larger portion of a deck.</p>
+<p>The original design also misunderstood how repeatable acceleration compounds. One extra mana is not merely one extra mana. It means an earlier card-drawing engine, an earlier lock piece, an earlier commander, an earlier sweeper, or two spells fitted into a turn that was designed to hold one. Every future untap repeats the advantage.</p>
+<div class="pullquote">Sol Ring is not one burst of fast mana. It is a different mana curve that begins on the first turn.<small>The hidden scale of a one-mana artifact</small></div>
+<p>That distinction separates it from Black Lotus. Lotus is more explosive and more universally coveted, but it disappears after one use. Sol Ring remains. A player who uses the Ring to cast a permanent has not consumed the engine that enabled it. The artifact will untap and do the same thing again.</p></section>
+<section id="math"><div class="chapter-number">III · The exchange</div><h2>From one mana to three</h2>
+<p>The cleanest way to understand Sol Ring is to track the first two turns. Without the Ring, a normal sequence offers one mana on turn one and two on turn two. With the Ring, the first land pays for the artifact, the artifact produces two mana immediately, and the second turn begins with the Ring plus two lands.</p>
+<div class="ring-grid"><div class="ring-step"><b>1</b><span>One land produces the mana needed to cast Sol Ring.</span></div><div class="ring-step"><b>2</b><span>The Ring taps immediately for two colorless mana.</span></div><div class="ring-step"><b>4</b><span>After the second land drop, turn two begins with four mana.</span></div><div class="ring-step"><b>Repeat</b><span>The extra mana returns on every later untap without another card spent.</span></div></div>
+<p>The first turn therefore contains three mana of total activity: one used to cast the Ring and two available afterward. This is why the card feels closer to a free spell than to an ordinary accelerator. The initial investment does not require the player to pass the turn and wait for repayment.</p>
+<p>The advantage can also be described in cards. Sol Ring costs one card from hand but becomes an ongoing mana source. If it enables a <span class="card-name" data-card="Mind Stone" tabindex="0">Mind Stone</span>, a Signet, or another two-mana rock on turn one, the player may begin turn two with five or more mana sources represented on the battlefield. The acceleration starts to accelerate itself.</p>
+<div class="ring-note"><b>The dangerous sequence:</b> Sol Ring is strongest when the two mana it produces creates another permanent source of mana or cards. The opening then stops being a one-turn burst and becomes a lasting resource gap.</div>
+<p>This compounding quality is why simply destroying the Ring later may not restore parity. The accelerated player may already have converted it into a planeswalker, commander, draw engine, or lock piece. Removal trades with the artifact; it does not rewind the turns the artifact stole.</p></section>
+<section id="colorless"><div class="chapter-number">IV · The supposed drawback</div><h2>The limitation that barely limits</h2>
+<p>Sol Ring produces colorless mana. It cannot pay the colored symbols in <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span>, <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>, or <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span>. That distinction matters, especially in the earliest turns when a hand may have only one colored land.</p>
+<p>Yet most Magic cards contain generic costs alongside their colored requirements. Sol Ring pays for artifacts, equipment, activated abilities, commander tax, the generic portions of multicolored spells, and entire classes of colorless threats. The mana is restrictive only relative to the nearly impossible standard set by the original Moxen.</p>
+<p>In artifact decks, the limitation disappears almost entirely. <span class="card-name" data-card="Tinker" tabindex="0">Tinker</span> values Sol Ring as both mana and sacrifice material. <span class="card-name" data-card="Tolarian Academy" tabindex="0">Tolarian Academy</span> counts it. <span class="card-name" data-card="Urza's Saga" tabindex="0">Urza's Saga</span> can find it. <span class="card-name" data-card="Paradoxical Outcome" tabindex="0">Paradoxical Outcome</span> can return and replay it. A card that begins as acceleration becomes infrastructure for the deck’s larger engine.</p>
+<p>Commander further weakens the colorless objection because many defining cards are expensive and commanders themselves often contain substantial generic costs. Sol Ring may not cast every spell, but it often casts the spell that lets the rest of the hand operate.</p></section>
+<div class="art-break sol-ring-art"><div class="art-caption"><b>Mark Tedin’s original Sol Ring artwork</b>The radiant circle looks less like jewelry than a contained astronomical event—an object whose scale is implied by the light it throws across the frame.</div></div>
+<section id="worlds"><div class="chapter-number">V · The first champion</div><h2>The first World Champion</h2>
+<p>Zak Dolan’s 1994 World Championship deck placed Sol Ring among fifteen artifacts that included Black Lotus, the five Moxen, Icy Manipulator, Meekstone, and Winter Orb. The deck’s visible identity was U/W/G control, but its actual opening turns were often powered by colorless permanents that ignored the normal one-land-per-turn schedule.</p>
+<p>Sol Ring was particularly suited to the deck’s awkward collection of costs. It accelerated <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, <span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span>, and <span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span> while leaving colored lands available for countermagic and removal. It also survived Armageddon, allowing the control deck to continue operating after lands had been destroyed.</p>
+<p>The list demonstrates the Ring’s earliest strategic role. It was not restricted to combo. It was simply an efficient way for a control deck to arrive at its expensive tools before the opponent could establish pressure. The same artifact that later enabled first-turn kills first helped a Serra Angel control deck stabilize ahead of schedule.</p></section>
+<section id="the-deck"><div class="chapter-number">VI · Control theory</div><h2>The Deck and permanent development</h2>
+<p>Brian Weissman’s <strong>The Deck</strong> made resource advantage into a formal doctrine. Its one-for-one answers protected a smaller number of cards that generated lasting advantage: Jayemdae Tome, Disrupting Scepter, Moat, The Abyss, and the restricted draw spells of early Type I.</p>
+<p>Sol Ring fit that doctrine because it was development that did not consume a land drop. The Ring accelerated a Tome and then helped activate it. It cast an Icy Manipulator and then paid for the tap ability. It remained after <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span>, helping the deck rebuild while the opponent returned to zero mana.</p>
+<p>This is a less dramatic use than Storm, but strategically it may be more revealing. Sol Ring does not need to create a spectacular opening to be broken. If it lets a control deck operate one full stage ahead—answers held up while an engine activates—the accumulated advantage can decide a long game without any single explosive moment.</p>
+<p>The Deck also shows why colorless acceleration is so flexible. A multicolor control strategy needs colored lands for its reactive spells. Sol Ring pays generic costs so those lands can remain untapped, converting raw colorless mana into practical access to every color.</p></section>
+<section id="restriction"><div class="chapter-number">VII · Format policy</div><h2>Restricted almost from the beginning</h2>
+<p>Sol Ring joined the first wave of restrictions in early tournament Magic. One copy remained legal in the format that became Vintage; four copies would make opening hands and artifact engines far too consistent. Legacy bans it entirely.</p>
+<p>Restriction does not domesticate the card. Vintage is built around tutors, draw spells, graveyard recursion, and compact engines that repeatedly find or reuse restricted cards. A single Sol Ring can still power a decisive first turn, increase Storm count, feed Tinker, or turn an otherwise fair hand into one that operates multiple turns ahead.</p>
+<div class="format-strip"><div class="format-card"><span class="impact">Restricted</span><h3>Vintage</h3><p>One copy remains a defining piece of fast mana across control, combo, and artifact strategies.</p></div><div class="format-card"><span class="impact">Banned</span><h3>Legacy</h3><p>The format does not permit the opening-turn acceleration that Vintage manages through restriction and free interaction.</p></div><div class="format-card"><span class="impact">Legal</span><h3>Commander</h3><p>The great exception: a card acknowledged as explosively powerful but preserved as part of the format’s identity.</p></div></div>
+<p>The card’s policy history makes Commander’s treatment especially striking. Competitive Eternal formats regard Sol Ring as too powerful for unrestricted play. Commander distributes new copies continually and places one in introductory products. The difference is not a disagreement about the card’s strength. It is a disagreement about what the format is trying to preserve.</p></section>
+<section id="engines"><div class="chapter-number">VIII · Artifact ecology</div><h2>The artifact that powers artifacts</h2>
+<p>Sol Ring becomes more dangerous when artifacts care about other artifacts. The card then performs several jobs simultaneously: mana source, artifact count, sacrificial object, improvise or affinity support, and a permanent that can be untapped or copied.</p>
+<p><span class="card-name" data-card="Voltaic Key" tabindex="0">Voltaic Key</span> converts one mana into another activation. <span class="card-name" data-card="Manifold Key" tabindex="0">Manifold Key</span> repeats the pattern. <span class="card-name" data-card="Power Artifact" tabindex="0">Power Artifact</span> and the Monoliths belong to a later generation of engines, but Sol Ring established the premise that an artifact could be both cheap setup and an enduring source of abnormal mana.</p>
+<p>Even opposing artifact hate reveals the card’s scale. <span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span>, <span class="card-name" data-card="Stony Silence" tabindex="0">Stony Silence</span>, and <span class="card-name" data-card="Collector Ouphe" tabindex="0">Collector Ouphe</span> can shut off Sol Ring, but decks often accept that vulnerability because the upside of the unrestricted opening is so large.</p>
+<p>In Commander, this creates a familiar tension. Sol Ring is included because it is efficient, but its ubiquity also makes artifact-hate effects stronger. The format’s most common accelerator quietly shapes the value of every card that says artifacts cannot activate.</p></section>
+<section id="combo"><div class="chapter-number">IX · The compressed turn</div><h2>Storm, Tinker, and the compressed turn</h2>
+<p>Combo decks do not merely want more mana. They want mana that appears before the opponent has assembled interaction. Sol Ring turns one available mana into two, adds a spell to the turn, and remains available if an untap effect or recursion sequence occurs.</p>
+<p>In Pitch Long and later Storm strategies, the card can cast <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span>, pay generic costs on draw spells, help activate <span class="card-name" data-card="Memory Jar" tabindex="0">Memory Jar</span>, or move the turn toward <span class="card-name" data-card="Tendrils of Agony" tabindex="0">Tendrils of Agony</span>. Unlike Dark Ritual, the Ring may continue producing mana after the first spell chain pauses.</p>
+<p>Tinker decks value an additional property: Sol Ring is an artifact that has already returned more mana than it cost. Sacrificing it to Tinker often feels free because the Ring has performed its opening job and can now become a vastly more expensive artifact.</p>
+<div class="mana-sequence"><div class="mana-row"><strong>Cast</strong><p>One generic mana places Sol Ring on the battlefield.</p></div><div class="mana-row"><strong>Produce</strong><p>The Ring immediately provides two colorless mana and one additional spell toward Storm.</p></div><div class="mana-row"><strong>Convert</strong><p>The mana casts a tutor, draw spell, or another accelerator.</p></div><div class="mana-row"><strong>Recycle</strong><p>The artifact can later be bounced, untapped, sacrificed, or counted by a larger engine.</p></div></div>
+<p>This is why the card appears less spectacular than Black Lotus but can be more structurally important. Lotus creates the largest single burst. Sol Ring helps the deck continue functioning after the burst has passed.</p></section>
+<section id="prison"><div class="chapter-number">X · Lock pieces</div><h2>Prison and the asymmetry of speed</h2>
+<p>Prison decks break symmetrical restrictions by deploying their own mana before the restriction arrives. Sol Ring can cast <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, <span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span>, <span class="card-name" data-card="Sphere of Resistance" tabindex="0">Sphere of Resistance</span>, or <span class="card-name" data-card="Trinisphere" tabindex="0">Trinisphere</span> while leaving the caster with an artifact source that may function under the lock.</p>
+<p>The sequence illustrates a recurring principle of resource denial: the player who gets ahead first can make a symmetrical rule one-sided. If both players’ spells cost more but only one began with Sol Ring, the Ring’s controller may continue casting while the opponent waits for normal land drops.</p>
+<p>Armageddon produces the same structure in a different form. Destroying all lands appears fair, but the player who has already developed artifact mana retains a functioning economy. Sol Ring does not need text that says “your opponent cannot play.” It only needs to let its controller reach the restrictive card first.</p></section>
+<section id="commander"><div class="chapter-number">XI · The second life</div><h2>The card Commander adopted</h2>
+<p>Sol Ring’s most important modern history did not occur in Vintage. It occurred in Elder Dragon Highlander, the multiplayer singleton format that became Commander.</p>
+<p>The format naturally rewarded the card. Games involved expensive legendary creatures, large haymakers, repeated commander tax, and multiple opponents. A reusable two-mana artifact helped decks reach the part of the game they were built to showcase. Singleton construction also reduced consistency: only one copy could appear in a hundred-card deck.</p>
+<p>That explanation is only partly satisfying. A first-turn Sol Ring remains a dramatic advantage, and multiplayer does not erase the extra mana. What multiplayer changes is the response. The player who jumps ahead becomes visible to three opponents, each capable of directing attacks and removal toward the emerging threat.</p>
+<p>Commander therefore transformed Sol Ring from restricted tournament power into a ritual opening. “Land, Sol Ring” became one of the format’s most recognizable phrases—sometimes celebrated as a chance to do something enormous, sometimes followed by groans from the rest of the table.</p></section>
+<section id="precons"><div class="chapter-number">XII · Product history</div><h2>One Ring in every box</h2>
+<p>The 2011 <em>Magic: The Gathering Commander</em> release made the relationship official. Wizards published five ready-to-play decks, and each included one Sol Ring. The card was no longer merely tolerated by a community-created format. It became part of the expected equipment issued to a new Commander player.</p>
+<p>Repeated Commander products reinforced the convention. New legends, mechanics, and color combinations changed from year to year; Sol Ring stayed. Its frequent reprinting lowered the practical barrier to ownership and separated the modern object from the scarce Alpha original.</p>
+<p>This product history changed the card’s cultural meaning. Black Lotus remained distant mythology. Sol Ring became the piece of Alpha power that many players actually shuffled, drew, and cast. A card restricted or banned in competitive Eternal formats became one of the most ordinary sights at a kitchen table.</p>
+<p>The reprints also created an enormous visual archive. Every plane, faction, crossover, and aesthetic can receive its own Ring. The rules text remains almost unchanged while the image becomes a small emblem of whichever deck contains it.</p></section>
+<section id="debate"><div class="chapter-number">XIII · The exception</div><h2>The format’s acknowledged exception</h2>
+<p>Debate over banning Sol Ring in Commander is unusually revealing because almost no one disputes the premise. The card is dramatically above the normal mana curve. In the September 2024 Commander announcement that banned Mana Crypt, Jeweled Lotus, Dockside Extortionist, and Nadu, the Rules Committee addressed Sol Ring directly: under the stated criteria it would be bannable, but its connection to Commander’s identity made it an exception.</p>
+<p>That statement transformed an informal understanding into explicit policy. Sol Ring is not legal because it is balanced. It is legal because removing it would change what the format recognizes itself to be.</p>
+<p>The exception has costs. Early Sol Ring draws create uneven games, especially when the accelerated player follows with another mana rock or a draw engine. They also pressure deck building: a colorless card that is legal in every commander identity and dramatically improves many opening hands can feel mandatory even to players who dislike its play pattern.</p>
+<div class="ring-note"><b>The Commander paradox:</b> Sol Ring is simultaneously the format’s most obvious fast-mana outlier and one of its most successful pieces of shared culture.</div>
+<p>Yet the card also produces memorable chaos. A player who becomes the early arch-enemy may be contained by the table. The Ring may draw an immediate removal spell. Or the opening may create the kind of absurd, accelerated game Commander players tell stories about. The format has chosen variance and identity over strict mana equality.</p></section>
+<section id="multiplayer"><div class="chapter-number">XIV · The table</div><h2>The arch-enemy problem</h2>
+<p>In a duel, early acceleration creates a private advantage against one opponent. In Commander, it creates a public signal. The Ring sits on the battlefield where every player can see the mana gap developing.</p>
+<p>This visibility can function as a balancing force. The accelerated player may receive attacks that would otherwise go elsewhere, lose a key permanent to shared removal, or find that opponents preserve countermagic specifically for the first enormous spell. Sol Ring can generate mana and threat perception at the same time.</p>
+<p>But politics is not a mathematical refund. Three opponents may recognize the danger and still lack the correct answer. The Ring’s controller may use the head start to deploy protection, draw cards, or establish a commander whose value survives removal. Multiplayer can punish acceleration, but it cannot guarantee parity.</p>
+<p>The best Commander sequencing therefore considers not only what the mana can cast, but what the table will tolerate. A turn-one Ring into a modest value piece may attract less resistance than an immediate threat. The card adds a social cost to its mana cost, and experienced players learn to manage both.</p></section>
+<section id="sequencing"><div class="chapter-number">XV · Technique</div><h2>How to spend the head start</h2>
+<p>The weakest Sol Ring opening simply casts the most expensive available card. The strongest opening converts temporary initiative into durable advantage.</p>
+<p>Additional mana is especially valuable when it produces more mana, cards, or a resilient engine. Sol Ring into a Signet means the next turn begins even farther ahead. Sol Ring into <span class="card-name" data-card="Rhystic Study" tabindex="0">Rhystic Study</span> or a similar draw engine can replace the card spent and turn the tempo advantage into card advantage. Sol Ring into a commander that generates value on entry may preserve the benefit even if the table immediately removes it.</p>
+<p>Color requirements matter. A hand containing Sol Ring and only one colored land may appear explosive while failing to cast its important spells. The artifact should not be counted as a replacement for colored sources merely because it increases the total mana number.</p>
+<p>Mulligan decisions also change. In Commander, players may be tempted to keep an otherwise fragile hand because it contains Sol Ring. The card can justify risk, but it cannot guarantee land drops, colored mana, or action after the first accelerated spell. The Ring improves functional hands more reliably than it rescues nonfunctional ones.</p></section>
+<section id="formats"><div class="chapter-number">XVI · Formats</div><h2>A life across formats</h2>
+<p><strong>Vintage</strong> preserves one copy. The Ring appears across Tinker, Storm, control, artifact, and prison strategies because the opportunity cost is small and the opening ceiling enormous.</p>
+<p><strong>Legacy</strong> bans it. The format permits powerful interaction and fast combo, but not the original artifact-mana package that defines Vintage.</p>
+<p><strong>Commander</strong> is its mass home: singleton, multiplayer, nonrotating, and culturally built around large spells and legendary creatures.</p>
+<p><strong>Cube</strong> restores the old comparison with the Power Nine. In Wizards’ 2026 Arena Powered Cube data, Sol Ring was the second-most first-picked card after Black Lotus, ahead of Time Walk and all five Moxen. The result illustrates how quickly players rediscover the card’s raw rate when every deck is allowed to use it.</p>
+<p><strong>Old School</strong> environments vary by regional rules, but the card is commonly restricted where legal, preserving the early tournament experience without permitting four-copy openings.</p></section>
+<section id="cube"><div class="chapter-number">XVII · Draft</div><h2>Power without the Power Nine label</h2>
+<p>Powered Cube asks players to evaluate cards without price, scarcity, or constructed-format bans. Sol Ring then reveals its true draft identity: nearly colorless power that asks for no archetype commitment.</p>
+<p>A first pick Mox may subtly encourage its color. Sol Ring encourages only one behavior—draft spells with generic costs worth accelerating. That includes almost everything from planeswalkers and equipment to combo artifacts and enormous creatures.</p>
+<p>The card also solves a draft problem that the Power Nine category obscures. Players often assume the named nine must be the nine strongest first picks. In actual powered environments, Sol Ring competes with and often surpasses several of them because it is repeatable, universal, and immediately mana-positive.</p>
+<p>Its failure cases are narrow: hyper-low curves that cannot spend the colorless mana, colored-cost-heavy hands, artifact hate, or drawing it after mana is no longer the bottleneck. Most decks accept those cases without hesitation.</p></section>
+<section id="descendants"><div class="chapter-number">XVIII · Design echo</div><h2>The mana rocks that learned restraint</h2>
+<p>Later mana rocks reveal how far outside the curve Sol Ring stands. <span class="card-name" data-card="Mind Stone" tabindex="0">Mind Stone</span>, <span class="card-name" data-card="Arcane Signet" tabindex="0">Arcane Signet</span>, and the Signets generally cost two and produce one. <span class="card-name" data-card="Worn Powerstone" tabindex="0">Worn Powerstone</span> produces two but costs three and enters tapped. <span class="card-name" data-card="Sisay's Ring" tabindex="0">Sisay's Ring</span> asks four mana for the same two-mana output.</p>
+<p><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span> and <span class="card-name" data-card="Grim Monolith" tabindex="0">Grim Monolith</span> preserve explosive rates by attaching untap restrictions. <span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span> removes the casting cost but adds recurring risk—and was eventually banned in Commander while Sol Ring remained.</p>
+<p>The ordinary two-mana rock is one of modern Magic’s clearest admissions about Sol Ring. Designers have spent decades reproducing only a fraction of the original rate, usually with additional restrictions, colored identity, tapped entry, or smaller output.</p>
+<div class="inline-image"><div class="image" style="background-image:url(https://api.scryfall.com/cards/named?exact=Arcane%20Signet&format=image&version=art_crop)"></div><div class="copy"><div class="kicker">The modern Commander baseline</div><h3>Arcane Signet</h3><p>Two mana for one colored mana is considered excellent contemporary acceleration. Sol Ring costs half as much and produces twice as much, though only in colorless form.</p></div></div></section>
+<section id="object"><div class="chapter-number">XIX · The object</div><h2>The image, the object, and the reprints</h2>
+<p>Mark Tedin’s Alpha image does not show a wearable ring in ordinary scale. A bright circular structure hangs against darkness, radiating lines that suggest orbit, machinery, and a captive sun. The ambiguity proved useful. Sol Ring could become a magical artifact from any world because the original was already more symbol than object.</p>
+<p>The name is equally efficient. “Sol” makes the ring cosmic; “Ring” makes it graspable. The card turns a star into something a wizard can place on the table and tap for power.</p>
+<p>Later printings have interpreted the object as celestial machinery, ritual jewelry, factional technology, and crossover iconography. Commander’s demand made the card an ideal showcase reprint: every deck can use it, every art treatment is recognizable, and the rules text requires little space.</p>
+<p>This abundance separates playable Sol Rings from Alpha Sol Rings. The card itself is accessible; the first printing remains a historical collectible. Players can therefore experience the exact game text without pretending the original object is ordinary.</p></section>
+<section id="memory"><div class="chapter-number">XX · The phrase</div><h2>What players remember</h2>
+<p>Players remember the sound of the sequence before they remember any specific game: “Land. Sol Ring.” It is an announcement and a warning.</p>
+<p>For the caster, the card creates possibility. The hand expands because spells intended for later turns become immediate options. For the table, it creates arithmetic. Everyone recalculates how quickly the accelerated player can deploy a commander, combo, or engine.</p>
+<p>The Ring also represents two Magic histories at once. In Vintage, it is restricted power from Alpha, surrounded by Black Lotus, Moxen, and broken tutors. In Commander, it is the familiar card from a preconstructed deck, sleeved beside a favorite legendary creature. Few cards have traveled so completely from tournament emergency to casual institution.</p>
+<div class="memory"><div class="memory-grid"><blockquote>Sol Ring is the card that makes turn one feel like a public event.</blockquote><cite>The shared ritual of Commander</cite></div></div>
+<p>Its legacy is therefore not simply that it is too efficient. Many cards are too efficient. Sol Ring became something stranger: a known mistake that an entire format adopted as part of its personality.</p></section>
+<section id="decklists" class="deck-archive"><div class="chapter-number">XXI · The record</div><h2>The deck archive</h2><p class="deck-intro">These four lists trace Sol Ring from early championship control through The Deck, Vintage Storm, and contemporary Tinker. Each illustrates a different way to convert one restricted artifact into a structural mana advantage.</p><details class="deck"><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first World Champion used Sol Ring as part of Alpha’s unrestricted artifact-mana package, accelerating Stasis, Serra Angel, and control infrastructure.</p><button class="copy" data-target="sol-ring-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div><div class="deck-col"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div></div><pre hidden="" id="sol-ring-deck-0">Zak Dolan — U/W/G Stasis Control
+World Champion · Worlds 1994
+
+Creatures · 11
+1 Clone
+2 Old Man of the Sea
+1 Time Elemental
+1 Vesuvan Doppelganger
+1 Birds of Paradise
+1 Ley Druid
+4 Serra Angel
+
+Sorceries · 6
+1 Recall
+1 Timetwister
+1 Time Walk
+1 Regrowth
+1 Armageddon
+1 Wrath of God
+
+Instants · 9
+1 Ancestral Recall
+1 Mana Drain
+1 Siren's Call
+2 Disenchant
+4 Swords to Plowshares
+
+Artifacts · 15
+1 Black Lotus
+1 Black Vise
+1 Howling Mine
+1 Icy Manipulator
+1 Ivory Tower
+1 Mana Vault
+2 Meekstone
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Winter Orb
+
+Enchantments · 4
+1 Control Magic
+2 Stasis
+1 Kismet
+
+Lands · 15
+1 Library of Alexandria
+4 Savannah
+4 Tropical Island
+4 Tundra
+2 Strip Mine
+
+Sideboard · 15
+1 Kismet
+1 Chaos Orb
+1 Circle of Protection: Red
+1 Copy Artifact
+1 Diamond Valley
+1 In the Eye of Chaos
+1 Floral Spuzzem
+2 Karma
+1 Magical Hack
+1 Power Sink
+1 Presence of the Master
+1 Reverse Damage
+1 Sleight of Mind
+1 Winter Blast</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p></div></details><details class="deck">
+<summary><span><strong>Brian Weissman — The Deck</strong><small>Foundational Type I control archetype · mid-1990s</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The Deck used Lotus to reach Mind Twist, Disrupting Scepter, and the mana advantage required to convert answers into permanent control. Its presence in the first famous control deck demonstrates that Lotus was not merely a combo card; it was the best possible opening resource for almost any strategy.</p>
+<div class="deck-meta"><div><b>Brian Weissman</b><div class="small">The Deck used Mox Emerald to cast Regrowth and to advance the generic costs of Disrupting Scepter, Jayemdae Tome, and its other control machinery. The green source mattered; the free permanent mana mattered even more.</div></div>
+<button class="copy" data-target="sol-ring-deck-1">Copy decklist</button></div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div>
+</div>
+<pre hidden="" id="sol-ring-deck-1">Brian Weissman — The Deck
+Foundational Type I control archetype · mid-1990s
+
+Creatures · 2
+2 Serra Angel
+
+Sorceries · 7
+1 Time Walk
+1 Timetwister
+1 Braingeyser
+1 Recall
+1 Demonic Tutor
+1 Mind Twist
+1 Regrowth
+
+Instants · 17
+4 Mana Drain
+2 Counterspell
+1 Ancestral Recall
+4 Disenchant
+4 Swords to Plowshares
+2 Red Elemental Blast
+
+Enchantments · 2
+2 Moat
+
+Artifacts · 11
+2 Disrupting Scepter
+1 Jayemdae Tome
+1 Ivory Tower
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Jet
+1 Mox Sapphire
+1 Mox Emerald
+1 Black Lotus
+1 Sol Ring
+
+Lands · 21
+2 Strip Mine
+1 Library of Alexandria
+3 City of Brass
+1 Plateau
+1 Underground Sea
+2 Volcanic Island
+4 Tundra
+3 Plains
+4 Island
+
+Sideboard · 15
+1 Plains
+1 Counterspell
+1 Moat
+1 Disrupting Scepter
+1 Jayemdae Tome
+1 Tormod's Crypt
+2 Control Magic
+2 Blood Moon
+3 Circle of Protection: Red
+2 Divine Offering</pre>
+<p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">open the historical record</a></p>
+</div>
+</details><details class="deck">
+<summary><span><strong>Paul Mastriano — Pitch Long</strong><small>Champion · 2008 Vintage World Championship</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Storm treated the card as velocity. Recall found rituals and tutors, protected the combo turn by refilling after disruption, and became especially dangerous when replayed during Yawgmoth’s Will.</p>
+<div class="deck-meta">
+<div><b>Paul Mastriano</b><div class="small">Champion · 2008 Vintage World Championship</div></div>
+<button class="copy" data-target="sol-ring-deck-2">Copy decklist</button>
+</div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creature · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Darksteel Colossus" tabindex="0">Darksteel Colossus</span></div></div><div class="group"><h4>Lands · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bloodstained Mire" tabindex="0">Bloodstained Mire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Instants and sorceries · 34</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cabal Ritual" tabindex="0">Cabal Ritual</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gifts Ungiven" tabindex="0">Gifts Ungiven</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Grim Tutor" tabindex="0">Grim Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tendrils of Agony" tabindex="0">Tendrils of Agony</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tinker" tabindex="0">Tinker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div></div><div class="group"><h4>Other spells · 13</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Memory Jar" tabindex="0">Memory Jar</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Bargain" tabindex="0">Yawgmoth's Bargain</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Massacre" tabindex="0">Massacre</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Phyrexian Negator" tabindex="0">Phyrexian Negator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rebuild" tabindex="0">Rebuild</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div></div>
+</div>
+<pre hidden="" id="sol-ring-deck-2">Paul Mastriano — Pitch Long
+Champion · 2008 Vintage World Championship
+
+Creature · 1
+1 Darksteel Colossus
+
+Lands · 12
+1 Bloodstained Mire
+2 Island
+4 Polluted Delta
+2 Swamp
+3 Underground Sea
+
+Instants and sorceries · 34
+1 Ancestral Recall
+1 Brainstorm
+2 Cabal Ritual
+1 Chain of Vapor
+4 Dark Ritual
+1 Demonic Tutor
+4 Duress
+1 Fact or Fiction
+4 Force of Will
+1 Gifts Ungiven
+3 Grim Tutor
+1 Hurkyl's Recall
+1 Merchant Scroll
+1 Misdirection
+1 Mystical Tutor
+1 Ponder
+1 Tendrils of Agony
+1 Time Walk
+1 Timetwister
+1 Tinker
+1 Vampiric Tutor
+1 Yawgmoth's Will
+
+Other spells · 13
+1 Black Lotus
+1 Lotus Petal
+1 Mana Crypt
+1 Mana Vault
+1 Memory Jar
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Necropotence
+1 Sol Ring
+1 Yawgmoth's Bargain
+
+Sideboard · 15
+2 Hurkyl's Recall
+2 Hymn to Tourach
+1 Massacre
+3 Phyrexian Negator
+1 Rebuild
+2 Tormod's Crypt
+4 Yixlid Jailer</pre>
+<p class="small">Source: <a href="https://www.mtgtop8.com/event?e=381&amp;f=VI">open the historical record</a></p>
+</div>
+</details><details class="deck"><summary><span><strong>Grixis Tinker — Vintage metagame example</strong><small>Wizards B&amp;R announcement · June 2026</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">A contemporary Vintage Tinker example showing that the restricted Ring remains a nearly automatic inclusion wherever colorless mana, artifacts, and explosive opening turns matter.</p><button class="copy" data-target="sol-ring-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 3</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hexing Squelcher" tabindex="0">Hexing Squelcher</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hullbreacher" tabindex="0">Hullbreacher</span></div><h4>Artifacts · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bolas's Citadel" tabindex="0">Bolas's Citadel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Manifold Key" tabindex="0">Manifold Key</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Vault" tabindex="0">Time Vault</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vexing Bauble" tabindex="0">Vexing Bauble</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Abrade" tabindex="0">Abrade</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dismember" tabindex="0">Dismember</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hullbreacher" tabindex="0">Hullbreacher</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Leyline of the Void" tabindex="0">Leyline of the Void</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Long Goodbye" tabindex="0">Long Goodbye</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Opposition Agent" tabindex="0">Opposition Agent</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Portal to Phyrexia" tabindex="0">Portal to Phyrexia</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div><div class="deck-col"><h4>Instants · 14</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flusterstorm" tabindex="0">Flusterstorm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><h4>Sorceries · 18</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flow State" tabindex="0">Flow State</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lórien Revealed" tabindex="0">Lórien Revealed</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stock Up" tabindex="0">Stock Up</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tinker" tabindex="0">Tinker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div><h4>Lands · 13</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thundering Falls" tabindex="0">Thundering Falls</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tolarian Academy" tabindex="0">Tolarian Academy</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza's Saga" tabindex="0">Urza's Saga</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div></div><pre hidden="" id="sol-ring-deck-3">Grixis Tinker — Vintage metagame example
+Wizards B&amp;R announcement · June 2026
+
+Creatures · 3
+2 Hexing Squelcher
+1 Hullbreacher
+
+Artifacts · 12
+1 Black Lotus
+1 Bolas's Citadel
+1 Mana Crypt
+1 Manifold Key
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Time Vault
+1 Vexing Bauble
+
+Instants · 14
+1 Ancestral Recall
+1 Brainstorm
+1 Chain of Vapor
+2 Flusterstorm
+2 Force of Negation
+4 Force of Will
+1 Mental Misstep
+1 Mystical Tutor
+1 Vampiric Tutor
+
+Sorceries · 18
+1 Demonic Tutor
+4 Flow State
+1 Gitaxian Probe
+4 Lórien Revealed
+4 Stock Up
+1 Time Walk
+1 Timetwister
+1 Tinker
+1 Yawgmoth's Will
+
+Lands · 13
+1 Flooded Strand
+2 Island
+1 Misty Rainforest
+1 Polluted Delta
+1 Scalding Tarn
+1 Thundering Falls
+1 Tolarian Academy
+2 Underground Sea
+1 Urza's Saga
+2 Volcanic Island
+
+Sideboard · 15
+2 Abrade
+1 Dismember
+2 Hullbreacher
+1 Hurkyl's Recall
+3 Leyline of the Void
+1 Long Goodbye
+1 Opposition Agent
+1 Portal to Phyrexia
+2 Pyroblast
+1 Yixlid Jailer</pre></div></details></section>
+<section id="printings"><div class="chapter-number">XXII · The archive</div><h2>Printings and sources</h2>
+<p>Sol Ring debuted in Limited Edition Alpha and continued through the early core sets before becoming one of Magic’s most frequently revisited supplemental-product cards. Commander releases, promotional printings, premium treatments, and crossover art have made the text widely available while preserving the historical distinctiveness of the Alpha original.</p>
+<div class="printings"><a href="https://gatherer.wizards.com/2U/en-us/0/sol-ring"><b>Gatherer, Sol Ring</b><span>Current Oracle wording and official card record.</span></a><a href="https://magic.wizards.com/en/news/feature/top-50-artifacts-all-time-2005-02-28"><b>Wizards of the Coast, “The Top 50 Artifacts of All Time”</b><span>Sol Ring ranked second behind Black Lotus, with analysis of its one-to-three mana jump.</span></a><a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28"><b>Mark Rosewater, “A Different Worlds”</b><span>The 1994 World Championship and Zak Dolan’s deck.</span></a><a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17"><b>Mike Flores, “The Deck”</b><span>Brian Weissman’s foundational control strategy and decklist.</span></a><a href="https://magic.wizards.com/en/news/feature/magic-gathering-commander-decklists-2011-06-14"><b>Wizards of the Coast, 2011 Commander decklists</b><span>All five original Commander products and their included Sol Rings.</span></a><a href="https://magic.wizards.com/en/news/feature/catching-commander-changes-2017-08-15"><b>Wizards of the Coast, “Catching Up on Commander Changes”</b><span>Discussion of fast mana and Commander’s modern identity.</span></a><a href="https://magic.wizards.com/en/news/announcements/commander-banned-and-restricted-announcement-september-23-2024"><b>Commander B&amp;R announcement, September 2024</b><span>The explicit decision to preserve Sol Ring as an iconic exception.</span></a><a href="https://magic.wizards.com/en/news/announcements/commander-bans-and-restrictions-april-22-2025"><b>Commander B&amp;R announcement, April 2025</b><span>Current-era Commander ban-list governance and stability.</span></a><a href="https://magic.wizards.com/en/banned-restricted-list"><b>Wizards of the Coast, Banned and Restricted List</b><span>Current Vintage restriction, Legacy ban, and Commander legality.</span></a><a href="https://magic.wizards.com/en/news/mtg-arena/arena-powered-cube-draft"><b>Wizards of the Coast, Arena Powered Cube data</b><span>Sol Ring as the second-most first-picked card behind Black Lotus in the 2026 powered cube data.</span></a><a href="https://magic.wizards.com/en/news/feature/oral-history-first-pro-tour-2016-12-22"><b>Wizards of the Coast, “An Oral History of the First Pro Tour”</b><span>Context for early competitive Magic and restricted-card play.</span></a><a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-june-29-2026"><b>Wizards of the Coast, June 2026 B&amp;R announcement</b><span>Contemporary Grixis Tinker example used in the deck archive.</span></a></div>
+<div class="end-nav"><a href="009-timetwister.html"><small>Previous entry · 009</small>Timetwister</a><a href="011-lightning-bolt.html"><small>Next entry · 011</small>Lightning Bolt</a></div></section>
+</article><aside class="sidebar-note"><b>Compulsive Research</b><br>Entry 010 examines Sol Ring as Alpha mana error, restricted Vintage staple, artifact engine, Commander ritual, product constant, design benchmark, and the most culturally accepted broken card in Magic.</aside></div><div id="preview"><img alt=""/></div>
+<footer class="footer">Compulsive Research · A numbered archive of 1,000 Magic cards, plus open-ended honorable mentions.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script>
+</body>
+</html>
