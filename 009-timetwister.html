@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="A long-form magazine history of Timetwister: Alpha, the Power Nine, symmetrical draw-sevens, recursion, combo, Vintage, Commander, artwork, descendants, and player memory." name="description"/>
+<title>Timetwister: The Draw Seven That Was Never Fair — Compulsive Research</title>
+<style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.timewalk-title{
+  letter-spacing:-.045em;
+  font-kerning:none;
+  font-variant-ligatures:none
+}
+@media(max-width:750px){
+  .timewalk-title{
+    letter-spacing:0;
+    line-height:.91
+  }
+}
+
+.timewalk-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.timewalk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.timewalk-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important}
+.time-warp-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Warp&format=image&version=art_crop)!important
+}
+.turn-grid,.exchange-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.turn-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.turn-step,.exchange-step{background:var(--white);padding:20px}
+.turn-step b,.exchange-step b{display:block;font:900 1.5rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.turn-step span,.exchange-step span{font:12.5px/1.48 Inter,system-ui,sans-serif;color:var(--muted)}
+.time-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.time-note b{color:var(--ink)}
+.turn-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.turn-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.turn-row:last-child{border-bottom:0}.turn-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.turn-row p{margin:0}
+@media(max-width:900px){.turn-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:750px){.turn-grid,.exchange-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.turn-grid,.exchange-grid{grid-template-columns:1fr}}
+
+
+.moxpearl-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.hero.moxpearl-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.art-break.moxpearl-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important}
+.mox-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chrome%20Mox&format=image&version=art_crop)!important
+}
+.mana-grid,.pearl-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.mana-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pearl-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mana-step,.pearl-step{background:var(--white);padding:23px}
+.mana-step b,.pearl-step b{display:block;font:900 1.55rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.mana-step span,.pearl-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.mox-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.mox-note b{color:var(--ink)}
+.mox-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mox-row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.mox-row:last-child{border-bottom:0}.mox-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mox-row p{margin:0}
+@media(max-width:750px){.mana-grid,.pearl-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.mana-grid,.pearl-grid{grid-template-columns:1fr}}
+
+
+
+.moxsapphire-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.hero.moxsapphire-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.art-break.moxsapphire-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important}
+.blue-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Opal&format=image&version=art_crop)!important
+}
+.sapphire-grid,.blue-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.sapphire-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.blue-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sapphire-step,.blue-step{background:var(--white);padding:23px}
+.sapphire-step b,.blue-step b{display:block;font:900 1.48rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.sapphire-step span,.blue-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.sapphire-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.sapphire-note b{color:var(--ink)}
+.blue-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.blue-row{display:grid;grid-template-columns:126px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.blue-row:last-child{border-bottom:0}.blue-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.blue-row p{margin:0}
+@media(max-width:750px){.sapphire-grid,.blue-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.sapphire-grid,.blue-grid{grid-template-columns:1fr}}
+
+
+.moxjet-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.moxjet-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.moxjet-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important}
+.black-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chrome%20Mox&format=image&version=art_crop)!important
+}
+.jet-grid,.black-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.jet-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.black-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.jet-step,.black-step{background:var(--white);padding:23px}
+.jet-step b,.black-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.jet-step span,.black-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.jet-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.jet-note b{color:var(--ink)}
+@media(max-width:750px){.jet-grid,.black-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.jet-grid,.black-grid{grid-template-columns:1fr}}
+
+
+.moxruby-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.moxruby-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.moxruby-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important}
+.ruby-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Opal&format=image&version=art_crop)!important
+}
+.ruby-grid,.red-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.ruby-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.red-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ruby-step,.red-step{background:var(--white);padding:23px}
+.ruby-step b,.red-step b{display:block;font:900 1.58rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.ruby-step span,.red-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.ruby-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.ruby-note b{color:var(--ink)}
+.red-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.red-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.red-row:last-child{border-bottom:0}.red-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.red-row p{margin:0}
+@media(max-width:750px){.ruby-grid,.red-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ruby-grid,.red-grid{grid-template-columns:1fr}}
+
+
+.moxemerald-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.moxemerald-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.moxemerald-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important}
+.emerald-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Diamond&format=image&version=art_crop)!important
+}
+.emerald-grid,.green-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.emerald-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.green-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.emerald-step,.green-step{background:var(--white);padding:23px}
+.emerald-step b,.green-step b{display:block;font:900 1.55rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.emerald-step span,.green-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.emerald-note{border-left:4px solid var(--green);background:rgba(53,95,82,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.emerald-note b{color:var(--ink)}
+.green-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.green-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.green-row:last-child{border-bottom:0}.green-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.green-row p{margin:0}
+@media(max-width:750px){.emerald-grid,.green-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.emerald-grid,.green-grid{grid-template-columns:1fr}}
+
+.timetwister-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Timetwister&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.hero.timetwister-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Timetwister&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.art-break.timetwister-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Timetwister&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Timetwister&set=lea&format=image&version=art_crop)!important}
+.twister-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.twister-step{background:var(--white);padding:23px}
+.twister-step b{display:block;font:900 1.55rem/1.04 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.twister-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.twister-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.twister-note b{color:var(--ink)}
+.exchange-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.exchange-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.exchange-row:last-child{border-bottom:0}.exchange-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.exchange-row p{margin:0}
+@media(max-width:750px){
+  .twister-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+  .exchange-row{grid-template-columns:82px minmax(0,1fr)}
+}
+@media(max-width:480px){.twister-grid{grid-template-columns:1fr}}
+</style></head><body class="timetwister-page">
+<header class="hero timetwister-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#entry-009">← Wave 01 · The Foundational Canon</a>
+<div class="eyebrow">Entry 009 · Wave 01 · The Foundational Canon</div>
+<h1>The Draw Seven That Was Never Fair</h1>
+<p class="deckline">Timetwister gave both players seven new cards, but only one player chose when the old hands, used spells, and carefully depleted libraries would be folded into a new game.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 24 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="008-mox-emerald.html">← Entry 008 · Mox Emerald</a><div class="center">Entry 009 of 1,000</div><a href="index.html#entry-010">Entry 010 · Sol Ring →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong>
+<a href="#opening">The draw seven that was never fair</a><a href="#alpha">Alpha’s reset button</a><a href="#rules">What the card actually does</a><a href="#symmetry">Symmetry is not fairness</a><a href="#empty">Empty the hand, then refill it</a><a href="#graveyard">The graveyard disappears into the library</a><a href="#recursion">The infinite-recursion dream</a><a href="#worlds">The first World Champion</a><a href="#the-deck">The Deck and controlled renewal</a><a href="#wheel">The wheel family</a><a href="#combo">The draw seven inside the combo turn</a><a href="#denial">When seven becomes zero</a><a href="#commander">The Power Nine exception</a><a href="#vintage">The restricted reload</a><a href="#formats">A life across formats</a><a href="#cube">The strange Power Nine draft pick</a><a href="#descendants">The descendants that learned restraint</a><a href="#object">The image of time folding inward</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The new hand</div><h2>The draw seven that was never fair</h2>
+<p class="opening dropcap">Timetwister does not ask whether the game should start over. It asks whether you are ready to start over before your opponent is.</p>
+<p>For three mana, each player takes every card in hand and every card in the graveyard, shuffles those resources back into the library, and draws seven new cards. On its face, the transaction appears almost ceremonially balanced. Both players surrender a hand. Both receive seven. Both recover the cards that had already been spent.</p>
+<p>Magic has spent its entire history demonstrating why identical text applied to both players does not create an identical result.</p>
+<p>The caster chooses the deck, the sequence, and the moment. One player may have emptied a hand of Moxen, rituals, tutors, and cheap interaction while the other still holds five carefully preserved answers. One player may have generated mana before casting Timetwister and be prepared to continue immediately; the other must wait for a turn that may never arrive. One player may want the graveyard returned because key restricted cards have already been used. The other may have spent several turns assembling a graveyard that functions as a second hand.</p>
+<div class="card-lead"><img alt="Timetwister from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Timetwister&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Timetwister</b> · {2}{U}<br/>Sorcery<br/><br/>Each player shuffles their hand and graveyard into their library, then draws seven cards. (Then put Timetwister into its owner’s graveyard.)</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Designed by</b>Richard Garfield</div><div class="stat"><b>Illustrated by</b>Mark Tedin</div><div class="stat"><b>Historical status</b>Power Nine · Vintage restricted</div></div></div></div>
+<p>That tension made Timetwister the most disputed member of the Power Nine. It is less universally desirable than Ancestral Recall, Time Walk, Black Lotus, or the five Moxen. There are fair decks that would rather preserve their hand and graveyard. There are Cube drafts in which it can circle the table. Yet when a deck is built to exploit it, Timetwister performs an act no ordinary draw spell can match: it simultaneously becomes a refill, a recursion engine, a graveyard attack, and the beginning of another turn hidden inside the current one.</p></section>
+<section id="alpha"><div class="chapter-number">II · Limited Edition Alpha</div><h2>Alpha’s reset button</h2>
+<p>Alpha contained several cards that treated the rules of Magic as raw material rather than settled law. Black Lotus accelerated mana before the first land. Time Walk inserted another turn. Ancestral Recall converted one card into three. Timetwister reached farther: it gathered the private zones where the game’s history was stored and rewrote them.</p>
+<p>Richard Garfield’s earliest Magic was built for discovery. Players were expected to encounter strange cards in small local ecosystems and learn what they could do through play. In that environment, a three-mana global reset could appear whimsical. It prevented decking, recovered discarded spells, changed both hands, and created stories. Only later did competitive players formalize the central lesson: the player who initiates a symmetrical effect can build the entire deck around surviving—or exploiting—the symmetry.</p>
+<p>Wizards eventually grouped Timetwister with the other eight cards known as the Power Nine, the most famous collection of early design excess. Unlike the six artifact-mana pieces, it does not fit every deck. Unlike Ancestral Recall, it is not straightforward card advantage. Its place comes from ceiling rather than consistency. Under the right conditions, it draws far more than three cards while undoing the costs paid to reach it.</p>
+<div class="pullquote">Timetwister is the Power Nine card that most clearly asks a deck-building question before it gives a powerful answer.<small>Symmetrical text, asymmetrical preparation</small></div></section>
+<section id="rules"><div class="chapter-number">III · The resolution</div><h2>What the card actually does</h2>
+<p>The modern Oracle text is compact, but the order matters. Each player shuffles their hand and graveyard into their library. Each then draws seven cards. Timetwister itself is not among the cards shuffled because a resolving spell remains on the stack until its instructions are complete. Only afterward is the sorcery placed into its owner’s graveyard.</p>
+<p>The battlefield remains untouched. Lands, artifacts, creatures, enchantments, counters, and planeswalkers stay exactly where they were. Mana already floating in a player’s pool remains available until the step or phase ends. Exiled cards remain exiled. Commanders in the command zone remain there. Those exclusions explain much of the card’s brokenness. Timetwister does not literally restart the game; it preserves the caster’s developed board and mana while replacing the zones most likely to constrain further action.</p>
+<p>It also differs from a normal wheel effect in the treatment of the graveyard. <span class="card-name" data-card="Wheel of Fortune" tabindex="0">Wheel of Fortune</span> discards hands and draws seven, leaving all spent cards in the graveyard. Timetwister returns those cards to the library. That can deny reanimation, threshold, flashback, escape, delve, and other graveyard plans. It can also restore restricted cards, tutors, counterspells, or win conditions that the caster expects to find again.</p>
+<div class="exchange-sequence"><div class="exchange-row"><strong>Before</strong><p>The caster develops mana, empties cheap cards, and chooses a moment when the opponent’s hand or graveyard is more valuable.</p></div><div class="exchange-row"><strong>Shuffle</strong><p>Both hands and graveyards become libraries again; battlefield resources remain.</p></div><div class="exchange-row"><strong>Draw seven</strong><p>Both players receive the same quantity of cards, not the same opportunity to use them.</p></div><div class="exchange-row"><strong>Continue</strong><p>The caster may still have mana, storm count, artifacts, or a denial piece that converts the apparent reset into a one-sided turn.</p></div></div></section>
+<section id="symmetry"><div class="chapter-number">IV · The illusion</div><h2>Symmetry is not fairness</h2>
+<p>Magic’s symmetrical cards reward the player who controls context. Wrath of God destroys all creatures, but a control deck may have no creatures in play. Armageddon destroys all lands, but an aggressive deck may already have the only relevant threat. Timetwister gives everyone seven cards, but the caster decides when seven new cards are worth more than the cards already held.</p>
+<p>The simplest imbalance is hand size. Casting Timetwister with one card remaining turns that final card into seven. An opponent with six cards also draws seven, gaining almost nothing in quantity while losing the quality of a hand that may have been carefully sculpted. Even when both players begin with small hands, board position matters. A player with five artifacts and two floating mana is not in the same situation as a player with three untapped lands who must pass after drawing.</p>
+<p>Information matters too. The caster knows the deck contains Timetwister and can sequence around it. Tutors can place a desired card into hand before the old hand is shuffled away or find the Twister at the exact moment a reload is profitable. The opponent must make ordinary decisions under the possibility that all accumulated plans will suddenly be randomized.</p>
+<div class="twister-grid"><div class="twister-step"><b>Hand</b><span>Spend cheap cards first and exchange one remaining card for seven.</span></div><div class="twister-step"><b>Board</b><span>Keep the artifacts, lands, and engines already developed.</span></div><div class="twister-step"><b>Mana</b><span>Float resources or preserve untapped artifacts so the new hand acts immediately.</span></div><div class="twister-step"><b>Timing</b><span>Reset when the opponent has more to lose and less chance to use the replacement cards.</span></div></div></section>
+<section id="empty"><div class="chapter-number">V · The broken sequence</div><h2>Empty the hand, then refill it</h2>
+<p>The classic Timetwister turn begins with acceleration. A normal player plays one land and is constrained by the number of cards that can be cast. A powered deck plays Moxen, Black Lotus, Mana Vault, Sol Ring, or rituals, converting the opening hand into battlefield resources and mana. Timetwister then replaces the cardboard that created those resources without removing the resources themselves.</p>
+<p>This is why the spell belongs naturally beside the rest of the Power Nine. The Moxen and Lotus create the ability to unload a hand before an opponent can do the same. Timetwister rewards that acceleration with seven more cards. The new hand may contain further mana, interaction, a tutor, or the win condition. From the opponent’s perspective, the game has begun with the caster taking several opening hands in succession.</p>
+<p>The sequence also exposes the difference between card disadvantage and resource conversion. Sacrificing Black Lotus or spending Dark Ritual normally trades cards for temporary mana. If Timetwister follows, the cards sacrificed to accelerate are shuffled back into the library while the mana has already performed its work. The reset does not refund everything—the original physical cards are no longer in hand—but it weakens the long-term cost of spending them aggressively.</p>
+<div class="twister-note"><b>The central combo principle:</b> Timetwister is strongest when the caster has already converted the old hand into resources that the spell does not reset.</div></section>
+<section id="graveyard"><div class="chapter-number">VI · The erased past</div><h2>The graveyard disappears into the library</h2>
+<p>Timetwister’s relationship with the graveyard gives it a second strategic identity. It is not only a draw-seven spell. It is a mass reshuffle that denies both players access to cards that expected to remain in the graveyard.</p>
+<p>Against a graveyard deck, this can be disruptive. Reanimation targets vanish. Flashback spells and escape fuel disappear. Delve becomes harder. A carefully stocked graveyard is transformed into an uncertain library, and the opponent draws only seven cards from the entire rebuilt deck.</p>
+<p>For the caster, the reshuffle can create inevitability. Restricted cards that have already been cast—Ancestral Recall, Time Walk, Demonic Tutor, Black Lotus—return to the library. So do counterspells, removal, and win conditions. A control deck approaching exhaustion can acquire another cycle of answers. A combo deck can recover pieces that were countered, discarded, milled, or sacrificed.</p>
+<p>The cost is that the caster also loses immediate graveyard access. Timetwister can conflict with Yawgmoth’s Will, delve spells, escape, flashback, and recursion engines. Good sequencing often means extracting value from the graveyard first, then casting Timetwister when the spent zone has become less useful than a fresh library.</p></section>
+<section id="recursion"><div class="chapter-number">VII · The first strange deck</div><h2>The infinite-recursion dream</h2>
+<p>Richard Garfield’s account of Magic’s creation describes an early league deck built by Charlie Catin that he called the “Infinite Recursion Deck.” The deck sought to prevent attacks, use Swords to Plowshares, and eventually cast Timetwister so that spent cards could be shuffled back into a fresh library.</p>
+<p>The anecdote matters because it captures Timetwister before the modern vocabulary of combo, prison, and inevitability had fully formed. The card immediately suggested that a deck did not have to accept the graveyard as permanent history. If the game could be stabilized, every answer might be drawn again.</p>
+<p>Later rules wording and competitive structures made the loops more precise, but the underlying fantasy remained: build a game state that favors you, then repeatedly renew the hidden resources while leaving that favorable state intact. Timetwister does not need to create a literal infinite loop to feel recursive. Recovering Ancestral Recall and Time Walk once can be enough.</p></section>
+<div class="art-break timetwister-art"><div class="art-caption"><b>Mark Tedin’s original Timetwister artwork</b>The image does not depict a clean clock or calendar. It presents time as a turbulent space folding around itself—an appropriate vision for a spell that preserves the battlefield while throwing every private plan back into the library.</div></div>
+<section id="worlds"><div class="chapter-number">VIII · The first champion</div><h2>The first World Champion</h2>
+<p>Zak Dolan’s 1994 World Championship deck contained the full restricted architecture of early Magic: Black Lotus, the five Moxen, Ancestral Recall, Time Walk, and Timetwister. The surrounding list was a U/W/G control deck of extraordinary singleton density, including Stasis, Kismet, Serra Angel, Wrath of God, Armageddon, Regrowth, Recall, Library of Alexandria, and numerous artifacts.</p>
+<p>In that environment Timetwister performed several roles at once. It repaired a hand after the jewelry had been deployed. It recycled one-of answers and power. It complicated decking in long control games. It also interacted naturally with Regrowth and Recall, which could recover the best spell before or after the reset.</p>
+<p>Dolan’s deck illustrates why the card cannot be evaluated as a generic draw spell. The surrounding cards determine whether both players receive seven ordinary cards or whether one player receives another chance to draw the most powerful restricted cards ever printed.</p></section>
+<section id="the-deck"><div class="chapter-number">IX · Controlled renewal</div><h2>The Deck and controlled renewal</h2>
+<p>Brian Weissman’s The Deck made card advantage, sequencing, and inevitability into an explicit control doctrine. Timetwister appears inside that doctrine as a dangerous tool rather than an automatic play.</p>
+<p>The Deck often wanted to preserve a superior hand built through Jayemdae Tome, Braingeyser, and Library of Alexandria. Giving an opponent seven cards could undo the careful work of Mind Twist and Disrupting Scepter. Timetwister therefore demanded timing. It was strongest after the control player had converted cards into durable permanents, exhausted key resources, or reached a point where recycling the library mattered more than protecting the current hand.</p>
+<p>That restraint is one of the card’s defining lessons. Timetwister is powerful enough to belong in the Power Nine and conditional enough to punish a careless caster. A player who casts it merely because three mana is available may replace a winning hand with uncertainty and rescue an opponent who was running out of options.</p></section>
+<section id="wheel"><div class="chapter-number">X · The family name</div><h2>The wheel family</h2>
+<p>Magic players eventually adopted “wheel” as the general term for effects that replace hands, taking the name from Wheel of Fortune. Timetwister is part of that family but behaves differently from its most famous red relative.</p>
+<p>Wheel of Fortune discards hands, fueling graveyards and triggering effects that care about discard. Timetwister shuffles those hands away, avoiding discard triggers and erasing graveyards. Wheel can be cast to force an opponent to discard a sculpted hand permanently. Timetwister denies the hand but returns its cards to the library, where they may be drawn again.</p>
+<p>Those differences determine deck fit. Reanimator and madness strategies often prefer true discard. Recursion loops and graveyard denial may prefer Timetwister. Storm decks care about the low cost and seven new cards. Commander decks may value the ability to prevent decking or recover a finite library. The superficial sentence “everyone draws seven” conceals several distinct resource systems.</p></section>
+<section id="combo"><div class="chapter-number">XI · The same turn</div><h2>The draw seven inside the combo turn</h2>
+<p>Combo decks reveal the card’s most violent interpretation. The opponent’s seven cards are only theoretically equivalent if the opponent receives another turn. Timetwister can be cast in the middle of a sequence after mana has been generated, storm count has been built, and tutors have located the engine. The caster immediately sees seven new cards and continues.</p>
+<p>Three mana is crucial. Later draw-sevens often cost five, six, or more, exile themselves, require setup, or impose conditions. Timetwister can be paid for with a single Black Lotus, three Moxen, a ritual plus a land, or Tolarian Academy. It is cheap enough that the refill does not consume the whole turn.</p>
+<p>Because the graveyard is shuffled away, the spell requires care beside Yawgmoth’s Will. A Storm pilot may use Will first, replaying mana and tutors, then Twister after the graveyard has been harvested. Alternatively, Timetwister can recover cards for a later cycle. The decision is less about raw hand size than which zone currently contains the most valuable version of the deck.</p>
+<div class="pullquote">The opponent also draws seven cards. The unfair deck’s answer is simple: those cards are irrelevant if the game ends before they can be cast.<small>The combo interpretation of symmetry</small></div></section>
+<section id="denial"><div class="chapter-number">XII · Seven becomes zero</div><h2>When seven becomes zero</h2>
+<p>Later Magic printed permanents that expose the darkest possible reading of a wheel. <span class="card-name" data-card="Narset, Parter of Veils" tabindex="0">Narset, Parter of Veils</span> limits opponents to one draw each turn. <span class="card-name" data-card="Hullbreacher" tabindex="0">Hullbreacher</span> replaces extra opposing draws with Treasure for its controller. <span class="card-name" data-card="Notion Thief" tabindex="0">Notion Thief</span> steals those draws entirely.</p>
+<p>Beside these cards, Timetwister stops pretending to be symmetrical. The caster receives seven while the opponent receives one, zero, or a dramatically altered result. Hullbreacher can also generate a pile of Treasure, turning the opponent’s lost hand into mana for the caster’s new one.</p>
+<p>These combinations explain why draw replacement and mass hand replacement are monitored so carefully. The original card was already undercosted when both players drew seven. Once a permanent changes the second half of the sentence, the spell resembles a three-mana Mind Twist plus Ancestral Recall multiplied several times over.</p></section>
+<section id="commander"><div class="chapter-number">XIII · The exception</div><h2>The Power Nine exception</h2>
+<p>Timetwister occupies a unique place in Commander. The official Commander banned list includes Black Lotus, Ancestral Recall, Time Walk, and all five original Moxen—but not Timetwister. It is therefore the only member of the Power Nine legal in the format under the current list.</p>
+<p>That legality gave the card an afterlife far larger than its narrow Vintage role might suggest. In multiplayer, a single spell can replace four hands, reload a combo player, recycle a library, or disrupt several graveyards at once. Competitive Commander decks can exploit its low mana value, interaction with Lion’s Eye Diamond, and compatibility with draw-denial pieces.</p>
+<p>The format also magnifies the social and economic questions around the card. Timetwister is Reserved List power with an enormous physical price, yet Commander communities often use proxies or tournament policies that make the game object more accessible. The card can be simultaneously legal, strategically desirable, and practically unavailable in original tournament-legal paper.</p>
+<p>Its Commander legality is not proof that it is harmless. It reflects the format’s distinct ban philosophy and the fact that multiplayer symmetry gives opponents more collective resources—until a deck turns that symmetry off.</p></section>
+<section id="vintage"><div class="chapter-number">XIV · The restricted reload</div><h2>The restricted reload</h2>
+<p>Timetwister remains restricted in Vintage, meaning only one copy may appear across the main deck and sideboard. It is banned in Legacy alongside the rest of the original power package.</p>
+<p>Restriction fits the card’s identity. Four copies would make opening-hand reloads too consistent and recursion too easy. One copy becomes a tool chosen by decks that can exploit it: Tinker shells, Storm, Paradoxical Outcome, certain control decks, and strategies built around Hullbreacher or graveyard reset.</p>
+<p>It is not universal even in Vintage. Some decks rely heavily on their graveyards. Some protect carefully sculpted hands. Some cannot afford to give an opponent seven chances to find Force of Will or another piece of free interaction. Timetwister’s absence from many successful lists does not diminish its ceiling; it clarifies that the ninth piece of Power asks for more context than the other eight.</p>
+<p>Contemporary official deck examples still show the card in both control and combo-control shells. An Esper Lurrus deck can use it after exchanges of cheap interaction. Grixis Tinker can combine it with Hullbreacher, artifact mana, Tinker, and Yawgmoth’s Will. The same Alpha sentence continues to find new asymmetries.</p></section>
+<section id="formats"><div class="chapter-number">XV · Legality</div><h2>A life across formats</h2>
+<div class="format-strip"><div class="format-card"><span class="impact">Restricted</span><h3>Vintage</h3><p>One copy appears selectively in combo, Tinker, control, and wheel-denial shells.</p></div><div class="format-card"><span class="impact">Legal</span><h3>Commander</h3><p>The only legal member of the Power Nine, subject to table expectations and extraordinary scarcity.</p></div><div class="format-card"><span class="impact">Banned</span><h3>Legacy</h3><p>The three-mana draw seven and graveyard reset is excluded with the rest of original power.</p></div></div>
+<p>Timetwister also survives in Old School variants according to local rules, in Powered Cube, and in unsanctioned proxy environments. Each context values a different part of the card. Old School emphasizes original engines and hand management. Cube asks whether the drafter can build enough fast mana and combo density to justify a symmetrical refill. Commander emphasizes multiplayer scaling and combo loops. Vintage uses the precise restricted tool.</p></section>
+<section id="cube"><div class="chapter-number">XVI · The ninth piece</div><h2>The strange Power Nine draft pick</h2>
+<p>Powered Cube reveals the difference between reputation and deck fit. Wizards’ Arena Powered Cube data published in 2026 showed Timetwister going last in a draft six times. The other pieces of power generally remained early picks.</p>
+<p>That result is not an argument that the card is weak. It demonstrates that a symmetrical draw seven needs architecture. A fair creature deck may not want to give the opponent a new hand. A graveyard deck may hate the reshuffle. A control deck may prefer the cards already selected. Storm, artifact combo, and decks with draw-denial pieces can take it much earlier because they are capable of converting the text into something closer to one-sided card advantage.</p>
+<p>Timetwister is therefore a useful test of powered-card evaluation. A drafter who sees the Power Nine label and ignores context may end up helping the opponent. A drafter who recognizes the correct shell receives one of the cheapest full-hand reloads ever printed.</p></section>
+<section id="descendants"><div class="chapter-number">XVII · Design after Alpha</div><h2>The descendants that learned restraint</h2>
+<p>Later draw-sevens preserve pieces of Timetwister while adding costs or escape valves. <span class="card-name" data-card="Diminishing Returns" tabindex="0">Diminishing Returns</span> costs four and exiles ten cards from the caster’s library. <span class="card-name" data-card="Time Spiral" tabindex="0">Time Spiral</span> costs six, untaps lands, and exiles itself so it cannot be looped as easily. <span class="card-name" data-card="Echo of Eons" tabindex="0">Echo of Eons</span> costs six but offers flashback for three. <span class="card-name" data-card="Commit // Memory" tabindex="0">Memory</span> waits on the back half of a split card and costs six.</p>
+<p>Other designs imitate the hand replacement without restoring the graveyard. Wheel of Fortune, Windfall, Reforge the Soul, and Wheel of Misfortune all create new hands through different pricing and political structures. Each descendant selects which dangerous property to keep: low cost, seven cards, graveyard recycling, mana refund, or asymmetrical potential.</p>
+<p>Time Spiral’s self-exile is especially revealing. Wizards commentary has noted that removing itself prevents the repeated draw-seven recursion available to Timetwister. Even at six mana, free land untapping proved powerful enough to dominate environments. Alpha’s three-mana version had supplied the full lesson decades earlier.</p>
+<div class="inline-image"><div class="image" style="background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Spiral&amp;format=image&amp;version=art_crop)"></div><div class="copy"><div class="kicker">The disciplined descendant</div><h3>Time Spiral</h3><p>Six mana, self-exile, and an untap clause transformed Timetwister’s reset into a combo engine with a built-in limit on recursive reuse.</p></div></div></section>
+<section id="object"><div class="chapter-number">XVIII · The object</div><h2>The image of time folding inward</h2>
+<p>Mark Tedin’s Alpha artwork gives Timetwister a texture unlike the clean iconography of the Moxen or Black Lotus. The scene feels unstable and almost geological: forms curve around a central distortion while color and scale resist a single reading. It looks less like traveling through time than watching reality become something that can be shuffled.</p>
+<p>The card’s name contributes to the effect. “Timetwister” is not a conventional fantasy spell such as Counterspell or Fireball. It names a process, an engine, and an impossible object at once. The word implies that chronology is being physically manipulated.</p>
+<p>As a collectible, Timetwister shares the Reserved List status of the other original Power Nine. Wizards’ reprint policy prevents a tournament-legal, functionally identical physical reprint. Digital releases and non-tournament products have allowed more players to see the card, but the original paper object remains scarce.</p>
+<p>That scarcity is particularly strange because Commander keeps the card legal. For most Power Nine cards, price and format prohibition point in the same direction. Timetwister invites players to register it in the game’s most popular casual format while the original object remains beyond ordinary acquisition.</p>
+<div class="memory"><div class="memory-grid"><blockquote>Timetwister is remembered less as “draw seven” than as the moment the game’s past stops belonging to either player.</blockquote><cite>The ninth piece of power</cite></div></div></section>
+<section class="deck-archive" id="decklists"><div class="chapter-number">XIX · The record</div><h2>The deck archive</h2><p class="deck-intro">These four lists follow Timetwister from the first World Champion and The Deck into current Vintage control and Tinker shells. Each list demonstrates a different way to break the symmetry: fast mana, resource denial, cheap interaction, or a combo turn that continues immediately.</p><details class="deck"><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first World Champion used Timetwister as a restricted reset inside a singleton-heavy control deck. Fast artifacts could empty the hand quickly, while Regrowth, Recall, and Library of Alexandria turned the new seven into part of a larger resource engine.</p><button class="copy" data-target="timetwister-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div><div class="deck-col"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div></div><pre hidden="" id="timetwister-deck-0">Zak Dolan — U/W/G Stasis Control
+World Champion · Worlds 1994
+
+Creatures · 11
+1 Clone
+2 Old Man of the Sea
+1 Time Elemental
+1 Vesuvan Doppelganger
+1 Birds of Paradise
+1 Ley Druid
+4 Serra Angel
+
+Sorceries · 6
+1 Recall
+1 Timetwister
+1 Time Walk
+1 Regrowth
+1 Armageddon
+1 Wrath of God
+
+Instants · 9
+1 Ancestral Recall
+1 Mana Drain
+1 Siren's Call
+2 Disenchant
+4 Swords to Plowshares
+
+Artifacts · 15
+1 Black Lotus
+1 Black Vise
+1 Howling Mine
+1 Icy Manipulator
+1 Ivory Tower
+1 Mana Vault
+2 Meekstone
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Winter Orb
+
+Enchantments · 4
+1 Control Magic
+2 Stasis
+1 Kismet
+
+Lands · 15
+1 Library of Alexandria
+4 Savannah
+4 Tropical Island
+4 Tundra
+2 Strip Mine
+
+Sideboard · 15
+1 Kismet
+1 Chaos Orb
+1 Circle of Protection: Red
+1 Copy Artifact
+1 Diamond Valley
+1 In the Eye of Chaos
+1 Floral Spuzzem
+2 Karma
+1 Magical Hack
+1 Power Sink
+1 Presence of the Master
+1 Reverse Damage
+1 Sleight of Mind
+1 Winter Blast</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p></div></details><details class="deck">
+<summary><span><strong>Brian Weissman — The Deck</strong><small>Foundational Type I control archetype · mid-1990s</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The Deck used Lotus to reach Mind Twist, Disrupting Scepter, and the mana advantage required to convert answers into permanent control. Its presence in the first famous control deck demonstrates that Lotus was not merely a combo card; it was the best possible opening resource for almost any strategy.</p>
+<div class="deck-meta"><div><b>Brian Weissman</b><div class="small">The Deck used Mox Emerald to cast Regrowth and to advance the generic costs of Disrupting Scepter, Jayemdae Tome, and its other control machinery. The green source mattered; the free permanent mana mattered even more.</div></div>
+<button class="copy" data-target="timetwister-deck-1">Copy decklist</button></div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div>
+</div>
+<pre hidden="" id="timetwister-deck-1">Brian Weissman — The Deck
+Foundational Type I control archetype · mid-1990s
+
+Creatures · 2
+2 Serra Angel
+
+Sorceries · 7
+1 Time Walk
+1 Timetwister
+1 Braingeyser
+1 Recall
+1 Demonic Tutor
+1 Mind Twist
+1 Regrowth
+
+Instants · 17
+4 Mana Drain
+2 Counterspell
+1 Ancestral Recall
+4 Disenchant
+4 Swords to Plowshares
+2 Red Elemental Blast
+
+Enchantments · 2
+2 Moat
+
+Artifacts · 11
+2 Disrupting Scepter
+1 Jayemdae Tome
+1 Ivory Tower
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Jet
+1 Mox Sapphire
+1 Mox Emerald
+1 Black Lotus
+1 Sol Ring
+
+Lands · 21
+2 Strip Mine
+1 Library of Alexandria
+3 City of Brass
+1 Plateau
+1 Underground Sea
+2 Volcanic Island
+4 Tundra
+3 Plains
+4 Island
+
+Sideboard · 15
+1 Plains
+1 Counterspell
+1 Moat
+1 Disrupting Scepter
+1 Jayemdae Tome
+1 Tormod's Crypt
+2 Control Magic
+2 Blood Moon
+3 Circle of Protection: Red
+2 Divine Offering</pre>
+<p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">open the historical record</a></p>
+</div>
+</details><details class="deck"><summary><span><strong>Esper Lurrus Control</strong><small>Vintage metagame example · Wizards B&amp;R announcement, May 2026</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">Timetwister is not confined to all-in combo. This official control example combines it with cheap interaction, Psychic Frog, Stony Silence, and Lurrus. The spell can rebuild after trading resources, while the opponent may be unable to deploy the new hand through the deck’s disruptive permanents.</p><button class="copy" data-target="timetwister-deck-2">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span></div><h4>Artifacts · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vexing Bauble" tabindex="0">Vexing Bauble</span></div><h4>Instants · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Containment Priest" tabindex="0">Containment Priest</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Deafening Silence" tabindex="0">Deafening Silence</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Grafdigger&#x27;s Cage" tabindex="0">Grafdigger&#x27;s Cage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lurrus of the Dream-Den" tabindex="0">Lurrus of the Dream-Den</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serenity" tabindex="0">Serenity</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div></div><div class="deck-col"><h4>Sorceries · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flow State" tabindex="0">Flow State</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lórien Revealed" tabindex="0">Lórien Revealed</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Treasure Cruise" tabindex="0">Treasure Cruise</span></div><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stony Silence" tabindex="0">Stony Silence</span></div><h4>Lands · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Meticulous Archive" tabindex="0">Meticulous Archive</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Undercity Sewers" tabindex="0">Undercity Sewers</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza&#x27;s Saga" tabindex="0">Urza&#x27;s Saga</span></div></div></div><pre hidden id="timetwister-deck-2">Esper Lurrus Control — Vintage metagame example (May 2026)
+
+Creatures (8)
+4 Orcish Bowmasters
+4 Psychic Frog
+
+Artifacts (5)
+1 Black Lotus
+1 Mox Jet
+1 Mox Pearl
+1 Mox Sapphire
+1 Vexing Bauble
+
+Instants (15)
+1 Ancestral Recall
+1 Brainstorm
+4 Force of Negation
+4 Force of Will
+1 Mental Misstep
+4 Swords to Plowshares
+
+Sorceries (11)
+1 Demonic Tutor
+3 Flow State
+1 Gitaxian Probe
+1 Lórien Revealed
+2 Ponder
+1 Time Walk
+1 Timetwister
+1 Treasure Cruise
+
+Enchantments (4)
+4 Stony Silence
+
+Lands (17)
+4 Flooded Strand
+1 Island
+1 Meticulous Archive
+1 Misty Rainforest
+1 Scalding Tarn
+1 Strip Mine
+3 Tundra
+1 Undercity Sewers
+3 Underground Sea
+1 Urza&#x27;s Saga
+
+Sideboard (15)
+4 Containment Priest
+3 Deafening Silence
+1 Fatal Push
+1 Grafdigger&#x27;s Cage
+1 Lurrus of the Dream-Den
+1 Nihil Spellbomb
+1 Pithing Needle
+2 Serenity
+1 The Tabernacle at Pendrell Vale
+</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-may-18-2026">Wizards of the Coast, Banned and Restricted Announcement — May 18, 2026</a></p></div></details><details class="deck"><summary><span><strong>Grixis Tinker — Vintage metagame example</strong><small>Wizards B&amp;R announcement · June 2026</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">This official 2026 Grixis Tinker example shows Timetwister in contemporary Vintage: a restricted reload, a graveyard reset, a blue card for Force of Will, and—beside Hullbreacher—a potential one-sided hand destruction spell.</p><button class="copy" data-target="timetwister-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 3</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hexing Squelcher" tabindex="0">Hexing Squelcher</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hullbreacher" tabindex="0">Hullbreacher</span></div><h4>Artifacts · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bolas's Citadel" tabindex="0">Bolas's Citadel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Manifold Key" tabindex="0">Manifold Key</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Vault" tabindex="0">Time Vault</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vexing Bauble" tabindex="0">Vexing Bauble</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Abrade" tabindex="0">Abrade</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dismember" tabindex="0">Dismember</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hullbreacher" tabindex="0">Hullbreacher</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Leyline of the Void" tabindex="0">Leyline of the Void</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Long Goodbye" tabindex="0">Long Goodbye</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Opposition Agent" tabindex="0">Opposition Agent</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Portal to Phyrexia" tabindex="0">Portal to Phyrexia</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div><div class="deck-col"><h4>Instants · 14</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flusterstorm" tabindex="0">Flusterstorm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><h4>Sorceries · 18</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flow State" tabindex="0">Flow State</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lórien Revealed" tabindex="0">Lórien Revealed</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stock Up" tabindex="0">Stock Up</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tinker" tabindex="0">Tinker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div><h4>Lands · 13</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thundering Falls" tabindex="0">Thundering Falls</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tolarian Academy" tabindex="0">Tolarian Academy</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza's Saga" tabindex="0">Urza's Saga</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div></div><pre hidden="" id="timetwister-deck-3">Grixis Tinker — Vintage metagame example
+Wizards B&amp;R announcement · June 2026
+
+Creatures · 3
+2 Hexing Squelcher
+1 Hullbreacher
+
+Artifacts · 12
+1 Black Lotus
+1 Bolas's Citadel
+1 Mana Crypt
+1 Manifold Key
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Time Vault
+1 Vexing Bauble
+
+Instants · 14
+1 Ancestral Recall
+1 Brainstorm
+1 Chain of Vapor
+2 Flusterstorm
+2 Force of Negation
+4 Force of Will
+1 Mental Misstep
+1 Mystical Tutor
+1 Vampiric Tutor
+
+Sorceries · 18
+1 Demonic Tutor
+4 Flow State
+1 Gitaxian Probe
+4 Lórien Revealed
+4 Stock Up
+1 Time Walk
+1 Timetwister
+1 Tinker
+1 Yawgmoth's Will
+
+Lands · 13
+1 Flooded Strand
+2 Island
+1 Misty Rainforest
+1 Polluted Delta
+1 Scalding Tarn
+1 Thundering Falls
+1 Tolarian Academy
+2 Underground Sea
+1 Urza's Saga
+2 Volcanic Island
+
+Sideboard · 15
+2 Abrade
+1 Dismember
+2 Hullbreacher
+1 Hurkyl's Recall
+3 Leyline of the Void
+1 Long Goodbye
+1 Opposition Agent
+1 Portal to Phyrexia
+2 Pyroblast
+1 Yixlid Jailer</pre></div></details></section>
+<section id="printings"><div class="chapter-number">XX · Printings and sources</div><h2>Printings and sources</h2>
+<p>Timetwister first appeared as a rare in Limited Edition Alpha and continued through Beta and Unlimited. It later appeared digitally in Vintage Masters and in non-tournament products that do not violate the Reserved List’s tournament-legal reprint restriction.</p>
+<div class="printings"><a href="https://gatherer.wizards.com/VMA/en-us/3/timetwister"><b>Gatherer, Timetwister</b><span>Current Oracle wording and official card record.</span></a><a href="https://magic.wizards.com/en/news/making-magic/creation-magic-gathering-2013-03-12"><b>Richard Garfield, “The Creation of Magic: The Gathering”</b><span>The early Infinite Recursion Deck and Timetwister’s role in it.</span></a><a href="https://magic.wizards.com/en/news/feature/power-nine-2003-10-15"><b>Wizards of the Coast, “The Power Nine”</b><span>Timetwister’s place in the original nine cards.</span></a><a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28"><b>Mark Rosewater, “A Different Worlds”</b><span>The 1994 World Championship and Zak Dolan’s deck.</span></a><a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17"><b>Mike Flores, “The Deck”</b><span>Brian Weissman’s foundational control strategy and decklist.</span></a><a href="https://magic.wizards.com/en/news/feature/top-50-card-drawing-cards-2003-03-21-0"><b>Ben Bleiweiss, “The Top 50 Card Drawing Cards”</b><span>Timetwister recursion and comparison with Time Spiral.</span></a><a href="https://magic.wizards.com/en/banned-restricted-list"><b>Wizards of the Coast, Banned and Restricted List</b><span>Current Vintage, Legacy, and Commander status.</span></a><a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-may-18-2026"><b>Wizards of the Coast, May 2026 B&amp;R announcement</b><span>Esper Lurrus Control example containing Timetwister.</span></a><a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-june-29-2026"><b>Wizards of the Coast, June 2026 B&amp;R announcement</b><span>Grixis Tinker example containing Timetwister.</span></a><a href="https://magic.wizards.com/en/news/mtg-arena/arena-powered-cube-draft"><b>Wizards of the Coast, Arena Powered Cube data</b><span>Draft behavior illustrating Timetwister’s contextual value.</span></a><a href="https://magic.wizards.com/en/news/announcements/official-reprint-policy"><b>Wizards of the Coast, Official Reprint Policy</b><span>Reserved List policy and physical reprint restrictions.</span></a></div>
+<div class="end-nav"><a href="008-mox-emerald.html"><small>Previous entry · 008</small>Mox Emerald</a><a href="index.html#entry-010"><small>Next entry · 010</small>Sol Ring</a></div></section>
+</article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 009 examines Timetwister as draw seven, graveyard reset, recursive engine, combo fuel, Commander exception, collectible object, and the most context-dependent member of the Power Nine.</aside></div>
+<div id="preview"><img alt=""/></div>
+<footer class="footer">Compulsive Research · A numbered archive of 1,000 Magic cards, plus open-ended honorable mentions.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script>
+</body>
+</html>
