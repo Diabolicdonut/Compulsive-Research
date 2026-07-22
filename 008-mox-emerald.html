@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="A long-form magazine history of Mox Emerald: the Power Nine, zero-mana acceleration, green creatures, Regrowth, Fastbond, Vintage, artwork, descendants, decklists, and player memory." name="description"/>
+<title>Mox Emerald: The Mox That Made Green Faster Than Green — Compulsive Research</title>
+<style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.timewalk-title{
+  letter-spacing:-.045em;
+  font-kerning:none;
+  font-variant-ligatures:none
+}
+@media(max-width:750px){
+  .timewalk-title{
+    letter-spacing:0;
+    line-height:.91
+  }
+}
+
+.timewalk-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.timewalk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.timewalk-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important}
+.time-warp-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Warp&format=image&version=art_crop)!important
+}
+.turn-grid,.exchange-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.turn-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.turn-step,.exchange-step{background:var(--white);padding:20px}
+.turn-step b,.exchange-step b{display:block;font:900 1.5rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.turn-step span,.exchange-step span{font:12.5px/1.48 Inter,system-ui,sans-serif;color:var(--muted)}
+.time-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.time-note b{color:var(--ink)}
+.turn-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.turn-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.turn-row:last-child{border-bottom:0}.turn-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.turn-row p{margin:0}
+@media(max-width:900px){.turn-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:750px){.turn-grid,.exchange-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.turn-grid,.exchange-grid{grid-template-columns:1fr}}
+
+
+.moxpearl-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.hero.moxpearl-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.art-break.moxpearl-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important}
+.mox-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chrome%20Mox&format=image&version=art_crop)!important
+}
+.mana-grid,.pearl-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.mana-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pearl-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mana-step,.pearl-step{background:var(--white);padding:23px}
+.mana-step b,.pearl-step b{display:block;font:900 1.55rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.mana-step span,.pearl-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.mox-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.mox-note b{color:var(--ink)}
+.mox-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mox-row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.mox-row:last-child{border-bottom:0}.mox-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mox-row p{margin:0}
+@media(max-width:750px){.mana-grid,.pearl-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.mana-grid,.pearl-grid{grid-template-columns:1fr}}
+
+
+
+.moxsapphire-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.hero.moxsapphire-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.art-break.moxsapphire-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Sapphire&set=lea&format=image&version=art_crop)!important}
+.blue-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Opal&format=image&version=art_crop)!important
+}
+.sapphire-grid,.blue-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.sapphire-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.blue-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sapphire-step,.blue-step{background:var(--white);padding:23px}
+.sapphire-step b,.blue-step b{display:block;font:900 1.48rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.sapphire-step span,.blue-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.sapphire-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.sapphire-note b{color:var(--ink)}
+.blue-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.blue-row{display:grid;grid-template-columns:126px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.blue-row:last-child{border-bottom:0}.blue-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.blue-row p{margin:0}
+@media(max-width:750px){.sapphire-grid,.blue-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.sapphire-grid,.blue-grid{grid-template-columns:1fr}}
+
+
+.moxjet-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.moxjet-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.moxjet-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Jet&set=lea&format=image&version=art_crop)!important}
+.black-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chrome%20Mox&format=image&version=art_crop)!important
+}
+.jet-grid,.black-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.jet-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.black-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.jet-step,.black-step{background:var(--white);padding:23px}
+.jet-step b,.black-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.jet-step span,.black-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.jet-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.jet-note b{color:var(--ink)}
+@media(max-width:750px){.jet-grid,.black-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.jet-grid,.black-grid{grid-template-columns:1fr}}
+
+
+.moxruby-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.moxruby-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.moxruby-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Ruby&set=lea&format=image&version=art_crop)!important}
+.ruby-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Opal&format=image&version=art_crop)!important
+}
+.ruby-grid,.red-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.ruby-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.red-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ruby-step,.red-step{background:var(--white);padding:23px}
+.ruby-step b,.red-step b{display:block;font:900 1.58rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.ruby-step span,.red-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.ruby-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.ruby-note b{color:var(--ink)}
+.red-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.red-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.red-row:last-child{border-bottom:0}.red-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.red-row p{margin:0}
+@media(max-width:750px){.ruby-grid,.red-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ruby-grid,.red-grid{grid-template-columns:1fr}}
+
+
+.moxemerald-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.moxemerald-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.moxemerald-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Emerald&set=lea&format=image&version=art_crop)!important}
+.emerald-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Diamond&format=image&version=art_crop)!important
+}
+.emerald-grid,.green-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.emerald-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.green-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.emerald-step,.green-step{background:var(--white);padding:23px}
+.emerald-step b,.green-step b{display:block;font:900 1.55rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.emerald-step span,.green-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.emerald-note{border-left:4px solid var(--green);background:rgba(53,95,82,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.emerald-note b{color:var(--ink)}
+.green-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.green-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.green-row:last-child{border-bottom:0}.green-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.green-row p{margin:0}
+@media(max-width:750px){.emerald-grid,.green-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.emerald-grid,.green-grid{grid-template-columns:1fr}}
+</style></head><body>
+<header class="hero moxemerald-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#entry-008">← Wave 01 · The Foundational Canon</a>
+<div class="eyebrow">Entry 008 · Wave 01 · The Foundational Canon</div>
+<h1>The Mox That Made Green Faster Than Green</h1>
+<p class="deckline">Mox Emerald gave the color of natural mana development an unnatural head start—turning creatures, Regrowth, Fastbond, and every generic artifact into plays that arrived a full turn too soon.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 24 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="007-mox-ruby.html">← Entry 007 · Mox Ruby</a><div class="center">Entry 008 of 1,000</div><a href="index.html#entry-009">Entry 009 · Timetwister →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The Mox that made green faster than green</a><a href="#cycle">The five jewels</a><a href="#zero">The land drop that was not a land</a><a href="#green">When acceleration accelerates acceleration</a><a href="#creatures">The first creature arrives first</a><a href="#worlds">The first World Champion</a><a href="#the-deck">The green Mox inside The Deck</a><a href="#regrowth">Regrowth and the second copy</a><a href="#fastbond">Fastbond and the collapse of turn structure</a><a href="#channel">Channel and the oldest shortcut</a><a href="#cradle">From Emerald to Gaea’s Cradle</a><a href="#oath">Oath, Survival, and creature engines</a><a href="#artifact">The colorless job</a><a href="#modern">The modern Vintage jewel</a><a href="#risk">The artifact tax</a><a href="#formats">A life across formats</a><a href="#descendants">The Moxes that followed</a><a href="#object">The green gem as object</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The opening hand</div><h2>The Mox that made green faster than green</h2>
+<p class="opening dropcap">Green was supposed to earn its acceleration.</p>
+<p><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span> had to be cast, survive a turn, and then tap. <span class="card-name" data-card="Wild Growth" tabindex="0">Wild Growth</span> needed a land. <span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span> asked for the same delay as the Elves. Green’s identity was built around producing more mana than the other colors, but even its most efficient tools normally obeyed the game’s chronology.</p>
+<p>Mox Emerald did not. It entered for zero mana, tapped immediately, and produced green forever. A Forest and an Emerald represented two mana on the first turn without spending the land drop, a creature card, or the time required for summoning sickness to pass. The color famous for growth began the game already grown.</p>
+<p>That interaction produced obvious green openings—turn-one mana creature plus another spell, early <span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span>, or accelerated creature pressure—but Emerald’s significance quickly escaped its color. Like every original Mox, it paid generic costs, increased artifact count, survived land destruction, fueled <span class="card-name" data-card="Tinker" tabindex="0">Tinker</span>, and could be replayed from the graveyard. Many Vintage decks have registered it with only a token green requirement or none at all.</p>
+<div class="card-lead"><img alt="Mox Emerald from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Mox%20Emerald&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Mox Emerald</b> · {0}<br/>Artifact<br/><br/>{T}: Add {G}.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Designed by</b>Richard Garfield</div><div class="stat"><b>Illustrated by</b>Dan Frazier</div><div class="stat"><b>Historical status</b>Power Nine · Restricted in Vintage</div></div></div></div>
+<p>Mox Emerald is therefore both the green Mox and a demonstration that the Mox cycle was never truly about color balance. Its most important text is not the green mana symbol. It is the zero in the upper-right corner.</p></section>
+<section id="cycle"><div class="chapter-number">II · Limited Edition Alpha</div><h2>The five jewels</h2>
+<p>The original five Moxen translated Magic’s five basic lands into artifacts: Pearl for white, Sapphire for blue, Jet for black, Ruby for red, and Emerald for green. Each cost zero and tapped for one colored mana. None was legendary, none entered tapped, and none carried a drawback.</p>
+<p>In Alpha’s intended environment, rarity was expected to restrain power. A player might own one Mox, perhaps none, and the card’s color would help shape the deck around it. Constructed play and concentrated collections erased that assumption. The five jewels could be played together, turning a deck’s opening hand into a collection of extra land drops.</p>
+<p>Emerald is sometimes placed near the bottom of informal Mox rankings because early green spells did not rival <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span>, <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span>, or <span class="card-name" data-card="Wheel of Fortune" tabindex="0">Wheel of Fortune</span>. That comparison describes the companions more than the jewel. A free, reusable mana source remains one of the most powerful kinds of card Magic can print.</p>
+<div class="emerald-grid"><div class="emerald-step"><b>Zero</b><span>No mana is spent to place it on the battlefield.</span></div><div class="emerald-step"><b>Permanent</b><span>Unlike a ritual, it continues producing mana every turn.</span></div><div class="emerald-step"><b>Colored</b><span>It casts green spells while also paying generic costs.</span></div><div class="emerald-step"><b>Artifact</b><span>Its card type creates both synergies and vulnerabilities.</span></div></div></section>
+<section id="zero"><div class="chapter-number">III · Tempo</div><h2>The land drop that was not a land</h2>
+<p>Magic’s resource system depends on one land per turn. The rule does more than limit total mana; it sequences the game. One-mana spells appear first, then twos, then threes. A player who wants to cast two spells in the same turn usually waits until later.</p>
+<p>Mox Emerald breaks that sequence without consuming the player’s land drop. A Forest plus Emerald casts a two-mana spell on turn one. On turn two, a second land creates three mana. The advantage persists unless the artifact is removed.</p>
+<p>The card is sometimes described as card disadvantage because a land normally occupies no spell slot while a Mox does. That is a real deck-building cost, but it is not a meaningful defense of the design. The extra action can immediately recover the card: cast a draw spell earlier, deploy a threat before countermagic is available, activate an engine a turn sooner, or force the opponent to spend a card destroying the Mox.</p>
+<div class="pullquote">The broken part is not that Emerald makes green mana. The broken part is that it creates tomorrow’s mana today.<small>The extra-land-drop principle</small></div></section>
+<section id="green"><div class="chapter-number">IV · Color identity</div><h2>When acceleration accelerates acceleration</h2>
+<p>Green’s normal mana creatures and land enchantments make Mox Emerald especially recursive in function. Emerald can cast the accelerator that produces still more mana on the next turn. Forest, Emerald, and Birds of Paradise begin the second turn with four potential mana after a land drop—an opening that compresses several turns of natural development into a single sequence.</p>
+<p>This differs from Sapphire or Jet enabling a powerful colored spell. Emerald often enables a card whose job is to create even more resources. The first advantage compounds. A mana creature leads to a larger creature, a second engine, or a turn in which development and interaction happen together.</p>
+<div class="green-sequence"><div class="green-row"><strong>Turn one</strong><p>Play Forest and Mox Emerald; cast Birds of Paradise and still retain a mana for another action.</p></div><div class="green-row"><strong>Turn two</strong><p>Play a second land; the two lands, Emerald, and Bird can represent four mana.</p></div><div class="green-row"><strong>Turn three</strong><p>The deck is now operating at a mana level an ordinary land curve would not reach until the following turn.</p></div></div>
+<p>Green did not need help being the acceleration color. Emerald gave it acceleration that could itself be accelerated.</p></section>
+<section id="creatures"><div class="chapter-number">V · The battlefield</div><h2>The first creature arrives first</h2>
+<p>Early Magic creatures were inefficient by modern standards, which made the mana advantage of a Mox more visible rather than less. A turn-two <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span> or an early large green creature could dominate a battlefield whose answers were also constrained by the land system.</p>
+<p>Emerald had a special relationship with creature decks because green could convert the extra mana into bodies and then use those bodies as continuing resources. <span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span> later turned each cheap spell—including zero-mana artifacts—into permanent power. Creature-combo strategies used green mana to find, protect, or exploit creatures while Emerald simultaneously counted as an artifact for unrelated engines.</p>
+<p>Mark Rosewater’s account of an early competitive creature deck shows the card beside Birds of Paradise, Llanowar Elves, Scryb Sprites, Giant Growth, Berserk, and Concordant Crossroads. Emerald was not merely a luxury in that shell. It was the cleanest expression of the deck’s thesis: get onto the battlefield before the opponent’s slower cards could matter.</p></section>
+<div class="art-break moxemerald-art"><div class="art-caption"><b>Dan Frazier’s original Mox Emerald artwork</b>The jewel appears less like a natural object than a magical device built around nature—a compact green world held inside metal and ready to produce mana without soil, season, or growth.</div></div>
+<section id="worlds"><div class="chapter-number">VI · 1994</div><h2>The first World Champion</h2>
+<p>Zak Dolan’s 1994 World Championship deck included all five Moxen, but Emerald had an unusually direct job. The deck was U/W/G and contained Birds of Paradise, Ley Druid, Regrowth, Savannah, and Tropical Island. Emerald both accelerated the deck and fixed the green portion of its eccentric mana base.</p>
+<p>The list could produce openings that made its collection of singletons feel less whimsical. Years later, Jon Finkel piloted Dolan’s deck in an Invitational auction event and used Mox Emerald plus Black Lotus to cast a first-turn Serra Angel. The sequence captures the scale of early unrestricted mana: a five-mana finisher arrived before the opponent played a land.</p>
+<p>Emerald also helped Dolan cast the modest cards that made the deck function—an early mana creature, a faster Stasis setup, or a timely Regrowth. Its role was not one spectacular combo. It made every future turn begin ahead.</p></section>
+<section id="the-deck"><div class="chapter-number">VII · Control</div><h2>The green Mox inside The Deck</h2>
+<p>Brian Weissman’s The Deck became the foundational model for control strategy: answer threats efficiently, accumulate cards, deny the opponent useful resources, and eventually win with a small number of finishers. The mana base included all five Moxen.</p>
+<p>In that shell, Emerald cast Regrowth and contributed to the green splash, but its generic applications were just as important. It helped activate Disrupting Scepter, cast Jayemdae Tome, reach Mana Drain turns while preserving other mana, and rebuild after Armageddon.</p>
+<p>The Deck demonstrates why ranking the Moxen only by their colors is incomplete. Sapphire may cast the most broken colored spells, but Emerald still advances every artifact, every colorless activation, and every multicolored turn. Control values the extra mana because it allows the deck to develop without surrendering the ability to answer.</p></section>
+<section id="regrowth"><div class="chapter-number">VIII · Recursion</div><h2>Regrowth and the second copy</h2>
+<p><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span> made green relevant to the most powerful early decks by turning any graveyard card into another draw of that card. Ancestral Recall could become a second Ancestral Recall. Time Walk could become another turn. Black Lotus could become another burst of three mana.</p>
+<p>Mox Emerald paid the green requirement without asking the deck to dedicate another land to green. That matters in lists built around blue and white control, black tutoring, or multicolor combo. The jewel was a source that also accelerated the generic half of Regrowth’s cost.</p>
+<p>There is an elegant circularity to the interaction. Emerald helps cast Regrowth; Regrowth can return a destroyed Emerald; the recovered Mox then helps pay for the card brought back on a later turn. The artifact and sorcery form an early example of Vintage’s central habit: restricted cards become less singular when the graveyard can be treated as another hand.</p></section>
+<section id="fastbond"><div class="chapter-number">IX · Land engines</div><h2>Fastbond and the collapse of turn structure</h2>
+<p><span class="card-name" data-card="Fastbond" tabindex="0">Fastbond</span> attacked the same rule as the Moxen from the opposite direction. Emerald created mana without using a land play. Fastbond allowed additional land plays. Together they converted the one-land-per-turn structure from a rule into a suggestion.</p>
+<p>The interaction became especially dangerous with draw engines such as Gush. Returning Islands to hand paid Gush’s alternate cost; Fastbond replayed those lands; Emerald helped cast the enchantment or the spells drawn along the way. The deck could alternate between cards and mana until the distinction nearly disappeared.</p>
+<p>Stephen Menendian’s 2007 Vintage Championship-winning Gro-A-Tog list illustrates this ecosystem. Emerald casts Fastbond and Quirion Dryad, grows Dryad as a free spell, and provides mana after Gush has temporarily removed lands from the battlefield.</p>
+<div class="emerald-note"><b>The hidden advantage:</b> Emerald does not merely add one mana to a Fastbond deck. It remains on the battlefield when Gush returns lands, allowing the deck to keep operating through a temporary reduction in land count.</div></section>
+<section id="channel"><div class="chapter-number">X · The oldest shortcut</div><h2>Channel and the oldest shortcut</h2>
+<p><span class="card-name" data-card="Channel" tabindex="0">Channel</span> is one of Alpha’s clearest examples of green mana leading directly to something the color was never meant to do safely. Two green mana convert life into colorless mana, making enormous artifacts or a lethal Fireball possible far earlier than the land curve allows.</p>
+<p>Mox Emerald helps produce the required double green while preserving the land drop and the rest of the hand. Forest plus Emerald casts Channel on turn one. Black Lotus, another Mox, or the Forest’s remaining role in the sequence can help turn that access into a win.</p>
+<p>The important point is not that Emerald created Channel combo by itself. It is that a free colored source removes the setup cost from cards whose mana requirements were supposed to be meaningful. A spell priced at two green mana is not truly priced at two turns when one of those sources costs zero.</p></section>
+<section id="cradle"><div class="chapter-number">XI · Green abundance</div><h2>From Emerald to Gaea’s Cradle</h2>
+<p>Green’s later mana history moved away from unconditional artifacts and toward scaling rewards. <span class="card-name" data-card="Gaea's Cradle" tabindex="0">Gaea’s Cradle</span> produces mana according to the number of creatures a player controls. Mana creatures ask the player to invest cards and survive removal. Land auras expose both the enchantment and the land.</p>
+<p>Those designs preserve green’s feeling of abundance while requiring a battlefield. Mox Emerald asks for nothing. It does not care whether the deck controls a creature, a Forest, or even another green card. The comparison shows how dramatically the game’s resource philosophy changed after Alpha.</p>
+<div class="green-grid"><div class="green-step"><b>Mox Emerald</b><span>Immediate, unconditional, reusable mana from a zero-mana artifact.</span></div><div class="green-step"><b>Mana creature</b><span>Cheap acceleration delayed by summoning sickness and exposed to removal.</span></div><div class="green-step"><b>Gaea’s Cradle</b><span>Explosive scaling mana earned through an established creature battlefield.</span></div></div></section>
+<section id="oath"><div class="chapter-number">XII · Engines</div><h2>Oath, Survival, and creature engines</h2>
+<p>Vintage’s green identity eventually became less about casting fair creatures and more about using green permanents as engines. <span class="card-name" data-card="Oath of Druids" tabindex="0">Oath of Druids</span> turns an opponent’s creature into access to a game-ending threat. <span class="card-name" data-card="Survival of the Fittest" tabindex="0">Survival of the Fittest</span> converts creatures in hand into whichever creature the deck needs. <span class="card-name" data-card="Collector Ouphe" tabindex="0">Collector Ouphe</span> attacks artifact mana itself.</p>
+<p>Emerald accelerates those cards, but the relationship can be paradoxical. The same format that rewards a zero-mana artifact also contains green cards designed to shut artifacts off. A player may cast Collector Ouphe with Emerald and then accept that the jewel has completed its job.</p>
+<p>This is a recurring feature of powered Magic: the best acceleration is so efficient that it remains worthwhile even when the deck plans to invalidate it later. One free mana before the lock piece can be the difference between controlling the game and never receiving another turn.</p></section>
+<section id="artifact"><div class="chapter-number">XIII · The second card type</div><h2>The colorless job</h2>
+<p>A Mox is always two cards at once: a colored mana source and an artifact. In many modern Vintage lists, the second identity matters as much as the first.</p>
+<p>Mox Emerald can be sacrificed to Tinker, counted for metalcraft, replayed through Yawgmoth’s Will, bounced to generate storm, or tapped for generic costs even when the deck has no green spell. It helps turn on cards that measure artifacts and provides a cheap permanent for cards that require material on the battlefield.</p>
+<p>The 2026 Grixis Tinker list in the deck archive demonstrates the point starkly. Its main deck contains no green spell, but Emerald still belongs because a zero-mana artifact that taps for mana is better than the color label suggests.</p>
+<div class="format-strip"><div class="format-card"><span class="impact">Mana</span><h3>A green source</h3><p>Casts Regrowth, Fastbond, Oath, Survival, and green interaction.</p></div><div class="format-card"><span class="impact">Material</span><h3>An artifact</h3><p>Feeds Tinker, metalcraft, storm, recursion, and artifact-count engines.</p></div><div class="format-card"><span class="impact">Tempo</span><h3>An extra land drop</h3><p>Advances generic costs even when green mana is irrelevant.</p></div></div></section>
+<section id="modern"><div class="chapter-number">XIV · Vintage</div><h2>The modern Vintage jewel</h2>
+<p>Mox Emerald remains restricted in Vintage, where one copy can appear in control, combo, artifact, and creature strategies. Whether it is included depends less on whether the deck is “green” than on mana needs, artifact synergies, and the cost of drawing an off-color source in longer games.</p>
+<p>Green Vintage decks use the card naturally. Fastbond, Oath, Survival, Collector Ouphe, Force of Vigor, and creature-based engines all appreciate immediate green mana. Multicolor decks use it to widen the range of turn-one combinations. Artifact decks may use it even with no green spell at all.</p>
+<p>The card’s role has therefore broadened rather than narrowed. In Alpha it was the green member of a cycle. In contemporary Vintage it is a restricted zero-mana artifact whose color is one input among several.</p></section>
+<section id="risk"><div class="chapter-number">XV · Counterplay</div><h2>The artifact tax</h2>
+<p>Mox Emerald’s only meaningful weakness is its card type. Artifact removal can trade for it. Null Rod and Stony Silence can turn it off. Collector Ouphe can make the jewel inert. Cards that punish free spells or cheap artifacts can convert the apparent advantage into liability.</p>
+<p>That vulnerability is important but easy to overstate. If Emerald has already accelerated the lock piece, threat, or draw engine that matters, destroying it later may be too late. The opponent spent a card and mana answering a permanent that cost zero and may already have produced value.</p>
+<p>The strategic question is not whether artifact hate exists. It is whether the opponent can deploy that hate before the Mox creates the turn that justified its inclusion.</p></section>
+<section id="formats"><div class="chapter-number">XVI · Legality</div><h2>A life across formats</h2>
+<div class="format-strip"><div class="format-card"><span class="impact">Restricted</span><h3>Vintage</h3><p>The sanctioned competitive home of the original, limited to one copy.</p></div><div class="format-card"><span class="impact">Foundational</span><h3>Old School and powered environments</h3><p>A defining mana source in formats and cubes built around early Magic’s full scale.</p></div><div class="format-card"><span class="impact">Excluded</span><h3>Legacy and most other formats</h3><p>Banned or outside the legal card pool because unrestricted Moxen overwhelm normal development.</p></div></div>
+<p>Powered Cube gives players the clearest casual experience of Emerald’s strength. It enables explosive starts, increases artifact density, fixes green, and turns hands that would be merely functional into hands that demand an immediate plan.</p>
+<p>In Canadian Highlander and other point-based environments, the card’s presence becomes a deck-building choice rather than an automatic four-of. Those systems acknowledge that access to a single Mox is powerful enough to consume part of a deck’s external balance budget.</p></section>
+<section id="descendants"><div class="chapter-number">XVII · Design echo</div><h2>The Moxes that followed</h2>
+<p>Later Mox designs preserve the zero-mana artifact shell while making the mana conditional. <span class="card-name" data-card="Mox Diamond" tabindex="0">Mox Diamond</span> discards a land. <span class="card-name" data-card="Chrome Mox" tabindex="0">Chrome Mox</span> exiles a colored card. <span class="card-name" data-card="Mox Opal" tabindex="0">Mox Opal</span> requires metalcraft. <span class="card-name" data-card="Mox Amber" tabindex="0">Mox Amber</span> requires a legendary permanent to determine its colors.</p>
+<p>Each design asks what payment can make “zero mana, tap for mana” survivable. The answer is never simply changing the color. Emerald proves that green’s natural right to acceleration does not make unconditional acceleration fair.</p>
+<div class="inline-image emerald-descendant"><div class="image"></div><div class="copy"><div class="kicker">The land-for-jewel bargain</div><h3>Mox Diamond</h3><p>Mox Diamond kept the immediate reusable mana but required a land from hand. The cost makes explicit what Emerald concealed: an extra land drop should consume a real resource.</p></div></div></section>
+<section id="object"><div class="chapter-number">XVIII · The object</div><h2>The green gem as object</h2>
+<p>Dan Frazier gave the Mox cycle a shared visual language: ornate metal, a suspended jewel, and a background keyed to the color of mana. Emerald’s green center suggests a miniature world, an eye, or a reservoir of living energy contained inside an artifact.</p>
+<p>The contradiction fits the card. Green traditionally opposes the artificial, yet its most famous mana source is a piece of jewelry. Natural growth has been captured, miniaturized, and made available at the tap of a permanent that cost nothing.</p>
+<p>As part of the Power Nine and the Reserved List, Mox Emerald is now encountered as tournament game piece, collector object, proxy, digital special card, museum artifact, and icon. Many players know exactly what it does without ever having touched an original copy.</p>
+<div class="memory"><div class="memory-grid"><blockquote>The green Mox does not wait for a seed, a land, or a creature. It begins the game already in bloom.</blockquote><cite>Mox Emerald as captured acceleration</cite></div></div></section>
+<section class="deck-archive" id="decklists"><div class="chapter-number">XIX · The record</div><h2>The deck archive</h2><p class="deck-intro">These lists follow Mox Emerald from the first World Champion and The Deck through Fastbond-powered Gro-A-Tog and a contemporary Tinker shell. They show both halves of the card’s history: genuine green mana and color-independent artifact acceleration.</p><details class="deck"><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first World Champion used Emerald as genuine green fixing for Birds of Paradise, Ley Druid, Regrowth, and a U/W/G mana base. It was also simply the sixth zero-or-one-mana accelerator in a deck capable of turning its peculiar singletons into brutal opening turns.</p><button class="copy" data-target="mox-emerald-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div><div class="deck-col"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div></div><pre hidden="" id="mox-emerald-deck-0">Zak Dolan — U/W/G Stasis Control
+World Champion · Worlds 1994
+
+Creatures · 11
+1 Clone
+2 Old Man of the Sea
+1 Time Elemental
+1 Vesuvan Doppelganger
+1 Birds of Paradise
+1 Ley Druid
+4 Serra Angel
+
+Sorceries · 6
+1 Recall
+1 Timetwister
+1 Time Walk
+1 Regrowth
+1 Armageddon
+1 Wrath of God
+
+Instants · 9
+1 Ancestral Recall
+1 Mana Drain
+1 Siren's Call
+2 Disenchant
+4 Swords to Plowshares
+
+Artifacts · 15
+1 Black Lotus
+1 Black Vise
+1 Howling Mine
+1 Icy Manipulator
+1 Ivory Tower
+1 Mana Vault
+2 Meekstone
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Winter Orb
+
+Enchantments · 4
+1 Control Magic
+2 Stasis
+1 Kismet
+
+Lands · 15
+1 Library of Alexandria
+4 Savannah
+4 Tropical Island
+4 Tundra
+2 Strip Mine
+
+Sideboard · 15
+1 Kismet
+1 Chaos Orb
+1 Circle of Protection: Red
+1 Copy Artifact
+1 Diamond Valley
+1 In the Eye of Chaos
+1 Floral Spuzzem
+2 Karma
+1 Magical Hack
+1 Power Sink
+1 Presence of the Master
+1 Reverse Damage
+1 Sleight of Mind
+1 Winter Blast</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p></div></details><details class="deck">
+<summary><span><strong>Brian Weissman — The Deck</strong><small>Foundational Type I control archetype · mid-1990s</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The Deck used Lotus to reach Mind Twist, Disrupting Scepter, and the mana advantage required to convert answers into permanent control. Its presence in the first famous control deck demonstrates that Lotus was not merely a combo card; it was the best possible opening resource for almost any strategy.</p>
+<div class="deck-meta"><div><b>Brian Weissman</b><div class="small">The Deck used Mox Emerald to cast Regrowth and to advance the generic costs of Disrupting Scepter, Jayemdae Tome, and its other control machinery. The green source mattered; the free permanent mana mattered even more.</div></div>
+<button class="copy" data-target="mox-emerald-deck-1">Copy decklist</button></div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div>
+</div>
+<pre hidden="" id="mox-emerald-deck-1">Brian Weissman — The Deck
+Foundational Type I control archetype · mid-1990s
+
+Creatures · 2
+2 Serra Angel
+
+Sorceries · 7
+1 Time Walk
+1 Timetwister
+1 Braingeyser
+1 Recall
+1 Demonic Tutor
+1 Mind Twist
+1 Regrowth
+
+Instants · 17
+4 Mana Drain
+2 Counterspell
+1 Ancestral Recall
+4 Disenchant
+4 Swords to Plowshares
+2 Red Elemental Blast
+
+Enchantments · 2
+2 Moat
+
+Artifacts · 11
+2 Disrupting Scepter
+1 Jayemdae Tome
+1 Ivory Tower
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Jet
+1 Mox Sapphire
+1 Mox Emerald
+1 Black Lotus
+1 Sol Ring
+
+Lands · 21
+2 Strip Mine
+1 Library of Alexandria
+3 City of Brass
+1 Plateau
+1 Underground Sea
+2 Volcanic Island
+4 Tundra
+3 Plains
+4 Island
+
+Sideboard · 15
+1 Plains
+1 Counterspell
+1 Moat
+1 Disrupting Scepter
+1 Jayemdae Tome
+1 Tormod's Crypt
+2 Control Magic
+2 Blood Moon
+3 Circle of Protection: Red
+2 Divine Offering</pre>
+<p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">open the historical record</a></p>
+</div>
+</details><details class="deck">
+<summary><span><strong>Stephen Menendian — Gro-A-Tog</strong><small>Champion · Gen Con Vintage Championship 2007</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>In Gush-based Vintage, Ancestral Recall was simultaneously raw card advantage, a cheap blue spell for Quirion Dryad, a Merchant Scroll target, and material that could be replayed with Yawgmoth’s Will.</p>
+<div class="deck-meta">
+<div><b>Stephen Menendian</b><div class="small">Gro-A-Tog shows Emerald at its most naturally integrated: it casts Quirion Dryad, enables Fastbond, pays for green sideboard cards, grows Dryad as a zero-mana spell, and helps an exceptionally low land count function.</div></div>
+<button class="copy" data-target="mox-emerald-deck-2">Copy decklist</button>
+</div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creatures · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Psychatog" tabindex="0">Psychatog</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span></div></div><div class="group"><h4>Lands · 14</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Instants and sorceries · 35</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div></div><div class="group"><h4>Other spells · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fastbond" tabindex="0">Fastbond</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancient Grudge" tabindex="0">Ancient Grudge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Berserk" tabindex="0">Berserk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fire / Ice" tabindex="0">Fire / Ice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oxidize" tabindex="0">Oxidize</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rack and Ruin" tabindex="0">Rack and Ruin</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div></div>
+</div>
+<pre hidden="" id="mox-emerald-deck-2">Stephen Menendian — Gro-A-Tog
+Champion · Gen Con Vintage Championship 2007
+
+Creatures · 5
+1 Psychatog
+4 Quirion Dryad
+
+Lands · 14
+3 Flooded Strand
+1 Island
+1 Library of Alexandria
+3 Polluted Delta
+2 Tropical Island
+3 Underground Sea
+1 Volcanic Island
+
+Instants and sorceries · 35
+1 Ancestral Recall
+4 Brainstorm
+1 Cunning Wish
+1 Demonic Tutor
+4 Duress
+4 Force of Will
+4 Gush
+2 Mana Drain
+4 Merchant Scroll
+2 Misdirection
+1 Mystical Tutor
+3 Opt
+1 Red Elemental Blast
+1 Time Walk
+1 Vampiric Tutor
+1 Yawgmoth's Will
+
+Other spells · 6
+1 Black Lotus
+1 Fastbond
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Sapphire
+
+Sideboard · 15
+1 Ancient Grudge
+1 Berserk
+1 Fire / Ice
+1 Island
+1 Oxidize
+2 Pithing Needle
+2 Pyroblast
+1 Rack and Ruin
+1 Red Elemental Blast
+1 Rushing River
+3 Yixlid Jailer</pre>
+<p class="small">Source: <a href="https://www.mtgtop8.com/event?e=15&amp;f=VI">open the historical record</a></p>
+</div>
+</details><details class="deck"><summary><span><strong>Grixis Tinker — Vintage metagame example</strong><small>Wizards B&amp;R announcement · June 2026</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">This official 2026 Grixis Tinker example contains no green spells in its main deck, yet still registers Mox Emerald. That is the clearest modern proof that a Mox can be valuable even when its printed color is almost incidental: it is a free artifact, generic mana, Tinker material, and replayable fuel for Yawgmoth’s Will.</p><button class="copy" data-target="mox-emerald-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 3</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hexing Squelcher" tabindex="0">Hexing Squelcher</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hullbreacher" tabindex="0">Hullbreacher</span></div><h4>Artifacts · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bolas's Citadel" tabindex="0">Bolas's Citadel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Manifold Key" tabindex="0">Manifold Key</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Vault" tabindex="0">Time Vault</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vexing Bauble" tabindex="0">Vexing Bauble</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Abrade" tabindex="0">Abrade</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dismember" tabindex="0">Dismember</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hullbreacher" tabindex="0">Hullbreacher</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Leyline of the Void" tabindex="0">Leyline of the Void</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Long Goodbye" tabindex="0">Long Goodbye</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Opposition Agent" tabindex="0">Opposition Agent</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Portal to Phyrexia" tabindex="0">Portal to Phyrexia</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div><div class="deck-col"><h4>Instants · 14</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flusterstorm" tabindex="0">Flusterstorm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><h4>Sorceries · 18</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flow State" tabindex="0">Flow State</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lórien Revealed" tabindex="0">Lórien Revealed</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stock Up" tabindex="0">Stock Up</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tinker" tabindex="0">Tinker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div><h4>Lands · 13</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thundering Falls" tabindex="0">Thundering Falls</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tolarian Academy" tabindex="0">Tolarian Academy</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza's Saga" tabindex="0">Urza's Saga</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div></div><pre hidden="" id="mox-emerald-deck-3">Grixis Tinker — Vintage metagame example
+Wizards B&amp;R announcement · June 2026
+
+Creatures · 3
+2 Hexing Squelcher
+1 Hullbreacher
+
+Artifacts · 12
+1 Black Lotus
+1 Bolas's Citadel
+1 Mana Crypt
+1 Manifold Key
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Time Vault
+1 Vexing Bauble
+
+Instants · 14
+1 Ancestral Recall
+1 Brainstorm
+1 Chain of Vapor
+2 Flusterstorm
+2 Force of Negation
+4 Force of Will
+1 Mental Misstep
+1 Mystical Tutor
+1 Vampiric Tutor
+
+Sorceries · 18
+1 Demonic Tutor
+4 Flow State
+1 Gitaxian Probe
+4 Lórien Revealed
+4 Stock Up
+1 Time Walk
+1 Timetwister
+1 Tinker
+1 Yawgmoth's Will
+
+Lands · 13
+1 Flooded Strand
+2 Island
+1 Misty Rainforest
+1 Polluted Delta
+1 Scalding Tarn
+1 Thundering Falls
+1 Tolarian Academy
+2 Underground Sea
+1 Urza's Saga
+2 Volcanic Island
+
+Sideboard · 15
+2 Abrade
+1 Dismember
+2 Hullbreacher
+1 Hurkyl's Recall
+3 Leyline of the Void
+1 Long Goodbye
+1 Opposition Agent
+1 Portal to Phyrexia
+2 Pyroblast
+1 Yixlid Jailer</pre></div></details></section>
+<section id="printings"><div class="chapter-number">XX · Printings and sources</div><h2>Printings and sources</h2>
+<p>Mox Emerald was first printed in Limited Edition Alpha and retained Dan Frazier’s original artwork through Beta and Unlimited. Revised changed the card’s visual presentation while preserving its function. It is on the Reserved List, restricted in Vintage, and banned or outside the card pool in formats built around ordinary mana development.</p>
+<div class="source-list">
+<a href="https://magic.wizards.com/en/news/feature/power-nine-2003-10-15"><b>Wizards of the Coast, “The Power Nine”</b><span>The original Moxen and their place among Magic’s defining broken cards.</span></a>
+<a href="https://magic.wizards.com/en/news/feature/top-50-artifacts-all-time-2005-02-28"><b>Wizards of the Coast, “The Top 50 Artifacts of All Time”</b><span>Historical evaluation of the five Moxen and their colored applications.</span></a>
+<a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28"><b>Mark Rosewater, “A Different Worlds”</b><span>Zak Dolan’s 1994 World Championship deck and early tournament context.</span></a>
+<a href="https://magic.wizards.com/en/news/making-magic/the-deck-2014-02-17"><b>Mark Rosewater, “The Deck”</b><span>Brian Weissman’s foundational Type I control list.</span></a>
+<a href="https://magic.wizards.com/en/news/making-magic/doubling-down-2018-05-21"><b>Mark Rosewater, “Doubling Down”</b><span>An early competitive creature deck using Mox Emerald with green mana creatures and pump spells.</span></a>
+<a href="https://magic.wizards.com/en/news/making-magic/six-continents-six-stories-2015-05-25"><b>Mark Rosewater, “Six Continents, Six Stories”</b><span>Jon Finkel’s turn-one Serra Angel using Mox Emerald and Black Lotus.</span></a>
+<a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-june-29-2026"><b>Wizards of the Coast, June 29, 2026 Banned and Restricted Announcement</b><span>The contemporary Grixis Tinker list reproduced in the deck archive.</span></a>
+<a href="https://magic.wizards.com/en/banned-restricted-list"><b>Wizards of the Coast, Banned and Restricted Lists</b><span>Current sanctioned status of Mox Emerald.</span></a>
+<a href="https://magic.wizards.com/en/news/announcements/official-reprint-policy"><b>Wizards of the Coast, Official Reprint Policy</b><span>Mox Emerald’s Reserved List status.</span></a>
+<a href="https://www.mtgtop8.com/event?e=15&amp;f=VI"><b>MTGTop8, Gen Con Vintage Championship 2007</b><span>Stephen Menendian’s Gro-A-Tog list.</span></a>
+</div><div class="end-nav"><a href="007-mox-ruby.html"><small>Previous entry · 007</small>Mox Ruby</a><a href="index.html#entry-009"><small>Next entry · 009</small>Timetwister</a></div></section>
+</article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 008 examines Mox Emerald as green acceleration, generic mana, artifact infrastructure, combo material, collectible object, and one of the nine cards that established Magic’s upper limit.</aside></div>
+<div id="preview"><img alt=""/></div>
+<footer class="footer">Compulsive Research · A numbered archive of 1,000 Magic cards, plus open-ended honorable mentions.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script>
+</body>
+</html>
