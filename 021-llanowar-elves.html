@@ -1,0 +1,826 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Llanowar Elves: Alpha, mana acceleration, the turn-two curve, Fires, Ghazi-Glare, Elfball, Dominaria, descendants, artwork, and player memory."><title>Llanowar Elves: The One-Mana Creature That Moved the Curve — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.ritual-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.ritual-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.ritual-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.cabal-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Cabal%20Ritual&format=image&version=art_crop)!important
+}
+.exchange-grid,.opening-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.opening-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.exchange-step,.opening-step{background:var(--white);padding:23px}
+.exchange-step b,.opening-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.exchange-step span,.opening-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.ritual-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.ritual-note b{color:var(--ink)}
+.mana-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mana-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.mana-row:last-child{border-bottom:0}.mana-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mana-row p{margin:0}
+@media(max-width:750px){.exchange-grid,.opening-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.exchange-grid,.opening-grid{grid-template-columns:1fr}}
+
+
+.wrath-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.wrath-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.wrath-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.day-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Day%20of%20Judgment&format=image&version=art_crop)!important
+}
+.exchange-grid,.discipline-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discipline-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.exchange-step,.discipline-step{background:var(--white);padding:23px}
+.exchange-step b,.discipline-step b{
+  display:block;font:900 1.95rem/1.03 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px
+}
+.exchange-step span,.discipline-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.wrath-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.wrath-note b{color:var(--ink)}
+.board-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.board-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.board-row:last-child{border-bottom:0}.board-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.board-row p{margin:0}
+@media(max-width:750px){.exchange-grid,.discipline-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.exchange-grid,.discipline-grid{grid-template-columns:1fr}}
+
+
+.armageddon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.hero.armageddon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.art-break.armageddon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.cataclysm-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Cataclysm&format=image&version=art_crop)!important
+}
+.parity-grid,.recovery-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.parity-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.recovery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.parity-step,.recovery-step{background:var(--white);padding:23px}
+.parity-step b,.recovery-step b{display:block;font:900 1.85rem/1.04 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.parity-step span,.recovery-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.geddon-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.geddon-note b{color:var(--ink)}
+.geddon-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.geddon-row{display:grid;grid-template-columns:116px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.geddon-row:last-child{border-bottom:0}.geddon-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.geddon-row p{margin:0}
+@media(max-width:750px){.parity-grid,.recovery-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.parity-grid,.recovery-grid{grid-template-columns:1fr}}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop)!important}
+
+
+.birds-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Birds%20of%20Paradise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important
+}
+.hero.birds-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Birds%20of%20Paradise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important
+}
+.art-break.birds-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Birds%20of%20Paradise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important
+}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Birds%20of%20Paradise&set=lea&format=image&version=art_crop) center/cover}
+.hierarch-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Noble%20Hierarch&format=image&version=art_crop)!important}
+.mana-grid,.comparison-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.mana-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.comparison-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mana-step,.comparison-step{background:var(--white);padding:23px}
+.mana-step b,.comparison-step b{display:block;font:900 1.9rem/1.05 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.mana-step span,.comparison-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.bird-note{border-left:4px solid var(--teal);background:rgba(103,155,145,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.bird-note b{color:var(--ink)}
+@media(max-width:750px){.mana-grid,.comparison-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.mana-grid,.comparison-grid{grid-template-columns:1fr}}
+
+
+.llanowar-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Llanowar%20Elves&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.hero.llanowar-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Llanowar%20Elves&set=lea&format=image&version=art_crop)!important;
+  background-position:center 37%!important
+}
+.art-break.llanowar-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Llanowar%20Elves&set=lea&format=image&version=art_crop)!important;
+  background-position:center 35%!important
+}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Llanowar%20Elves&set=lea&format=image&version=art_crop) center/cover}
+.mystic-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Elvish%20Mystic&format=image&version=art_crop)!important}
+.curve-grid,.identity-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.curve-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.identity-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.curve-step,.identity-step{background:var(--white);padding:23px}
+.curve-step b,.identity-step b{display:block;font:900 1.9rem/1.05 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
+.curve-step span,.identity-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.elf-note{border-left:4px solid var(--green);background:rgba(53,95,82,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.elf-note b{color:var(--ink)}
+.turn-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.turn-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.turn-row:last-child{border-bottom:0}.turn-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.turn-row p{margin:0}
+@media(max-width:750px){.curve-grid,.identity-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.curve-grid,.identity-grid{grid-template-columns:1fr}}
+</style></head><body>
+<header class="hero llanowar-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#entry-021">← Compulsive Research</a>
+<div class="eyebrow">Entry 021 · Wave 01 · The Foundational Canon</div>
+<h1>The One-Mana Creature That Moved the Curve</h1>
+<p class="deckline">Llanowar Elves asked green to spend its first turn on a fragile 1/1 so that every later turn could begin one mana ahead.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 23 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="020-birds-of-paradise.html">← Entry 020 · Birds of Paradise</a><div class="center">Entry 021 of 1,000</div><a href="022-serra-angel.html">Entry 022 · Serra Angel →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong>
+<a href="#opening">The smallest acceleration engine</a><a href="#origin">Alpha's working creature</a><a href="#curve">Three mana on turn two</a><a href="#body">The body matters</a><a href="#risk">The land that dies</a><a href="#birds">Birds and Elves</a><a href="#identity">One card, an entire people</a><a href="#forest">The forest of Llanowar</a><a href="#early">Green learns to begin early</a><a href="#fires">Turn-two Fires</a><a href="#glare">Creatures become control</a><a href="#elfball">From ramp to combo</a><a href="#absence">Taking a breather</a><a href="#return">The return to Dominaria</a><a href="#formats">A life across formats</a><a href="#descendants">The one-mana family</a><a href="#art">The faces of Llanowar</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The first turn</div><h2>The smallest acceleration engine</h2>
+<p class="opening dropcap">Llanowar Elves is a Forest that must survive the night.</p>
+<p>That description is deliberately unfair to both halves of the card. A Forest cannot attack, block, carry equipment, receive creature bonuses, or join an Elf combo. A creature cannot normally produce mana every turn for the price of a single green mana. Llanowar Elves occupies the unstable border between them: more flexible than a land, more vulnerable than one, and capable of moving an entire mana curve forward when it lives.</p>
+<p>The text is among the shortest in Magic: tap to add one green mana. Yet the strategic promise is enormous. A first-turn Elf means three mana on turn two, four mana on turn three, and the possibility that every threat in the deck arrives before the opponent's normal answers are ready. The Elf does not create card advantage. It creates time.</p>
+<div class="card-lead"><img alt="Llanowar Elves from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Llanowar%20Elves&set=lea&format=image&version=normal"><div><div class="oracle"><b>Llanowar Elves</b> · {G}<br>Creature — Elf Druid<br><br>{T}: Add {G}.<br><br><b>1/1</b></div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original artist</b>Anson Maddocks</div><div class="stat"><b>Original type line</b>Summon Elves</div><div class="stat"><b>Strategic identity</b>The baseline one-mana accelerator</div></div></div></div>
+<p>For generations of players, the card became the first lesson in ramp. Spend a small resource now, receive a larger turn later. It also became the first lesson in why acceleration is never free: if the Elf dies, the deck may be left with expensive spells and too few actual lands to cast them.</p></section>
+<section id="origin"><div class="chapter-number">II · Limited Edition Alpha</div><h2>Alpha's working creature</h2>
+<p>Alpha gave green two famous one-mana mana creatures. <span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span> could make any color and fly. Llanowar Elves made only green and stood on the ground. The contrast established two branches of creature acceleration that Magic still uses: the fixer and the specialist.</p>
+<p>Llanowar Elves was the plainer design, which is part of why it became foundational. Its body, cost, and output all point in the same direction. Green invests in a creature because green is the color most willing to derive mana from living things. The card turns growth into a game action without requiring counters, conditions, or additional text.</p>
+<p>Its original rules language was more cumbersome than its modern Oracle text, and the type line read “Summon Elves.” Over time, rules cleanup reduced the ability to the familiar tap symbol and the creature became an Elf Druid. The mechanical idea never needed revision. A one-mana 1/1 that taps for one green mana was already complete.</p>
+<div class="pullquote">The card's enduring power comes from how little explanation stands between the first Forest and the second turn.<small>Llanowar Elves · Alpha, 1993</small></div></section>
+<section id="curve"><div class="chapter-number">III · Mana development</div><h2>Three mana on turn two</h2>
+<p>Without acceleration, a deck that plays one land per turn usually has two mana on turn two and three on turn three. Llanowar Elves inserts an extra green source into that schedule. The difference between two and three is not merely one mana; it is an entire band of spells arriving a turn early.</p>
+<div class="curve-grid"><div class="curve-step"><b>Turn 1</b><span>Forest, Llanowar Elves. The deck spends its first turn building future mana.</span></div><div class="curve-step"><b>Turn 2</b><span>A second land plus the Elf produces three mana: the classic accelerated turn.</span></div><div class="curve-step"><b>Turn 3</b><span>Three lands plus the Elf produces four, allowing a second jump on the curve.</span></div><div class="curve-step"><b>Later</b><span>The 1/1 can keep making mana, attack, block, convoke, or become tribal material.</span></div></div>
+<p>Three mana on turn two has repeatedly been one of Constructed Magic's most important thresholds. It casts <span class="card-name" data-card="Fires of Yavimaya" tabindex="0">Fires of Yavimaya</span>, <span class="card-name" data-card="Steel Leaf Champion" tabindex="0">Steel Leaf Champion</span>, <span class="card-name" data-card="Glare of Subdual" tabindex="0">Glare of Subdual</span>, planeswalkers, land-destruction spells, and the middle pieces of creature-combo engines. The exact payoff changes with the format. The geometry does not.</p>
+<div class="turn-sequence"><div class="turn-row"><strong>Investment</strong><p>One card and one mana are spent on a permanent that does not affect the opponent immediately.</p></div><div class="turn-row"><strong>Survival</strong><p>The Elf must remain on the battlefield until the next turn because summoning sickness prevents an immediate activation.</p></div><div class="turn-row"><strong>Conversion</strong><p>The extra mana is converted into a spell whose impact exceeds what the opponent can normally produce at that point.</p></div><div class="turn-row"><strong>Snowball</strong><p>If the accelerated permanent also creates advantage, the temporary lead can become a lasting one.</p></div></div></section>
+<section id="body"><div class="chapter-number">IV · Creature and resource</div><h2>The body matters</h2>
+<p>The easiest way to misunderstand Llanowar Elves is to regard the 1/1 as decorative text beneath a mana ability. The body is one of the reasons the card has survived so many changes in Magic.</p>
+<p>When mana is no longer needed, the Elf attacks. One damage seems trivial until a game ends at one life, a planeswalker must be finished, or several small creatures are enlarged by <span class="card-name" data-card="Overrun" tabindex="0">Overrun</span>, <span class="card-name" data-card="Elvish Archdruid" tabindex="0">Elvish Archdruid</span>, or <span class="card-name" data-card="Craterhoof Behemoth" tabindex="0">Craterhoof Behemoth</span>. A mana source that becomes part of the winning attack does not suffer the same late-game uselessness as a pure acceleration artifact.</p>
+<p>The body also blocks. Trading a spent mana creature for an opposing attacker can turn early acceleration into later life. It can be tapped by convoke, sacrificed, returned with <span class="card-name" data-card="Wirewood Symbiote" tabindex="0">Wirewood Symbiote</span>, counted by <span class="card-name" data-card="Priest of Titania" tabindex="0">Priest of Titania</span>, or used to pay for <span class="card-name" data-card="Heritage Druid" tabindex="0">Heritage Druid</span>. Each new creature mechanic gives the old card another possible job.</p>
+<p>That versatility distinguishes Llanowar Elves from a spell such as <span class="card-name" data-card="Rampant Growth" tabindex="0">Rampant Growth</span>. The sorcery produces a more secure land and fixes future land counts. The Elf produces mana sooner and remains a creature. One is infrastructure. The other is infrastructure that can join the army.</p></section>
+<section id="risk"><div class="chapter-number">V · Fragility</div><h2>The land that dies</h2>
+<p>The bargain is vulnerability. Llanowar Elves dies to nearly every removal spell, damage-based sweeper, combat trick, and incidental effect that can target a creature. A deck that keeps a two-land hand because the Elf represents its third source may discover that a <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span> or <span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span> has effectively destroyed both a creature and the next turn.</p>
+<p>This is why “kill the mana creature” is more than a cliché. The opponent is not merely trading one card for one card. They are attacking the schedule on which the deck was built. A three-drop intended for turn two may now wait until turn three; a four-drop may wait longer; a hand with too few lands may fail to function at all.</p>
+<div class="elf-note"><b>The hidden deck-building cost:</b> acceleration encourages fewer lands or more expensive spells. That construction gains power when the Elf survives and magnifies risk when it does not.</div>
+<p>Summoning sickness creates another weakness. Unlike a Mox or Sol Ring, Llanowar Elves cannot repay its mana investment immediately. The opponent receives a full turn to answer it before the promised acceleration exists. This delay is one of the safeguards that keeps the design recognizably creature-based rather than artifact-like.</p></section>
+<section id="birds"><div class="chapter-number">VI · The original comparison</div><h2>Birds and Elves</h2>
+<p><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span> and Llanowar Elves have shared decklists since Alpha, but they are not interchangeable. Birds fixes every color and flies. Llanowar Elves attacks for one and carries the Elf creature type. The correct choice reveals what the deck expects from its first-turn accelerator after the opening turns have passed.</p>
+<div class="identity-grid"><div class="identity-step"><b>Birds</b><span>Perfect color fixing, evasion, and a zero-power body.</span></div><div class="identity-step"><b>Elves</b><span>Green-only mana, one power, and extensive Elf and Druid synergy.</span></div><div class="identity-step"><b>Both</b><span>Eight copies of turn-one acceleration when consistency matters more than distinction.</span></div></div>
+<p>Fires decks often played four of each because the desired opening was so important. Elf decks favor Llanowar because its type line is active text. Multicolor decks often prefer Birds because the wrong color of mana can make an otherwise accelerated hand unusable.</p>
+<p>The comparison is also a design lesson. A card can be functionally similar without being strategically identical. The one point of power and the word “Elf” have generated decades of consequences that cannot be seen by comparing mana abilities alone.</p></section>
+<section id="identity"><div class="chapter-number">VII · Name and type</div><h2>One card, an entire people</h2>
+<p>The name is plural. The art usually shows an individual. The card represents the warriors and druids of a vast forest as a repeatable game piece, an abstraction that feels natural because early Magic often named creatures as populations rather than singular characters.</p>
+<p>“Llanowar Elves” also became a mechanical category. Players speak of a “Llanowar Elves” when discussing any one-mana creature that taps for one mana, just as they use “Wrath” for mass creature destruction or “Bolt” for efficient direct damage. The card's name describes both itself and a role in a mana curve.</p>
+<p>Its modern Elf Druid type line is especially efficient. Elf matters to tribal decks. Druid matters to cards built around mana creatures and creature types. Neither word is cosmetic. The card can be found, counted, untapped, enlarged, or converted by engines printed decades after Alpha.</p></section>
+<section id="forest"><div class="chapter-number">VIII · Dominaria</div><h2>The forest of Llanowar</h2>
+<p>Llanowar is one of Dominaria's defining locations: an immense forest divided among elven nations and defended with fierce hostility toward outsiders. Official setting guides describe its inhabitants as appearing only when they choose to be seen, often to the regret of trespassers.</p>
+<p>That lore gives the small card a sharper edge than its gentle mana ability suggests. The Elf is not a passive woodland helper. The recurring flavor of Llanowar emphasizes territorial defense, punishment, and a culture that treats the forest as a living nation.</p>
+<p>As Magic's settings multiplied, the card's specific place name became both a strength and a limitation. It was more flavorful than a generic mana creature, but less portable to core sets intended to avoid deep setting references. Later designs such as <span class="card-name" data-card="Elvish Mystic" tabindex="0">Elvish Mystic</span> could perform the same function anywhere. When Magic returned to Dominaria, however, Llanowar Elves was the more powerful symbol precisely because it belonged there.</p></section>
+<div class="art-break llanowar-art"><div class="art-caption"><b>Anson Maddocks's original Alpha artwork</b>The crouched figure and dense, dark forest make the card feel less like pastoral assistance than a guarded encounter with a people who control access to the land.</div></div>
+<section id="early"><div class="chapter-number">IX · Early constructed</div><h2>Green learns to begin early</h2>
+<p>Early green decks used mana creatures to escape the ordinary pace of lands. Large creatures and land-destruction spells were more attractive when cast a turn ahead. The Elf made green's central promise practical: accept the fragility of creatures in exchange for access to more mana than the opponent.</p>
+<p>The card also made low land counts possible. A deck could devote more slots to threats because four Llanowar Elves functioned as partial mana sources. This was never the same as adding four lands—the Elf required green mana, suffered summoning sickness, and died—but the expected acceleration changed how many expensive cards a deck could support.</p>
+<p>By the late 1990s, Llanowar Elves appeared across Stompy, Secret Force, land-destruction, multicolor green, and Elf strategies. Its role varied from fair curve support to the first component of a mana engine. Few cards demonstrated more clearly that green's creatures could be part of the mana base rather than merely the reason to build one.</p></section>
+<section id="fires"><div class="chapter-number">X · Invasion Standard</div><h2>Turn-two Fires</h2>
+<p><span class="card-name" data-card="Fires of Yavimaya" tabindex="0">Fires of Yavimaya</span> was a three-mana enchantment placed at the ideal point on the curve for Birds of Paradise and Llanowar Elves. Turn one accelerator, turn two Fires, turn three hasty <span class="card-name" data-card="Blastoderm" tabindex="0">Blastoderm</span> or <span class="card-name" data-card="Saproling Burst" tabindex="0">Saproling Burst</span> became one of the defining sequences of Invasion-era Standard.</p>
+<p>The Elf's contribution was not spectacular on its own. It made the enchantment arrive early enough that every later creature inherited the tempo lead. A Blastoderm cast on turn three attacked before a normal curve could have cast it at all. Saproling Burst converted stored counters into an immediate wave of hasty power.</p>
+<p>Zvi Mowshowitz's “My Fires” work became a celebrated study in deck construction. The eight one-mana accelerators were not filler around the famous cards. They were the probability engine that made the deck's best opening happen often enough to define a tournament.</p></section>
+<section id="glare"><div class="chapter-number">XI · Worlds 2005</div><h2>Creatures become control</h2>
+<p>Katsuhiro Mori's World Championship-winning Ghazi-Glare deck showed another life for Llanowar Elves. Early, it accelerated <span class="card-name" data-card="Loxodon Hierarch" tabindex="0">Loxodon Hierarch</span>, <span class="card-name" data-card="Kodama of the North Tree" tabindex="0">Kodama of the North Tree</span>, and <span class="card-name" data-card="Glare of Subdual" tabindex="0">Glare of Subdual</span>. Later, Glare turned every spare creature into the ability to tap an opposing artifact or creature.</p>
+<p>The Elf therefore moved through three jobs. It was a mana source, then a body, then a control resource. A late Llanowar Elves was no longer merely a weak topdeck when it could help suppress the opposing battlefield.</p>
+<p>This flexibility is central to creature-based acceleration. The strongest decks do not merely tolerate the 1/1 after the mana phase has ended. They transform it. Equipment, sacrifice outlets, convoke, Glare, Overrun effects, and tribal lords all turn the original investment into something new.</p></section>
+<section id="elfball"><div class="chapter-number">XII · Pro Tour Berlin</div><h2>From ramp to combo</h2>
+<p>In ordinary green decks, Llanowar Elves adds one mana per turn. In Elf combo, the type line becomes part of an engine capable of producing far more.</p>
+<p>Pro Tour Berlin 2008 was dominated by Elves decks built around <span class="card-name" data-card="Glimpse of Nature" tabindex="0">Glimpse of Nature</span>, <span class="card-name" data-card="Nettle Sentinel" tabindex="0">Nettle Sentinel</span>, <span class="card-name" data-card="Heritage Druid" tabindex="0">Heritage Druid</span>, <span class="card-name" data-card="Birchlore Rangers" tabindex="0">Birchlore Rangers</span>, and <span class="card-name" data-card="Wirewood Symbiote" tabindex="0">Wirewood Symbiote</span>. Llanowar Elves was no longer simply the accelerator that cast the engine. It was also an Elf to draw a card from Glimpse, a body to tap for Heritage Druid, a creature to return with Symbiote, and another permanent contributing to the deck's critical mass.</p>
+<p>Luis Scott-Vargas's list could build an enormous storm count and finish with <span class="card-name" data-card="Grapeshot" tabindex="0">Grapeshot</span>. The oldest fair mana creature in Magic had become a component of one of the most explosive creature-combo decks ever seen on the Pro Tour.</p>
+<div class="pullquote">The card did not acquire more rules text. The surrounding game learned how to read every part of the text it already had.<small>Elf combo and the power of type lines</small></div></section>
+<section id="absence"><div class="chapter-number">XIII · Core-set rotation</div><h2>Taking a breather</h2>
+<p>For years, Llanowar Elves was treated as a default component of core-set Magic. Its consistency eventually became a constraint. Mark Rosewater explained that allowing the card to “take a breather” created room for other designs that would otherwise be crowded out by the obvious one-mana accelerator.</p>
+<p>The card missed Eighth Edition, returned for Ninth and Tenth Editions and several core sets, then disappeared again as alternatives took its role. <span class="card-name" data-card="Elvish Mystic" tabindex="0">Elvish Mystic</span> provided the same rules text with a plane-neutral name. Other mana creatures added restrictions, bonuses, or different creature types.</p>
+<p>This absence demonstrates the effect of a baseline card on design. When Llanowar Elves is legal, every three-mana green card must be evaluated as a possible turn-two play. Removal must account for the tempo of killing it. Decks must decide whether they can exploit or survive the accelerated curve. Removing the Elf changes more than one slot in a set; it changes the speed at which green is allowed to operate.</p></section>
+<section id="return"><div class="chapter-number">XIV · Dominaria</div><h2>The return home</h2>
+<p>When Magic returned to Dominaria in 2018, designers considered which one-mana mana creature should enter Standard. Llanowar Elves won because it was both more iconic and more specifically Dominarian than a generic substitute.</p>
+<p>The return immediately changed Standard. Turn-two <span class="card-name" data-card="Steel Leaf Champion" tabindex="0">Steel Leaf Champion</span> became the visual shorthand: a 5/4 creature arriving before many decks had developed a credible blocker. The old card made the new set feel historically connected while proving that nostalgia could still reshape competitive pacing.</p>
+<p>The choice also clarified why proper names matter. Elvish Mystic is mechanically clean. Llanowar Elves carries a world, an art history, and twenty-five years of remembered openings. Reprinting it was not merely restoring a function. It was restoring a relationship between place and play.</p></section>
+<section id="formats"><div class="chapter-number">XV · The long life</div><h2>A life across formats</h2>
+<div class="format-strip"><div class="format-card"><span class="impact">Foundational</span><h3>Standard</h3><p>Whenever legal, it determines which three-drops can realistically arrive on turn two.</p></div><div class="format-card"><span class="impact">Established</span><h3>Pioneer and Historic</h3><p>Often paired with Elvish Mystic to create eight copies of the same opening.</p></div><div class="format-card"><span class="impact">Engine</span><h3>Elf formats</h3><p>Creature type and mana ability combine in combo, tribal, and collected-company shells.</p></div><div class="format-card"><span class="impact">Evergreen lesson</span><h3>Cube and Commander</h3><p>A model for green acceleration, especially when creature synergies reward the body.</p></div></div>
+<p>In Pioneer, Llanowar Elves and Elvish Mystic frequently appear together, giving green decks eight one-mana accelerators. The redundancy is strategically important: a deck built to exploit three mana on turn two wants the opening often enough to justify its higher curve.</p>
+<p>In Modern and Legacy, the card competes with more specialized options and faster interaction, but Elf decks still value the exact combination of cost, type, and output. In Commander, it lacks the explosive reputation of Sol Ring but often performs more coherently in green creature decks because it can be found, untapped, sacrificed, or enlarged as a creature.</p>
+<p>In Cube, it teaches a central drafting question: how much is a one-turn lead worth, and how many expensive payoffs can a deck support before its mana creatures become liabilities?</p></section>
+<section id="descendants"><div class="chapter-number">XVI · Design echo</div><h2>The one-mana family</h2>
+<p><span class="card-name" data-card="Fyndhorn Elves" tabindex="0">Fyndhorn Elves</span> is the earliest functional duplicate, carrying the same cost, size, and mana ability under an Ice Age name. <span class="card-name" data-card="Elvish Mystic" tabindex="0">Elvish Mystic</span> later provided the same game piece with wording suitable for any setting. Together, these cards allow formats with broad card pools to play eight or twelve versions of the basic effect.</p>
+<p>Other descendants modify the baseline. <span class="card-name" data-card="Elves of Deep Shadow" tabindex="0">Elves of Deep Shadow</span> produces black mana at a life cost. <span class="card-name" data-card="Avacyn&#x27;s Pilgrim" tabindex="0">Avacyn&#x27;s Pilgrim</span> produces white. <span class="card-name" data-card="Noble Hierarch" tabindex="0">Noble Hierarch</span> fixes multiple colors and grants exalted while losing the Elf type. <span class="card-name" data-card="Delighted Halfling" tabindex="0">Delighted Halfling</span> protects legendary spells. <span class="card-name" data-card="Arbor Elf" tabindex="0">Arbor Elf</span> untaps a Forest and can scale with land enchantments.</p>
+<p>Each variation reveals how efficient the original is. To improve it, designers often narrow the mana, change the body, add a condition, or attach the bonus to a specific deck. The baseline remains one green mana, one power, one toughness, and one green mana every turn.</p>
+<div class="inline-image mystic-descendant"><div class="image"></div><div class="copy"><div class="kicker">The plane-neutral duplicate</div><h3>Elvish Mystic</h3><p>Elvish Mystic preserves every mechanical element of Llanowar Elves while removing the proper noun. The difference is flavor rather than function—and that difference became decisive when Dominaria wanted its own Elf back.</p></div></div></section>
+<section id="art"><div class="chapter-number">XVII · The object</div><h2>The faces of Llanowar</h2>
+<p>Anson Maddocks's Alpha image is dark, earthy, and confrontational. The figure crouches among dense vegetation, with the forest appearing less like scenery than cover. It established Llanowar as a place that watches intruders.</p>
+<p>Later artworks have emphasized different aspects of the same identity: archers, scouts, druids, warriors, ritual, and the scale of the forest. The card's many reprints turned it into a visual history of how Magic depicts Elves—from early painted strangeness to cleaner fantasy heroism and modern world-building detail.</p>
+<p>The art has also had to solve a grammatical oddity. The name is plural, but a card illustration normally needs a focal subject. Some versions imply a group; others allow one Elf to stand for the nation. The game has never needed to resolve the abstraction because the plural name has become iconic.</p>
+<p>Flavor text has repeatedly reinforced the danger of trespassing in Llanowar. One of the card's best-known lines promises one broken bone for every twig snapped underfoot. The mana ability may be helpful to its controller, but the character of the forest is not welcoming.</p></section>
+<section id="memory"><div class="chapter-number">XVIII · The opening hand</div><h2>What players remember</h2>
+<p>Players remember the card as a sound and a sequence: Forest, tap, Llanowar Elves, go. The opponent's second turn begins under the knowledge that green may have three mana waiting.</p>
+<p>For the controller, the satisfaction is anticipation. The Elf is not the payoff; it is the visible promise of the payoff. A powerful three-drop in hand makes the tiny creature feel larger than its frame. For the opponent, the decision is immediate: kill it now, or save removal for the threat it will accelerate?</p>
+<p>That tension makes the card interactive even when nothing attacks. The Elf asks both players to value time. It asks whether a removal spell should be spent on a 1/1, whether a hand with few lands is trustworthy, whether a late topdeck can become an attacker, and whether the deck has enough high-impact plays to justify the risk.</p>
+<div class="memory"><div class="memory-grid"><blockquote>Forest. Llanowar Elves. Go.</blockquote><cite>One of Magic's oldest promises about the next turn</cite></div></div></section>
+<section id="decklists" class="deck-archive"><div class="chapter-number">XIX · The record</div><h2>The deck archive</h2><p class="deck-intro">These lists show Llanowar Elves moving through four strategic identities: fair acceleration, creature-based control, combo material, and redundant modern ramp.</p><details class="deck"><summary><span><strong>Zvi Mowshowitz — My Fires</strong><small>7th place · Pro Tour Chicago 2000 · Standard</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The iconic Pro Tour Chicago list in which eight one-mana accelerators made turn-two Fires of Yavimaya a defining opening.</p><button class="copy" data-target="llanowar-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blastoderm" tabindex="0">Blastoderm</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Jade Leech" tabindex="0">Jade Leech</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Two-Headed Dragon" tabindex="0">Two-Headed Dragon</span></div><h4>Other Spells · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chimeric Idol" tabindex="0">Chimeric Idol</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fires of Yavimaya" tabindex="0">Fires of Yavimaya</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Saproling Burst" tabindex="0">Saproling Burst</span></div></div><div class="deck-col"><h4>Instants and Sorceries · 5</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Assault // Battery" tabindex="0">Assault // Battery</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Earthquake" tabindex="0">Earthquake</span></div><h4>Lands · 25</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dust Bowl" tabindex="0">Dust Bowl</span></div><div class="row"><span class="qty">10</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Karplusan Forest" tabindex="0">Karplusan Forest</span></div><div class="row"><span class="qty">5</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Earthquake" tabindex="0">Earthquake</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flashfires" tabindex="0">Flashfires</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kavu Chameleon" tabindex="0">Kavu Chameleon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Obliterate" tabindex="0">Obliterate</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Reverent Silence" tabindex="0">Reverent Silence</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tangle" tabindex="0">Tangle</span></div></div></div><pre hidden id="llanowar-deck-0">Zvi Mowshowitz — My Fires
+7th place · Pro Tour Chicago 2000 · Standard
+
+Creatures · 18
+4 Birds of Paradise
+4 Blastoderm
+3 Jade Leech
+4 Llanowar Elves
+3 Two-Headed Dragon
+
+Instants and Sorceries · 5
+4 Assault // Battery
+1 Earthquake
+
+Other Spells · 12
+4 Chimeric Idol
+4 Fires of Yavimaya
+4 Saproling Burst
+
+Lands · 25
+2 Dust Bowl
+10 Forest
+4 Karplusan Forest
+5 Mountain
+4 Rishadan Port
+
+Sideboard · 15
+3 Earthquake
+3 Flashfires
+4 Kavu Chameleon
+1 Obliterate
+2 Reverent Silence
+2 Tangle</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/building-your-first-deck-2006-10-28">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Katsuhiro Mori — Ghazi-Glare</strong><small>World Champion · Worlds 2005 · Standard</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The 2005 World Champion used Llanowar Elves as both acceleration and a permanent that could later tap creatures through Glare of Subdual.</p><button class="copy" data-target="llanowar-deck-1">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 24</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Yosei, the Morning Star" tabindex="0">Yosei, the Morning Star</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Arashi, the Sky Asunder" tabindex="0">Arashi, the Sky Asunder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Selesnya Guildmage" tabindex="0">Selesnya Guildmage</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wood Elves" tabindex="0">Wood Elves</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Loxodon Hierarch" tabindex="0">Loxodon Hierarch</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Kodama of the North Tree" tabindex="0">Kodama of the North Tree</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div><h4>Spells · 7</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Congregation at Dawn" tabindex="0">Congregation at Dawn</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Glare of Subdual" tabindex="0">Glare of Subdual</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Seed Spark" tabindex="0">Seed Spark</span></div></div><div class="deck-col"><h4>Artifacts · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Umezawa&#x27;s Jitte" tabindex="0">Umezawa&#x27;s Jitte</span></div><h4>Lands · 23</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Vitu-Ghazi, the City-Tree" tabindex="0">Vitu-Ghazi, the City-Tree</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Selesnya Sanctuary" tabindex="0">Selesnya Sanctuary</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Okina, Temple to the Grandfathers" tabindex="0">Okina, Temple to the Grandfathers</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brushland" tabindex="0">Brushland</span></div><div class="row"><span class="qty">5</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Temple Garden" tabindex="0">Temple Garden</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Greater Good" tabindex="0">Greater Good</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kodama of the North Tree" tabindex="0">Kodama of the North Tree</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Naturalize" tabindex="0">Naturalize</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Carven Caryatid" tabindex="0">Carven Caryatid</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Seedborn Muse" tabindex="0">Seedborn Muse</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kodama&#x27;s Reach" tabindex="0">Kodama&#x27;s Reach</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Yosei, the Morning Star" tabindex="0">Yosei, the Morning Star</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Hokori, Dust Drinker" tabindex="0">Hokori, Dust Drinker</span></div></div></div><pre hidden id="llanowar-deck-1">Katsuhiro Mori — Ghazi-Glare
+World Champion · Worlds 2005 · Standard
+
+Creatures · 24
+2 Yosei, the Morning Star
+3 Arashi, the Sky Asunder
+1 Birds of Paradise
+4 Selesnya Guildmage
+4 Wood Elves
+4 Loxodon Hierarch
+3 Kodama of the North Tree
+3 Llanowar Elves
+
+Artifacts · 6
+3 Pithing Needle
+3 Umezawa&#x27;s Jitte
+
+Spells · 7
+2 Congregation at Dawn
+3 Glare of Subdual
+2 Seed Spark
+
+Lands · 23
+4 Vitu-Ghazi, the City-Tree
+4 Selesnya Sanctuary
+1 Okina, Temple to the Grandfathers
+4 Brushland
+5 Forest
+4 Temple Garden
+1 Plains
+
+Sideboard · 15
+2 Greater Good
+1 Kodama of the North Tree
+2 Naturalize
+2 Carven Caryatid
+1 Seedborn Muse
+1 Wrath of God
+1 Kodama&#x27;s Reach
+2 Yosei, the Morning Star
+3 Hokori, Dust Drinker</pre><p class="small">Source: <a href="https://magic.wizards.com/en/events/coverage/2005wc">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Luis Scott-Vargas — Elves!</strong><small>Pro Tour Berlin 2008 · Extended</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">An official Pro Tour Berlin deck-tech list showing Llanowar Elves inside the explosive Glimpse of Nature combo shell.</p><button class="copy" data-target="llanowar-deck-2">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 32</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Elves of Deep Shadow" tabindex="0">Elves of Deep Shadow</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Nettle Sentinel" tabindex="0">Nettle Sentinel</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Heritage Druid" tabindex="0">Heritage Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Birchlore Rangers" tabindex="0">Birchlore Rangers</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Elvish Visionary" tabindex="0">Elvish Visionary</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wirewood Symbiote" tabindex="0">Wirewood Symbiote</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Viridian Shaman" tabindex="0">Viridian Shaman</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Eternal Witness" tabindex="0">Eternal Witness</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regal Force" tabindex="0">Regal Force</span></div><h4>Lands · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gilt-Leaf Palace" tabindex="0">Gilt-Leaf Palace</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Overgrown Tomb" tabindex="0">Overgrown Tomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pendelhaven" tabindex="0">Pendelhaven</span></div><div class="row"><span class="qty">9</span><span class="card-name" data-card="Snow-Covered Forest" tabindex="0">Snow-Covered Forest</span></div></div><div class="deck-col"><h4>Spells · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Summoner&#x27;s Pact" tabindex="0">Summoner&#x27;s Pact</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Glimpse of Nature" tabindex="0">Glimpse of Nature</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Weird Harvest" tabindex="0">Weird Harvest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Grapeshot" tabindex="0">Grapeshot</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Umezawa&#x27;s Jitte" tabindex="0">Umezawa&#x27;s Jitte</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Viridian Shaman" tabindex="0">Viridian Shaman</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pendelhaven" tabindex="0">Pendelhaven</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mycoloth" tabindex="0">Mycoloth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nullmage Shepherd" tabindex="0">Nullmage Shepherd</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Thorn of Amethyst" tabindex="0">Thorn of Amethyst</span></div></div></div><pre hidden id="llanowar-deck-2">Luis Scott-Vargas — Elves!
+Pro Tour Berlin 2008 · Extended
+
+Creatures · 32
+4 Llanowar Elves
+4 Elves of Deep Shadow
+4 Nettle Sentinel
+4 Heritage Druid
+4 Birchlore Rangers
+4 Elvish Visionary
+4 Wirewood Symbiote
+2 Viridian Shaman
+1 Eternal Witness
+1 Regal Force
+
+Spells · 12
+4 Summoner&#x27;s Pact
+4 Glimpse of Nature
+3 Weird Harvest
+1 Grapeshot
+
+Lands · 16
+4 Gilt-Leaf Palace
+2 Overgrown Tomb
+1 Pendelhaven
+9 Snow-Covered Forest
+
+Sideboard · 15
+4 Umezawa&#x27;s Jitte
+4 Thoughtseize
+2 Viridian Shaman
+1 Pendelhaven
+1 Mycoloth
+1 Nullmage Shepherd
+2 Thorn of Amethyst</pre><p class="small">Source: <a href="https://www.youtube.com/watch?v=1fUF5CmDHCQ">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Gruul Stompy</strong><small>Pioneer Challenger Deck 2022 · Official product list</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The official Pioneer list pairs eight functional one-mana Elves to maximize the chance of a three-mana play on turn two.</p><button class="copy" data-target="llanowar-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Planeswalkers · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chandra, Torch of Defiance" tabindex="0">Chandra, Torch of Defiance</span></div><h4>Sorceries · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lovestruck Beast" tabindex="0">Lovestruck Beast</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mizzium Mortars" tabindex="0">Mizzium Mortars</span></div><h4>Lands · 25</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Karplusan Forest" tabindex="0">Karplusan Forest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Stomping Ground" tabindex="0">Stomping Ground</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rockfall Vale" tabindex="0">Rockfall Vale</span></div><div class="row"><span class="qty">7</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">9</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div></div><div class="deck-col"><h4>Creatures · 18</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Questing Beast" tabindex="0">Questing Beast</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Glorybringer" tabindex="0">Glorybringer</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scavenging Ooze" tabindex="0">Scavenging Ooze</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Elvish Mystic" tabindex="0">Elvish Mystic</span></div><h4>Instants · 7</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Bonecrusher Giant" tabindex="0">Bonecrusher Giant</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Abrade" tabindex="0">Abrade</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Abrade" tabindex="0">Abrade</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cindervines" tabindex="0">Cindervines</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Shifting Ceratops" tabindex="0">Shifting Ceratops</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Rending Volley" tabindex="0">Rending Volley</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flame-Blessed Bolt" tabindex="0">Flame-Blessed Bolt</span></div></div></div><pre hidden id="llanowar-deck-3">Gruul Stompy
+Pioneer Challenger Deck 2022 · Official product list
+
+Planeswalkers · 2
+2 Chandra, Torch of Defiance
+
+Creatures · 18
+2 Questing Beast
+4 Glorybringer
+4 Scavenging Ooze
+4 Llanowar Elves
+4 Elvish Mystic
+
+Sorceries · 8
+4 Lovestruck Beast
+4 Mizzium Mortars
+
+Instants · 7
+4 Bonecrusher Giant
+3 Abrade
+
+Lands · 25
+4 Karplusan Forest
+1 Stomping Ground
+4 Rockfall Vale
+7 Mountain
+9 Forest
+
+Sideboard · 15
+1 Abrade
+4 Cindervines
+3 Shifting Ceratops
+3 Rending Volley
+4 Flame-Blessed Bolt</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/announcements/pioneer-challenger-decks-2022-decklists-2022-09-29">open the historical record</a></p></div></details></section>
+<section id="printings"><div class="chapter-number">XX · The record</div><h2>Printings and sources</h2>
+<p>Llanowar Elves has appeared across early core sets, expansions and return sets tied to Dominaria, supplemental products, promotional treatments, and modern introductory releases. Its absences are as historically meaningful as its reprints because each removal allowed green's one-mana acceleration to be reconsidered.</p>
+<ul class="sources"><li><a href="https://magic.wizards.com/en/news/making-magic/when-bad-things-happen-good-cards-2002-07-29">Mark Rosewater, “When Bad Things Happen to Good Cards”</a><span>Why Llanowar Elves temporarily left the core set and how staple cards constrain design space.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/stories-dominaria-part-3-2018-04-30">Mark Rosewater, “Stories from Dominaria, Part 3”</a><span>The decision to return Llanowar Elves because it was more iconic and more specifically Dominarian.</span></li><li><a href="https://magic.wizards.com/en/news/feature/planeswalkers-guide-dominaria-2022-08-31">Planeswalker's Guide to Dominaria</a><span>Official setting material on Llanowar and its fiercely guarded elven nations.</span></li><li><a href="https://magic.wizards.com/en/news/feature/top-50-gold-cards-all-time-2009-05-18">Wizards, “Top 50 Gold Cards of All Time”</a><span>Discussion of why turn-two Fires of Yavimaya was enabled by Birds and Llanowar Elves.</span></li><li><a href="https://www.youtube.com/watch?v=1fUF5CmDHCQ">Magic: The Gathering, Pro Tour Berlin Elves deck tech</a><span>Luis Scott-Vargas's official extended Elf-combo decklist.</span></li><li><a href="https://magic.wizards.com/en/news/announcements/pioneer-challenger-decks-2022-decklists-2022-09-29">Pioneer Challenger Decks 2022</a><span>The official Gruul Stompy list pairing Llanowar Elves with Elvish Mystic.</span></li><li><a href="https://scryfall.com/card/lea/211/llanowar-elves">Scryfall card and printing record</a><span>Oracle wording, original printing, art credits, and printing history.</span></li></ul>
+<div class="end-nav"><a href="020-birds-of-paradise.html"><small>Previous entry</small>020 · Birds of Paradise</a><a href="022-serra-angel.html"><small>Next entry</small>022 · Serra Angel</a></div></section>
+</article><aside class="margin"><div class="margin-card"><div class="kicker">The baseline</div><h3>What one mana buys</h3><p>A 1/1 body, a repeatable green source, a tribal permanent, and the possibility of beginning every later turn one step ahead.</p></div><div class="margin-card"><div class="kicker">The risk</div><h3>Creature-based mana</h3><p>The deck gains speed but exposes part of its mana development to ordinary creature removal.</p></div></aside></div>
+<div class="card-preview" id="preview"><img alt="" id="preview-img"></div>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+   const max=root.scrollHeight-innerHeight;
+   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});progress();
+})();
+
+(function(){
+ const root=document.documentElement;
+ function progress(){
+  const max=root.scrollHeight-innerHeight;
+  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
+ }
+ addEventListener('scroll',progress,{passive:true});
+ progress();
+})();
+</script></body></html>
