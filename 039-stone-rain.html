@@ -1,0 +1,923 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Stone Rain: Alpha, the three-mana land-destruction benchmark, Ponza, Worlds 1999, Magnivore, Standard, Modern, Pauper, artwork, printings, and decklists."><title>Stone Rain: Three Mana Was the Rule — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+</style></head>
+<body><header class="hero stonerain-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-039#entry-039">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 039 · The Foundational Canon</div>
+<h1>Three Mana Was the Rule</h1>
+<p class="deckline">Stone Rain established the baseline for unconditional land destruction, shaped Ponza and Magnivore, and became the card every later attempt to attack mana had to explain.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 30 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="038-sinkhole.html">← Entry 038 · Sinkhole</a><div class="center">Entry 039 of 1,000</div><a href="index.html?focus=entry-040#entry-040">Entry 040 · Howling Mine →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">Three Mana Was the Rule</a>
+<a href="#alpha">Alpha’s ordinary catastrophe</a>
+<a href="#baseline">The benchmark effect</a>
+<a href="#tempo">A spell that attacks time</a>
+<a href="#rules">What Stone Rain actually does</a>
+<a href="#red">Why land destruction became red</a>
+<a href="#sinkhole">The shadow of Sinkhole</a>
+<a href="#ponza">How Ponza got its name</a>
+<a href="#worlds">The 1999 Worlds version</a>
+<a href="#magnivore">Magnivore and the sorcery engine</a>
+<a href="#standard">The Standard safety valve</a>
+<a href="#ninth">The last core-set years</a>
+<a href="#modern">Modern legality without Modern success</a>
+<a href="#pauper">Pauper and the surviving baseline</a>
+<a href="#commander">The multiplayer problem</a>
+<a href="#descendants">The descendants of Stone Rain</a>
+<a href="#art">Different visions of ruin</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Baseline</div><h2>Three Mana Was the Rule</h2>
+<p class="opening dropcap">Stone Rain was never the most powerful land-destruction spell in Magic. That distinction belonged to Sinkhole, Strip Mine, Wasteland, and the many cards capable of destroying several lands at once. Stone Rain mattered because it established what the effect was supposed to cost.</p>
+<p>For three mana, red could destroy any land. No restriction, no compensation, no condition, and no additional text. That sentence became one of the game’s foundational templates. Designers modified it with flashback, threshold, damage, cycling, creature bodies, color restrictions, and escalating costs, but the reference point remained visible underneath.</p>
+<p>Stone Rain was also one of the most emotionally divisive commons ever printed. To its controller it was tempo, color denial, and a disciplined plan. To its target it was the sensation of drawing spells while being denied the right to cast them. For more than a decade, that tension was considered ordinary enough for core sets.</p>
+<div class="card-lead"><img alt="Stone Rain from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Stone%20Rain&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Stone Rain</h3><p><b>{2}{R} · Sorcery</b></p><p>Destroy target land.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Daniel Gelon</div><div class="stat"><b>Original rarity</b>Common</div><div class="stat"><b>Historical role</b>The land-destruction benchmark</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Common</div><h2>Alpha’s ordinary catastrophe</h2>
+<p>Alpha treated land destruction as a normal component of play. Black received <span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span> at two mana. Green received <span class="card-name" data-card="Ice Storm" tabindex="0">Ice Storm</span> at three. Red received Stone Rain, the version whose color and cost would ultimately become the lasting template.</p>
+<p>Its common rarity was not incidental. Early Magic expected players to encounter land destruction frequently, build decks around it, and learn to respect mana development as something an opponent could attack directly. A land was not a protected prerequisite. It was a permanent like any other.</p>
+<p>Daniel Gelon’s original image reinforced the bluntness of the text. The spell did not require a named wizard or elaborate ritual. The sky opened and stone fell. The land was destroyed because destruction was what red did.</p>
+</section>
+
+<div class="pullquote">Sinkhole was the mistake. Stone Rain became the measurement.<small>Three mana as the historical rate for unconditional land destruction</small></div>
+
+<section id="baseline"><div class="chapter-number">III · The Template</div><h2>The benchmark effect</h2>
+<p>Mark Rosewater later used Stone Rain as the central example of a design “tweak”: a simple baseline card altered slightly to create new commons. Add flashback and it becomes <span class="card-name" data-card="Earth Rift" tabindex="0">Earth Rift</span>. Restrict the target and the spell may become cheaper. Add another effect and the cost rises. Change the card type and the entire play pattern shifts.</p>
+<p>This was Stone Rain’s greatest design contribution. Its text was so clean that every variation could be understood in relation to it. Players learned that three mana bought one land. Designers learned that every departure from that exchange needed a reason.</p>
+<p>The spell also established the difference between elegance and harmlessness. Stone Rain is among the easiest cards in Magic to read. The gameplay it creates can be among the hardest to tolerate.</p>
+</section>
+
+<section id="tempo"><div class="chapter-number">IV · The Missing Turn</div><h2>A spell that attacks time</h2>
+<p>Stone Rain is a one-for-one trade in cards, but not necessarily in turns. If the opponent has no replacement land, destroying the third land can prevent a four-mana spell on the following turn, then delay every larger spell after it.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">On curve</span><h3>Erase the next step</h3><p>A turn-three Stone Rain can keep the opponent from reaching four mana while the caster continues developing normally.</p></div>
+<div class="format-card"><span class="impact">With pressure</span><h3>Turn delay into damage</h3><p>Jackal Pup, Mogg Fanatic, Cursed Scroll, or Magnivore converts each missed development turn into a shorter clock.</p></div>
+<div class="format-card"><span class="impact">Against colors</span><h3>Break the mana base</h3><p>The best target may not be the largest land, but the only source that casts the opponent’s removal or stabilizing spell.</p></div>
+</div>
+<p>Without pressure, the spell can be underwhelming. The opponent may simply play another land and continue. Stone Rain decks therefore succeeded when they made the missing turn matter—through creatures, burn, repeated denial, or a later reset such as <span class="card-name" data-card="Wildfire" tabindex="0">Wildfire</span>.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">V · The Text</div><h2>What Stone Rain actually does</h2>
+<p>Stone Rain targets one land and destroys it when the spell resolves. It may target a basic land, nonbasic land, utility land, animated land, tapped land, or untapped land. If the target becomes illegal before resolution, the spell does not resolve.</p>
+<p>Indestructible lands survive. Regeneration does not apply because lands normally are not creatures, and even an animated land can regenerate only if an effect actually gives it that capability. Replacement effects may change where the destroyed card goes.</p>
+<div class="article-note"><b>The essential choice.</b> Stone Rain’s strategic difficulty is target selection, not rules complexity. The correct land may be a dual land, a utility land, the opponent’s only basic, or simply the land that keeps the next spell from being cast on schedule.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop')"><div class="art-caption"><b>Daniel Gelon’s original Stone Rain</b>The Alpha art presents land destruction as weather weaponized: ruin descending from above without negotiation, complexity, or warning.</div></div>
+
+<section id="red"><div class="chapter-number">VI · The Color</div><h2>Why land destruction became red</h2>
+<p>Early Magic distributed land destruction across black, red, and green. Over time, red became primary. The decision fit red’s philosophy and visual language: earthquakes, explosions, molten rock, war, and the refusal to respect permanent structures.</p>
+<p>Black remained secondary, usually through attrition, sacrifice, or effects carrying additional costs. Green could destroy noncreature permanents and punish unnatural lands, but unconditional land destruction became less central. Red retained the cleanest access.</p>
+<p>Stone Rain was the sentence that stabilized that identity. For years, a set could demonstrate that red still destroyed lands by printing either Stone Rain itself or a recognizable variation.</p>
+</section>
+
+<section id="sinkhole"><div class="chapter-number">VII · The Comparison</div><h2>The shadow of Sinkhole</h2>
+<p><span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span> costs one mana less and demands double black. That difference is enormous. Sinkhole can prevent the opponent from reaching three mana; Stone Rain usually begins operating only after both players have already developed.</p>
+<p>Yet Stone Rain became the safer and more reproducible card. Three mana gave the target more time to draw lands, deploy a threat, cast countermagic, or establish mana creatures. It preserved the possibility of a land-destruction strategy without making every early game hinge on whether the second land survived.</p>
+<p>The two cards illustrate different kinds of historical importance. Sinkhole became infamous because its rate was too efficient to repeat. Stone Rain became foundational because its rate was repeated for years.</p>
+</section>
+
+<section id="ponza"><div class="chapter-number">VIII · The Name</div><h2>How Ponza got its name</h2>
+<p>Ponza became Magic’s enduring nickname for red land-destruction decks. The original archetype is credited to Brian Kowal and Adrian Sullivan, and its name came from the Ponza Rotta, a deep-fried calzone associated with their Wisconsin play group.</p>
+<p>The food metaphor shaped descriptions of the deck: land destruction as sauce, burn as cheese, and creatures as meat. The joke endured because the strategy was easy to recognize even when the exact ingredients changed.</p>
+<p>Stone Rain was the most literal part of the recipe. <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> and later <span class="card-name" data-card="Avalanche Riders" tabindex="0">Avalanche Riders</span> expanded the denial package, while burn and creatures ensured the opponent could not recover indefinitely. Ponza did not need to destroy every land. It needed to destroy enough of them.</p>
+</section>
+
+<section id="worlds"><div class="chapter-number">IX · The Tournament</div><h2>The 1999 Worlds version</h2>
+<p>At the 1999 World Championship, Mark Le Pine and Jamie Parke’s Sped Red Ponza shell demonstrated how competitive land destruction could coexist with straightforward aggression. Jackal Pup and Mogg Fanatic began dealing damage before Stone Rain was cast. Wasteland, Pillage, and Avalanche Riders extended the denial. <span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span> gave the deck reach after its hand emptied.</p>
+<p>The list was not a prison deck. It did not seek a permanent state in which the opponent controlled no lands. It sought a race in which every destroyed land forced the opponent to spend another turn preparing instead of answering.</p>
+<p>Stone Rain’s role was therefore closer to a burn spell than a lock piece. The damage was indirect, but the lost turn frequently represented another attack and another activation.</p>
+</section>
+
+<section id="magnivore"><div class="chapter-number">X · The Engine</div><h2>Magnivore and the sorcery engine</h2>
+<p>The U/R Magnivore decks of 2006 gave Stone Rain a new job. The spell still delayed mana, but it also entered the graveyard as a sorcery, increasing the power and toughness of <span class="card-name" data-card="Magnivore" tabindex="0">Magnivore</span>.</p>
+<p><span class="card-name" data-card="Eye of Nowhere" tabindex="0">Eye of Nowhere</span> returned lands to hand. <span class="card-name" data-card="Demolish" tabindex="0">Demolish</span> added redundancy. <span class="card-name" data-card="Compulsive Research" tabindex="0">Compulsive Research</span> found additional action. <span class="card-name" data-card="Wildfire" tabindex="0">Wildfire</span> destroyed multiple lands and creatures while the hasty Magnivore often survived or returned as an enormous finisher.</p>
+<p>Nick Page’s Canadian Nationals Top 8 list shows the archetype after extensive refinement. Stone Rain remained the purest piece of the plan: no extra text, no dependency, just the tempo necessary to connect the early sorceries to the late Wildfire.</p>
+</section>
+
+<section id="standard"><div class="chapter-number">XI · The Safety Valve</div><h2>The Standard safety valve</h2>
+<p>For much of Magic’s history, Stone Rain acted as a check on ambitious mana bases. A Standard environment filled with slow multicolor lands, utility lands, or expensive spells had to consider the possibility that the third land would not remain in play.</p>
+<p>This pressure rewarded basic lands and lower curves. It also created sideboard plans in decks that were not dedicated land-destruction strategies. At the 2004 World Championship, red-green Goblin decks could transform after sideboarding with Stone Rain and <span class="card-name" data-card="Molten Rain" tabindex="0">Molten Rain</span> against opponents whose plans depended on expensive artifacts and carefully assembled mana.</p>
+<p>The effect was both healthy and dangerous. It punished greed, but it also punished ordinary players for keeping ordinary hands. As design priorities shifted toward games in which both players deployed their cards, Stone Rain began to disappear from premier Standard sets.</p>
+</section>
+
+<section id="ninth"><div class="chapter-number">XII · The Departure</div><h2>The last core-set years</h2>
+<p>Stone Rain survived through Ninth Edition and appeared again in Champions of Kamigawa. Its long core-set tenure made it feel evergreen even though land destruction itself was never a keyword mechanic.</p>
+<p>Its absence from Tenth Edition marked a philosophical change. Red still destroyed lands, but the clean three-mana version was no longer treated as a default tool Standard should always contain. New designs moved toward four mana, conditional targets, creature bodies, or effects that gave the opponent more time to recover.</p>
+<p>The card’s disappearance did not mean the text was misunderstood. It meant R&D had learned exactly what the text did to games and wanted that experience less frequently.</p>
+</section>
+
+<section id="modern"><div class="chapter-number">XIII · The Format</div><h2>Modern legality without Modern success</h2>
+<p>Stone Rain is legal in Modern, but the format rarely rewards the original card. Modern land-denial decks prefer acceleration into higher-impact effects such as <span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span>, <span class="card-name" data-card="Pillage" tabindex="0">Pillage</span>, <span class="card-name" data-card="Molten Rain" tabindex="0">Molten Rain</span>, <span class="card-name" data-card="Fulminator Mage" tabindex="0">Fulminator Mage</span>, or planeswalkers and creatures that advance the battlefield while disrupting mana.</p>
+<p>A three-mana sorcery that trades one-for-one can be too slow against combo and too narrow against low-curve aggression. Even when destroying a land is desirable, players often choose a card with additional utility.</p>
+<p>The irony is appropriate. Stone Rain defined the rate so completely that later cards could compete by offering something extra at nearly the same cost.</p>
+</section>
+
+<section id="pauper"><div class="chapter-number">XIV · The Common</div><h2>Pauper and the surviving baseline</h2>
+<p>Stone Rain remains legal in Pauper, unlike Sinkhole. The distinction demonstrates how much one mana matters. Three-mana land destruction can support strategies and sideboard plans without automatically deciding games before ordinary development begins.</p>
+<p>Pauper also contains <span class="card-name" data-card="Thermokarst" tabindex="0">Thermokarst</span>, <span class="card-name" data-card="Mwonvuli Acid-Moss" tabindex="0">Mwonvuli Acid-Moss</span>, <span class="card-name" data-card="Molten Rain" tabindex="0">Molten Rain</span>, and other variations. Stone Rain is not always the strongest choice, but it remains the cleanest. It asks whether unconditional access to any land is worth giving up damage, ramp, or another rider.</p>
+<p>At common, the card continues performing its original function: not dominating the format, but defining what the basic effect looks like.</p>
+</section>
+
+<section id="commander"><div class="chapter-number">XV · The Social Contract</div><h2>The multiplayer problem</h2>
+<p>In Commander, Stone Rain is legal and often strategically modest. Spending one card and three mana to remove one of three opponents’ ordinary lands usually leaves the caster behind in total resources.</p>
+<p>The social meaning can be larger than the tactical effect. Destroying a <span class="card-name" data-card="Gaea&#x27;s Cradle" tabindex="0">Gaea&#x27;s Cradle</span>, <span class="card-name" data-card="Cabal Coffers" tabindex="0">Cabal Coffers</span>, <span class="card-name" data-card="Field of the Dead" tabindex="0">Field of the Dead</span>, or combo land is ordinary interaction. Destroying a basic land on turn three may be interpreted as selecting one player not to participate.</p>
+<p>Stone Rain therefore became a useful example in Commander etiquette. The text is not inherently antisocial. Context determines whether the target is a dangerous engine or merely someone’s ability to play the game.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XVI · The Bloodline</div><h2>The descendants of Stone Rain</h2>
+<p>Few cards possess a clearer family tree. <span class="card-name" data-card="Molten Rain" tabindex="0">Molten Rain</span> adds damage against nonbasics. <span class="card-name" data-card="Pillage" tabindex="0">Pillage</span> can destroy an artifact. <span class="card-name" data-card="Rain of Tears" tabindex="0">Rain of Tears</span> moves the exact effect into black. <span class="card-name" data-card="Winter&#x27;s Grasp" tabindex="0">Winter&#x27;s Grasp</span> does the same in green. <span class="card-name" data-card="Demolish" tabindex="0">Demolish</span> broadens the target and raises the cost.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Avalanche%20Riders&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The creature descendant</div><h3>Avalanche Riders</h3><p><span class="card-name" data-card="Avalanche Riders" tabindex="0">Avalanche Riders</span> attached land destruction to a hasty creature. Echo made the body temporary unless additional mana was paid, but the card could attack, be reused, or create pressure in ways Stone Rain never could.</p></div></div>
+<p><span class="card-name" data-card="Mwonvuli Acid-Moss" tabindex="0">Mwonvuli Acid-Moss</span> combines destruction with ramp. <span class="card-name" data-card="Creeping Mold" tabindex="0">Creeping Mold</span> adds target flexibility. <span class="card-name" data-card="Fulminator Mage" tabindex="0">Fulminator Mage</span> can wait on the battlefield. <span class="card-name" data-card="Field of Ruin" tabindex="0">Field of Ruin</span> builds the interaction into a land and compensates the target.</p>
+<p>Every descendant answers the same design question: what must be added, restricted, or delayed to make land destruction useful without recreating the most frustrating games Stone Rain could produce?</p>
+</section>
+
+<section id="art"><div class="chapter-number">XVII · The Image</div><h2>Different visions of ruin</h2>
+<p>Daniel Gelon’s Alpha image is direct fantasy artillery: jagged stones falling through a hostile sky. Kaja Foglio’s Ice Age version places the destruction within a colder historical memory, supported by flavor text recalling Argoth’s submersion. Christopher Rush’s Tempest image turns the spell into a violent red storm over a doomed landscape.</p>
+<p>Tony Szczudlo’s Seventh Edition version emphasizes impact and scale, while Justin and Alexis Hernandez’s Strixhaven Mystical Archive treatment transforms the effect into a formal war spell preserved as magical scholarship.</p>
+<p>The visual history mirrors the design history. The words never changed, so each printing had to reinterpret what it means for the sky itself to become a weapon against the ground.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XVIII · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Historic Standard</span><h3>A recurring safety valve</h3><p>Stone Rain checked expensive curves and greedy mana bases from Alpha through the Ninth Edition era.</p></div>
+<div class="format-card"><span class="impact">Modern and Eternal</span><h3>Legal, rarely preferred</h3><p>More flexible denial and faster threats usually outcompete the original, though its text remains fully legal.</p></div>
+<div class="format-card"><span class="impact">Pauper</span><h3>The legal baseline</h3><p>Unlike Sinkhole, the three-mana version is accepted as a fair foundation for common-rarity land destruction.</p></div>
+</div>
+<p>In Cube and historical formats, Stone Rain’s inclusion is a philosophical choice. Supporting it means supporting a full archetype, because one isolated land-destruction spell rarely justifies the draft slot. When the package is present, the card recreates one of Magic’s oldest strategic arguments.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XIX · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The spell cost three mana. The turn it removed often cost much more.</blockquote><cite>Stone Rain’s historical power was measured in stranded cards, missed development, and the attack that arrived before the replacement land.</cite></div>
+<p>Players remember the sound of a third land being placed on the table and immediately moved to the graveyard. They remember holding Wrath of God, Serra Angel, or a splash-color answer that suddenly had no source. They remember sideboarding extra lands because a red opponent might not be trying to burn them at all.</p>
+<p>They also remember casting it and feeling clever rather than cruel: identifying the only blue source, sequencing Wasteland first, or turning a modest creature into a lethal clock by denying one crucial turn.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XX · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve three major lives of Stone Rain: the original Tempest-era Ponza recipe, the Sped Red Ponza shell that reached the 1999 World Championship Top 8, and the U/R Magnivore strategy that turned every destroyed land into a larger hasty finisher.</p>
+<div class="deck-archive"><details class="deck"><summary><span><strong>Brian Kowal and Adrian Sullivan — Original Ponza</strong><small>Tempest-era archetype list · documented 62/15 construction</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>The original Ponza list made Stone Rain the clean center of a deck that mixed land destruction with burn, utility creatures, Wasteland, and resilient threats. The name became larger than the exact list, but the card remained the archetype’s most recognizable verb.</p>
+<div class="deck-meta"><div><b>Brian Kowal and Adrian Sullivan — Original Ponza</b><div class="small">Tempest-era archetype list · documented 62/15 construction</div></div><button class="copy" data-target="original-ponza">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fireslinger" tabindex="0">Fireslinger</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Flowstone Giant" tabindex="0">Flowstone Giant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mogg Fanatic" tabindex="0">Mogg Fanatic</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Ogre Shaman" tabindex="0">Ogre Shaman</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Shard Phoenix" tabindex="0">Shard Phoenix</span></div></div><div class="group"><h4>Instants and Sorceries · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kindle" tabindex="0">Kindle</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Blast" tabindex="0">Lightning Blast</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Shock" tabindex="0">Shock</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stone Rain" tabindex="0">Stone Rain</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Seismic Assault" tabindex="0">Seismic Assault</span></div></div><div class="group"><h4>Lands · 27</h4><div class="row"><span class="qty">19</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stalking Stones" tabindex="0">Stalking Stones</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Boil" tabindex="0">Boil</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Seething Anger" tabindex="0">Seething Anger</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Shard Phoenix" tabindex="0">Shard Phoenix</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Torture Chamber" tabindex="0">Torture Chamber</span></div></div></div></div>
+<pre hidden id="original-ponza">Brian Kowal and Adrian Sullivan — Original Ponza
+Tempest-era archetype list · documented 62/15 construction
+
+Creatures · 17
+4 Fireslinger
+4 Flowstone Giant
+4 Mogg Fanatic
+2 Ogre Shaman
+3 Shard Phoenix
+
+Instants and Sorceries · 16
+4 Kindle
+4 Lightning Blast
+4 Shock
+4 Stone Rain
+
+Enchantments · 2
+2 Seismic Assault
+
+Lands · 27
+19 Mountain
+4 Stalking Stones
+4 Wasteland
+
+Sideboard · 15
+3 Ancient Tomb
+4 Boil
+4 Seething Anger
+1 Shard Phoenix
+3 Torture Chamber</pre></div></details><details class="deck"><summary><span><strong>Mark Le Pine and Jamie Parke — Sped Red Ponza</strong><small>World Championship 1999 Top 8 shell · documented 62/15 construction</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>The 1999 version sharpened the plan around cheap attackers, Cursed Scroll, Pillage, Avalanche Riders, Wasteland, and Stone Rain. It could win as an aggressive red deck, but its most punishing draws ensured the opponent never reached the mana needed to stabilize.</p>
+<div class="deck-meta"><div><b>Mark Le Pine and Jamie Parke — Sped Red Ponza</b><div class="small">World Championship 1999 Top 8 shell · documented 62/15 construction</div></div><button class="copy" data-target="worlds-1999-sped-red">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Jackal Pup" tabindex="0">Jackal Pup</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mogg Fanatic" tabindex="0">Mogg Fanatic</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Fireslinger" tabindex="0">Fireslinger</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Avalanche Riders" tabindex="0">Avalanche Riders</span></div></div><div class="group"><h4>Instants and Sorceries · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Shock" tabindex="0">Shock</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Arc Lightning" tabindex="0">Arc Lightning</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Hammer of Bogardan" tabindex="0">Hammer of Bogardan</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Pillage" tabindex="0">Pillage</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stone Rain" tabindex="0">Stone Rain</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Ghitu Encampment" tabindex="0">Ghitu Encampment</span></div>
+<div class="row"><span class="qty">16</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thran Foundry" tabindex="0">Thran Foundry</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireslinger" tabindex="0">Fireslinger</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Scald" tabindex="0">Scald</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Shattering Pulse" tabindex="0">Shattering Pulse</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Arc Lightning" tabindex="0">Arc Lightning</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Flowstone Flood" tabindex="0">Flowstone Flood</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Masticore" tabindex="0">Masticore</span></div></div></div></div>
+<pre hidden id="worlds-1999-sped-red">Mark Le Pine and Jamie Parke — Sped Red Ponza
+World Championship 1999 Top 8 shell · documented 62/15 construction
+
+Creatures · 15
+4 Jackal Pup
+4 Mogg Fanatic
+3 Fireslinger
+4 Avalanche Riders
+
+Instants and Sorceries · 19
+4 Shock
+4 Arc Lightning
+3 Hammer of Bogardan
+4 Pillage
+4 Stone Rain
+
+Artifacts · 4
+4 Cursed Scroll
+
+Lands · 24
+2 Ancient Tomb
+2 Ghitu Encampment
+16 Mountain
+4 Wasteland
+
+Sideboard · 15
+4 Thran Foundry
+1 Fireslinger
+4 Scald
+2 Shattering Pulse
+1 Arc Lightning
+1 Flowstone Flood
+2 Masticore</pre></div></details><details class="deck"><summary><span><strong>Nick Page — U/R Magnivore</strong><small>Canadian Nationals 2006 · Top 8 · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>Magnivore transformed Stone Rain from a simple trade into fuel. Every sorcery enlarged the namesake threat, Eye of Nowhere bought additional time, and Wildfire reset the battlefield after the opponent had already been pushed behind on mana.</p>
+<div class="deck-meta"><div><b>Nick Page — U/R Magnivore</b><div class="small">Canadian Nationals 2006 · Top 8 · 60/15</div></div><button class="copy" data-target="nick-page-magnivore">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Keiga, the Tide Star" tabindex="0">Keiga, the Tide Star</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Magnivore" tabindex="0">Magnivore</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Meloku the Clouded Mirror" tabindex="0">Meloku the Clouded Mirror</span></div></div><div class="group"><h4>Instants and Sorceries · 32</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Compulsive Research" tabindex="0">Compulsive Research</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Demolish" tabindex="0">Demolish</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Eye of Nowhere" tabindex="0">Eye of Nowhere</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sleight of Hand" tabindex="0">Sleight of Hand</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sowing Salt" tabindex="0">Sowing Salt</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stone Rain" tabindex="0">Stone Rain</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Tidings" tabindex="0">Tidings</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Wildfire" tabindex="0">Wildfire</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">6</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Izzet Boilerworks" tabindex="0">Izzet Boilerworks</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Minamo, School at Water&#x27;s Edge" tabindex="0">Minamo, School at Water&#x27;s Edge</span></div>
+<div class="row"><span class="qty">6</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Oboro, Palace in the Clouds" tabindex="0">Oboro, Palace in the Clouds</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Shivan Reef" tabindex="0">Shivan Reef</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Genju of the Spires" tabindex="0">Genju of the Spires</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Goblin Flectomancer" tabindex="0">Goblin Flectomancer</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Shattering Spree" tabindex="0">Shattering Spree</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Threads of Disloyalty" tabindex="0">Threads of Disloyalty</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Volcanic Hammer" tabindex="0">Volcanic Hammer</span></div></div></div></div>
+<pre hidden id="nick-page-magnivore">Nick Page — U/R Magnivore
+Canadian Nationals 2006 · Top 8 · 60/15
+
+Creatures · 5
+1 Keiga, the Tide Star
+3 Magnivore
+1 Meloku the Clouded Mirror
+
+Instants and Sorceries · 32
+4 Compulsive Research
+3 Demolish
+4 Eye of Nowhere
+3 Mana Leak
+3 Pyroclasm
+4 Sleight of Hand
+1 Sowing Salt
+4 Stone Rain
+3 Tidings
+3 Wildfire
+
+Lands · 23
+6 Island
+1 Izzet Boilerworks
+1 Minamo, School at Water&#x27;s Edge
+6 Mountain
+1 Oboro, Palace in the Clouds
+4 Shivan Reef
+4 Steam Vents
+
+Sideboard · 15
+1 Genju of the Spires
+3 Goblin Flectomancer
+2 Shattering Spree
+2 Spell Snare
+3 Threads of Disloyalty
+4 Volcanic Hammer</pre></div></details></div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXI · The Object</div><h2>Printings and sources</h2>
+<p>Stone Rain was one of Magic’s most frequently reprinted early commons. Daniel Gelon’s original art carried the card through the first core sets. Expansion and core-set versions repeatedly commissioned new landscapes of destruction, and the card later received a premium reimagining in the Strixhaven Mystical Archive.</p>
+<div class="printings">
+<figure class="printing"><img alt="Stone Rain from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Stone%20Rain&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Daniel Gelon · original printing</figcaption></figure>
+<figure class="printing"><img alt="Stone Rain from Ice Age" src="https://api.scryfall.com/cards/named?exact=Stone%20Rain&amp;set=ice&amp;format=image&amp;version=normal"><figcaption>Ice Age · 1995<br>Kaja Foglio · first expansion reinterpretation</figcaption></figure>
+<figure class="printing"><img alt="Stone Rain from Tempest" src="https://api.scryfall.com/cards/named?exact=Stone%20Rain&amp;set=tmp&amp;format=image&amp;version=normal"><figcaption>Tempest · 1997<br>Christopher Rush · the Ponza-era image</figcaption></figure>
+<figure class="printing"><img alt="Stone Rain from Strixhaven Mystical Archive" src="https://api.scryfall.com/cards/named?exact=Stone%20Rain&amp;set=sta&amp;format=image&amp;version=normal"><figcaption>Strixhaven Mystical Archive · 2021<br>Justin Hernandez and Alexis Hernandez</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/177/stone-rain">Scryfall — Stone Rain, Limited Edition Alpha</a><span>Card identity, collector number, Oracle text, original rarity, artist, current legality, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Stone%20Rain">Wizards of the Coast Gatherer — Stone Rain</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/tweak-review-2002-04-01">Mark Rosewater — Tweak in Review</a><span>Official design discussion using Stone Rain as the foundational template for land-destruction variations.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/acts-destruction-2014-08-11">Mark Rosewater — Acts of Destruction</a><span>Official color-pie account identifying red as primary in land destruction.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/the-original-ponza-deck/">The Original Ponza Deck</a><span>Documented Brian Kowal and Adrian Sullivan list, archetype attribution, and origin of the Ponza name.</span></li>
+<li><a href="https://scryfall.com/@applesauce/decks/57a19a54-a5fe-4ecb-b574-b132998bdf64">Mark Le Pine and Jamie Parke — 1999 Sped Red Ponza</a><span>World Championship-era decklist preserving the Stone Rain, Pillage, Avalanche Riders, and Wasteland package.</span></li>
+<li><a href="https://www.mtgtop8.com/event?d=601482&amp;e=54061">MTGTop8 — Nick Page, U/R Magnivore, Canadian Nationals 2006</a><span>Top 8 tournament list and event record.</span></li>
+<li><a href="https://mtg.wiki/page/2004_World_Championships/Standard_decks">2004 World Championships — Standard deck archive</a><span>Historical sideboard use of Stone Rain and Molten Rain as a transformational land-destruction plan.</span></li>
+<li><a href="https://scryfall.com/card/ice/217/stone-rain">Scryfall — Ice Age Stone Rain</a><span>Kaja Foglio artwork and printing reference.</span></li>
+<li><a href="https://scryfall.com/card/tmp/206/stone-rain">Scryfall — Tempest Stone Rain</a><span>Christopher Rush artwork, flavor text, and printing reference.</span></li>
+<li><a href="https://scryfall.com/card/sta/45/stone-rain">Scryfall — Strixhaven Mystical Archive Stone Rain</a><span>Modern premium printing and artist reference.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Stone+Rain%22&amp;unique=prints">Scryfall — Stone Rain printing search</a><span>Cross-set frames, artwork, dates, and artists.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> The two Ponza lists are preserved at their documented 62-card sizes rather than silently normalized. Nick Page’s Magnivore list is preserved as a conventional 60-card main deck with a 15-card sideboard.</div>
+<div class="end-nav"><a href="038-sinkhole.html"><small>Previous numbered entry</small>Sinkhole</a><a href="index.html?focus=entry-040#entry-040"><small>Next numbered entry</small>Howling Mine</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 039</b><br>Stone Rain made three mana the historical standard for destroying any land and gave red one of its clearest forms of resource denial.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
