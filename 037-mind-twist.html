@@ -1,0 +1,1070 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Mind Twist: Alpha, random discard, fast mana, The Deck, restriction, banning, Vintage, artwork, printings, decklists, and player memory."><title>Mind Twist: The Hand Was Gone — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+</style></head>
+<body><header class="hero mindtwist-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-037#entry-037">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 037 · The Foundational Canon</div>
+<h1>The Hand Was Gone</h1>
+<p class="deckline">Mind Twist turned mana into random subtraction, made card advantage feel terminal, and became the hand-destruction weapon at the heart of Magic’s first great control deck.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 31 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="036-channel.html">← Entry 036 · Channel</a><div class="center">Entry 037 of 1,000</div><a href="index.html?focus=entry-038#entry-038">Entry 038 · Sinkhole →</a></nav>
+<div class="article-shell">
+<nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Hand Was Gone</a>
+<a href="#alpha">Alpha’s scalable discard spell</a>
+<a href="#random">Why “at random” mattered</a>
+<a href="#math">The arithmetic of an empty hand</a>
+<a href="#rules">What Mind Twist actually does</a>
+<a href="#mana">Fast mana made it monstrous</a>
+<a href="#the-deck">The Deck’s decisive exchange</a>
+<a href="#sequence">From permission to helplessness</a>
+<a href="#restriction">The first restriction</a>
+<a href="#ban">The 1996 ban</a>
+<a href="#return">The long return to Vintage</a>
+<a href="#unrestricted">What happened when four copies returned</a>
+<a href="#legacy">Why Legacy still says no</a>
+<a href="#descendants">The descendants of mass discard</a>
+<a href="#art">Images of a mind breaking</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav>
+<article class="article">
+<section id="opening"><div class="chapter-number">I · The Erasure</div><h2>The Hand Was Gone</h2>
+<p class="opening dropcap">Mind Twist does not defeat an opponent’s creatures, reduce a life total, or place a permanent on the battlefield. It attacks the part of Magic where the next several turns are waiting to happen.</p>
+<p>A hand is possibility held in reserve. It contains lands not yet played, answers not yet needed, threats still protected from removal, and combinations that only become visible when their pieces are assembled. Mind Twist converts mana into subtraction and then lets chance decide which pieces disappear. When X is large enough, chance stops mattering. The hand was there; then the hand was gone.</p>
+<p>That is why the card became more than an efficient discard spell. It was an early lesson in how completely card advantage could dominate a game, a centerpiece of the first great control deck, and eventually a problem severe enough to move from unrestricted play to restriction, from restriction to prohibition, and—years later—back toward legality in the game’s most powerful format.</p>
+<div class="card-lead"><img alt="Mind Twist from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Mind%20Twist&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Mind Twist</h3><p><b>{X}{B} · Sorcery</b></p><p>Target player discards X cards at random.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Julie Baroh</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Mass discard and card advantage</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Variable</div><h2>Alpha’s scalable discard spell</h2>
+<p>Alpha introduced discard at several scales. <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span> threatened one random card at a time. <span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span> converted repeated activations into a slow constriction. <span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span> offered something more flexible and more dangerous: a single spell whose effect expanded with every additional mana invested.</p>
+<p>At the low end, the card could be clumsy. Paying two mana to make an opponent discard one card was hardly extraordinary. At X equals two, however, the exchange already favored the caster: one card spent to remove two. At X equals four or five, the spell ceased to feel like ordinary interaction. It became a one-card collapse of the opponent’s strategic inventory.</p>
+<p>That scaling was unusually permissive. There was no upper limit, no requirement that the opponent reveal a particular card type, and no compensation for the discarded cards. The only practical ceiling was mana—and Alpha had already printed the most explosive mana in the game.</p>
+</section>
+
+<div class="pullquote">Mind Twist did not merely trade for cards. It traded for turns the opponent would never get to play.<small>Card advantage converted into lost agency</small></div>
+
+<section id="random"><div class="chapter-number">III · The Cruelty</div><h2>Why “at random” mattered</h2>
+<p>Targeted discard gives the caster information and control. Random discard gives neither player certainty. That distinction makes a small Mind Twist volatile: it might take the irreplaceable answer, or it might remove the least important land. Yet randomness also denies the defending player the ability to protect the best cards by choosing what to lose.</p>
+<p>As X grows, the variance narrows. A Twist for one is a gamble. A Twist for three against a four-card hand is a near-total demolition. A Twist for the size of the hand removes the entire future regardless of order, quality, or hidden information. The randomness is most dramatic at the margins, but the card’s historical reputation came from casts large enough that the margin disappeared.</p>
+<p>The emotional effect was equally important. Destruction on the battlefield is visible and answerable. Cards in hand feel safe until a spell reaches across the table and removes them without ever allowing them to be cast. Mind Twist made hidden resources feel temporary.</p>
+</section>
+
+<section id="math"><div class="chapter-number">IV · The Exchange Rate</div><h2>The arithmetic of an empty hand</h2>
+<p>Mind Twist’s simplest accounting is severe. The caster spends one card. The target loses X. At X equals two, the caster is ahead one card. At X equals four, the caster has created a three-card advantage with a single spell. If the target had been saving specialized answers, the practical swing could be larger than the raw count suggests.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">X = 1</span><h3>An inefficient trade</h3><p>One spell removes one random card. The effect may be useful, but it does not generate raw card advantage.</p></div>
+<div class="format-card"><span class="impact">X = 2–3</span><h3>A decisive exchange</h3><p>The caster begins pulling ahead while disrupting the target’s land drops, answers, and sequencing.</p></div>
+<div class="format-card"><span class="impact">X = hand size</span><h3>A strategic reset</h3><p>The target is reduced to the battlefield and the top card of the library. Future planning ends immediately.</p></div>
+</div>
+<p>The spell is therefore both a curve card and a threshold card. Every additional mana matters, but the most meaningful point is the amount that empties the hand. Skilled play often meant waiting until the opponent had committed enough resources to the game to be vulnerable, but had not yet deployed the cards that mattered most.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">V · The Text</div><h2>What Mind Twist actually does</h2>
+<p>X is chosen while Mind Twist is cast, and its mana cost includes that chosen value. When the spell resolves, the targeted player discards that many cards at random. If the player has fewer than X cards, every card in that hand is discarded. A player may target themself, though competitive use has overwhelmingly pointed the spell across the table.</p>
+<p>Because the target is chosen, ordinary protection against being targeted can matter. If the target becomes illegal before resolution, the spell does not resolve. The random selection occurs only when the effect resolves; the caster does not inspect the hand and choose cards.</p>
+<div class="article-note"><b>Practical randomization.</b> In paper play, the target can shuffle the cards in hand face down while the required number is selected without revealing their identities. Tournament procedure should preserve both randomness and hidden information.</div>
+<p>The concise Oracle text conceals the central tension. The caster controls X but not the individual cards. The defender controls neither. The entire contest is displaced into timing, mana production, and whether the spell itself can be stopped.</p>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop')"><div class="art-caption"><b>Julie Baroh’s original Mind Twist</b>The image turns discard into psychic violence: the victim is not merely losing possessions but being physically reorganized by an external force.</div></div>
+
+<section id="mana"><div class="chapter-number">VI · The Acceleration</div><h2>Fast mana made it monstrous</h2>
+<p>Mind Twist is fairer when it follows ordinary land drops. It becomes something else when <span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span>, the Moxen, <span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span>, <span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span>, or a profitable <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span> compress several turns of mana into one.</p>
+<p>The nightmare opening was not simply an early discard spell. It was an early discard spell for nearly the opponent’s entire hand. Fast mana allowed the caster to spend temporary resources on a permanent advantage: artifacts and rituals became cards removed from the opponent, and those cards could never be recovered by waiting for the acceleration to wear off.</p>
+<p>This interaction exposed a recurring truth about X spells. Their printed rate assumes that mana arrives gradually. When mana arrives in bursts, an effect designed to scale smoothly can jump directly to its terminal state.</p>
+</section>
+
+<section id="the-deck"><div class="chapter-number">VII · The Architecture</div><h2>The Deck’s decisive exchange</h2>
+<p>Brian Weissman’s The Deck made card advantage an explicit organizing principle. It defended itself with <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> and <span class="card-name" data-card="Moat" tabindex="0">Moat</span>, drew additional cards with <span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span> and <span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span>, and attacked the opponent’s resources from the other direction with Mind Twist and <span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span>.</p>
+<p>In that structure, Mind Twist was not an all-in gamble. It was the conversion point between stabilization and inevitability. The Deck could trade one-for-one, survive, and accumulate mana until Twist became a one-for-many exchange. Once the opposing hand had been emptied, the slow machinery of control no longer faced meaningful resistance.</p>
+<p>Official retrospective writing on The Deck describes the spell precisely in those terms: a one-card exchange for many opposing cards, often found with <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span> and powered by Black Lotus or Mana Drain.</p>
+</section>
+
+<section id="sequence"><div class="chapter-number">VIII · The Lock</div><h2>From permission to helplessness</h2>
+<p>The most brutal Mind Twist was often not cast as soon as possible. Control players used removal and permission to establish a battlefield where the opponent needed the cards in hand to recover. Then the Twist arrived.</p>
+<div class="timeline">
+<div class="timeline-item"><time>First</time><h3>Survive the opening</h3><p>Trade efficiently, protect the life total, and prevent a fast permanent from ending the game before card advantage matters.</p></div>
+<div class="timeline-item"><time>Then</time><h3>Create the mana window</h3><p>Untap with artifact mana, resolve a Mana Drain, or tutor for the spell when the opponent cannot easily defend.</p></div>
+<div class="timeline-item"><time>Finally</time><h3>Remove the recovery</h3><p>Twist away the hand, then maintain the empty state with Disrupting Scepter while a small number of finishers close the game.</p></div>
+</div>
+<p>This sequence explains why the spell could feel more final in control than in a dedicated discard deck. The battlefield had already been neutralized. Mind Twist removed the only remaining zone from which the opponent could rebuild.</p>
+</section>
+
+<section id="restriction"><div class="chapter-number">IX · The First Answer</div><h2>The first restriction</h2>
+<p>Mind Twist was not included on Magic’s first restricted list. Early tournament players therefore discovered what four copies could do in decks containing unrestricted acceleration and little of the modern game’s redundancy or cheap card selection.</p>
+<p>By August 1994, Mind Twist had been restricted. The decision acknowledged that the problem was not simply a spectacular high roll. Multiple copies made the first Twist easier to find and later copies useful even after the opponent had begun rebuilding. Restriction preserved the card as a powerful singleton while preventing decks from organizing their entire early game around repeated mass discard.</p>
+<p>The restriction also helped define what “restricted” meant culturally. A restricted card was not merely efficient. It was a card whose presence in multiples changed the texture of games before the opponent had reasonable opportunities to respond.</p>
+</section>
+
+<section id="ban"><div class="chapter-number">X · The Prohibition</div><h2>The 1996 ban</h2>
+<p>Restriction did not end the controversy. In February 1996, Mind Twist moved from restricted to banned in both Type I and Type II. The ban removed even the singleton that had become a signature weapon of The Deck.</p>
+<p>The decision was unusual because Type I’s identity would eventually become the preservation of almost every card, with restriction preferred to outright prohibition. Mind Twist nevertheless spent years completely absent from the format. Its combination of fast mana, random discard, and enormous card advantage was considered damaging enough that one copy was still too many.</p>
+<p>The episode became part of the mythology of early competitive Magic: a card so closely tied to the first great control strategy that arguments over its legality became arguments over what the format itself should permit.</p>
+</section>
+
+<section id="return"><div class="chapter-number">XI · The Reconsideration</div><h2>The long return to Vintage</h2>
+<p>In 2000, Mind Twist returned to Type I as a restricted card. The environment that received it was radically different from the one that had banned it. Combo decks could win immediately, blue decks had accumulated more efficient card selection, and graveyards had become active resources rather than simple discard piles.</p>
+<p>The old play pattern remained powerful, but it no longer stood alone at the top of the format. A large Twist still punished a player holding counters and combo pieces, yet tapping mana for a sorcery could be dangerous against opponents capable of winning in response or rebuilding with a single draw engine.</p>
+<p>The card’s return showed how format power can change the meaning of an effect. Mind Twist had not become weaker in isolation. Vintage had become fast, redundant, and explosive enough to absorb it.</p>
+</section>
+
+<section id="unrestricted"><div class="chapter-number">XII · The Experiment</div><h2>What happened when four copies returned</h2>
+<p>In June 2007, Mind Twist was unrestricted in Vintage. The announcement invited players to revisit the nightmare of early Magic: four copies, artifact mana, and hands disappearing before the game had developed.</p>
+<p>The result was more interesting than a simple return to dominance. Multiple-copy Mind Twist decks appeared, and storm players explored additional copies in sideboards, but the card did not become a universal four-of. Vintage’s threats were too fast, its engines too concentrated, and its graveyard strategies too willing to see cards discarded.</p>
+<p>The contrast is central to Mind Twist’s history. In 1994, four copies helped define the danger. In 2007, four copies were legal and often unnecessary. The text had not changed; the ecosystem around it had.</p>
+</section>
+
+<section id="legacy"><div class="chapter-number">XIII · The Boundary</div><h2>Why Legacy still says no</h2>
+<p>Legacy does not contain the Power Nine, but it does contain <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span>, <span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span>, <span class="card-name" data-card="Chrome Mox" tabindex="0">Chrome Mox</span>, <span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span>, and many other ways to move ahead on mana. It also places a premium on carefully sculpted hands of efficient interaction.</p>
+<p>Mind Twist remains banned there. Without Vintage’s extreme speed and unrestricted artifact mana, a scalable random-discard spell could become a defining midgame weapon rather than a niche option. The Legacy ban preserves a boundary: discard may be efficient, but a single low-cost spell should not routinely erase every answer an opponent spent several turns assembling.</p>
+<p>That contrast produces the card’s strange modern status. Vintage allows four copies. Legacy allows none. Commander generally permits it, where multiplayer politics, higher life totals, and multiple opponents change both its power and its social meaning.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XIV · The Bloodline</div><h2>The descendants of mass discard</h2>
+<p>Modern Magic still allows players to attack hands, but it rarely repeats Mind Twist’s combination of low base cost, unlimited scaling, and random selection. Descendants introduce safeguards.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Mind%20Shatter&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">A safer descendant</div><h3>Mind Shatter</h3><p><span class="card-name" data-card="Mind Shatter" tabindex="0">Mind Shatter</span> preserved the variable random discard but raised the base cost to XBB. One additional black mana dramatically changed how early a hand could be attacked and how easily the spell could be splashed into fast-mana control shells.</p></div></div>
+<p><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span> fixed the number at two but retained random discard and became a defining Legacy card in its own right. <span class="card-name" data-card="Mind Sludge" tabindex="0">Mind Sludge</span> tied the effect to Swamps. <span class="card-name" data-card="Mind Shatter" tabindex="0">Mind Shatter</span> increased the colored cost. <span class="card-name" data-card="Rakdos&#x27;s Return" tabindex="0">Rakdos&#x27;s Return</span> added damage but required two colors and allowed the target to choose the cards discarded.</p>
+<p>The lineage demonstrates how designers separated the dangerous components. Scalable discard can exist. Random discard can exist. Efficient discard can exist. Putting all three together at XB is the part history rejected.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XV · The Image</div><h2>Images of a mind breaking</h2>
+<p>Julie Baroh’s original artwork is bodily and surreal. The victim appears pulled into an impossible curve, as though thought itself has become a material force capable of bending bone and perspective. The image does not depict forgotten information. It depicts psychic violation.</p>
+<p>Igor Kieryluk’s Amonkhet Invocation reframed the effect as monumental magic: a consciousness overwhelmed beneath a ritualized, divine architecture. John Di Giovanni’s Mystery Booster 2 interpretation returned to direct mental rupture in a Future Sight frame, linking an Alpha effect to Magic’s visual language of alternate possibility.</p>
+<p>Across the versions, the consistent idea is loss of internal order. The cards are discarded at random because the target’s mind is no longer under the target’s control.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XVI · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Vintage</span><h3>Legal in multiples</h3><p>Once banned and later restricted, Mind Twist has been unrestricted since 2007. It is powerful but no longer a defining universal staple.</p></div>
+<div class="format-card"><span class="impact">Legacy</span><h3>Still prohibited</h3><p>The format’s mana acceleration and hand-sculpting make scalable random discard a risk the banned list continues to exclude.</p></div>
+<div class="format-card"><span class="impact">Commander and Cube</span><h3>Power meets etiquette</h3><p>In cubes it is a classic reward for black control and ramp. In multiplayer, a large Twist may be legal yet politically explosive.</p></div>
+</div>
+<p>Old School formats vary by ruleset, with Mind Twist often restricted or banned according to local philosophy. That variation is appropriate for a card whose history is inseparable from arguments about how much early Magic a format should preserve.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XVII · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>“How many?” was the question. The game was often decided by the answer.</blockquote><cite>A recurring memory of early Mind Twist games: count the mana, count the cards, and learn whether a future still exists.</cite></div>
+<p>Players remember the physical ritual: the hand shuffled facedown, cards selected one by one, the hope that something essential survives. They remember Black Lotus becoming a discard spell rather than a threat. They remember topdecking after the entire plan had been removed.</p>
+<p>Most of all, they remember helplessness. Many famous cards create something spectacular. Mind Twist became famous for making possibilities disappear.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XVIII · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists show three distinct lives for Mind Twist: the decisive singleton in the architecture of The Deck, a retained control weapon in 2004 Keeper, and an unrestricted multi-copy sideboard experiment at the 2008 Vintage World Championship.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Brian Weissman — The Deck</strong><small>Historic control archetype · documented 60/15 list</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Mind Twist was not a decorative singleton here. The control shell accumulated mana, exchanged cards efficiently, then used Black Lotus, Mana Drain, or Demonic Tutor to turn a single sorcery into the moment the opponent stopped participating. Disrupting Scepter finished the work one card at a time.</p>
+<div class="deck-meta"><div><b>Brian Weissman — The Deck</b><div class="small">Historic control archetype · documented 60/15 list</div></div><button class="copy" data-target="weissman-mind-twist">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod&#x27;s Crypt" tabindex="0">Tormod&#x27;s Crypt</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div></div>
+<pre hidden id="weissman-mind-twist">Brian Weissman — The Deck
+Historic control archetype · documented 60/15 list
+
+Creatures · 2
+2 Serra Angel
+
+Sorceries · 7
+1 Time Walk
+1 Timetwister
+1 Braingeyser
+1 Recall
+1 Demonic Tutor
+1 Mind Twist
+1 Regrowth
+
+Instants · 17
+4 Mana Drain
+2 Counterspell
+1 Ancestral Recall
+4 Disenchant
+4 Swords to Plowshares
+2 Red Elemental Blast
+
+Artifacts · 11
+2 Disrupting Scepter
+1 Jayemdae Tome
+1 Ivory Tower
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Jet
+1 Mox Sapphire
+1 Mox Emerald
+1 Black Lotus
+1 Sol Ring
+
+Enchantments · 2
+2 Moat
+
+Lands · 21
+2 Strip Mine
+1 Library of Alexandria
+3 City of Brass
+1 Plateau
+1 Underground Sea
+2 Volcanic Island
+4 Tundra
+3 Plains
+4 Island
+
+Sideboard · 15
+1 Plains
+1 Counterspell
+1 Moat
+1 Disrupting Scepter
+1 Jayemdae Tome
+1 Tormod&#x27;s Crypt
+2 Control Magic
+2 Blood Moon
+3 Circle of Protection: Red
+2 Divine Offering</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Mike Panas — Keeper</strong><small>SCG Power Nine Tournament, Virginia · 1st place · 2004</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Nearly a decade after The Deck, Keeper still used Mind Twist as the perfect bridge from control to inevitability. Mana Drain and artifact acceleration made large values of X realistic, while Cunning Wish and compact win conditions allowed the deck to devote most of its space to interaction.</p>
+<div class="deck-meta"><div><b>Mike Panas — Keeper</b><div class="small">SCG Power Nine Tournament, Virginia · 1st place · 2004</div></div><button class="copy" data-target="panas-keeper">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 3</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Exalted Angel" tabindex="0">Exalted Angel</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Gorilla Shaman" tabindex="0">Gorilla Shaman</span></div></div><div class="group"><h4>Instants and Sorceries · 31</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Decree of Justice" tabindex="0">Decree of Justice</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Fire // Ice" tabindex="0">Fire // Ice</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Skeletal Scrying" tabindex="0">Skeletal Scrying</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth&#x27;s Will" tabindex="0">Yawgmoth&#x27;s Will</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Coffin Purge" tabindex="0">Coffin Purge</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Damping Matrix" tabindex="0">Damping Matrix</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Flametongue Kavu" tabindex="0">Flametongue Kavu</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Gorilla Shaman" tabindex="0">Gorilla Shaman</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Rack and Ruin" tabindex="0">Rack and Ruin</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Skeletal Scrying" tabindex="0">Skeletal Scrying</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div></div></div></div>
+<pre hidden id="panas-keeper">Mike Panas — Keeper
+SCG Power Nine Tournament, Virginia · 1st place · 2004
+
+Creatures · 3
+2 Exalted Angel
+1 Gorilla Shaman
+
+Instants and Sorceries · 31
+1 Ancestral Recall
+1 Balance
+4 Brainstorm
+3 Cunning Wish
+2 Decree of Justice
+1 Demonic Tutor
+1 Fact or Fiction
+2 Fire // Ice
+4 Force of Will
+4 Mana Drain
+1 Mind Twist
+1 Mystical Tutor
+2 Skeletal Scrying
+2 Swords to Plowshares
+1 Time Walk
+1 Yawgmoth&#x27;s Will
+
+Artifacts · 6
+1 Black Lotus
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+
+Lands · 20
+2 City of Brass
+1 Flooded Strand
+1 Island
+1 Library of Alexandria
+3 Polluted Delta
+1 Strip Mine
+3 Tundra
+3 Underground Sea
+2 Volcanic Island
+3 Wasteland
+
+Sideboard · 15
+1 Blue Elemental Blast
+1 Coffin Purge
+1 Damping Matrix
+1 Disenchant
+1 Flametongue Kavu
+1 Gorilla Shaman
+1 Gush
+2 Rack and Ruin
+3 Red Elemental Blast
+1 Skeletal Scrying
+1 Swords to Plowshares
+1 Vampiric Tutor</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Tommy Kolowith — The Perfect Storm</strong><small>Vintage World Championship · 4th place · 2008</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>After Mind Twist became unrestricted in Vintage, storm players experimented with multiple copies as a post-board transformation. Three sideboard Twists could punish slower blue decks that kept reactive hands, replacing the race to Tendrils with a brutal attack on every answer at once.</p>
+<div class="deck-meta"><div><b>Tommy Kolowith — The Perfect Storm</b><div class="small">Vintage World Championship · 4th place · 2008</div></div><button class="copy" data-target="kolowith-tps">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Instants and Sorceries · 36</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Cabal Ritual" tabindex="0">Cabal Ritual</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Gifts Ungiven" tabindex="0">Gifts Ungiven</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Grim Tutor" tabindex="0">Grim Tutor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Imperial Seal" tabindex="0">Imperial Seal</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind&#x27;s Desire" tabindex="0">Mind&#x27;s Desire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Rebuild" tabindex="0">Rebuild</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Tendrils of Agony" tabindex="0">Tendrils of Agony</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth&#x27;s Will" tabindex="0">Yawgmoth&#x27;s Will</span></div></div></div><div class="deck-col"><div class="group"><h4>Other spells · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth&#x27;s Bargain" tabindex="0">Yawgmoth&#x27;s Bargain</span></div></div><div class="group"><h4>Lands · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Darksteel Colossus" tabindex="0">Darksteel Colossus</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Extirpate" tabindex="0">Extirpate</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Hurkyl&#x27;s Recall" tabindex="0">Hurkyl&#x27;s Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Massacre" tabindex="0">Massacre</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Memory Jar" tabindex="0">Memory Jar</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Tinker" tabindex="0">Tinker</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Tormod&#x27;s Crypt" tabindex="0">Tormod&#x27;s Crypt</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wipe Away" tabindex="0">Wipe Away</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div></div></div>
+<pre hidden id="kolowith-tps">Tommy Kolowith — The Perfect Storm
+Vintage World Championship · 4th place · 2008
+
+Instants and Sorceries · 36
+1 Ancestral Recall
+1 Brainstorm
+3 Cabal Ritual
+1 Chain of Vapor
+4 Dark Ritual
+1 Demonic Tutor
+4 Duress
+1 Fact or Fiction
+4 Force of Will
+1 Gifts Ungiven
+2 Grim Tutor
+1 Imperial Seal
+1 Merchant Scroll
+1 Mind&#x27;s Desire
+1 Misdirection
+1 Mystical Tutor
+1 Ponder
+1 Rebuild
+2 Tendrils of Agony
+1 Time Walk
+1 Timetwister
+1 Vampiric Tutor
+1 Yawgmoth&#x27;s Will
+
+Other spells · 12
+1 Black Lotus
+1 Lotus Petal
+1 Mana Crypt
+1 Mana Vault
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Necropotence
+1 Sol Ring
+1 Yawgmoth&#x27;s Bargain
+
+Lands · 12
+1 Flooded Strand
+2 Island
+4 Polluted Delta
+2 Swamp
+3 Underground Sea
+
+Sideboard · 15
+1 Darksteel Colossus
+2 Extirpate
+2 Hurkyl&#x27;s Recall
+1 Massacre
+1 Memory Jar
+3 Mind Twist
+1 Tinker
+2 Tormod&#x27;s Crypt
+1 Wipe Away
+1 Yixlid Jailer</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XIX · The Object</div><h2>Printings and sources</h2>
+<p>Mind Twist’s printing history is unusually sparse for an Alpha card of such fame. Julie Baroh’s original artwork carried the card through the early core sets, ending with Fourth Edition. The card then spent more than two decades outside ordinary booster products before receiving an Amonkhet Invocation and, later, a Future Sight-frame return in Mystery Booster 2.</p>
+<div class="printings">
+<figure class="printing"><img alt="Mind Twist from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Mind%20Twist&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Julie Baroh · original printing</figcaption></figure>
+<figure class="printing"><img alt="Mind Twist from Fourth Edition" src="https://api.scryfall.com/cards/named?exact=Mind%20Twist&amp;set=4ed&amp;format=image&amp;version=normal"><figcaption>Fourth Edition · 1995<br>Julie Baroh · final early core-set printing</figcaption></figure>
+<figure class="printing"><img alt="Mind Twist from Amonkhet Invocations" src="https://api.scryfall.com/cards/named?exact=Mind%20Twist&amp;set=mp2&amp;format=image&amp;version=normal"><figcaption>Amonkhet Invocations · 2017<br>Igor Kieryluk · monumental reinterpretation</figcaption></figure>
+<figure class="printing"><img alt="Mind Twist from Mystery Booster 2" src="https://api.scryfall.com/cards/named?exact=Mind%20Twist&amp;set=mb2&amp;format=image&amp;version=normal"><figcaption>Mystery Booster 2 · 2024<br>John Di Giovanni · Future Sight treatment</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/115/mind-twist">Scryfall — Mind Twist, Limited Edition Alpha</a><span>Card identity, original printing, Oracle text, artist, rarity, rulings, and legality reference.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Mind%20Twist">Wizards of the Coast Gatherer — Mind Twist</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">Wizards of the Coast — The Deck</a><span>Official retrospective, Brian Weissman quotation, complete decklist, and explanation of Mind Twist’s role in the first great card-advantage control strategy.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/danger-will-robinson-2003-03-17">Wizards of the Coast — Danger, Will Robinson</a><span>Design discussion identifying mass discard as the destructive mirror of mass card drawing.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/twenty-things-were-going-kill-magic-2013-08-05">Wizards of the Coast — Twenty Things That Were Going to Kill Magic</a><span>Official history of the creation of Magic’s banned and restricted list.</span></li>
+<li><a href="https://www.eternalcentral.com/history-of-vintage-schools-of-magic-an-alternative-history-of-the-banned-and-restricted-list/">Eternal Central — History of Vintage and the Banned/Restricted List</a><span>Detailed historical chronology and contemporary context for Mind Twist’s restriction, 1996 ban, and later return.</span></li>
+<li><a href="https://articles.starcitygames.com/articles/so-many-insane-plays-figures-dont-lie-but-liars-figure-a-vintage-metagame-report/">Star City Games — Vintage Metagame Report after the 2007 unrestriction</a><span>Contemporary record of Mind Twist’s unrestriction and its limited but notable multi-copy adoption.</span></li>
+<li><a href="https://www.mtgtop8.com/event?e=50933&amp;f=VI">MTGTop8 — Mike Panas, Keeper, 2004 SCG Power Nine Tournament</a><span>First-place decklist and event record.</span></li>
+<li><a href="https://www.mtgtop8.com/event?d=124483&amp;e=381&amp;f=VI">MTGTop8 — Tommy Kolowith, The Perfect Storm, 2008 Vintage World Championship</a><span>Fourth-place decklist containing three sideboard copies of Mind Twist.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Current Banned and Restricted Lists</a><span>Current Vintage and Legacy status.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/the-nonsense-files-designing-mystery-booster-2-for-draft">Wizards of the Coast — Designing Mystery Booster 2 for Draft</a><span>Official discussion of Mind Twist’s inclusion in Mystery Booster 2.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Mind+Twist%22&amp;unique=prints">Scryfall — Mind Twist printing search</a><span>Cross-set frame, artwork, date, and artist reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> The decklists are preserved as documented historical artifacts. The Deck list follows Wizards’ official retrospective; the 2004 and 2008 lists follow archived tournament records.</div>
+<div class="end-nav"><a href="036-channel.html"><small>Previous numbered entry</small>Channel</a><a href="index.html?focus=entry-038#entry-038"><small>Next numbered entry</small>Sinkhole</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 037</b><br>Mind Twist transformed fast mana into missing cards and made the opponent’s hand the most vulnerable zone in early competitive Magic.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
