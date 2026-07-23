@@ -1,0 +1,901 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Memnarch: Darksteel, Mirrodin lore, permanent theft, Blue Urzatron, the 2005 U.S. National Championship, Commander, artwork, printings, and player memory."><title>Memnarch: The Machine That Could Make Everything His — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.ritual-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.hero.ritual-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important
+}
+.art-break.ritual-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.cabal-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Cabal%20Ritual&format=image&version=art_crop)!important
+}
+.exchange-grid,.opening-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.opening-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.exchange-step,.opening-step{background:var(--white);padding:23px}
+.exchange-step b,.opening-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.exchange-step span,.opening-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.ritual-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.ritual-note b{color:var(--ink)}
+.mana-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mana-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.mana-row:last-child{border-bottom:0}.mana-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mana-row p{margin:0}
+@media(max-width:750px){.exchange-grid,.opening-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.exchange-grid,.opening-grid{grid-template-columns:1fr}}
+
+
+.swords-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.hero.swords-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.art-break.swords-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.path-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Path%20to%20Exile&format=image&version=art_crop)!important
+}
+.trade-grid,.answer-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.trade-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.answer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.trade-step,.answer-step{background:var(--white);padding:23px}
+.trade-step b,.answer-step b{
+  display:block;font:900 1.95rem/1.03 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px
+}
+.trade-step span,.answer-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.swords-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.swords-note b{color:var(--ink)}
+.resolution-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.resolution-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.resolution-row:last-child{border-bottom:0}.resolution-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.resolution-row p{margin:0}
+@media(max-width:750px){.trade-grid,.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.trade-grid,.answer-grid{grid-template-columns:1fr}}
+
+
+.spelljack-art{
+  background-image:url(https://api.scryfall.com/cards/jud/51?format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.hero.spelljack-art:before{
+  background-image:url(https://api.scryfall.com/cards/jud/51?format=image&version=art_crop)!important;
+  background-position:center 34%!important
+}
+.art-break.spelljack-art{
+  background-image:url(https://api.scryfall.com/cards/jud/51?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/jud/51?format=image&version=art_crop)!important}
+.honorable-badge{
+  display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(216,184,120,.48);
+  border-radius:999px;padding:6px 11px;margin:0 0 14px;background:rgba(5,10,10,.34);
+  color:#edd9ad;font:900 .7rem/1 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em
+}
+.value-grid,.rules-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.value-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.rules-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.value-step,.rules-step{background:var(--white);padding:23px}
+.value-step b,.rules-step b{display:block;font:900 1.8rem/1.05 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.value-step span,.rules-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.spelljack-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.spelljack-note b{color:var(--ink)}
+.context-label{
+  display:inline-block;margin-left:8px;border:1px solid var(--line);border-radius:999px;
+  padding:3px 7px;color:var(--rust);font:900 .61rem/1 Inter,system-ui,sans-serif;
+  text-transform:uppercase;letter-spacing:.08em;vertical-align:middle
+}
+@media(max-width:750px){.value-grid,.rules-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.value-grid,.rules-grid{grid-template-columns:1fr}}
+
+
+
+.browbeat-art{
+  background-image:url(https://api.scryfall.com/cards/jud/82?format=image&version=art_crop)!important;
+  background-position:center 35%!important
+}
+.hero.browbeat-art:before{
+  background-image:url(https://api.scryfall.com/cards/jud/82?format=image&version=art_crop)!important;
+  background-position:center 35%!important
+}
+.art-break.browbeat-art{
+  background-image:url(https://api.scryfall.com/cards/jud/82?format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/jud/82?format=image&version=art_crop)!important}
+.choice-grid,.threshold-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.choice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.threshold-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.choice-step,.threshold-step{background:var(--white);padding:24px}
+.choice-step b,.threshold-step b{display:block;font:900 1.75rem/1.08 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.choice-step span,.threshold-step span{font:13px/1.55 Inter,system-ui,sans-serif;color:var(--muted)}
+.browbeat-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.browbeat-note b{color:var(--ink)}
+.decision-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.decision-row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.decision-row:last-child{border-bottom:0}.decision-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.decision-row p{margin:0}
+@media(max-width:750px){.choice-grid,.threshold-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.choice-grid,.threshold-grid{grid-template-columns:1fr}.decision-row{grid-template-columns:1fr;gap:5px}}
+
+</style>
+<style>
+.hero.memnarch-art:before,.memnarch-art{background-image:url(https://api.scryfall.com/cards/named?exact=Memnarch&set=dst&format=image&version=art_crop)!important}
+.art-break.memnarch-art{background-position:center 28%!important}
+.myr-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Urtet%2C%20Remnant%20of%20Memnarch&format=image&version=art_crop)!important}
+.control-chain{width:min(980px,calc(100vw - 32px));margin:32px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.control-step{background:var(--white);padding:22px}.control-step b{display:block;font:900 1.3rem/1.12 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}.control-step span{font:13px/1.55 Inter,system-ui,sans-serif;color:var(--muted)}
+.mana-ledger{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:30px 0}.mana-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}.mana-row:last-child{border-bottom:0}.mana-row strong{font:900 .72rem/1.35 Inter,system-ui,sans-serif;color:var(--rust);text-transform:uppercase;letter-spacing:.12em}.mana-row p{margin:0}
+.memnarch-note{border-left:4px solid var(--teal);background:rgba(103,155,145,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}.memnarch-note b{color:var(--ink)}
+@media(max-width:750px){.control-chain{width:100%;margin-left:0;grid-template-columns:1fr 1fr}.mana-row{grid-template-columns:1fr;gap:5px}}
+@media(max-width:480px){.control-chain{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero memnarch-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#honorable-memnarch">← Honorable Mentions</a>
+<div class="honorable-badge">Beyond the Thousand · Honorable Mention 003</div>
+<div class="eyebrow">Darksteel · 2004</div>
+<h1>The Machine That Could Make Everything His</h1>
+<p class="deckline">Memnarch turned blue control into an act of annexation: first redefine the world as machinery, then claim the machinery permanently.</p>
+<div class="byline"><span>A Compulsive Research honorable mention</span><span>·</span><span>Darksteel, 2004</span><span class="pill">Approximately 26 minute read</span></div>
+</div></header>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The machine that could make everything his</a><a href="#darksteel">Darksteel and the wrong kind of terrifying</a><a href="#warden">The Warden of Argentum</a><a href="#two-step">Turn it to metal, then take it</a><a href="#permanent">The theft that does not expire</a><a href="#mana">The price of absolute ownership</a><a href="#first-year">Why 2004 passed it by</a><a href="#tron">The deck that finally paid the bill</a><a href="#nationals">U.S. Nationals 2005</a><a href="#shackles">The finals became a rules lesson</a><a href="#commander">A colorless card with a blue command zone</a><a href="#politics">The commander that announces the threat</a><a href="#engines">Mana, untapping, and the industrial engine</a><a href="#lattice">When everything is already an artifact</a><a href="#descendants">The machines that followed</a><a href="#art">Carl Critchlow and the body of a tyrant</a><a href="#memory">What players remember</a><a href="#honorable">Why it belongs here</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
+
+<section id="opening"><div class="chapter-number">I · The sovereign</div><h2>The machine that could make everything his</h2>
+<p class="opening dropcap">Memnarch does not destroy the opponent's best permanent. It does not copy it, borrow it for a turn, or merely prevent it from functioning. It changes the permanent's nature and then declares ownership.</p>
+<p>The card is a seven-mana 4/5, an unremarkable body for its price even by the standards of 2004. Its importance begins beneath the power and toughness box. For {1}{U}{U}, any permanent becomes an artifact in addition to its other types. For {3}{U}, Memnarch gains control of an artifact. Neither effect expires. Given enough blue mana, creatures, lands, enchantments, planeswalkers, and opposing mana rocks all become parts of the same expanding machine.</p>
+<div class="card-lead"><img alt="Memnarch from Darksteel" src="https://api.scryfall.com/cards/dst/129?format=image&version=normal"><div><div class="oracle"><b>Memnarch</b> · {7}<br>Legendary Artifact Creature — Wizard<br><br>{1}{U}{U}: Target permanent becomes an artifact in addition to its other types. (This effect lasts indefinitely.)<br><br>{3}{U}: Gain control of target artifact. (This effect lasts indefinitely.)<br><br>4/5</div><div class="stats"><div class="stat"><b>First printed</b>Darksteel · 2004</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Illustrated by</b>Carl Critchlow</div><div class="stat"><b>Historical identity</b>Blue mana turned into permanent ownership</div></div></div></div>
+<p>That rules text captured the character more perfectly than a paragraph of flavor text could. Memnarch was the hidden ruler of Mirrodin, a custodian who had come to regard the plane and its people as components of his design. The card behaves the same way. It looks at an opponent's battlefield and sees no boundary between another player's property and its own future resources.</p>
+<p>Memnarch was not the defining competitive card of Darksteel. That set contained <span class="card-name" data-card="Arcbound Ravager" tabindex="0">Arcbound Ravager</span>, <span class="card-name" data-card="Skullclamp" tabindex="0">Skullclamp</span>, <span class="card-name" data-card="Aether Vial" tabindex="0">Aether Vial</span>, <span class="card-name" data-card="Sword of Fire and Ice" tabindex="0">Sword of Fire and Ice</span>, and <span class="card-name" data-card="Darksteel Colossus" tabindex="0">Darksteel Colossus</span>. It instead became a slower kind of landmark: a tournament finisher once Urzatron could support it, a rules puzzle at the climax of a national championship, one of the earliest legendary creatures to translate naturally into Commander, and a permanent symbol of the player who would rather take the opposing board than merely defeat it.</p></section>
+
+<section id="darksteel"><div class="chapter-number">II · The set</div><h2>Darksteel and the wrong kind of terrifying</h2>
+<p>Darksteel entered an artifact block already operating near the limits of what artifacts could safely do. Mirrodin had supplied artifact lands, affinity, <span class="card-name" data-card="Chrome Mox" tabindex="0">Chrome Mox</span>, <span class="card-name" data-card="Mindslaver" tabindex="0">Mindslaver</span>, and the engine pieces that would become the Affinity deck. Darksteel added modular creatures, indestructible permanents, and some of the most consequential cards of the era.</p>
+<p>Memnarch looked enormous and frightening in a preview binder. Seven mana bought a legendary villain, two repeatable activated abilities, and the theoretical power to acquire anything on the battlefield. Yet the set's genuinely broken cards did not wait for seven mana. Ravager and Skullclamp converted cheap artifacts into immediate pressure and cards. Aether Vial ignored mana costs. Memnarch demanded that a deck survive, develop a huge mana base, cast a vulnerable creature, and then continue spending mana before the takeover began.</p>
+<div class="pullquote">Darksteel's most dangerous cards made mana efficiency disappear. Memnarch asked what blue could do after mana efficiency no longer mattered.<small>The difference between broken and inevitable</small></div>
+<p>This distinction explains much of the card's history. Memnarch was rarely the reason a deck reached the late game. It was the reason the late game stopped being competitive once the deck had already reached it. It belonged not to the explosive artifact strategy but to the control strategy that could turn artifact-block mana engines against the rest of the format.</p></section>
+
+<section id="warden"><div class="chapter-number">III · The story</div><h2>The Warden of Argentum</h2>
+<p>Mirrodin was originally Argentum, an artificial plane created by Karn. Its warden became Memnarch: a sentient machine charged with watching the world in its creator's absence. The deeper storyline connects that warden to the Mirari, the powerful Dominaria artifact Karn reshaped into the core of his new guardian.</p>
+<p>The assignment was protection. The result was possession. Contamination by Phyrexian oil, isolation, and resentment transformed Memnarch into a paranoid ruler. He renamed the plane Mirrodin, populated it by abducting beings from other planes, watched them from the Panopticon, and searched for a planeswalker spark he could seize for himself. The guardian's logic became totalitarian: if the plane was his responsibility, then everything on the plane could be treated as his material.</p>
+<p>The card compresses that story into two activations. The first ability is classification. Memnarch imposes his preferred ontology on the target: whatever it was before, it is machinery now. The second ability is annexation. Once the permanent fits his system, control transfers permanently.</p>
+<div class="memnarch-note"><b>Story and mechanics align unusually closely.</b> Memnarch's card does not merely feature a generic theft effect because blue can steal things. It reenacts the character's central delusion—that transforming a world gives him the right to own it.</div>
+<p>This made the card feel like a final villain even to players who had never read the Mirrodin novels. The cost, scale, legendary frame, sprawling Carl Critchlow figure, and two-step control text all suggested a creature that was not entering combat so much as assuming authority over the game.</p></section>
+
+<section id="two-step"><div class="chapter-number">IV · The mechanism</div><h2>Turn it to metal, then take it</h2>
+<p>Memnarch's abilities form one sentence written across two text boxes. An opposing artifact can be stolen directly for {3}{U}. Any other permanent requires the first ability to resolve before the second can target it.</p>
+<div class="control-chain"><div class="control-step"><b>1 · Choose</b><span>Identify the permanent that matters most: a land, creature, enchantment, planeswalker, or existing artifact.</span></div><div class="control-step"><b>2 · Convert</b><span>Pay {1}{U}{U}. The target becomes an artifact in addition to its other types.</span></div><div class="control-step"><b>3 · Acquire</b><span>Pay {3}{U}. Memnarch's second ability gains control of that artifact.</span></div><div class="control-step"><b>4 · Keep</b><span>The type change and control effect continue after the turn and after Memnarch leaves the battlefield.</span></div></div>
+<p>The sequence matters. A player cannot announce the second ability targeting a nonartifact and expect the first ability to make the target legal later. The conversion must resolve first. Once it has, the permanent remains an artifact while it stays on the battlefield, so the control ability can be activated at a later time even if Memnarch is temporarily short of mana.</p>
+<p>That delay creates interaction. An opponent can remove Memnarch after the conversion, sacrifice the newly metallic permanent, bounce it, or destroy it with artifact removal. Conversely, converting something can expose it to cards that would not otherwise affect it. <span class="card-name" data-card="Annul" tabindex="0">Annul</span> cannot retroactively counter it, but <span class="card-name" data-card="Shatter" tabindex="0">Shatter</span>, <span class="card-name" data-card="Rebuild" tabindex="0">Rebuild</span>, and later effects such as <span class="card-name" data-card="Vandalblast" tabindex="0">Vandalblast</span> may suddenly matter.</p>
+<p>Memnarch therefore rewards sequencing rather than blind activation. Against open mana, the best target may be an existing artifact because it requires only one activation. Against a sacrifice outlet, converting a permanent can be a threat that forces the sacrifice even if the theft never occurs. Against a mana-screwed opponent, stealing a land may be more decisive than stealing the largest creature.</p></section>
+
+<div class="art-break memnarch-art"><div class="art-caption"><b>Carl Critchlow's original Darksteel artwork</b>Memnarch is not depicted as a clean machine or a humanoid tyrant. He sprawls across the frame like a diseased industrial organism—part crab, part tower, part exposed nervous system—embodying the card's blur between metal, flesh, and madness.</div></div>
+
+<section id="permanent"><div class="chapter-number">V · The duration</div><h2>The theft that does not expire</h2>
+<p>The parenthetical reminder on both abilities is essential: the effects last indefinitely. They are not tied to Memnarch remaining on the battlefield. Destroying Memnarch after a permanent has been stolen does not return that permanent. The control effect continues until another effect changes control or the object leaves the battlefield.</p>
+<p>The same is true of the artifact type. A converted creature remains an artifact creature. A converted land remains an artifact land. If the permanent leaves and returns, it becomes a new object with no memory of Memnarch's effect, but merely removing Memnarch does not undo the transformation.</p>
+<p>This makes one successful turn difficult to reverse cleanly. Killing the seven-mana creature answers future activations but not the resource already transferred. If Memnarch steals an opposing <span class="card-name" data-card="Vedalken Shackles" tabindex="0">Vedalken Shackles</span>, the controller keeps the Shackles. If he steals a land, the mana advantage remains. If he steals a commander in a multiplayer game and that commander stays on the battlefield, it remains under the new controller's command until another rule or effect moves it.</p>
+<p>The card thus converts mana into durable card advantage rather than temporary tempo. A control deck that spends seven mana on Memnarch and four more to steal an artifact has not merely deployed a finisher. It has added the opponent's card to its own board while leaving a repeatable threat in play.</p></section>
+
+<section id="mana"><div class="chapter-number">VI · The invoice</div><h2>The price of absolute ownership</h2>
+<p>Memnarch's power is easy to describe and expensive to operate. Casting him costs seven. Stealing an artifact costs four more. Turning a nonartifact into an artifact and stealing it costs seven additional mana, including three blue mana across the two activations.</p>
+<div class="mana-ledger"><div class="mana-row"><strong>Cast Memnarch</strong><p>{7} for a 4/5 that has not yet changed the battlefield.</p></div><div class="mana-row"><strong>Take an artifact</strong><p>{3}{U} after Memnarch resolves. Total investment from an empty battlefield: eleven mana.</p></div><div class="mana-row"><strong>Take anything else</strong><p>{1}{U}{U} to convert, then {3}{U} to gain control. Total investment from an empty battlefield: fourteen mana.</p></div><div class="mana-row"><strong>Repeat</strong><p>Every surplus activation compounds the advantage. Once the first theft survives, the opponent is fighting both Memnarch and their former permanent.</p></div></div>
+<p>Those numbers explain why ordinary midrange decks could not treat Memnarch as a conventional top-end creature. The card needed a mana system: the Urza lands, artifact acceleration, untapping engines, or the exaggerated economies of multiplayer Commander.</p>
+<p>They also explain why Memnarch feels so oppressive after the threshold is crossed. The price is not balanced around a player making one enormous activation and stopping. It assumes that reaching this amount of mana is difficult. When a deck produces twenty or infinite mana, the constraint disappears and the effect becomes exactly as absolute as its wording suggests.</p></section>
+
+<section id="first-year"><div class="chapter-number">VII · The delay</div><h2>Why 2004 passed it by</h2>
+<p>Memnarch arrived in February 2004, but the immediate Standard conversation belonged to Affinity, Skullclamp, Goblins, and anti-artifact decks. The format punished expensive cards in two opposite ways. Affinity could end the game before seven mana, while decks built to fight Affinity carried unusually high amounts of artifact destruction.</p>
+<p>Tooth and Nail strategies had access to huge creatures without paying their printed mana costs, but Memnarch was not the cleanest creature pair or single bullet. <span class="card-name" data-card="Darksteel Colossus" tabindex="0">Darksteel Colossus</span> ended games quickly. <span class="card-name" data-card="Platinum Angel" tabindex="0">Platinum Angel</span> and <span class="card-name" data-card="Leonin Abunas" tabindex="0">Leonin Abunas</span> formed a defensive lock. <span class="card-name" data-card="Triskelion" tabindex="0">Triskelion</span> with <span class="card-name" data-card="Mephidross Vampire" tabindex="0">Mephidross Vampire</span> cleared creatures. Memnarch needed continued blue mana after arriving, which green Tooth decks were poorly suited to provide.</p>
+<p>It was not that the effect was weak. The format had not yet built the correct bridge between seven colorless mana and repeated blue activations. That bridge appeared when control decks adopted the Urza lands.</p></section>
+
+<section id="tron"><div class="chapter-number">VIII · The engine</div><h2>The deck that finally paid the bill</h2>
+<p><span class="card-name" data-card="Urza's Mine" tabindex="0">Urza's Mine</span>, <span class="card-name" data-card="Urza's Power Plant" tabindex="0">Urza's Power Plant</span>, and <span class="card-name" data-card="Urza's Tower" tabindex="0">Urza's Tower</span> produce seven colorless mana when assembled. That number is printed in Memnarch's upper-right corner.</p>
+<p>Blue Urzatron did not need to accelerate into a fast kill. It used <span class="card-name" data-card="Condescend" tabindex="0">Condescend</span>, <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span>, <span class="card-name" data-card="Echoing Truth" tabindex="0">Echoing Truth</span>, and <span class="card-name" data-card="Thirst for Knowledge" tabindex="0">Thirst for Knowledge</span> to survive while assembling the lands. <span class="card-name" data-card="Solemn Simulacrum" tabindex="0">Solemn Simulacrum</span> fixed colored mana and bought time. <span class="card-name" data-card="Mindslaver" tabindex="0">Mindslaver</span> created an opening. Memnarch then turned the mana engine into a permanent-control engine.</p>
+<p>The relationship was unusually exact. Tron supplied the seven generic mana to cast Memnarch, while Islands, Talismans, Chrome Mox, and Solemn Simulacrum supplied blue for the activations. Once the three lands were active, the control deck could cast a threat and still approach the mana needed to protect it or activate it on the following turn.</p>
+<div class="pullquote">Urzatron did not make Memnarch cheap. It made fourteen mana feel like a normal late-game turn.<small>Blue control discovers industrial scale</small></div>
+<p>Memnarch also gave the deck a way to exploit opponents who had stabilized against conventional finishers. A creature could be blocked. A Triskelion could expend its counters. Memnarch threatened the opponent's stabilizing cards themselves. Every permanent played to recover became another future target.</p></section>
+
+<section id="nationals"><div class="chapter-number">IX · The championship</div><h2>U.S. Nationals 2005</h2>
+<p>Blue Urzatron broke through dramatically at the 2005 U.S. National Championship. Antonino De Rosa won the tournament with a version credited in contemporary coverage to Gerard Fabiano's tuning group. Jonathan Sonne finished third with another Memnarch Tron list, and Alex Lieberman also placed in the Top 8 with the archetype.</p>
+<p>De Rosa's list played two Memnarchs, three Triskelions, three Mindslavers, and a dense card-selection package. The sideboard splashed black for <span class="card-name" data-card="Cranial Extraction" tabindex="0">Cranial Extraction</span>, using a Swamp, Talismans, and Solemn Simulacrums to attack Tooth and Nail decks through <span class="card-name" data-card="Boseiju, Who Shelters All" tabindex="0">Boseiju, Who Shelters All</span>. The deck was not built around Memnarch alone; it was a layered control machine in which Memnarch was the most totalizing endgame.</p>
+<p>The finals against Neil Reeves's mono-blue control deck gave the card its defining tournament stage. Mindslaver created windows in which Memnarch could resolve. Once it did, opposing Spire Golems and Vedalken Shackles were no longer merely threats to answer. They were assets waiting to change sides.</p>
+<p>Memnarch was not incidental to the story. Contemporary coverage repeatedly returned to it as the board state became complicated. The national title was decided in a match full of counterspells, control-changing effects, and judges explaining what happened when one blue player tried to steal the artifact that was trying to steal the creature that could steal the artifact.</p></section>
+
+<section id="shackles"><div class="chapter-number">X · The stack</div><h2>The finals became a rules lesson</h2>
+<p>The most remembered sequence involved Memnarch and <span class="card-name" data-card="Vedalken Shackles" tabindex="0">Vedalken Shackles</span>. Reeves could use Shackles to gain control of Memnarch. De Rosa could use Memnarch to gain control of the Shackles. Memnarch could also steal a Spire Golem while control-changing abilities waited on the stack.</p>
+<p>The interaction illustrates a crucial rule: changing control of the source of an activated ability does not change who controls an ability already on the stack. Once a player activates Memnarch, that ability exists independently of Memnarch. Once Shackles has resolved, however, its continuous control effect depends on the Shackles remaining tapped and under the relevant conditions. Untapping or losing the Shackles can end that effect.</p>
+<p>In the match, the players openly worked through the possibilities with the judges. One sequence left Reeves with Memnarch and De Rosa with a stolen Spire Golem before Mindslaver allowed De Rosa to undo the disaster. The scene was funny, tense, and perfectly suited to the card. Memnarch was not merely a large threat; it turned control of the game pieces into the subject of the game itself.</p>
+<div class="memnarch-note"><b>The card's championship moment was not an attack for four.</b> It was a public demonstration that permanent theft, temporary control, tapped-state dependencies, and activated abilities can create a board where ownership must be resolved one object at a time.</div>
+<p>This is a major reason Memnarch remained memorable after Blue Tron rotated. Many tournament finishers are remembered because they killed quickly. Memnarch is remembered because its presence made the table intellectually and politically unstable.</p></section>
+
+<section id="commander"><div class="chapter-number">XI · The command zone</div><h2>A colorless card with a blue command zone</h2>
+<p>Memnarch has a colorless mana cost and is an artifact creature, but the blue mana symbols in its rules text give it a blue color identity in Commander. A Memnarch deck can therefore use blue and colorless cards, Islands, and blue-producing lands, but no cards with white, black, red, or green color identity.</p>
+<p>That technical distinction became part of the card's identity. Memnarch looks like the commander of a colorless artifact deck, yet plays as an extreme expression of blue: countermagic, card draw, artifact tutoring, control-changing effects, and enormous mana engines.</p>
+<p>Commander also solves the availability problem. A seven-mana legendary creature can be cast from the command zone whenever the deck is ready. The entire ninety-nine can be designed to accelerate it, protect it, reduce its activated costs, untap mana artifacts, or produce infinite mana. The card no longer has to be drawn as one of two copies near the top of a control deck. It is the declared endpoint of the deck.</p>
+<p>This made Memnarch one of the natural early artifact commanders. Long before the format received a constant supply of legends designed specifically for Commander, Memnarch already offered a complete build-around instruction: make mana, turn the board into artifacts, and acquire it.</p></section>
+
+<section id="politics"><div class="chapter-number">XII · The table</div><h2>The commander that announces the threat</h2>
+<p>Memnarch creates a political problem before it is cast. Players know what seven open mana and a command-zone Memnarch imply. Mana rocks are vulnerable. Commanders are vulnerable. Lands can become vulnerable. The deck does not need a hidden combo to explain why it must be watched.</p>
+<p>This transparency is both strength and weakness. Memnarch can dominate a game in which opponents spend resources on one another and allow the artifact player to develop. It can also make its controller the archenemy from turn zero. Theft is more emotionally provocative than removal because the victim must continue looking at their card on the other side of the table.</p>
+<p>Good Memnarch play therefore involves threat selection. Stealing the strongest permanent immediately may be correct in a high-power game. In a social game, taking a modest mana rock or an essential combo piece can control the board without convincing every opponent that nothing they cast will remain theirs. The commander supplies no diplomacy on its own; its controller must create it.</p>
+<p>That tension is part of the appeal. Memnarch decks are rarely subtle in concept, but they can be subtle in timing. The most dangerous activation is often not the first one. It is the moment the table realizes the Memnarch player can perform the sequence repeatedly and still hold up a counterspell.</p></section>
+
+<section id="engines"><div class="chapter-number">XIII · The factory</div><h2>Mana, untapping, and the industrial engine</h2>
+<p>Memnarch scales more dramatically with mana than almost any conventional creature. Extra mana is not merely used to cast additional cards; it becomes direct access to the opposing battlefield.</p>
+<p><span class="card-name" data-card="Training Grounds" tabindex="0">Training Grounds</span> reduces the generic portion of the abilities, turning the conversion into {U}{U} and the theft into {1}{U}. <span class="card-name" data-card="Unwinding Clock" tabindex="0">Unwinding Clock</span> untaps artifact mana during every opponent's untap step. <span class="card-name" data-card="Rings of Brighthearth" tabindex="0">Rings of Brighthearth</span> can copy activations. <span class="card-name" data-card="Clock of Omens" tabindex="0">Clock of Omens</span>, <span class="card-name" data-card="Basalt Monolith" tabindex="0">Basalt Monolith</span>, <span class="card-name" data-card="Power Artifact" tabindex="0">Power Artifact</span>, <span class="card-name" data-card="Grand Architect" tabindex="0">Grand Architect</span>, and <span class="card-name" data-card="Pili-Pala" tabindex="0">Pili-Pala</span> represent the kind of untapping and infinite-mana infrastructure that turns the commander from expensive control card into deterministic endgame.</p>
+<p>Protection is equally important. <span class="card-name" data-card="Lightning Greaves" tabindex="0">Lightning Greaves</span> can protect Memnarch but shroud prevents its controller from targeting it with their own beneficial effects; <span class="card-name" data-card="Swiftfoot Boots" tabindex="0">Swiftfoot Boots</span> is slower but less restrictive. Countermagic often does more than equipment because it can defend both Memnarch and the stolen board.</p>
+<p>The deck's characteristic turn is industrial rather than explosive. It assembles mana rocks and cost reducers, deploys Memnarch when it can retain priority or protect him, and then converts every untap step into an acquisition budget.</p></section>
+
+<section id="lattice"><div class="chapter-number">XIV · The world machine</div><h2>When everything is already an artifact</h2>
+<p><span class="card-name" data-card="Mycosynth Lattice" tabindex="0">Mycosynth Lattice</span> is Memnarch's most literal companion. If all permanents are artifacts in addition to their other types, the first ability becomes unnecessary. Every permanent can be targeted by the {3}{U} control ability immediately.</p>
+<p>The interaction is powerful, obvious, and dangerous. Lattice also makes the entire battlefield vulnerable to artifact hate. A single mass-artifact destruction spell can become land destruction. Opponents know that a resolved Lattice beside Memnarch means every land and commander is four mana away from changing sides.</p>
+<p>The flavor is almost too exact. Mirrodin's mycosynth blurred metal and flesh, the same boundary Memnarch's abilities manipulate. The card pair creates a mechanical version of the plane under his rule: everything has already been incorporated into the machine, and ownership is the only remaining question.</p>
+<div class="inline-image myr-descendant"><div class="image"></div><div class="copy"><div class="eyebrow">The remnant</div><h3>Urtet remembers the machine</h3><p><span class="card-name" data-card="Urtet, Remnant of Memnarch" tabindex="0">Urtet, Remnant of Memnarch</span> returned Memnarch's name to a modern card and tied his legacy to the Myr. The descendant does not steal the board, but its title confirms how deeply the vanished tyrant remains embedded in Mirrodin's mechanical history.</p></div></div>
+<p>Memnarch also pairs naturally with <span class="card-name" data-card="Liquimetal Coating" tabindex="0">Liquimetal Coating</span> and <span class="card-name" data-card="Liquimetal Torque" tabindex="0">Liquimetal Torque</span>. These cards duplicate the first ability for one target while providing utility or mana. They show how Memnarch's once-bizarre type-changing effect became a reusable design tool: turning a permanent into an artifact can enable theft, removal, animation, sacrifice, or synergy.</p></section>
+
+<section id="descendants"><div class="chapter-number">XV · The inheritance</div><h2>The machines that followed</h2>
+<p>Memnarch sits at the intersection of several design families rather than founding only one. Blue had stolen permanents before through <span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span> and <span class="card-name" data-card="Treachery" tabindex="0">Treachery</span>. Artifacts had changed types before. Large mana sinks had existed since Alpha. Memnarch joined all three into a repeatable engine.</p>
+<p>Later cards separated the pieces. Liquimetal effects made permanents into artifacts. <span class="card-name" data-card="Master Thief" tabindex="0">Master Thief</span>, <span class="card-name" data-card="Thada Adel, Acquisitor" tabindex="0">Thada Adel, Acquisitor</span>, and <span class="card-name" data-card="Emry, Lurker of the Loch" tabindex="0">Emry, Lurker of the Loch</span> explored blue's relationship with opposing or reusable artifacts. <span class="card-name" data-card="Agent of Treachery" tabindex="0">Agent of Treachery</span> carried unconditional permanent theft onto a creature, though as a one-time trigger rather than a mana engine.</p>
+<p>Artifact commanders also became far more efficient. <span class="card-name" data-card="Arcum Dagsson" tabindex="0">Arcum Dagsson</span> tutors artifacts directly. <span class="card-name" data-card="Urza, Lord High Artificer" tabindex="0">Urza, Lord High Artificer</span> turns artifacts into mana and cards. <span class="card-name" data-card="Mishra, Eminent One" tabindex="0">Mishra, Eminent One</span> copies them. Memnarch remains distinct because its central resource is not merely its own artifact collection. It is everybody else's.</p>
+<p>That is why the card has not been functionally replaced. Newer commanders are cheaper, faster, or more synergistic, but few state their ambition as plainly. Memnarch does not ask the deck to build an army. It asks the deck to finance a hostile acquisition.</p></section>
+
+<section id="art"><div class="chapter-number">XVI · The image</div><h2>Carl Critchlow and the body of a tyrant</h2>
+<p>Carl Critchlow's original image refuses a simple silhouette. Memnarch has long segmented limbs, a hunched central body, cables or tendons, clawed appendages, and a luminous cranial structure. The figure resembles a machine designed by something that remembers anatomy but no longer respects it.</p>
+<p>The low angle makes the viewer feel small, but the creature's posture is not heroic. It is invasive. Limbs spread across the architecture as though Memnarch and the Panopticon are becoming the same organism. The blue light in the head suggests intellect, surveillance, and magical control rather than warmth.</p>
+<p>The flavor text—“In the blur between metal and flesh, Memnarch found madness”—does not explain the rules. It explains the image. The card's two activated abilities then show what that madness does: erase categories and ownership.</p>
+<p>Later printings treated Memnarch as lore rather than merely a Darksteel rare. Archenemy placed him in a preconstructed machine deck. From the Vault: Lore selected him as one of the story-significant cards of Magic's history. A Secret Lair reinterpretation demonstrated that the character had become visually recognizable enough to survive a radical new presentation.</p></section>
+
+<section id="memory"><div class="chapter-number">XVII · The recollection</div><h2>What players remember</h2>
+<div class="memory"><blockquote>“I did not remove your best permanent. I improved my board with it.”</blockquote><cite>The emotional logic of a Memnarch activation</cite></div>
+<p>Players who met Memnarch in 2004 often remember the apparent infinity of the text box. A new player could read the card and immediately imagine taking every permanent in play. Whether the game ever lasted long enough was secondary. The possibility was the fantasy.</p>
+<p>Tournament players remember Blue Tron and the 2005 Nationals finals: Memnarch beside Mindslaver, the Urza lands producing absurd mana, and a Vedalken Shackles interaction complicated enough to stop the match for explanation.</p>
+<p>Commander players remember the social reaction. Memnarch is one of the commanders whose name can change mulligan decisions before a card is drawn. It creates stories of stolen commanders, stolen lands, desperate removal spells, and the moment an infinite-mana engine turns the battlefield into inventory.</p>
+<p>Collectors remember a strange visual object from Darksteel: a legendary artifact creature whose body seemed to contain the whole block's discomfort with the boundary between organism and machine. Lore readers remember the Mirari's transformation, Karn's absence, and the guardian whose attempt to control Mirrodin helped prepare the world for catastrophe.</p></section>
+
+<section id="honorable"><div class="chapter-number">XVIII · The appendix</div><h2>Why it belongs here</h2>
+<p>Memnarch is not among the archive's numbered one thousand, but it embodies too many parts of Magic's history to disappear outside the list.</p>
+<p>It was a named antagonist translated unusually well into rules text. It became a genuine championship finisher when Blue Urzatron found the mana to support it. It produced one of the most memorable high-level control interactions of its era. It later found a permanent home in Commander, where its legendary status, artifact identity, blue activations, and political threat all became more important than they had been in sixty-card formats.</p>
+<p>Most importantly, Memnarch represents a specific kind of Magic fantasy. Some cards promise speed. Some promise efficiency. Memnarch promises that, given time and mana, the distinction between your battlefield and the opponent's battlefield will cease to exist.</p>
+<p>That promise was rarely fair, rarely subtle, and never forgotten.</p></section>
+
+<section id="decklists"><div class="chapter-number">XIX · The lists</div><h2>The deck archive</h2>
+<p class="deck-intro">Memnarch's history is best understood through the mana systems that made it practical. The first two lists document its 2005 Standard breakthrough, the third shows its official preconstructed afterlife, and the fourth presents a modern Commander reconstruction built around the card's enduring play pattern.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Antonino De Rosa — Mono-Blue Tron</strong><small>U.S. Nationals 2005 · Champion · 60 main / 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The breakout championship shell. Tron pays Memnarch’s printed cost, blue sources finance the activations, and Mindslaver creates the safe turn in which the takeover begins.</p><button class="copy" data-target="memnarch-deck-1">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 8</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Memnarch" tabindex="0">Memnarch</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Solemn Simulacrum" tabindex="0">Solemn Simulacrum</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Triskelion" tabindex="0">Triskelion</span></div><h4>Instants and Sorceries · 19</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Concentrate" tabindex="0">Concentrate</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Condescend" tabindex="0">Condescend</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Echoing Truth" tabindex="0">Echoing Truth</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Serum Visions" tabindex="0">Serum Visions</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thirst for Knowledge" tabindex="0">Thirst for Knowledge</span></div><h4>Artifacts · 12</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Chrome Mox" tabindex="0">Chrome Mox</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mindslaver" tabindex="0">Mindslaver</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sensei&#x27;s Divining Top" tabindex="0">Sensei&#x27;s Divining Top</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Talisman of Dominance" tabindex="0">Talisman of Dominance</span></div></div><div class="deck-col"><h4>Lands · 21</h4><div class="row"><span class="qty">6</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Minamo, School at Water&#x27;s Edge" tabindex="0">Minamo, School at Water&#x27;s Edge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oboro, Palace in the Clouds" tabindex="0">Oboro, Palace in the Clouds</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza&#x27;s Mine" tabindex="0">Urza&#x27;s Mine</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza&#x27;s Power Plant" tabindex="0">Urza&#x27;s Power Plant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza&#x27;s Tower" tabindex="0">Urza&#x27;s Tower</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cranial Extraction" tabindex="0">Cranial Extraction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Duplicant" tabindex="0">Duplicant</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Meloku the Clouded Mirror" tabindex="0">Meloku the Clouded Mirror</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sun Droplet" tabindex="0">Sun Droplet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Talisman of Dominance" tabindex="0">Talisman of Dominance</span></div></div></div><pre hidden id="memnarch-deck-1">Antonino De Rosa — Mono-Blue Tron
+U.S. Nationals 2005 · Champion
+
+Creatures · 8
+2 Memnarch
+3 Solemn Simulacrum
+3 Triskelion
+
+Instants and Sorceries · 19
+2 Concentrate
+4 Condescend
+3 Echoing Truth
+3 Mana Leak
+3 Serum Visions
+4 Thirst for Knowledge
+
+Artifacts · 12
+3 Chrome Mox
+3 Mindslaver
+3 Sensei&#x27;s Divining Top
+3 Talisman of Dominance
+
+Lands · 21
+6 Island
+1 Minamo, School at Water&#x27;s Edge
+1 Oboro, Palace in the Clouds
+1 Swamp
+4 Urza&#x27;s Mine
+4 Urza&#x27;s Power Plant
+4 Urza&#x27;s Tower
+
+Sideboard · 15
+2 Annul
+4 Cranial Extraction
+1 Duplicant
+3 Meloku the Clouded Mirror
+4 Sun Droplet
+1 Talisman of Dominance
+</pre><p class="small">Source: <a href="https://www.mtgtop8.com/event?e=53906&f=ST">open the tournament deck record</a></p></div></details>
+<details class="deck"><summary><span><strong>Jonathan Sonne — Blue Urzatron</strong><small>U.S. Nationals 2005 · Third place · 60 main / 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">Sonne’s Top 4 list used the same two-Memnarch endgame with a slightly different balance of Chrome Mox, card draw, counters, and sideboard creatures.</p><button class="copy" data-target="memnarch-deck-2">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 9</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Solemn Simulacrum" tabindex="0">Solemn Simulacrum</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Triskelion" tabindex="0">Triskelion</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Memnarch" tabindex="0">Memnarch</span></div><h4>Spells · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Condescend" tabindex="0">Condescend</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Echoing Truth" tabindex="0">Echoing Truth</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thirst for Knowledge" tabindex="0">Thirst for Knowledge</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Concentrate" tabindex="0">Concentrate</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Serum Visions" tabindex="0">Serum Visions</span></div><h4>Artifacts · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chrome Mox" tabindex="0">Chrome Mox</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sensei&#x27;s Divining Top" tabindex="0">Sensei&#x27;s Divining Top</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mindslaver" tabindex="0">Mindslaver</span></div></div><div class="deck-col"><h4>Lands · 21</h4><div class="row"><span class="qty">7</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza&#x27;s Mine" tabindex="0">Urza&#x27;s Mine</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza&#x27;s Power Plant" tabindex="0">Urza&#x27;s Power Plant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza&#x27;s Tower" tabindex="0">Urza&#x27;s Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Minamo, School at Water&#x27;s Edge" tabindex="0">Minamo, School at Water&#x27;s Edge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oboro, Palace in the Clouds" tabindex="0">Oboro, Palace in the Clouds</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Razormane Masticore" tabindex="0">Razormane Masticore</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Jushi Apprentice" tabindex="0">Jushi Apprentice</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Kaijin of the Vanishing Touch" tabindex="0">Kaijin of the Vanishing Touch</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Rewind" tabindex="0">Rewind</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meloku the Clouded Mirror" tabindex="0">Meloku the Clouded Mirror</span></div></div></div><pre hidden id="memnarch-deck-2">Jonathan Sonne — Blue Urzatron
+U.S. Nationals 2005 · Third place
+
+Creatures · 9
+4 Solemn Simulacrum
+3 Triskelion
+2 Memnarch
+
+Spells · 20
+4 Condescend
+3 Echoing Truth
+4 Mana Leak
+4 Thirst for Knowledge
+2 Concentrate
+3 Serum Visions
+
+Artifacts · 10
+4 Chrome Mox
+3 Sensei&#x27;s Divining Top
+3 Mindslaver
+
+Lands · 21
+7 Island
+4 Urza&#x27;s Mine
+4 Urza&#x27;s Power Plant
+4 Urza&#x27;s Tower
+1 Minamo, School at Water&#x27;s Edge
+1 Oboro, Palace in the Clouds
+
+Sideboard · 15
+2 Razormane Masticore
+4 Jushi Apprentice
+3 Kaijin of the Vanishing Touch
+2 Annul
+2 Rewind
+2 Meloku the Clouded Mirror
+</pre><p class="small">Source: <a href="https://old.starcitygames.com/decks/12834">open the archived Star City Games decklist</a></p></div></details>
+<details class="deck"><summary><span><strong>Assemble the Doomsday Machine</strong><small>Archenemy preconstructed deck · 2010 · 61 main</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The official Archenemy product recast Memnarch as the natural ruler of an Esper-colored machine deck containing Master Transmuter, Sundering Titan, March of the Machines, and a large artifact infrastructure.</p><button class="copy" data-target="memnarch-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 14</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Architects of Will" tabindex="0">Architects of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Duplicant" tabindex="0">Duplicant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ethersworn Shieldmage" tabindex="0">Ethersworn Shieldmage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Juggernaut" tabindex="0">Juggernaut</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Leonin Abunas" tabindex="0">Leonin Abunas</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lodestone Golem" tabindex="0">Lodestone Golem</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magister Sphinx" tabindex="0">Magister Sphinx</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Master Transmuter" tabindex="0">Master Transmuter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Memnarch" tabindex="0">Memnarch</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Metallurgeon" tabindex="0">Metallurgeon</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sanctum Gargoyle" tabindex="0">Sanctum Gargoyle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sundering Titan" tabindex="0">Sundering Titan</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Synod Centurion" tabindex="0">Synod Centurion</span></div><h4>Instants · 5</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Agony Warp" tabindex="0">Agony Warp</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Batwing Brume" tabindex="0">Batwing Brume</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spin into Myth" tabindex="0">Spin into Myth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Unmake" tabindex="0">Unmake</span></div><h4>Artifacts · 16</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Aether Spellbomb" tabindex="0">Aether Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Azorius Signet" tabindex="0">Azorius Signet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dimir Signet" tabindex="0">Dimir Signet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dreamstone Hedron" tabindex="0">Dreamstone Hedron</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Everflowing Chalice" tabindex="0">Everflowing Chalice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fieldmist Borderpost" tabindex="0">Fieldmist Borderpost</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lightning Greaves" tabindex="0">Lightning Greaves</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mistvein Borderpost" tabindex="0">Mistvein Borderpost</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Obelisk of Esper" tabindex="0">Obelisk of Esper</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Skullcage" tabindex="0">Skullcage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sorcerer&#x27;s Strongbox" tabindex="0">Sorcerer&#x27;s Strongbox</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sun Droplet" tabindex="0">Sun Droplet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Synod Sanctum" tabindex="0">Synod Sanctum</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thunderstaff" tabindex="0">Thunderstaff</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Unbender Tine" tabindex="0">Unbender Tine</span></div></div><div class="deck-col"><h4>Enchantments · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="March of the Machines" tabindex="0">March of the Machines</span></div><h4>Lands · 25</h4><div class="row"><span class="qty">11</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">7</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">5</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Terramorphic Expanse" tabindex="0">Terramorphic Expanse</span></div></div></div><pre hidden id="memnarch-deck-3">Assemble the Doomsday Machine
+Archenemy preconstructed deck · 2010
+
+Creatures · 14
+1 Architects of Will
+1 Duplicant
+1 Ethersworn Shieldmage
+1 Juggernaut
+1 Leonin Abunas
+1 Lodestone Golem
+1 Magister Sphinx
+1 Master Transmuter
+1 Memnarch
+1 Metallurgeon
+2 Sanctum Gargoyle
+1 Sundering Titan
+1 Synod Centurion
+
+Instants · 5
+2 Agony Warp
+1 Batwing Brume
+1 Spin into Myth
+1 Unmake
+
+Artifacts · 16
+2 Aether Spellbomb
+1 Azorius Signet
+1 Dimir Signet
+1 Dreamstone Hedron
+1 Everflowing Chalice
+1 Fieldmist Borderpost
+1 Lightning Greaves
+1 Mistvein Borderpost
+1 Obelisk of Esper
+1 Skullcage
+1 Sorcerer&#x27;s Strongbox
+1 Sun Droplet
+1 Synod Sanctum
+1 Thunderstaff
+1 Unbender Tine
+
+Enchantments · 1
+1 March of the Machines
+
+Lands · 25
+11 Island
+7 Plains
+5 Swamp
+2 Terramorphic Expanse
+</pre><p class="small">Source: <a href="https://mtg.wtf/deck/arc/assemble-the-doomsday-machine">open the complete Archenemy deck archive</a></p></div></details>
+<details class="deck"><summary><span><strong>Memnarch — Industrial Theft Control</strong><small>Illustrative Commander reconstruction · 100 main</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">This is not a recorded tournament list. It shows the classic Memnarch architecture: artifact mana, cost reduction, untapping engines, infinite-mana options, protection, Mycosynth Lattice, and enough interaction to reach the acquisition phase.</p><button class="copy" data-target="memnarch-deck-4">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Commander · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Memnarch" tabindex="0">Memnarch</span></div><h4>Creatures · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Emry, Lurker of the Loch" tabindex="0">Emry, Lurker of the Loch</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Etherium Sculptor" tabindex="0">Etherium Sculptor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Foundry Inspector" tabindex="0">Foundry Inspector</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Grand Architect" tabindex="0">Grand Architect</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pili-Pala" tabindex="0">Pili-Pala</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Trinket Mage" tabindex="0">Trinket Mage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tribute Mage" tabindex="0">Tribute Mage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Trophy Mage" tabindex="0">Trophy Mage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spellseeker" tabindex="0">Spellseeker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sai, Master Thopterist" tabindex="0">Sai, Master Thopterist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Padeem, Consul of Innovation" tabindex="0">Padeem, Consul of Innovation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Phyrexian Metamorph" tabindex="0">Phyrexian Metamorph</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Solemn Simulacrum" tabindex="0">Solemn Simulacrum</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Walking Ballista" tabindex="0">Walking Ballista</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shimmer Myr" tabindex="0">Shimmer Myr</span></div><h4>Artifacts · 25</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Arcane Signet" tabindex="0">Arcane Signet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Stone" tabindex="0">Mind Stone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thought Vessel" tabindex="0">Thought Vessel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Everflowing Chalice" tabindex="0">Everflowing Chalice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Liquimetal Torque" tabindex="0">Liquimetal Torque</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sapphire Medallion" tabindex="0">Sapphire Medallion</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Basalt Monolith" tabindex="0">Basalt Monolith</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thran Dynamo" tabindex="0">Thran Dynamo</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gilded Lotus" tabindex="0">Gilded Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Unwinding Clock" tabindex="0">Unwinding Clock</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clock of Omens" tabindex="0">Clock of Omens</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rings of Brighthearth" tabindex="0">Rings of Brighthearth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lightning Greaves" tabindex="0">Lightning Greaves</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swiftfoot Boots" tabindex="0">Swiftfoot Boots</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sensei&#x27;s Divining Top" tabindex="0">Sensei&#x27;s Divining Top</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystic Forge" tabindex="0">Mystic Forge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Staff of Domination" tabindex="0">Staff of Domination</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Voltaic Key" tabindex="0">Voltaic Key</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Manifold Key" tabindex="0">Manifold Key</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mycosynth Lattice" tabindex="0">Mycosynth Lattice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Darksteel Forge" tabindex="0">Darksteel Forge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mindslaver" tabindex="0">Mindslaver</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vedalken Shackles" tabindex="0">Vedalken Shackles</span></div><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Training Grounds" tabindex="0">Training Grounds</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Artifact" tabindex="0">Power Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rhystic Study" tabindex="0">Rhystic Study</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystic Remora" tabindex="0">Mystic Remora</span></div></div><div class="deck-col"><h4>Instants · 13</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Arcane Denial" tabindex="0">Arcane Denial</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swan Song" tabindex="0">Swan Song</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pact of Negation" tabindex="0">Pact of Negation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reality Shift" tabindex="0">Reality Shift</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pongify" tabindex="0">Pongify</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rapid Hybridization" tabindex="0">Rapid Hybridization</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Cyclonic Rift" tabindex="0">Cyclonic Rift</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Resculpt" tabindex="0">Resculpt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Whir of Invention" tabindex="0">Whir of Invention</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dramatic Reversal" tabindex="0">Dramatic Reversal</span></div><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fabricate" tabindex="0">Fabricate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reshape" tabindex="0">Reshape</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Transmute Artifact" tabindex="0">Transmute Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Preordain" tabindex="0">Preordain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Windfall" tabindex="0">Windfall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blue Sun&#x27;s Zenith" tabindex="0">Blue Sun&#x27;s Zenith</span></div><h4>Planeswalkers · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tezzeret the Seeker" tabindex="0">Tezzeret the Seeker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ugin, the Ineffable" tabindex="0">Ugin, the Ineffable</span></div><h4>Lands · 33</h4><div class="row"><span class="qty">22</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Buried Ruin" tabindex="0">Buried Ruin</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Inventors&#x27; Fair" tabindex="0">Inventors&#x27; Fair</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza&#x27;s Saga" tabindex="0">Urza&#x27;s Saga</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Seat of the Synod" tabindex="0">Seat of the Synod</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Darksteel Citadel" tabindex="0">Darksteel Citadel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Minamo, School at Water&#x27;s Edge" tabindex="0">Minamo, School at Water&#x27;s Edge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reliquary Tower" tabindex="0">Reliquary Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tolaria West" tabindex="0">Tolaria West</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="War Room" tabindex="0">War Room</span></div></div></div><pre hidden id="memnarch-deck-4">Memnarch — Industrial Theft Control
+Illustrative Commander reconstruction
+
+Commander · 1
+1 Memnarch
+
+Creatures · 15
+1 Emry, Lurker of the Loch
+1 Etherium Sculptor
+1 Foundry Inspector
+1 Grand Architect
+1 Pili-Pala
+1 Trinket Mage
+1 Tribute Mage
+1 Trophy Mage
+1 Spellseeker
+1 Sai, Master Thopterist
+1 Padeem, Consul of Innovation
+1 Phyrexian Metamorph
+1 Solemn Simulacrum
+1 Walking Ballista
+1 Shimmer Myr
+
+Artifacts · 25
+1 Sol Ring
+1 Arcane Signet
+1 Mind Stone
+1 Thought Vessel
+1 Everflowing Chalice
+1 Liquimetal Torque
+1 Sapphire Medallion
+1 Basalt Monolith
+1 Thran Dynamo
+1 Gilded Lotus
+1 Unwinding Clock
+1 Clock of Omens
+1 Rings of Brighthearth
+1 Lightning Greaves
+1 Swiftfoot Boots
+1 Sensei&#x27;s Divining Top
+1 Mystic Forge
+1 Staff of Domination
+1 Voltaic Key
+1 Manifold Key
+1 Mycosynth Lattice
+1 Darksteel Forge
+1 Nevinyrral&#x27;s Disk
+1 Mindslaver
+1 Vedalken Shackles
+
+Enchantments · 4
+1 Training Grounds
+1 Power Artifact
+1 Rhystic Study
+1 Mystic Remora
+
+Instants · 13
+1 Counterspell
+1 Mana Drain
+1 Arcane Denial
+1 Swan Song
+1 Force of Will
+1 Pact of Negation
+1 Reality Shift
+1 Pongify
+1 Rapid Hybridization
+1 Cyclonic Rift
+1 Resculpt
+1 Whir of Invention
+1 Dramatic Reversal
+
+Sorceries · 7
+1 Fabricate
+1 Reshape
+1 Transmute Artifact
+1 Ponder
+1 Preordain
+1 Windfall
+1 Blue Sun&#x27;s Zenith
+
+Planeswalkers · 2
+1 Tezzeret the Seeker
+1 Ugin, the Ineffable
+
+Lands · 33
+22 Island
+1 Academy Ruins
+1 Buried Ruin
+1 Inventors&#x27; Fair
+1 Urza&#x27;s Saga
+1 Seat of the Synod
+1 Darksteel Citadel
+1 Ancient Tomb
+1 Minamo, School at Water&#x27;s Edge
+1 Reliquary Tower
+1 Tolaria West
+1 War Room
+</pre><p class="small">Source: <a href="https://magic.wizards.com/en/formats/commander">review the official Commander rules</a></p></div></details>
+</div></section>
+
+<section id="printings"><div class="chapter-number">XX · The archive</div><h2>Printings and sources</h2>
+<p>Memnarch first appeared as rare number 129 in <em>Darksteel</em>, illustrated by Carl Critchlow. The card returned in <em>Archenemy</em>, appeared in <em>From the Vault: Lore</em>, and later received a Secret Lair treatment. Oracle text preserves the original two-stage mechanism while explicitly reminding players that both effects last indefinitely.</p>
+<div class="printings"><figure class="printing"><img alt="Memnarch from Darksteel" src="https://api.scryfall.com/cards/named?exact=Memnarch&set=dst&format=image&version=normal"><figcaption>Darksteel · 2004<br>Carl Critchlow</figcaption></figure><figure class="printing"><img alt="Memnarch from Archenemy" src="https://api.scryfall.com/cards/named?exact=Memnarch&set=arc&format=image&version=normal"><figcaption>Archenemy · 2010</figcaption></figure><figure class="printing"><img alt="Memnarch from From the Vault Lore" src="https://api.scryfall.com/cards/named?exact=Memnarch&set=v16&format=image&version=normal"><figcaption>From the Vault: Lore · 2016</figcaption></figure><figure class="printing"><img alt="Memnarch Secret Lair printing" src="https://api.scryfall.com/cards/named?exact=Memnarch&set=sld&format=image&version=normal"><figcaption>Secret Lair Drop Series</figcaption></figure></div>
+<ul class="sources">
+<li><a href="https://scryfall.com/card/dst/129/memnarch">Scryfall, Memnarch</a><span>Oracle text, original printing, artist credit, rulings, legality, and reprint archive.</span></li>
+<li><a href="https://magic.wizards.com/en/story/mirrodin-plane">Wizards of the Coast, “Mirrodin”</a><span>Official overview of Karn's artificial plane, its warden, Memnarch's instability, the abductions, and Glissa's victory.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/indestructible-inspiration-2017-09-21">Gavin Verhey, “Indestructible Inspiration”</a><span>Wizards retrospective context for Darksteel's 2004 release and the set's famous high-impact cards and mechanic.</span></li>
+<li><a href="https://www.mtgtop8.com/event?e=53906&f=ST">MTGTop8, U.S. Nationals 2005</a><span>Event result and exact Antonino De Rosa Mono-Blue Tron championship decklist.</span></li>
+<li><a href="https://old.starcitygames.com/decks/12834">Star City Games deck archive, Jonathan Sonne Blue Urzatron</a><span>Exact third-place U.S. Nationals decklist with two Memnarchs.</span></li>
+<li><a href="https://www.mtggoldfish.com/deck/5705141">MTGGoldfish historical archive, Antonino De Rosa Mono-Blue Tron</a><span>Collected contemporary coverage of the 2005 Nationals metagame, finals, Memnarch–Vedalken Shackles sequence, and tournament result.</span></li>
+<li><a href="https://www.mtgtop8.com/event?d=603821&e=54376&f=ST">MTGTop8, Masashi Oiso Mono-Blue Tron — Japan Nationals 2005</a><span>Evidence of the Memnarch Tron archetype's international reach later in the 2005 season.</span></li>
+<li><a href="https://mtg.wtf/deck/arc/assemble-the-doomsday-machine">Archenemy, “Assemble the Doomsday Machine” deck archive</a><span>Exact official preconstructed decklist containing Memnarch.</span></li>
+<li><a href="https://magic.wizards.com/en/formats/commander">Wizards of the Coast, Commander format overview</a><span>Current format framework for legendary commanders and color identity.</span></li>
+<li><a href="https://mtg.wiki/page/Memnarch">MTG Wiki, Memnarch</a><span>Detailed storyline chronology and references to the Mirrodin novels, including the Mirari origin and the warden's transformation.</span></li>
+</ul>
+</section>
+</article><aside class="margin-note"><b>The essential identity</b><p>Memnarch turns excess blue mana into a permanent claim on whatever the opponent believed was theirs.</p></aside></div>
+<div class="card-preview" id="preview"><img alt=""></div>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const t=document.getElementById(b.dataset.target).textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script>
+</body></html>
