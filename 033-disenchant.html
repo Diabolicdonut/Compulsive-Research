@@ -1,0 +1,915 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Disenchant: Alpha, artifact and enchantment removal, white's color identity, sideboards, World Championship decks, instant-speed play, successors, artwork, printings, and player memory."><title>Disenchant: The Answer to Everything Else — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+</style></head><body>
+<header class="hero disenchant-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-033#entry-033">← Compulsive Research · Entry 033</a>
+<div class="eyebrow">Entry 033 · Wave 01 · The Foundational Canon</div>
+<h1>The Answer to Everything Else</h1>
+<p class="deckline">Creatures could be fought, burned, exiled, or stolen. Disenchant existed for the permanents that changed the rules around them—and taught generations to respect two untapped white mana.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 27 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="032-control-magic.html">← Entry 032 · Control Magic</a><div class="center">Entry 033 of 1,000</div><a href="index.html?focus=entry-034#entry-034">Entry 034 · Giant Growth →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Answer to Everything Else</a>
+<a href="#alpha">A safety valve in Alpha</a>
+<a href="#targets">The other half of the battlefield</a>
+<a href="#instant">Two mana left open</a>
+<a href="#advantage">When one card becomes two</a>
+<a href="#sideboard">The sideboard’s native language</a>
+<a href="#worlds94">At the first World Championship</a>
+<a href="#worlds96">Four copies in a champion’s deck</a>
+<a href="#worlds98">Still maindecked five years later</a>
+<a href="#metagame">Keeping engines honest</a>
+<a href="#color">Why white got the effect</a>
+<a href="#departure">The Eighth Edition departure</a>
+<a href="#descendants">The Disenchant family</a>
+<a href="#modern">Why the original became a category</a>
+<a href="#formats">A life across formats</a>
+<a href="#art">Breaking the spell</a>
+<a href="#memory">What players remember</a>
+<a href="#legacy">What remains</a>
+<a href="#decklists">The deck archive</a>
+<a href="#sources">Printings and sources</a></nav><article class="article">
+
+<section id="opening"><div class="chapter-number">I · The utility</div><h2>The Answer to Everything Else</h2>
+<p class="opening dropcap">Disenchant was never the most spectacular card in a deck. It was the card that prevented someone else’s spectacle from becoming inevitable.</p>
+<p>For one generic mana and one white mana, <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span> destroyed an artifact or an enchantment at instant speed. The sentence was plain. Its strategic reach was enormous. It answered mana rocks, prison pieces, card-drawing engines, creature Auras, defensive enchantments, combo components, and the strange permanents that did not fit inside ordinary creature combat.</p>
+<p>That range made Disenchant one of Magic’s earliest promises that no permanent type would be allowed to operate without opposition. A player could invest a deck, a turn, or an entire plan into <span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span>, <span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span>, <span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span>, <span class="card-name" data-card="The Abyss" tabindex="0">The Abyss</span>, <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, or <span class="card-name" data-card="Moat" tabindex="0">Moat</span>. The white player could answer the investment with two mana and a card held quietly in hand.</p>
+<div class="card-lead"><img alt="Disenchant from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Disenchant&amp;set=lea&amp;format=image&amp;version=normal"><div><div class="oracle"><b>Disenchant</b> · {1}{W}<br>Instant<br><br>Destroy target artifact or enchantment.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Common</div><div class="stat"><b>Illustrated by</b>Amy Weber</div><div class="stat"><b>Historical identity</b>The benchmark artifact-and-enchantment answer</div></div></div></div>
+<p>Its greatest achievement was not merely that it was efficient. It made preparedness visible. Two untapped white mana became a question the opponent had to ask before committing a permanent: <em>What happens if this does not survive?</em></p></section>
+
+<section id="alpha"><div class="chapter-number">II · The safety valve</div><h2>A safety valve in Alpha</h2>
+<p>Alpha introduced artifacts and enchantments as fundamentally different kinds of permanents. Creatures participated in combat. Lands produced mana. Artifacts and enchantments often altered the operating rules of the game. They taxed actions, prevented attacks, generated cards, changed untap steps, or converted resources into entirely new forms.</p>
+<p>That meant the first set needed an answer that was broader than creature removal. Disenchant supplied it. The card did not care whether the target was a mystical law or a constructed machine. It cared only that the permanent was exerting influence from the battlefield.</p>
+<p>Because Disenchant was common, the answer was not presented as an exotic exception. It was part of white’s basic vocabulary. Just as <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> told players that white could remove creatures cleanly, Disenchant told them that white could restore order when an object or enchantment had begun rewriting the terms of play.</p>
+<div class="pullquote">Disenchant was not a threat. It was the reason threats had to survive contact with the rest of the game.<small>One card · two permanent types · instant speed</small></div></section>
+
+<section id="targets"><div class="chapter-number">III · The battlefield beyond creatures</div><h2>The other half of the battlefield</h2>
+<p>Early Magic contained an extraordinary concentration of powerful noncreature permanents. The Moxen and <span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span> compressed mana development. <span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span> promised inexhaustible cards. <span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span> controlled combat and resources. <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> and <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span> restricted untapping. <span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span> and <span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span> created engines. <span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span> turned an opposing creature into blue’s property.</p>
+<p>Disenchant was the card that linked those otherwise unrelated permanents into one tactical category: <em>things that can be removed for {1}{W}.</em> This is one reason the card’s name became generic language. Players still speak of “Disenchant effects” even when the actual card in question is <span class="card-name" data-card="Wear // Tear" tabindex="0">Wear // Tear</span>, <span class="card-name" data-card="Get Lost" tabindex="0">Get Lost</span>, <span class="card-name" data-card="Cathar Commando" tabindex="0">Cathar Commando</span>, or some new variation printed decades later.</p>
+<div class="answer-grid"><div class="answer-card"><b>Artifacts</b><p>Mana acceleration, prison pieces, equipment, combo engines, and colorless utility permanents.</p></div><div class="answer-card"><b>Enchantments</b><p>Auras, global rules, card-advantage engines, defensive locks, and build-around permanents.</p></div><div class="answer-card"><b>Timing</b><p>Instant speed allowed the answer to wait until the target mattered—or until the opponent committed further resources.</p></div></div>
+<p>The card therefore rewarded knowledge. A Disenchant cast at the first legal target might be adequate. A Disenchant saved for the card that actually made the opponent’s deck function could decide the game.</p></section>
+
+<section id="instant"><div class="chapter-number">IV · The pause</div><h2>Two mana left open</h2>
+<p>Instant speed turned Disenchant from simple removal into a source of uncertainty. The white player did not need to spend mana during the main phase or announce which permanent mattered most. The answer could remain concealed while the opponent attacked, equipped, activated, or attempted to build around the target.</p>
+<p>That created familiar tactical patterns. Destroy an Aura after its controller invested another spell in protecting or enlarging the creature. Remove an artifact before its untap-step engine could generate value. Break <span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span> during combat and recover the stolen creature as a surprise blocker. Eliminate <span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span> before it untapped. Destroy <span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span> after receiving the extra draw but before the opponent received another.</p>
+<p>The exact best moment depended on rules, sequencing, and what the opponent might still hold. Disenchant trained players to see removal not as an automatic reaction, but as a timing problem.</p></section>
+
+<section id="advantage"><div class="chapter-number">V · The exchange</div><h2>When one card becomes two</h2>
+<p>Against a standalone artifact or enchantment, Disenchant traded one card for one card. Against an Aura, the exchange could be much better. If an opponent enchanted a creature and Disenchant destroyed the Aura, the removal erased the spell while leaving the creature available for whatever other answer the white player had planned. If the Aura’s removal also changed control of the creature—as with <span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span>—the swing could be dramatic.</p>
+<p>The card could also punish activated investments. An opponent might spend mana equipping, charging, or building around an artifact only to lose the permanent before the investment paid off. The printed exchange remained one-for-one, but tempo made the transaction asymmetric.</p>
+<p>This is why a humble common appeared in control decks, aggressive decks, prison decks, and sideboards. Disenchant did not require a specific strategic identity. It required only that the opposing deck rely on objects or enchantments worth destroying.</p></section>
+
+<section id="sideboard"><div class="chapter-number">VI · The fifteen</div><h2>The sideboard’s native language</h2>
+<p>Disenchant helped teach tournament players what a sideboard was for. Some opposing decks presented abundant targets; others presented almost none. A flexible removal spell could be indispensable in one matchup and nearly blank in another. The fifteen-card sideboard allowed players to adjust that ratio after seeing the opponent’s plan.</p>
+<p>For years, decklists routinely divided their artifact-and-enchantment removal between the main deck and sideboard. A metagame full of <span class="card-name" data-card="The Rack" tabindex="0">The Rack</span>, <span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span>, <span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span>, <span class="card-name" data-card="Survival of the Fittest" tabindex="0">Survival of the Fittest</span>, <span class="card-name" data-card="Recurring Nightmare" tabindex="0">Recurring Nightmare</span>, <span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span>, or prison artifacts justified main-deck copies. A creature-heavy field pushed the card toward the sideboard.</p>
+<p>The question was never whether Disenchant was powerful enough. The question was how many targets the tournament would supply.</p></section>
+
+<section id="worlds94"><div class="chapter-number">VII · New York, 1994</div><h2>At the first World Championship</h2>
+<p>Zak Dolan’s winning deck at the first Magic World Championship contained two copies of Disenchant. The list was a dense control-and-prison construction filled with singletons, restricted power, defensive enchantments, artifacts, and a small Serra Angel finish.</p>
+<p>In such a deck, Disenchant was both protection and permission to play a long game. Dolan could establish <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span>, <span class="card-name" data-card="Kismet" tabindex="0">Kismet</span>, <span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span>, or <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> while retaining a clean answer to the opponent’s opposing engine. The same card could remove a threat to the lock or break an enemy permanent before it accumulated value.</p>
+<p>Its presence in the first world champion’s deck established an enduring pattern: the most controlling lists did not merely prevent creatures from dealing damage. They carried answers to every class of permanent that might escape ordinary removal.</p></section>
+
+<section id="worlds96"><div class="chapter-number">VIII · Seattle, 1996</div><h2>Four copies in a champion’s deck</h2>
+<p>Tom Chanpheng’s 1996 World Championship White Weenie deck played the full four Disenchants in the main deck. That placement is revealing. This was not a slow control deck waiting to answer everything. It was an aggressive white deck built to attack with efficient creatures, protection Knights, Mishra’s Factories, and disruptive land destruction.</p>
+<p>Disenchant cleared the permanents that could stop that attack. It removed defensive artifacts and enchantments, answered opposing engines before they overwhelmed a low-curve deck, and let Chanpheng commit creatures without conceding to a single noncreature obstacle.</p>
+<p>The list also carried four <span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span> in the sideboard, emphasizing how seriously the era treated artifact interaction. Disenchant’s flexibility made it main-deckable; more specialized removal could then reinforce it after sideboarding.</p></section>
+
+<section id="worlds98"><div class="chapter-number">IX · Seattle, 1998</div><h2>Still maindecked five years later</h2>
+<p>Brian Hacker’s White Weenie deck reached the Top 8 of the 1998 World Championship with three Disenchants in the main deck and a fourth in the sideboard. The card had survived multiple expansions, new mechanics, and a far more mature tournament environment without losing its role.</p>
+<p>Hacker’s deck was built around shadow creatures, en-Kor damage redirection, <span class="card-name" data-card="Empyrial Armor" tabindex="0">Empyrial Armor</span>, and <span class="card-name" data-card="Cataclysm" tabindex="0">Cataclysm</span>. Disenchant protected that aggressive plan from artifacts and enchantments that could invalidate combat or create stronger engines. Its low cost fit a deck with only seventeen lands. Its instant speed let the deck keep attacking while preserving interaction.</p>
+<p>By then, Disenchant was no longer merely an Alpha curiosity. It was infrastructure.</p></section>
+
+<section id="metagame"><div class="chapter-number">X · The pressure valve</div><h2>Keeping engines honest</h2>
+<p>Artifact and enchantment strategies become more dangerous when opponents cannot interact with them efficiently. Disenchant imposed a tax on ambition. A player could build around a permanent, but had to accept that the entire structure might be answered for two mana.</p>
+<p>This did not make noncreature permanents weak. It made them contestable. The existence of Disenchant influenced deck construction even when no copy was drawn. Players diversified threats, included recursion, waited for protection, baited removal with lesser targets, or chose permanents that generated value immediately.</p>
+<p>In that sense, Disenchant functioned like <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span> or <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>. Its importance exceeded the games in which it resolved. It shaped what opponents believed they were allowed to risk.</p></section>
+
+<section id="color"><div class="chapter-number">XI · The color pie</div><h2>Why white got the effect</h2>
+<p>White’s mechanical identity has long included the restoration of order and the destruction of artificial or magical structures that distort the battlefield. Disenchant expressed that idea in the broadest possible early form: artifacts and enchantments were both violations that white could remove.</p>
+<p>As the color pie developed, green became the other major home of artifact-and-enchantment destruction, eventually receiving <span class="card-name" data-card="Naturalize" tabindex="0">Naturalize</span> as its own two-mana benchmark. Red specialized more heavily in artifacts. White continued to receive flexible answers, often with conditions, alternate modes, attached bodies, exile clauses, or costs tuned for contemporary formats.</p>
+<p>The original remains the cleanest statement. No rider. No life gain. No restriction on mana value. No sorcery-speed concession. Destroy the target and continue the game.</p></section>
+
+<section id="departure"><div class="chapter-number">XII · Eighth Edition</div><h2>The Eighth Edition departure</h2>
+<p>Disenchant appeared through successive early core sets and became so familiar that its absence was itself news. When Eighth Edition changed the core-set environment, Disenchant left and <span class="card-name" data-card="Demystify" tabindex="0">Demystify</span> supplied a simpler enchantment-only answer.</p>
+<p>The change reflected a broader design concern: if white always received the most efficient answer to both artifacts and enchantments, other colors had less room to own parts of that interaction. Removing Disenchant from the core set did not erase the effect, but it ended the assumption that the exact Alpha card would always define Standard.</p>
+<p>Its departure also demonstrated how deeply the name had entered the game’s language. Players did not stop asking for Disenchant. They began evaluating every replacement by how closely it reproduced Disenchant’s flexibility, cost, and timing.</p></section>
+
+<section id="descendants"><div class="chapter-number">XIII · The family tree</div><h2>The Disenchant family</h2>
+<p>The descendants of Disenchant reveal how designers can vary a perfect baseline without losing the recognizable effect.</p>
+<div class="inline-image seal-descendant"><div class="image"></div><div class="copy"><h3>Seal of Cleansing</h3><p><span class="card-name" data-card="Seal of Cleansing" tabindex="0">Seal of Cleansing</span> places the effect on the battlefield in advance. The opponent can see the answer, but the white player can spend mana on an earlier turn and preserve later tempo. The Seal also creates different interactions with enchantment recursion and sacrifice timing.</p></div></div>
+<div class="inline-image naturalize-descendant"><div class="image"></div><div class="copy"><h3>Naturalize</h3><p><span class="card-name" data-card="Naturalize" tabindex="0">Naturalize</span> transferred the same clean two-mana sentence into green. It became the other defining name for the effect and helped formalize green’s role as a destroyer of artificial and magical constructions.</p></div></div>
+<p><span class="card-name" data-card="Aura of Silence" tabindex="0">Aura of Silence</span> taxed opposing artifacts and enchantments before sacrificing itself to destroy one. <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span> variants gained cycling, split-card flexibility, creature bodies, exile, life gain, or additional permanent types. Cards such as <span class="card-name" data-card="Revoke Existence" tabindex="0">Revoke Existence</span>, <span class="card-name" data-card="Fragmentize" tabindex="0">Fragmentize</span>, <span class="card-name" data-card="Generous Gift" tabindex="0">Generous Gift</span>, and <span class="card-name" data-card="Get Lost" tabindex="0">Get Lost</span> changed range, speed, and compensation while remaining legible against the original template.</p></section>
+
+<section id="modern"><div class="chapter-number">XIV · From card to category</div><h2>Why the original became a category</h2>
+<p>Modern Magic offers answers that are cheaper, broader, attached to creatures, or tailored to specific formats. Yet players still use “Disenchant” as a category label because the original defined the decision cleanly.</p>
+<p>A “Disenchant effect” means more than artifact or enchantment removal. It implies sideboard flexibility, a low opportunity cost, and the ability to trade with permanents that ordinary creature removal cannot touch. The term survives even when the new card is technically stronger because the original name remains the shortest way to describe the job.</p>
+<p>That linguistic afterlife is one of the clearest signs of a foundational card. Disenchant did not merely occupy a role. It named it.</p></section>
+
+<section id="formats"><div class="chapter-number">XV · Across formats</div><h2>A life across formats</h2>
+<div class="format-strip"><div class="format-card"><span class="impact">Historic constructed</span><h3>Type I and Type II</h3><p>Main-deck and sideboard copies answered the powerful artifacts, prison pieces, and enchantment engines of early tournament Magic.</p></div><div class="format-card"><span class="impact">Old School and Premodern</span><h3>Still exactly itself</h3><p>The original remains playable where period card pools preserve the permanents it was designed to police.</p></div><div class="format-card"><span class="impact">Pauper and Commander</span><h3>Legal, simple, replaceable</h3><p>Its clean text remains functional, though modern deck building often favors versions with broader modes or attached value.</p></div></div>
+<p>In Legacy, Vintage, and Modern, the exact card has usually competed with more specialized or more flexible alternatives. That does not diminish its importance. Those alternatives are judged against a baseline Disenchant created.</p>
+<p>In Commander, the effect is necessary but the card faces a harsher economy. Multiplayer decks often prefer <span class="card-name" data-card="Return to Dust" tabindex="0">Return to Dust</span>, <span class="card-name" data-card="Generous Gift" tabindex="0">Generous Gift</span>, <span class="card-name" data-card="Stroke of Midnight" tabindex="0">Stroke of Midnight</span>, or creatures that can be recurred. Even there, Disenchant remains a perfectly understandable inclusion—and a reminder that efficiency does not need ornament.</p></section>
+
+<div class="art-break disenchant-art-break"><div class="art-caption"><b>Amy Weber’s original Disenchant</b>The Alpha image is abstract, intimate, and unmistakably early Magic: an object or spell breaking apart at the moment its enchantment fails. The ambiguity helped the art serve both halves of the rules text.</div></div>
+
+<section id="art"><div class="chapter-number">XVI · The image</div><h2>Breaking the spell</h2>
+<p>Amy Weber’s original artwork had to represent two targets that did not necessarily resemble one another. An artifact could be a ring, machine, weapon, or relic. An enchantment might be a law, curse, blessing, or invisible field. The image therefore emphasizes the act of unraveling rather than the identity of the thing destroyed.</p>
+<p>Later printings repeatedly reinterpreted that moment. Brian Snoddy’s Ice Age version offered a more literal fantasy scene. Donato Giancola’s Urza’s Saga image brought monumental physicality. Other versions used shattered objects, collapsing magic, or figures breaking free from supernatural influence.</p>
+<p>The variety is appropriate. Disenchant is not about one object. It is about the instant when an object stops being special.</p></section>
+
+<section id="memory"><div class="chapter-number">XVII · Player memory</div><h2>What players remember</h2>
+<div class="memory"><blockquote>“Do you have the Disenchant?” was never only a question about one card. It was a question about whether the game was still interactive.</blockquote><cite>Compulsive Research · collective player memory</cite></div>
+<p>Players remember holding two Plains untapped and watching an opponent hesitate. They remember sideboarding copies in because one enchantment had dominated the first game. They remember drawing Disenchant when no target existed, then refusing to cut it because the matchup would become unwinnable without it.</p>
+<p>They also remember the humility of the card. It did not win by itself. It preserved the conditions under which the rest of the deck could win. That is the life of a utility spell: essential when needed, invisible when successful, blamed whenever drawn at the wrong time.</p></section>
+
+<section id="legacy"><div class="chapter-number">XVIII · The baseline</div><h2>What remains</h2>
+<p>Disenchant remains one of the purest pieces of rules text in Magic. Its cost, speed, and range established a benchmark that designers have spent decades modifying without obscuring.</p>
+<p>The card’s competitive prominence has risen and fallen with formats, targets, and replacement effects. Its conceptual prominence has not. Players still build sideboards around the same question Disenchant asked in 1993: which permanent types can this deck answer after they resolve?</p>
+<p>Magic has produced grander spells, stranger answers, and more efficient interaction. But whenever a player destroys an artifact or enchantment and calls the card a “Disenchant,” the Alpha common is still present.</p></section>
+
+<section id="decklists"><div class="chapter-number">XIX · The archive</div><h2>The deck archive</h2><div class="deck-archive"><p class="deck-intro">These lists show Disenchant operating in three different championship environments: a universal control tool, a full-playset aggressive answer, and low-curve interaction in a mature Standard deck.</p>
+<details class="deck"><summary><span><strong>Zak Dolan — Control / Prison</strong><small>1994 World Championship · champion</small></span><span class="plus">+</span></summary><div class="deck-body"><p>Two copies supported a defensive list whose artifacts and enchantments created a controlled battlefield. Disenchant prevented opposing permanents from escaping that control.</p><div class="deck-meta"><div><b>Zak Dolan — Control / Prison</b><div class="small">New York · Type I / Type II-era World Championship list</div></div><button class="copy" data-target="deck-zak">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div></div><div class="group"><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren&#x27;s Call" tabindex="0">Siren&#x27;s Call</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div></div><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div></div><pre hidden id="deck-zak">Zak Dolan — 1994 World Championship
+
+Creatures · 11
+1 Birds of Paradise
+1 Clone
+1 Ley Druid
+2 Old Man of the Sea
+4 Serra Angel
+1 Time Elemental
+1 Vesuvan Doppelganger
+
+Instants · 9
+1 Ancestral Recall
+2 Disenchant
+1 Mana Drain
+1 Siren&#x27;s Call
+4 Swords to Plowshares
+
+Sorceries · 6
+1 Armageddon
+1 Recall
+1 Regrowth
+1 Time Walk
+1 Timetwister
+1 Wrath of God
+
+Enchantments · 4
+1 Control Magic
+1 Kismet
+2 Stasis
+
+Artifacts · 15
+1 Black Lotus
+1 Mox Emerald
+1 Mox Ruby
+1 Mox Pearl
+1 Mox Sapphire
+1 Mox Jet
+1 Sol Ring
+1 Mana Vault
+1 Black Vise
+1 Howling Mine
+1 Icy Manipulator
+1 Ivory Tower
+2 Meekstone
+1 Winter Orb
+
+Lands · 15
+1 Library of Alexandria
+4 Savannah
+2 Strip Mine
+4 Tropical Island
+4 Tundra
+
+Sideboard · 15
+1 Chaos Orb
+1 Circle of Protection: Red
+1 Copy Artifact
+1 Diamond Valley
+1 In the Eye of Chaos
+1 Floral Spuzzem
+2 Karma
+1 Kismet
+1 Magical Hack
+1 Power Sink
+1 Presence of the Master
+1 Reverse Damage
+1 Sleight of Mind
+1 Winter Blast</pre></div></details>
+<details class="deck"><summary><span><strong>Tom Chanpheng — White Weenie</strong><small>1996 World Championship · champion</small></span><span class="plus">+</span></summary><div class="deck-body"><p>The full four copies demonstrate that Disenchant was not reserved for control. It cleared the permanents that could halt an aggressive white battlefield.</p><div class="deck-meta"><div><b>Tom Chanpheng — White Weenie</b><div class="small">Seattle · Type II Standard</div></div><button class="copy" data-target="deck-tom">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 20</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Phyrexian War Beast" tabindex="0">Phyrexian War Beast</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of Leitbur" tabindex="0">Order of Leitbur</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of the White Shield" tabindex="0">Order of the White Shield</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="White Knight" tabindex="0">White Knight</span></div></div><div class="group"><h4>Instants · 11</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Reinforcements" tabindex="0">Reinforcements</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Reprisal" tabindex="0">Reprisal</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div></div><div class="group"><h4>Artifacts · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lodestone Bauble" tabindex="0">Lodestone Bauble</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">15</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kjeldoran Outpost" tabindex="0">Kjeldoran Outpost</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Arenson&#x27;s Aura" tabindex="0">Arenson&#x27;s Aura</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Energy Storm" tabindex="0">Energy Storm</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Exile" tabindex="0">Exile</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kjeldoran Outpost" tabindex="0">Kjeldoran Outpost</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Reprisal" tabindex="0">Reprisal</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Spirit Link" tabindex="0">Spirit Link</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div></div></div></div><pre hidden id="deck-tom">Tom Chanpheng — White Weenie
+1996 World Champion
+
+Creatures · 20
+2 Phyrexian War Beast
+4 Order of Leitbur
+4 Order of the White Shield
+4 Savannah Lions
+2 Serra Angel
+4 White Knight
+
+Instants · 11
+4 Disenchant
+1 Reinforcements
+1 Reprisal
+1 Sleight of Mind
+4 Swords to Plowshares
+
+Sorceries · 2
+1 Armageddon
+1 Balance
+
+Enchantments · 1
+1 Land Tax
+
+Artifacts · 2
+1 Lodestone Bauble
+1 Zuran Orb
+
+Lands · 24
+15 Plains
+1 Kjeldoran Outpost
+4 Mishra&#x27;s Factory
+4 Strip Mine
+
+Sideboard · 15
+2 Arenson&#x27;s Aura
+1 Black Vise
+4 Divine Offering
+1 Energy Storm
+1 Exile
+1 Kjeldoran Outpost
+1 Reprisal
+1 Spirit Link
+1 Sleight of Mind
+2 Serrated Arrows</pre></div></details>
+<details class="deck"><summary><span><strong>Brian Hacker — White Weenie</strong><small>1998 World Championship · Top 8</small></span><span class="plus">+</span></summary><div class="deck-body"><p>Three main-deck copies and a fourth sideboard copy kept shadow creatures and Empyrial Armor from being stranded behind opposing artifacts or enchantments.</p><div class="deck-meta"><div><b>Brian Hacker — White Weenie</b><div class="small">Seattle · Tempest-era Standard</div></div><button class="copy" data-target="deck-hacker">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 27</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Nomads en-Kor" tabindex="0">Nomads en-Kor</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Paladin en-Vec" tabindex="0">Paladin en-Vec</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Soltari Monk" tabindex="0">Soltari Monk</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Soltari Priest" tabindex="0">Soltari Priest</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Soltari Visionary" tabindex="0">Soltari Visionary</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Soul Warden" tabindex="0">Soul Warden</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Warrior en-Kor" tabindex="0">Warrior en-Kor</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="White Knight" tabindex="0">White Knight</span></div></div><div class="group"><h4>Instants · 7</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tithe" tabindex="0">Tithe</span></div></div><div class="group"><h4>Sorceries · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cataclysm" tabindex="0">Cataclysm</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Aura of Silence" tabindex="0">Aura of Silence</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Empyrial Armor" tabindex="0">Empyrial Armor</span></div></div><div class="group"><h4>Lands · 17</h4><div class="row"><span class="qty">17</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Abeyance" tabindex="0">Abeyance</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Aura of Silence" tabindex="0">Aura of Silence</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Spirit Link" tabindex="0">Spirit Link</span></div></div></div></div><pre hidden id="deck-hacker">Brian Hacker — White Weenie
+1998 World Championship Top 8
+
+Creatures · 27
+3 Nomads en-Kor
+3 Paladin en-Vec
+4 Soltari Monk
+4 Soltari Priest
+1 Soltari Visionary
+4 Soul Warden
+4 Warrior en-Kor
+4 White Knight
+
+Instants · 7
+3 Disenchant
+4 Tithe
+
+Sorceries · 4
+4 Cataclysm
+
+Enchantments · 5
+1 Aura of Silence
+4 Empyrial Armor
+
+Lands · 17
+17 Plains
+
+Sideboard · 15
+3 Abeyance
+2 Armageddon
+3 Aura of Silence
+3 Cursed Scroll
+1 Disenchant
+3 Spirit Link</pre></div></details>
+</div></section>
+
+<section id="sources"><div class="chapter-number">XX · The object</div><h2>Printings and sources</h2>
+<p>Disenchant has been reprinted across core sets, expansion environments, promotional releases, supplemental products, and nostalgic retrospectives. The changing artwork demonstrates how many visual languages can express the same action: a permanent losing the force that made it matter.</p>
+<div class="printings">
+<figure class="printing"><img alt="Disenchant from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Disenchant&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Amy Weber · original printing</figcaption></figure>
+<figure class="printing"><img alt="Disenchant from Ice Age" src="https://api.scryfall.com/cards/named?exact=Disenchant&amp;set=ice&amp;format=image&amp;version=normal"><figcaption>Ice Age · 1995<br>Brian Snoddy · new expansion artwork</figcaption></figure>
+<figure class="printing"><img alt="Disenchant from Urza's Saga" src="https://api.scryfall.com/cards/named?exact=Disenchant&amp;set=usg&amp;format=image&amp;version=normal"><figcaption>Urza’s Saga · 1998<br>Donato Giancola · artifact-block era</figcaption></figure>
+<figure class="printing"><img alt="Disenchant from The Brothers' War" src="https://api.scryfall.com/cards/named?exact=Disenchant&amp;set=bro&amp;format=image&amp;version=normal"><figcaption>The Brothers’ War · 2022<br>Richard Kane Ferguson · modern return</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/18/disenchant">Scryfall — Disenchant, Limited Edition Alpha</a><span>Oracle text, original set, rarity, artist, rulings, legality, and printing index.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/top-50-white-cards-2003-02-07-0">Wizards of the Coast — The Top 50 White Cards</a><span>A contemporary assessment of Disenchant’s historical ubiquity and role as white’s premier artifact-and-enchantment answer.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/acts-destruction-2014-08-11">Wizards of the Coast — Acts of Destruction</a><span>Mark Rosewater on artifact and enchantment destruction within the color pie.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/small-change-2003-07-21">Wizards of the Coast — Small Change</a><span>Design discussion surrounding Disenchant’s departure and the creation of a simpler white enchantment answer.</span></li>
+<li><a href="https://mtg.wiki/page/1994_World_Championships/Top_4_Decks">1994 World Championships — Top 4 deck archive</a><span>Zak Dolan’s championship list and historical context.</span></li>
+<li><a href="https://mtg.wiki/page/1996_World_Championships/Standard_decks">1996 World Championships — Standard deck archive</a><span>Tom Chanpheng’s White Weenie list and tournament context.</span></li>
+<li><a href="https://mtg.wiki/page/1998_World_Championships/Standard_Decks">1998 World Championships — Standard deck archive</a><span>Brian Hacker’s White Weenie list and World Championship Deck description.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Disenchant%22&amp;unique=prints">Scryfall — Disenchant printing search</a><span>Cross-set printing and artwork reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Compulsive Research treats tournament lists as historical artifacts. Card names use current Oracle naming where appropriate, while deck construction and sideboards preserve the documented lists of their eras.</div>
+<div class="end-nav"><a href="032-control-magic.html"><small>Previous numbered entry</small>Control Magic</a><a href="index.html?focus=entry-034#entry-034"><small>Next numbered entry</small>Giant Growth</a></div>
+</section>
+
+</article><aside class="sidebar-note"><b>Entry 033</b><br>Disenchant is preserved not because it produced one singular deck, but because it taught every deck to respect the permanents beyond creatures.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
