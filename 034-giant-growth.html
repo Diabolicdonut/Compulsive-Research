@@ -1,0 +1,859 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Giant Growth: Alpha, combat tricks, green's color identity, early World Championship decks, Señor Stompy, Limited play, descendants, artwork, printings, and player memory."><title>Giant Growth: Three More Power — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+</style></head><body>
+<header class="hero giant-growth-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-034#entry-034">← Compulsive Research · Entry 034</a>
+<div class="eyebrow">Entry 034 · Wave 01 · The Foundational Canon</div>
+<h1>Three More Power</h1>
+<p class="deckline">For one green mana, the smallest creature could survive, trade upward, or become lethal. Giant Growth made every untapped Forest feel like a hidden combat step.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 29 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="033-disenchant.html">← Entry 033 · Disenchant</a><div class="center">Entry 034 of 1,000</div><a href="index.html?focus=entry-035#entry-035">Entry 035 · Fireball →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">Three More Power</a>
+<a href="#alpha">The cleanest trick in Alpha</a>
+<a href="#numbers">Why plus three, plus three</a>
+<a href="#threat">The Forest that was not empty</a>
+<a href="#exchange">Winning two fights with one card</a>
+<a href="#risk">The danger of being answered</a>
+<a href="#worlds94">A little deck at the first Worlds</a>
+<a href="#worlds95">Green Weenie reaches the Top 8</a>
+<a href="#stompy">Señor Stompy</a>
+<a href="#limited">Limited’s first great lesson</a>
+<a href="#family">The Giant Growth family</a>
+<a href="#color">Green’s instant-speed identity</a>
+<a href="#passed">Why constructed moved past it</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Transformation</div><h2>Three More Power</h2>
+<p class="opening dropcap">Giant Growth did not look like a permanent. It did not ask to remain on the battlefield, generate value over several turns, or announce itself before combat. It waited in the hand as one green mana and a possibility. Then a creature that had already been measured became something else.</p>
+<p>The spell’s effect is among the simplest in Magic: one creature receives three additional power and three additional toughness until the end of the turn. Yet the card changes far more than two numbers. It changes which attacks are safe, which blocks are profitable, how much damage a player can afford to take, whether a burn spell is sufficient, and whether an opponent can trust the battlefield they see.</p>
+<p>That is Giant Growth’s true historical contribution. It made hidden information physical. An untapped Forest became a warning. A harmless attacker could be bait. A doomed blocker could become an ambush. The card taught players that combat was not merely the comparison of printed statistics; it was a negotiation conducted with mana, timing, and nerve.</p>
+<div class="card-lead"><img alt="Giant Growth from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Giant%20Growth&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="eyebrow">Current Oracle text</div><h3>Giant Growth</h3><p><b>Mana cost:</b> G<br><b>Instant</b></p><p>Target creature gets +3/+3 until end of turn.</p><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original rarity</b>Common</div><div class="stat"><b>Original artist</b>Sandra Everingham</div><div class="stat"><b>Strategic class</b>Combat trick · protection · reach</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Beginning</div><h2>The cleanest trick in Alpha</h2>
+<p>Alpha contained grand effects that rewrote turns, hands, battlefields, and mana systems. Giant Growth worked at the opposite scale. It affected one creature for one turn. It was common, inexpensive, and legible to a new player in seconds.</p>
+<p>That modesty made it foundational. Richard Garfield’s first set needed spells that demonstrated why cards could be held rather than immediately deployed. Giant Growth rewarded patience. It showed that an instant could alter combat after creatures had been committed, and that the value of a card depended on the moment in which it was used.</p>
+<p>The card also established a durable piece of green’s identity. Green’s creatures were supposed to be naturally formidable, but green could also make life surge beyond its apparent limits. Giant Growth expressed that idea without machinery or abstraction. The creature did not receive armor, training, or equipment. It simply became larger because green magic said that it could.</p>
+<div class="pullquote">The creature on the table was only the creature your opponent was allowed to see.<small>Giant Growth turned one untapped Forest into hidden size.</small></div>
+</section>
+
+<section id="numbers"><div class="chapter-number">III · The Benchmark</div><h2>Why plus three, plus three</h2>
+<p>Three is a remarkable amount of temporary material for one mana. A single point often changes nothing. Two points can alter a trade. Three points regularly crosses several thresholds at once: the creature survives damage, destroys a larger blocker, and pushes additional damage through if it was not blocked.</p>
+<p>The equal increase to power and toughness is equally important. Giant Growth is not merely a finishing spell. It can convert a small creature into removal by allowing it to defeat something larger in combat. It can counter damage-based removal by raising toughness beyond the spell’s reach. It can transform a double block from a defensive solution into a disaster.</p>
+<div class="growth-grid"><div class="growth-card"><b>Offense</b><p>Three unexpected power changes a clock, punishes an unblocked creature, and creates lethal damage from an apparently safe life total.</p></div><div class="growth-card"><b>Defense</b><p>Three toughness can invalidate burn, preserve a key creature, and make an attacker collide with a blocker it can no longer defeat.</p></div><div class="growth-card"><b>Removal</b><p>When combat damage destroys the opposing creature, the pump spell has functioned as a green removal spell attached to a creature already in play.</p></div></div>
+<p>For decades, designers have measured new pump spells against this rate. Some add trample, hexproof, counters, landfall, poison, or alternate costs. Others reduce the bonus or impose a condition. Giant Growth remains the clean center of the category: the uncomplicated exchange against which elaborations are understood.</p>
+</section>
+
+<div class="art-break giant-growth-art-break"><div class="art-caption"><b>Sandra Everingham’s original Giant Growth</b>The Alpha artwork presents growth as sudden natural enormity rather than careful enhancement—a small figure rendered irrelevant by an impossible scale.</div></div>
+
+<section id="threat"><div class="chapter-number">IV · The Bluff</div><h2>The Forest that was not empty</h2>
+<p>Giant Growth’s most influential plays are not always the ones in which it is cast. Sometimes the possibility of the spell is enough. An opponent declines a block because green mana remains available. A burn spell is delayed. Two creatures are held back to defend against one attacker. The green player receives value from a card that may not even be in hand.</p>
+<p>This is one of Magic’s earliest and most elegant examples of representation. To “represent” Giant Growth is to arrange the battlefield and mana so that the opponent must account for it. The bluff works because the card is cheap, common, and devastating in the correct exchange. Players learn to ask not only what the opponent has shown, but what the opponent has deliberately left available.</p>
+<p>The same uncertainty works in reverse. Attacking a small creature into a larger blocker can announce the trick too clearly. A careful opponent may refuse the offered exchange, remove the creature before blocks, or force the green player to spend mana inefficiently. Giant Growth therefore teaches a second lesson alongside bluffing: credible deception requires actions that would also make sense without the card.</p>
+</section>
+
+<section id="exchange"><div class="chapter-number">V · The Exchange</div><h2>Winning two fights with one card</h2>
+<p>The ideal Giant Growth does not merely deal three damage. It invalidates an opposing card while preserving the creature it targets. A 2/2 blocked by a 4/4 would normally be lost without consequence. After Giant Growth, the 5/5 survives and the blocker dies. The spell has converted a bad attack into a favorable exchange.</p>
+<p>Against direct damage, the arithmetic can be even cleaner. If an opponent spends a burn spell to kill a creature and Giant Growth raises its toughness beyond the damage, the pump spell has protected a permanent while trading for the removal spell. The creature remains, the opponent’s card is gone, and the green player may still receive additional combat damage from the power bonus.</p>
+<p>These sequences explain why Giant Growth is more sophisticated than its reputation as a beginner’s card. The best use is often the least spectacular-looking one. Saving a creature from damage, arranging a profitable trade, or forcing an opponent to spend two cards can matter more than adding three points to an attack.</p>
+</section>
+
+<section id="risk"><div class="chapter-number">VI · The Liability</div><h2>The danger of being answered</h2>
+<p>Every aura of possibility surrounding Giant Growth comes with a corresponding risk. The spell targets. If the creature is destroyed, bounced, exiled, or otherwise made illegal before Giant Growth resolves, the pump spell fails with it. What looked like protection becomes an invitation for a two-for-one in the opponent’s favor.</p>
+<p>This vulnerability shaped how combat tricks were evaluated as Magic became more efficient. Removal spells grew cheaper and more flexible. Creatures increasingly generated value when they entered the battlefield. A card that required a creature, a combat opportunity, and a favorable response window could be less reliable than simply playing another threat.</p>
+<p>That does not make the card badly designed. The tension is the design. Giant Growth creates a contest over timing in which both players can be rewarded for reading the other correctly. The green player must decide when the upside justifies exposure. The opponent must decide whether to act before the spell, during the spell, or not at all.</p>
+</section>
+
+<section id="worlds94"><div class="chapter-number">VII · The First Worlds</div><h2>A little deck at the first Worlds</h2>
+<p>At the 1994 World Championship, Mark Rosewater played a blue-green aggressive deck he later called “Mark’s Little Deck.” Its creatures were tiny by the standards of later Magic: Flying Men, Scryb Sprites, mana creatures, and Argothian Pixies. Giant Growth supplied the sudden scale those bodies lacked.</p>
+<p>The deck illustrates an early understanding of tempo. Cheap evasive creatures entered quickly. Concordant Crossroads accelerated deployment, Unstable Mutation turned fliers into immediate threats, and Giant Growth made combat math dangerous. Berserk provided a single explosive ceiling, but the four Giant Growths were the repeatable language of the deck.</p>
+<p>This was not yet a standardized archetype. It was a pile of efficient ideas from a young game discovering how aggression, evasion, and temporary power could cooperate. Giant Growth appears here not as a novelty but as a full playset—a card important enough to structure attacks around at the first World Championship.</p>
+</section>
+
+<section id="worlds95"><div class="chapter-number">VIII · Green Weenie</div><h2>Green Weenie reaches the Top 8</h2>
+<p>One year later, Ivan Curina carried a predominantly green creature deck into the Top 8 of the 1995 World Championship. The list used mana creatures, Elvish Archers, Lhurgoyf, Whirling Dervish, Woolly Spider, and even a single Force of Nature. Four Giant Growths connected the small accelerants and the larger threats.</p>
+<p>Curina’s list demonstrates the breadth of the card’s work. Giant Growth could turn a mana elf into a meaningful combatant after acceleration was no longer needed. It could protect a Lhurgoyf from damage, help a Dervish survive combat, or create lethal damage beside Hurricane. The white splash added Swords to Plowshares and Armageddon, but the deck’s battlefield identity remained green.</p>
+<p>The list also preserves an era in which constructed decks could exceed sixty cards without apology. Curina registered sixty-two in the main deck. The historical irregularity makes the four copies of Giant Growth more revealing, not less: even in an unusually broad list, the combat trick remained nonnegotiable.</p>
+</section>
+
+<section id="stompy"><div class="chapter-number">IX · The Archetype</div><h2>Señor Stompy</h2>
+<p>By the 1997 World Championship, Giant Growth had found one of its purest tournament homes. Svend Sparre Geertsen’s mono-green Señor Stompy deck finished third after posting the strongest Standard record among the finalists. It played thirty-two creatures, eighteen lands, four Winter Orbs, two Bounty of the Hunt, and four Giant Growths.</p>
+<p>The deck was built to operate on almost nothing. Fyndhorn Elves and Quirion Ranger extracted repeated mana from a tiny land base. Rogue Elephant and Harvest Wurm turned sacrificed Forests into tempo. Ghazban Ogre and Spectral Bears delivered three-power pressure for very little mana. Winter Orb punished opponents for needing conventional resources.</p>
+<p>Giant Growth was ideal in that economy. It cost only one mana, defended fragile tempo, and let cheap creatures defeat blockers that had required far more investment. Contemporary strategic writing about Stompy emphasized using the spell to preserve creatures or win combat rather than spending it casually for three damage—unless those three points ended the game.</p>
+<div class="inline-image might-descendant"><div class="image"></div><div class="copy"><div class="eyebrow">The rate becomes conditional</div><h3>Might of Old Krosa</h3><p>Later aggressive decks accepted timing restrictions in exchange for an even larger bonus. The family kept Giant Growth’s promise—one mana can make a small creature suddenly enormous—while demanding a different kind of planning.</p></div></div>
+</section>
+
+<section id="limited"><div class="chapter-number">X · The Classroom</div><h2>Limited’s first great lesson</h2>
+<p>Giant Growth may be more important to Limited play than to any single constructed format. It teaches nearly every concept a combat trick can teach: mana efficiency, timing, bluffing, target vulnerability, damage races, and the difference between using a card for value and using it for reach.</p>
+<p>New players often discover the obvious use first. An unblocked creature receives three extra power. Soon they discover the stronger use: a smaller creature defeats a larger one and survives. Later they learn the restraint of leaving mana open, declining to cast the spell into removal, or attacking in a way that makes the trick difficult to read.</p>
+<p>The card also teaches opponents. Before blocking, count green mana. Before using damage-based removal, consider a toughness increase. Before declining a trade, ask whether the green player benefits from the hesitation alone. Giant Growth trains both sides of the table to treat hidden cards as part of the battlefield.</p>
+</section>
+
+<section id="family"><div class="chapter-number">XI · The Descendants</div><h2>The Giant Growth family</h2>
+<p>Few cards have produced a more recognizable design family. “Giant Growth effect” became practical player vocabulary for temporary power-and-toughness increases, even when the descendant differs substantially from the original.</p>
+<div class="timeline"><div class="timeline-item"><time>1993</time><h3>Giant Growth</h3><p>The baseline: one mana, instant speed, three power and three toughness, no additional text.</p></div><div class="timeline-item"><time>1996–1999</time><h3>Free spells and trample</h3><p>Bounty of the Hunt, Invigorate, and Might of Oaks explored alternate costs or much larger bonuses, showing how dangerous temporary power becomes when mana restrictions loosen.</p></div><div class="timeline-item"><time>2006–2010</time><h3>Conditions become rewards</h3><p>Might of Old Krosa, Groundswell, and Vines of Vastwood offered more power or protection when their conditions were satisfied.</p></div><div class="timeline-item"><time>2011 onward</time><h3>Combo and efficiency</h3><p>Mutagenic Growth, Blossoming Defense, Scale Up, and countless set-specific variants turned the old combat trick into protection, poison math, prowess fuel, and combo infrastructure.</p></div></div>
+<div class="inline-image vines-descendant"><div class="image"></div><div class="copy"><div class="eyebrow">Protection joins the pump</div><h3>Vines of Vastwood</h3><p>Modern descendants often solve Giant Growth’s central liability by protecting the target from opposing interaction. The category evolved by combining size with the ability to make that size resolve safely.</p></div></div>
+</section>
+
+<section id="color"><div class="chapter-number">XII · The Color Pie</div><h2>Green’s instant-speed identity</h2>
+<p>Green is often described through permanents: creatures, lands, enchantments, and natural growth that accumulates on the battlefield. Giant Growth demonstrates that green’s identity also includes explosive moments. Nature is not only gradual. It can surge.</p>
+<p>The spell lets green answer creatures without simply receiving unrestricted destruction. Green must already possess a body and arrange combat. Its “removal” is conditional on participation. That dependency is a color-pie feature: green overcomes opposing creatures by proving larger, not by making them vanish abstractly.</p>
+<p>At the same time, the card grants reach to creature decks. A board of modest attackers can threaten damage beyond its printed total. This gives green a way to finish games without direct damage while remaining faithful to creatures as the mechanism of victory.</p>
+</section>
+
+<section id="passed"><div class="chapter-number">XIII · The Changing Game</div><h2>Why constructed moved past it</h2>
+<p>Giant Growth did not become weaker. The surrounding game became more demanding. Competitive pump spells began to offer additional utility: hexproof, trample, infect scaling, free casting, permanent counters, card selection, or synergy with specific mechanics. Creatures themselves became more valuable, making exposure to a two-for-one more costly.</p>
+<p>Constructed decks also became better at specializing. Infect preferred pump that translated efficiently into poison and protected its single attacker. Prowess decks valued spells that could be cast without green mana or that replaced themselves. Heroic and aura strategies wanted targeting effects with additional synergy. Giant Growth remained honest while its descendants became tailored.</p>
+<p>That honesty preserved it elsewhere. The card continues to return in introductory products, core environments, Limited sets, and nostalgic releases because it does not need a surrounding mechanic to make sense. It is usable the first time a player reads it and still creates difficult decisions after thousands of games.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XIV · The Formats</div><h2>A life across formats</h2>
+<div class="format-strip"><div class="format-card"><span class="impact">Historic Constructed</span><h3>Green aggro and Stompy</h3><p>Early World Championship lists and Señor Stompy used full playsets because one mana could preserve tempo, win combat, and create lethal damage.</p></div><div class="format-card"><span class="impact">Limited</span><h3>The archetypal combat trick</h3><p>Its value rises when creatures must interact in combat and removal is scarce. The threat of the card can alter blocks before it is ever revealed.</p></div><div class="format-card"><span class="impact">Casual and introductory play</span><h3>A first unforgettable surprise</h3><p>Few cards teach the emotional pleasure of hidden information as directly as turning a doomed creature into the largest object in combat.</p></div></div>
+<p>In Pauper, Cube, and specialty formats, Giant Growth periodically competes with a dense field of alternatives. Whether it earns a slot depends on what the deck needs: pure rate, protection, trample, alternate cost, or synergy. Even when another card wins that comparison, the comparison itself begins with Giant Growth.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XV · The Memory</div><h2>What players remember</h2>
+<div class="memory"><blockquote>“You blocked because the creature was smaller. Then the Forest tapped, the card appeared, and the entire meaning of combat changed.”</blockquote><cite>A composite memory of early kitchen tables, school cafeterias, starter decks, drafts, and green mages learning the pleasure of one untapped mana.</cite></div>
+<div class="memory-grid"><div><h3>The first ambush</h3><p>For many players, Giant Growth was the first card that made an opponent’s confident block feel dangerous. The effect is small enough to understand instantly and large enough to create a story.</p></div><div><h3>The first bluff</h3><p>Eventually the card did not need to appear. Players learned to leave a Forest open, attack, and watch the opponent perform the arithmetic on a spell that might not exist.</p></div></div>
+<p>Its cultural importance comes partly from repetition. Giant Growth has appeared across generations of products and artwork. It has been opened by players who began in 1993 and by players who encountered it through modern core sets, digital clients, Jumpstart packs, or introductory decks.</p>
+<p>Each generation receives the same lesson. Printed power and toughness are not promises. They are the beginning of a conversation.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XVI · The Archive</div><h2>The deck archive</h2><p class="deck-intro">These lists show Giant Growth moving from an improvised early tempo shell, to a World Championship Top 8 green creature deck, to one of the defining spells of late-1990s Stompy.</p><div class="deck-archive">
+<details class="deck"><summary><span><strong>Mark’s Little Deck</strong><small>1994 World Championship · blue-green tempo</small></span><span class="plus">+</span></summary><div class="deck-body"><p>Tiny evasive creatures, Unstable Mutation, and four Giant Growths made combat and damage races difficult to calculate. The published historical list does not preserve a sideboard.</p><div class="deck-meta"><div><b>Mark’s Little Deck</b><div class="small">Mark Rosewater · New York, 1994</div></div><button class="copy" data-target="mark-deck">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 20</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Argothian Pixies" tabindex="0">Argothian Pixies</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Elvish Archers" tabindex="0">Elvish Archers</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Flying Men" tabindex="0">Flying Men</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Scryb Sprites" tabindex="0">Scryb Sprites</span></div></div><div class="group"><h4>Instants · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Berserk" tabindex="0">Berserk</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span></div></div><div class="group"><h4>Sorceries · 3</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Enchantments · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Concordant Crossroads" tabindex="0">Concordant Crossroads</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Unstable Mutation" tabindex="0">Unstable Mutation</span></div></div><div class="group"><h4>Lands · 19</h4><div class="row"><span class="qty">6</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Pendelhaven" tabindex="0">Pendelhaven</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div></div></div></div><pre hidden id="mark-deck">Mark Rosewater — “Mark&#x27;s Little Deck”
+1994 World Championship participant
+
+Creatures · 20
+2 Argothian Pixies
+4 Birds of Paradise
+2 Elvish Archers
+4 Flying Men
+4 Llanowar Elves
+4 Scryb Sprites
+
+Instants · 6
+1 Ancestral Recall
+1 Berserk
+4 Giant Growth
+
+Sorceries · 3
+1 Recall
+1 Regrowth
+1 Time Walk
+
+Artifacts · 4
+1 Black Lotus
+1 Mox Emerald
+1 Mox Sapphire
+1 Sol Ring
+
+Enchantments · 8
+4 Concordant Crossroads
+4 Unstable Mutation
+
+Lands · 19
+6 Forest
+4 Island
+4 Mishra&#x27;s Factory
+1 Pendelhaven
+4 Tropical Island
+
+No sideboard is preserved with the published list.</pre></div></details>
+<details class="deck"><summary><span><strong>Ivan Curina — Green-White Aggro</strong><small>1995 World Championship Top 8 · 62-card main deck</small></span><span class="plus">+</span></summary><div class="deck-body"><p>A creature-heavy green deck with white removal and Armageddon. Giant Growth connected the mana creatures, utility creatures, and large finishers into one combat plan.</p><div class="deck-meta"><div><b>Ivan Curina — Green-White Aggro</b><div class="small">Ivan Curina · Seattle, 1995</div></div><button class="copy" data-target="ivan-deck">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 24</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Elvish Archers" tabindex="0">Elvish Archers</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Force of Nature" tabindex="0">Force of Nature</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Fyndhorn Elves" tabindex="0">Fyndhorn Elves</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lhurgoyf" tabindex="0">Lhurgoyf</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Woolly Spider" tabindex="0">Woolly Spider</span></div></div><div class="group"><h4>Instants · 7</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 4</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Hurricane" tabindex="0">Hurricane</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div></div><div class="group"><h4>Enchantments · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brushland" tabindex="0">Brushland</span></div>
+<div class="row"><span class="qty">11</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Crumble" tabindex="0">Crumble</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Despotic Scepter" tabindex="0">Despotic Scepter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurricane" tabindex="0">Hurricane</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Lifeforce" tabindex="0">Lifeforce</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Pale Bears" tabindex="0">Pale Bears</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Pygmy Allosaurus" tabindex="0">Pygmy Allosaurus</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Tranquility" tabindex="0">Tranquility</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div></div></div></div><pre hidden id="ivan-deck">Ivan Curina — Green-White Aggro
+1995 World Championship Top 8
+
+Creatures · 24
+3 Birds of Paradise
+4 Elvish Archers
+1 Force of Nature
+4 Fyndhorn Elves
+4 Lhurgoyf
+4 Llanowar Elves
+2 Whirling Dervish
+2 Woolly Spider
+
+Instants · 7
+4 Giant Growth
+3 Swords to Plowshares
+
+Sorceries · 4
+2 Armageddon
+2 Hurricane
+
+Artifacts · 4
+2 Icy Manipulator
+2 Nevinyrral&#x27;s Disk
+
+Enchantments · 3
+3 Land Tax
+
+Lands · 20
+4 Brushland
+11 Forest
+1 Plains
+4 Strip Mine
+
+Sideboard · 15
+1 Birds of Paradise
+4 Crumble
+1 Despotic Scepter
+1 Hurricane
+1 Lifeforce
+1 Pale Bears
+1 Pygmy Allosaurus
+3 Tranquility
+2 Whirling Dervish</pre></div></details>
+<details class="deck"><summary><span><strong>Señor Stompy</strong><small>1997 World Championship · third place</small></span><span class="plus">+</span></summary><div class="deck-body"><p>Thirty-two creatures and only eighteen lands created relentless pressure. Giant Growth protected tempo and allowed inexpensive creatures to defeat far more expensive blockers.</p><div class="deck-meta"><div><b>Señor Stompy</b><div class="small">Svend Sparre Geertsen · Seattle, 1997</div></div><button class="copy" data-target="svend-deck">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 32</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fyndhorn Elves" tabindex="0">Fyndhorn Elves</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghazban Ogre" tabindex="0">Ghazban Ogre</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Harvest Wurm" tabindex="0">Harvest Wurm</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Jolrael&#x27;s Centaur" tabindex="0">Jolrael&#x27;s Centaur</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Lhurgoyf" tabindex="0">Lhurgoyf</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Quirion Ranger" tabindex="0">Quirion Ranger</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Rogue Elephant" tabindex="0">Rogue Elephant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Spectral Bears" tabindex="0">Spectral Bears</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Uktabi Orangutan" tabindex="0">Uktabi Orangutan</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div></div><div class="group"><h4>Instants · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Bounty of the Hunt" tabindex="0">Bounty of the Hunt</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">16</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Heart of Yavimaya" tabindex="0">Heart of Yavimaya</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bounty of the Hunt" tabindex="0">Bounty of the Hunt</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Solitude" tabindex="0">City of Solitude</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Crumble" tabindex="0">Crumble</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Emerald Charm" tabindex="0">Emerald Charm</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="River Boa" tabindex="0">River Boa</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Uktabi Orangutan" tabindex="0">Uktabi Orangutan</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div></div></div></div><pre hidden id="svend-deck">Svend Sparre Geertsen — Señor Stompy
+1997 World Championship, third place
+
+Creatures · 32
+4 Fyndhorn Elves
+4 Ghazban Ogre
+3 Harvest Wurm
+2 Jolrael&#x27;s Centaur
+3 Lhurgoyf
+4 Quirion Ranger
+4 Rogue Elephant
+4 Spectral Bears
+2 Uktabi Orangutan
+2 Whirling Dervish
+
+Instants · 6
+2 Bounty of the Hunt
+4 Giant Growth
+
+Artifacts · 4
+4 Winter Orb
+
+Lands · 18
+16 Forest
+2 Heart of Yavimaya
+
+Sideboard · 15
+1 Bounty of the Hunt
+3 City of Solitude
+2 Crumble
+4 Emerald Charm
+2 River Boa
+1 Uktabi Orangutan
+2 Whirling Dervish</pre></div></details>
+</div></section>
+
+<section id="sources"><div class="chapter-number">XVII · The Object</div><h2>Printings and sources</h2>
+<p>Giant Growth has crossed nearly the entire visual history of Magic. The original Sandra Everingham image made growth feel uncanny and mythic. Later core-set art translated the spell into increasingly literal displays of scale, while modern printings placed the same foundational rules text into new worlds and frames.</p>
+<div class="printings">
+<figure class="printing"><img alt="Giant Growth from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Giant%20Growth&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Sandra Everingham · original printing</figcaption></figure>
+<figure class="printing"><img alt="Giant Growth from Seventh Edition" src="https://api.scryfall.com/cards/named?exact=Giant%20Growth&amp;set=7ed&amp;format=image&amp;version=normal"><figcaption>Seventh Edition · 2001<br>Terese Nielsen · new core-set artwork</figcaption></figure>
+<figure class="printing"><img alt="Giant Growth from Magic 2010" src="https://api.scryfall.com/cards/named?exact=Giant%20Growth&amp;set=m10&amp;format=image&amp;version=normal"><figcaption>Magic 2010 · 2009<br>Matt Cavotta · enduring modern image</figcaption></figure>
+<figure class="printing"><img alt="Giant Growth from War of the Spark" src="https://api.scryfall.com/cards/named?exact=Giant%20Growth&amp;set=war&amp;format=image&amp;version=normal"><figcaption>War of the Spark · 2019<br>Dmitry Burmak · Mowu on Ravnica</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/197/giant-growth">Scryfall — Giant Growth, Limited Edition Alpha</a><span>Oracle text, original set, rarity, artist, legality, and printing index.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Giant%20Growth">Wizards of the Coast Gatherer — Giant Growth</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://mtg.wiki/page/1994_World_Championships/Top_4_Decks">1994 World Championships — deck archive</a><span>Mark Rosewater’s “Mark’s Little Deck” and the first World Championship context.</span></li>
+<li><a href="https://www.mtgtop8.com/event?d=253185&amp;e=9185&amp;f=ST">MTGTop8 — Ivan Curina, Worlds 1995</a><span>Curina’s 62-card green-white list, sideboard, placement, and event information.</span></li>
+<li><a href="https://www.mtggoldfish.com/deck/4570431">MTGGoldfish — Svend Sparre Geertsen’s 1997 Señor Stompy</a><span>Decklist, World Championship placement, and collected contemporary writing about the archetype.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/my-day-2014-05-12">Wizards of the Coast — In My Day…</a><span>Historical discussion of combat and rules changes that shaped how early tricks were played and understood.</span></li>
+<li><a href="https://magic.wizards.com/en/articles/archive/feature/ten-land-green-2010-07-30">Wizards of the Coast — Ten-Land Green</a><span>A retrospective on ultra-low-land green aggression and the strategic lineage surrounding Stompy.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Giant+Growth%22&amp;unique=prints">Scryfall — Giant Growth printing search</a><span>Cross-set printing, artwork, frame, and artist reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Compulsive Research treats tournament lists as historical artifacts. Card names use current Oracle naming where appropriate, while unusual deck sizes and sideboards preserve the documented lists of their eras.</div>
+<div class="end-nav"><a href="033-disenchant.html"><small>Previous numbered entry</small>Disenchant</a><a href="index.html?focus=entry-035#entry-035"><small>Next numbered entry</small>Fireball</a></div>
+</section>
+</article><aside class="sidebar-note"><b>Entry 034</b><br>Giant Growth is the foundational combat trick: one mana, three power, three toughness, and an entire battlefield forced to reconsider what it knows.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
