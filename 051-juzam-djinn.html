@@ -1,0 +1,1256 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Juzám Djinn: Arabian Nights, early creature efficiency, black life-as-resource design, Dark Ritual acceleration, Nether Void, Old School mono-black and black-white decks, the Reserved List, Mark Tedin artwork, descendants, printings, and tournament decklists."><title>Juzám Djinn: Four Mana, Five Power, One Life — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+
+
+.hero.stasis-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stasis&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+
+.hero.juzam-art:before{
+  background-image:url(https://api.scryfall.com/cards/arn/29?format=image&version=art_crop)!important;
+  background-position:center 28%!important;
+}
+.art-break.juzam-art-break{
+  background-image:url(https://api.scryfall.com/cards/arn/29?format=image&version=art_crop)!important;
+  background-position:center 30%!important;
+}
+.juzam-descendant .image{
+  min-height:390px;display:flex;align-items:center;justify-content:center;padding:28px;
+  background:linear-gradient(145deg,#201a16,#0f1514)!important;
+}
+.juzam-descendant .image img{
+  display:block;width:min(285px,92%);height:auto;border-radius:4.8%;
+  box-shadow:0 22px 44px rgba(0,0,0,.48)
+}
+.juzam-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.juzam-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.juzam-row:last-child{border-bottom:0}.juzam-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.juzam-row p{margin:0}
+.benchmark-grid{width:min(980px,calc(100vw - 32px));margin:34px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.benchmark-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.benchmark-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}.benchmark-card h3{margin:.1em 0 .35em;font-size:1.15rem}.benchmark-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+.ritual-sequence{margin:30px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white);box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.ritual-step{display:grid;grid-template-columns:125px minmax(0,1fr);gap:18px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.ritual-step:last-child{border-bottom:0}.ritual-step strong{font:900 .72rem/1.3 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust)}.ritual-step p{margin:0}
+@media(max-width:750px){.juzam-row,.ritual-step{grid-template-columns:92px minmax(0,1fr)}.benchmark-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+</style></head>
+<body><header class="hero juzam-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-051#entry-051">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 051 · Early Expansion Icons and Old-School Tournament Magic</div>
+<h1>Four Mana, Five Power, One Life</h1>
+<p class="deckline">Juzám Djinn was the first great proof that a creature could be brutally undercosted when its controller accepted pain in return—an Old School finisher, a lesson in resource exchange, and eventually one of Magic’s most recognizable prestige cards.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Arabian Nights, 1993</span><span class="pill">Approximately 37 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="050-stasis.html">← Entry 050 · Stasis</a><div class="center">Entry 051 of 1,000</div><a href="index.html?focus=entry-052#entry-052">Entry 052 · Kird Ape →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">Four Mana, Five Power, One Life</a>
+<a href="#arabian">The first expansion needed a monster</a>
+<a href="#benchmark">What four mana bought in 1993</a>
+<a href="#bargain">Black taught players to spend life</a>
+<a href="#clock">The four-attack clock</a>
+<a href="#mana">Two black symbols shaped the shell</a>
+<a href="#ritual">Dark Ritual alone is not enough</a>
+<a href="#answers">The answers that mattered</a>
+<a href="#combat">A giant without evasion</a>
+<a href="#race">When the upkeep damage becomes real</a>
+<a href="#monoblack">The natural mono-black shell</a>
+<a href="#void">Nether Void turned size into inevitability</a>
+<a href="#dreams">Underworld Dreams and divided clocks</a>
+<a href="#white">The white splash solved black’s blind spots</a>
+<a href="#myth">The difference between fame and results</a>
+<a href="#revival">Old School gave the card a second competitive life</a>
+<a href="#raichlin">A 2015 tournament winner</a>
+<a href="#ishaan">Mono-black still winning in 2024</a>
+<a href="#mardu">The 2026 Mardu descendant</a>
+<a href="#object">From game piece to prestige object</a>
+<a href="#reserved">The Reserved List froze the supply</a>
+<a href="#art">Mark Tedin’s unforgettable face</a>
+<a href="#descendants">The descendants of the bargain</a>
+<a href="#powercreep">Power creep changed the verdict</a>
+<a href="#formats">Where Juzám still belongs</a>
+<a href="#commander">Commander, Cube, and deliberate nostalgia</a>
+<a href="#pilot">How to pilot the card well</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+
+<section id="opening"><div class="chapter-number">I · The Bargain</div><h2>Four Mana, Five Power, One Life</h2>
+<p class="opening dropcap">Juzám Djinn asks a question that became central to black’s identity: how much pain should a player accept in exchange for power delivered ahead of schedule? In 1993, the answer was startling. Four mana bought a 5/5 creature, and the payment plan was only one point of damage at the beginning of each upkeep.</p>
+<p>The body was not merely large. It was large at the exact point on the curve where an aggressive deck wanted to stop preparing and start ending the game. Juzám survived a single <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, attacked through nearly every ordinary creature, and threatened twenty damage in four clean hits. The upkeep trigger looked dangerous on the card. In practice, it often measured how little time the opponent had left.</p>
+<p>That exchange made Juzám Djinn more than an efficient threat. It taught players that life was not a score to preserve but a resource to convert. Long before <span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span> made the lesson explicit, Juzám put the principle into combat.</p>
+<div class="card-lead"><img alt="Juzám Djinn from Arabian Nights" src="https://api.scryfall.com/cards/arn/29?format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Juzám Djinn</h3><p><b>{2}{B}{B} · Creature — Djinn</b></p><p>At the beginning of your upkeep, Juzám Djinn deals 1 damage to you.</p><div class="stats"><div class="stat"><b>First printing</b>Arabian Nights · 1993</div><div class="stat"><b>Original artist</b>Mark Tedin</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Undercosted black finisher</div></div></div></div>
+</section>
+
+<section id="arabian"><div class="chapter-number">II · The Expansion</div><h2>The first expansion needed a monster</h2>
+<p>Arabian Nights arrived only months after Magic itself. It was the game’s first expansion and its first demonstration that a new set could alter not merely the available card pool but the scale of what players imagined cards could do.</p>
+<p>The set introduced lands with extraordinary utility, creatures drawn from the stories of Rabiah, and risks that did not resemble Alpha’s cautious exchange rates. <span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span> converted a land drop into repeatable card advantage. <span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span> fixed every color at the cost of life. <span class="card-name" data-card="Serendib Efreet" tabindex="0">Serendib Efreet</span> and <span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span> offered large bodies with unusual drawbacks. Juzám was the black culmination of that philosophy: an obviously dangerous permanent whose danger pointed in both directions.</p>
+<p>It also looked like an expansion card. The Arabian Nights frame, scimitar symbol, compressed dark mana symbols, and Mark Tedin illustration made it immediately distinct from the core set. Juzám did not feel like another large creature. It felt like evidence that an unknown world beyond Alpha had already produced something stronger.</p>
+</section>
+
+<div class="pullquote">The upkeep damage was printed as a warning. Competitive players learned to read it as a discount.<small>Black’s first great exchange rate</small></div>
+
+<section id="benchmark"><div class="chapter-number">III · The Rate</div><h2>What four mana bought in 1993</h2>
+<p>Modern evaluation can obscure how extreme Juzám Djinn appeared. The early creature curve was deliberately conservative. Large bodies generally cost five or six mana, carried severe restrictions, or exposed themselves to common removal.</p>
+<div class="benchmark-grid">
+<div class="benchmark-card"><b><span class="card-name" data-card="Juggernaut" tabindex="0">Juggernaut</span></b><h3>Four mana · 5/3</h3><p>Equal power, two fewer toughness, forced attacks, and an inability to be blocked by Walls rather than genuine evasion.</p></div>
+<div class="benchmark-card"><b><span class="card-name" data-card="Sengir Vampire" tabindex="0">Sengir Vampire</span></b><h3>Five mana · 4/4 flying</h3><p>Excellent in the era, but slower, smaller, and one full turn behind the Djinn’s pressure.</p></div>
+<div class="benchmark-card"><b><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></b><h3>Five mana · 4/4 flying, vigilance</h3><p>A premier threat whose utility justified the extra mana, yet which lost a direct ground fight with Juzám.</p></div>
+<div class="benchmark-card"><b><span class="card-name" data-card="Mahamoti Djinn" tabindex="0">Mahamoti Djinn</span></b><h3>Six mana · 5/6 flying</h3><p>A classic control finisher with superior evasion and toughness, purchased two turns later.</p></div>
+</div>
+<p>Juzám’s efficiency was not a minor improvement over the field. It compressed the size associated with a six-mana finisher into a four-mana creature. The only printed concession was a life payment that did not affect the battlefield.</p>
+</section>
+
+<div class="art-break juzam-art-break"><div class="art-caption"><b>Mark Tedin’s original Juzám Djinn</b>The creature leans into the frame with a grin that reads as appetite rather than triumph. Horns, smoke, shadow, and the close perspective make the card feel less like a distant monster and more like something that has already found the player.</div></div>
+
+<section id="bargain"><div class="chapter-number">IV · The Resource</div><h2>Black taught players to spend life</h2>
+<p>New players naturally treat twenty life as something to defend. Juzám Djinn punishes that instinct. A player who refuses the card because it deals damage to its controller ignores the much larger quantity of damage it threatens to deal across the table.</p>
+<p>If the Djinn attacks four times, it deals twenty damage while its controller ordinarily absorbs four upkeep triggers. That is not an even exchange. It is a conversion of four life into an entire opposing starting total, provided the battlefield remains favorable.</p>
+<p>This is black design in an early, unusually clean form. Black obtains a rate the other colors cannot receive, but the card does not hide the bill. The strategic skill lies in recognizing when the bill is smaller than the advantage.</p>
+</section>
+
+<section id="clock"><div class="chapter-number">V · The Clock</div><h2>The four-attack clock</h2>
+<p>Five power creates simple combat arithmetic. An unblocked Juzám ends a game from twenty life in four attacks. Any prior damage from <span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span>, <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span>, <span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span>, or <span class="card-name" data-card="Underworld Dreams" tabindex="0">Underworld Dreams</span> shortens that clock.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Attack one</span><h3>15 life</h3><p>The opponent has already entered a range where two additional attackers or a burn spell can matter.</p></div>
+<div class="format-card"><span class="impact">Attack two</span><h3>10 life</h3><p>The Djinn now represents a two-turn clock by itself and makes defensive exchanges increasingly desperate.</p></div>
+<div class="format-card"><span class="impact">Attack three</span><h3>5 life</h3><p>Every blocker, removal spell, Maze activation, and racing calculation becomes mandatory.</p></div>
+</div>
+<p>The card’s strength was therefore not simply “good stats.” It reduced the opponent’s decision window. A deck using discard or land destruction could spend its early turns taking away answers and then present a threat that allowed almost no time to recover.</p>
+</section>
+
+<section id="mana"><div class="chapter-number">VI · The Commitment</div><h2>Two black symbols shaped the shell</h2>
+<p>The mana cost {2}{B}{B} is permissive compared with four black mana, but it still rewards a deck built around Swamps, <span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span>, <span class="card-name" data-card="Urborg" tabindex="0">Urborg</span>, and black-producing dual lands. Juzám was not a generic artifact threat that every deck could adopt without cost.</p>
+<p>That commitment aligned naturally with the cards black already wanted to play: <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span>, <span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span>, <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span>, <span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span>, <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span>, and efficient removal. The Djinn gave those disruptive openings a clock.</p>
+<p>In multicolor lists, the double-black requirement encouraged decks to make black a primary color even when they splashed white for <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> and <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span>, red for <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, or green for land destruction and recursion.</p>
+</section>
+
+<section id="ritual"><div class="chapter-number">VII · The Acceleration</div><h2>Dark Ritual alone is not enough</h2>
+<p>Juzám Djinn is often remembered as a turn-one <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span> play, but one Swamp and one Ritual produce only three available mana after the Ritual is cast. The Djinn costs four. The famous opening requires one additional source.</p>
+<div class="ritual-sequence">
+<div class="ritual-step"><strong>Swamp + Ritual</strong><p>Produces three available mana. Enough for <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span>, but one short of Juzám.</p></div>
+<div class="ritual-step"><strong>Swamp + Mox Jet + Ritual</strong><p>Produces four available mana and casts Juzám on the first turn.</p></div>
+<div class="ritual-step"><strong>Swamp + two Rituals</strong><p>The first Ritual supplies mana for the second; five mana remains available, enough for Juzám with one mana left.</p></div>
+<div class="ritual-step"><strong>Land + Black Lotus</strong><p>Four total mana casts Juzám immediately, with the land satisfying one of the black symbols if necessary.</p></div>
+</div>
+<p>The distinction matters because the card’s reputation sometimes compresses an entire powered opening into the phrase “Ritual out a Juzám.” The acceleration was real, but the most explosive starts depended on scarce artifacts or multiple cards.</p>
+</section>
+
+<section id="answers"><div class="chapter-number">VIII · The Test</div><h2>The answers that mattered</h2>
+<p>Juzám Djinn’s five toughness invalidated the cleanest red answer of the era. One <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span> dealt only three damage. <span class="card-name" data-card="Psionic Blast" tabindex="0">Psionic Blast</span> still fell one short. Red decks frequently needed combat damage, two spells, or a specialized effect.</p>
+<p>Black’s own <span class="card-name" data-card="Terror" tabindex="0">Terror</span> could not target a black creature. That made Juzám especially oppressive in black mirrors, where opposing decks could be forced toward <span class="card-name" data-card="Oubliette" tabindex="0">Oubliette</span>, <span class="card-name" data-card="Paralyze" tabindex="0">Paralyze</span>, <span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span>, <span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span>, or combat.</p>
+<p><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> remained the cleanest answer. It ignored toughness, cost one mana, and converted the Djinn into five life rather than allowing it to dominate combat. This interaction helped make white a natural partner for black Juzám decks: the splash answered opposing large creatures while protecting the deck from artifacts and enchantments black could not efficiently remove.</p>
+</section>
+
+<section id="combat"><div class="chapter-number">IX · The Ground</div><h2>A giant without evasion</h2>
+<p>Juzám is not a perfect threat. It has no flying, trample, menace, or protection. A disposable creature can block it for a turn, <span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span> can neutralize its combat damage indefinitely, and <span class="card-name" data-card="Moat" tabindex="0">Moat</span> can remove it from combat entirely.</p>
+<p>Old School battlefields also contain creatures designed to make ground combat awkward. <span class="card-name" data-card="Sedge Troll" tabindex="0">Sedge Troll</span> regenerates. <span class="card-name" data-card="Will-o&#x27;-the-Wisp" tabindex="0">Will-o&#x27;-the-Wisp</span> flies and regenerates. <span class="card-name" data-card="Royal Assassin" tabindex="0">Royal Assassin</span> punishes attacking once the Djinn becomes tapped. A large body solves many problems, but not positional ones.</p>
+<p>That is why the best Juzám decks rarely rely on the creature alone. Discard clears removal. Sinkhole attacks the mana needed to deploy blockers. Underworld Dreams or Black Vise creates a second axis of pressure. White removal opens the ground. The card is strongest when the rest of the deck turns “no evasion” into a temporary inconvenience.</p>
+</section>
+
+<section id="race"><div class="chapter-number">X · The Cost</div><h2>When the upkeep damage becomes real</h2>
+<p>The one-point trigger is small, not meaningless. It becomes dangerous when the game stalls, when multiple copies remain on the battlefield, or when the opponent is also attacking life totals with burn, <span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span>, <span class="card-name" data-card="Underworld Dreams" tabindex="0">Underworld Dreams</span>, or evasive creatures.</p>
+<p>A second Juzám doubles the clock but also doubles the upkeep damage. Against a deck capable of preventing combat, the controller may be forced to remove, sacrifice, or stop deploying additional copies. A player at three life cannot safely treat the trigger as flavor text.</p>
+<p>Good Juzám play therefore requires a shift in perspective. Early in the game, life is fuel. Late in the game, the same trigger can become a deadline. The skill lies in knowing when the exchange rate has changed.</p>
+</section>
+
+<section id="monoblack"><div class="chapter-number">XI · The Home</div><h2>The natural mono-black shell</h2>
+<p>Mono-black gives Juzám the mana consistency it wants and surrounds it with cards that attack the opponent before combat begins. <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span> threatens random discard. <span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span> and <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span> constrict mana. <span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span> can remove an entire hand. <span class="card-name" data-card="Underworld Dreams" tabindex="0">Underworld Dreams</span> pressures draw-heavy control decks.</p>
+<p>The creature suite frequently combines the Djinn with Black Knight, Order of the Ebon Hand, Sengir Vampire, or artifact creatures. Small threats begin the race; Juzám makes the race difficult to reverse.</p>
+<p>The deck’s weakness is structural. Black has limited answers to artifacts and enchantments, and some of its own premium removal fails against black creatures. Sideboards therefore lean heavily on Disk, Gloom, Terror, Oubliette, and color-specific hate, while splashes solve the permanent types mono-black cannot.</p>
+</section>
+
+<section id="void"><div class="chapter-number">XII · The Lock</div><h2>Nether Void turned size into inevitability</h2>
+<p><span class="card-name" data-card="Nether Void" tabindex="0">Nether Void</span> taxes every spell by three generic mana. A deck that accelerates Juzám onto the battlefield first can then resolve Nether Void and transform the game into a nearly impossible race: the opponent must pay four mana for Swords to Plowshares while lands are being destroyed, but the 5/5 already exists and needs no further investment.</p>
+<p>This is the ideal relationship between a lock piece and a threat. Nether Void does not win by itself. Juzám converts the delay into a four-turn ending. The Djinn’s low printed cost matters twice—first because it can enter before the lock, and second because fast mana makes that sequence plausible.</p>
+<p>Early black-green-red land-destruction shells used Sinkhole, Ice Storm, Stone Rain, Strip Mine, and Black Vise to keep the opponent below the mana threshold needed to function beneath the enchantment. Juzám was the creature that made “eventually” arrive quickly.</p>
+</section>
+
+<section id="dreams"><div class="chapter-number">XIII · The Pressure</div><h2>Underworld Dreams and divided clocks</h2>
+<p><span class="card-name" data-card="Underworld Dreams" tabindex="0">Underworld Dreams</span> and Juzám Djinn seem to pull in different directions. One attacks through draw steps and punishes extra cards; the other attacks through combat. Together, they create a divided defense.</p>
+<p>An opponent who uses removal on the Djinn may remain trapped beneath Dreams. An opponent who spends Disenchant on the enchantment may leave a 5/5 alive. Howling Mine effects, Timetwister, Wheel of Fortune, or ordinary draw steps continue shrinking the margin for racing.</p>
+<p>The cost is that both cards ask for heavy black mana and neither stabilizes a losing battlefield. The shell succeeds when disruption creates the time for one or both clocks to matter.</p>
+</section>
+
+<section id="white"><div class="chapter-number">XIV · The Splash</div><h2>The white splash solved black’s blind spots</h2>
+<p>Black-white Juzám decks gain the two answers early black most wanted. <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> removes any opposing creature regardless of color or toughness. <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span> handles artifacts and enchantments that mono-black might otherwise be unable to touch.</p>
+<p><span class="card-name" data-card="Scrubland" tabindex="0">Scrubland</span>, <span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span>, and <span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span> make the splash possible without abandoning double black. Some lists add Serra Angel as an evasive threat or Circle of Protection effects in the sideboard.</p>
+<p>The result is less pure but more resilient. Juzám remains the efficient center of gravity, while white reduces the number of permanents that can invalidate it.</p>
+</section>
+
+<section id="myth"><div class="chapter-number">XV · The Record</div><h2>The difference between fame and results</h2>
+<p>Juzám Djinn is remembered as though it dominated every early championship. The surviving record is more complicated. Many of the most famous 1994 and 1995 tournament decks were built around control engines, Armageddon, Necropotence, artifact mana, or efficient white and blue creatures rather than four Juzáms.</p>
+<p>The card’s legend came from several sources at once: real strength in Type I and local competition, scarcity from a small first expansion, spectacular artwork, the visceral experience of facing a 5/5 far ahead of schedule, and the collector culture that formed around early rares.</p>
+<p>That distinction makes Juzám historically interesting. Its reputation is not fraudulent; the creature genuinely established a new rate. But its cultural dominance became broader than its documented championship résumé. It was the creature players wanted, feared, traded for, and used as a reference point—even when other cards won the largest events.</p>
+</section>
+
+<section id="revival"><div class="chapter-number">XVI · The Return</div><h2>Old School gave the card a second competitive life</h2>
+<p>As Vintage accelerated and creature quality improved, Juzám ceased to be a serious choice in unrestricted eternal competition. Old School 93/94 reversed that process by restoring the card pool in which its rate, mana requirements, and weaknesses made sense.</p>
+<p>The modern Old School community does not merely preserve Juzám as a museum piece. It registers the card in mono-black, black-white, Mardu, Nether Void, and multicolor midrange decks. The exact legality of reprints and the restricted list varies by regional rules, but the original Arabian Nights card remains one of the format’s defining visual and strategic objects.</p>
+<p>Old School also restores the original context of removal. Lightning Bolt still fails to kill it. Terror still cannot target it. Swords remains excellent. Maze remains frustrating. The creature’s power is not simulated by nostalgia; it reappears because the surrounding ecosystem has been reconstructed.</p>
+</section>
+
+<section id="raichlin"><div class="chapter-number">XVII · The Winner</div><h2>A 2015 tournament winner</h2>
+<p>At a 2015 Swedish-rules Old School event in Ohio, Andrew Raichlin won with a black-white deck containing the full four copies of Juzám Djinn. The list combined Sinkhole and Hypnotic Specter with Underworld Dreams, then used white removal to cover the permanent types black struggled to answer.</p>
+<p>The deck shows Juzám in a practical modern Old School role. It is not a solitary shrine to a famous card. It is one threat among several overlapping pressure systems: discard, mana denial, Dreams, Mishra’s Factory, and large creatures.</p>
+<p>The four copies matter because they maximize the chance of following early disruption with the fastest reliable body in the deck. The sideboard then adjusts for red damage, white removal, opposing creatures, and artifact-heavy strategies.</p>
+</section>
+
+<section id="ishaan"><div class="chapter-number">XVIII · The Persistence</div><h2>Mono-black still winning in 2024</h2>
+<p>Ishaan Dan Gluskinos won a 64-player X-point Old School online event in February 2024 with four Juzám Djinns in mono-black. The list is strikingly direct: sixteen creatures, Sinkhole, Underworld Dreams, Drain Life, a small fast-mana package, and twenty-three lands.</p>
+<p>The result demonstrates that Juzám’s continued use is not merely ceremonial. In a rules environment designed around the early card pool, the original exchange remains competitive. The Djinn supplies the largest uncomplicated body, while Hypnotic Specter and Order of the Ebon Hand pressure different answers.</p>
+<p>The list also illustrates how Old School deck building has evolved. The exact restricted structure and X-point system alter which broken cards can coexist, but Juzám requires no special exemption. It succeeds because four mana for a 5/5 is still a meaningful rate when the format’s answers and alternatives come from the same era.</p>
+</section>
+
+<section id="mardu"><div class="chapter-number">XIX · The Descendant</div><h2>The 2026 Mardu descendant</h2>
+<p>A 2026 Mardu Old School list by José Manuel Kiwi paired three Juzáms with Hypnotic Specter, Order of the Ebon Hand, Black Knight, Sedge Troll, Lightning Bolt, Swords to Plowshares, and Hymn to Tourach. It won a 20-player X-points event.</p>
+<p>This shell makes the card’s modern niche explicit. Juzám is no longer expected to carry the entire deck’s identity. It is the top of an aggressive-disruptive curve, surrounded by efficient removal and resilient creatures.</p>
+<p>The red and white splashes improve tactical flexibility, while the black core preserves the mana needed to cast the Djinn. Thirty-three years after Arabian Nights, the card still functions when the format asks the same essential question it was designed to answer: what is the most pressure black can place on the battlefield for four mana?</p>
+</section>
+
+<section id="object"><div class="chapter-number">XX · The Artifact</div><h2>From game piece to prestige object</h2>
+<p>Juzám Djinn became valuable before many later players encountered it as a playable card. Arabian Nights had a small print run, the card was rare, and the original illustration became instantly recognizable. Demand came from tournament players, collectors, set builders, and people who simply wanted the card that represented early creature power.</p>
+<p>That prestige changed how the card was experienced. A Juzám in a deck was not only a game piece but a visible commitment to black, to Old School, and often to the physical history of Magic. Four copies formed an especially conspicuous display of both strategic intention and collection depth.</p>
+<p>The card’s price can obscure its design. Beneath the market history is an unusually clean object: four mana, five power, five toughness, and one recurring life payment. The simplicity helped make it legible across decades even after the rate stopped being exceptional.</p>
+</section>
+
+<section id="reserved"><div class="chapter-number">XXI · The Freeze</div><h2>The Reserved List froze the supply</h2>
+<p>Juzám Djinn appears on Wizards of the Coast’s Reserved List. It therefore has never received another tournament-legal paper printing. The original Arabian Nights card remains the only normal-sized paper version legal for sanctioned constructed play.</p>
+<p>Wizards did produce an oversized promotional version, which is not legal as an ordinary game card, and a digital printing in the original Magic Online Masters Edition. These releases preserve access to the image or game object in limited contexts without creating a regular paper reprint.</p>
+<p>The policy permanently joined the card’s identity to the first expansion. Unlike a modern staple whose latest printing can replace an older copy, every paper player who wants Juzám must seek the same 1993 object.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XXII · The Face</div><h2>Mark Tedin’s unforgettable face</h2>
+<p>Mark Tedin’s composition is one reason the card escaped the ordinary fate of obsolete creatures. The Djinn is not shown at a safe distance or framed as a complete anatomical study. It crowds the image, emerging through smoke and darkness with its face tilted toward the viewer.</p>
+<p>The grin is the center of the painting. It does not communicate mindless rage. It suggests intelligence, appetite, and confidence—the expression of a creature that understands the bargain more clearly than its summoner does.</p>
+<p>The artwork also complements the mechanical design. The card damages its controller every upkeep, and the image feels personal enough to make that consequence believable. Juzám is not a beast pointed toward the opponent. It is a dangerous ally standing close enough to hurt whoever called it.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XXIII · The Bloodline</div><h2>The descendants of the bargain</h2>
+<p>Later black creatures repeatedly revisited Juzám’s equation: provide a body above the normal rate and attach a drawback that asks the controller to manage life, cards, permanents, or the possibility of losing.</p>
+<div class="juzam-ledger">
+<div class="juzam-row"><strong><span class="card-name" data-card="Phyrexian Negator" tabindex="0">Phyrexian Negator</span></strong><p>Three mana for a 5/5 with trample, but incoming damage can dismantle the controller’s battlefield. The rate became even more aggressive and the risk more explosive.</p></div>
+<div class="juzam-row"><strong><span class="card-name" data-card="Grinning Demon" tabindex="0">Grinning Demon</span></strong><p>Four mana for a 6/6 that deals two damage each upkeep, with morph providing another route onto the battlefield.</p></div>
+<div class="juzam-row"><strong><span class="card-name" data-card="Plague Sliver" tabindex="0">Plague Sliver</span></strong><p>A direct 5/5-for-four echo whose upkeep damage scales with the number of Slivers controlled.</p></div>
+<div class="juzam-row"><strong><span class="card-name" data-card="Abyssal Persecutor" tabindex="0">Abyssal Persecutor</span></strong><p>Four mana for a 6/6 with flying and trample; the bargain shifts from life loss to the requirement that its controller eventually remove it.</p></div>
+<div class="juzam-row"><strong><span class="card-name" data-card="Rotting Regisaur" tabindex="0">Rotting Regisaur</span></strong><p>Three mana for a 7/6, paying with a discarded card each upkeep rather than life.</p></div>
+<div class="juzam-row"><strong><span class="card-name" data-card="Ravenous Giant" tabindex="0">Ravenous Giant</span></strong><p>A red 5/5 for four with the same one-damage upkeep trigger and a composition that deliberately recalls the original.</p></div>
+</div>
+<div class="inline-image juzam-descendant"><div class="image"><img alt="Ravenous Giant from Modern Horizons" src="https://api.scryfall.com/cards/mh1/143?format=image&amp;version=normal"></div><div class="copy"><div class="kicker">Modern Horizons, 2019</div><h3>Ravenous Giant remembers the pose</h3><p>Ravenous Giant shifts the cost and upkeep trigger into red while visually echoing the looming, close-framed posture of Juzám Djinn. The homage works because the original image had become a recognizable piece of Magic’s visual language.</p></div></div>
+<p>The descendants reveal how foundational the idea became. The specific rate changed, but the template remained: power now, consequences later.</p>
+</section>
+
+<section id="powercreep"><div class="chapter-number">XXIV · The Reversal</div><h2>Power creep changed the verdict</h2>
+<p>In contemporary Magic, a four-mana 5/5 with no evasion, protection, card advantage, or immediate battlefield effect is not considered pushed. Creatures now compete with efficient removal and with threats that generate value when cast, when they enter, when they attack, or when they die.</p>
+<p>This does not mean Juzám was secretly weak. Card strength is relational. In 1993, its body invalidated common damage spells and outclassed most creatures available at the same cost. In current Legacy or Commander, the same text competes with decades of accumulated design.</p>
+<p>The card is therefore an unusually clear instrument for measuring creature inflation. Nothing about Juzám changed. Everything around it did.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XXV · The Habitats</div><h2>Where Juzám still belongs</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Defining</span><h3>Old School 93/94</h3><p>The card’s authentic competitive home, where the rate, removal, mana, and cultural meaning all remain relevant.</p></div>
+<div class="format-card"><span class="impact">Legal, obsolete</span><h3>Vintage and Legacy</h3><p>Technically available but far below the efficiency and resilience required by contemporary eternal competition.</p></div>
+<div class="format-card"><span class="impact">Expressive</span><h3>Commander and Cube</h3><p>A deliberate choice for theme, nostalgia, rarity, or a curated environment rather than raw efficiency.</p></div>
+</div>
+<p>Juzám was never reintroduced into a rotating paper environment, and the Reserved List prevents that route now. Its competitive afterlife is therefore concentrated in formats that intentionally preserve or curate early Magic.</p>
+</section>
+
+<section id="commander"><div class="chapter-number">XXVI · The Choice</div><h2>Commander, Cube, and deliberate nostalgia</h2>
+<p>Commander offers countless black creatures that do more for the same mana. Juzám does not draw cards, recur itself, sacrifice another permanent, drain the table, or create a combo. Including it is an aesthetic and historical choice.</p>
+<p>That choice can still be meaningful. A Djinn-themed deck, a Rabiah collection, a mono-black history deck, or an all-original-frame list may value what the card represents more than what it optimizes. Its simple upkeep trigger also interacts with lifelink, damage prevention, and effects that care about being dealt damage, though none transforms it into a modern staple.</p>
+<p>Cube is a more natural laboratory. A designer can place Juzám beside period-appropriate removal and creatures, reconstruct an Old School power band, or intentionally test how far a once-elite rate has fallen. In a 1993–1996 cube, the card can again feel enormous.</p>
+</section>
+
+<section id="pilot"><div class="chapter-number">XXVII · The Practice</div><h2>How to pilot the card well</h2>
+<div class="juzam-ledger">
+<div class="juzam-row"><strong>Clear the path</strong><p>Use discard and land destruction before deploying Juzám when possible. The creature is most punishing when the opponent has neither the answer nor the mana to cast it.</p></div>
+<div class="juzam-row"><strong>Count both clocks</strong><p>Track the opponent’s life and your own upkeep triggers. The card is a bargain only while your life total remains less important than the pressure it creates.</p></div>
+<div class="juzam-row"><strong>Respect Maze</strong><p>Do not assume one large attacker is sufficient against Maze of Ith, Icy Manipulator, regenerators, or disposable blockers. Preserve alternate threats.</p></div>
+<div class="juzam-row"><strong>Sequence Rituals</strong><p>One Dark Ritual does not reach four mana from a single Swamp. Confirm the actual mana before keeping a hand built around a mythical turn-one line.</p></div>
+<div class="juzam-row"><strong>Sideboard honestly</strong><p>Against burn or stalled control games, trimming copies can be correct. Historical importance does not make the upkeep damage optional.</p></div>
+</div>
+</section>
+
+<section id="memory"><div class="chapter-number">XXVIII · The Memory</div><h2>What players remember</h2>
+<div class="memory"><blockquote>Juzám Djinn was the creature that made a binder page feel dangerous. Even before it was cast, the card announced that someone possessed a piece of Magic’s first mythology.</blockquote><cite>Compulsive Research · on the prestige of the original Arabian Nights rare</cite></div>
+<p>Players remember the card’s apparent impossibility: a 5/5 for four when Serra Angel cost five and Sengir Vampire cost five. They remember the dark mana symbols that could be difficult to read in a photograph, the grin, the accent in the name, and the sensation that Arabian Nights contained objects from a more dangerous version of the game.</p>
+<p>Later generations often encountered Juzám through price guides, old magazines, advertisements, database searches, or stories from players who had wanted one in 1994. That secondhand fame mattered. The card became a legend even for people who never saw it in a tournament.</p>
+<p>Its modern obsolescence sharpens rather than erases the memory. Juzám shows that power is historical. A card can stop being efficient and remain essential because it changed what efficiency once meant.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XXIX · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists trace Juzám Djinn across its major strategic homes: the early Nether Void lock, Swedish mono-black, black-white disruption, modern X-point mono-black, and a contemporary Mardu shell. The first is an archival representative list; the remaining four are documented tournament decks.</p>
+<div class="deck-archive">
+<details class="deck"><summary><div><strong>Representative Vintage Nether Void</strong><small>Archival 1994 archetype list · 60 cards</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>Resolve a large threat, then make every answer cost three additional mana while land destruction keeps the opponent below that threshold.</p><button class="copy" data-target="juzam-nether-void">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Juzám Djinn" tabindex="0">Juzám Djinn</span></div></div><div class="group"><h4>Enchantments · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Nether Void" tabindex="0">Nether Void</span></div></div><div class="group"><h4>Instants · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div></div><div class="group"><h4>Sorceries · 14</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Ice Storm" tabindex="0">Ice Storm</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stone Rain" tabindex="0">Stone Rain</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 26</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Badlands" tabindex="0">Badlands</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Bayou" tabindex="0">Bayou</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div></div></div></div><pre hidden id="juzam-nether-void">Representative Vintage Nether Void
+Archival 1994 archetype list · 60 cards
+
+Creatures · 4
+4 Juzám Djinn
+
+Artifacts · 9
+1 Black Lotus
+4 Black Vise
+1 Mox Emerald
+1 Mox Jet
+1 Mox Ruby
+1 Sol Ring
+
+Enchantments · 3
+3 Nether Void
+
+Instants · 4
+4 Lightning Bolt
+
+Sorceries · 14
+1 Demonic Tutor
+4 Ice Storm
+1 Regrowth
+4 Sinkhole
+4 Stone Rain
+
+Lands · 26
+4 Badlands
+4 Bayou
+3 Forest
+1 Library of Alexandria
+3 Mountain
+4 Strip Mine
+3 Swamp
+4 Taiga</pre></div></details>
+<details class="deck"><summary><div><strong>Myfz — Mono-Black</strong><small>Mindstage Convention 93/94 · Top 4 · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>A classic mono-black pressure deck joining Juzám with Hypnotic Specter, Sinkhole, Underworld Dreams, and Drain Life.</p><button class="copy" data-target="juzam-mindstage">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 14</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Black Knight" tabindex="0">Black Knight</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Juggernaut" tabindex="0">Juggernaut</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Juzám Djinn" tabindex="0">Juzám Djinn</span></div></div><div class="group"><h4>Instants · 5</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Terror" tabindex="0">Terror</span></div></div><div class="group"><h4>Artifacts · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Greed" tabindex="0">Greed</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Oubliette" tabindex="0">Oubliette</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Underworld Dreams" tabindex="0">Underworld Dreams</span></div></div><div class="group"><h4>Sorceries · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">14</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Urborg" tabindex="0">Urborg</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ashes to Ashes" tabindex="0">Ashes to Ashes</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Terror" tabindex="0">Terror</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Oubliette" tabindex="0">Oubliette</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Paralyze" tabindex="0">Paralyze</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Gloom" tabindex="0">Gloom</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Juggernaut" tabindex="0">Juggernaut</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div></div></div></div><pre hidden id="juzam-mindstage">Myfz — Mono-Black
+Mindstage Convention 93/94 · Top 4 · 60/15
+
+Creatures · 14
+4 Black Knight
+4 Hypnotic Specter
+2 Juggernaut
+4 Juzám Djinn
+
+Enchantments · 6
+1 Greed
+1 Oubliette
+4 Underworld Dreams
+
+Sorceries · 9
+1 Mind Twist
+1 Demonic Tutor
+3 Drain Life
+4 Sinkhole
+
+Instants · 5
+4 Dark Ritual
+1 Terror
+
+Artifacts · 5
+1 Sol Ring
+1 Black Lotus
+1 Nevinyrral&#x27;s Disk
+1 Mox Jet
+1 Black Vise
+
+Lands · 21
+14 Swamp
+4 Mishra&#x27;s Factory
+1 Urborg
+1 Maze of Ith
+1 Strip Mine
+
+Sideboard · 15
+2 Ashes to Ashes
+2 Terror
+1 Oubliette
+2 Nevinyrral&#x27;s Disk
+1 Paralyze
+3 Gloom
+1 Ivory Tower
+2 Juggernaut
+1 Mana Vault</pre></div></details>
+<details class="deck"><summary><div><strong>Andrew Raichlin — Black White</strong><small>Card and Board Old School 93/94 · 1st place · October 2015 · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>White supplies Swords to Plowshares and Disenchant while four Juzáms close games opened by discard and mana denial.</p><button class="copy" data-target="juzam-raichlin">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 14</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Black Knight" tabindex="0">Black Knight</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Juzám Djinn" tabindex="0">Juzám Djinn</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Sengir Vampire" tabindex="0">Sengir Vampire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Mana Sources · 28</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Scrubland" tabindex="0">Scrubland</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Urborg" tabindex="0">Urborg</span></div>
+<div class="row"><span class="qty">8</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div></div></div><div class="deck-col"><div class="group"><h4>Spells · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Underworld Dreams" tabindex="0">Underworld Dreams</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Deathgrip" tabindex="0">Deathgrip</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Gloom" tabindex="0">Gloom</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Greed" tabindex="0">Greed</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Terror" tabindex="0">Terror</span></div></div></div></div><pre hidden id="juzam-raichlin">Andrew Raichlin — Black White
+Card and Board Old School 93/94 · 1st place · October 2015 · 60/15
+
+Creatures · 14
+3 Black Knight
+4 Hypnotic Specter
+4 Juzám Djinn
+2 Sengir Vampire
+1 Serra Angel
+
+Spells · 18
+4 Swords to Plowshares
+3 Disenchant
+4 Sinkhole
+1 Mind Twist
+1 Chaos Orb
+1 Demonic Tutor
+4 Underworld Dreams
+
+Mana Sources · 28
+4 Dark Ritual
+1 Black Lotus
+1 Mox Jet
+1 Mox Pearl
+1 Sol Ring
+2 City of Brass
+4 Scrubland
+1 Urborg
+8 Swamp
+1 Strip Mine
+4 Mishra&#x27;s Factory
+
+Sideboard · 15
+1 Black Vise
+2 Circle of Protection: Red
+1 Deathgrip
+1 Disenchant
+1 Disrupting Scepter
+3 Gloom
+1 Greed
+1 Maze of Ith
+2 Nevinyrral&#x27;s Disk
+2 Terror</pre></div></details>
+<details class="deck"><summary><div><strong>Ishaan Dan Gluskinos — Mono Black</strong><small>X-point Old School Online Monthly #37 · 1st of 64 · February 2024 · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>A modern X-point mono-black winner that retains the full four-copy Juzám package.</p><button class="copy" data-target="juzam-ishaan">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Juzám Djinn" tabindex="0">Juzám Djinn</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of the Ebon Hand" tabindex="0">Order of the Ebon Hand</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sengir Vampire" tabindex="0">Sengir Vampire</span></div></div><div class="group"><h4>Instants · 5</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Terror" tabindex="0">Terror</span></div></div><div class="group"><h4>Enchantments · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Greed" tabindex="0">Greed</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Underworld Dreams" tabindex="0">Underworld Dreams</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">18</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gloom" tabindex="0">Gloom</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Will-o&#x27;-the-Wisp" tabindex="0">Will-o&#x27;-the-Wisp</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Guardian Beast" tabindex="0">Guardian Beast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Greed" tabindex="0">Greed</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Terror" tabindex="0">Terror</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div></div></div></div><pre hidden id="juzam-ishaan">Ishaan Dan Gluskinos — Mono Black
+X-point Old School Online Monthly #37 · 1st of 64 · February 2024 · 60/15
+
+Creatures · 16
+4 Hypnotic Specter
+4 Juzám Djinn
+4 Order of the Ebon Hand
+4 Sengir Vampire
+
+Artifacts · 4
+1 Black Lotus
+1 Chaos Orb
+1 Mox Jet
+1 Nevinyrral&#x27;s Disk
+
+Instants · 5
+3 Dark Ritual
+2 Terror
+
+Sorceries · 7
+3 Drain Life
+4 Sinkhole
+
+Enchantments · 5
+1 Greed
+4 Underworld Dreams
+
+Lands · 23
+4 Mishra&#x27;s Factory
+1 Strip Mine
+18 Swamp
+
+Sideboard · 15
+4 Gloom
+2 Will-o&#x27;-the-Wisp
+1 Icy Manipulator
+2 Nevinyrral&#x27;s Disk
+1 Guardian Beast
+1 Drain Life
+1 Greed
+2 Terror
+1 Maze of Ith</pre></div></details>
+<details class="deck"><summary><div><strong>José Manuel Kiwi — Mardu</strong><small>Liga OS Guardians of Cremaet X-points · 1st of 20 · May 2026 · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>A contemporary three-color aggro deck using Juzám as the top of a disruptive creature curve.</p><button class="copy" data-target="juzam-kiwi">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of the Ebon Hand" tabindex="0">Order of the Ebon Hand</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Knight" tabindex="0">Black Knight</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Juzám Djinn" tabindex="0">Juzám Djinn</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sengir Vampire" tabindex="0">Sengir Vampire</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sedge Troll" tabindex="0">Sedge Troll</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scrubland" tabindex="0">Scrubland</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Badlands" tabindex="0">Badlands</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">6</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div></div><div class="group"><h4>Instants · 9</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Sinkhole" tabindex="0">Sinkhole</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disintegrate" tabindex="0">Disintegrate</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Greed" tabindex="0">Greed</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Underworld Dreams" tabindex="0">Underworld Dreams</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Terror" tabindex="0">Terror</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Earthquake" tabindex="0">Earthquake</span></div></div></div></div><pre hidden id="juzam-kiwi">José Manuel Kiwi — Mardu
+Liga OS Guardians of Cremaet X-points · 1st of 20 · May 2026 · 60/15
+
+Creatures · 17
+4 Order of the Ebon Hand
+1 Black Knight
+4 Hypnotic Specter
+3 Juzám Djinn
+1 Sengir Vampire
+4 Sedge Troll
+
+Artifacts · 2
+1 Chaos Orb
+1 Mox Jet
+
+Instants · 9
+4 Lightning Bolt
+1 Disenchant
+4 Swords to Plowshares
+
+Sorceries · 8
+3 Hymn to Tourach
+2 Sinkhole
+2 Fireball
+1 Disintegrate
+
+Lands · 24
+4 Scrubland
+4 Badlands
+3 Plateau
+3 City of Brass
+1 Strip Mine
+2 Mishra&#x27;s Factory
+6 Swamp
+1 Plains
+
+Sideboard · 15
+1 Jayemdae Tome
+2 Circle of Protection: Red
+1 Greed
+2 Underworld Dreams
+3 Disenchant
+1 Divine Offering
+2 Terror
+2 Red Elemental Blast
+1 Earthquake</pre></div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXX · The Object</div><h2>Printings and sources</h2>
+<p>Juzám Djinn has only one ordinary tournament-legal paper printing: Arabian Nights. An oversized promotional card reproduced the original object at display scale, and the first Magic Online Masters Edition later brought it to the digital game using the same Mark Tedin artwork. Those are the card’s three catalogued releases. The absence of a normal paper reprint is a consequence of the Reserved List.</p>
+<div class="printings">
+<figure class="printing"><img alt="Juzám Djinn from Arabian Nights" src="https://api.scryfall.com/cards/arn/29?format=image&amp;version=normal"><figcaption>Arabian Nights · 1993<br>Mark Tedin · original and only regular paper printing</figcaption></figure>
+<figure class="printing"><img alt="Oversized Juzám Djinn promotional card" src="https://api.scryfall.com/cards/o90p/3?format=image&amp;version=normal"><figcaption>Oversized 90s Promo<br>Mark Tedin · non-tournament-legal display card</figcaption></figure>
+<figure class="printing"><img alt="Juzám Djinn from Masters Edition" src="https://api.scryfall.com/cards/me1/74?format=image&amp;version=normal"><figcaption>Masters Edition · Magic Online, 2007<br>Regular digital version</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/arn/29/juz%C3%A1m-djinn">Scryfall — Juzám Djinn, Arabian Nights</a><span>Oracle text, mana cost, power and toughness, artist, rarity, legalities, Reserved List status, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/AN/en-us/0/juz%C3%A1m-djinn">Wizards of the Coast Gatherer — Juzám Djinn</a><span>Official card database entry and rules text.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/it-happened-one-nights-2002-08-05">Mark Rosewater — It Happened One Nights</a><span>Official retrospective on Arabian Nights as Magic’s first expansion and the set’s design innovations.</span></li>
+<li><a href="https://magic.wizards.com/en/news/announcements/official-reprint-policy">Wizards of the Coast — Official Reprint Policy</a><span>Reserved List policy and the official inclusion of Juzám Djinn among reserved Arabian Nights cards.</span></li>
+<li><a href="https://mtg.wiki/page/Vintage_Nether_Void_deck">Magic: The Gathering Wiki — Vintage Nether Void</a><span>Representative early Nether Void strategy and complete archival list using four Juzám Djinns as finishers.</span></li>
+<li><a href="https://oldschool-mtg.blogspot.com/p/blog-page_29.html">Old School MTG — Mindstage Convention 93/94 Top 4</a><span>Myfz’s complete mono-black main deck and sideboard with four Juzám Djinns.</span></li>
+<li><a href="https://www.eternalcentral.com/card-and-board-old-school-93-94-october-2015-tournament-results/">Eternal Central — Card and Board Old School 93/94, October 2015</a><span>Event context and Andrew Raichlin’s first-place black-white list.</span></li>
+<li><a href="https://mtgdecks.net/Old-school/mono-black-decklist-by-ishaan-dan-gluskinos-1981596">MTGDecks — Ishaan Dan Gluskinos, Mono Black</a><span>Complete 2024 X-point event-winning list, sideboard, field size, and result.</span></li>
+<li><a href="https://mtgdecks.net/Old-school/mardu-decklist-by-jose-manuel-kiwi-2958023">MTGDecks — José Manuel Kiwi, Mardu</a><span>Complete 2026 X-points event-winning list, sideboard, field size, and result.</span></li>
+<li><a href="https://www.cardmarket.com/en/Insight/Articles/A-Tribute-to-Juzam-Djinn">Cardmarket Insight — A Tribute to Juzám Djinn</a><span>Retrospective discussion of the card’s fame, artwork, early reputation, and collector status.</span></li>
+<li><a href="https://scryfall.com/card/o90p/3/juz%C3%A1m-djinn">Scryfall — Oversized 90s Promo Juzám Djinn</a><span>Oversized printing details and non-tournament-legal status.</span></li>
+<li><a href="https://scryfall.com/card/me1/74/juz%C3%A1m-djinn">Scryfall — Masters Edition Juzám Djinn</a><span>Magic Online printing, digital foil availability, and original artwork credit.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Juzám Djinn’s early paper tournament record is less completely archived than its cultural reputation. The article distinguishes representative historical archetype lists from documented modern Old School tournament results rather than assigning unsupported finishes to 1990s decks.</div>
+<div class="end-nav"><a href="050-stasis.html"><small>Previous numbered entry</small>Stasis</a><a href="index.html?focus=entry-052#entry-052"><small>Next numbered entry</small>Kird Ape</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 051</b><br>Juzám Djinn established black’s most enduring bargain: accept a visible personal cost in exchange for a threat delivered before the rest of the game is ready.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
