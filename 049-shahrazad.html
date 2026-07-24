@@ -1,0 +1,1082 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Shahrazad: Arabian Nights, subgame rules, nested games, Storytime burn, Old School tournament play, banning history, Richard Garfield’s favorite design, Un-set descendants, artwork, printings, and decklists."><title>Shahrazad: The Story That Would Not End — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+
+.hero.shahrazad-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Shahrazad&set=arn&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+</style></head>
+<body><header class="hero shahrazad-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-049#entry-049">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 049 · The Foundational Canon</div>
+<h1>The Story That Would Not End</h1>
+<p class="deckline">Shahrazad suspended the game on the table, created another Magic game inside it, and turned the literary structure of a story within a story into one of the strangest rules objects ever printed.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Arabian Nights, 1993</span><span class="pill">Approximately 37 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="048-chaos-orb.html">← Entry 048 · Chaos Orb</a><div class="center">Entry 049 of 1,000</div><a href="index.html?focus=entry-050#entry-050">Entry 050 · Stasis →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Story That Would Not End</a>
+<a href="#arabian">Arabian Nights becomes a game within the game</a>
+<a href="#storyteller">Why Shahrazad tells another story</a>
+<a href="#rules">What Shahrazad actually does</a>
+<a href="#zones">Only the libraries enter the subgame</a>
+<a href="#starting">A new game begins from the remaining decks</a>
+<a href="#result">Winning half the opponent’s life</a>
+<a href="#draw">What happens when nobody wins</a>
+<a href="#return">How the main game resumes</a>
+<a href="#nested">A subgame can contain another subgame</a>
+<a href="#copy">Forking the story</a>
+<a href="#concede">Concession becomes a strategic option</a>
+<a href="#burn">Why Storytime treats it as burn</a>
+<a href="#west">Back-to-back Player’s Ball victories</a>
+<a href="#dreams">Underworld Dreams in both worlds</a>
+<a href="#tournament">The tournament-clock problem</a>
+<a href="#history">Banned, unbanned, and banned again</a>
+<a href="#oldschool">Old School keeps telling the story</a>
+<a href="#design">Richard Garfield’s favorite design</a>
+<a href="#unsets">The subgame lineage moves to Un-sets</a>
+<a href="#art">Kaja Foglio’s storyteller</a>
+<a href="#formats">A life outside sanctioned formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Interruption</div><h2>The Story That Would Not End</h2>
+<p class="opening dropcap">Shahrazad does not create a token, change a life total immediately, or place another permanent onto the battlefield. It stops the game being played and asks both players to begin another game using the cards still hidden in their libraries.</p>
+<p>The battlefield remains where it is. The hands, graveyards, exiled cards, and spells waiting in the main game are suspended like a scene abandoned at the end of a chapter. The players shuffle the remaining libraries, draw new hands, and begin again inside the unresolved sorcery.</p>
+<p>When the second game ends, the loser returns to the first game and loses half of their remaining life. The cards used in the story are gathered and shuffled back into the original libraries. Then the sorcery finally finishes resolving, and the first game continues as though an entire other game had been a single effect on the stack.</p>
+<div class="card-lead"><img alt="Shahrazad from Arabian Nights" src="https://api.scryfall.com/cards/named?exact=Shahrazad&amp;set=arn&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Shahrazad</h3><p><b>{W}{W} · Sorcery</b></p><p>Players play a Magic subgame, using their libraries as their decks. Each player who doesn’t win the subgame loses half their life, rounded up.</p><div class="stats"><div class="stat"><b>First printing</b>Arabian Nights · 1993</div><div class="stat"><b>Original artist</b>Kaja Foglio</div><div class="stat"><b>Original rarity</b>Rare · U2 sheet frequency</div><div class="stat"><b>Historical role</b>Game-within-a-game effect</div></div></div></div>
+</section>
+
+<section id="arabian"><div class="chapter-number">II · The Expansion</div><h2>Arabian Nights becomes a game within the game</h2>
+<p>Arabian Nights was Magic’s first expansion and Richard Garfield’s direct adaptation of stories, people, places, and objects from <i>One Thousand and One Nights</i>. Rather than merely naming familiar figures, the set repeatedly attempted to translate their narrative identities into rules.</p>
+<p><span class="card-name" data-card="Flying Carpet" tabindex="0">Flying Carpet</span> granted flying. <span class="card-name" data-card="Aladdin" tabindex="0">Aladdin</span> stole artifacts. <span class="card-name" data-card="Sindbad" tabindex="0">Sindbad</span> drew a card and discarded it if the revealed discovery was not land. Shahrazad told a story so compelling that the current reality had to wait for its conclusion.</p>
+<p>The result was one of the purest flavor designs ever printed and one of the least practical tournament cards. The mechanic and the literary reference are inseparable: the card works because the story temporarily becomes more important than the world surrounding it.</p>
+</section>
+
+<div class="pullquote">Shahrazad does not represent a story. It makes the players live inside one before the original game is allowed to continue.<small>Flavor expanded into an entire second match</small></div>
+
+<section id="storyteller"><div class="chapter-number">III · The Tale</div><h2>Why Shahrazad tells another story</h2>
+<p>In the frame narrative of <i>One Thousand and One Nights</i>, Shahrazad marries a king who has been executing each new wife. Every night she begins a story and stops at a compelling point before dawn. The king postpones her death because he wants to hear the conclusion.</p>
+<p>Stories contain other stories. Characters become narrators, and one unfinished tale opens into another. Survival depends on continuation rather than conclusion.</p>
+<p>Shahrazad reproduces that nesting literally. The main game is the king’s chamber. The subgame is the new story. Casting another Shahrazad inside the subgame creates another level, another delay, and another reason the outer game cannot yet end.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">IV · The Subgame</div><h2>What Shahrazad actually does</h2>
+<p>When Shahrazad resolves, every player in the main game plays a completely separate Magic subgame. The main game is temporarily discontinued while the subgame exists.</p>
+<p>The effect uses each player’s main-game library as that player’s subgame deck. The subgame has its own zones, starting procedure, turns, spells, permanents, life totals, and winner or draw result.</p>
+<p>Effects in the main game do not ordinarily function inside the subgame, and events in the subgame do not ordinarily trigger abilities waiting in the main game. The two games communicate only where Shahrazad and the dedicated subgame rules explicitly say they do.</p>
+<div class="article-note"><b>A separate game, not a side battle.</b> The subgame follows the normal process for beginning and playing Magic. The original battlefield is not used as the starting battlefield of the new game.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Shahrazad&set=arn&format=image&version=art_crop')"><div class="art-caption"><b>Kaja Foglio’s original Shahrazad</b>The storyteller sits at the center while listeners gather around her. The image is quiet because her power is not an explosion or weapon; it is the ability to make everyone else remain until the tale is finished.</div></div>
+
+<section id="zones"><div class="chapter-number">V · The Separation</div><h2>Only the libraries enter the subgame</h2>
+<p>As the subgame begins, each player moves the cards in their main-game library into a newly created subgame library and shuffles them.</p>
+<p>Cards in the main-game hand, battlefield, graveyard, exile, command zone, and stack remain in the main game. The players may place those zones aside, record tapped status and counters, and preserve the exact game state for later.</p>
+<p>This creates a strategic consequence: the subgame deck contains whatever the main game has not already drawn, cast, milled, discarded, or exiled. The deck is related to the original construction but is no longer the same sixty cards.</p>
+</section>
+
+<section id="starting"><div class="chapter-number">VI · The Beginning</div><h2>A new game begins from the remaining decks</h2>
+<p>The subgame follows normal starting procedures. A starting player is determined, players draw opening hands from the transferred libraries, and mulligans may be taken under the rules governing the game.</p>
+<p>A player whose remaining library cannot support the required opening process may lose immediately. Casting Shahrazad late can therefore make the subgame radically smaller—or transform depleted libraries into a direct danger.</p>
+<p>The main game’s life total does not become the subgame’s starting life. The subgame is its own Magic game, and only its final result returns to affect the suspended game.</p>
+</section>
+
+<section id="result"><div class="chapter-number">VII · The Price</div><h2>Winning half the opponent’s life</h2>
+<p>After the subgame ends, each player who did not win it loses half their life in the main game, rounded up.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">20 life</span><h3>Lose ten</h3><p>The first successful Shahrazad can function like a ten-life swing if cast before the main-game life total changes.</p></div>
+<div class="format-card"><span class="impact">An odd total</span><h3>Round the loss upward</h3><p>A player at nine loses five and returns at four.</p></div>
+<div class="format-card"><span class="impact">Repeated wins</span><h3>The loss diminishes</h3><p>Each additional halving removes less absolute life, but rapidly approaches a total ordinary burn can finish.</p></div>
+</div>
+<p>The effect causes loss of life rather than damage. Prevention, protection, and effects concerned specifically with damage do not stop it.</p>
+</section>
+
+<section id="draw"><div class="chapter-number">VIII · The Nonwinner</div><h2>What happens when nobody wins</h2>
+<p>Shahrazad does not say that only the loser loses life. It says each player who does not win loses half.</p>
+<p>If the subgame ends in a draw, nobody won. Every participating player therefore loses half their life in the main game.</p>
+<p>This wording makes alternate draw conditions especially strange. A deck built around <span class="card-name" data-card="Divine Intervention" tabindex="0">Divine Intervention</span> can intentionally finish the inner story without a winner and return both players to the outer game at reduced life totals.</p>
+</section>
+
+<section id="return"><div class="chapter-number">IX · The Return</div><h2>How the main game resumes</h2>
+<p>At the end of the subgame, each player gathers the traditional cards they own in the subgame, places them into their main-game library, and shuffles. This includes cards in the subgame’s exile zone and most cards brought into the subgame from elsewhere.</p>
+<p>The temporary subgame zones cease to exist. The main game resumes from the exact point where it stopped, and Shahrazad finishes resolving by applying the life loss.</p>
+<p>The spell then enters the main-game graveyard normally. The battlefield, hands, and other recorded zones return unchanged except for effects the subgame rules explicitly carried back.</p>
+</section>
+
+<section id="nested"><div class="chapter-number">X · The Depth</div><h2>A subgame can contain another subgame</h2>
+<p>Because the subgame library may still contain another copy of Shahrazad, a player can cast it inside the first subgame. The current subgame is suspended and a second subgame begins using the libraries that remained inside the first.</p>
+<p>There is no special rule limiting the nesting to one level. Each new copy creates another set of zones, another pair of opening hands, another life total, and another result that must be resolved before the game above it can continue.</p>
+<p>The diminishing libraries eventually constrain the depth, but recursion, copies, larger decks, and altered construction can make the theoretical structure enormous. The card's literary nesting becomes a logistical stack of tables, notes, and card piles.</p>
+</section>
+
+<section id="copy"><div class="chapter-number">XI · The Echo</div><h2>Forking the story</h2>
+<p><span class="card-name" data-card="Fork" tabindex="0">Fork</span> and other copy effects can copy Shahrazad while the original spell remains on the stack. The copy resolves first and creates a subgame.</p>
+<p>After that subgame ends and the copy finishes resolving, the original Shahrazad is still waiting on the stack. It then resolves and begins another subgame.</p>
+<p>The sequence is not nested unless a Shahrazad is cast inside one of those subgames; it is consecutive. The players complete one entire additional game, return, and immediately begin another because the original spell has not yet resolved.</p>
+</section>
+
+<section id="concede"><div class="chapter-number">XII · The Decision</div><h2>Concession becomes a strategic option</h2>
+<p>A player may concede a subgame under normal Magic rules. Doing so loses the subgame, returns the players to the main game, and causes the conceding player to lose half their main-game life.</p>
+<p>That can be rational. If the main-game position is favorable and the subgame appears likely to consume substantial time or resources, accepting the life loss preserves the chance to win the game that counts toward the match.</p>
+<p>Shahrazad therefore presents an unusual offer: play another game for the right to preserve half your life, or pay immediately and continue the original one.</p>
+</section>
+
+<section id="burn"><div class="chapter-number">XIII · The Clock</div><h2>Why Storytime treats it as burn</h2>
+<p>Old School Storytime decks combine four Shahrazads with Lightning Bolt, Chain Lightning, Psionic Blast, Savannah Lions, Serendib Efreet, and restricted power.</p>
+<p>The deck is designed to win the subgame quickly because the remaining library contains the same concentration of cheap creatures and direct damage. Returning to the main game at half life places the opponent within reach of the burn already waiting outside the story.</p>
+<p>The card also creates tempo pressure. An opponent who concedes the subgame has effectively allowed a two-mana sorcery to remove half their life. An opponent who plays it out must defeat a deck built specifically to race.</p>
+</section>
+
+<section id="west"><div class="chapter-number">XIV · The Champion</div><h2>Back-to-back Player’s Ball victories</h2>
+<p>Aaron West piloted UWR Storytime to the top of the Old School Player’s Ball in 2018 and again in 2019. The latter event contained 103 decks and eight fifty-minute rounds.</p>
+<p>The results demonstrate that Shahrazad can be more than a ceremonial oddity under a ruleset that permits four copies. A focused burn shell can use the subgame as a repeatable life-total weapon while still finishing matches within an event’s structure.</p>
+<p>The victory is also inseparable from community format policy. The same card that sanctioned Magic bans for tournament logistics became the namesake of a successful Old School deck because the organizer deliberately chose a different social contract.</p>
+</section>
+
+<section id="dreams"><div class="chapter-number">XV · The Punishment</div><h2>Underworld Dreams in both worlds</h2>
+<p><span class="card-name" data-card="Underworld Dreams" tabindex="0">Underworld Dreams</span> punishes every card the opponent draws while it remains on the battlefield. A copy in the main game does not function inside the subgame because effects do not cross between games.</p>
+<p>A second copy drawn and cast inside the subgame, however, punishes that game’s draws normally. Black-white Shahrazad decks use four Dreams because the card remains relevant in whichever game contains it.</p>
+<p>The strategy attacks the same behavior Shahrazad requires: drawing a new opening hand and beginning another sequence of draw steps. The story offers another chance to play, and Dreams charges life for every new page.</p>
+</section>
+
+<section id="tournament"><div class="chapter-number">XVI · The Round</div><h2>The tournament-clock problem</h2>
+<p>A sanctioned match allocates a finite round time to complete several games. Shahrazad can approximately double the amount of Magic required for one resolution, and additional copies can multiply that demand.</p>
+<p>The main-game board must be preserved accurately. Players must shuffle, mulligan, play the subgame, gather every subgame card, restore the outer game, and continue. Nested or consecutive Shahrazads repeat the process.</p>
+<p>The problem is not only that games become long. The card can create incentives to consume time after winning the first game of a match, making intentional delay difficult to distinguish from the effect’s ordinary operation.</p>
+</section>
+
+<section id="history"><div class="chapter-number">XVII · The List</div><h2>Banned, unbanned, and banned again</h2>
+<p>Shahrazad appeared on Magic’s original banned list alongside the ante cards. It was not prohibited because it dominated through win percentage. It was prohibited because one card could require tournament players to play whole additional games.</p>
+<p>The card was unbanned in the Type I and Type 1.5 era in 1999, briefly allowing the subgame experiment back into the oldest sanctioned formats.</p>
+<p>Wizards banned it in Legacy and Vintage in September 2007. Current official lists continue to ban it in both formats; Commander and Oathbreaker ban it as well.</p>
+</section>
+
+<section id="oldschool"><div class="chapter-number">XVIII · The Community</div><h2>Old School keeps telling the story</h2>
+<p>Old School 93/94 is governed by several independent rulesets. Some ban Shahrazad, some restrict it to one copy, and Eternal Central’s recommended rules have permitted four.</p>
+<p>Events that allow the card often establish procedures for preserving the main game, arranging card piles, recording tapped status and counters, and handling matches that approach time.</p>
+<p>The result is one of Old School’s clearest expressions of local identity. Choosing a Shahrazad policy is not merely choosing a banned list. It is choosing whether an event wants the full strangeness of 1993 to remain part of competitive play.</p>
+</section>
+
+<section id="design"><div class="chapter-number">XIX · The Favorite</div><h2>Richard Garfield’s favorite design</h2>
+<p>Mark Rosewater has repeatedly reported that Richard Garfield identifies Shahrazad as his favorite personal Magic design.</p>
+<p>The choice makes sense as game design rather than tournament engineering. The effect is mechanically singular, immediately understandable at a conceptual level, and almost perfectly matched to its source character.</p>
+<p>It also represents an early belief that a trading-card game could ask almost anything. The boundary between card effect and complete game structure had not yet become fixed.</p>
+</section>
+
+<section id="unsets"><div class="chapter-number">XX · The Descendants</div><h2>The subgame lineage moves to Un-sets</h2>
+<p>R&amp;D eventually established that black-bordered sets would not create new subgames. The idea survived in Magic’s comedic products.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Enter%20the%20Dungeon&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The under-the-table descendant</div><h3>Enter the Dungeon</h3><p><span class="card-name" data-card="Enter the Dungeon" tabindex="0">Enter the Dungeon</span> sends players beneath the table to play a subgame whose winner tutors two cards into the main-game hand. The joke works because Shahrazad already taught players what an unnecessary second game looks like.</p></div></div>
+<p><span class="card-name" data-card="Once More with Feeling" tabindex="0">Once More with Feeling</span> restarted the game rather than nesting one. <span class="card-name" data-card="The Countdown Is at One" tabindex="0">The Countdown Is at One</span> created a subgame using the players’ libraries and rewarded its winner in the outer game. Event-only designs have continued referencing Shahrazad directly.</p>
+<p>The concept remains available where inconvenience is part of the entertainment rather than a threat to tournament procedure.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XXI · The Image</div><h2>Kaja Foglio’s storyteller</h2>
+<p>Kaja Foglio depicts Shahrazad surrounded by listeners in an intimate interior. No monster, spell, or visible magical effect appears. The card’s power resides in attention.</p>
+<p>The composition directs every face toward the storyteller while her own posture remains controlled. She is not trapped by the audience; the audience is trapped by the need to hear what comes next.</p>
+<p>The illustration has never been replaced. Arabian Nights remains the card’s sole paper printing, and the Magic Online version preserves the same art and original-style frame.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XXII · The Habitats</div><h2>A life outside sanctioned formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Legacy and Vintage</span><h3>Explicitly banned</h3><p>The oldest sanctioned formats exclude the card despite otherwise supporting nearly the entire history of Magic.</p></div>
+<div class="format-card"><span class="impact">Commander and Oathbreaker</span><h3>Banned from multiplayer construction</h3><p>A separate game involving several players would multiply both the duration and the difficulty of preserving the main game.</p></div>
+<div class="format-card"><span class="impact">Old School and casual play</span><h3>Ruleset dependent</h3><p>Independent communities may ban, restrict, or fully permit Shahrazad and design event procedures around that choice.</p></div>
+</div>
+<p>The card is also outside Standard, Pioneer, Modern, Pauper, Historic, Timeless, and Brawl by card pool or explicit legality. Its active life belongs to house rules and historical communities.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XXIII · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The spell resolved, so the game stopped—and another game began in the space where the library had been.</blockquote><cite>Shahrazad made a single card feel larger than the match containing it.</cite></div>
+<p>Players remember writing down the outer battlefield, making a second graveyard, and discovering another Shahrazad several layers below the first.</p>
+<p>They remember the opponent asking whether they truly intended to play the subgame or would accept losing half their life. Most of all, they remember returning to the original board and realizing that the story they had just completed had been only one sorcery resolving.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XXIV · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve three ways Old School communities have built around Shahrazad: UWR Storytime as focused burn, black-white Dreams control using life-total pressure across games, and Groundhog Day as a deliberately recursive alternate-ending machine.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Storytime — UWR Shahrazad</strong><small>Representative Old School construction · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Storytime treats Shahrazad as a two-mana burn spell whose damage is determined by a second game. Savannah Lions, Serendib Efreet, Lightning Bolt, Chain Lightning, Psionic Blast, and restricted power make the subgame faster than the main game; winning it removes half the opponent's remaining life before the original pressure resumes.</p>
+<div class="deck-meta"><div><b>Storytime — UWR Shahrazad</b><div class="small">Representative Old School construction · 60/15</div></div><button class="copy" data-target="storytime-uwr">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Serendib Efreet" tabindex="0">Serendib Efreet</span></div></div><div class="group"><h4>Sorceries · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Shahrazad" tabindex="0">Shahrazad</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wheel of Fortune" tabindex="0">Wheel of Fortune</span></div></div><div class="group"><h4>Instants · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Psionic Blast" tabindex="0">Psionic Blast</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 19</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Dust to Dust" tabindex="0">Dust to Dust</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Falling Star" tabindex="0">Falling Star</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Psionic Blast" tabindex="0">Psionic Blast</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div></div></div>
+<pre hidden id="storytime-uwr">Storytime — UWR Shahrazad
+Representative Old School construction · 60/15
+
+Creatures · 8
+4 Savannah Lions
+4 Serendib Efreet
+
+Sorceries · 12
+1 Balance
+4 Chain Lightning
+4 Shahrazad
+1 Time Walk
+1 Timetwister
+1 Wheel of Fortune
+
+Instants · 15
+1 Ancestral Recall
+4 Disenchant
+4 Lightning Bolt
+3 Psionic Blast
+3 Swords to Plowshares
+
+Artifacts · 6
+1 Black Lotus
+1 Chaos Orb
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+
+Lands · 19
+3 City of Brass
+1 Library of Alexandria
+3 Mishra&#x27;s Factory
+3 Plateau
+3 Strip Mine
+3 Tundra
+3 Volcanic Island
+
+Sideboard · 15
+2 Black Vise
+2 Blue Elemental Blast
+1 Circle of Protection: Red
+1 Divine Offering
+2 Dust to Dust
+2 Falling Star
+1 Psionic Blast
+3 Red Elemental Blast
+1 Swords to Plowshares</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>B/W Shahrazad — Dreams and Pestilence</strong><small>Representative Old School construction · 60-card main deck</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The black-white build attacks life totals from several directions. Underworld Dreams punishes normal and subgame draw steps, Pestilence and The Abyss simplify creature boards, Mirror Universe creates another life-total axis, and four Shahrazads repeatedly threaten to cut whatever life remains in half.</p>
+<div class="deck-meta"><div><b>B/W Shahrazad — Dreams and Pestilence</b><div class="small">Representative Old School construction · 60-card main deck</div></div><button class="copy" data-target="bw-shahrazad">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 7</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Order of Leitbur" tabindex="0">Order of Leitbur</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="White Knight" tabindex="0">White Knight</span></div></div><div class="group"><h4>Instants · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Shahrazad" tabindex="0">Shahrazad</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mirror Universe" tabindex="0">Mirror Universe</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div></div><div class="group"><h4>Enchantments · 9</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Pestilence" tabindex="0">Pestilence</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="The Abyss" tabindex="0">The Abyss</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Underworld Dreams" tabindex="0">Underworld Dreams</span></div></div><div class="group"><h4>Lands · 19</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Scrubland" tabindex="0">Scrubland</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div></div></div></div>
+<pre hidden id="bw-shahrazad">B/W Shahrazad — Dreams and Pestilence
+Representative Old School construction · 60-card main deck
+
+Creatures · 7
+3 Order of Leitbur
+4 White Knight
+
+Instants · 12
+4 Dark Ritual
+4 Disenchant
+4 Swords to Plowshares
+
+Sorceries · 8
+1 Balance
+1 Demonic Tutor
+2 Drain Life
+4 Shahrazad
+
+Artifacts · 5
+1 Black Lotus
+1 Chaos Orb
+1 Mirror Universe
+1 Mox Jet
+1 Mox Pearl
+
+Enchantments · 9
+3 Pestilence
+2 The Abyss
+4 Underworld Dreams
+
+Lands · 19
+3 City of Brass
+1 Library of Alexandria
+3 Plains
+4 Scrubland
+4 Strip Mine
+4 Swamp</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Groundhog Day — Nested Draw Control</strong><small>Old School novelty-control construction · documented 63/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Groundhog Day places Shahrazad beside Divine Intervention, Eureka, Mirror Universe, Time Vault, and recursion. The deck is less interested in efficiency than in creating games within games, alternate draws, repeated turns, and a match whose structure becomes as important as its final winner.</p>
+<div class="deck-meta"><div><b>Groundhog Day — Nested Draw Control</b><div class="small">Old School novelty-control construction · documented 63/15</div></div><button class="copy" data-target="groundhog-day">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Instants and Sorceries · 28</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Divine Intervention" tabindex="0">Divine Intervention</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Eureka" tabindex="0">Eureka</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Shahrazad" tabindex="0">Shahrazad</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wheel of Fortune" tabindex="0">Wheel of Fortune</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts and Enchantments · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Mirror Universe" tabindex="0">Mirror Universe</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Short" tabindex="0">Mana Short</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Time Vault" tabindex="0">Time Vault</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Transmute Artifact" tabindex="0">Transmute Artifact</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Twiddle" tabindex="0">Twiddle</span></div></div></div></div>
+<pre hidden id="groundhog-day">Groundhog Day — Nested Draw Control
+Old School novelty-control construction · documented 63/15
+
+Instants and Sorceries · 28
+1 Ancestral Recall
+1 Balance
+1 Braingeyser
+2 Counterspell
+1 Demonic Tutor
+3 Disenchant
+4 Divine Intervention
+4 Eureka
+1 Fireball
+1 Mana Drain
+2 Recall
+1 Regrowth
+1 Shahrazad
+1 Time Walk
+1 Timetwister
+1 Wheel of Fortune
+2 Wrath of God
+
+Artifacts and Enchantments · 15
+1 Black Lotus
+1 Chaos Orb
+1 Mana Vault
+3 Mirror Universe
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+3 Sylvan Library
+
+Lands · 20
+4 City of Brass
+1 Library of Alexandria
+4 Savannah
+4 Tropical Island
+4 Tundra
+1 Underground Sea
+2 Volcanic Island
+
+Sideboard · 15
+4 Howling Mine
+1 Mana Short
+2 Recall
+3 Time Vault
+1 Transmute Artifact
+4 Twiddle</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXV · The Object</div><h2>Printings and sources</h2>
+<p>Shahrazad has only one paper printing: Arabian Nights. It is a Reserved List card and has never received a physical reprint, alternate artwork, foil, promotional treatment, or commemorative facsimile. Magic Online added a digital-only version through Masters Edition IV in 2011 using Kaja Foglio’s original artwork.</p>
+<div class="printings">
+<figure class="printing"><img alt="Shahrazad from Arabian Nights" src="https://api.scryfall.com/cards/named?exact=Shahrazad&amp;set=arn&amp;format=image&amp;version=normal"><figcaption>Arabian Nights · 1993<br>Kaja Foglio · only paper printing</figcaption></figure>
+<figure class="printing"><img alt="Shahrazad from Masters Edition IV on Magic Online" src="https://api.scryfall.com/cards/named?exact=Shahrazad&amp;set=me4&amp;format=image&amp;version=normal"><figcaption>Masters Edition IV · 2011<br>Magic Online–only digital printing</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/arn/10/shahrazad">Scryfall — Shahrazad, Arabian Nights</a><span>Oracle text, collector number, artist, rarity, Reserved List status, rulings, current legalities, and paper printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Shahrazad">Wizards of the Coast Gatherer — Shahrazad</a><span>Official card text and card-specific rulings.</span></li>
+<li><a href="https://media.wizards.com/2026/downloads/MagicCompRules%2020260619.pdf">Wizards of the Coast — Magic Comprehensive Rules, June 2026</a><span>Current section 724 procedures for beginning, playing, ending, and restoring a Magic subgame.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/it-happened-one-nights-2002-08-05">Mark Rosewater — It Happened One Nights</a><span>Official design retrospective on Arabian Nights and Richard Garfield’s willingness to translate source stories into unprecedented mechanics.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/get-it-unhinged-edition-part-2-2017-08-21">Mark Rosewater — Get It? Unhinged Edition, Part 2</a><span>Official statement that Shahrazad was the first subgame card and Richard Garfield’s favorite Magic design.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/unstable-scraps-part-1-2017-11-27">Mark Rosewater — Unstable Scraps, Part 1</a><span>Official discussion of Shahrazad’s flavor and R&amp;D’s decision not to create further black-bordered subgame cards.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/twenty-things-were-going-kill-magic-2013-08-05">Mark Rosewater — Twenty Things That Were Going to Kill Magic</a><span>Official history of the original banned list, on which Shahrazad appeared beside the ante cards.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Current Banned and Restricted Lists</a><span>Current explicit Vintage and Legacy bans.</span></li>
+<li><a href="https://mtg.wiki/page/Banned_and_restricted_cards/Timeline">Banned and Restricted Cards Timeline</a><span>Historical unbanning in 1999 and the September 2007 Legacy and Vintage bans.</span></li>
+<li><a href="https://www.eternalcentral.com/old-school-magic-93-94-shahrazads-sick-burn/">Eternal Central — Old School Magic 93–94: Story Time</a><span>Detailed explanation of Shahrazad as burn and tempo, tournament-state preservation, and Eternal Central’s unrestricted policy.</span></li>
+<li><a href="https://www.eternalcentral.com/ospb19/">Eternal Central — Old School Player’s Ball 2019</a><span>Aaron West’s second consecutive championship with Storytime in a 103-player event.</span></li>
+<li><a href="https://moxfield.com/decks/CNoqc2uBLUeg2E_a9Oz_MA">Moxfield — Storytime</a><span>Complete representative 60-card UWR Shahrazad main deck and 15-card sideboard.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/old-school-9394-bw-shahrazad/">TappedOut — Old School B/W Shahrazad</a><span>Complete 60-card Dreams, Pestilence, and Mirror Universe construction.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/old-school-9394-groundhog-day/">TappedOut — Old School Groundhog Day</a><span>Documented 63-card main deck and 15-card sideboard built around Shahrazad, Divine Intervention, Eureka, and Time Vault.</span></li>
+<li><a href="https://mtg.wtf/card/arn/10/Shahrazad">MTG.WTF — Shahrazad</a><span>Release date, U2 rarity notation, legality, Oracle text, and confirmation of the single paper printing.</span></li>
+<li><a href="https://mtg.wtf/set/me4">MTG.WTF — Masters Edition IV</a><span>Digital-only Magic Online set context and 2011 release.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Storytime and the black-white list are preserved as documented 60-card constructions. The black-white source has no attached sideboard. Groundhog Day is preserved at its documented 63-card size rather than normalized and is presented as a novelty-control construction rather than a premier-event result. Shahrazad has only two distinct official implementations available to illustrate: its sole paper printing and its Magic Online version.</div>
+<div class="end-nav"><a href="048-chaos-orb.html"><small>Previous numbered entry</small>Chaos Orb</a><a href="index.html?focus=entry-050#entry-050"><small>Next numbered entry</small>Stasis</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 049</b><br>Shahrazad made narrative structure into game structure, pausing one Magic game so another could be played inside the unresolved spell.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>

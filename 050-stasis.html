@@ -1,0 +1,1130 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Stasis: Alpha’s skipped untap step, Kismet, Howling Mine, Black Vise, Zak Dolan, Turbo Stasis, Tommi Hovi, Chronatog, Forsaken City, Premodern, Commander, artwork, printings, and decklists."><title>Stasis: The Turn Never Came Back — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+
+
+.hero.stasis-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stasis&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+</style></head>
+<body><header class="hero stasis-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-050#entry-050">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 050 · The Foundational Canon</div>
+<h1>The Turn Never Came Back</h1>
+<p class="deckline">Stasis removed the untap step from every player, turning each tapped permanent into a lasting commitment and challenging deck builders to create a private mechanism that continued moving after time stopped.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 39 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="049-shahrazad.html">← Entry 049 · Shahrazad</a><div class="center">Entry 050 of 1,000</div><a href="index.html?focus=entry-051#entry-051">Entry 051 · Juzám Djinn →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Turn Never Came Back</a>
+<a href="#alpha">Alpha’s absolute rule</a>
+<a href="#rules">What Stasis actually does</a>
+<a href="#skipped">Skipping the step changes more than untapping</a>
+<a href="#outside">Untapping outside the untap step</a>
+<a href="#upkeep">The blue mana that must already exist</a>
+<a href="#last-land">Every new land works once</a>
+<a href="#release">Destroy or bounce it before your turn</a>
+<a href="#kismet">Kismet closes the future</a>
+<a href="#mine">Howling Mine accelerates the prison</a>
+<a href="#vise">Black Vise turns waiting into damage</a>
+<a href="#dolan">Stasis in the first World Champion’s deck</a>
+<a href="#black-summer">Turbo Stasis during Black Summer</a>
+<a href="#hovi">Tommi Hovi’s Worlds quarterfinal</a>
+<a href="#scepter">Despotic Scepter as an escape hatch</a>
+<a href="#chronatog">Chronatog skips the upkeep itself</a>
+<a href="#forsaken">Forsaken City pays through the freeze</a>
+<a href="#free-spells">Gush, Daze, and Thwart recycle Islands</a>
+<a href="#root-maze">Root Maze creates the modern hard lock</a>
+<a href="#premodern">Premodern keeps the archetype alive</a>
+<a href="#winning">How a Stasis deck actually wins</a>
+<a href="#escape">How opponents break the lock</a>
+<a href="#commander">The multiplayer social contract</a>
+<a href="#descendants">The descendants of frozen time</a>
+<a href="#art">Fay Jones’s single Magic painting</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Pause</div><h2>The Turn Never Came Back</h2>
+<p class="opening dropcap">Stasis does not tap a permanent, destroy a resource, or limit the number of cards a player may use. It removes the untap step itself. The lands, creatures, and artifacts already turned sideways remain exactly as they are, and the ordinary promise that a new turn restores them simply disappears.</p>
+<p>For two mana, Alpha allowed one player to suspend the most basic rhythm in Magic. Tap a land. Cast a spell. Begin again. Under Stasis, every tap becomes a permanent decision until the enchantment leaves or another effect intervenes.</p>
+<p>The controller is trapped too. Each upkeep demands another blue mana even though the Islands paying that cost do not untap. Every successful Stasis deck is therefore an engineering problem: how to keep time stopped for the opponent while creating a private mechanism that still moves.</p>
+<div class="card-lead"><img alt="Stasis from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Stasis&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Stasis</h3><p><b>{1}{U} · Enchantment</b></p><p>Players skip their untap steps.</p><p>At the beginning of your upkeep, sacrifice this enchantment unless you pay {U}.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Fay Jones</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Global untap-step prison</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Rule</div><h2>Alpha’s absolute rule</h2>
+<p>Many early prison cards tax one action or constrain one permanent type. <span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span> restrains large creatures after they tap. <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> limits land recovery. <span class="card-name" data-card="Kismet" tabindex="0">Kismet</span> delays newly played permanents.</p>
+<p>Stasis is broader. It does not care why a permanent is tapped, what type it has, who controls it, or how much it cost. If the permanent normally relies on the untap step, the permanent stops functioning.</p>
+<p>The price is equally broad. The controller receives no exemption. Alpha did not present a finished combo; it presented a symmetrical rule and challenged players to discover asymmetry elsewhere.</p>
+</section>
+
+<div class="pullquote">Stasis did not freeze the battlefield once. It removed the moment when the battlefield was supposed to recover.<small>The untap step ceased to exist</small></div>
+
+<section id="rules"><div class="chapter-number">III · The Procedure</div><h2>What Stasis actually does</h2>
+<p>While Stasis remains on the battlefield, every player skips their untap step. A skipped step does not begin, no turn-based untapping occurs, and abilities that trigger at the beginning of that step do not trigger.</p>
+<p>Stasis has a separate triggered ability at the beginning of its controller’s upkeep. When that ability resolves, the controller pays one blue mana or sacrifices Stasis.</p>
+<p>Multiple copies are strategically redundant but financially demanding. Each Stasis creates its own upkeep trigger, so a player controlling two must pay for each one they wish to keep.</p>
+<div class="article-note"><b>The upkeep still happens.</b> Stasis removes only the untap step. Upkeep triggers, draw steps, main phases, combat, and end steps continue normally unless another effect changes them.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Stasis&set=lea&format=image&version=art_crop')"><div class="art-caption"><b>Fay Jones’s original Stasis</b>Two simplified figures float inside a dense field of blue, red, and yellow forms. Nothing in the image suggests conventional fantasy motion; the scene feels suspended between actions, unable to decide which direction time should continue.</div></div>
+
+<section id="skipped"><div class="chapter-number">IV · The Missing Step</div><h2>Skipping the step changes more than untapping</h2>
+<p>Because the untap step never begins, permanents do not phase in or out through the normal turn procedure. Effects that wait specifically for the untap step also wait indefinitely.</p>
+<p>This distinction matters whenever a card says “during your untap step,” “at the beginning of your untap step,” or depends on the ordinary phasing turn action. Stasis does not prevent those events after they occur; it prevents the step containing them from existing.</p>
+<p>Removing Stasis during upkeep is too late to recover that turn. The untap step has already been skipped. The player must wait until the next turn unless another effect untaps the relevant permanents.</p>
+</section>
+
+<section id="outside"><div class="chapter-number">V · The Exception</div><h2>Untapping outside the untap step</h2>
+<p>Stasis does not say that permanents cannot untap. It says players skip their untap steps.</p>
+<p><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span>, <span class="card-name" data-card="Twiddle" tabindex="0">Twiddle</span>, <span class="card-name" data-card="Ral Zarek" tabindex="0">Ral Zarek</span>, <span class="card-name" data-card="Seedborn Muse" tabindex="0">Seedborn Muse</span>, and countless activated or triggered abilities can untap permanents at other times. A land untapped during upkeep can immediately produce the blue mana needed to preserve Stasis.</p>
+<p>This is the central design space of the archetype. The opponent depends on the universal turn structure. The Stasis player replaces that structure with card-specific untap effects, bounce, alternative costs, or turn skipping.</p>
+</section>
+
+<section id="upkeep"><div class="chapter-number">VI · The Payment</div><h2>The blue mana that must already exist</h2>
+<p>The Stasis controller reaches upkeep with no ordinary untap step behind them. To pay the trigger, an untapped blue source must already be available, a new source must untap through another effect, or mana must be produced without tapping a frozen permanent.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Untapped Island</span><h3>One more upkeep</h3><p>The land pays once and remains tapped afterward unless the lock is released.</p></div>
+<div class="format-card"><span class="impact">Outside untap</span><h3>Ley Druid or Forsaken City</h3><p>A card-specific effect restores a blue source after the missing untap step.</p></div>
+<div class="format-card"><span class="impact">Remove Stasis</span><h3>Reset on the next turn</h3><p>Bounce or destroy the enchantment before the controller’s turn so a normal untap step can occur.</p></div>
+</div>
+<p>Maintaining Stasis is therefore a countdown. Every blue source represents a number of additional frozen turns unless the deck contains a renewable engine.</p>
+</section>
+
+<section id="last-land"><div class="chapter-number">VII · The Expenditure</div><h2>Every new land works once</h2>
+<p>A land played after Stasis resolves enters untapped unless another effect says otherwise. It can be tapped for mana normally and then remains tapped through later turns.</p>
+<p>This makes each land drop a temporary resource. The controller can pay one more upkeep. The opponent can cast one more answer. Neither player receives the land back through the normal turn cycle.</p>
+<p>Kismet and Root Maze are so powerful because they remove even that first use. A land that enters tapped beneath Stasis may never produce mana at all.</p>
+</section>
+
+<section id="release"><div class="chapter-number">VIII · The Timing</div><h2>Destroy or bounce it before your turn</h2>
+<p>The classic Stasis player does not always maintain the enchantment forever. Instead, the deck removes Stasis during the opponent’s end step.</p>
+<p>The controller begins the next turn without Stasis on the battlefield, receives a normal untap step, develops resources, and casts the enchantment again after using those resources.</p>
+<p><span class="card-name" data-card="Boomerang" tabindex="0">Boomerang</span>, <span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span>, <span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span>, and similar effects turn Stasis from a permanent commitment into a repeating one-sided pause.</p>
+</section>
+
+<section id="kismet"><div class="chapter-number">IX · The Future</div><h2>Kismet closes the future</h2>
+<p><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span> makes artifacts, creatures, and lands controlled by opponents enter tapped. Stasis prevents the untap step that would normally restore them.</p>
+<p>The combination addresses the lock’s natural weakness. Without Kismet, an opponent can play a fresh land and spend it immediately on Disenchant, Chaos Orb, or another escape. With Kismet, the answer’s mana source arrives already unusable.</p>
+<p>Zak Dolan used both cards in the first World Championship-winning deck. Turbo Stasis later expanded the package to multiple copies because Kismet transformed a temporary freeze into a hard lock on future development.</p>
+</section>
+
+<section id="mine"><div class="chapter-number">X · The Acceleration</div><h2>Howling Mine accelerates the prison</h2>
+<p><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span> gives each player an additional card during their draw step while it remains untapped. Under Stasis, an untapped Mine stays untapped because there is no untap step in which its status changes.</p>
+<p>The extra cards help the Stasis player find Islands, bounce spells, Kismet, countermagic, and another copy of the enchantment. The opponent also draws more cards—but cannot necessarily generate enough fresh mana to cast them.</p>
+<p>This is why the archetype became “Turbo Stasis.” The deck accelerates both libraries while constructing a game in which only one player can convert cards into actions.</p>
+</section>
+
+<section id="vise"><div class="chapter-number">XI · The Hand</div><h2>Black Vise turns waiting into damage</h2>
+<p>Howling Mine causes the opponent’s hand to grow. Stasis prevents lands and creatures from recovering. <span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span> converts the accumulated cards into damage during the opponent’s upkeep.</p>
+<p>The opponent faces a contradiction. Casting spells reduces Vise damage but consumes the few untapped mana sources that remain. Holding spells preserves possible answers but increases the Vise clock.</p>
+<p>Later lists sometimes win through decking or Brain Freeze instead, but Black Vise remains the iconic finish because it makes the visible symptom of the lock—the overfilled hand—become lethal.</p>
+</section>
+
+<section id="dolan"><div class="chapter-number">XII · The Champion</div><h2>Stasis in the first World Champion’s deck</h2>
+<p>Zak Dolan’s 1994 World Championship deck contained two Stases and one Kismet inside an eclectic four-color control-prison shell.</p>
+<p>Ley Druid could untap a land outside the untap step. Time Elemental could return Stasis or another permanent to hand. Serra Angel attacked without tapping. Icy Manipulator, Winter Orb, Meekstone, removal, and counterspells restricted whichever axis remained available.</p>
+<p>Stasis was not yet a self-contained archetype. It was one rule among many, chosen because Dolan’s creatures and utility effects were better prepared to function in a world without untapping.</p>
+</section>
+
+<section id="black-summer"><div class="chapter-number">XIII · The Metagame</div><h2>Turbo Stasis during Black Summer</h2>
+<p>Necropotence dominated the 1996 Standard season, earning the period the name “Black Summer.” Turbo Stasis became one of the format’s distinctive counterstrategies.</p>
+<p>Necropotence could fill its controller’s hand, but that strength became awkward when lands remained tapped and Black Vise punished the resulting card count. Stasis also attacked creature combat without needing to destroy black creatures individually.</p>
+<p>Matt Place reached the Top 8 of the 1996 U.S. Nationals with Turbo Stasis, and Tommi Hovi carried the archetype into the quarterfinals of the World Championship later that year.</p>
+</section>
+
+<section id="hovi"><div class="chapter-number">XIV · The Quarterfinal</div><h2>Tommi Hovi’s Worlds quarterfinal</h2>
+<p>Hovi’s deck played four Stases, four Howling Mines, two Kismets, three Despotic Scepters, four Boomerangs, four Force of Wills, and four Lim-Dûl’s Vaults.</p>
+<p>The list could find the lock, defend it, and decide exactly when it should end. Land Tax and the Mine supplied cards. Zuran Orb converted excess lands into life. Soldevi Digger and Recall extended the deck’s ability to survive long games.</p>
+<p>The deck’s tournament result established Turbo Stasis as a genuine premier-event archetype rather than an elaborate casual lock.</p>
+</section>
+
+<section id="scepter"><div class="chapter-number">XV · The Lever</div><h2>Despotic Scepter as an escape hatch</h2>
+<p><span class="card-name" data-card="Despotic Scepter" tabindex="0">Despotic Scepter</span> can tap to destroy a permanent its controller owns. In Turbo Stasis, that permanent is often Stasis itself.</p>
+<p>The Scepter is deployed before the lock. During the opponent’s end step, it destroys Stasis. The controller untaps normally, uses the refreshed mana, and casts another Stasis when ready.</p>
+<p>The artifact is narrower than Boomerang but renewable. It turns the enchantment’s sacrifice into a controlled release rather than a failure to pay upkeep.</p>
+</section>
+
+<section id="chronatog"><div class="chapter-number">XVI · The Missing Player</div><h2>Chronatog skips the upkeep itself</h2>
+<p><span class="card-name" data-card="Chronatog" tabindex="0">Chronatog</span> allows its controller to skip their next turn. If that player never begins a turn, they never reach the upkeep that demands blue mana for Stasis.</p>
+<p>In a two-player game, the controller can activate Chronatog during the opponent’s turn, skip the next turn, wait through another opposing turn, and repeat. The opponent continues drawing cards while receiving no untap steps.</p>
+<p>This creates the purest Stasis endgame: the controller stops participating in turn order, and the opponent eventually loses by attempting to draw from an empty library.</p>
+</section>
+
+<section id="forsaken"><div class="chapter-number">XVII · The City</div><h2>Forsaken City pays through the freeze</h2>
+<p><span class="card-name" data-card="Forsaken City" tabindex="0">Forsaken City</span> does not normally untap during its controller’s untap step. Instead, its controller may exile a card from hand during upkeep to untap it.</p>
+<p>That drawback becomes an advantage under Stasis. The missing untap step does not matter because Forsaken City uses its own upkeep trigger. It untaps, produces blue mana, and pays for the enchantment.</p>
+<p>Howling Mine, Gush, and other draw engines provide the cards that the City exiles. The lock converts cards in hand directly into additional frozen turns.</p>
+</section>
+
+<section id="free-spells"><div class="chapter-number">XVIII · The Islands</div><h2>Gush, Daze, and Thwart recycle Islands</h2>
+<p>Premodern Stasis decks exploit alternate costs that return Islands to hand. <span class="card-name" data-card="Gush" tabindex="0">Gush</span> draws cards by returning two Islands. <span class="card-name" data-card="Daze" tabindex="0">Daze</span> and <span class="card-name" data-card="Thwart" tabindex="0">Thwart</span> protect the lock by returning Islands instead of spending mana.</p>
+<p>The returned Islands are no longer trapped. They can be replayed untapped on later turns, used once, and returned again by another spell.</p>
+<p>What looks like a cost in an ordinary deck becomes resource renewal. The Stasis player repeatedly converts tapped permanents into cards in hand and cards in hand into fresh land drops.</p>
+</section>
+
+<section id="root-maze"><div class="chapter-number">XIX · The Entrance</div><h2>Root Maze creates the modern hard lock</h2>
+<p><span class="card-name" data-card="Root Maze" tabindex="0">Root Maze</span> makes artifacts and lands enter tapped for every player. Combined with Stasis, newly played lands never receive their first activation.</p>
+<p>The symmetry is broken through Forsaken City, alternative-cost spells, existing untapped Islands, or sequencing Root Maze before the controller has committed to the complete lock.</p>
+<p>Root Maze performs Kismet’s most important job for one mana, although it lacks Kismet’s one-sided wording and does not tap creatures. Premodern decks choose between them according to speed, color access, and how completely they can exploit the symmetry.</p>
+</section>
+
+<section id="premodern"><div class="chapter-number">XX · The Survival</div><h2>Premodern keeps the archetype alive</h2>
+<p>Premodern’s card pool ends before Modern begins but includes Forsaken City, Gush, Daze, Thwart, Chain of Vapor, Black Vise, and the original enchantment.</p>
+<p>In May 2026, Jacob Lee finished 9–5 at the 326-player North American Premodern Championship with a mono-blue Stasis list splashing red sideboard mana through Shivan Reef.</p>
+<p>The result shows that the archetype remains competitively coherent three decades after Black Summer. Its modern historical home is not Legacy, where the environment is faster and more flexible, but a format whose card pool preserves the exact engines that learned to live without untap steps.</p>
+</section>
+
+<section id="winning"><div class="chapter-number">XXI · The Ending</div><h2>How a Stasis deck actually wins</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Black Vise</span><h3>The growing hand becomes damage</h3><p>Howling Mine accelerates the draw count while frozen mana prevents the opponent from emptying the hand.</p></div>
+<div class="format-card"><span class="impact">Decking</span><h3>The opponent keeps taking turns</h3><p>Chronatog, Feldon’s Cane, Soldevi Digger, or recursion lets the controller survive while the opponent draws through the library.</p></div>
+<div class="format-card"><span class="impact">Small attackers or alternate wins</span><h3>Combat is optional</h3><p>Vigilance, untap effects, planeswalkers, mill spells, and noncombat damage can end the game without releasing the lock.</p></div>
+</div>
+<p>A Stasis deck that cannot close the game is merely delaying it. The most successful versions build the win condition into the same engine that maintains the prison.</p>
+</section>
+
+<section id="escape"><div class="chapter-number">XXII · The Motion</div><h2>How opponents break the lock</h2>
+<p>The most direct answer is to remove Stasis while enough mana remains. Disenchant, Chaos Orb, Chain of Vapor, Force of Vigor, Boseiju, Who Endures, and numerous modern effects can reopen the next untap step.</p>
+<p>Mana rocks, creatures that produce mana, alternate costs, untap abilities, and free spells operate without relying on ordinary land recovery. Fresh lands also work once unless Kismet or Root Maze prevents their first use.</p>
+<p>The timing matters. Removing Stasis during the controller’s upkeep does not restore the untap step already skipped that turn. Removing it during the previous end step does.</p>
+</section>
+
+<section id="commander"><div class="chapter-number">XXIII · The Table</div><h2>The multiplayer social contract</h2>
+<p>In Commander, one Stasis removes the untap step from every player at the table. The controller must still pay only one blue mana each upkeep, making the effect scale aggressively with additional opponents.</p>
+<p>Commanders and engines that untap permanents outside the untap step, produce mana without tapping, or operate from artifacts can make the lock one-sided. The card is legal, but the practical expectation is clear: a deck casting it should have a demonstrated route to victory.</p>
+<p>Without a clock, Stasis may convert a multiplayer game into several people drawing one card and passing. The card’s strategic legitimacy and its social reputation are therefore inseparable.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XXIV · The Bloodline</div><h2>The descendants of frozen time</h2>
+<p><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> limits land untapping rather than deleting the entire step. <span class="card-name" data-card="Static Orb" tabindex="0">Static Orb</span> restricts each player to two permanents. <span class="card-name" data-card="Rising Waters" tabindex="0">Rising Waters</span> allows only one land to untap.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Static%20Orb&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The artifact descendant</div><h3>Static Orb</h3><p><span class="card-name" data-card="Static Orb" tabindex="0">Static Orb</span> preserves the universal prison but leaves each player two untaps. It is easier to exploit with tapping effects and less absolute than removing the step itself.</p></div></div>
+<p><span class="card-name" data-card="Frozen Aether" tabindex="0">Frozen Aether</span> and Kismet attack permanents as they enter. <span class="card-name" data-card="Back to Basics" tabindex="0">Back to Basics</span> prevents nonbasic lands from untapping. <span class="card-name" data-card="Vorinclex, Voice of Hunger" tabindex="0">Vorinclex, Voice of Hunger</span> combines acceleration with selective land suppression.</p>
+<p>Later designs generally narrow the affected permanents, provide an untap allowance, raise the mana cost, or attach the effect to a more vulnerable permanent. Stasis remains the cleanest and harshest statement: no untap steps.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XXV · The Image</div><h2>Fay Jones’s single Magic painting</h2>
+<p>Seattle artist Fay Jones created only one illustration for Magic, and it became one of the game’s most recognizable visual departures.</p>
+<p>The figures, colors, and flattened space do not resemble the dragons, wizards, weapons, or landscapes surrounding Stasis in Alpha. The art feels like a self-contained painting that happens to occupy a card frame.</p>
+<p>That difference became part of the card’s identity. The original image remained through Fifth Edition and returned in the 30th Anniversary Edition. In 2022, Jérémie Solomon created a new borderless interpretation for the Secret Lair drop <i>The Space Beyond the Stars</i>, presenting stasis as vast cosmic suspension rather than intimate abstraction.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XXVI · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Historic Standard and Old School</span><h3>World Champion and Black Summer prison</h3><p>Zak Dolan used it in 1994; Turbo Stasis became a premier Standard archetype in 1996.</p></div>
+<div class="format-card"><span class="impact">Premodern</span><h3>The complete Forsaken City engine</h3><p>Gush, Daze, Thwart, Chain of Vapor, Black Vise, and Forsaken City preserve a dedicated competitive archetype.</p></div>
+<div class="format-card"><span class="impact">Legacy, Vintage, and Commander</span><h3>Legal but specialized</h3><p>The card remains available in eternal formats, where speed, free interaction, and social expectations limit its ordinary use.</p></div>
+</div>
+<p>Stasis is currently legal in Legacy, Vintage, Commander, and Oathbreaker. It is not legal in Standard, Pioneer, Modern, Pauper, Historic, Timeless, Brawl, or current digital rotating formats.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XXVII · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The opponent said “untap,” looked at the enchantment, and moved directly to upkeep.</blockquote><cite>Stasis made the most automatic action in Magic become the action nobody was allowed to take.</cite></div>
+<p>Players remember turning lands sideways and arranging them into a permanent record of every spell cast after the lock. They remember counting Islands, floating blue mana, and deciding whether the final untapped source should preserve Stasis or answer something else.</p>
+<p>They remember the silence of a board that continued acquiring cards without recovering motion. The game still had turns. It simply no longer had beginnings.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XXVIII · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve Stasis across its full competitive history: Zak Dolan’s layered 1994 World Championship prison, Tommi Hovi’s dedicated Turbo Stasis quarterfinal deck from Worlds 1996, and Jacob Lee’s Forsaken City Premodern construction from the 2026 North American Championship.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Zak Dolan — Control/Prison</strong><small>World Championship 1994 · Champion · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Dolan's two Stases belonged to a broad prison rather than a dedicated combo. Kismet made future permanents enter tapped, Ley Druid could untap a land outside the untap step, Time Elemental could return Stasis to hand, and Serra Angel attacked without tapping while the opponent's battlefield remained frozen.</p>
+<div class="deck-meta"><div><b>Zak Dolan — Control/Prison</b><div class="small">World Championship 1994 · Champion · 60/15</div></div><button class="copy" data-target="zak-dolan-worlds-1994">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div></div><div class="group"><h4>Instants and Sorceries · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren&#x27;s Call" tabindex="0">Siren&#x27;s Call</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div></div>
+<pre hidden id="zak-dolan-worlds-1994">Zak Dolan — Control/Prison
+World Championship 1994 · Champion · 60/15
+
+Creatures · 11
+1 Birds of Paradise
+1 Clone
+1 Ley Druid
+2 Old Man of the Sea
+4 Serra Angel
+1 Time Elemental
+1 Vesuvan Doppelganger
+
+Instants and Sorceries · 15
+1 Ancestral Recall
+1 Armageddon
+2 Disenchant
+1 Mana Drain
+1 Recall
+1 Regrowth
+1 Siren&#x27;s Call
+4 Swords to Plowshares
+1 Time Walk
+1 Timetwister
+1 Wrath of God
+
+Enchantments · 4
+1 Control Magic
+1 Kismet
+2 Stasis
+
+Artifacts · 15
+1 Black Lotus
+1 Black Vise
+1 Howling Mine
+1 Icy Manipulator
+1 Ivory Tower
+1 Mana Vault
+2 Meekstone
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Winter Orb
+
+Lands · 15
+1 Library of Alexandria
+4 Savannah
+2 Strip Mine
+4 Tropical Island
+4 Tundra
+
+Sideboard · 15
+1 Chaos Orb
+1 Circle of Protection: Red
+1 Copy Artifact
+1 Diamond Valley
+1 Floral Spuzzem
+1 In the Eye of Chaos
+2 Karma
+1 Kismet
+1 Magical Hack
+1 Power Sink
+1 Presence of the Master
+1 Reverse Damage
+1 Sleight of Mind
+1 Winter Blast</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Tommi Hovi — Turbo Stasis</strong><small>World Championship 1996 · Quarterfinalist · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Hovi's list represents the Black Summer form of the archetype. Four Howling Mines found Islands and lock pieces, Boomerang or Despotic Scepter removed Stasis before the controller's untap, Kismet trapped newly played permanents, and the deck won through exhaustion, Black Vise, or the opponent's inability to escape.</p>
+<div class="deck-meta"><div><b>Tommi Hovi — Turbo Stasis</b><div class="small">World Championship 1996 · Quarterfinalist · 60/15</div></div><button class="copy" data-target="tommi-hovi-turbo-stasis">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Instants · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Arcane Denial" tabindex="0">Arcane Denial</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Boomerang" tabindex="0">Boomerang</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lim-Dûl&#x27;s Vault" tabindex="0">Lim-Dûl&#x27;s Vault</span></div></div><div class="group"><h4>Sorceries · 3</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div></div><div class="group"><h4>Enchantments · 7</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 10</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Despotic Scepter" tabindex="0">Despotic Scepter</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Soldevi Digger" tabindex="0">Soldevi Digger</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">12</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Land Cap" tabindex="0">Land Cap</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="River Delta" tabindex="0">River Delta</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground River" tabindex="0">Underground River</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Black" tabindex="0">Circle of Protection: Black</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon&#x27;s Cane" tabindex="0">Feldon&#x27;s Cane</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl&#x27;s Recall" tabindex="0">Hurkyl&#x27;s Recall</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Lodestone Bauble" tabindex="0">Lodestone Bauble</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Short" tabindex="0">Mana Short</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Wall of Air" tabindex="0">Wall of Air</span></div></div></div></div>
+<pre hidden id="tommi-hovi-turbo-stasis">Tommi Hovi — Turbo Stasis
+World Championship 1996 · Quarterfinalist · 60/15
+
+Instants · 16
+4 Arcane Denial
+4 Boomerang
+4 Force of Will
+4 Lim-Dûl&#x27;s Vault
+
+Sorceries · 3
+1 Balance
+2 Recall
+
+Enchantments · 7
+2 Kismet
+1 Land Tax
+4 Stasis
+
+Artifacts · 10
+3 Despotic Scepter
+4 Howling Mine
+1 Ivory Tower
+1 Soldevi Digger
+1 Zuran Orb
+
+Lands · 24
+12 Island
+3 Adarkar Wastes
+2 City of Brass
+2 Land Cap
+2 River Delta
+3 Underground River
+
+Sideboard · 15
+1 Black Vise
+2 Circle of Protection: Black
+2 Circle of Protection: Red
+1 Feldon&#x27;s Cane
+1 Hurkyl&#x27;s Recall
+2 Hydroblast
+1 Lodestone Bauble
+2 Mana Short
+3 Wall of Air</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Jacob Lee — Premodern Stasis</strong><small>North American Premodern Championship 2026 · 9–5 · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Lee's 2026 list shows the mature Forsaken City engine. Gush, Daze, and Thwart return Islands as alternative costs, allowing them to be replayed untapped; Forsaken City untaps itself by exiling a card; Black Vise converts the opponent's growing hand into a clock; and Chain of Vapor releases Stasis on schedule.</p>
+<div class="deck-meta"><div><b>Jacob Lee — Premodern Stasis</b><div class="small">North American Premodern Championship 2026 · 9–5 · 60/15</div></div><button class="copy" data-target="jacob-lee-premodern-2026">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div></div><div class="group"><h4>Instants · 27</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Arcane Denial" tabindex="0">Arcane Denial</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Brain Freeze" tabindex="0">Brain Freeze</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Flash of Insight" tabindex="0">Flash of Insight</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Impulse" tabindex="0">Impulse</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Short" tabindex="0">Mana Short</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Thwart" tabindex="0">Thwart</span></div></div><div class="group"><h4>Sorcery · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Upheaval" tabindex="0">Upheaval</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Propaganda" tabindex="0">Propaganda</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Forsaken City" tabindex="0">Forsaken City</span></div>
+<div class="row"><span class="qty">17</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Shivan Reef" tabindex="0">Shivan Reef</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Chill" tabindex="0">Chill</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Cursed Totem" tabindex="0">Cursed Totem</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Gaea&#x27;s Blessing" tabindex="0">Gaea&#x27;s Blessing</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div></div></div></div>
+<pre hidden id="jacob-lee-premodern-2026">Jacob Lee — Premodern Stasis
+North American Premodern Championship 2026 · 9–5 · 60/15
+
+Artifacts · 4
+4 Black Vise
+
+Instants · 27
+2 Arcane Denial
+1 Brain Freeze
+4 Chain of Vapor
+4 Counterspell
+3 Daze
+1 Flash of Insight
+4 Gush
+4 Impulse
+1 Mana Short
+3 Thwart
+
+Sorcery · 1
+1 Upheaval
+
+Enchantments · 5
+1 Propaganda
+4 Stasis
+
+Lands · 23
+4 Forsaken City
+17 Island
+2 Shivan Reef
+
+Sideboard · 15
+2 Annul
+3 Blue Elemental Blast
+2 Chill
+3 Cursed Totem
+2 Gaea&#x27;s Blessing
+3 Pyroclasm</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXIX · The Object</div><h2>Printings and sources</h2>
+<p>Stasis appeared in every core set from Alpha through Fifth Edition with Fay Jones’s original artwork. It then went more than two decades without a new paper printing. The 30th Anniversary Edition reproduced the original card as a non-tournament-legal facsimile, while the 2022 Secret Lair drop <i>The Space Beyond the Stars</i> introduced the first new artwork and the first traditional foil paper version.</p>
+<div class="printings">
+<figure class="printing"><img alt="Stasis from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Stasis&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Fay Jones · original printing</figcaption></figure>
+<figure class="printing"><img alt="Stasis from Fifth Edition" src="https://api.scryfall.com/cards/named?exact=Stasis&amp;set=5ed&amp;format=image&amp;version=normal"><figcaption>Fifth Edition · 1997<br>Fay Jones · final core-set printing</figcaption></figure>
+<figure class="printing"><img alt="Stasis from Secret Lair Drop" src="https://api.scryfall.com/cards/sld/1103?format=image&amp;version=normal"><figcaption>Secret Lair Drop · 2022<br>Jérémie Solomon · first new artwork and foil</figcaption></figure>
+<figure class="printing"><img alt="Stasis from 30th Anniversary Edition" src="https://api.scryfall.com/cards/30a/377?format=image&amp;version=normal"><figcaption>30th Anniversary Edition · 2022<br>Fay Jones · retro-frame facsimile</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/80/stasis">Scryfall — Stasis, Limited Edition Alpha</a><span>Oracle text, collector number, artist, rarity, current legalities, card-specific rulings, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Stasis">Wizards of the Coast Gatherer — Stasis</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/rules">Wizards of the Coast — Comprehensive Rules</a><span>Current procedures for skipped steps, upkeep triggers, phasing, alternative costs, and untapping outside the untap step.</span></li>
+<li><a href="https://mtg.wiki/page/1994_World_Championships/Top_4_Decks">1994 World Championships — Top 4 deck archive</a><span>Zak Dolan’s complete championship deck and its Stasis, Kismet, Time Elemental, Ley Druid, and Serra Angel package.</span></li>
+<li><a href="https://mtg.wiki/page/Standard_Turbo_Stasis">Standard Turbo Stasis</a><span>Black Summer archetype history, Matt Place’s U.S. Nationals result, the Howling Mine engine, and the origin of “Turbo” deck naming.</span></li>
+<li><a href="https://mtg.wiki/page/1996_World_Championships/Standard_decks">1996 World Championships — Standard deck archive</a><span>Tommi Hovi’s complete quarterfinal Turbo Stasis list and tournament context.</span></li>
+<li><a href="https://mtgdecks.net/Premodern/stasis-decklist-by-jacob-lee-2916071">Jacob Lee — Stasis, North American Premodern Championship 2026</a><span>Complete 60-card main deck, 15-card sideboard, 9–5 record, and 326-player event context.</span></li>
+<li><a href="https://www.spellbinder.gg/formats/premodern/premodern-stasis">Spellbinder — Premodern Stasis archetype</a><span>Contemporary archetype structure, Forsaken City engine, representative card choices, and ongoing competitive presence.</span></li>
+<li><a href="https://www.collectorsweekly.com/articles/how-my-kid-lost-a-game-of-magic-to-its-creator-but-scored-a-piece-of-its-original-art/">Collectors Weekly — The original Stasis painting</a><span>Fay Jones’s commission, artistic process, and the later history of the original Alpha painting.</span></li>
+<li><a href="https://secretlair.wizards.com/us/en/product/772002/the-space-beyond-the-stars">Wizards of the Coast — The Space Beyond the Stars</a><span>Official Secret Lair product page and Jérémie Solomon’s borderless Stasis interpretation.</span></li>
+<li><a href="https://30thedition.wizards.com/us/en/product/769508/magic-the-gathering-30th-anniversary-edition">Wizards of the Coast — 30th Anniversary Edition</a><span>Official non-tournament-legal commemorative product context.</span></li>
+<li><a href="https://scryfall.com/card/5ed/127/stasis">Scryfall — Fifth Edition Stasis</a><span>Final core-set printing and collector-number reference.</span></li>
+<li><a href="https://scryfall.com/card/sld/1103/stasis">Scryfall — Secret Lair Stasis</a><span>Jérémie Solomon artwork, borderless treatment, and foil availability.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Stasis%22&amp;unique=prints">Scryfall — Stasis printing search</a><span>Complete paper, facsimile, digital, frame, artist, and release history.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> All three decklists are preserved at their documented 60-card main-deck and 15-card sideboard sizes. Jacob Lee’s result is included to show the archetype’s current Premodern life rather than to imply comparable relevance in contemporary Legacy.</div>
+<div class="end-nav"><a href="049-shahrazad.html"><small>Previous numbered entry</small>Shahrazad</a><a href="index.html?focus=entry-051#entry-051"><small>Next numbered entry</small>Juzám Djinn</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 050</b><br>Stasis deleted the automatic recovery built into every Magic turn and made prison deck construction a question of who could keep functioning after nobody untapped.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>

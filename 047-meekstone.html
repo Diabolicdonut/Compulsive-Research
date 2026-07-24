@@ -1,0 +1,1083 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Meekstone: Alpha, power-based untap restriction, Icy Manipulator, vigilance, Zak Dolan’s 1994 World Championship deck, Old School aggro, Antoine Ruel’s Nether-Go, artwork, printings, and decklists."><title>Meekstone: The Giants Stayed Down — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+</style></head>
+<body><header class="hero meekstone-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-047#entry-047">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 047 · The Foundational Canon</div>
+<h1>The Giants Stayed Down</h1>
+<p class="deckline">Meekstone made power three the line between creatures that recovered and creatures that remained trapped, rewarding vigilance, small attackers, temporary pump, and every deck prepared to break a symmetrical rule.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 31 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="046-winter-orb.html">← Entry 046 · Winter Orb</a><div class="center">Entry 047 of 1,000</div><a href="index.html?focus=entry-048#entry-048">Entry 048 · Chaos Orb →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Giants Stayed Down</a>
+<a href="#alpha">Alpha’s one-mana equalizer</a>
+<a href="#threshold">Why three power is the line</a>
+<a href="#rules">What Meekstone actually does</a>
+<a href="#timing">Power is checked during untapping</a>
+<a href="#tapping">The creature must first become tapped</a>
+<a href="#icy">Icy Manipulator closes the trap</a>
+<a href="#vigilance">Vigilance walks around the stone</a>
+<a href="#small">Small creatures break the symmetry</a>
+<a href="#pump">Temporary power makes the artifact aggressive</a>
+<a href="#worlds">Meekstone at the first World Championship</a>
+<a href="#oldman">Old Man of the Sea beneath the threshold</a>
+<a href="#ruel">A three-copy sideboard plan at Worlds 2001</a>
+<a href="#changing">Power creep changed the targets</a>
+<a href="#removal">Why it is not creature removal</a>
+<a href="#commander">The multiplayer equalizer</a>
+<a href="#descendants">The descendants of Meekstone</a>
+<a href="#art">The stone that humbles strength</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Weight</div><h2>The Giants Stayed Down</h2>
+<p class="opening dropcap">Meekstone does nothing to a creature merely because it is large. The giant may enter, attack, block, activate abilities, and dominate the battlefield. The punishment begins only after it becomes tapped. Then the next untap step arrives, and strength itself becomes the reason it cannot rise.</p>
+<p>For one generic mana, the artifact places a permanent rule around every creature with power three or greater. It does not destroy them, exile them, or prevent their abilities. It creates a battlefield in which small creatures recover normally and large creatures are forced to treat every tap as a commitment.</p>
+<p>That asymmetry made Meekstone both a prison card and an aggressive weapon. Control decks used Icy Manipulator to push large threats into the trap. Weenie decks attacked beneath the threshold. Vigilant creatures ignored it. Pump spells allowed a small attacker to become enormous only after it had already attacked—and to shrink again before the next untap.</p>
+<div class="card-lead"><img alt="Meekstone from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Meekstone&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Meekstone</h3><p><b>{1} · Artifact</b></p><p>Creatures with power 3 or greater don’t untap during their controllers’ untap steps.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Quinton Hoover</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Large-creature suppression</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Scale</div><h2>Alpha’s one-mana equalizer</h2>
+<p>Alpha’s creatures were frequently expensive, and many of its most visually impressive threats had power three or greater. <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, <span class="card-name" data-card="Sengir Vampire" tabindex="0">Sengir Vampire</span>, <span class="card-name" data-card="Mahamoti Djinn" tabindex="0">Mahamoti Djinn</span>, <span class="card-name" data-card="Force of Nature" tabindex="0">Force of Nature</span>, and <span class="card-name" data-card="Lord of the Pit" tabindex="0">Lord of the Pit</span> all crossed the line.</p>
+<p>Meekstone gave any deck a one-mana answer that did not care about color, regeneration, toughness, or protection from a particular hue. It could restrain creatures that black removal could not target or threats too large for red damage.</p>
+<p>The tradeoff was fundamental. The artifact did not stop the first attack and did not affect an untapped creature at all. Its efficiency existed because it required time, tapping, and a deck capable of exploiting the delay.</p>
+</section>
+
+<div class="pullquote">Meekstone did not make the weak stronger. It made strength expensive to use twice.<small>Power converted into an untap restriction</small></div>
+
+<section id="threshold"><div class="chapter-number">III · The Number</div><h2>Why three power is the line</h2>
+<p>Two-power creatures untap normally. Three-power creatures do not. That single point divides the battlefield into creatures that can participate every turn and creatures that must find another method of recovery.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Power 0–2</span><h3>Below the stone</h3><p>The creature untaps normally, even if its toughness, mana value, or other abilities are enormous.</p></div>
+<div class="format-card"><span class="impact">Power 3+</span><h3>Held down</h3><p>If tapped when the untap step arrives, the creature remains tapped.</p></div>
+<div class="format-card"><span class="impact">Variable power</span><h3>The threshold can move</h3><p>Counters, Auras, Equipment, static effects, and temporary modifications can determine which side of the line a creature occupies.</p></div>
+</div>
+<p>The choice of three was especially meaningful in early Magic. Many efficient small creatures occupied the one- and two-power range, while signature finishers began at three or four. Meekstone did not stop creature decks generally. It separated armies from monsters.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">IV · The Restriction</div><h2>What Meekstone actually does</h2>
+<p>Meekstone creates a static restriction during each player’s untap step. A creature with power three or greater cannot untap as part of that untap step.</p>
+<p>The artifact does not tap creatures. It does not stop a creature from attacking, blocking, using a tap ability, being targeted by an untap spell, or untapping outside the untap step. It also does not prevent an already untapped creature from remaining untapped.</p>
+<p>Multiple Meekstones are redundant. One copy and four copies impose the same restriction; additional copies provide insurance against removal rather than increasing the threshold or effect.</p>
+<div class="article-note"><b>Restriction, not a trigger.</b> Meekstone does not place an ability on the stack during the untap step. The affected creature simply fails to untap, and players do not receive priority during that step to change its power at the last moment.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop')"><div class="art-caption"><b>Quinton Hoover’s original Meekstone</b>The small engraved object glows against a dark background while two enormous hands reach toward it. The stone’s scale is the visual joke: the larger the claimant, the more completely it dominates them.</div></div>
+
+<section id="timing"><div class="chapter-number">V · The Measurement</div><h2>Power is checked during untapping</h2>
+<p>A creature’s current power determines whether it may untap. A normally small creature enlarged permanently by counters or an Aura can become trapped. A normally large creature reduced below three before the untap step can recover.</p>
+<p>Because no player receives priority during the untap step, a temporary change must already be in place before that step begins. An instant cannot be cast midway through untapping to shrink a creature and rescue it.</p>
+<p>Effects that last “until end of turn” normally expire during the cleanup step, well before the next untap. That timing allows temporary pump spells to work unusually well with Meekstone.</p>
+</section>
+
+<section id="tapping"><div class="chapter-number">VI · The Commitment</div><h2>The creature must first become tapped</h2>
+<p>Meekstone’s greatest limitation is that an untapped creature remains completely functional. A large creature can stay back to block indefinitely, activate nontap abilities, or threaten an attack without entering the trap.</p>
+<p>The controller of the creature decides whether attacking is worth the risk of remaining tapped. The Meekstone player must often force the issue through attacks, tap effects, combat tricks, or a race that makes blocking insufficient.</p>
+<p>This distinguishes the artifact from <span class="card-name" data-card="Ensnaring Bridge" tabindex="0">Ensnaring Bridge</span> or <span class="card-name" data-card="Moat" tabindex="0">Moat</span>. Those cards prevent combat directly. Meekstone changes what happens after combat and asks the rest of the deck to create the initial tap.</p>
+</section>
+
+<section id="icy"><div class="chapter-number">VII · The Hand</div><h2>Icy Manipulator closes the trap</h2>
+<p><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span> supplies exactly what Meekstone lacks. It taps the largest creature before combat or during the opponent’s end step. If that creature still has power three or greater when the next untap step begins, Meekstone keeps it down.</p>
+<p>The pair became one of early control’s clearest soft locks. Icy could address one new creature each turn while Meekstone preserved the work of every previous activation. The controller’s one-mana artifact converted temporary tapping into long-term suppression.</p>
+<p>Creature-removal spells could then be reserved for threats below the threshold, creatures with vigilance, or utility creatures that mattered without attacking.</p>
+</section>
+
+<section id="vigilance"><div class="chapter-number">VIII · The Exception</div><h2>Vigilance walks around the stone</h2>
+<p>A creature with vigilance does not tap when it attacks. If nothing else taps it, Meekstone has no opportunity to restrain it.</p>
+<p>This interaction was central to Zak Dolan’s 1994 World Championship deck. <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span> had four power, but its vigilance allowed it to attack while remaining untapped. The opponent’s large creatures could be trapped by Meekstone and Icy Manipulator while Dolan’s primary finisher continued attacking every turn.</p>
+<p>Meekstone therefore does not simply reward small creatures. It rewards any creature designed to function without becoming tapped: vigilance creatures, creatures with untap abilities, and threats that deal damage without combat.</p>
+</section>
+
+<section id="small"><div class="chapter-number">IX · The Army</div><h2>Small creatures break the symmetry</h2>
+<p>A deck built from one- and two-power creatures can treat Meekstone as nearly one-sided. <span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span> normally has two power even when its Forest bonus increases toughness. <span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span> attacks as a 2/2. Llanowar Elves, Scarwood Goblins, and Scavenger Folk remain below the line.</p>
+<p>The opponent’s Serra Angels, Erhnam Djinns, Sengir Vampires, and large artifact creatures may attack once and remain tapped. The small deck continues using every creature each turn.</p>
+<p>This is a different philosophy from Icy prison. The aggressive deck does not need to control the battlefield forever. It needs the opponent’s best blocker or attacker to miss enough turns for modest creatures to finish the race.</p>
+</section>
+
+<section id="pump"><div class="chapter-number">X · The Burst</div><h2>Temporary power makes the artifact aggressive</h2>
+<p><span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span>, <span class="card-name" data-card="Blood Lust" tabindex="0">Blood Lust</span>, and <span class="card-name" data-card="Berserk" tabindex="0">Berserk</span> allow a two-power creature to attack as something enormous. The creature becomes tapped during combat while its power is above the Meekstone threshold—but the pump effect usually expires during cleanup.</p>
+<p>By the next untap step, the creature has returned to its printed power and untaps normally. The opponent’s naturally large creature remains trapped because its power never falls.</p>
+<p>This creates one of Meekstone’s most elegant asymmetries. The aggressive deck borrows size only when size is useful. The opposing deck owns size permanently and pays the permanent cost.</p>
+</section>
+
+<section id="worlds"><div class="chapter-number">XI · The Champion</div><h2>Meekstone at the first World Championship</h2>
+<p>Zak Dolan’s 1994 World Championship deck played two Meekstones inside a dense control-prison structure. Stasis, Winter Orb, Kismet, Icy Manipulator, removal, and unusual creatures all attacked different ways an opponent might develop.</p>
+<p>Dolan described his plan as controlling the play environment so completely that even at one life the opponent could do nothing. Meekstone contributed by making large threats poor long-term investments. A creature might attack once, but every later combat required an answer to the artifact or a way to untap outside the normal step.</p>
+<p>The card’s inclusion in the first World Champion’s deck established it as more than a kitchen-table annoyance. It was part of competitive Magic’s first public vocabulary of prison.</p>
+</section>
+
+<section id="oldman"><div class="chapter-number">XII · The Threshold</div><h2>Old Man of the Sea beneath the threshold</h2>
+<p><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span> has two power, placing it safely beneath Meekstone. Its tap ability can gain control of a creature whose power does not exceed the Old Man’s power.</p>
+<p>That relationship allowed Dolan’s deck to operate with creatures specifically selected for the prison. Old Man could untap normally and manipulate small opposing creatures; Meekstone restrained larger ones; Serra Angel attacked without tapping.</p>
+<p>The card choices look eccentric when read separately. Together they form a battlefield divided by power, tapping, and vigilance. Meekstone was the rule that made those divisions strategically coherent.</p>
+</section>
+
+<section id="ruel"><div class="chapter-number">XIII · The Sideboard</div><h2>A three-copy sideboard plan at Worlds 2001</h2>
+<p>Antoine Ruel’s third-place Nether-Go deck at the 2001 World Championship placed three Meekstones in its sideboard. The main deck’s only creature was <span class="card-name" data-card="Nether Spirit" tabindex="0">Nether Spirit</span>, a recurring 2/2 that remained below the threshold.</p>
+<p>The sideboard plan allowed a blue-black-red permission deck to answer large creatures with a single one-mana permanent. Countermagic and removal protected the artifact, while Nether Spirit could continue blocking or attacking normally.</p>
+<p>This later appearance shows the card’s enduring sideboard logic. A deck need not build completely around Meekstone when its own threats naturally ignore the text and a particular matchup depends on creatures above the line.</p>
+</section>
+
+<section id="changing"><div class="chapter-number">XIV · The Scale</div><h2>Power creep changed the targets</h2>
+<p>Modern creatures are often larger for their mana cost, making the threshold appear more relevant. At the same time, they increasingly generate value before Meekstone can matter.</p>
+<p>A creature may draw a card, create tokens, destroy a permanent, or trigger an ability as it enters. Preventing that creature from untapping after one attack does not reverse the value already produced. Haste also guarantees immediate use before the artifact can restrain future turns.</p>
+<p>Power creep therefore cuts both ways. More creatures qualify for the restriction, but fewer competitive creatures depend solely on attacking repeatedly to justify their card slot.</p>
+</section>
+
+<section id="removal"><div class="chapter-number">XV · The Difference</div><h2>Why it is not creature removal</h2>
+<p>A tapped creature locked by Meekstone remains on the battlefield. Its static abilities function. Its triggered abilities function. It may be sacrificed, equipped, enchanted, used as a cost, returned to hand, or untapped by another effect.</p>
+<p>The opponent can also destroy Meekstone and recover every trapped creature during the next untap step. Unlike true removal, the artifact stores problems rather than eliminating them.</p>
+<p>The reward is efficiency. One mana can restrain several large creatures simultaneously and ignore indestructibility, protection, and toughness. The cost is fragility and incompleteness: the creatures are still there, waiting for the stone to leave.</p>
+</section>
+
+<section id="commander"><div class="chapter-number">XVI · The Table</div><h2>The multiplayer equalizer</h2>
+<p>In Commander, Meekstone can affect three opposing battlefields for one mana. Voltron commanders, Dragons, Dinosaurs, Demons, and large token strategies may all find attacking to be a one-turn commitment.</p>
+<p>The controller can build beneath the threshold with utility creatures, toughness-based attackers, vigilance, tap effects, or commanders that win without combat. Because the artifact does not specify opponents, the deck must plan around its own creatures as carefully as everyone else’s.</p>
+<p>The political effect is visible. Meekstone may protect the entire table from one dominant creature deck, but it may also convince opponents that the artifact’s controller is the obstacle preventing everyone’s commanders from functioning.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XVII · The Bloodline</div><h2>The descendants of Meekstone</h2>
+<p><span class="card-name" data-card="Crackdown" tabindex="0">Crackdown</span> applies a related untap restriction to nonwhite creatures with power three or greater. <span class="card-name" data-card="Marble Titan" tabindex="0">Marble Titan</span> places a power-based untap rule on a creature body and affects creatures with power three or greater.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Blind%20Obedience&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The modern tempo relative</div><h3>Blind Obedience</h3><p><span class="card-name" data-card="Blind Obedience" tabindex="0">Blind Obedience</span> does not keep creatures tapped after combat, but it makes opposing creatures and artifacts enter tapped. Like Meekstone, it turns time and tapped status into a broad defensive resource rather than destroying individual threats.</p></div></div>
+<p><span class="card-name" data-card="Arena of the Ancients" tabindex="0">Arena of the Ancients</span> taps legendary creatures and prevents them from untapping normally. <span class="card-name" data-card="Storage Matrix" tabindex="0">Storage Matrix</span> restricts which permanent type a player can untap. <span class="card-name" data-card="Ensnaring Bridge" tabindex="0">Ensnaring Bridge</span> prevents large creatures from attacking based on hand size rather than power alone.</p>
+<p>Later descendants usually add color, increase the cost, narrow the affected class, or arrive on a more vulnerable card type. Meekstone remains unique because one generic mana establishes a global power threshold.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XVIII · The Image</div><h2>The stone that humbles strength</h2>
+<p>Quinton Hoover’s original art depicts a tiny carved stone glowing between enormous hands. The composition makes scale itself the subject: the object looks insignificant, but the beings reaching for it appear unable to master it.</p>
+<p>David Martin’s Seventh Edition replacement places the stone within a clearer fantasy environment and emphasizes the physical burden imposed on a large figure. Steve Argyle’s Kaladesh Invention transforms the effect into an elaborate filigreed device worthy of a plane where mechanisms are treated as art.</p>
+<p>Mystery Booster 2 returned David Martin’s image in a Future Sight frame, presenting the ancient one-mana prison as though it were a design sent backward from another version of Magic.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XIX · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Old School</span><h3>A prison and aggro equalizer</h3><p>Control decks combine it with Icy Manipulator, while low-power creature decks use pump spells and small attackers to break the symmetry.</p></div>
+<div class="format-card"><span class="impact">Legacy and Vintage</span><h3>Legal, highly specialized</h3><p>The card occasionally appears through artifact tutors or sideboards, but immediate value and cheap removal limit its competitive role.</p></div>
+<div class="format-card"><span class="impact">Commander</span><h3>A one-mana global restraint</h3><p>Large multiplayer boards magnify the effect, especially in decks built around vigilance, toughness, tap control, or small utility creatures.</p></div>
+</div>
+<p>Meekstone is not legal in Standard, Pioneer, Modern, Pauper, or current digital-only formats such as Timeless. Its recognized competitive homes are Legacy, Vintage, Commander, Oathbreaker, Old School variants, and Cube.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XX · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The creature attacked once. The stone remembered how strong it was.</blockquote><cite>Meekstone made every large creature’s tap feel permanent until the artifact itself could be answered.</cite></div>
+<p>Players remember tapping a Serra Angel with Icy Manipulator and leaving it sideways for turn after turn. They remember discovering that vigilance was not merely an offensive ability, and that a Giant Growth could expire in time to let a small creature untap.</p>
+<p>They remember the contradiction in the name. The stone was meek only in size. Everything larger was required to bow to it.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XXI · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve Meekstone’s three principal competitive identities: a layered prison element in Zak Dolan’s 1994 World Championship deck, an asymmetric weapon in a representative Old School green-red small-creature shell, and a three-copy sideboard answer in Antoine Ruel’s 2001 Worlds Nether-Go deck.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Zak Dolan — Control/Prison</strong><small>World Championship 1994 · Champion · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Dolan's two Meekstones restrained large opposing creatures while his own Old Men of the Sea remained below the threshold and Serra Angels attacked without tapping. Icy Manipulator, Stasis, Winter Orb, Kismet, and cheap removal turned the artifact into one component of a layered prison rather than an isolated answer.</p>
+<div class="deck-meta"><div><b>Zak Dolan — Control/Prison</b><div class="small">World Championship 1994 · Champion · 60/15</div></div><button class="copy" data-target="zak-dolan-worlds-1994">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div></div><div class="group"><h4>Instants and Sorceries · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren&#x27;s Call" tabindex="0">Siren&#x27;s Call</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div></div>
+<pre hidden id="zak-dolan-worlds-1994">Zak Dolan — Control/Prison
+World Championship 1994 · Champion · 60/15
+
+Creatures · 11
+1 Birds of Paradise
+1 Clone
+1 Ley Druid
+2 Old Man of the Sea
+4 Serra Angel
+1 Time Elemental
+1 Vesuvan Doppelganger
+
+Instants and Sorceries · 15
+1 Ancestral Recall
+1 Armageddon
+2 Disenchant
+1 Mana Drain
+1 Recall
+1 Regrowth
+1 Siren&#x27;s Call
+4 Swords to Plowshares
+1 Time Walk
+1 Timetwister
+1 Wrath of God
+
+Enchantments · 4
+1 Control Magic
+1 Kismet
+2 Stasis
+
+Artifacts · 15
+1 Black Lotus
+1 Black Vise
+1 Howling Mine
+1 Icy Manipulator
+1 Ivory Tower
+1 Mana Vault
+2 Meekstone
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Winter Orb
+
+Lands · 15
+1 Library of Alexandria
+4 Savannah
+2 Strip Mine
+4 Tropical Island
+4 Tundra
+
+Sideboard · 15
+1 Chaos Orb
+1 Circle of Protection: Red
+1 Copy Artifact
+1 Diamond Valley
+1 Floral Spuzzem
+1 In the Eye of Chaos
+2 Karma
+1 Kismet
+1 Magical Hack
+1 Power Sink
+1 Presence of the Master
+1 Reverse Damage
+1 Sleight of Mind
+1 Winter Blast</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Old School R/G Meekstone</strong><small>93/94 representative archetype list · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>This low-curve green-red shell illustrates Meekstone as an aggressive asymmetry card. Kird Ape, Scarwood Goblins, Scavenger Folk, and Mishra's Factory naturally remain below three power; Giant Growth, Blood Lust, and Berserk raise power only for the decisive combat before wearing off ahead of the next untap step.</p>
+<div class="deck-meta"><div><b>Old School R/G Meekstone</b><div class="small">93/94 representative archetype list · 60/15</div></div><button class="copy" data-target="old-school-rg-meekstone">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 14</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Scarwood Goblins" tabindex="0">Scarwood Goblins</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Scavenger Folk" tabindex="0">Scavenger Folk</span></div></div><div class="group"><h4>Instants · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Berserk" tabindex="0">Berserk</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Blood Lust" tabindex="0">Blood Lust</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div></div><div class="group"><h4>Sorceries · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wheel of Fortune" tabindex="0">Wheel of Fortune</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts and Enchantments · 8</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pendelhaven" tabindex="0">Pendelhaven</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Avoid Fate" tabindex="0">Avoid Fate</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Cockatrice" tabindex="0">Cockatrice</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Crumble" tabindex="0">Crumble</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Island of Wak-Wak" tabindex="0">Island of Wak-Wak</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Tranquility" tabindex="0">Tranquility</span></div></div></div></div>
+<pre hidden id="old-school-rg-meekstone">Old School R/G Meekstone
+93/94 representative archetype list · 60/15
+
+Creatures · 14
+4 Kird Ape
+2 Llanowar Elves
+4 Scarwood Goblins
+4 Scavenger Folk
+
+Instants · 16
+4 Berserk
+4 Blood Lust
+4 Giant Growth
+4 Lightning Bolt
+
+Sorceries · 2
+1 Regrowth
+1 Wheel of Fortune
+
+Artifacts and Enchantments · 8
+1 Black Lotus
+1 Chaos Orb
+2 Meekstone
+1 Mox Emerald
+1 Mox Ruby
+2 Sylvan Library
+
+Lands · 20
+4 City of Brass
+2 Forest
+1 Maze of Ith
+4 Mishra&#x27;s Factory
+2 Mountain
+2 Pendelhaven
+1 Strip Mine
+4 Taiga
+
+Sideboard · 15
+2 Avoid Fate
+2 Black Vise
+1 Blood Moon
+2 Cockatrice
+2 Crumble
+1 Island of Wak-Wak
+2 Nevinyrral&#x27;s Disk
+2 Red Elemental Blast
+1 Tranquility</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Antoine Ruel — Nether-Go</strong><small>World Championship 2001 · 3rd place · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Ruel's sideboard contained three Meekstones for large-creature matchups. The control deck's only creature, Nether Spirit, had two power and returned from the graveyard, allowing Meekstone to impede opposing finishers without shutting down the deck's own recurring threat.</p>
+<div class="deck-meta"><div><b>Antoine Ruel — Nether-Go</b><div class="small">World Championship 2001 · 3rd place · 60/15</div></div><button class="copy" data-target="antoine-ruel-nether-go">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Nether Spirit" tabindex="0">Nether Spirit</span></div></div><div class="group"><h4>Instants · 30</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Accumulated Knowledge" tabindex="0">Accumulated Knowledge</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Crosis&#x27;s Charm" tabindex="0">Crosis&#x27;s Charm</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Fire // Ice" tabindex="0">Fire // Ice</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Spite // Malice" tabindex="0">Spite // Malice</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Tsabo&#x27;s Decree" tabindex="0">Tsabo&#x27;s Decree</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Undermine" tabindex="0">Undermine</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Urza&#x27;s Rage" tabindex="0">Urza&#x27;s Rage</span></div></div><div class="group"><h4>Sorceries · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tsabo&#x27;s Web" tabindex="0">Tsabo&#x27;s Web</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">8</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Salt Marsh" tabindex="0">Salt Marsh</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Shivan Reef" tabindex="0">Shivan Reef</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sulfurous Springs" tabindex="0">Sulfurous Springs</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground River" tabindex="0">Underground River</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Urborg Volcano" tabindex="0">Urborg Volcano</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Engineered Plague" tabindex="0">Engineered Plague</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Lobotomy" tabindex="0">Lobotomy</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Teferi&#x27;s Response" tabindex="0">Teferi&#x27;s Response</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Tsabo&#x27;s Assassin" tabindex="0">Tsabo&#x27;s Assassin</span></div></div></div></div>
+<pre hidden id="antoine-ruel-nether-go">Antoine Ruel — Nether-Go
+World Championship 2001 · 3rd place · 60/15
+
+Creatures · 3
+3 Nether Spirit
+
+Instants · 30
+4 Accumulated Knowledge
+4 Counterspell
+2 Crosis&#x27;s Charm
+3 Fact or Fiction
+4 Fire // Ice
+3 Opt
+2 Spite // Malice
+2 Tsabo&#x27;s Decree
+4 Undermine
+2 Urza&#x27;s Rage
+
+Sorceries · 2
+2 Duress
+
+Artifacts · 2
+2 Tsabo&#x27;s Web
+
+Lands · 23
+8 Island
+4 Salt Marsh
+3 Shivan Reef
+1 Sulfurous Springs
+4 Underground River
+3 Urborg Volcano
+
+Sideboard · 15
+2 Duress
+2 Engineered Plague
+2 Lobotomy
+3 Meekstone
+2 Pyroclasm
+1 Teferi&#x27;s Response
+3 Tsabo&#x27;s Assassin</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXII · The Object</div><h2>Printings and sources</h2>
+<p>Meekstone carried Quinton Hoover’s original artwork from Alpha through Fifth Edition. Seventh Edition introduced David Martin’s replacement art and the card’s first foil printing. The Kaladesh Inventions series gave it a premium Steve Argyle interpretation in 2017, and Mystery Booster 2 returned David Martin’s image in a Future Sight frame in 2024.</p>
+<div class="printings">
+<figure class="printing"><img alt="Meekstone from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Meekstone&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Quinton Hoover · original printing</figcaption></figure>
+<figure class="printing"><img alt="Meekstone from Seventh Edition" src="https://api.scryfall.com/cards/named?exact=Meekstone&amp;set=7ed&amp;format=image&amp;version=normal"><figcaption>Seventh Edition · 2001<br>David Martin · first new artwork and foil</figcaption></figure>
+<figure class="printing"><img alt="Meekstone from Kaladesh Inventions" src="https://api.scryfall.com/cards/named?exact=Meekstone&amp;set=mps&amp;format=image&amp;version=normal"><figcaption>Kaladesh Inventions · 2017<br>Steve Argyle · Masterpiece treatment</figcaption></figure>
+<figure class="printing"><img alt="Meekstone from Mystery Booster 2" src="https://api.scryfall.com/cards/named?exact=Meekstone&amp;set=mb2&amp;format=image&amp;version=normal"><figcaption>Mystery Booster 2 · 2024<br>David Martin · Future Sight frame</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/260/meekstone">Scryfall — Meekstone, Limited Edition Alpha</a><span>Card identity, collector number, Oracle text, original artist, rarity, current legalities, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Meekstone">Wizards of the Coast Gatherer — Meekstone</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://mtg.wiki/page/1994_World_Championships/Top_4_Decks">1994 World Championships — Top 4 deck archive</a><span>Zak Dolan’s complete World Championship deck, strategy quotation, and historical tournament context.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/worlds-1994-milwaukee-zak-dolan-standard/">Zak Dolan — 1994 World Championship deck</a><span>Independent preservation of the complete 60-card main deck and 15-card sideboard.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/old-school-9394-rg-meekstone/">Old School 93/94 R/G Meekstone</a><span>Representative complete small-creature and temporary-pump construction built around two Meekstones.</span></li>
+<li><a href="https://www.tcgplayer.com/content/article/Old-School-93-94-MTG-Format-Primer/7f9bcee4-149d-4a83-915c-dece870501e6/">TCGplayer — Old School 93/94 Format Primer</a><span>Modern overview of the format and Meekstone’s continued place in historical deck construction.</span></li>
+<li><a href="https://mtg.wtf/deck/wc01/antoine-ruel-blue-black-red-nether-go">Antoine Ruel — Nether-Go, World Championship Decks 2001</a><span>Complete 60-card main deck, 15-card sideboard, and the three-copy Meekstone sideboard package.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/how-build-aggro-2017-02-02">Wizards of the Coast — How to Build Aggro</a><span>Official historical Sligh list documenting Meekstone as a sideboard option against larger creature strategies.</span></li>
+<li><a href="https://scryfall.com/card/7ed/307/meekstone">Scryfall — Seventh Edition Meekstone</a><span>David Martin artwork and the first foil printing reference.</span></li>
+<li><a href="https://scryfall.com/card/mps/40/meekstone">Scryfall — Kaladesh Inventions Meekstone</a><span>Steve Argyle artwork and Masterpiece Series printing reference.</span></li>
+<li><a href="https://media.wizards.com/2024/downloads/card-sets/MB2_Cardlist_08192024.pdf">Wizards of the Coast — Mystery Booster 2 card list</a><span>Official confirmation of Meekstone’s Future Sight-frame inclusion as card 227.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Meekstone%22&amp;unique=prints">Scryfall — Meekstone printing search</a><span>Cross-set frames, artwork, dates, artists, and digital versions.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Zak Dolan’s and Antoine Ruel’s lists are preserved as documented tournament decks. The green-red list is identified as a representative contemporary Old School construction rather than attributed to a historical premier-event finish.</div>
+<div class="end-nav"><a href="046-winter-orb.html"><small>Previous numbered entry</small>Winter Orb</a><a href="index.html?focus=entry-048#entry-048"><small>Next numbered entry</small>Chaos Orb</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 047</b><br>Meekstone turned raw power into an untap liability and gave one-mana artifact decks, control prisons, and small-creature strategies a shared answer to giants.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>

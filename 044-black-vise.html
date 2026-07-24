@@ -1,0 +1,1003 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Black Vise: Alpha, opening-hand damage, Vise-Orb prison, the 1995 World Championship, Sligh, banning and restriction, the 2015 Legacy unbanning, artwork, printings, and decklists."><title>Black Vise: The Opening Hand Was Already Burning — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+</style></head>
+<body><header class="hero blackvise-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-044#entry-044">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 044 · The Foundational Canon</div>
+<h1>The Opening Hand Was Already Burning</h1>
+<p class="deckline">Black Vise turned seven cards into three damage, made card abundance dangerous, and supplied the clock for prison decks that filled the opponent’s hand while removing every way to empty it.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 31 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="043-jayemdae-tome.html">← Entry 043 · Jayemdae Tome</a><div class="center">Entry 044 of 1,000</div><a href="index.html?focus=entry-045#entry-045">Entry 045 · The Rack →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Opening Hand Was Already Burning</a>
+<a href="#alpha">Alpha’s one-mana punishment</a>
+<a href="#seven">Why seven cards meant three damage</a>
+<a href="#choice">Choosing the victim</a>
+<a href="#rules">What Black Vise actually does</a>
+<a href="#pressure">The hand as a life total</a>
+<a href="#howling">Howling Mine fills the trap</a>
+<a href="#orb">Winter Orb prevents the escape</a>
+<a href="#geddon">Armageddon leaves the cards stranded</a>
+<a href="#worlds">The Vise at the 1995 World Championship</a>
+<a href="#sligh">The Vise inside Sligh</a>
+<a href="#weakness">The dead topdeck problem</a>
+<a href="#restriction">Restriction, banning, and fear</a>
+<a href="#legacy">The 2015 Legacy unbanning</a>
+<a href="#multiplayer">One chosen opponent</a>
+<a href="#descendants">The descendants of Black Vise</a>
+<a href="#art">The instrument and its victim</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Compression</div><h2>The Opening Hand Was Already Burning</h2>
+<p class="opening dropcap">Black Vise is a one-mana artifact that can deal three damage before its chosen opponent has cast a spell. It does not attack, target a permanent, or require another card. It simply looks at the opening hand and declares that possessing options has become painful.</p>
+<p>The card reverses one of Magic's most basic comforts. A full hand normally means safety: lands, threats, answers, and several possible futures. Black Vise turns those possibilities into a second life total. Every card above four becomes another point of pressure, and every turn spent planning becomes another upkeep spent inside the machine.</p>
+<p>Its greatest decks did not wait for the opponent to empty the hand naturally. They supplied more cards with Howling Mine, removed mana with Winter Orb and Strip Mine, and destroyed lands with Armageddon or Stone Rain. The opponent was not punished for refusing to play. The opponent was prevented from playing, then punished for the evidence.</p>
+<div class="card-lead"><img alt="Black Vise from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Black Vise</h3><p><b>{1} · Artifact</b></p><p>As this artifact enters, choose an opponent.</p><p>At the beginning of the chosen player's upkeep, this artifact deals X damage to that player, where X is the number of cards in their hand minus 4.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Richard Thomas</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Historical role</b>Hand-size punishment</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Instrument</div><h2>Alpha’s one-mana punishment</h2>
+<p>Alpha contained several artifacts that transformed abstract game resources into pressure. <span class="card-name" data-card="The Rack" tabindex="0">The Rack</span> punished an empty hand. <span class="card-name" data-card="Iron Star" tabindex="0">Iron Star</span> and its cycle converted colored spells into life. <span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span> restrained large creatures. Black Vise attacked the opposite end of the hand-size spectrum from The Rack.</p>
+<p>At one generic mana, the artifact could enter almost any deck and begin operating before colored strategy mattered. A red deck, white prison deck, blue artifact deck, or multicolor control shell could all make the same opening play.</p>
+<p>The name says “black,” but the card has no black color identity. The adjective describes the instrument, not the mana required to use it. That distinction helped make Black Vise one of the earliest colorless cards to influence how every deck thought about its opening hand.</p>
+</section>
+
+<div class="pullquote">Black Vise made the strongest-looking resource in the game—seven cards in hand—begin as a liability.<small>Abundance converted directly into damage</small></div>
+
+<section id="seven"><div class="chapter-number">III · The Number</div><h2>Why seven cards meant three damage</h2>
+<p>A normal opening hand contains seven cards. Black Vise ignores the first four and deals damage equal to the rest. Seven cards therefore produce three damage; six produce two; five produce one; four or fewer produce none.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Seven cards</span><h3>Three damage</h3><p>A turn-one Vise begins as a Lightning Bolt that threatens to repeat if the opponent cannot empty the hand.</p></div>
+<div class="format-card"><span class="impact">Five or six</span><h3>Continuing pressure</h3><p>The artifact turns every delayed land or expensive answer into another point during the next upkeep.</p></div>
+<div class="format-card"><span class="impact">Four or fewer</span><h3>The machine goes quiet</h3><p>The ability still triggers, but the calculation produces no positive damage.</p></div>
+</div>
+<p>This creates an immediate race against one's own cards. The opponent must decide whether to cast inefficiently, expose important spells, or accept the damage while preserving a better sequence.</p>
+</section>
+
+<section id="choice"><div class="chapter-number">IV · The Victim</div><h2>Choosing the victim</h2>
+<p>Modern Oracle text instructs Black Vise's controller to choose an opponent as the artifact enters the battlefield. The choice is not a target and does not use the stack. Once made, it remains attached to that particular opponent.</p>
+<p>In a duel the choice is automatic. In multiplayer it is strategic and political. The chosen player may have the fullest hand, the slowest deck, or simply the position the controller most wants to pressure.</p>
+<p>If that player leaves the game, Black Vise remains on the battlefield but has no new victim. It does not automatically choose another opponent. A copied Vise entering the battlefield makes its own independent choice.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">V · The Trigger</div><h2>What Black Vise actually does</h2>
+<p>At the beginning of the chosen player's upkeep, Black Vise triggers. When the ability resolves, the game counts the cards currently in that player's hand, subtracts four, and deals that much damage if the result is positive.</p>
+<p>The hand is checked on resolution, not when the trigger is created. The chosen player may respond by casting instants, activating abilities that discard cards, or otherwise reducing the hand before damage is calculated. Effects that add cards before resolution can increase the damage.</p>
+<p>Destroying Black Vise after its ability has triggered does not remove that trigger from the stack. The game uses the source's last known information as necessary and still counts the chosen player's hand when the ability resolves.</p>
+<div class="article-note"><b>No negative damage.</b> Four or fewer cards produce zero damage. Black Vise never gains life or reverses direction when the calculation falls below zero.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop')"><div class="art-caption"><b>Richard Thomas’s original Black Vise</b>The instrument is understood through the face trapped inside it. The card does not depict abstract psychic pressure; it makes excess thought look physically compressive.</div></div>
+
+<section id="pressure"><div class="chapter-number">VI · The Resource</div><h2>The hand as a life total</h2>
+<p>Black Vise asks players to manage hand size as carefully as life. Drawing an extra card may cost damage. Holding a reactive spell may cost damage. Missing a land drop is painful twice: the player cannot cast the cards already held, and the Vise punishes those cards for remaining.</p>
+<p>The artifact also changes card valuation. A cheap spell gains hidden value because it can escape the hand. A powerful six-mana card may become a liability if the mana base is under attack. Card advantage is no longer automatically advantageous when the additional cards cannot be converted into action.</p>
+<p>This is the inverse of <span class="card-name" data-card="The Rack" tabindex="0">The Rack</span>. The Rack rewards discard and attrition by punishing scarcity. Black Vise rewards mana denial and forced drawing by punishing abundance.</p>
+</section>
+
+<section id="howling"><div class="chapter-number">VII · The Gift</div><h2>Howling Mine fills the trap</h2>
+<p><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span> appears to help the opponent escape by providing more options. Black Vise reveals the opposite possibility. The Mine places cards into the hand faster than the opponent may be able to spend them.</p>
+<p>The combination is not automatically successful. If the opponent has abundant mana and cheap spells, extra cards can allow the hand to shrink even faster. The surrounding deck must restrict the ability to deploy those cards.</p>
+<p>In Vise-Orb control, Howling Mine supplied the raw material while Winter Orb, Icy Manipulator, Strip Mine, and Armageddon controlled the rate of spending. The “gift” and the punishment were parts of the same machine.</p>
+</section>
+
+<section id="orb"><div class="chapter-number">VIII · The Lock</div><h2>Winter Orb prevents the escape</h2>
+<p><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> limits the lands each player can untap while it remains untapped. That restriction keeps spells trapped in hand and allows Black Vise to continue dealing damage long after a normal opponent would have played below four cards.</p>
+<p><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span> makes the relationship asymmetric. It can tap Winter Orb before its controller's untap step, allowing that player to recover all lands, then leave the Orb untapped for the opponent. It can also tap the opponent's one available land during upkeep.</p>
+<p>The Vise supplies the clock that a prison deck otherwise lacks. The lock does not need a creature or a large finishing spell. Every upkeep spent holding unusable cards advances the victory condition.</p>
+</section>
+
+<section id="geddon"><div class="chapter-number">IX · The Ruin</div><h2>Armageddon leaves the cards stranded</h2>
+<p><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span> appears dangerous beside Black Vise because both players lose their lands. The prison deck prepares for the symmetry through artifact mana, Land Tax, Zuran Orb, low costs, and a board already designed around the coming destruction.</p>
+<p>The opponent may retain a large hand filled with spells that were intended for later turns. Once the lands disappear, those cards become the source of recurring Vise damage.</p>
+<p>Black Vise changes Armageddon from pure resource denial into a measurable clock. The destroyed lands explain why the hand cannot shrink; the Vise ensures that inability ends the game.</p>
+</section>
+
+<section id="worlds"><div class="chapter-number">X · The Championship</div><h2>The Vise at the 1995 World Championship</h2>
+<p>The 1995 World Championship demonstrated Black Vise at both strategic extremes. Marc Hernandez reached the final with four copies in a white-red Vise-Orb control deck. Andrea Redi reached the quarterfinals with four copies in mono-red.</p>
+<p>Hernandez used Vise as the endpoint of a prison: Howling Mine increased hand size, Winter Orb and Icy Manipulator controlled mana, Island Sanctuary and removal protected life, and Armageddon closed the escape route.</p>
+<p>Redi combined the same artifact with Stone Rain, Strip Mine, burn, and Nevinyrral's Disk. The deck could deal early damage, attack mana, then reset the battlefield while the Vise continued watching the hand.</p>
+</section>
+
+<section id="sligh"><div class="chapter-number">XI · The Curve</div><h2>The Vise inside Sligh</h2>
+<p>Jay Schneider's original Geeba deck, made famous by Paul Sligh's 1996 PTQ finish, used one Black Vise. The list's larger contribution was the mathematical mana curve, but the Vise fit that theory perfectly.</p>
+<p>It cost one mana, used the first turn efficiently, and demanded no future investment. The opponent could empty the hand to silence it, but doing so meant deploying creatures and artifacts into Incinerate, Lightning Bolt, Orcish Artillery, and battlefield pressure.</p>
+<p>In aggressive red, Black Vise was less a prison win condition than a conditional burn spell. Three early damage was enough; the deck did not require the artifact to remain active forever.</p>
+</section>
+
+<section id="weakness"><div class="chapter-number">XII · The Failure</div><h2>The dead topdeck problem</h2>
+<p>Black Vise is strongest in the opening hand and weakest after both players have spent their resources. A late Vise against an opponent holding two cards may do nothing for the remainder of the game.</p>
+<p>It also fails against decks built from cheap spells. An opponent who can deploy several cards immediately turns the artifact off without sacrificing tempo. Fast creature decks may welcome a one-mana play that does not affect combat.</p>
+<p>This polarity explains the card's historical danger and modern decline. In the right opening it resembles extraordinary burn. In the wrong draw step it is blank cardboard. Formats became faster and better at emptying hands, reducing the frequency of the first experience.</p>
+</section>
+
+<section id="restriction"><div class="chapter-number">XIII · The List</div><h2>Restriction, banning, and fear</h2>
+<p>Black Vise entered the Standard restricted list in February 1996, alongside cards such as Strip Mine, Land Tax, Hymn to Tourach, and Zuran Orb. Standard eliminated its restricted list in January 1997 by moving restricted cards to the banned list.</p>
+<p>Its association with non-games was easy to understand. Multiple turn-one Vises could deal enormous damage before the opponent had meaningful choices, while resource-denial decks prolonged that damage by preventing normal development.</p>
+<p>Because the old Type 1.5 banned cards restricted in Type I, Black Vise spent years outside the format that eventually became Legacy. Its reputation survived longer than its competitive evidence.</p>
+</section>
+
+<section id="legacy"><div class="chapter-number">XIV · The Return</div><h2>The 2015 Legacy unbanning</h2>
+<p>Wizards unbanned Black Vise in Legacy in September 2015. The announcement acknowledged that the artifact had historically been powerful against card-drawing decks and, at times, powerful enough to limit metagames.</p>
+<p>R&D concluded that modern Legacy was strong enough to absorb it and hoped the card might pressure blue draw strategies. The feared renaissance did not occur. Delver decks, combo decks, free interaction, cheap cantrips, and efficient threats could empty or manipulate hands too effectively.</p>
+<p>The unbanning became a historical verdict. Black Vise's old play pattern was once dangerous enough to prohibit; the modern format had evolved beyond the conditions that made it universal.</p>
+</section>
+
+<section id="multiplayer"><div class="chapter-number">XV · The Table</div><h2>One chosen opponent</h2>
+<p>In Commander, Black Vise targets the politics of hand size as much as the arithmetic. The controller chooses one opponent when the artifact enters, publicly identifying the player expected to suffer.</p>
+<p>A seven-card hand still means three damage, but forty life and multiple opponents reduce the importance of that opening burst. The card becomes more interesting beside forced draw, bounce, prison pieces, or commanders that punish large hands.</p>
+<p>The inability to choose a new opponent when the first leaves the game limits its multiplayer reach. Unlike a global punishment, the Vise is a personal commitment.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XVI · The Bloodline</div><h2>The descendants of Black Vise</h2>
+<p><span class="card-name" data-card="Iron Maiden" tabindex="0">Iron Maiden</span> raises the casting cost to three and moves the safe threshold from four cards to four in essentially the same upkeep calculation. <span class="card-name" data-card="Viseling" tabindex="0">Viseling</span> attaches a similar effect to a creature, making it easier to remove through combat and creature spells.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Ebony%20Owl%20Netsuke&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The fixed-threshold descendant</div><h3>Ebony Owl Netsuke</h3><p><span class="card-name" data-card="Ebony Owl Netsuke" tabindex="0">Ebony Owl Netsuke</span> deals four damage when the opponent begins upkeep with seven or more cards. It became the namesake finisher of Owling Mine, translating Black Vise's variable pressure into a larger fixed punishment.</p></div></div>
+<p><span class="card-name" data-card="Fevered Visions" tabindex="0">Fevered Visions</span> combines extra drawing with damage for large hands. <span class="card-name" data-card="Sudden Impact" tabindex="0">Sudden Impact</span> and <span class="card-name" data-card="Gaze of Adamaro" tabindex="0">Gaze of Adamaro</span> convert hand size into a single burst. <span class="card-name" data-card="The Rack" tabindex="0">The Rack</span> mirrors the original from the other direction.</p>
+<p>Later designs usually increase the cost, raise the threshold, attach the effect to a more vulnerable permanent, or require a second color. Black Vise remains exceptional because the punishment begins for one generic mana.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XVII · The Image</div><h2>The instrument and its victim</h2>
+<p>Richard Thomas's original artwork places a human face inside a dark mechanical vise. The composition is immediate and uncomfortable: gold handles, black jaws, closed eyes, and a mouth forced into silence by pressure.</p>
+<p>The same artwork followed the card through twelve early printings, becoming inseparable from its identity. Dan Murayama Scott's From the Vault: Relics version finally reimagined it in 2010, replacing the restrained device with a more elaborate magical instrument and visible energy.</p>
+<p>Mystery Booster 2 returned the newer artwork in a Future Sight frame, turning a punishment from Alpha into an object presented as though it belonged to an alternate future.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XVIII · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Old School</span><h3>A defining opening threat</h3><p>Rulesets commonly restrict Black Vise because multiple copies can produce extreme first-turn damage alongside artifact mana and denial.</p></div>
+<div class="format-card"><span class="impact">Legacy and Vintage</span><h3>Legal, rarely central</h3><p>Legacy has allowed four copies since 2015, while current Vintage does not restrict it; neither format treats it as a universal staple.</p></div>
+<div class="format-card"><span class="impact">Commander</span><h3>A political single-target clock</h3><p>It is legal and most effective in forced-draw or hand-size-punishment decks rather than as an isolated turn-one play.</p></div>
+</div>
+<p>Black Vise is not Modern, Pioneer, or Pauper legal. Its later premium printings did not place it into a Modern-legal expansion, and it has no qualifying common printing.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XIX · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The game began with seven cards. The Vise counted three of them as damage.</blockquote><cite>Black Vise made the opening hand feel less like preparation and more like something already trapped inside a machine.</cite></div>
+<p>Players remember laying it down before a land. They remember multiple copies and counting the same hand several times. They remember discarding or casting cards badly simply to fall beneath five before the next upkeep.</p>
+<p>They remember the paradox of Howling Mine: drawing another card while hoping to escape a card that punished drawing. Most of all, they remember when one generic mana was enough to make an entire control deck feel late.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XX · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve Black Vise's defining competitive range: Marc Hernandez's full Vise-Orb prison at the 1995 World Championship, Andrea Redi's mono-red control shell from the same Top 8, and the single-copy Vise in Jay Schneider and Paul Sligh's foundational mana-curve deck.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Marc Hernandez — Vise-Orb Prison</strong><small>World Championship 1995 · Finalist · documented 62/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Hernandez made Black Vise the win condition of a complete resource trap. Howling Mine enlarged the opponent's hand, Winter Orb and Icy Manipulator restricted the mana available to empty it, Armageddon destroyed the route out, and four Vises converted every stranded card into damage.</p>
+<div class="deck-meta"><div><b>Marc Hernandez — Vise-Orb Prison</b><div class="small">World Championship 1995 · Finalist · documented 62/15</div></div><button class="copy" data-target="marc-hernandez-vise-orb">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Instants · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 9</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Earthquake" tabindex="0">Earthquake</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Enchantments · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Island Sanctuary" tabindex="0">Island Sanctuary</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Fellwar Stone" tabindex="0">Fellwar Stone</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">9</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ruins of Trokair" tabindex="0">Ruins of Trokair</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Earthquake" tabindex="0">Earthquake</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div></div></div></div>
+<pre hidden id="marc-hernandez-vise-orb">Marc Hernandez — Vise-Orb Prison
+World Championship 1995 · Finalist · documented 62/15
+
+Instants · 6
+3 Disenchant
+3 Swords to Plowshares
+
+Sorceries · 9
+3 Armageddon
+1 Balance
+2 Earthquake
+3 Wrath of God
+
+Enchantments · 6
+2 Circle of Protection: Red
+2 Island Sanctuary
+2 Land Tax
+
+Artifacts · 21
+4 Black Vise
+3 Fellwar Stone
+4 Howling Mine
+3 Icy Manipulator
+1 Ivory Tower
+3 Winter Orb
+3 Zuran Orb
+
+Lands · 20
+2 Adarkar Wastes
+4 Mountain
+9 Plains
+1 Ruins of Trokair
+4 Strip Mine
+
+Sideboard · 15
+2 Earthquake
+2 Fireball
+3 Lightning Bolt
+4 Mountain
+3 Pyroclasm
+1 Sleight of Mind</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Andrea Redi — Mono-Red Vise Control</strong><small>World Championship 1995 · Quarterfinalist · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Redi's list paired four Black Vises with Stone Rain, Strip Mine, burn, and a slow artifact-control package. The deck could begin with free damage from a full hand, then keep expensive cards trapped by attacking the lands required to cast them.</p>
+<div class="deck-meta"><div><b>Andrea Redi — Mono-Red Vise Control</b><div class="small">World Championship 1995 · Quarterfinalist · 60/15</div></div><button class="copy" data-target="andrea-redi-worlds-1995">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Goblin Balloon Brigade" tabindex="0">Goblin Balloon Brigade</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Goblin Mutant" tabindex="0">Goblin Mutant</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Spy" tabindex="0">Orcish Spy</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Orgg" tabindex="0">Orgg</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Uthden Troll" tabindex="0">Uthden Troll</span></div></div><div class="group"><h4>Instants · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Incinerate" tabindex="0">Incinerate</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div></div><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Detonate" tabindex="0">Detonate</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Disintegrate" tabindex="0">Disintegrate</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stone Rain" tabindex="0">Stone Rain</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jester&#x27;s Cap" tabindex="0">Jester&#x27;s Cap</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Millstone" tabindex="0">Millstone</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dwarven Ruins" tabindex="0">Dwarven Ruins</span></div>
+<div class="row"><span class="qty">17</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Anarchy" tabindex="0">Anarchy</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Dwarven Hold" tabindex="0">Dwarven Hold</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Flashfires" tabindex="0">Flashfires</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Iron Star" tabindex="0">Iron Star</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div></div></div>
+<pre hidden id="andrea-redi-worlds-1995">Andrea Redi — Mono-Red Vise Control
+World Championship 1995 · Quarterfinalist · 60/15
+
+Creatures · 11
+2 Goblin Balloon Brigade
+1 Goblin Mutant
+2 Orcish Spy
+2 Orgg
+4 Uthden Troll
+
+Instants · 8
+4 Incinerate
+4 Lightning Bolt
+
+Sorceries · 8
+1 Detonate
+2 Disintegrate
+1 Fireball
+4 Stone Rain
+
+Artifacts · 11
+4 Black Vise
+1 Icy Manipulator
+1 Jayemdae Tome
+1 Jester&#x27;s Cap
+1 Millstone
+3 Nevinyrral&#x27;s Disk
+
+Lands · 22
+1 Dwarven Ruins
+17 Mountain
+4 Strip Mine
+
+Sideboard · 15
+2 Anarchy
+1 Dwarven Hold
+2 Flashfires
+2 Iron Star
+1 Pyroclasm
+4 Red Elemental Blast
+2 Shatter
+1 Zuran Orb</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Paul Sligh — Geeba / Sligh</strong><small>Atlanta Pro Tour Qualifier 1996 · Finalist · documented 61/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The original Sligh list used only one Black Vise, but the card fit the deck's mathematical curve perfectly. It occupied a one-mana slot, punished slow hands before the creatures connected, and forced opponents to deploy cards into the burn and battlefield control awaiting them.</p>
+<div class="deck-meta"><div><b>Paul Sligh — Geeba / Sligh</b><div class="small">Atlanta Pro Tour Qualifier 1996 · Finalist · documented 61/15</div></div><button class="copy" data-target="paul-sligh-1996">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 25</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dragon Whelp" tabindex="0">Dragon Whelp</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Brothers of Fire" tabindex="0">Brothers of Fire</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Artillery" tabindex="0">Orcish Artillery</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Cannoneers" tabindex="0">Orcish Cannoneers</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Ironclaw Orcs" tabindex="0">Ironclaw Orcs</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Dwarven Lieutenant" tabindex="0">Dwarven Lieutenant</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Librarian" tabindex="0">Orcish Librarian</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Brass Man" tabindex="0">Brass Man</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Dwarven Trader" tabindex="0">Dwarven Trader</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Goblins of the Flarg" tabindex="0">Goblins of the Flarg</span></div></div><div class="group"><h4>Instants and Sorceries · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Detonate" tabindex="0">Detonate</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Incinerate" tabindex="0">Incinerate</span></div></div></div><div class="deck-col"><div class="group"><h4>Other spells · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Immolation" tabindex="0">Immolation</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Dwarven Ruins" tabindex="0">Dwarven Ruins</span></div>
+<div class="row"><span class="qty">13</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Detonate" tabindex="0">Detonate</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Active Volcano" tabindex="0">Active Volcano</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="An-Zerrin Ruins" tabindex="0">An-Zerrin Ruins</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Manabarbs" tabindex="0">Manabarbs</span></div></div></div></div>
+<pre hidden id="paul-sligh-1996">Paul Sligh — Geeba / Sligh
+Atlanta Pro Tour Qualifier 1996 · Finalist · documented 61/15
+
+Creatures · 25
+2 Dragon Whelp
+2 Brothers of Fire
+2 Orcish Artillery
+2 Orcish Cannoneers
+4 Ironclaw Orcs
+3 Dwarven Lieutenant
+2 Orcish Librarian
+4 Brass Man
+2 Dwarven Trader
+2 Goblins of the Flarg
+
+Instants and Sorceries · 11
+1 Detonate
+1 Fireball
+1 Shatter
+4 Lightning Bolt
+4 Incinerate
+
+Other spells · 2
+1 Black Vise
+1 Immolation
+
+Lands · 23
+4 Strip Mine
+4 Mishra&#x27;s Factory
+2 Dwarven Ruins
+13 Mountain
+
+Sideboard · 15
+1 Shatter
+1 Detonate
+1 Fireball
+1 Meekstone
+1 Zuran Orb
+3 Active Volcano
+2 Serrated Arrows
+1 An-Zerrin Ruins
+4 Manabarbs</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXI · The Object</div><h2>Printings and sources</h2>
+<p>Black Vise retained Richard Thomas's original artwork through every early tournament-legal printing, ending with Fourth Edition. From the Vault: Relics introduced the first new art in 2010, by Dan Murayama Scott. Mystery Booster 2 reused that interpretation in a Future Sight frame in 2024.</p>
+<div class="printings">
+<figure class="printing"><img alt="Black Vise from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Richard Thomas · original printing</figcaption></figure>
+<figure class="printing"><img alt="Black Vise from Fourth Edition" src="https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=4ed&amp;format=image&amp;version=normal"><figcaption>Fourth Edition · 1995<br>Richard Thomas · final early core-set printing</figcaption></figure>
+<figure class="printing"><img alt="Black Vise from From the Vault Relics" src="https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=v10&amp;format=image&amp;version=normal"><figcaption>From the Vault: Relics · 2010<br>Dan Murayama Scott · first new artwork</figcaption></figure>
+<figure class="printing"><img alt="Black Vise from Mystery Booster 2" src="https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=mb2&amp;format=image&amp;version=normal"><figcaption>Mystery Booster 2 · 2024<br>Dan Murayama Scott · Future Sight frame</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/233/black-vise">Scryfall — Black Vise, Limited Edition Alpha</a><span>Card identity, collector number, Oracle text, original artist, rarity, rulings, legalities, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Black%20Vise">Wizards of the Coast Gatherer — Black Vise</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/news/announcements/september-28-2015-banned-and-restricted-announcement-2015-09-28">Wizards of the Coast — September 2015 Banned and Restricted Announcement</a><span>Official Legacy unbanning and explanation of Black Vise's historical role against card-drawing decks.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Current Banned and Restricted Lists</a><span>Current format legality and Vintage restriction reference.</span></li>
+<li><a href="https://mtg.wiki/page/Banned_and_restricted_cards/Timeline">Banned and Restricted Cards Timeline</a><span>Historical chronology of the 1996 Standard restriction, the retirement of Standard's restricted list, and early format policy.</span></li>
+<li><a href="https://mtg.wiki/page/1995_World_Championships/Top_8_decks">1995 World Championships — Top 8 deck archive</a><span>Marc Hernandez's and Andrea Redi's complete lists and tournament context.</span></li>
+<li><a href="https://www.mtggoldfish.com/deck/4455483">Marc Hernandez — Vise-Orb Prison/Control</a><span>Independent preservation of the 1995 World Championship finalist deck.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/famous-red-decks-magic-history-2004-07-22-0">Wizards of the Coast — Famous Red Decks in Magic History</a><span>Official history of Jay Schneider and Paul Sligh's deck, the mana-curve concept, and the complete documented 61-card list.</span></li>
+<li><a href="https://scryfall.com/card/v10/2/black-vise">Scryfall — From the Vault: Relics Black Vise</a><span>Dan Murayama Scott artwork and premium reprint reference.</span></li>
+<li><a href="https://scryfall.com/card/mb2/139/black-vise">Scryfall — Mystery Booster 2 Black Vise</a><span>Future Sight frame, artist, and 2024 printing reference.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Black+Vise%22&amp;unique=prints">Scryfall — Black Vise printing search</a><span>Cross-set frame, artwork, date, rarity, and artist reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Marc Hernandez's finalist deck is preserved at its documented 62-card size, and Paul Sligh's original deck at its documented 61-card size. Andrea Redi's list is a conventional 60-card main deck.</div>
+<div class="end-nav"><a href="043-jayemdae-tome.html"><small>Previous numbered entry</small>Jayemdae Tome</a><a href="index.html?focus=entry-045#entry-045"><small>Next numbered entry</small>The Rack</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 044</b><br>Black Vise made the opening hand itself a source of damage and taught prison and aggressive decks to punish opponents for possessing cards they could not deploy.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>

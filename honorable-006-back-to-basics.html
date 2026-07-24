@@ -1,0 +1,1048 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Back to Basics: Urza’s Saga, nonbasic-land prison, rules and basic land types, Forbidian, Vintage mono-blue control, Legacy Miracles, modern Jeskai control, Commander, artwork, printings, and decklists."><title>Back to Basics: The Lands Worked Once — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+.hero.chaosorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chaos%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+.honorable-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  margin:0 0 .85rem;
+  padding:.42rem .72rem;
+  border:1px solid rgba(239,215,158,.55);
+  border-radius:999px;
+  background:rgba(18,24,24,.68);
+  color:#f0d89c;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+
+.hero.backtobasics-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&set=usg&format=image&version=art_crop)!important;
+  background-position:center 48%!important;
+}
+</style></head>
+<body><header class="hero backtobasics-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#honorable-back-to-basics">← Honorable Mentions</a>
+<div class="honorable-badge">Beyond the Thousand · Honorable Mention 006</div>
+<div class="eyebrow">Urza’s Saga · 1998</div>
+<h1>The Lands Worked Once</h1>
+<p class="deckline">Back to Basics rewarded Islands and punished ambition, turning duals, utility lands, and entire multicolor mana bases into resources that could be spent once and then left tapped indefinitely.</p>
+<div class="byline"><span>A Compulsive Research honorable mention</span><span>·</span><span>Urza’s Saga, 1998</span><span class="pill">Approximately 34 minute read</span></div>
+</div></header>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Lands Worked Once</a>
+<a href="#saga">Urza’s Saga punishes sophistication</a>
+<a href="#nonbasic">What counts as nonbasic</a>
+<a href="#rules">What Back to Basics actually does</a>
+<a href="#first-use">Every land still gets one use</a>
+<a href="#fetchlands">Fetch basics before the door closes</a>
+<a href="#duals">An Island is not necessarily a basic Island</a>
+<a href="#symmetry">The controller must build around it too</a>
+<a href="#bloodmoon">Back to Basics versus Blood Moon</a>
+<a href="#winterorb">A descendant of Winter Orb</a>
+<a href="#forbidian">Forbidian’s transformational lock</a>
+<a href="#vintage">The mono-blue answer to five-color power</a>
+<a href="#legacy">Why Legacy became its natural home</a>
+<a href="#kronenberger">A first-place mono-blue finish in 2011</a>
+<a href="#miracles">Miracles turns one enchantment into a plan</a>
+<a href="#modern-control">Jeskai control with eleven basics</a>
+<a href="#escape">How opponents escape</a>
+<a href="#commander">The multiplayer punishment</a>
+<a href="#design">The color-pie question</a>
+<a href="#descendants">The descendants and relatives</a>
+<a href="#art">Civilization returned to wilderness</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Lock</div><h2>The Lands Worked Once</h2>
+<p class="opening dropcap">Back to Basics does not stop a nonbasic land from producing mana. It permits the land to function exactly once. The dual taps, the utility land activates, the Ancient Tomb produces two colorless mana—and then the card remains sideways while every ordinary Island rises again.</p>
+<p>The enchantment punishes a specific kind of confidence. A sophisticated mana base is built to provide more colors, more abilities, and more options than basic lands can offer. Back to Basics turns those advantages into liabilities without changing a single line of text on the lands themselves.</p>
+<p>Its controller wins the exchange before the game begins. The deck contains Islands, Plains, Prismatic Vista, and only the minimum number of exposed nonbasics. The opponent discovers the restriction while looking at a battlefield assembled for a different game.</p>
+<div class="card-lead"><img alt="Back to Basics from Urza's Saga" src="https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&amp;set=usg&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Back to Basics</h3><p><b>{2}{U} · Enchantment</b></p><p>Nonbasic lands don’t untap during their controllers’ untap steps.</p><div class="stats"><div class="stat"><b>First printing</b>Urza’s Saga · 1998</div><div class="stat"><b>Original artist</b>Andrew Robinson</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Nonbasic-land prison</div></div></div></div>
+</section>
+
+<section id="saga"><div class="chapter-number">II · The Correction</div><h2>Urza’s Saga punishes sophistication</h2>
+<p>Urza’s Saga is remembered for artifact mana, explosive combo engines, free spells, and some of the most powerful cards ever printed. Back to Basics approached excess from another direction. It asked what happened when a player’s mana base itself became too ambitious.</p>
+<p>Earlier land punishment often destroyed individual cards through <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span>, <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span>, or Stone Rain. Back to Basics allowed the lands to remain. Their colors and abilities were still visible, but tapping one became a commitment that might last until the enchantment left play.</p>
+<p>The effect was especially suited to blue control. A patient deck could resolve it with countermagic available, then use basic Islands to defend the enchantment while the opponent’s ability to cast answers deteriorated.</p>
+</section>
+
+<div class="pullquote">The mana base still contained every color. The untap step simply stopped returning them.<small>Greed punished through time rather than destruction</small></div>
+
+<section id="nonbasic"><div class="chapter-number">III · The Supertype</div><h2>What counts as nonbasic</h2>
+<p>A land is basic only if its type line includes the supertype “Basic.” The five familiar basic lands—and cards explicitly printed with that supertype—untap normally.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Basic</span><h3>The supertype matters</h3><p>Island, Plains, Swamp, Mountain, Forest, and other lands printed as Basic ignore Back to Basics.</p></div>
+<div class="format-card"><span class="impact">Nonbasic</span><h3>Everything else is restrained</h3><p>Dual lands, fetch lands, utility lands, artifact lands, creature-lands, and lands with no basic supertype remain tapped.</p></div>
+<div class="format-card"><span class="impact">Changing land types</span><h3>Type is not supertype</h3><p>Giving a nonbasic land the Island type does not make it basic. Giving a basic land another land type does not remove its Basic supertype.</p></div>
+</div>
+<p>This distinction is one of the card’s most important rules lessons. “Produces blue mana” and “is an Island” do not mean “is a basic land.”</p>
+</section>
+
+<section id="rules"><div class="chapter-number">IV · The Untap</div><h2>What Back to Basics actually does</h2>
+<p>Back to Basics creates a static restriction. Nonbasic lands do not untap during their controllers’ untap steps while the enchantment remains on the battlefield.</p>
+<p>The card does not tap lands when it enters. It does not remove their abilities, change their types, prevent them from producing mana, or stop effects from untapping them outside the normal untap step.</p>
+<p>If Back to Basics leaves the battlefield after a player’s untap step has already passed, the lands do not retroactively untap. They must wait for another spell or ability—or the next untap step after the enchantment is gone.</p>
+<div class="article-note"><b>No trigger and no target.</b> Nothing goes on the stack during the untap step. The affected lands simply remain tapped, and hexproof or protection does not matter.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&set=usg&format=image&version=art_crop')"><div class="art-caption"><b>Andrew Robinson’s original Back to Basics</b>Ruined stone structures disappear beneath water, moss, and foliage. The image treats the card’s title as ecological correction: elaborate construction returns to the simpler landscape beneath it.</div></div>
+
+<section id="first-use"><div class="chapter-number">V · The Expenditure</div><h2>Every land still gets one use</h2>
+<p>A nonbasic land that is untapped when Back to Basics resolves can still be tapped for mana or activate an ability. The enchantment matters only when that land would next untap during its controller’s untap step.</p>
+<p>This creates a final-use economy. The opponent must decide whether to spend the land immediately, preserve it for an answer, or leave it untapped as a continuing threat of interaction.</p>
+<p>New nonbasic lands entering later also work once if they enter untapped. Back to Basics is not <span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span>, <span class="card-name" data-card="Root Maze" tabindex="0">Root Maze</span>, or a card that prevents land abilities. It is a promise that every activation may be the last for several turns.</p>
+</section>
+
+<section id="fetchlands"><div class="chapter-number">VI · The Search</div><h2>Fetch basics before the door closes</h2>
+<p>Fetch lands are nonbasic, but they can be sacrificed before becoming trapped. In response to Back to Basics—or before the opponent receives the opportunity to resolve it—a fetch land can find a basic Island, Plains, Swamp, Mountain, or Forest.</p>
+<p>The strategic answer is therefore not merely “play basics.” It is “play enough fetches capable of finding those basics before the enchantment resolves.”</p>
+<p>Once the lock is established, drawing a fetch land still provides one search if it enters untapped. Finding another dual land may solve an immediate color problem but creates another land that will not untap. Finding a basic preserves the future.</p>
+</section>
+
+<section id="duals"><div class="chapter-number">VII · The Name</div><h2>An Island is not necessarily a basic Island</h2>
+<p><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span>, <span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span>, <span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span>, and the other original dual lands possess basic land types. They can be found by fetch lands and interact with cards that refer to Islands or Plains.</p>
+<p>They do not possess the Basic supertype. Back to Basics therefore restrains them normally.</p>
+<p>The same is true of shock lands, surveil lands, typed Triomes, and other modern nonbasics with basic land types. Their elegant compatibility with fetch lands is one reason they are powerful—and one reason Back to Basics can punish them so efficiently.</p>
+</section>
+
+<section id="symmetry"><div class="chapter-number">VIII · The Construction</div><h2>The controller must build around it too</h2>
+<p>Back to Basics affects every nonbasic land, including those controlled by the player who cast it. A deck filled with duals cannot treat the enchantment as a free sideboard card.</p>
+<p>Mono-blue control naturally breaks the symmetry through Islands. Blue-white and Jeskai control can use basic Islands and Plains, fetch lands, Prismatic Vista, and only a few dual lands needed for emergency colors.</p>
+<p>The enchantment rewards a mana base that appears less powerful on paper. Each basic gives up utility and color flexibility in exchange for functioning every turn after the lock begins.</p>
+</section>
+
+<section id="bloodmoon"><div class="chapter-number">IX · The Comparison</div><h2>Back to Basics versus Blood Moon</h2>
+<p><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span> changes nonbasic lands into Mountains. Back to Basics leaves them unchanged and prevents normal untapping.</p>
+<p>Blood Moon can remove utility abilities and colored production immediately, but it also grants red mana and allows the lands to untap. Back to Basics preserves every ability, meaning an untapped land may still produce exactly the color or effect needed to escape—but once spent, it remains down.</p>
+<p>Blood Moon is usually more immediate. Back to Basics can be more complete over time. A deck capable of using red mana may function beneath the Moon; a deck dependent on repeatedly untapping nonbasics may eventually stop casting spells altogether.</p>
+</section>
+
+<section id="winterorb"><div class="chapter-number">X · The Ancestor</div><h2>A descendant of Winter Orb</h2>
+<p><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> restricts every player to untapping one land while it remains untapped. Back to Basics narrows the affected class but removes the one-land allowance.</p>
+<p>The newer enchantment is easier to make asymmetric. A deck does not need Icy Manipulator or artifact mana. It simply needs basics.</p>
+<p>The tradeoff is matchup dependence. Winter Orb affects nearly every conventional mana base. Back to Basics may be almost blank against mono-colored decks or opponents already built around basic lands.</p>
+</section>
+
+<section id="forbidian"><div class="chapter-number">XI · The Transformation</div><h2>Forbidian’s transformational lock</h2>
+<p>Classic Forbidian used Ophidian to draw cards, <span class="card-name" data-card="Forbid" tabindex="0">Forbid</span> to convert excess cards into recurring countermagic, and <span class="card-name" data-card="Morphling" tabindex="0">Morphling</span> as a nearly untouchable finisher.</p>
+<p>The official historical list places four Back to Basics in the sideboard. Against multicolor control or mana bases built from duals, Wasteland, Dust Bowl, and Thawing Glaciers, the mono-blue deck could become a prison strategy after sideboarding.</p>
+<p>The transformation was clean because fifteen Islands already supported the core plan. Back to Basics asked Forbidian to change several card slots, not rebuild its mana base.</p>
+</section>
+
+<section id="vintage"><div class="chapter-number">XII · The Power</div><h2>The mono-blue answer to five-color power</h2>
+<p>Vintage mana bases historically combined dual lands, Library of Alexandria, Tolarian Academy, Mishra’s Workshop, Bazaar of Baghdad, Strip Mine effects, and a small number of basics.</p>
+<p>Mono-blue control could use Back to Basics as a proactive answer to that diversity. The enchantment did not need to trade one-for-one with each special land. It converted the entire category into a shared weakness.</p>
+<p>Artifact mana complicated the lock. Moxen, Sol Ring, and Mana Crypt continue operating, and Workshop decks may cast crucial artifacts before their lands freeze. Back to Basics was devastating, not universally sufficient.</p>
+</section>
+
+<section id="legacy"><div class="chapter-number">XIII · The Format</div><h2>Why Legacy became its natural home</h2>
+<p>Legacy combines powerful nonbasic lands with enough time for a three-mana enchantment to matter. Duals and fetches support three- and four-color decks. Wasteland, Ancient Tomb, City of Traitors, Dark Depths, Urza’s Saga, Cloudpost, and utility lands support entire archetypes.</p>
+<p>Blue control decks already want basic Islands to resist Wasteland and cast spells through opposing mana denial. Back to Basics turns that defensive preference into an offensive plan.</p>
+<p>Its effectiveness rises and falls with the metagame. It is extraordinary against Lands, Cloudpost, greedy control, and some Ancient Tomb decks; modest against combo operating through artifacts; and nearly irrelevant against Burn, mono-blue strategies, or basic-heavy opponents.</p>
+</section>
+
+<section id="kronenberger"><div class="chapter-number">XIV · The Victory</div><h2>A first-place mono-blue finish in 2011</h2>
+<p>Chris Kronenberger won the 203-player StarCityGames Legacy Open in Louisville in 2011 with two main-deck Back to Basics.</p>
+<p>The list used sixteen Islands, six fetch lands, Vedalken Shackles, Sensei’s Divining Top, Jace, Force of Will, Mental Misstep, and a small creature package. The fetch lands found Islands; the Islands powered Shackles; Back to Basics attacked opponents for relying on lands more ambitious than his own.</p>
+<p>The result represents the card in its purest Legacy form. The deck did not splash white for removal or red for sideboard cards. Every ordinary land was an Island, and the enchantment made that simplicity a weapon.</p>
+</section>
+
+<section id="miracles"><div class="chapter-number">XV · The Miracle</div><h2>Miracles turns one enchantment into a plan</h2>
+<p>Legacy Miracles often played Back to Basics as a one- or two-copy sideboard card rather than a full set. Brainstorm, Ponder, and Sensei’s Divining Top made small numbers findable, while countermagic protected the enchantment once it resolved.</p>
+<p>Terminus removed the creatures already deployed before the lock. Jace and Entreat the Angels supplied win conditions that basic Islands and Plains could cast over a long game.</p>
+<p>The card became what control players sometimes call a “game plan by itself.” In the correct matchup, resolving it on a stable battlefield could matter more than drawing several ordinary answers.</p>
+</section>
+
+<section id="modern-control"><div class="chapter-number">XVI · The Present</div><h2>Jeskai control with eleven basics</h2>
+<p>In May 2026, the Magic Online player jankyb won a Legacy Challenge with two main-deck Back to Basics inside Jeskai control.</p>
+<p>The mana base contained four Islands, two Plains, one Mountain, four Prismatic Vistas, four Flooded Strands, two Scalding Tarns, one Tundra, and one Volcanic Island. The deck was three colors, but most of its battlefield could continue functioning under its own enchantment.</p>
+<p>Tamiyo, Murktide Regent, Loch Mare, efficient removal, and free counters supplied the modern pressure and interaction. The strategic bargain remained the one established in 1998: accept slightly less flexible mana so the opponent may lose access to nearly all of theirs.</p>
+</section>
+
+<section id="escape"><div class="chapter-number">XVII · The Answer</div><h2>How opponents escape</h2>
+<p>The simplest answer is enchantment removal. If the spell can be cast before the remaining lands are spent, the next untap step restores them normally.</p>
+<p>Other exits include basic lands, mana rocks, creatures that produce mana, Treasures, free spells, alternate-cost spells, and effects that untap lands outside the untap step. An opponent can also float mana while Back to Basics is on the stack and use it after resolution.</p>
+<p>Sequencing matters. Spending the final untapped green source on a creature may concede the ability to cast an enchantment answer later. Preserving that land may mean taking damage or falling behind on the battlefield.</p>
+</section>
+
+<section id="commander"><div class="chapter-number">XVIII · The Table</div><h2>The multiplayer punishment</h2>
+<p>Commander mana bases often contain utility lands, duals, Triomes, fetches, shock lands, command lands, and very few basics. Back to Basics can therefore restrain three players at once.</p>
+<p>Its controller may use mono-blue, basic-heavy two-color construction, mana rocks, or an untap engine to break parity. The card’s low mana cost allows it to enter before expensive commanders and engines are cast.</p>
+<p>The social effect resembles Winter Orb. A deck that resolves Back to Basics with a clear route to victory is executing a prison plan. A deck that merely freezes the table without a clock may extend the game far beyond the point where strategic decisions remain interesting.</p>
+</section>
+
+<section id="design"><div class="chapter-number">XIX · The Color</div><h2>The color-pie question</h2>
+<p>Blue traditionally manipulates tapping and untapping, delays resources, and imposes rules through enchantments. Back to Basics uses that language to create land denial severe enough to resemble red or colorless prison.</p>
+<p>Contemporary design is cautious with effects that prevent players from using mana repeatedly. The card has never been reintroduced through a Standard- or Modern-legal expansion, despite receiving premium reprints.</p>
+<p>Its continued homes—Legacy, Vintage, Commander, Oathbreaker, Premodern, and Cube—are environments where players consciously accept older cards with sharper resource-denial edges.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XX · The Bloodline</div><h2>The descendants and relatives</h2>
+<p><span class="card-name" data-card="Back to Basics" tabindex="0">Back to Basics</span> has no exact modern replacement, but several cards occupy neighboring territory. <span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span> rewrites nonbasic lands. <span class="card-name" data-card="Ruination" tabindex="0">Ruination</span> destroys them. <span class="card-name" data-card="Price of Progress" tabindex="0">Price of Progress</span> turns each one into damage.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Harbinger%20of%20the%20Seas&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The creature relative</div><h3>Harbinger of the Seas</h3><p><span class="card-name" data-card="Harbinger of the Seas" tabindex="0">Harbinger of the Seas</span> places a Blood Moon-style effect on a blue creature, turning nonbasic lands into Islands. It attacks similar mana bases while remaining vulnerable to creature removal and allowing the lands to untap.</p></div></div>
+<p><span class="card-name" data-card="Winter Moon" tabindex="0">Winter Moon</span> limits players controlling nonbasics to untapping one nonbasic land. <span class="card-name" data-card="Root Maze" tabindex="0">Root Maze</span> makes lands and artifacts enter tapped. <span class="card-name" data-card="Tsabo&#x27;s Web" tabindex="0">Tsabo&#x27;s Web</span> punishes nonbasics with activated abilities while replacing itself.</p>
+<p>Each relative changes the balance between breadth and escape. Back to Basics remains unusually clean: three mana, one sentence, and no assistance for a nonbasic land after its first use.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XXI · The Image</div><h2>Civilization returned to wilderness</h2>
+<p>Andrew Robinson’s Urza’s Saga artwork shows architecture disappearing beneath water and vegetation. The “basics” are not basic lands rendered literally. They are the natural world reclaiming complexity.</p>
+<p>Terese Nielsen’s Ultimate Masters version approaches the idea through a luminous, almost ceremonial landscape. The return feels less like collapse and more like revelation.</p>
+<p>Helvetica Blanc’s Secret Lair interpretation, released in the Peach Momoko-themed Tome of the Astral Sorceress drop, removes the original flavor text and gives the card a graphic premium identity. Mystery Booster 2 returned Robinson’s original image in a Future Sight frame.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XXII · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Premodern and Vintage</span><h3>The mono-blue transformation</h3><p>Forbidian and related control decks use Islands to make Back to Basics a one-sided answer to ambitious mana and utility lands.</p></div>
+<div class="format-card"><span class="impact">Legacy</span><h3>The natural competitive home</h3><p>Dual lands, fetches, Wasteland, Ancient Tomb, Dark Depths, and multicolor control keep the enchantment strategically relevant.</p></div>
+<div class="format-card"><span class="impact">Commander</span><h3>A global nonbasic prison</h3><p>It scales across several opponents and rewards decks prepared to function from basics, rocks, or nonland mana.</p></div>
+</div>
+<p>Back to Basics is currently legal in Legacy, Vintage, Commander, and Oathbreaker. It is not legal in Standard, Pioneer, Modern, Pauper, Historic, Timeless, or Brawl.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XXIII · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The dual land still produced every color it promised. It simply never stood up again.</blockquote><cite>Back to Basics made the mana base’s sophistication visible as a line of increasingly expensive tapped cards.</cite></div>
+<p>Players remember fetching the wrong land before it resolved, spending the last green source, and realizing the enchantment answer remaining in hand could no longer be cast.</p>
+<p>They remember the apparent contradiction of a three-color control deck playing it successfully because the deck contained more basics than the opponent’s two-color deck. Most of all, they remember the title becoming an instruction: stop relying on everything printed after Island.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XXIV · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve Back to Basics across three eras: the four-copy transformational sideboard of classic Forbidian, Chris Kronenberger’s first-place 2011 mono-blue Legacy deck, and jankyb’s Challenge-winning 2026 Jeskai control construction.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Forbidian — Canonical Mono-Blue Control</strong><small>Official Wizards historical list · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>This official archive list places four copies of Back to Basics in the sideboard of a mono-blue permission deck. Fifteen Islands and a patient counterspell plan let Forbidian transform against multicolor mana bases, replacing ordinary interaction with an enchantment capable of invalidating several opposing lands at once.</p>
+<div class="deck-meta"><div><b>Forbidian — Canonical Mono-Blue Control</b><div class="small">Official Wizards historical list · 60/15</div></div><button class="copy" data-target="canonical-forbidian">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 7</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ophidian" tabindex="0">Ophidian</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Morphling" tabindex="0">Morphling</span></div></div><div class="group"><h4>Instants · 22</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Forbid" tabindex="0">Forbid</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Impulse" tabindex="0">Impulse</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral&#x27;s Disk" tabindex="0">Nevinyrral&#x27;s Disk</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Powder Keg" tabindex="0">Powder Keg</span></div></div><div class="group"><h4>Lands · 25</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dust Bowl" tabindex="0">Dust Bowl</span></div>
+<div class="row"><span class="qty">15</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Thawing Glaciers" tabindex="0">Thawing Glaciers</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Back to Basics" tabindex="0">Back to Basics</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Flash" tabindex="0">Flash</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Treachery" tabindex="0">Treachery</span></div></div></div></div>
+<pre hidden id="canonical-forbidian">Forbidian — Canonical Mono-Blue Control
+Official Wizards historical list · 60/15
+
+Creatures · 7
+4 Ophidian
+3 Morphling
+
+Instants · 22
+3 Annul
+4 Brainstorm
+4 Counterspell
+3 Forbid
+4 Force of Will
+4 Impulse
+
+Artifacts · 6
+2 Nevinyrral&#x27;s Disk
+4 Powder Keg
+
+Lands · 25
+2 Dust Bowl
+15 Island
+4 Thawing Glaciers
+4 Wasteland
+
+Sideboard · 15
+1 Annul
+4 Back to Basics
+4 Flash
+4 Hydroblast
+2 Treachery</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Chris Kronenberger — Mono-Blue Control</strong><small>StarCityGames Legacy Louisville 2011 · 1st place · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Kronenberger brought two main-deck copies to a 203-player Legacy event and won it. Sixteen Islands supported Vedalken Shackles, Counterspell, Cryptic Command, and Back to Basics, while the deck's few fetch lands could find basics before the enchantment converted opposing duals and utility lands into one-use resources.</p>
+<div class="deck-meta"><div><b>Chris Kronenberger — Mono-Blue Control</b><div class="small">StarCityGames Legacy Louisville 2011 · 1st place · 60/15</div></div><button class="copy" data-target="chris-kronenberger-muc">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 4</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sower of Temptation" tabindex="0">Sower of Temptation</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Vendilion Clique" tabindex="0">Vendilion Clique</span></div></div><div class="group"><h4>Instants and Sorceries · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Echoing Truth" tabindex="0">Echoing Truth</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div></div></div><div class="deck-col"><div class="group"><h4>Other spells · 13</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Back to Basics" tabindex="0">Back to Basics</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Energy Field" tabindex="0">Energy Field</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Jace, the Mind Sculptor" tabindex="0">Jace, the Mind Sculptor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Oblivion Stone" tabindex="0">Oblivion Stone</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Sensei&#x27;s Divining Top" tabindex="0">Sensei&#x27;s Divining Top</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Vedalken Shackles" tabindex="0">Vedalken Shackles</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">16</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Energy Flux" tabindex="0">Energy Flux</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Llawan, Cephalid Empress" tabindex="0">Llawan, Cephalid Empress</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Mind Harness" tabindex="0">Mind Harness</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div></div></div></div>
+<pre hidden id="chris-kronenberger-muc">Chris Kronenberger — Mono-Blue Control
+StarCityGames Legacy Louisville 2011 · 1st place · 60/15
+
+Creatures · 4
+2 Sower of Temptation
+2 Vendilion Clique
+
+Instants and Sorceries · 21
+4 Brainstorm
+2 Counterspell
+2 Cryptic Command
+2 Echoing Truth
+4 Force of Will
+4 Mental Misstep
+3 Spell Snare
+
+Other spells · 13
+2 Back to Basics
+3 Energy Field
+3 Jace, the Mind Sculptor
+1 Oblivion Stone
+2 Sensei&#x27;s Divining Top
+2 Vedalken Shackles
+
+Lands · 22
+16 Island
+2 Misty Rainforest
+2 Polluted Delta
+2 Scalding Tarn
+
+Sideboard · 15
+2 Chalice of the Void
+2 Energy Flux
+3 Llawan, Cephalid Empress
+2 Mind Harness
+3 Misdirection
+3 Surgical Extraction</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>jankyb — Jeskai Control</strong><small>Magic Online Legacy Challenge 32, May 2026 · 1st place · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The 2026 list demonstrates how the card survives inside a nominally three-color deck. Eleven basic lands and Prismatic Vista carry most of the mana burden, while only Tundra and Volcanic Island risk remaining tapped. Back to Basics punishes opponents built around far denser nonbasic infrastructure.</p>
+<div class="deck-meta"><div><b>jankyb — Jeskai Control</b><div class="small">Magic Online Legacy Challenge 32, May 2026 · 1st place · 60/15</div></div><button class="copy" data-target="jankyb-jeskai-control-2026">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 9</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Loch Mare" tabindex="0">Loch Mare</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Murktide Regent" tabindex="0">Murktide Regent</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tamiyo, Inquisitive Student" tabindex="0">Tamiyo, Inquisitive Student</span></div></div><div class="group"><h4>Instants and Sorceries · 28</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Flow State" tabindex="0">Flow State</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Preordain" tabindex="0">Preordain</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Prismatic Ending" tabindex="0">Prismatic Ending</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Back to Basics" tabindex="0">Back to Basics</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Dress Down" tabindex="0">Dress Down</span></div></div><div class="group"><h4>Lands · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Prismatic Vista" tabindex="0">Prismatic Vista</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Containment Priest" tabindex="0">Containment Priest</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Fire Magic" tabindex="0">Fire Magic</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div></div></div>
+<pre hidden id="jankyb-jeskai-control-2026">jankyb — Jeskai Control
+Magic Online Legacy Challenge 32, May 2026 · 1st place · 60/15
+
+Creatures · 9
+3 Loch Mare
+2 Murktide Regent
+4 Tamiyo, Inquisitive Student
+
+Instants and Sorceries · 28
+4 Brainstorm
+4 Flow State
+2 Force of Negation
+4 Force of Will
+4 Ponder
+2 Preordain
+4 Prismatic Ending
+4 Swords to Plowshares
+
+Enchantments · 4
+2 Back to Basics
+2 Dress Down
+
+Lands · 19
+4 Flooded Strand
+4 Island
+1 Mountain
+2 Plains
+4 Prismatic Vista
+2 Scalding Tarn
+1 Tundra
+1 Volcanic Island
+
+Sideboard · 15
+4 Consign to Memory
+2 Containment Priest
+2 Fire Magic
+1 Force of Negation
+2 Hydroblast
+1 Null Rod
+2 Pyroblast
+1 Red Elemental Blast</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXV · The Object</div><h2>Printings and sources</h2>
+<p>Back to Basics debuted in Urza’s Saga and received no conventional reprint for twenty years. Ultimate Masters introduced Terese Nielsen’s new artwork and the card’s first foil treatment in 2018. Mystery Booster 2 returned Andrew Robinson’s original art in a Future Sight frame, while Secret Lair’s Tome of the Astral Sorceress offered a borderless Helvetica Blanc interpretation.</p>
+<div class="printings">
+<figure class="printing"><img alt="Back to Basics from Urza's Saga" src="https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&amp;set=usg&amp;format=image&amp;version=normal"><figcaption>Urza’s Saga · 1998<br>Andrew Robinson · original printing</figcaption></figure>
+<figure class="printing"><img alt="Back to Basics from Ultimate Masters" src="https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&amp;set=uma&amp;format=image&amp;version=normal"><figcaption>Ultimate Masters · 2018<br>Terese Nielsen · first new art and foil</figcaption></figure>
+<figure class="printing"><img alt="Back to Basics from Mystery Booster 2" src="https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&amp;set=mb2&amp;format=image&amp;version=normal"><figcaption>Mystery Booster 2 · 2024<br>Andrew Robinson · Future Sight frame</figcaption></figure>
+<figure class="printing"><img alt="Back to Basics from Secret Lair Drop" src="https://api.scryfall.com/cards/sld/1718?format=image&amp;version=normal"><figcaption>Secret Lair Drop · 2024<br>Helvetica Blanc · borderless premium treatment</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/usg/62/back-to-basics">Scryfall — Back to Basics, Urza’s Saga</a><span>Card identity, collector number, Oracle text, original artist, rarity, current legalities, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/UZ/en-us/62/back-to-basics">Wizards of the Coast Gatherer — Back to Basics</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/top-50-card-drawing-cards-2003-03-21-0">Wizards of the Coast — The Top 50 Card Drawing Cards</a><span>Official archived Forbidian list containing four Back to Basics in the sideboard.</span></li>
+<li><a href="https://articles.starcitygames.com/articles/you-can-play-type-i-50-boot-the-back-to-basics/">Stephen Menendian — Boot the Back to Basics?</a><span>Contemporary discussion of mono-blue control, Forbidian, and Back to Basics in early-2000s Type I.</span></li>
+<li><a href="https://www.eternalcentral.com/schools-of-magic-history-of-vintage-2001/">Eternal Central — Schools of Magic: Vintage 2001</a><span>Historical context for mono-blue control using Back to Basics against multicolor control and powered mana bases.</span></li>
+<li><a href="https://www.mtgtop8.com/event?d=212259&amp;e=1606">MTGTop8 — Chris Kronenberger, Mono-Blue Control</a><span>Complete first-place list from the 203-player 2011 StarCityGames Legacy Open in Louisville.</span></li>
+<li><a href="https://www.tcgplayer.com/content/article/Legacy-Oko-Miracles-Deck-Guide/e1f5c471-016d-4c64-8fa3-f7e67a482703/">Rich Cali — Legacy Oko Miracles Deck Guide</a><span>Detailed explanation of Back to Basics as an independent game plan in Legacy control matchups.</span></li>
+<li><a href="https://www.mtgo.com/decklist/legacy-challenge-32-2026-05-2012842880">Magic Online — Legacy Challenge 32, May 20, 2026</a><span>Official event results and jankyb’s first-place Back to Basics control list.</span></li>
+<li><a href="https://mtgdecks.net/Legacy/jeskai-murktide-decklist-by-jankyb-2969211">MTGDecks — jankyb, Jeskai Murktide</a><span>Complete 60-card main deck and 15-card sideboard preserving the Challenge-era construction.</span></li>
+<li><a href="https://scryfall.com/card/uma/46/back-to-basics">Scryfall — Ultimate Masters Back to Basics</a><span>Terese Nielsen artwork, first foil treatment, and modern reprint reference.</span></li>
+<li><a href="https://scryfall.com/card/mb2/154/back-to-basics">Scryfall — Mystery Booster 2 Back to Basics</a><span>Andrew Robinson artwork and Future Sight-frame printing reference.</span></li>
+<li><a href="https://scryfall.com/card/sld/1718/back-to-basics">Scryfall — Secret Lair Back to Basics</a><span>Helvetica Blanc artwork and borderless premium printing reference.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Back+to+Basics%22&amp;unique=prints">Scryfall — Back to Basics printing search</a><span>Complete paper printing, artwork, frame, rarity, and date reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Back to Basics is not present among the numbered one thousand and is therefore added as Honorable Mention 006. The Forbidian list follows Wizards’ official historical archive; Kronenberger’s and jankyb’s lists preserve documented tournament results.</div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Honorable Mention 006</b><br>Back to Basics transformed basic-land discipline into a prison strategy and made every ambitious nonbasic mana base explain how it intended to untap.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>

@@ -1,0 +1,1112 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Ensnaring Bridge: Stronghold, hand-size combat restriction, zero-power attackers, Bottled Cloister, 8-Rack, Lantern Control, Zac Elsik’s Grand Prix victory, Vintage Stax, Painter, Karn, Commander, artwork, printings, and decklists."><title>Ensnaring Bridge: The Empty Hand Became a Wall — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+.hero.chaosorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chaos%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+.honorable-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  margin:0 0 .85rem;
+  padding:.42rem .72rem;
+  border:1px solid rgba(239,215,158,.55);
+  border-radius:999px;
+  background:rgba(18,24,24,.68);
+  color:#f0d89c;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+
+
+.hero.ensnaring-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+</style></head>
+<body><header class="hero ensnaring-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#honorable-ensnaring-bridge">← Honorable Mentions</a>
+<div class="honorable-badge">Beyond the Thousand · Honorable Mention 007</div>
+<div class="eyebrow">Stronghold · 1998</div>
+<h1>The Empty Hand Became a Wall</h1>
+<p class="deckline">Ensnaring Bridge transformed an empty hand into a combat lock, rewarding prison decks for spending every resource and making the ability to attack depend on how many options the defender still possessed.</p>
+<div class="byline"><span>A Compulsive Research honorable mention</span><span>·</span><span>Stronghold, 1998</span><span class="pill">Approximately 36 minute read</span></div>
+</div></header>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Empty Hand Became a Wall</a>
+<a href="#stronghold">Stronghold’s inverted defense</a>
+<a href="#threshold">Hand size becomes the gate</a>
+<a href="#rules">What Ensnaring Bridge actually does</a>
+<a href="#declare">The check happens while attackers are declared</a>
+<a href="#zero">What zero cards means</a>
+<a href="#pump">Attack small, become large later</a>
+<a href="#put-attacking">Creatures placed onto the battlefield attacking</a>
+<a href="#symmetry">The Bridge restrains its controller too</a>
+<a href="#emptying">Why discarding your own hand is an advantage</a>
+<a href="#cloister">Bottled Cloister removes the hand on schedule</a>
+<a href="#rack">8-Rack closes both hands</a>
+<a href="#lantern">Lantern Control separates drawing from choice</a>
+<a href="#elsik">The Grand Prix champion nobody could attack</a>
+<a href="#stax">The Bridge inside Workshop prison</a>
+<a href="#painter">The tutorable emergency wall</a>
+<a href="#karn">Karn turns the sideboard into a draw step</a>
+<a href="#winning">How a deck wins from behind the Bridge</a>
+<a href="#escape">How opponents cross it</a>
+<a href="#decline">Why the card became less absolute</a>
+<a href="#commander">The multiplayer hand-size problem</a>
+<a href="#descendants">The descendants and relatives</a>
+<a href="#art">Three visions of a hostile passage</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Barrier</div><h2>The Empty Hand Became a Wall</h2>
+<p class="opening dropcap">Ensnaring Bridge turns a player’s lack of options into physical security. Five cards in hand permit creatures with power five or less to attack. One card allows only creatures with power one or less. No cards means that every creature with positive power must remain behind the structure.</p>
+<p>The paradox is complete. Card advantage usually protects a player by providing more answers. Ensnaring Bridge protects its controller by removing those answers from hand. The safest state is not abundance but emptiness.</p>
+<p>That inversion produced prison decks, discard decks, artifact combo decks, Vintage Workshop shells, Painter toolboxes, and eventually Lantern Control—the Modern archetype that used complete knowledge of the opponent’s next draw to ensure the Bridge would never be answered.</p>
+<div class="card-lead"><img alt="Ensnaring Bridge from Stronghold" src="https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&amp;set=sth&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Ensnaring Bridge</h3><p><b>{3} · Artifact</b></p><p>Creatures with power greater than the number of cards in your hand can’t attack.</p><div class="stats"><div class="stat"><b>First printing</b>Stronghold · 1998</div><div class="stat"><b>Original artist</b>Pete Venters</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Hand-size combat prison</div></div></div></div>
+</section>
+
+<section id="stronghold"><div class="chapter-number">II · The Passage</div><h2>Stronghold’s inverted defense</h2>
+<p>Stronghold completed the story and mechanics of the Rath cycle with cards designed around confined spaces, attrition, and escape. Ensnaring Bridge made the setting literal: the battlefield contained a route that became narrower as its controller possessed fewer resources.</p>
+<p>Unlike <span class="card-name" data-card="Moat" tabindex="0">Moat</span>, <span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span>, or <span class="card-name" data-card="Propaganda" tabindex="0">Propaganda</span>, the Bridge does not define a permanent category that is always excluded. Its threshold moves with a hidden zone.</p>
+<p>The controller can alter the rule through ordinary play. Casting a spell, discarding a card, cycling, activating a discard outlet, or resolving a draw spell may immediately change which creatures are allowed to attack.</p>
+</section>
+
+<div class="pullquote">Ensnaring Bridge asks the control player to become hellbent so the battlefield cannot become violent.<small>Fewer options converted into fewer attackers</small></div>
+
+<section id="threshold"><div class="chapter-number">III · The Number</div><h2>Hand size becomes the gate</h2>
+<p>The Bridge compares each creature’s current power with the number of cards in the Bridge controller’s hand.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Three cards</span><h3>Power three or less may attack</h3><p>A Tarmogoyf with four power is stopped, while a three-power creature remains legal.</p></div>
+<div class="format-card"><span class="impact">One card</span><h3>Only power one or less may attack</h3><p>Small utility creatures and zero-power attackers may still cross.</p></div>
+<div class="format-card"><span class="impact">Zero cards</span><h3>Positive power cannot attack</h3><p>A creature must have power zero or less at the declaration moment to become an attacker.</p></div>
+</div>
+<p>The comparison uses “greater than,” not “greater than or equal to.” A creature whose power exactly matches the hand size can attack.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">IV · The Restriction</div><h2>What Ensnaring Bridge actually does</h2>
+<p>Ensnaring Bridge creates a static attacking restriction. It applies to every creature controlled by every player, including the Bridge controller.</p>
+<p>The restriction does not target. Hexproof, shroud, protection, and ward do not help a creature attack through it. The artifact does not tap creatures, prevent blocking, remove abilities, or affect combat already in progress.</p>
+<p>If several Bridges are on the battlefield, each creates a separate restriction using its own controller’s hand. A creature must satisfy all applicable restrictions to be declared as an attacker.</p>
+<div class="article-note"><b>Power and hand size are dynamic.</b> Both values are checked only during the process of declaring attackers. The Bridge does not remember what they were earlier in the turn.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop')"><div class="art-caption"><b>Pete Venters’s original Ensnaring Bridge</b>The bridge is not merely narrow. It curves through a predatory structure whose stone and metal seem prepared to close around anything attempting passage.</div></div>
+
+<section id="declare"><div class="chapter-number">V · The Declaration</div><h2>The check happens while attackers are declared</h2>
+<p>Ensnaring Bridge checks power and hand size while a player is declaring attackers. The game first determines which creatures can legally attack, then the declaration is completed.</p>
+<p>Once a creature has legally become an attacker, increasing its power or reducing the Bridge controller’s hand does not remove it from combat. The moment of permission has passed.</p>
+<p>Conversely, drawing a card before attackers are declared may open the bridge to larger creatures. Discarding a card before declaration may close it.</p>
+</section>
+
+<section id="zero"><div class="chapter-number">VI · The Emptiness</div><h2>What zero cards means</h2>
+<p>With no cards in the Bridge controller’s hand, creatures with power greater than zero cannot attack. Most creatures are therefore stopped.</p>
+<p>A creature with zero power can still be declared as an attacker. Negative power also satisfies the restriction, although such a creature ordinarily deals no combat damage without later modification.</p>
+<p>This zero-card state is the goal of Lantern Control, 8-Rack, and many prison decks. The controller deliberately spends or discards every card because the final card is worth less than turning off the opponent’s entire combat phase.</p>
+</section>
+
+<section id="pump"><div class="chapter-number">VII · The Trick</div><h2>Attack small, become large later</h2>
+<p>A creature may attack if its power is low enough at declaration and become larger afterward. The Bridge does not recheck it later in combat.</p>
+<p><span class="card-name" data-card="Signal Pest" tabindex="0">Signal Pest</span> can attack with zero power under an empty-hand Bridge, then battle cry increases the power of other attacking creatures. Exalted triggers can enlarge the single creature that was already declared. <span class="card-name" data-card="Cranial Plating" tabindex="0">Cranial Plating</span> can be moved or activated after declaration.</p>
+<p>This creates a classic escape route: satisfy the Bridge with a harmless body, then make that body dangerous once it is already across.</p>
+</section>
+
+<section id="put-attacking"><div class="chapter-number">VIII · The Bypass</div><h2>Creatures placed onto the battlefield attacking</h2>
+<p>Some effects put a creature onto the battlefield attacking without declaring it as an attacker. Because Ensnaring Bridge restricts declaration rather than the attacking state itself, those creatures can enter combat.</p>
+<p>The same principle applies to effects that create attacking tokens or cause a creature to become attacking outside the normal declaration procedure.</p>
+<p>The distinction is narrow but important. “Can’t attack” in this context means “can’t be declared as an attacker,” not “can never be an attacking creature.”</p>
+</section>
+
+<section id="symmetry"><div class="chapter-number">IX · The Controller</div><h2>The Bridge restrains its controller too</h2>
+<p>Ensnaring Bridge does not say “creatures your opponents control.” A prison deck that plans to win through large attackers may trap its own finishers.</p>
+<p>Successful Bridge decks choose win conditions that do not need combat, can attack at low power and grow later, can remove the Bridge on demand, or can wait until the controller refills the hand.</p>
+<p>This self-restriction is part of the design’s price. The artifact is universally castable, but the controller must build around the same wall imposed on everyone else.</p>
+</section>
+
+<section id="emptying"><div class="chapter-number">X · The Hand</div><h2>Why discarding your own hand is an advantage</h2>
+<p>Traditional control wants more cards because each card represents another answer. Bridge control wants enough cards to establish the battlefield and then wants those cards gone.</p>
+<p>Low mana curves make that possible. Zero- and one-mana artifacts, discard spells, mana rocks, and activated abilities allow the deck to deploy nearly everything quickly.</p>
+<p>Cards that discard as a cost become doubly useful. They perform their printed function while reducing the maximum power allowed to attack.</p>
+</section>
+
+<section id="cloister"><div class="chapter-number">XI · The Schedule</div><h2>Bottled Cloister removes the hand on schedule</h2>
+<p><span class="card-name" data-card="Bottled Cloister" tabindex="0">Bottled Cloister</span> exiles its controller’s hand at the beginning of each opponent’s upkeep and returns those cards during the controller’s upkeep before drawing an additional card.</p>
+<p>During the opponent’s combat phase, the Bridge controller therefore has zero cards in hand and Ensnaring Bridge stops every creature with positive power. During the controller’s own turn, the hand returns and can be used normally.</p>
+<p>The interaction is powerful and dangerous. If Bottled Cloister leaves the battlefield while the cards are exiled, they remain exiled. Vintage Stax accepted that risk because the scheduled empty hand made the combat lock nearly automatic.</p>
+</section>
+
+<section id="rack"><div class="chapter-number">XII · The Attrition</div><h2>8-Rack closes both hands</h2>
+<p>Modern 8-Rack wants the opponent empty-handed for <span class="card-name" data-card="The Rack" tabindex="0">The Rack</span> and <span class="card-name" data-card="Shrieking Affliction" tabindex="0">Shrieking Affliction</span>. Its own hand also tends to disappear through cheap discard, Smallpox effects, and Liliana of the Veil.</p>
+<p>Ensnaring Bridge turns that shared scarcity into asymmetrical safety. The opponent’s empty hand causes damage. The controller’s empty hand prevents combat.</p>
+<p>The deck can win without attacking at all. Rack triggers continue reducing life while Bridge makes creature removal and battlefield size increasingly irrelevant.</p>
+</section>
+
+<section id="lantern"><div class="chapter-number">XIII · The Information</div><h2>Lantern Control separates drawing from choice</h2>
+<p><span class="card-name" data-card="Lantern of Insight" tabindex="0">Lantern of Insight</span> reveals the top card of each library. Codex Shredder, Ghoulcaller’s Bell, and related mill artifacts decide whether an undesirable opposing draw remains on top.</p>
+<p>Ensnaring Bridge buys the turns required for that informational lock. Creature decks cannot simply attack while Lantern assembles; once the controller empties the hand, combat stops.</p>
+<p>The deck does not counter every spell. It attempts to ensure that the opponent never draws the relevant spell in the first place. The Bridge protects the engine from the cards already on the battlefield.</p>
+</section>
+
+<section id="elsik"><div class="chapter-number">XIV · The Champion</div><h2>The Grand Prix champion nobody could attack</h2>
+<p>Zac Elsik won Grand Prix Oklahoma City in 2015 with four main-deck Ensnaring Bridges. The victory transformed Lantern Control from an eccentric brew into a premier-event champion.</p>
+<p>Elsik’s list contained only three creatures, all Spellskites. Twenty-six other nonland permanents were cheap artifacts and a single Ghirapur Aether Grid. The deck could empty its hand rapidly and protect the Bridge from targeted removal.</p>
+<p>Once combat was closed, the opponent’s library became the battlefield that mattered. Lantern revealed the next card, mill effects removed answers, and Academy Ruins returned destroyed or used artifacts to the top of the deck.</p>
+</section>
+
+<section id="stax"><div class="chapter-number">XV · The Workshop</div><h2>The Bridge inside Workshop prison</h2>
+<p>Vintage Stax attacks mana, permanents, and time through <span class="card-name" data-card="Mishra&#x27;s Workshop" tabindex="0">Mishra&#x27;s Workshop</span>, Sphere effects, Tangle Wire, Smokestack, Wasteland, and Crucible of Worlds.</p>
+<p>Ensnaring Bridge addresses the creatures that enter before the prison fully closes or survive the resource exchange. Workshop mana casts it quickly, and the deck’s low card velocity naturally keeps hand size small.</p>
+<p>Mishra’s Factory and small artifact creatures can remain useful beneath the threshold, while Bottled Cloister supplies the most complete version of the lock during opposing turns.</p>
+</section>
+
+<section id="painter"><div class="chapter-number">XVI · The Toolbox</div><h2>The tutorable emergency wall</h2>
+<p>Legacy Painter decks commonly use one Ensnaring Bridge as a searchable prison piece. Enlightened Tutor, Goblin Engineer, Goblin Welder, and Karn, the Great Creator can find or recur it.</p>
+<p>The Bridge buys time against creature decks while Painter’s Servant and Grindstone assemble a noncombat win. Small creatures such as Goblin Welder can continue attacking if hand size permits, but combat damage is rarely the primary plan.</p>
+<p>As a singleton, the artifact need not be universally good. It must be devastating in the matchup where the toolbox chooses it.</p>
+</section>
+
+<section id="karn"><div class="chapter-number">XVII · The Wish</div><h2>Karn turns the sideboard into a draw step</h2>
+<p><span class="card-name" data-card="Karn, the Great Creator" tabindex="0">Karn, the Great Creator</span> can retrieve an artifact from outside the game in tournament play, normally the sideboard. This allows prison and Tron decks to keep Ensnaring Bridge outside the main deck until combat becomes the problem that must be solved.</p>
+<p>The arrangement reduces dead draws against combo and control while making the Bridge available through every Karn.</p>
+<p>Karn can also shut down opposing artifacts and later find Liquimetal Coating, Mycosynth Lattice, or a separate win condition. The Bridge protects the planeswalker while the wish-board engine takes over.</p>
+</section>
+
+<section id="winning"><div class="chapter-number">XVIII · The Conclusion</div><h2>How a deck wins from behind the Bridge</h2>
+<p>The artifact prevents many attacks but does not reduce an opponent’s life or library. A successful Bridge deck must end the game without relying on creatures too large to cross.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Damage without combat</span><h3>Rack effects, Grid, and Spellbomb</h3><p>Triggered damage and activated artifacts ignore the combat restriction.</p></div>
+<div class="format-card"><span class="impact">Library control</span><h3>Lantern and Grindstone</h3><p>Mill engines win through an empty library rather than an open attack lane.</p></div>
+<div class="format-card"><span class="impact">Planeswalkers</span><h3>Karn, Chandra, and other engines</h3><p>The Bridge protects loyalty while planeswalkers produce cards, damage, or a separate lock.</p></div>
+</div>
+<p>The card is strongest when the win condition uses the same low-hand or artifact infrastructure required to maintain the prison.</p>
+</section>
+
+<section id="escape"><div class="chapter-number">XIX · The Crossing</div><h2>How opponents cross it</h2>
+<p>Artifact removal is the direct answer. Abrupt Decay, Force of Vigor, Boseiju, Who Endures, Prismatic Ending, and numerous sideboard cards can remove the structure before combat.</p>
+<p>Players can also increase the Bridge controller’s hand with forced draw, attack with zero-power creatures and pump them later, put creatures onto the battlefield attacking, use noncombat damage, mill, planeswalkers, or alternate wins.</p>
+<p>The most reliable approach is strategic diversity. A deck whose only route to victory is declaring large attackers may become completely dependent on drawing one specific class of answer.</p>
+</section>
+
+<section id="decline"><div class="chapter-number">XX · The Pressure</div><h2>Why the card became less absolute</h2>
+<p>Modern threats increasingly generate value before combat. Creatures draw cards, destroy permanents, create tokens, or operate through activated abilities. Preventing attacks no longer neutralizes every reason those creatures were played.</p>
+<p>Artifact removal has also become broader and more maindeckable. Boseiju, Prismatic Ending, Haywire Mite, Karn, and flexible modal cards make a three-mana artifact harder to treat as an untouchable foundation.</p>
+<p>The Bridge still invalidates combat with unmatched efficiency. It simply exists in a game where more decks can win or gain decisive value without crossing it.</p>
+</section>
+
+<section id="commander"><div class="chapter-number">XXI · The Table</div><h2>The multiplayer hand-size problem</h2>
+<p>In Commander, Ensnaring Bridge compares every attacking creature with one player’s hand: the hand of the Bridge controller. Emptying that hand can stop combat from three opponents simultaneously.</p>
+<p>That controller must also function with very few cards available. Artifact commanders, hellbent strategies, graveyard engines, planeswalkers, and commanders that generate value from the command zone can compensate.</p>
+<p>The political result is immediate. Creature decks may cooperate to remove the Bridge, while combo and control players may prefer that the artifact remain because it redirects pressure away from them.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XXII · The Bloodline</div><h2>The descendants and relatives</h2>
+<p><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span> prevents large creatures from untapping after they become tapped. <span class="card-name" data-card="Moat" tabindex="0">Moat</span> excludes nonfliers. <span class="card-name" data-card="Ghostly Prison" tabindex="0">Ghostly Prison</span> taxes each attacker. <span class="card-name" data-card="Silent Arbiter" tabindex="0">Silent Arbiter</span> limits how many creatures can attack.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=a25&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The same machine, reimagined</div><h3>Masters 25 Ensnaring Bridge</h3><p>Titus Lunter’s artwork turns the Bridge into a massive closing mechanism, making the rules text visually explicit: the larger the creature attempting to pass, the more completely the structure encloses it.</p></div></div>
+<p><span class="card-name" data-card="Crawlspace" tabindex="0">Crawlspace</span> permits only two attacking creatures. <span class="card-name" data-card="No Mercy" tabindex="0">No Mercy</span> destroys attackers after they deal damage. <span class="card-name" data-card="Glacial Chasm" tabindex="0">Glacial Chasm</span> prevents damage while forbidding its controller from attacking.</p>
+<p>None uses a hidden-zone count as directly. Ensnaring Bridge remains the prison card whose strength can be adjusted simply by playing the cards already in hand.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XXIII · The Image</div><h2>Three visions of a hostile passage</h2>
+<p>Pete Venters’s Stronghold image depicts a bridge integrated into a clawed, skeletal structure. The route itself appears alive and predatory.</p>
+<p>Ron Spencer’s Seventh Edition replacement makes the danger more anatomical, surrounding the passage with a mouthlike architecture and descending mechanisms. Florian de Gesincourt’s Kaladesh Invention turns it into a gilded Ghirapur machine whose beauty disguises its function.</p>
+<p>Masters 25 and Double Masters use Titus Lunter’s enormous mechanical trap. Tales of Middle-earth Commander reinterprets the card as the Bridge of Khazad-dûm, a narrow passage that controls which creatures can cross through physical scale rather than machinery.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XXIV · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Modern</span><h3>Lantern, 8-Rack, Karn, and prison</h3><p>Core-set printings made the card legal from Modern’s beginning, where it became a defining combat lock and toolbox target.</p></div>
+<div class="format-card"><span class="impact">Legacy and Vintage</span><h3>Toolbox and Workshop infrastructure</h3><p>Painter, Stax, MUD, mono-red prison, and Karn shells use the Bridge as a searchable or accelerated answer to creatures.</p></div>
+<div class="format-card"><span class="impact">Commander</span><h3>A global combat restriction</h3><p>One empty hand can restrain three opposing battlefields, provided the controller can operate without keeping resources in hand.</p></div>
+</div>
+<p>Ensnaring Bridge is currently legal in Modern, Legacy, Vintage, Commander, and Oathbreaker. It is not legal in Standard, Pioneer, Historic, Timeless, Brawl, or Pauper.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XXV · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The controller had nothing left. That was why nobody could attack.</blockquote><cite>Ensnaring Bridge made an empty hand look less like defeat and more like a locked gate whose key had been deliberately discarded.</cite></div>
+<p>Players remember counting the opponent’s hand before combat, then watching the final card leave it. They remember the one-power creature that could cross, the pump spell cast after declaration, and the Bridge player drawing one unwanted card that suddenly opened the battlefield.</p>
+<p>They remember Lantern Control revealing every future answer and milling each one away. The artifact did not merely prevent an attack. It made the possibility of attacking depend on whether the defender still possessed choices.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XXVI · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve Ensnaring Bridge across three defining archetypes: Takakuwa Yuusuke’s Vintage Workshop Stax, a canonical Modern 8-Rack construction, and Zac Elsik’s Grand Prix Oklahoma City–winning Lantern Control deck.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Takakuwa Yuusuke — Vintage Stax</strong><small>10th Vintage God Challenger Event · Top 8 · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Takakuwa's Workshop deck used three Ensnaring Bridges inside a dense prison of Smokestack, Tangle Wire, Spheres, Null Rod, Wasteland, and Tabernacle. Bottled Cloister could remove the controller's hand during the opponent's turn, reducing the Bridge threshold to zero while drawing fresh cards on the controller's upkeep.</p>
+<div class="deck-meta"><div><b>Takakuwa Yuusuke — Vintage Stax</b><div class="small">10th Vintage God Challenger Event · Top 8 · 60/15</div></div><button class="copy" data-target="takakuwa-vintage-stax">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lodestone Golem" tabindex="0">Lodestone Golem</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Phyrexian Metamorph" tabindex="0">Phyrexian Metamorph</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Phyrexian Revoker" tabindex="0">Phyrexian Revoker</span></div></div><div class="group"><h4>Prison artifacts · 28</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bottled Cloister" tabindex="0">Bottled Cloister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Crucible of Worlds" tabindex="0">Crucible of Worlds</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Ensnaring Bridge" tabindex="0">Ensnaring Bridge</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ghirapur Orrery" tabindex="0">Ghirapur Orrery</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Smokestack" tabindex="0">Smokestack</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Sorcerous Spyglass" tabindex="0">Sorcerous Spyglass</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sphere of Resistance" tabindex="0">Sphere of Resistance</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Thorn of Amethyst" tabindex="0">Thorn of Amethyst</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Trinisphere" tabindex="0">Trinisphere</span></div></div></div><div class="deck-col"><div class="group"><h4>Mana artifacts · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Buried Ruin" tabindex="0">Buried Ruin</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Inventors&#x27; Fair" tabindex="0">Inventors&#x27; Fair</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Workshop" tabindex="0">Mishra&#x27;s Workshop</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Tolarian Academy" tabindex="0">Tolarian Academy</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Urborg, Tomb of Yawgmoth" tabindex="0">Urborg, Tomb of Yawgmoth</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Silent Arbiter" tabindex="0">Silent Arbiter</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Dismember" tabindex="0">Dismember</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Leyline of the Void" tabindex="0">Leyline of the Void</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Contagion Engine" tabindex="0">Contagion Engine</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Grafdigger&#x27;s Cage" tabindex="0">Grafdigger&#x27;s Cage</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Spine of Ish Sah" tabindex="0">Spine of Ish Sah</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Uba Mask" tabindex="0">Uba Mask</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Witchbane Orb" tabindex="0">Witchbane Orb</span></div></div></div></div>
+<pre hidden id="takakuwa-vintage-stax">Takakuwa Yuusuke — Vintage Stax
+10th Vintage God Challenger Event · Top 8 · 60/15
+
+Creatures · 6
+1 Lodestone Golem
+1 Phyrexian Metamorph
+4 Phyrexian Revoker
+
+Prison artifacts · 28
+1 Bottled Cloister
+1 Chalice of the Void
+3 Crucible of Worlds
+3 Ensnaring Bridge
+1 Ghirapur Orrery
+3 Null Rod
+4 Smokestack
+2 Sorcerous Spyglass
+4 Sphere of Resistance
+4 Tangle Wire
+1 Thorn of Amethyst
+1 Trinisphere
+
+Mana artifacts · 6
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+
+Lands · 20
+4 Ancient Tomb
+1 Buried Ruin
+1 Inventors&#x27; Fair
+2 Mishra&#x27;s Factory
+4 Mishra&#x27;s Workshop
+1 Strip Mine
+1 The Tabernacle at Pendrell Vale
+1 Tolarian Academy
+1 Urborg, Tomb of Yawgmoth
+4 Wasteland
+
+Sideboard · 15
+1 Karakas
+1 The Tabernacle at Pendrell Vale
+1 Silent Arbiter
+2 Dismember
+4 Leyline of the Void
+1 Contagion Engine
+2 Grafdigger&#x27;s Cage
+1 Spine of Ish Sah
+1 Uba Mask
+1 Witchbane Orb</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Modern 8-Rack — Bridge Control</strong><small>Canonical tournament archetype list · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>8-Rack empties both players' hands for different reasons. Thoughtseize, Inquisition, Wrench Mind, Raven's Crime, and Liliana remove the opponent's options; the deck's own low curve leaves few cards behind. Ensnaring Bridge then prevents combat while The Rack and Shrieking Affliction turn the opponent's empty hand into damage.</p>
+<div class="deck-meta"><div><b>Modern 8-Rack — Bridge Control</b><div class="small">Canonical tournament archetype list · 60/15</div></div><button class="copy" data-target="canonical-modern-eight-rack">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spellskite" tabindex="0">Spellskite</span></div></div><div class="group"><h4>Planeswalkers · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Liliana of the Veil" tabindex="0">Liliana of the Veil</span></div></div><div class="group"><h4>Discard · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Inquisition of Kozilek" tabindex="0">Inquisition of Kozilek</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Raven&#x27;s Crime" tabindex="0">Raven&#x27;s Crime</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrench Mind" tabindex="0">Wrench Mind</span></div></div><div class="group"><h4>Removal · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Darkblast" tabindex="0">Darkblast</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts and enchantments · 14</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ensnaring Bridge" tabindex="0">Ensnaring Bridge</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="The Rack" tabindex="0">The Rack</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Shrieking Affliction" tabindex="0">Shrieking Affliction</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Bitterblossom" tabindex="0">Bitterblossom</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Buried Ruin" tabindex="0">Buried Ruin</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Dakmor Salvage" tabindex="0">Dakmor Salvage</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Darkslick Shores" tabindex="0">Darkslick Shores</span></div>
+<div class="row"><span class="qty">8</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Urborg, Tomb of Yawgmoth" tabindex="0">Urborg, Tomb of Yawgmoth</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Darkblast" tabindex="0">Darkblast</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Grafdigger&#x27;s Cage" tabindex="0">Grafdigger&#x27;s Cage</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Leyline of Sanctity" tabindex="0">Leyline of Sanctity</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Royal Assassin" tabindex="0">Royal Assassin</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Spellskite" tabindex="0">Spellskite</span></div></div></div></div>
+<pre hidden id="canonical-modern-eight-rack">Modern 8-Rack — Bridge Control
+Canonical tournament archetype list · 60/15
+
+Creatures · 2
+2 Spellskite
+
+Planeswalkers · 4
+4 Liliana of the Veil
+
+Discard · 16
+4 Inquisition of Kozilek
+4 Raven&#x27;s Crime
+4 Thoughtseize
+4 Wrench Mind
+
+Removal · 2
+2 Darkblast
+
+Artifacts and enchantments · 14
+4 Ensnaring Bridge
+4 The Rack
+4 Shrieking Affliction
+2 Bitterblossom
+
+Lands · 22
+1 Academy Ruins
+3 Buried Ruin
+2 Dakmor Salvage
+4 Darkslick Shores
+8 Swamp
+4 Urborg, Tomb of Yawgmoth
+
+Sideboard · 15
+2 Darkblast
+4 Grafdigger&#x27;s Cage
+4 Leyline of Sanctity
+3 Royal Assassin
+2 Spellskite</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Zac Elsik — Lantern Control</strong><small>Grand Prix Oklahoma City 2015 · Champion · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Elsik's Grand Prix victory made Ensnaring Bridge the defensive heart of one of Modern's strangest championship decks. The Bridge stopped combat, Lantern of Insight revealed the opponent's next draw, mill artifacts controlled whether that card was allowed to remain, and the deck won through Pyrite Spellbomb, Ghirapur Aether Grid, or complete informational control.</p>
+<div class="deck-meta"><div><b>Zac Elsik — Lantern Control</b><div class="small">Grand Prix Oklahoma City 2015 · Champion · 60/15</div></div><button class="copy" data-target="zac-elsik-lantern-control">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Spellskite" tabindex="0">Spellskite</span></div></div><div class="group"><h4>Discard and selection · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ancient Stirrings" tabindex="0">Ancient Stirrings</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Inquisition of Kozilek" tabindex="0">Inquisition of Kozilek</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div></div><div class="group"><h4>Interaction · 4</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Abrupt Decay" tabindex="0">Abrupt Decay</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts and engines · 25</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Codex Shredder" tabindex="0">Codex Shredder</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Ensnaring Bridge" tabindex="0">Ensnaring Bridge</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghoulcaller&#x27;s Bell" tabindex="0">Ghoulcaller&#x27;s Bell</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lantern of Insight" tabindex="0">Lantern of Insight</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mox Opal" tabindex="0">Mox Opal</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyrite Spellbomb" tabindex="0">Pyrite Spellbomb</span></div></div><div class="group"><h4>Enchantment · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ghirapur Aether Grid" tabindex="0">Ghirapur Aether Grid</span></div></div><div class="group"><h4>Lands · 17</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Blackcleave Cliffs" tabindex="0">Blackcleave Cliffs</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Copperline Gorge" tabindex="0">Copperline Gorge</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Ghost Quarter" tabindex="0">Ghost Quarter</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Glimmervoid" tabindex="0">Glimmervoid</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Llanowar Wastes" tabindex="0">Llanowar Wastes</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Tendo Ice Bridge" tabindex="0">Tendo Ice Bridge</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancient Grudge" tabindex="0">Ancient Grudge</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Grafdigger&#x27;s Cage" tabindex="0">Grafdigger&#x27;s Cage</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Nature&#x27;s Claim" tabindex="0">Nature&#x27;s Claim</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sun Droplet" tabindex="0">Sun Droplet</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Welding Jar" tabindex="0">Welding Jar</span></div></div></div></div>
+<pre hidden id="zac-elsik-lantern-control">Zac Elsik — Lantern Control
+Grand Prix Oklahoma City 2015 · Champion · 60/15
+
+Creatures · 3
+3 Spellskite
+
+Discard and selection · 10
+4 Ancient Stirrings
+4 Inquisition of Kozilek
+2 Thoughtseize
+
+Interaction · 4
+2 Abrupt Decay
+2 Surgical Extraction
+
+Artifacts and engines · 25
+4 Codex Shredder
+4 Ensnaring Bridge
+4 Ghoulcaller&#x27;s Bell
+4 Lantern of Insight
+4 Mox Opal
+3 Pithing Needle
+2 Pyrite Spellbomb
+
+Enchantment · 1
+1 Ghirapur Aether Grid
+
+Lands · 17
+2 Academy Ruins
+2 Blackcleave Cliffs
+1 Copperline Gorge
+1 Forest
+2 Ghost Quarter
+4 Glimmervoid
+4 Llanowar Wastes
+1 Tendo Ice Bridge
+
+Sideboard · 15
+1 Ancient Grudge
+2 Grafdigger&#x27;s Cage
+1 Nature&#x27;s Claim
+1 Pithing Needle
+3 Pyroclasm
+4 Sun Droplet
+3 Welding Jar</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXVII · The Object</div><h2>Printings and sources</h2>
+<p>Ensnaring Bridge debuted in Stronghold with Pete Venters’s artwork. Seventh Edition replaced the original image with Ron Spencer’s interpretation and introduced the card’s first foil. Kaladesh Inventions gave it a premium Florian de Gesincourt treatment, while Masters 25 introduced Titus Lunter’s modern art. Tales of Middle-earth Commander later reskinned the card as the Bridge of Khazad-dûm.</p>
+<div class="printings">
+<figure class="printing"><img alt="Ensnaring Bridge from Stronghold" src="https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&amp;set=sth&amp;format=image&amp;version=normal"><figcaption>Stronghold · 1998<br>Pete Venters · original printing</figcaption></figure>
+<figure class="printing"><img alt="Ensnaring Bridge from Seventh Edition" src="https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&amp;set=7ed&amp;format=image&amp;version=normal"><figcaption>Seventh Edition · 2001<br>Ron Spencer · first new artwork and foil</figcaption></figure>
+<figure class="printing"><img alt="Ensnaring Bridge from Kaladesh Inventions" src="https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&amp;set=mps&amp;format=image&amp;version=normal"><figcaption>Kaladesh Inventions · 2016<br>Florian de Gesincourt · Masterpiece treatment</figcaption></figure>
+<figure class="printing"><img alt="Ensnaring Bridge as the Bridge of Khazad-dum" src="https://api.scryfall.com/cards/ltc/350?format=image&amp;version=normal"><figcaption>Tales of Middle-earth Commander · 2023<br>Stephen Stark · Bridge of Khazad-dûm reskin</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/sth/133/ensnaring-bridge">Scryfall — Ensnaring Bridge, Stronghold</a><span>Card identity, collector number, Oracle text, original artist, rarity, rules note, current legalities, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Ensnaring%20Bridge">Wizards of the Coast Gatherer — Ensnaring Bridge</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/rules">Wizards of the Coast — Comprehensive Rules</a><span>Official framework for attacking restrictions, declaring attackers, power changes, and creatures placed onto the battlefield attacking.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/making-jump-modern-2017-03-14">Wizards of the Coast — Making the Jump to Modern</a><span>Official explanation of Lantern Control hiding behind Ensnaring Bridge while controlling draw steps and emptying its hand.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/dominaria-united-we-stand-part-1">Mark Rosewater — Dominaria United We Stand, Part 1</a><span>Official identification of Zac Elsik as the brewer most famous for creating Lantern Control.</span></li>
+<li><a href="https://www.magic.gg/news/the-week-that-was-my-first-modern-deck">Magic.gg — The Week That Was: My First Modern Deck</a><span>Official retrospective tracing Lantern Control from Elsik’s experimental design to a Pro Tour-winning archetype.</span></li>
+<li><a href="https://www.mtggoldfish.com/deck/321376">Zac Elsik — Lantern Control, Grand Prix Oklahoma City 2015</a><span>Premier-event result and complete 60-card main deck with 15-card sideboard.</span></li>
+<li><a href="https://www.mtgtop8.com/event?d=263256&amp;e=11120">MTGTop8 — Zac Elsik, Lantern Control</a><span>Independent tournament archive for the Grand Prix-winning list.</span></li>
+<li><a href="https://mtg.wiki/page/Modern_8Rack_deck">Modern 8-Rack deck archive</a><span>Canonical Bridge-based 8-Rack list and explanation of the interaction between discard, Rack effects, and an empty controller’s hand.</span></li>
+<li><a href="https://mtgdecks.net/Vintage/stax-decklist-by-takakuwa-yuusuke-720487">Takakuwa Yuusuke — Vintage Stax</a><span>Complete Top 8 Workshop deck with three Ensnaring Bridges and Bottled Cloister.</span></li>
+<li><a href="https://www.tcgplayer.com/content/article/Deck-Guide-Legacy-Imperial-Painter/edcc67ee-3757-47c7-8830-a4a1a3303239/">TCGplayer — Legacy Imperial Painter Deck Guide</a><span>Detailed explanation of Ensnaring Bridge as a searchable prison piece inside the Painter-Grindstone toolbox.</span></li>
+<li><a href="https://scryfall.com/card/7ed/294/ensnaring-bridge">Scryfall — Seventh Edition Ensnaring Bridge</a><span>Ron Spencer artwork, first foil printing, and core-set legality history.</span></li>
+<li><a href="https://mtg.wtf/card/mps/37/Ensnaring-Bridge">Kaladesh Inventions — Ensnaring Bridge</a><span>Florian de Gesincourt artwork and Masterpiece printing reference.</span></li>
+<li><a href="https://scryfall.com/card/a25/224/ensnaring-bridge">Scryfall — Masters 25 Ensnaring Bridge</a><span>Titus Lunter artwork and modern premium-set reprint.</span></li>
+<li><a href="https://scryfall.com/card/ltc/350/ensnaring-bridge">Scryfall — Tales of Middle-earth Commander Ensnaring Bridge</a><span>Bridge of Khazad-dûm reskin, Stephen Stark artwork, and Universes Beyond treatment.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Ensnaring+Bridge%22&amp;unique=prints">Scryfall — Ensnaring Bridge printing search</a><span>Complete paper printing, artwork, frame, rarity, and date reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Ensnaring Bridge is not present among the numbered one thousand and is therefore added as Honorable Mention 007. Elsik’s and Takakuwa’s lists preserve documented tournament results. The 8-Rack list is identified as a canonical tournament-archetype construction rather than attributed to a single premier-event finish.</div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Honorable Mention 007</b><br>Ensnaring Bridge made hand size a global attacking threshold and turned deliberate resource exhaustion into one of Magic’s most complete combat prisons.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>

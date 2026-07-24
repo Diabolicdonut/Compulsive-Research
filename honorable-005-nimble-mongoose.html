@@ -1,0 +1,1032 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Nimble Mongoose: Odyssey threshold, shroud, Le Wonder Goose, Canadian Threshold, Stifle and Wasteland, RUG Delver, Modern Horizons, Pauper, artwork, printings, and decklists."><title>Nimble Mongoose: The Goose That Could Not Be Touched — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+.hero.chaosorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chaos%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+.hero.mongoose-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nimble%20Mongoose&set=ody&format=image&version=art_crop)!important;
+  background-position:center 45%!important;
+}
+.honorable-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  margin:0 0 .85rem;
+  padding:.42rem .72rem;
+  border:1px solid rgba(239,215,158,.55);
+  border-radius:999px;
+  background:rgba(18,24,24,.68);
+  color:#f0d89c;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+</style></head>
+<body><header class="hero mongoose-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html#honorable-nimble-mongoose">← Honorable Mentions</a>
+<div class="honorable-badge">Beyond the Thousand · Honorable Mention 005</div>
+<div class="eyebrow">Odyssey · 2001</div>
+<h1>The Goose That Could Not Be Touched</h1>
+<p class="deckline">Nimble Mongoose began as a harmless one-drop, became a shrouded 3/3 at threshold, and carried the same tempo philosophy from Odyssey’s graveyard decks through Canadian Threshold and RUG Delver.</p>
+<div class="byline"><span>A Compulsive Research honorable mention</span><span>·</span><span>Odyssey, 2001</span><span class="pill">Approximately 32 minute read</span></div>
+</div></header>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Goose That Could Not Be Touched</a>
+<a href="#odyssey">Odyssey’s smallest threshold threat</a>
+<a href="#seven">Why the number was seven</a>
+<a href="#rules">What Nimble Mongoose actually does</a>
+<a href="#shroud">Protection from both players</a>
+<a href="#graveyard">The graveyard becomes a growth counter</a>
+<a href="#danger">Falling below threshold can kill it</a>
+<a href="#wonder">Le Wonder Goose</a>
+<a href="#humpherys">Threshold’s undefeated day at Worlds</a>
+<a href="#gro">From Gro to Threshold</a>
+<a href="#canadian">Why the deck became Canadian Threshold</a>
+<a href="#mana-denial">Stifle and Wasteland buy the turns</a>
+<a href="#goyf">The eight-creature era</a>
+<a href="#delver">Delver changes the name, not the plan</a>
+<a href="#deathrite">The creature that kept the Goose small</a>
+<a href="#modern">Modern Horizons opens another format</a>
+<a href="#pauper">The rarity downgrade</a>
+<a href="#design">Shroud gives way to hexproof</a>
+<a href="#art">Two artists, two kinds of speed</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Untargetable</div><h2>The Goose That Could Not Be Touched</h2>
+<p class="opening dropcap">Nimble Mongoose begins as one of the least imposing creatures in Magic: one green mana, one power, one toughness, no evasion, and no ability to accept help from the player who cast it. Then the graveyard reaches seven cards, and the harmless animal becomes a three-power threat that much of the opponent’s deck cannot interact with at all.</p>
+<p>Legacy players called it “the Goose.” The nickname is anatomically wrong and strategically perfect. A Mongoose could slip beneath countermagic on the first turn, ignore Swords to Plowshares and Lightning Bolt, then spend several turns looking irrelevant while the deck quietly assembled threshold. Once the seventh card arrived, the clock had already entered the battlefield.</p>
+<p>The creature became a bridge between three generations of tempo: Odyssey’s graveyard decks, pre-Delver Canadian Threshold, and the RUG Delver shells of the early 2010s. Across all three, the principle remained unchanged. Cast one cheap threat, spend the rest of the game ensuring that the opponent never receives a clean turn to answer it.</p>
+<div class="card-lead"><img alt="Nimble Mongoose from Odyssey" src="https://api.scryfall.com/cards/named?exact=Nimble%20Mongoose&amp;set=ody&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Nimble Mongoose</h3><p><b>{G} · Creature — Mongoose</b></p><p>Shroud</p><p>Threshold — This creature gets +2/+2 as long as there are seven or more cards in your graveyard.</p><div class="stats"><div class="stat"><b>First printing</b>Odyssey · 2001</div><div class="stat"><b>Original artist</b>Terese Nielsen</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Historical role</b>Untargetable tempo threat</div></div></div></div>
+</section>
+
+<section id="odyssey"><div class="chapter-number">II · The Graveyard</div><h2>Odyssey’s smallest threshold threat</h2>
+<p>Odyssey asked players to reconsider card advantage. Discarding cards, milling oneself, sacrificing lands, and spending spells could become progress because the graveyard was no longer merely a record of lost resources. It was an engine that naturally filled as the game continued.</p>
+<p>Nimble Mongoose distilled the set’s threshold mechanic into its most efficient body. Before threshold, it was deliberately below rate. After threshold, it became a one-mana 3/3 whose protection from targeting made the original investment extraordinarily difficult to answer.</p>
+<p>The design was not self-contained. A deck had to choose cards such as <span class="card-name" data-card="Careful Study" tabindex="0">Careful Study</span>, <span class="card-name" data-card="Mental Note" tabindex="0">Mental Note</span>, <span class="card-name" data-card="Wild Mongrel" tabindex="0">Wild Mongrel</span>, flashback spells, and fetch lands because the Mongoose could not transform on schedule through ordinary play alone.</p>
+</section>
+
+<div class="pullquote">The Mongoose entered before the graveyard was ready and survived long enough to become the reason it mattered.<small>A one-mana threat paid for with future cards</small></div>
+
+<section id="seven"><div class="chapter-number">III · The Threshold</div><h2>Why the number was seven</h2>
+<p>Richard Garfield’s threshold mechanic used a resource that naturally increased over time. Early Odyssey design files experimented with ten cards, and development eventually returned the requirement to seven.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">One to six</span><h3>A protected 1/1</h3><p>The Mongoose can begin attacking and occupying the battlefield, but even small blockers can contain it.</p></div>
+<div class="format-card"><span class="impact">Seven or more</span><h3>A one-mana 3/3</h3><p>The transformation requires no activation, additional mana, or trigger. It remains active while the count stays high enough.</p></div>
+<div class="format-card"><span class="impact">Shared condition</span><h3>The deck turns on together</h3><p>Werebear, threshold lands, and other Odyssey cards reward the same graveyard work, making the mechanic intentionally linear.</p></div>
+</div>
+<p>Seven is high enough to require planning but low enough to reach during a competitive game. Every fetch land, cantrip, counterspell, burn spell, and self-mill effect advances the count while performing another necessary job.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">IV · The State</div><h2>What Nimble Mongoose actually does</h2>
+<p>Shroud means Nimble Mongoose cannot be the target of spells or abilities controlled by any player. A spell that requires a target cannot legally choose it, and an Aura spell cannot target it while being cast.</p>
+<p>Threshold is an ability word rather than a keyword ability with independent rules. The printed sentence continuously checks whether the Mongoose’s controller has seven or more cards in their graveyard. At seven or more, it receives +2/+2; below seven, the bonus disappears immediately.</p>
+<p>Effects that do not target can still affect it. Sweepers, sacrifice instructions, combat damage, global power changes, and abilities using words such as “each” or “all” work normally.</p>
+<div class="article-note"><b>No transformation trigger.</b> The Mongoose becomes 3/3 the moment the seventh card reaches the graveyard and becomes 1/1 the moment the count falls below seven. Nothing is placed on the stack.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Nimble%20Mongoose&set=ody&format=image&version=art_crop')"><div class="art-caption"><b>Terese Nielsen’s original Nimble Mongoose</b>The animal is almost lost inside green motion and foliage. Its defense is not armor but the inability of the eye—and eventually the opponent’s removal—to hold it in one place.</div></div>
+
+<section id="shroud"><div class="chapter-number">V · The Barrier</div><h2>Protection from both players</h2>
+<p>Shroud is stronger and more awkward than it first appears. The opponent cannot aim <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>, <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, <span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span>, or an opposing ability at the Mongoose.</p>
+<p>Its controller also cannot use Giant Growth, Equipment’s equip ability, targeted Auras, protection spells, or ordinary targeted pump. The creature refuses assistance as completely as it refuses removal.</p>
+<p>Canadian Threshold turned that drawback into deck-building clarity. The deck did not plan to enhance the Mongoose after casting it. It enhanced the conditions around it—graveyard size, opposing mana, combat lanes, and the number of turns available to attack.</p>
+</section>
+
+<section id="graveyard"><div class="chapter-number">VI · The Count</div><h2>The graveyard becomes a growth counter</h2>
+<p>Threshold decks treat the graveyard like a counter shared by several cards. <span class="card-name" data-card="Mental Note" tabindex="0">Mental Note</span> adds two cards and replaces itself. Careful Study moves three cards toward the graveyard count while selecting which cards remain in hand. Fetch lands become two graveyard cards over the sequence of playing and sacrificing them.</p>
+<p>Legacy tempo made the process nearly invisible. Brainstorm and Ponder found action. Daze and Force of Will protected the opening. Stifle and Lightning Bolt disrupted the opponent. Every spell naturally moved toward the graveyard after doing its primary job.</p>
+<p>The best threshold enablers were therefore not cards whose only text said “fill your graveyard.” They were useful spells whose normal lifecycle happened to feed the Goose.</p>
+</section>
+
+<section id="danger"><div class="chapter-number">VII · The Collapse</div><h2>Falling below threshold can kill it</h2>
+<p>The bonus is reversible. If graveyard hate exiles enough cards to reduce the count below seven, Nimble Mongoose immediately returns to 1/1.</p>
+<p>This can cause a creature to die without receiving new damage. A threshold Mongoose with two damage marked on it is a damaged 3/3. If the graveyard falls to six cards, it becomes a 1/1 with two damage and is put into the graveyard as a state-based action.</p>
+<p><span class="card-name" data-card="Tormod&#x27;s Crypt" tabindex="0">Tormod&#x27;s Crypt</span>, <span class="card-name" data-card="Relic of Progenitus" tabindex="0">Relic of Progenitus</span>, <span class="card-name" data-card="Deathrite Shaman" tabindex="0">Deathrite Shaman</span>, delve, escape, and the controller’s own graveyard costs can therefore function as indirect creature removal.</p>
+</section>
+
+<section id="wonder"><div class="chapter-number">VIII · The Sky</div><h2>Le Wonder Goose</h2>
+<p>Raphaël Lévy’s 2002 World Championship deck was released as “Le Wonder Goose.” Four Nimble Mongooses and four Werebears supplied threshold threats, while Wild Mongrel, Careful Study, Breakthrough, and Mental Note rapidly stocked the graveyard.</p>
+<p><span class="card-name" data-card="Wonder" tabindex="0">Wonder</span> solved the Mongoose’s inability to accept targeted evasion. Once Wonder was in the graveyard and Lévy controlled an Island, every creature gained flying through a global static ability. Shroud did not interfere.</p>
+<p>The deck could therefore turn its protected 3/3 into a protected flying 3/3 without ever choosing it as a target. The solution captured Odyssey block at its most coherent: the graveyard enabled the size, protection, and evasion of the same threat.</p>
+</section>
+
+<section id="humpherys"><div class="chapter-number">IX · The Block</div><h2>Threshold’s undefeated day at Worlds</h2>
+<p>Dave Humpherys played U/G Threshold during the Odyssey Block Constructed portion of the 2002 World Championship and completed the day undefeated. His list used four Mongooses, four Werebears, Wild Mongrel, Wonder, Mental Note, Careful Study, and Standstill.</p>
+<p>Standstill made the cheap protected threat especially punishing. The Mongoose could enter first; Standstill could then discourage the opponent from casting the spell needed to recover while the creature continued attacking.</p>
+<p>The result demonstrated that threshold was not merely a Standard package benefiting from a broad card pool. Within Odyssey block itself, the Mongoose was already efficient enough to organize an undefeated tournament deck around it.</p>
+</section>
+
+<section id="gro"><div class="chapter-number">X · The Lineage</div><h2>From Gro to Threshold</h2>
+<p>Extended “Gro” strategies had already established a tempo formula: play a small number of cheap threats, cast many low-cost or free spells, and use the resulting efficiency to attack while protecting the lead.</p>
+<p><span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span> became larger as spells were cast. Werebear and Nimble Mongoose became larger as those spells reached the graveyard. The threats changed, but the surrounding structure—cantrips, permission, mana efficiency, and an intentionally tiny creature suite—remained recognizable.</p>
+<p>Mongoose was ideal for the transition because it did not need to grow one spell at a time on the battlefield. It could arrive after the graveyard was already prepared or wait safely while the rest of the deck crossed the threshold.</p>
+</section>
+
+<section id="canadian"><div class="chapter-number">XI · The Name</div><h2>Why the deck became Canadian Threshold</h2>
+<p>The Legacy archetype known as Canadian Threshold is associated with Canadian players David Caplan and Lam Pham. Caplan piloted the strategy to a Top 8 finish at Gen Con in 2007.</p>
+<p>The deck reduced its creature package to four Nimble Mongooses and four Tarmogoyfs. Red supplied Lightning Bolt and Fire // Ice. Blue supplied Brainstorm, cheap counters, and Stifle. Green supplied two threats efficient enough to win almost alone.</p>
+<p>“Threshold” remained in the name even as Tarmogoyf replaced Werebear and the deck contained only one threshold card. Nimble Mongoose was sufficient to preserve the identity of the entire archetype.</p>
+</section>
+
+<section id="mana-denial"><div class="chapter-number">XII · The Missing Turn</div><h2>Stifle and Wasteland buy the turns</h2>
+<p>A one-mana 3/3 is not impressive if the opponent calmly reaches four or five mana and casts sweepers or larger threats. Canadian Threshold prevented that calm development.</p>
+<p><span class="card-name" data-card="Stifle" tabindex="0">Stifle</span> countered fetch-land activations and important triggers. <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> destroyed nonbasic lands. Daze punished players who tapped low, while Force of Will stopped the spell that mattered regardless of mana.</p>
+<p>The Mongoose did not need to deal twenty damage quickly. It needed every opposing turn to accomplish slightly less than expected. Mana denial converted a modest clock into an inevitable one.</p>
+</section>
+
+<section id="goyf"><div class="chapter-number">XIII · The Pair</div><h2>The eight-creature era</h2>
+<p><span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span> gave Canadian Threshold a second cheap creature that scaled with graveyards. The two threats asked different questions.</p>
+<p>Tarmogoyf grew larger and could dominate creature combat, but ordinary removal could target it. Nimble Mongoose stopped at 3/3, but blanked much of the opponent’s spot removal. Sideboarding against one threat did not answer the other cleanly.</p>
+<p>The eight-creature construction also maximized spell density. Every draw was likely to be a cantrip, counter, burn spell, or mana-denial piece, while eight redundant threats were enough to begin attacking early.</p>
+</section>
+
+<section id="delver"><div class="chapter-number">XIV · The Transformation</div><h2>Delver changes the name, not the plan</h2>
+<p>Innistrad introduced <span class="card-name" data-card="Delver of Secrets" tabindex="0">Delver of Secrets</span>, a one-mana blue creature capable of transforming into a 3/2 flier. Canadian Threshold quickly became RUG Delver.</p>
+<p>The new threat attacked from a different angle and required no graveyard threshold, but it rewarded the same high instant-and-sorcery count. Lists commonly played four Delvers, four Mongooses, and several Tarmogoyfs.</p>
+<p>The deck’s public name shifted toward its newest creature, yet the older Goose remained the purest expression of the plan: commit almost no mana to the battlefield, then spend every later card preventing the opponent from catching up.</p>
+</section>
+
+<section id="deathrite"><div class="chapter-number">XV · The Predator</div><h2>The creature that kept the Goose small</h2>
+<p><span class="card-name" data-card="Deathrite Shaman" tabindex="0">Deathrite Shaman</span> was uniquely hostile to Nimble Mongoose. Its one toughness became irrelevant because Mongoose could not target it or remove it, while Deathrite’s 1/2 body blocked the pre-threshold 1/1.</p>
+<p>More importantly, Deathrite exiled cards from graveyards. It could delay threshold, remove the seventh card at a critical moment, and shrink an already enlarged Mongoose during combat.</p>
+<p>Wizards banned Deathrite Shaman in Legacy in 2018 for broader metagame reasons. The removal of its incidental graveyard control helped traditional RUG strategies revisit the Goose, although later threats would again surpass it.</p>
+</section>
+
+<section id="modern"><div class="chapter-number">XVI · The Horizon</div><h2>Modern Horizons opens another format</h2>
+<p>Modern Horizons reprinted Nimble Mongoose in 2019, adding it to the Modern card pool. The set also gave the card Kev Walker’s new artwork.</p>
+<p>The legal change did not recreate Canadian Threshold. Modern lacked the exact combination of Brainstorm, Daze, Force of Will, Wasteland, and Stifle that made the Legacy shell oppressive, while graveyard hate was plentiful and creature threats had become more immediately powerful.</p>
+<p>The reprint nevertheless confirmed the card’s historical stature. A creature once defined by Odyssey Standard and Legacy was selected as one of the past designs worthy of entering Modern directly.</p>
+</section>
+
+<section id="pauper"><div class="chapter-number">XVII · The Common</div><h2>The rarity downgrade</h2>
+<p>Eternal Masters reprinted Nimble Mongoose at common in 2016. When tabletop and digital Pauper legality were unified in 2019, that common printing made the creature legal in the format.</p>
+<p>Pauper can reproduce parts of the old engine through Mental Note, Thought Scour, Brainstorm, Ponder, cheap counters, and burn. A one-mana shrouded 3/3 remains a meaningful rate.</p>
+<p>The competition is substantial. Tolarian Terror, Gurmag Angler, graveyard hate, and more efficient contemporary engines often reward using or preserving graveyard cards differently. The Mongoose is legal and recognizable without becoming the format’s default green threat.</p>
+</section>
+
+<section id="design"><div class="chapter-number">XVIII · The Keyword</div><h2>Shroud gives way to hexproof</h2>
+<p>Nimble Mongoose originally spelled out its protection in full. Future Sight later introduced “shroud” as the keyword for the same rule, and Oracle text retroactively applied it to the Mongoose.</p>
+<p>R&D eventually retired shroud from new designs in favor of hexproof. Playtesting showed that many players intuitively expected to be able to target their own protected creatures and found shroud’s self-denial disappointing.</p>
+<p>Nimble Mongoose preserves the older philosophy. Its untargetability is not a pure benefit. The creature is independent of both players, forcing the deck to improve the game around it rather than the permanent itself.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XIX · The Image</div><h2>Two artists, two kinds of speed</h2>
+<p>Terese Nielsen’s Odyssey artwork places the Mongoose inside a rushing field of green, brown, and white. The animal’s shape is visible but unstable, matching a creature whose defining defense is the inability to pin it down.</p>
+<p>Kev Walker’s Eternal Masters and Modern Horizons image is clearer and more physical. The Mongoose races across a root or branch while predators and danger blur behind it, emphasizing speed rather than concealment.</p>
+<p>The two versions express the same rules through different metaphors. Nielsen makes the creature difficult to perceive. Walker makes it impossible to catch.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XX · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Historic Standard and Block</span><h3>The threshold flagship</h3><p>Le Wonder Goose and Dave Humpherys’s undefeated Worlds block deck used self-mill, discard, and Wonder to create an early 3/3 the opponent could not target.</p></div>
+<div class="format-card"><span class="impact">Legacy</span><h3>The original Canadian threat</h3><p>Mongoose carried Canadian Threshold into RUG Delver and remains one of the clearest symbols of Legacy tempo.</p></div>
+<div class="format-card"><span class="impact">Modern and Pauper</span><h3>Legal through later reprints</h3><p>Modern Horizons added it to Modern, while Eternal Masters’ common printing established Pauper legality.</p></div>
+</div>
+<p>Nimble Mongoose is currently legal in Modern, Legacy, Vintage, Commander, Pauper, and Oathbreaker. It is not legal in Standard, Pioneer, Historic, Timeless, or Brawl.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XXI · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The opponent had removal. The Goose had already decided that did not matter.</blockquote><cite>Nimble Mongoose made one green mana feel permanent and turned the seventh graveyard card into the moment a tempo deck’s clock became real.</cite></div>
+<p>Players remember announcing threshold, rotating the graveyard sideways, or arranging it into a visible stack of seven. They remember drawing a targeted removal spell and realizing it had no text against the creature already attacking.</p>
+<p>They remember the contradiction: a deck filled with intricate cantrips, counters, fetches, and mana denial was ultimately winning with a small animal whose instructions were simply to arrive early and refuse to be touched.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XXII · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve the Mongoose’s complete competitive evolution: Raphaël Lévy’s Odyssey-era Le Wonder Goose, David Caplan’s eight-creature Canadian Threshold shell, and Greg Borish’s 2012 RUG Delver list after Innistrad added a new one-mana threat.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Raphaël Lévy — Le Wonder Goose</strong><small>World Championship 2002 · Standard · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Lévy's threshold deck gave Nimble Mongoose the complete Odyssey treatment. Careful Study, Mental Note, Breakthrough, Wild Mongrel, and Roar of the Wurm filled the graveyard; Wonder supplied evasion without targeting; and Genesis ensured that an attrition game still favored the deck built to use its graveyard.</p>
+<div class="deck-meta"><div><b>Raphaël Lévy — Le Wonder Goose</b><div class="small">World Championship 2002 · Standard · 60/15</div></div><button class="copy" data-target="raphael-levy-wonder-goose">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Genesis" tabindex="0">Genesis</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Nimble Mongoose" tabindex="0">Nimble Mongoose</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Seton&#x27;s Scout" tabindex="0">Seton&#x27;s Scout</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Werebear" tabindex="0">Werebear</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wild Mongrel" tabindex="0">Wild Mongrel</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wonder" tabindex="0">Wonder</span></div></div><div class="group"><h4>Instants · 5</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mental Note" tabindex="0">Mental Note</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div></div><div class="group"><h4>Sorceries · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Breakthrough" tabindex="0">Breakthrough</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Careful Study" tabindex="0">Careful Study</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Roar of the Wurm" tabindex="0">Roar of the Wurm</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">8</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div>
+<div class="row"><span class="qty">10</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Yavimaya Coast" tabindex="0">Yavimaya Coast</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Compost" tabindex="0">Compost</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Disrupt" tabindex="0">Disrupt</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Phantom Centaur" tabindex="0">Phantom Centaur</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Ray of Revelation" tabindex="0">Ray of Revelation</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Repulse" tabindex="0">Repulse</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div></div></div></div>
+<pre hidden id="raphael-levy-wonder-goose">Raphaël Lévy — Le Wonder Goose
+World Championship 2002 · Standard · 60/15
+
+Creatures · 21
+2 Genesis
+4 Nimble Mongoose
+3 Seton&#x27;s Scout
+4 Werebear
+4 Wild Mongrel
+4 Wonder
+
+Instants · 5
+4 Mental Note
+1 Rushing River
+
+Sorceries · 12
+4 Breakthrough
+4 Careful Study
+4 Roar of the Wurm
+
+Lands · 22
+8 Forest
+10 Island
+4 Yavimaya Coast
+
+Sideboard · 15
+4 Compost
+3 Disrupt
+3 Phantom Centaur
+2 Ray of Revelation
+2 Repulse
+1 Rushing River</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>David Caplan — Canadian Threshold</strong><small>Gen Con 2007-era archetype list · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Caplan and Lam Pham's Canadian Threshold construction stripped the creature suite to four Nimble Mongooses and four Tarmogoyfs. Every other slot either found the threats, protected the tempo advantage, attacked mana with Stifle and Wasteland, or converted a narrow opening into a finished game.</p>
+<div class="deck-meta"><div><b>David Caplan — Canadian Threshold</b><div class="small">Gen Con 2007-era archetype list · 60/15</div></div><button class="copy" data-target="dave-caplan-canadian-threshold">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Nimble Mongoose" tabindex="0">Nimble Mongoose</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span></div></div><div class="group"><h4>Cantrips and disruption · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stifle" tabindex="0">Stifle</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div></div><div class="group"><h4>Removal and utility · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Fire // Ice" tabindex="0">Fire // Ice</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wipe Away" tabindex="0">Wipe Away</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disrupt" tabindex="0">Disrupt</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Krosan Grip" tabindex="0">Krosan Grip</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Submerge" tabindex="0">Submerge</span></div></div></div></div>
+<pre hidden id="dave-caplan-canadian-threshold">David Caplan — Canadian Threshold
+Gen Con 2007-era archetype list · 60/15
+
+Creatures · 8
+4 Nimble Mongoose
+4 Tarmogoyf
+
+Cantrips and disruption · 24
+4 Brainstorm
+4 Ponder
+4 Stifle
+4 Daze
+4 Force of Will
+4 Spell Snare
+
+Removal and utility · 10
+4 Lightning Bolt
+4 Fire // Ice
+1 Rushing River
+1 Wipe Away
+
+Lands · 18
+3 Flooded Strand
+3 Polluted Delta
+4 Tropical Island
+4 Volcanic Island
+4 Wasteland
+
+Sideboard · 15
+4 Disrupt
+1 Engineered Explosives
+1 Krosan Grip
+1 Pyroclasm
+2 Pyroblast
+2 Red Elemental Blast
+4 Submerge</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Greg Borish — Canadian Threshold / RUG Delver</strong><small>Legacy Staples, August 2012 · 3rd place · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>After Innistrad, Delver of Secrets joined Mongoose and Tarmogoyf. Borish's list shows the mature three-threat family: Delver attacked through the air immediately, Goyf supplied size, and Mongoose remained the creature most opposing removal simply could not touch.</p>
+<div class="deck-meta"><div><b>Greg Borish — Canadian Threshold / RUG Delver</b><div class="small">Legacy Staples, August 2012 · 3rd place · 60/15</div></div><button class="copy" data-target="greg-borish-rug-delver">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Delver of Secrets" tabindex="0">Delver of Secrets</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Nimble Mongoose" tabindex="0">Nimble Mongoose</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Scavenging Ooze" tabindex="0">Scavenging Ooze</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span></div></div><div class="group"><h4>Spells · 28</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fire // Ice" tabindex="0">Fire // Ice</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Forked Bolt" tabindex="0">Forked Bolt</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Thought Scour" tabindex="0">Thought Scour</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ancient Grudge" tabindex="0">Ancient Grudge</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Grafdigger&#x27;s Cage" tabindex="0">Grafdigger&#x27;s Cage</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Harness" tabindex="0">Mind Harness</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Scavenging Ooze" tabindex="0">Scavenging Ooze</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Submerge" tabindex="0">Submerge</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div></div></div></div>
+<pre hidden id="greg-borish-rug-delver">Greg Borish — Canadian Threshold / RUG Delver
+Legacy Staples, August 2012 · 3rd place · 60/15
+
+Creatures · 13
+4 Delver of Secrets
+4 Nimble Mongoose
+1 Scavenging Ooze
+4 Tarmogoyf
+
+Spells · 28
+4 Brainstorm
+4 Daze
+1 Fire // Ice
+4 Force of Will
+1 Forked Bolt
+4 Lightning Bolt
+4 Ponder
+4 Spell Pierce
+1 Spell Snare
+1 Thought Scour
+
+Lands · 19
+4 Misty Rainforest
+4 Scalding Tarn
+4 Tropical Island
+3 Volcanic Island
+4 Wasteland
+
+Sideboard · 15
+3 Ancient Grudge
+2 Grafdigger&#x27;s Cage
+1 Mind Harness
+2 Pyroblast
+1 Red Elemental Blast
+1 Scavenging Ooze
+4 Submerge
+1 Surgical Extraction</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXIII · The Object</div><h2>Printings and sources</h2>
+<p>Nimble Mongoose debuted as an Odyssey uncommon with Terese Nielsen’s artwork. Raphaël Lévy’s 2002 World Championship deck produced a gold-bordered commemorative version. Eternal Masters reprinted the card at common with new Kev Walker art, and Modern Horizons reused that image while adding the creature to Modern.</p>
+<div class="printings">
+<figure class="printing"><img alt="Nimble Mongoose from Odyssey" src="https://api.scryfall.com/cards/named?exact=Nimble%20Mongoose&amp;set=ody&amp;format=image&amp;version=normal"><figcaption>Odyssey · 2001<br>Terese Nielsen · original uncommon printing</figcaption></figure>
+<figure class="printing"><img alt="Nimble Mongoose from World Championship Decks 2002" src="https://api.scryfall.com/cards/named?exact=Nimble%20Mongoose&amp;set=wc02&amp;format=image&amp;version=normal"><figcaption>World Championship Decks 2002<br>Raphaël Lévy · gold-bordered commemorative printing</figcaption></figure>
+<figure class="printing"><img alt="Nimble Mongoose from Eternal Masters" src="https://api.scryfall.com/cards/named?exact=Nimble%20Mongoose&amp;set=ema&amp;format=image&amp;version=normal"><figcaption>Eternal Masters · 2016<br>Kev Walker · rarity shifted to common</figcaption></figure>
+<figure class="printing"><img alt="Nimble Mongoose from Modern Horizons" src="https://api.scryfall.com/cards/named?exact=Nimble%20Mongoose&amp;set=mh1&amp;format=image&amp;version=normal"><figcaption>Modern Horizons · 2019<br>Kev Walker · new-to-Modern reprint</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/ody/258/nimble-mongoose">Scryfall — Nimble Mongoose, Odyssey</a><span>Card identity, collector number, Oracle text, artist, original rarity, current legality, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Nimble%20Mongoose">Wizards of the Coast Gatherer — Nimble Mongoose</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/design-files-odyssey-part-1">Mark Rosewater — Design Files: Odyssey, Part 1</a><span>Official threshold design file, the movement between ten and seven graveyard cards, and Odyssey’s graveyard-support structure.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/lessons-learned-part-1">Mark Rosewater — Lessons Learned, Part 1</a><span>Official retrospective on Richard Garfield’s threshold mechanic and Odyssey’s challenge to conventional card advantage.</span></li>
+<li><a href="https://mtg.wtf/deck/wc02/raphael-levy-le-wonder-goose">Raphaël Lévy — Le Wonder Goose</a><span>Complete World Championship Decks 2002 list and product identity.</span></li>
+<li><a href="https://mtg.wiki/page/2002_World_Championships/Standard_decks">2002 World Championships — Standard deck archive</a><span>Lévy’s tournament context, full decklist, and the official product description of the threshold strategy.</span></li>
+<li><a href="https://www.mtgtop8.com/event?d=253058&amp;e=9242">Dave Humpherys — U/G Threshold, Worlds 2002</a><span>Complete undefeated Odyssey Block Constructed deck and event result.</span></li>
+<li><a href="https://blog.cardsphere.com/the-eternalist-im-canadian-and-thats-okay/">The Eternalist — Canadian Threshold history</a><span>Archetype lineage, attribution to David Caplan and Lam Pham, Gen Con 2007 result, and the transition into RUG Delver.</span></li>
+<li><a href="https://classiclegacymtg.com/deck/canadian-threshold/">Classic Legacy — David Caplan’s Canadian Threshold</a><span>Complete canonical eight-creature pre-Delver list with Mongoose, Tarmogoyf, Stifle, Wasteland, and red removal.</span></li>
+<li><a href="https://www.knight-ware.com/ccg/magic/tourney/08_12_2012legacy.html">Knight Ware — Legacy Staples, August 2012</a><span>Greg Borish’s third-place Canadian Threshold list and the event’s complete Top 8 context.</span></li>
+<li><a href="https://www.coolstuffinc.com/a/jarvisyu-030512-legacy-metagame">Jarvis Yu — Legacy Metagame, 2012</a><span>Contemporary discussion of Nimble Mongoose’s return to RUG tempo immediately after Delver of Secrets.</span></li>
+<li><a href="https://magic.wizards.com/en/news/announcements/july-2-2018-banned-and-restricted-update-2018-07-02">Wizards of the Coast — July 2018 Banned and Restricted Update</a><span>Official Legacy ban of Deathrite Shaman and explanation of its graveyard-control role in the format.</span></li>
+<li><a href="https://magic.wizards.com/en/news/card-image-gallery/eternal-masters">Wizards of the Coast — Eternal Masters card gallery</a><span>Official confirmation of the Eternal Masters reprint.</span></li>
+<li><a href="https://magic.wizards.com/en/news/announcements/pauper-comes-paper-2019-06-27">Wizards of the Coast — Pauper Comes to Paper</a><span>Official unification of tabletop and digital Pauper legality around any recognized common printing.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/evergreen-eggs-ham-2015-06-08">Mark Rosewater — Evergreen Eggs &amp; Ham</a><span>Official explanation of shroud’s retirement and its replacement by hexproof.</span></li>
+<li><a href="https://scryfall.com/card/ema/179/nimble-mongoose">Scryfall — Eternal Masters Nimble Mongoose</a><span>Kev Walker artwork, common rarity, and current Pauper legality.</span></li>
+<li><a href="https://scryfall.com/card/mh1/174/nimble-mongoose">Scryfall — Modern Horizons Nimble Mongoose</a><span>Modern Horizons printing and Modern legality.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Nimble+Mongoose%22&amp;unique=prints">Scryfall — Nimble Mongoose printing search</a><span>Cross-set frames, artists, rarities, and commemorative versions.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Nimble Mongoose is not present among the numbered one thousand and is therefore added as Honorable Mention 005. Lévy’s and Borish’s lists are preserved from documented tournaments. Caplan’s list is identified as the canonical Gen Con 2007-era Canadian Threshold construction preserved by the Classic Legacy archive.</div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Honorable Mention 005</b><br>Nimble Mongoose made one green mana into a threat that survived targeted removal and rewarded tempo decks for turning every useful spell into one more card toward threshold.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>

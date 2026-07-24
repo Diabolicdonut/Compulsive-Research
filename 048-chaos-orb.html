@@ -1,0 +1,1079 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Chaos Orb: Alpha, dexterity mechanics, physical battlefield layout, the 1994 World Championship, Old School errata, banning, Chaos Confetti, artwork, printings, and decklists."><title>Chaos Orb: The Game Became Physical — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+.hero.chaosorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Chaos%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+</style></head>
+<body><header class="hero chaosorb-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-048#entry-048">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 048 · The Foundational Canon</div>
+<h1>The Game Became Physical</h1>
+<p class="deckline">Chaos Orb turned the battlefield into literal geography, asking players to flip the artifact through the air and making card spacing, dexterity, and the table itself part of Magic’s rules.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 32 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="047-meekstone.html">← Entry 047 · Meekstone</a><div class="center">Entry 048 of 1,000</div><a href="index.html?focus=entry-049#entry-049">Entry 049 · Shahrazad →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">The Game Became Physical</a>
+<a href="#alpha">Alpha’s dexterity experiment</a>
+<a href="#battlefield">The battlefield became geography</a>
+<a href="#flip">The one-foot flip</a>
+<a href="#rules">What Chaos Orb actually does</a>
+<a href="#response">Removing the Orb before the flip</a>
+<a href="#layout">Why players spread their cards apart</a>
+<a href="#skill">A game action that could be practiced</a>
+<a href="#worlds">Every deck in the first Worlds Top 4</a>
+<a href="#lestree">Lestrée’s universal answer</a>
+<a href="#symens">Symens and the aggressive Orb</a>
+<a href="#the-deck">The Orb inside The Deck</a>
+<a href="#old-school">Old School rewrites the landing</a>
+<a href="#ban">Restriction, banning, and organized play</a>
+<a href="#reserved">A Reserved List card still receiving facsimiles</a>
+<a href="#confetti">Chaos Confetti finishes the joke</a>
+<a href="#legacy">The legacy of physical mechanics</a>
+<a href="#art">A universe caught between fingers</a>
+<a href="#formats">A life across formats</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Release</div><h2>The Game Became Physical</h2>
+<p class="opening dropcap">Chaos Orb is the card that asks a Magic player to stop representing an action and perform one. The artifact leaves the battlefield, turns through the air, and falls across the actual cards on the table. Success is measured not by a die, a hidden choice, or a rules calculation, but by where the cardboard lands.</p>
+<p>For two mana and one activation, the Orb promised destruction broad enough to cross the color pie. A red-green deck could remove an enchantment. A blue deck could destroy a creature already in play. A control deck could answer a land, artifact, or protected permanent with the same object.</p>
+<p>The price was a miniature dexterity contest embedded inside a strategy game. Card spacing mattered. Table size mattered. Sleeves mattered. The player's ability to flip a rare card through a full rotation mattered. Magic's battlefield was no longer only an abstract zone. For one activation, it became literal terrain.</p>
+<div class="card-lead"><img alt="Chaos Orb from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Chaos Orb</h3><p><b>{2} · Artifact</b></p><p>{1}, {T}: If this artifact is on the battlefield, flip it onto the battlefield from a height of at least one foot. If this artifact turns over completely at least once during the flip, destroy all nontoken permanents it touches. Then destroy this artifact.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Mark Tedin</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Dexterity-based universal removal</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Experiment</div><h2>Alpha’s dexterity experiment</h2>
+<p>Richard Garfield designed Alpha before anyone knew that Magic would become a highly regulated international tournament game. That freedom produced cards such as <span class="card-name" data-card="Word of Command" tabindex="0">Word of Command</span>, <span class="card-name" data-card="Illusionary Mask" tabindex="0">Illusionary Mask</span>, <span class="card-name" data-card="Shahrazad" tabindex="0">Shahrazad</span>, and Chaos Orb—effects willing to ask questions later rules design would avoid.</p>
+<p>Chaos Orb was not random in the usual sense. A practiced player could influence the result. It was also not deterministic, because the card could rotate badly, catch air, strike an edge, or miss the intended area.</p>
+<p>The design placed a small arcade action inside a game otherwise controlled by deck construction, hidden information, arithmetic, and timing. That novelty made the card unforgettable and made it almost impossible to support once organized play demanded consistent physical procedures.</p>
+</section>
+
+<div class="pullquote">For one activation, the battlefield stopped being a zone and became the table beneath the cards.<small>Physical space entered the rules</small></div>
+
+<section id="battlefield"><div class="chapter-number">III · The Geography</div><h2>The battlefield became geography</h2>
+<p>Most Magic effects do not care whether two permanents are separated by an inch or three feet. Chaos Orb's original functionality made distance a strategic property.</p>
+<p>Permanents placed close together risked being touched by the same successful flip. Permanents spread far apart required the Orb's controller to choose a smaller landing area. The location of cards on the table could therefore alter the expected value of an activation.</p>
+<p>This changed tabletop behavior before the Orb ever appeared. A player who believed the opponent might draw one had reason to arrange cards defensively from the beginning, consuming space and making the game harder to read.</p>
+</section>
+
+<section id="flip"><div class="chapter-number">IV · The Motion</div><h2>The one-foot flip</h2>
+<p>The card must be released from a height of at least one foot. It must turn over completely at least once while airborne. A flat drop is not a flip, and rotating the card in the hand does not satisfy the action.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Height</span><h3>At least one foot</h3><p>The Orb must begin high enough that the physical action cannot be reduced to simply placing it on the desired card.</p></div>
+<div class="format-card"><span class="impact">Rotation</span><h3>A full 360 degrees</h3><p>The card must turn over completely in the air before landing.</p></div>
+<div class="format-card"><span class="impact">Contact</span><h3>Touch determines destruction</h3><p>Under official Oracle text, every nontoken permanent touched by the successful landing is destroyed.</p></div>
+</div>
+<p>The flip can be performed with any legal tournament-size copy in an environment that permits the card, although the sanctioned formats that could otherwise use Alpha cards ban it. Old School communities often establish additional local procedures for sleeves, proxies, and legal technique.</p>
+</section>
+
+<section id="rules"><div class="chapter-number">V · The Landing</div><h2>What Chaos Orb actually does</h2>
+<p>Chaos Orb has an activated ability costing one mana and tapping the artifact. When the ability resolves, the controller checks that the Orb is still on the battlefield, physically flips it, and determines which nontoken permanents it touches after a complete airborne rotation.</p>
+<p>The ability does not target. Hexproof, shroud, and protection do not prevent a permanent from being destroyed by the landing. Indestructible does prevent destruction, and a legal regeneration shield can replace the destruction event.</p>
+<p>Tokens are explicitly excluded by the current Oracle text. Cards outside the battlefield cannot be affected. Sleeves count as part of the cards for determining contact.</p>
+<div class="article-note"><b>The Orb destroys itself.</b> Whether the flip succeeds, misses, or touches nothing relevant, the final instruction attempts to destroy Chaos Orb after the physical action.</div>
+</section>
+
+<div class="art-break" style="background-image:url('https://api.scryfall.com/cards/named?exact=Chaos%20Orb&set=lea&format=image&version=art_crop')"><div class="art-caption"><b>Mark Tedin’s original Chaos Orb</b>A hand holds a fractured sphere containing light, darkness, and planetary forms. The image presents the card as a universe small enough to release and dangerous enough to erase whatever lies beneath it.</div></div>
+
+<section id="response"><div class="chapter-number">VI · The Interruption</div><h2>Removing the Orb before the flip</h2>
+<p>Most activated abilities survive the destruction of their source. Chaos Orb's ability also remains on the stack—but its text contains an unusual condition: “If this artifact is on the battlefield, flip it.”</p>
+<p>If the Orb is destroyed, bounced, sacrificed, or otherwise removed before the ability resolves, it is no longer on the battlefield and is not flipped. The physical portion never occurs.</p>
+<p>This makes artifact removal a true response rather than merely a way to prevent a future activation. The defender must act after the ability is announced but before the controller receives permission to pick up the card.</p>
+</section>
+
+<section id="layout"><div class="chapter-number">VII · The Spacing</div><h2>Why players spread their cards apart</h2>
+<p>Official rulings allowed players to arrange cards before Chaos Orb entered the battlefield but discouraged unreadable stacking or layouts that concealed names and counts. Once the Orb was in play, rearranging the board simply to escape the flip was not permitted.</p>
+<p>The practical result was anticipatory spacing. Lands formed long lines. Artifacts occupied separate corners. Creatures were placed far enough apart that a single card could not cover more than one.</p>
+<p>This was strategically rational and logistically absurd. A two-player game could require an increasingly large physical surface because one possible card rewarded empty table space.</p>
+</section>
+
+<section id="skill"><div class="chapter-number">VIII · The Practice</div><h2>A game action that could be practiced</h2>
+<p>Chaos Orb rewarded repetition outside the match. Players could practice finger position, rotation speed, release angle, and the behavior of sleeved or unsleeved cards.</p>
+<p>The relevant skill was real but disconnected from most of Magic. A player could make excellent mulligan decisions, count resources perfectly, and navigate combat well, then lose value because a piece of cardboard fluttered badly.</p>
+<p>That mismatch became one reason dexterity effects migrated toward silver-bordered and casual products. They can be funny and memorable without being appropriate as a repeated requirement of high-level competitive play.</p>
+</section>
+
+<section id="worlds"><div class="chapter-number">IX · The Field</div><h2>Every deck in the first Worlds Top 4</h2>
+<p>Chaos Orb was present in every deck of the 1994 World Championship Top 4. Bertrand Lestrée, Dominic Symens, and Cyrille de Foucaud played it in their main decks. Champion Zak Dolan placed it in the sideboard.</p>
+<p>The ubiquity was not about a dedicated Orb archetype. The card was simply broad enough to justify a slot almost anywhere. Aggressive decks needed an answer to Moat, large blockers, or artifacts. Control decks needed a colorless answer that crossed permanent types.</p>
+<p>The first World Championship therefore captured Chaos Orb at its competitive peak: restricted to one copy, physically awkward, and nevertheless considered too useful to omit.</p>
+</section>
+
+<section id="lestree"><div class="chapter-number">X · The Finalist</div><h2>Lestrée’s universal answer</h2>
+<p>Bertrand Lestrée reached the 1994 Worlds final with a focused four-color Zoo deck. Kird Ape, Argothian Pixies, Whirling Dervish, burn, Psionic Blast, and Mishra's Factory created a recognizable aggressive shell.</p>
+<p>Chaos Orb served as the answer that the rest of the deck could not provide efficiently. Red damage could remove small creatures but not enchantments. Green creatures could pressure control but not reliably remove Moat. The Orb ignored those divisions.</p>
+<p>Its presence reveals how early aggro decks used restricted power. They were not piles of only fast cards. A single universal answer could protect the entire plan from a permanent that would otherwise end the game.</p>
+</section>
+
+<section id="symens"><div class="chapter-number">XI · The Statue</div><h2>Symens and the aggressive Orb</h2>
+<p>Dominic Symens reached the semifinals with Birds of Paradise, Llanowar Elves, Kird Ape, Jade Statue, burn, Channel-Fireball, and one Chaos Orb.</p>
+<p>The deck's mana creatures and artifact threat could develop rapidly. Chaos Orb did not need to establish control over many turns. One successful flip could remove the blocker, land, artifact, or enchantment buying the opponent enough time to stabilize.</p>
+<p>This is Chaos Orb as tempo rather than attrition. The card consumed itself to clear one critical obstacle, and the creatures or Fireballs handled everything after the landing.</p>
+</section>
+
+<section id="the-deck"><div class="chapter-number">XII · The Control</div><h2>The Orb inside The Deck</h2>
+<p>Old School versions of Brian Weissman's The Deck commonly include Chaos Orb as a central answer. Permission handles spells on the stack. Swords to Plowshares handles creatures. Disenchant handles artifacts and enchantments. The Orb remains available for anything awkward enough to slip between those categories.</p>
+<p>Because the card does not target, it can destroy permanents protected from ordinary targeting. Because it can choose a land under common Old School errata, it can answer Library of Alexandria, Mishra's Workshop, or another engine that conventional control cards cannot easily remove.</p>
+<p>The Deck also has time to use the Orb carefully. It can protect the activation with countermagic and recover the artifact through effects permitted by a particular Old School ruleset.</p>
+</section>
+
+<section id="old-school"><div class="chapter-number">XIII · The Revision</div><h2>Old School rewrites the landing</h2>
+<p>Many Old School communities use functional errata that asks the controller to choose one nontoken permanent, perform the one-foot flip, and land on that chosen permanent. A successful landing destroys only that permanent.</p>
+<p>The revision preserves the physical ritual while eliminating the incentive to spread every card across the table. It also prevents the Orb from becoming a mass-removal effect through a broad landing.</p>
+<p>This is not the official Oracle wording used by sanctioned Magic. It is a community solution for a historical format whose participants value the card enough to repair the play pattern rather than remove it.</p>
+</section>
+
+<section id="ban"><div class="chapter-number">XIV · The List</div><h2>Restriction, banning, and organized play</h2>
+<p>Chaos Orb was restricted in August 1994. In November 1995, Vintage—then Type I—banned it alongside Channel and Falling Star.</p>
+<p>The ban placed Chaos Orb in a tiny class of Vintage cards considered unsuitable even as singletons. Its problem was not simply power. The physical action, table-layout incentives, accessibility concerns, and inconsistent tournament procedure were inseparable from the effect.</p>
+<p>Legacy inherited the prohibition, and Commander also bans the card. Current official Vintage still lists Chaos Orb, Falling Star, and Shahrazad as specifically banned beyond the broader categories of ante, conspiracy, sticker, and culturally prohibited cards.</p>
+</section>
+
+<section id="reserved"><div class="chapter-number">XV · The Object</div><h2>A Reserved List card still receiving facsimiles</h2>
+<p>Chaos Orb is on the Reserved List. Its only normal tournament-legal printings are Alpha, Beta, and Unlimited.</p>
+<p>Collectors' Edition and International Collectors' Edition reproduced the original card with square corners and nonstandard backs. An oversized promotional version made the act of flipping the Orb comically grand. The 30th Anniversary Edition created another non-tournament-legal reproduction in both normal and retro treatments.</p>
+<p>These printings preserve the object without returning it to sanctioned play. The card can be revisited as memorabilia precisely because its competitive future is already closed.</p>
+</section>
+
+<section id="confetti"><div class="chapter-number">XVI · The Parody</div><h2>Chaos Confetti finishes the joke</h2>
+<p><span class="card-name" data-card="Chaos Confetti" tabindex="0">Chaos Confetti</span> appeared in Unglued as the inevitable parody. Instead of flipping the card intact, the controller tears it into pieces and throws all of them from at least five feet away. Cards touched by the pieces are destroyed.</p>
+<p>Official Unglued guidance clarified that the distance is horizontal, that all pieces must be thrown in one toss, and that the opponent may not rearrange the battlefield after activation except as required to pay costs.</p>
+<p>The parody exaggerates every part of Chaos Orb that black-bordered tournament Magic could not sustain: physical destruction of the game piece, sprawling coverage, subjective execution, and a rules question whose best answer is laughter.</p>
+</section>
+
+<section id="legacy"><div class="chapter-number">XVII · The Design</div><h2>The legacy of physical mechanics</h2>
+<p>Black-bordered Magic largely abandoned manual-dexterity cards. <span class="card-name" data-card="Falling Star" tabindex="0">Falling Star</span> joined Chaos Orb on the banned list, and later physical-action designs were directed toward Un-sets, attractions, minigames, or explicitly casual products.</p>
+<div class="inline-image"><div class="image" style="background-image:url('https://api.scryfall.com/cards/named?exact=Chaos%20Confetti&format=image&version=art_crop')"></div><div class="copy"><div class="kicker">The silver-bordered descendant</div><h3>Chaos Confetti</h3><p><span class="card-name" data-card="Chaos Confetti" tabindex="0">Chaos Confetti</span> preserves the battlefield-as-geography concept while making the card's destruction part of the joke. It is not a safer competitive descendant; it is an admission that the original premise belongs in comedy.</p></div></div>
+<p>Chaos Orb still influenced the game by demonstrating a boundary. Magic cards can request almost anything, but organized play requires actions that are repeatable, accessible, judgeable, and independent of the furniture beneath the match.</p>
+</section>
+
+<section id="art"><div class="chapter-number">XVIII · The Image</div><h2>A universe caught between fingers</h2>
+<p>Mark Tedin's original artwork depicts a hand holding a fractured cosmic sphere. Light and darkness divide the object while shards and celestial bodies appear suspended inside it.</p>
+<p>The hand is important. Many artifact illustrations show an object waiting to be used. Chaos Orb is already being held at the exact moment before release, making the image a visual instruction for the card's physical action.</p>
+<p>Every printing retains Tedin's art. The card's visual history is therefore told through black borders, white borders, square-edged collectors' editions, oversized presentation, and the retro facsimiles of the 30th Anniversary Edition.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XIX · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Old School</span><h3>A defining singleton</h3><p>Community rules commonly permit one copy with single-permanent functional errata that preserves the flip while preventing board-spread play.</p></div>
+<div class="format-card"><span class="impact">Vintage and Legacy</span><h3>Explicitly banned</h3><p>Unlike most early power cards in Vintage, Chaos Orb cannot be played even as a restricted singleton.</p></div>
+<div class="format-card"><span class="impact">Commander</span><h3>Banned, often remembered casually</h3><p>House-rule games may permit it for spectacle, but official Commander excludes the card alongside Falling Star and other unsuitable effects.</p></div>
+</div>
+<p>Chaos Orb is outside Standard, Pioneer, Modern, Pauper, and digital formats by card pool as well as practicality. Its active competitive life belongs to independently governed historical communities rather than sanctioned tournament Magic.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XX · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The spell resolved. Then everyone moved their hands away from the table.</blockquote><cite>Chaos Orb made the physical card itself become the effect, suspended for a moment between the player’s fingers and the battlefield below.</cite></div>
+<p>Players remember practicing flips with basic lands, debating sleeves, measuring a foot by eye, and watching a valuable card rotate toward a crowded board.</p>
+<p>They remember the successful landing, the embarrassing edge-first miss, and the way every spectator understood the result before any rules text had to be read. Chaos Orb was not merely represented on the table. It happened there.</p>
+</section>
+
+<section id="decks"><div class="chapter-number">XXI · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">These lists preserve Chaos Orb at its first competitive peak and in its continuing historical home: Bertrand Lestrée’s 1994 World Championship finalist deck, Dominic Symens’s semifinal deck from the same event, and a representative modern Old School construction of The Deck.</p>
+<div class="deck-archive">
+<details class="deck"><summary><span><strong>Bertrand Lestrée — Four-Color Zoo</strong><small>World Championship 1994 · Finalist · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Lestrée's focused aggro-control deck used Chaos Orb as a universal answer in a field where every color had permanent types it struggled to remove. Cheap creatures and burn applied pressure, while the Orb could physically eliminate whichever Moat, large creature, artifact, or land threatened the race.</p>
+<div class="deck-meta"><div><b>Bertrand Lestrée — Four-Color Zoo</b><div class="small">World Championship 1994 · Finalist · 60/15</div></div><button class="copy" data-target="bertrand-lestree-worlds-1994">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 12</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Argothian Pixies" tabindex="0">Argothian Pixies</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div></div><div class="group"><h4>Instants and Sorceries · 20</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Channel" tabindex="0">Channel</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Psionic Blast" tabindex="0">Psionic Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div></div><div class="group"><h4>Enchantment · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Bayou" tabindex="0">Bayou</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="City in a Bottle" tabindex="0">City in a Bottle</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Disintegrate" tabindex="0">Disintegrate</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Flashfires" tabindex="0">Flashfires</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Forcefield" tabindex="0">Forcefield</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Lifeforce" tabindex="0">Lifeforce</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Serendib Efreet" tabindex="0">Serendib Efreet</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Tsunami" tabindex="0">Tsunami</span></div></div></div></div>
+<pre hidden id="bertrand-lestree-worlds-1994">Bertrand Lestrée — Four-Color Zoo
+World Championship 1994 · Finalist · 60/15
+
+Creatures · 12
+3 Argothian Pixies
+3 Birds of Paradise
+4 Kird Ape
+2 Whirling Dervish
+
+Instants and Sorceries · 20
+1 Ancestral Recall
+4 Chain Lightning
+1 Channel
+1 Demonic Tutor
+4 Fireball
+4 Lightning Bolt
+1 Mind Twist
+2 Psionic Blast
+1 Regrowth
+1 Time Walk
+
+Enchantment · 1
+1 Control Magic
+
+Artifacts · 7
+1 Black Lotus
+1 Chaos Orb
+1 Icy Manipulator
+1 Mox Emerald
+1 Mox Jet
+1 Mox Ruby
+1 Mox Sapphire
+
+Lands · 20
+2 Bayou
+2 City of Brass
+4 Mishra&#x27;s Factory
+4 Taiga
+4 Tropical Island
+4 Volcanic Island
+
+Sideboard · 15
+1 City in a Bottle
+1 Control Magic
+3 Disintegrate
+1 Flashfires
+1 Forcefield
+2 Lifeforce
+4 Serendib Efreet
+2 Tsunami</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Dominic Symens — Jade Statue Zoo</strong><small>World Championship 1994 · Semifinalist · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Symens paired Chaos Orb with explosive mana, efficient red-green creatures, Channel-Fireball, and four Jade Statues. In a deck capable of ending games quickly, the Orb did not need to generate long-term advantage; it needed to remove one obstacle that ordinary burn or combat could not solve.</p>
+<div class="deck-meta"><div><b>Dominic Symens — Jade Statue Zoo</b><div class="small">World Championship 1994 · Semifinalist · 60/15</div></div><button class="copy" data-target="dominic-symens-worlds-1994">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Aladdin" tabindex="0">Aladdin</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div></div><div class="group"><h4>Instants · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fork" tabindex="0">Fork</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div></div><div class="group"><h4>Sorceries · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Channel" tabindex="0">Channel</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Jade Statue" tabindex="0">Jade Statue</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Animate Dead" tabindex="0">Animate Dead</span></div></div><div class="group"><h4>Lands · 16</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Badlands" tabindex="0">Badlands</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Bayou" tabindex="0">Bayou</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Juggernaut" tabindex="0">Juggernaut</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Psionic Blast" tabindex="0">Psionic Blast</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Spinal Villain" tabindex="0">Spinal Villain</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Tranquility" tabindex="0">Tranquility</span></div></div></div></div>
+<pre hidden id="dominic-symens-worlds-1994">Dominic Symens — Jade Statue Zoo
+World Championship 1994 · Semifinalist · 60/15
+
+Creatures · 12
+1 Aladdin
+3 Birds of Paradise
+4 Kird Ape
+4 Llanowar Elves
+
+Instants · 6
+1 Ancestral Recall
+1 Fork
+4 Lightning Bolt
+
+Sorceries · 13
+4 Chain Lightning
+1 Channel
+1 Demonic Tutor
+4 Fireball
+1 Mind Twist
+1 Regrowth
+1 Time Walk
+
+Artifacts · 11
+1 Black Lotus
+1 Chaos Orb
+4 Jade Statue
+1 Mox Emerald
+1 Mox Jet
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+
+Enchantments · 2
+2 Animate Dead
+
+Lands · 16
+3 Badlands
+3 Bayou
+2 City of Brass
+4 Taiga
+3 Tropical Island
+1 Volcanic Island
+
+Sideboard · 15
+4 Juggernaut
+1 Mox Pearl
+2 Psionic Blast
+4 Red Elemental Blast
+2 Spinal Villain
+2 Tranquility</pre>
+</div></details>
+
+<details class="deck"><summary><span><strong>Old School 93/94 — The Deck</strong><small>Representative 2019 control construction · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The Deck treats Chaos Orb as nearly unconditional colorless removal. Countermagic and Disenchant manage ordinary threats, while the Orb answers almost any permanent that slips through—including cards such as Mishra's Factory or protected permanents that narrower spells may not reach.</p>
+<div class="deck-meta"><div><b>Old School 93/94 — The Deck</b><div class="small">Representative 2019 control construction · 60/15</div></div><button class="copy" data-target="old-school-the-deck-2019">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Control and card advantage · 29</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="The Abyss" tabindex="0">The Abyss</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div></div></div><div class="deck-col"><div class="group"><h4>Mana and lands · 31</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Fellwar Stone" tabindex="0">Fellwar Stone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Greed" tabindex="0">Greed</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div></div>
+<pre hidden id="old-school-the-deck-2019">Old School 93/94 — The Deck
+Representative 2019 control construction · 60/15
+
+Control and card advantage · 29
+1 Ancestral Recall
+1 Balance
+1 Braingeyser
+1 Chaos Orb
+4 Counterspell
+1 Demonic Tutor
+4 Disenchant
+1 Divine Offering
+1 Fireball
+3 Jayemdae Tome
+1 Mana Drain
+1 Mind Twist
+1 Recall
+1 Regrowth
+4 Swords to Plowshares
+2 The Abyss
+1 Time Walk
+
+Mana and lands · 31
+1 Black Lotus
+3 Fellwar Stone
+1 Library of Alexandria
+4 Mishra&#x27;s Factory
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+4 City of Brass
+4 Strip Mine
+4 Tundra
+4 Underground Sea
+
+Sideboard · 15
+4 Blue Elemental Blast
+1 Circle of Protection: Red
+3 Divine Offering
+1 Greed
+4 Hypnotic Specter
+1 Ivory Tower
+1 Wrath of God</pre>
+</div></details>
+</div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXII · The Object</div><h2>Printings and sources</h2>
+<p>Chaos Orb received only three ordinary tournament-legal printings: Alpha, Beta, and Unlimited. Collectors' Edition, International Collectors' Edition, an oversized 1990s promotional card, and the 30th Anniversary Edition reproduced the card as non-tournament-legal collectibles. Every version uses Mark Tedin's original artwork.</p>
+<div class="printings">
+<figure class="printing"><img alt="Chaos Orb from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Mark Tedin · original tournament-legal printing</figcaption></figure>
+<figure class="printing"><img alt="Chaos Orb from Unlimited Edition" src="https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=2ed&amp;format=image&amp;version=normal"><figcaption>Unlimited Edition · 1993<br>Final ordinary tournament-legal printing</figcaption></figure>
+<figure class="printing"><img alt="Chaos Orb oversized promotional printing" src="https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=o90p&amp;format=image&amp;version=normal"><figcaption>Oversized 90s Promos · 1996<br>A deliberately enormous non-tournament object</figcaption></figure>
+<figure class="printing"><img alt="Chaos Orb from 30th Anniversary Edition" src="https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=30a&amp;format=image&amp;version=normal"><figcaption>30th Anniversary Edition · 2022<br>Non-tournament-legal facsimile printing</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/235/chaos-orb">Scryfall — Chaos Orb, Limited Edition Alpha</a><span>Card identity, collector number, Oracle text, original artist, Reserved List status, rulings, current legality, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Chaos%20Orb">Wizards of the Coast Gatherer — Chaos Orb</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/rules">Wizards of the Coast — Comprehensive Rules</a><span>Current official rules framework for activated abilities, destruction, targeting, and battlefield objects.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/wait-theres-morph-2002-09-09">Mark Rosewater — Wait, There’s Morph</a><span>Official design retrospective identifying Chaos Orb among Alpha’s unusual experiments created before tournament and rules implications were understood.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Current Banned and Restricted Lists</a><span>Current explicit Vintage ban and broader sanctioned-format legality reference.</span></li>
+<li><a href="https://mtg.wiki/page/Banned_and_restricted_cards/Timeline">Banned and Restricted Cards Timeline</a><span>Historical record of the August 1994 restriction and November 1995 Vintage ban.</span></li>
+<li><a href="https://mtg.wiki/page/1994_World_Championships/Top_4_Decks">1994 World Championships — Top 4 deck archive</a><span>Complete Top 4 lists showing Chaos Orb in the main decks of Lestrée, Symens, and de Foucaud and in Dolan’s sideboard.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/worlds-1994-milwaukee-bertrand-lestree-standar/">Bertrand Lestrée — 1994 World Championship deck</a><span>Independent preservation of the finalist’s complete 60-card main deck and 15-card sideboard.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/old-school-9394-the-deck-2019/">Old School 93/94 — The Deck, 2019</a><span>Representative complete control list with Chaos Orb as universal removal.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/unglued-qas-questions-asked-sometimes">Mark Rosewater — Unglued QAS</a><span>Official procedures for Chaos Confetti, including tearing, horizontal distance, battlefield movement, and the single toss.</span></li>
+<li><a href="https://scryfall.com/card/2ed/236/chaos-orb">Scryfall — Unlimited Edition Chaos Orb</a><span>Final ordinary tournament-legal printing and detailed physical-flip rulings.</span></li>
+<li><a href="https://mtg.wtf/set/o90p">Oversized 90s Promos</a><span>Oversized Chaos Orb release, set identity, dimensions category, and nonstandard promotional context.</span></li>
+<li><a href="https://mtg.wtf/card/30a/528/Chaos-Orb">30th Anniversary Edition — Chaos Orb</a><span>Non-tournament-legal 2022 facsimile printings and complete printing list.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Chaos+Orb%22&amp;unique=prints">Scryfall — Chaos Orb printing search</a><span>Cross-set frames, legality, printing dates, and collectible versions.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Lestrée’s and Symens’s lists are preserved as documented 1994 World Championship decks. The Deck is identified as a representative 2019 Old School construction rather than attributed to an early sanctioned premier-event result. The article distinguishes official Oracle text from the single-permanent functional errata commonly used by Old School communities.</div>
+<div class="end-nav"><a href="047-meekstone.html"><small>Previous numbered entry</small>Meekstone</a><a href="index.html?focus=entry-049#entry-049"><small>Next numbered entry</small>Shahrazad</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 048</b><br>Chaos Orb made the physical card become the effect and revealed why tournament Magic eventually separated strategic skill from dexterity and table geometry.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
