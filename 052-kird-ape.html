@@ -1,0 +1,1228 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Juzám Djinn: Arabian Nights, early creature efficiency, black life-as-resource design, Dark Ritual acceleration, Nether Void, Old School mono-black and black-white decks, the Reserved List, Mark Tedin artwork, descendants, printings, and tournament decklists."><title>Kird Ape: One Red Mana, Two Colors, Three Toughness — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+
+
+.hero.stasis-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stasis&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+
+.hero.kird-art:before{
+  background-image:url(https://api.scryfall.com/cards/arn/40?format=image&version=art_crop)!important;
+  background-position:center 38%!important;
+}
+.art-break.kird-art-break{
+  background-image:url(https://api.scryfall.com/cards/arn/40?format=image&version=art_crop)!important;
+  background-position:center 40%!important;
+}
+.kird-descendant .image{
+  min-height:390px;display:flex;align-items:center;justify-content:center;padding:28px;
+  background:linear-gradient(145deg,#253222,#131914)!important;
+}
+.kird-descendant .image img{
+  display:block;width:min(285px,92%);height:auto;border-radius:4.8%;
+  box-shadow:0 22px 44px rgba(0,0,0,.48)
+}
+.ape-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ape-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.ape-row:last-child{border-bottom:0}.ape-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.ape-row p{margin:0}
+.benchmark-grid{width:min(980px,calc(100vw - 32px));margin:34px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.benchmark-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.benchmark-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}.benchmark-card h3{margin:.1em 0 .35em;font-size:1.15rem}.benchmark-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+.turn-sequence{margin:30px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white);box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.turn-step{display:grid;grid-template-columns:125px minmax(0,1fr);gap:18px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.turn-step:last-child{border-bottom:0}.turn-step strong{font:900 .72rem/1.3 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust)}.turn-step p{margin:0}
+@media(max-width:750px){.ape-row,.turn-step{grid-template-columns:92px minmax(0,1fr)}.benchmark-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+</style></head>
+<body><header class="hero kird-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-052#entry-052">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 052 · Early Expansion Icons and the Birth of Multicolor Aggro</div>
+<h1>One Red Mana, Two Colors, Three Toughness</h1>
+<p class="deckline">Kird Ape turned Taiga into tempo, made a land type part of a creature’s combat statistics, and established the one-mana benchmark from which Zoo would grow.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Arabian Nights, 1993</span><span class="pill">Approximately 34 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="051-juzam-djinn.html">← Entry 051 · Juzám Djinn</a><div class="center">Entry 052 of 1,000</div><a href="index.html?focus=entry-053#entry-053">Entry 053 · Savannah Lions →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">One Red Mana, Two Colors, Three Toughness</a>
+<a href="#arabian">Arabian Nights hid green inside red</a>
+<a href="#benchmark">What one mana bought in 1993</a>
+<a href="#hidden-gold">The first gold creature without a gold frame</a>
+<a href="#taiga">Taiga paid both halves of the bargain</a>
+<a href="#body">Why a 2/3 changed combat</a>
+<a href="#curve">The turn-one test</a>
+<a href="#burn">Creatures became burn spells</a>
+<a href="#answers">The answers that mattered</a>
+<a href="#worlds">Kird Ape at the first World Championship</a>
+<a href="#erhnam">Erhnam Burn’em and the red-green curve</a>
+<a href="#zoo">How the menagerie got its identity</a>
+<a href="#revised">Revised turned an expansion icon into a staple</a>
+<a href="#extended">Too efficient for the first Extended</a>
+<a href="#ninth">Ninth Edition brought the Ape home</a>
+<a href="#honolulu">Craig Jones and the Lightning Helix</a>
+<a href="#redundancy">Four Apes were not enough</a>
+<a href="#berlin">Wild Nacatl raised the ceiling</a>
+<a href="#legacy">Legacy Zoo’s cleanest years</a>
+<a href="#columbus">An undefeated Day One in 2010</a>
+<a href="#modern">Modern inherited the family</a>
+<a href="#oldschool">Old School kept the original role alive</a>
+<a href="#descendants">The descendants of the Forest bonus</a>
+<a href="#powercreep">When a 2/3 stopped being absurd</a>
+<a href="#formats">Where Kird Ape still belongs</a>
+<a href="#pilot">How to sequence the card well</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Shortcut</div><h2>One Red Mana, Two Colors, Three Toughness</h2>
+<p class="opening dropcap">Kird Ape looks like a red 1/1. The deck that made it famous saw something else: a one-mana 2/3 whose second color could be supplied by the very land used to cast it. Play <span class="card-name" data-card="Taiga" tabindex="0">Taiga</span>, tap it for red, cast Kird Ape, and the same permanent already counts as a Forest. The creature arrives fully grown before the opponent has taken a turn.</p>
+<p>That sequence compressed an entire multicolor strategy into one opening play. The card rewarded a player for building a red-green mana base, but it did not ask for two mana, a second spell, or a delayed transformation. Its condition was checked continuously and quietly. The reward was simply a body larger than one red mana was supposed to buy.</p>
+<p>Kird Ape became a foundation stone for Zoo, a benchmark for aggressive creature design, and one of the clearest early demonstrations that land types could carry strategic meaning beyond the colors they produced. Its history is the history of efficient multicolor aggression learning how to begin on turn one.</p>
+<div class="card-lead"><img alt="Kird Ape from Arabian Nights" src="https://api.scryfall.com/cards/arn/40?format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Kird Ape</h3><p><b>{R} · Creature — Ape</b></p><p>This creature gets +1/+2 as long as you control a Forest.</p><div class="stats"><div class="stat"><b>First printing</b>Arabian Nights · 1993</div><div class="stat"><b>Original artist</b>Ken Meyer Jr.</div><div class="stat"><b>Original rarity</b>Common</div><div class="stat"><b>Historical role</b>One-mana multicolor aggro benchmark</div></div></div></div>
+</section>
+
+<section id="arabian"><div class="chapter-number">II · The Expansion</div><h2>Arabian Nights hid green inside red</h2>
+<p>Arabian Nights was Magic’s first expansion and its first opportunity to show that a set could create new relationships between cards rather than merely add more examples of familiar effects. Kird Ape is a perfect expression of that early experimental freedom. It is red to cast, green in its requirement, and strongest in a deck that understands both colors at once.</p>
+<p>The design also depended on rules knowledge. A <span class="card-name" data-card="Forest" tabindex="0">Forest</span> is not merely a basic land named Forest; any land with the Forest subtype satisfies the condition. That distinction made the original dual lands matter in a new way. <span class="card-name" data-card="Taiga" tabindex="0">Taiga</span> was not only excellent mana fixing. It was a single-card engine that paid the Ape’s cost and switched on its bonus.</p>
+<p>The card therefore taught an enduring lesson: text on one permanent can make the type line of another permanent part of the game plan. Later sets would build entire mechanics around basic land types, domain, and typed nonbasic lands. Kird Ape reached the same conceptual territory with one sentence.</p>
+
+</section>
+
+<section id="benchmark"><div class="chapter-number">III · The Rate</div><h2>What one mana bought in 1993</h2>
+<p>The first Magic sets treated one-mana creatures cautiously. Most were 1/1s, narrow utility pieces, or aggressive bodies with a conspicuous weakness. Kird Ape’s floor fit that world. Its ceiling did not.</p>
+<p>A 2/3 could attack through <span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span>, block most early creatures without trading, and survive two-damage effects that erased ordinary one-drops. It still died cleanly to <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, but that was an exchange of one premium card for another—not the effortless cleanup expected against a creature costing a single mana.</p>
+<p>The important comparison was not merely efficiency in the abstract. Kird Ape produced that efficiency at the beginning of the curve, when an extra point of toughness could preserve every later attack. A one-drop that remained relevant after turn three changed how an aggressive deck used all of its subsequent mana.</p>
+<div class="benchmark-grid">
+<div class="benchmark-card"><b>Red baseline</b><h3>Mons’s Goblin Raiders</h3><p>One red mana normally bought a 1/1 with no additional text.</p></div>
+<div class="benchmark-card"><b>White aggression</b><h3>Savannah Lions</h3><p>White received a 2/1 for one mana, gaining power while remaining fragile.</p></div>
+<div class="benchmark-card"><b>Green utility</b><h3>Llanowar Elves</h3><p>Green’s 1/1 traded combat size for acceleration into larger turns.</p></div>
+<div class="benchmark-card"><b>Multicolor reward</b><h3>Kird Ape</h3><p>With a Forest, one red mana bought a 2/3: both ahead on power and unusually durable.</p></div>
+</div>
+</section>
+
+<section id="hidden-gold"><div class="chapter-number">IV · The Identity</div><h2>The first gold creature without a gold frame</h2>
+<p>Kird Ape is formally mono-red, but strategically it is a red-green card. A deck can cast it with a Mountain, yet doing so without access to a Forest produces a creature below competitive rate. The green requirement is not printed in the mana cost, but it is present in every serious deck-building decision.</p>
+<p>That makes the Ape an early example of a hidden gold card: a card whose color identity in practice is broader than the symbols in its corner. The reward for meeting that hidden cost is elegance. Unlike a conventional two-color spell, Kird Ape can be deployed with a single land and never asks the player to hold up both colors simultaneously.</p>
+<p>Zoo decks would repeatedly exploit this space. Their creatures were cheap, but their mana bases carried enormous informational density. Fetch lands, dual lands, and shock lands did not merely make spells castable; they changed the text boxes of the creatures already on the battlefield.</p>
+
+</section>
+
+<section id="taiga"><div class="chapter-number">V · The Land</div><h2>Taiga paid both halves of the bargain</h2>
+<p>The cleanest Kird Ape opening is possible because <span class="card-name" data-card="Taiga" tabindex="0">Taiga</span> has both the Mountain and Forest subtypes. It can produce red mana to cast the creature and, without any further action, satisfy the condition that makes it a 2/3.</p>
+<p>This is more than convenient mana. It is tempo. A deck using only basic lands might need to choose between casting the Ape on turn one from a Mountain or enabling it with a Forest that cannot pay the red cost. Taiga removes the choice and compresses two requirements into a single land drop.</p>
+<p>The interaction helped establish a central truth of Eternal Magic: the strongest lands are not passive resources. They are structural cards. The body on Kird Ape belongs partly to the creature and partly to the mana base that supports it.</p>
+<div class="turn-sequence"><div class="turn-step"><strong>Land</strong><p>Play Taiga. It is simultaneously a Mountain and a Forest.</p></div><div class="turn-step"><strong>Mana</strong><p>Tap Taiga for red mana.</p></div><div class="turn-step"><strong>Spell</strong><p>Cast Kird Ape for {R}.</p></div><div class="turn-step"><strong>Result</strong><p>Kird Ape immediately receives +1/+2 and enters combat as a 2/3.</p></div></div>
+</section>
+
+<section id="body"><div class="chapter-number">VI · The Body</div><h2>Why a 2/3 changed combat</h2>
+<p>Two power created a respectable clock. Three toughness created permission. Kird Ape could attack into boards that would force a 2/1 to stay home, and it could block opposing two-power creatures while remaining available for the next turn.</p>
+<p>That toughness was particularly valuable in red decks, which traditionally accepted fragile creatures in exchange for reach. Kird Ape let the deck begin aggressively without making every combat trade disposable. The opponent often needed <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>, <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, or a genuinely larger creature to remove it efficiently.</p>
+<p>The result was cumulative. When the Ape survived a block or a small burn spell, the deck did not merely save a card. It preserved two damage on every later turn. Early creature efficiency is multiplicative because the creature receives more opportunities to attack.</p>
+
+</section>
+
+<section id="curve"><div class="chapter-number">VII · The Opening</div><h2>The turn-one test</h2>
+<p>Aggressive decks are judged by what they can do on the first turn without weakening the rest of their draw. Kird Ape passed that test. It used one mana, demanded no follow-up investment, and left every later turn available for another creature, removal, or direct damage.</p>
+<p>Turn two could add <span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span>, <span class="card-name" data-card="Ghazbán Ogre" tabindex="0">Ghazbán Ogre</span>, or another Ape while keeping mana available for <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>. Turn three could deploy a larger threat without abandoning pressure. The first creature did not need to be upgraded or protected by a dedicated combo; it simply kept attacking.</p>
+<p>This sequencing became the grammar of Zoo: spend mana with almost no waste, make every permanent threaten damage, and force the opponent to answer cards whose costs are lower than the answers they demand.</p>
+
+</section>
+
+<section id="burn"><div class="chapter-number">VIII · The Philosophy</div><h2>Creatures became burn spells</h2>
+<p>Kird Ape belongs to the family of creatures that aggressive players evaluate as delayed direct damage. If it attacks three times, it has dealt six damage for one mana. If the opponent spends a premium removal spell before the second attack, the Ape has still exchanged upward in attention and often in mana.</p>
+<p>This is why it paired so naturally with <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, <span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span>, and later <span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span>. Burn removed blockers when doing so created more combat damage than pointing the spell at the opponent. Once the board could no longer be profitably cleared, the same cards finished the game directly.</p>
+<p>The Ape did not have haste, evasion, or an enters-the-battlefield trigger. Its value came from making ordinary combat arrive too early and continue too efficiently. Zoo’s philosophy was not that creatures and burn were separate plans. Both were ways of converting mana into a rapidly shrinking life total.</p>
+
+</section>
+
+<section id="answers"><div class="chapter-number">IX · The Counterplay</div><h2>The answers that mattered</h2>
+<p>Kird Ape’s three toughness invalidated many small answers, but it was not invulnerable. <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span> dealt exactly enough damage. <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> removed it for one mana. A well-timed <span class="card-name" data-card="Terror" tabindex="0">Terror</span> or larger blocker could halt the clock. The Ape’s strength was that the opponent generally had to use a real card rather than incidental damage.</p>
+<p>There was also a structural weakness: remove or neutralize the Forest and the creature shrank back to 1/1. Land destruction against <span class="card-name" data-card="Taiga" tabindex="0">Taiga</span>, a changed land type, or an opening that failed to find green could turn a premium attacker into an embarrassment. That vulnerability rewarded careful fetching and discouraged mana bases that only barely supported the condition.</p>
+<p>Arabian Nights created one especially flavorful answer. <span class="card-name" data-card="City in a Bottle" tabindex="0">City in a Bottle</span> could sweep away permanents from the expansion, including Kird Ape. The creature was efficient enough to survive the ordinary curve, but it could never escape where it came from.</p>
+
+</section>
+
+<section id="worlds"><div class="chapter-number">X · The First Stage</div><h2>Kird Ape at the first World Championship</h2>
+<p>By the inaugural World Championship in 1994, red-green aggressive decks had already found the appeal of beginning with Kird Ape and following with efficient pressure. Bertrand Lestree’s runner-up strategy is remembered as an early red-green weenie shell in which the Ape helped define the opening turns.</p>
+<p>The significance is larger than a single finish. Competitive Magic was still inventing its archetypes, and Kird Ape was present while players discovered that a low curve, burn, and multicolor efficiency could form a coherent tournament deck rather than a pile of individually aggressive cards.</p>
+<p>The Ape therefore entered tournament history before “Zoo” had settled into its later meaning. The animal was present before the menagerie had a name.</p>
+
+</section>
+
+<section id="erhnam"><div class="chapter-number">XI · The Shell</div><h2>Erhnam Burn’em and the red-green curve</h2>
+<p>Old red-green decks often climbed from Kird Ape into <span class="card-name" data-card="Argothian Pixies" tabindex="0">Argothian Pixies</span>, <span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span>, and direct damage. The smaller creature established pressure; the Djinn supplied a large midgame body; burn cleared the path or closed the final points.</p>
+<p>The mana base made the curve unusually coherent. <span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span> accelerated the larger threats, while Taiga ensured that the red one-drop did not compromise access to green. <span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span> added damage without occupying a spell slot, and <span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span> transformed blocked creatures into sudden bursts.</p>
+<p>This family of decks demonstrates why Kird Ape mattered beyond its own rate. It was the bridge between red’s immediate damage and green’s superior bodies. The deck could begin like red aggro and mature into green midrange without changing its basic plan.</p>
+
+</section>
+
+<section id="zoo"><div class="chapter-number">XII · The Archetype</div><h2>How the menagerie got its identity</h2>
+<p>Zoo is not defined by a single fixed list. It is defined by a deck-building instinct: select the most efficient creatures available across several colors, support them with unusually strong mana, and use burn or removal to keep combat favorable.</p>
+<p>Kird Ape embodied that instinct before later cards refined it. The creature asked the player to accept a more ambitious mana base in return for a rate unavailable to a simple red deck. <span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span>, <span class="card-name" data-card="Watchwolf" tabindex="0">Watchwolf</span>, <span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span>, and eventually <span class="card-name" data-card="Wild Nacatl" tabindex="0">Wild Nacatl</span> would join the same project from different angles.</p>
+<p>The animal names helped the nickname stick, but the strategic identity was always about exchange rates. Zoo wanted every creature to cost less than the body or answer it forced from the opponent. Kird Ape was the original exhibit.</p>
+
+</section>
+
+<section id="revised"><div class="chapter-number">XIII · The Reprint</div><h2>Revised turned an expansion icon into a staple</h2>
+<p>Arabian Nights was scarce almost immediately. Revised Edition changed Kird Ape’s cultural reach by placing it into a widely opened core set. A card that had begun as an exotic expansion discovery became an ordinary object in collections, trade binders, kitchen-table decks, and local tournaments.</p>
+<p>That accessibility mattered to its reputation. Many players did not first encounter Kird Ape as a precious Arabian Nights card. They encountered the Revised version as a practical lesson: pair this cheap red creature with Forests, and it becomes much better than the creatures surrounding it.</p>
+<p>The original art and simple text survived the transition. The card could feel ancient and foundational without being inaccessible, an unusual combination that helped it become a reference point for an entire generation of deck builders.</p>
+
+</section>
+
+<section id="extended"><div class="chapter-number">XIV · The Ban</div><h2>Too efficient for the first Extended</h2>
+<p>When Extended was introduced in 1997, Kird Ape appeared on the format’s initial banned list. That decision is one of the clearest measurements of the card’s historical reputation. A one-mana 2/3 was treated not as harmless nostalgia but as a rate capable of distorting the new environment.</p>
+<p>The ban can look strange from a modern perspective, especially beside engines and combo pieces that later formats learned to fear. But early format management was also about preserving room for creature combat to develop. Kird Ape threatened to make the correct opening creature too obvious whenever red-green mana was available.</p>
+<p>Whether or not later history vindicated the severity of the choice, the decision records an important fact: at the time, Kird Ape was considered an efficiency problem, not merely a famous common.</p>
+
+</section>
+
+<section id="ninth"><div class="chapter-number">XV · The Return</div><h2>Ninth Edition brought the Ape home</h2>
+<p>Ninth Edition returned Kird Ape to Standard in 2005 with a modern frame and new Terese Nielsen artwork. The reprint did more than revive an old favorite. It placed the original red-green bargain into a card pool about to receive the perfect infrastructure for it.</p>
+<p>The Ravnica block introduced shock lands, including <span class="card-name" data-card="Stomping Ground" tabindex="0">Stomping Ground</span>. Like Taiga, Stomping Ground is both a Mountain and a Forest. It could cast Kird Ape with red mana and enable the bonus immediately, though entering untapped usually demanded two life.</p>
+<p>The old interaction had been rebuilt for a new era with an explicit cost attached. Zoo accepted the life payment gladly. The deck intended to make the opponent’s life total matter first.</p>
+
+</section>
+
+<section id="honolulu"><div class="chapter-number">XVI · The Topdeck</div><h2>Craig Jones and the Lightning Helix</h2>
+<p>Craig Jones’s Zoo deck reached the final of Pro Tour Honolulu in 2006 and became immortal through one of competitive Magic’s most replayed moments: a desperate Lightning Helix revealed from the top of the library in the semifinal.</p>
+<p>Kird Ape was not the card in Jones’s hand when the crowd erupted, but it was part of the deck’s first-turn foundation. Four copies joined <span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span> and <span class="card-name" data-card="Isamaru, Hound of Konda" tabindex="0">Isamaru, Hound of Konda</span> to make the deck begin attacking immediately, while <span class="card-name" data-card="Watchwolf" tabindex="0">Watchwolf</span> and <span class="card-name" data-card="Burning-Tree Shaman" tabindex="0">Burning-Tree Shaman</span> continued the curve.</p>
+<p>The list demonstrated how gracefully the 1993 design fit a 2006 mana base. Stomping Ground performed the old Taiga trick, and Lightning Helix gave the creature deck reach, interaction, and life-buffering in one card. Kird Ape had crossed from the first expansion into the age of televised Pro Tours without changing its essential job.</p>
+
+</section>
+
+<section id="redundancy"><div class="chapter-number">XVII · The Density</div><h2>Four Apes were not enough</h2>
+<p>A single efficient one-drop does not make an aggro deck reliable. Zoo succeeded by building density: enough first-turn attackers that the deck could begin pressure in most opening hands, and enough burn that a stalled board did not end the game plan.</p>
+<p>Kird Ape shared the role with <span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span>, <span class="card-name" data-card="Isamaru, Hound of Konda" tabindex="0">Isamaru, Hound of Konda</span>, and later <span class="card-name" data-card="Figure of Destiny" tabindex="0">Figure of Destiny</span>. The cards were not identical, but they made the deck’s first turn reproducible. That consistency is what turns a famous opening into an archetype.</p>
+<p>The Ape’s value therefore changed as more one-drops arrived. It was no longer the entire reason to play red-green aggression. It became one of several interchangeable pieces that allowed the deck to maintain a critical mass of undercosted threats.</p>
+
+</section>
+
+<section id="berlin"><div class="chapter-number">XVIII · The Successor</div><h2>Wild Nacatl raised the ceiling</h2>
+<p>Shards of Alara introduced <span class="card-name" data-card="Wild Nacatl" tabindex="0">Wild Nacatl</span>, a one-mana creature that could become a 3/3 when its controller had both a Mountain and a Plains. The design is unmistakably descended from Kird Ape: land types convert ambitious mana into extra body.</p>
+<p>The difference was the ceiling. A 3/3 for one mana outclassed the Ape in raw rate and made three-color mana the new default for the most aggressive Zoo lists. Patrick Chapin’s “Heavy Zoo” work before Pro Tour Berlin showed the transition clearly by playing four Kird Apes alongside four Wild Nacatls, Tarmogoyfs, Tribal Flames, and Lightning Helix.</p>
+<p>Kird Ape did not vanish immediately because redundancy remained valuable. But it had become the ancestor standing beside its improved descendant. The benchmark it created was now being used to measure its own obsolescence.</p>
+
+</section>
+
+<section id="legacy"><div class="chapter-number">XIX · The Eternal Years</div><h2>Legacy Zoo’s cleanest years</h2>
+<p>Legacy gave Zoo the most efficient version of its mana and burn. Fetch lands found <span class="card-name" data-card="Taiga" tabindex="0">Taiga</span>, <span class="card-name" data-card="Plateau" tabindex="0">Plateau</span>, and <span class="card-name" data-card="Savannah" tabindex="0">Savannah</span>; Wild Nacatl routinely became a 3/3; <span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span> supplied a massive two-drop; and the red spells converted any remaining life into a short endgame.</p>
+<p>Kird Ape often appeared as a full playset in early lists and later as supplemental copies once the archetype had more one-drops than available slots. Its role was still recognizable: attack from turn two, survive small combat, and force the opponent to spend real interaction before the burn spells became lethal.</p>
+<p>Zoo’s decline in Legacy was not caused by one superior creature. The format’s combo decks became faster, its tempo decks gained more flexible threats, and creature strategies acquired engines that generated cards rather than only damage. The Ape remained efficient, but efficiency alone was no longer sufficient.</p>
+
+</section>
+
+<section id="columbus"><div class="chapter-number">XX · The Result</div><h2>An undefeated Day One in 2010</h2>
+<p>At Grand Prix Columbus in 2010, Alix Hatfield completed the first day at 8–0–1 with Naya Zoo. The list illustrates Kird Ape’s changing position with unusual clarity: it played only one copy.</p>
+<p>Four <span class="card-name" data-card="Wild Nacatl" tabindex="0">Wild Nacatl</span>, four <span class="card-name" data-card="Steppe Lynx" tabindex="0">Steppe Lynx</span>, four <span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span>, and four <span class="card-name" data-card="Qasali Pridemage" tabindex="0">Qasali Pridemage</span> formed the main creature structure. The lone Ape was still efficient enough to deserve inclusion, but it was no longer the unquestioned four-of that defined the archetype.</p>
+<p>That single copy is not evidence of irrelevance. It is evidence of lineage. Zoo had become so rich in aggressively costed creatures that one of the original standards could survive only at the margin of the list it helped create.</p>
+
+</section>
+
+<section id="modern"><div class="chapter-number">XXI · The Inheritance</div><h2>Modern inherited the family</h2>
+<p>When Modern was created, Kird Ape entered another nonrotating format with its basic interaction intact. Fetch lands and shock lands made the Forest condition easy to satisfy, and red-green or Naya aggro decks could still use the Ape as a reliable 2/3.</p>
+<p>Yet Modern also inherited <span class="card-name" data-card="Wild Nacatl" tabindex="0">Wild Nacatl</span>, <span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span>, and an accelerating stream of one-drops with haste, scaling, card advantage, or graveyard synergy. Kird Ape’s body remained above its printed cost, but newer threats increasingly did something in addition to attacking.</p>
+<p>The card became most attractive when a deck wanted specifically this combination of colors, types, and toughness—or when bans and metagame shifts reduced the available alternatives. Modern did not invalidate the original lesson. It showed how much more a one-mana creature was eventually expected to provide.</p>
+
+</section>
+
+<section id="oldschool"><div class="chapter-number">XXII · The Preservation</div><h2>Old School kept the original role alive</h2>
+<p>Old School formats restore Kird Ape to the ecosystem that made it extraordinary. The legal card pool limits later one-drop inflation, Taiga remains the ideal enabler, and combat is slow enough for a two-power creature to accumulate meaningful damage.</p>
+<p>In contemporary 93/94 events, Kird Ape still appears in red-green Erhnam Burn’em lists and Naya creature shells beside <span class="card-name" data-card="Ghazbán Ogre" tabindex="0">Ghazbán Ogre</span>, <span class="card-name" data-card="Argothian Pixies" tabindex="0">Argothian Pixies</span>, <span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span>, and <span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span>. The deck may contain Power, dual lands, and Chaos Orb, but its opening can still begin with a common Ape.</p>
+<p>That is one of Old School’s central pleasures: a card can be historically authentic and strategically correct at the same time. Kird Ape is not included only to evoke 1994. It still performs the job the deck needs.</p>
+
+</section>
+
+<section id="descendants"><div class="chapter-number">XXIII · The Family</div><h2>The descendants of the Forest bonus</h2>
+<p>Kird Ape’s most important descendants are cards that reward land types with efficient bodies. Wild Nacatl expanded the condition across three colors. Loam Lion mirrored the design in white, receiving +1/+2 when its controller had a Forest. Domain creatures pushed the same principle toward five-color scaling.</p>
+<p>The inheritance is conceptual as much as mechanical. These creatures make mana-base construction visible on the battlefield. A fetch land becomes a combat trick in slow motion; choosing the correct dual land determines not only which spells can be cast but how large an existing attacker becomes.</p>
+<p>Kird Ape established the bargain in its simplest form: ask the land base to do one extra thing, and reward the player with statistics that a single color should not receive alone.</p>
+<div class="inline-image kird-descendant"><div class="image"><img alt="Wild Nacatl, a descendant of Kird Ape's land-type design" src="https://api.scryfall.com/cards/ala/152?format=image&amp;version=normal"></div><div class="copy"><div class="kicker">The enlarged inheritance</div><h3>Wild Nacatl</h3><p>Wild Nacatl converted the Kird Ape template into a three-color challenge. A Mountain and a Plains turn one green mana into a 3/3, making the mana base itself the source of the creature’s exceptional rate.</p></div></div>
+</section>
+
+<section id="powercreep"><div class="chapter-number">XXIV · The Reversal</div><h2>When a 2/3 stopped being absurd</h2>
+<p>Power creep did not make Kird Ape smaller. It changed what players expected from the first mana spent in a game. A modern one-drop may create a token, draw or select a card, grow repeatedly, attack immediately, disrupt a spell, or remain useful after dying.</p>
+<p>Against that field, a conditional 2/3 can appear almost honest. It asks for two colors, exposes the deck to nonbasic-land pressure, and offers no value if removed before combat. Every part of that sentence would have sounded like an acceptable price for historic efficiency in the 1990s.</p>
+<p>This reversal is why Kird Ape remains such a useful benchmark. The card provides a fixed point from which the evolution of creature design can be seen. When a one-mana 2/3 no longer automatically earns a deck slot, the format has moved a very long way.</p>
+
+</section>
+
+<section id="formats"><div class="chapter-number">XXV · The Formats</div><h2>Where Kird Ape still belongs</h2>
+<p>Kird Ape now occupies several different roles depending on the format. In Old School it is a living tournament card. In Legacy and Modern it is mostly a historical option whose rate has been surpassed. In Pauper it offers a real two-power, three-toughness body, but the mana base cannot reproduce Taiga’s effortless perfection.</p>
+<p>Cube designers use it when they want red-green aggro to feel explicitly multicolor and when typed dual lands are abundant enough to make the bonus dependable. Commander decks may include it for Ape tribal, Arabian Nights nostalgia, or exceptionally low curves, though a vanilla-sized attacker has little impact in most four-player games.</p>
+<p>The common thread is intention. Kird Ape is no longer a card that enters every format by raw force. It belongs where its history, creature type, mana lesson, or exact combat profile supports a deliberate design.</p>
+<div class="format-strip"><div class="format-card"><b>Old School 93/94</b><p>Historically authentic and still strategically functional in red-green and Naya aggression.</p></div><div class="format-card"><b>Legacy</b><p>Legal and recognizable, but generally displaced by threats with higher ceilings or additional value.</p></div><div class="format-card"><b>Modern</b><p>Easy to enable with shock lands, though rarely the strongest available one-drop.</p></div><div class="format-card"><b>Pauper</b><p>Legal because of its common printings; mana requirements and competition keep it specialized.</p></div></div>
+</section>
+
+<section id="pilot"><div class="chapter-number">XXVI · The Technique</div><h2>How to sequence the card well</h2>
+<p>The first rule is not to treat the Forest condition as automatic. An opening hand with Kird Ape and only red-producing lands is often weaker than it appears. The deck should be able to produce red and a Forest subtype immediately or on a timetable that does not sacrifice the first attack.</p>
+<p>Fetch sequencing matters. When several dual lands are available, find the land that enables the Ape while preserving the colors required by the rest of the hand. Against land destruction, consider whether exposing the only Forest turns multiple creatures into 1/1s. Against damage-based removal, remember that losing the Forest in combat can remove two toughness without a spell targeting the Ape itself.</p>
+<p>In combat, exploit the third point of toughness. Offer blocks against two-power creatures, force double blocks that burn can punish, and do not spend removal on a blocker unless the extra attacks create more damage than the spell would deal directly. Kird Ape is simple, but Zoo’s sequencing has never been mindless.</p>
+<div class="ape-ledger"><div class="ape-row"><strong>Opening hand</strong><p>Count Forest sources, not merely green mana sources. The subtype is what matters.</p></div><div class="ape-row"><strong>Fetch choice</strong><p>Enable the Ape while preserving the next two turns of colored requirements.</p></div><div class="ape-row"><strong>Combat</strong><p>Use three toughness to create attacks and blocks that smaller one-drops cannot survive.</p></div><div class="ape-row"><strong>Burn</strong><p>Remove blockers only when doing so generates more total damage than sending burn upstairs.</p></div></div>
+</section>
+
+<section id="memory"><div class="chapter-number">XXVII · The Memory</div><h2>What players remember</h2>
+<p>Older players remember the surprise of discovering that a Taiga could do everything the card asked. Newer players often meet Kird Ape in reverse: first as an outdated ancestor of Wild Nacatl, then as evidence that the ancestor was once frightening enough to be banned.</p>
+<p>Collectors remember two very different objects—the scarce Arabian Nights original and the ubiquitous Revised copy that carried the same play pattern to kitchen tables. Tournament players remember the Ape beside dual lands and burn, one of the animals that made “Zoo” immediately understandable as both a name and a strategy.</p>
+<p>Most of all, players remember the rate. One red mana. Two power. Three toughness. The arithmetic is so clean that the card remains easy to explain decades after the environment that made it revolutionary has disappeared.</p>
+<div class="memory"><b>The enduring image</b><p>A red card that secretly belongs to green, crouched beside a dual land and ready to attack before the opponent has done anything at all.</p></div>
+</section>
+
+<section id="decks"><div class="chapter-number">XXVIII · The Archive</div><h2>The deck archive</h2>
+<p>These lists trace the card’s movement from representative Old School shells through Standard and Extended Zoo, into Legacy, and back to contemporary 93/94 play. The first list is a representative construction; the remaining lists are preserved tournament or published testing lists.</p>
+<p>Open any list to inspect the complete main deck and sideboard. Card names retain the site’s hover and tap previews, and the copy button exports a clean text version.</p>
+<div class="deck-archive"><details class="deck"><summary><div><strong>Representative Naya Zoo — 93/94</strong><small>Old School representative construction · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>A representative fully powered Naya shell showing Kird Ape beside Savannah Lions, Ghazbán Ogre, burn, and premium removal.</p><button class="copy" data-target="kird-naya9394">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Argothian Pixies" tabindex="0">Argothian Pixies</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghazbán Ogre" tabindex="0">Ghazbán Ogre</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div></div><div class="group"><h4>Instants · 14</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div></div></div><div class="deck-col"><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wheel of Fortune" tabindex="0">Wheel of Fortune</span></div></div><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Avoid Fate" tabindex="0">Avoid Fate</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Crumble" tabindex="0">Crumble</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div></div></div></div><pre hidden id="kird-naya9394">Representative Naya Zoo — 93/94
+Old School representative construction · 60/15
+
+Creatures · 16
+4 Argothian Pixies
+4 Ghazbán Ogre
+4 Kird Ape
+4 Savannah Lions
+
+Sorceries · 8
+1 Balance
+4 Chain Lightning
+1 Fireball
+1 Regrowth
+1 Wheel of Fortune
+
+Instants · 14
+2 Disenchant
+4 Giant Growth
+4 Lightning Bolt
+4 Swords to Plowshares
+
+Artifacts · 4
+1 Black Lotus
+1 Mox Emerald
+1 Mox Pearl
+1 Mox Ruby
+
+Lands · 18
+4 Mishra&#x27;s Factory
+4 Plateau
+4 Savannah
+2 Strip Mine
+4 Taiga
+
+Sideboard · 15
+4 Avoid Fate
+2 Crumble
+2 Disenchant
+3 Red Elemental Blast
+4 Whirling Dervish</pre></div></details><details class="deck"><summary><div><strong>Craig Jones — Zoo</strong><small>Pro Tour Honolulu 2006 · Runner-up · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>The famous Honolulu list combines twelve one-mana attackers with efficient two-drops and a heavy direct-damage package.</p><button class="copy" data-target="kird-jones2006">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 22</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Isamaru, Hound of Konda" tabindex="0">Isamaru, Hound of Konda</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Watchwolf" tabindex="0">Watchwolf</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Kami of Ancient Law" tabindex="0">Kami of Ancient Law</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Burning-Tree Shaman" tabindex="0">Burning-Tree Shaman</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Karplusan Forest" tabindex="0">Karplusan Forest</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Brushland" tabindex="0">Brushland</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Temple Garden" tabindex="0">Temple Garden</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Eiganjo Castle" tabindex="0">Eiganjo Castle</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Battlefield Forge" tabindex="0">Battlefield Forge</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Stomping Ground" tabindex="0">Stomping Ground</span></div></div></div><div class="deck-col"><div class="group"><h4>Spells · 16</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Shock" tabindex="0">Shock</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Bathe in Light" tabindex="0">Bathe in Light</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Flames of the Blood Hand" tabindex="0">Flames of the Blood Hand</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Char" tabindex="0">Char</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tin Street Hooligan" tabindex="0">Tin Street Hooligan</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Giant Solifuge" tabindex="0">Giant Solifuge</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Hunted Wumpus" tabindex="0">Hunted Wumpus</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Umezawa&#x27;s Jitte" tabindex="0">Umezawa&#x27;s Jitte</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Guerrilla Tactics" tabindex="0">Guerrilla Tactics</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Flames of the Blood Hand" tabindex="0">Flames of the Blood Hand</span></div></div></div></div><pre hidden id="kird-jones2006">Craig Jones — Zoo
+Pro Tour Honolulu 2006 · Runner-up · 60/15
+
+Creatures · 22
+4 Savannah Lions
+4 Kird Ape
+4 Isamaru, Hound of Konda
+4 Watchwolf
+3 Kami of Ancient Law
+3 Burning-Tree Shaman
+
+Spells · 16
+3 Shock
+4 Lightning Helix
+2 Bathe in Light
+3 Flames of the Blood Hand
+4 Char
+
+Lands · 22
+2 Forest
+1 Plains
+1 Karplusan Forest
+1 Brushland
+4 Sacred Foundry
+4 Temple Garden
+1 Eiganjo Castle
+4 Battlefield Forge
+4 Stomping Ground
+
+Sideboard · 15
+2 Tin Street Hooligan
+2 Giant Solifuge
+3 Hunted Wumpus
+4 Umezawa&#x27;s Jitte
+3 Guerrilla Tactics
+1 Flames of the Blood Hand</pre></div></details><details class="deck"><summary><div><strong>Patrick Chapin — Heavy Zoo</strong><small>Extended testing for Pro Tour Berlin 2008 · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>Kird Ape and Wild Nacatl appear together as the archetype moves from its original benchmark toward three-color one-mana 3/3s.</p><button class="copy" data-target="kird-chapin2008">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Confidant" tabindex="0">Dark Confidant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Doran, the Siege Tower" tabindex="0">Doran, the Siege Tower</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Figure of Destiny" tabindex="0">Figure of Destiny</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Akrasan Squire" tabindex="0">Akrasan Squire</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Ethersworn Canonist" tabindex="0">Ethersworn Canonist</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wild Nacatl" tabindex="0">Wild Nacatl</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wooded Foothills" tabindex="0">Wooded Foothills</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Windswept Heath" tabindex="0">Windswept Heath</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Bloodstained Mire" tabindex="0">Bloodstained Mire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Temple Garden" tabindex="0">Temple Garden</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Godless Shrine" tabindex="0">Godless Shrine</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Stomping Ground" tabindex="0">Stomping Ground</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Blood Crypt" tabindex="0">Blood Crypt</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Hallowed Fountain" tabindex="0">Hallowed Fountain</span></div></div></div><div class="deck-col"><div class="group"><h4>Spells · 14</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Umezawa&#x27;s Jitte" tabindex="0">Umezawa&#x27;s Jitte</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Seal of Fire" tabindex="0">Seal of Fire</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tribal Flames" tabindex="0">Tribal Flames</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Oblivion Ring" tabindex="0">Oblivion Ring</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Pyrostatic Pillar" tabindex="0">Pyrostatic Pillar</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Kataki, War&#x27;s Wage" tabindex="0">Kataki, War&#x27;s Wage</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Ancient Grudge" tabindex="0">Ancient Grudge</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Kitchen Finks" tabindex="0">Kitchen Finks</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Ranger of Eos" tabindex="0">Ranger of Eos</span></div></div></div></div><pre hidden id="kird-chapin2008">Patrick Chapin — Heavy Zoo
+Extended testing for Pro Tour Berlin 2008 · 60/15
+
+Creatures · 24
+4 Kird Ape
+4 Dark Confidant
+4 Tarmogoyf
+2 Doran, the Siege Tower
+2 Figure of Destiny
+1 Akrasan Squire
+3 Ethersworn Canonist
+4 Wild Nacatl
+
+Spells · 14
+2 Umezawa&#x27;s Jitte
+2 Seal of Fire
+4 Tribal Flames
+4 Lightning Helix
+2 Oblivion Ring
+
+Lands · 22
+2 Wooded Foothills
+1 Plains
+4 Windswept Heath
+1 Flooded Strand
+4 Bloodstained Mire
+1 Sacred Foundry
+1 Temple Garden
+3 Godless Shrine
+3 Stomping Ground
+1 Blood Crypt
+1 Hallowed Fountain
+
+Sideboard · 15
+4 Pyrostatic Pillar
+2 Kataki, War&#x27;s Wage
+3 Ancient Grudge
+4 Kitchen Finks
+2 Ranger of Eos</pre></div></details><details class="deck"><summary><div><strong>Alix Hatfield — Naya Zoo</strong><small>Grand Prix Columbus 2010 · Day One 8–0–1 · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>Only one Kird Ape remains in a list crowded by Wild Nacatl, Steppe Lynx, Tarmogoyf, and Qasali Pridemage.</p><button class="copy" data-target="kird-hatfield2010">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grim Lavamancer" tabindex="0">Grim Lavamancer</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Qasali Pridemage" tabindex="0">Qasali Pridemage</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Steppe Lynx" tabindex="0">Steppe Lynx</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wild Nacatl" tabindex="0">Wild Nacatl</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Arid Mesa" tabindex="0">Arid Mesa</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Horizon Canopy" tabindex="0">Horizon Canopy</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Windswept Heath" tabindex="0">Windswept Heath</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Wooded Foothills" tabindex="0">Wooded Foothills</span></div></div></div><div class="deck-col"><div class="group"><h4>Spells · 16</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Fireblast" tabindex="0">Fireblast</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Path to Exile" tabindex="0">Path to Exile</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Choke" tabindex="0">Choke</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Knight of the Reliquary" tabindex="0">Knight of the Reliquary</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Krosan Grip" tabindex="0">Krosan Grip</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Tormod&#x27;s Crypt" tabindex="0">Tormod&#x27;s Crypt</span></div></div></div></div><pre hidden id="kird-hatfield2010">Alix Hatfield — Naya Zoo
+Grand Prix Columbus 2010 · Day One 8–0–1 · 60/15
+
+Creatures · 21
+4 Grim Lavamancer
+1 Kird Ape
+4 Qasali Pridemage
+4 Steppe Lynx
+4 Tarmogoyf
+4 Wild Nacatl
+
+Spells · 16
+3 Chain Lightning
+2 Fireblast
+4 Lightning Bolt
+4 Path to Exile
+3 Sylvan Library
+
+Lands · 23
+3 Arid Mesa
+1 Forest
+4 Horizon Canopy
+1 Mountain
+1 Plains
+3 Plateau
+1 Savannah
+2 Taiga
+3 Windswept Heath
+4 Wooded Foothills
+
+Sideboard · 15
+3 Choke
+2 Knight of the Reliquary
+3 Krosan Grip
+2 Pyroblast
+2 Swords to Plowshares
+3 Tormod&#x27;s Crypt</pre></div></details><details class="deck"><summary><div><strong>Yorick Karsseboom — Erhnam Burn’em</strong><small>Uthden Troll Cup VII 2025 · 204-player Old School event · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>A modern Old School list preserves the classic curve: Kird Ape, Pixies, Erhnam Djinn, Giant Growth, and burn.</p><button class="copy" data-target="kird-karsseboom2025">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Argothian Pixies" tabindex="0">Argothian Pixies</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Scryb Sprites" tabindex="0">Scryb Sprites</span></div></div><div class="group"><h4>Instants · 12</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Berserk" tabindex="0">Berserk</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Falling Star" tabindex="0">Falling Star</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Shatterstorm" tabindex="0">Shatterstorm</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Tranquility" tabindex="0">Tranquility</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Sorceries · 5</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wheel of Fortune" tabindex="0">Wheel of Fortune</span></div></div><div class="group"><h4>Lands · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Hammerheim" tabindex="0">Hammerheim</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Pendelhaven" tabindex="0">Pendelhaven</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div></div></div></div><pre hidden id="kird-karsseboom2025">Yorick Karsseboom — Erhnam Burn’em
+Uthden Troll Cup VII 2025 · 204-player Old School event · 60/15
+
+Creatures · 18
+4 Argothian Pixies
+4 Erhnam Djinn
+4 Kird Ape
+3 Llanowar Elves
+3 Scryb Sprites
+
+Artifacts · 4
+1 Chaos Orb
+1 Mox Emerald
+1 Mox Ruby
+1 Sol Ring
+
+Instants · 12
+2 Berserk
+4 Giant Growth
+4 Lightning Bolt
+2 Shatter
+
+Sorceries · 5
+2 Chain Lightning
+1 Fireball
+1 Regrowth
+1 Wheel of Fortune
+
+Enchantments · 2
+2 Sylvan Library
+
+Lands · 19
+4 Forest
+1 Hammerheim
+4 Mishra&#x27;s Factory
+3 Mountain
+2 Pendelhaven
+1 Strip Mine
+4 Taiga
+
+Sideboard · 15
+3 Blood Moon
+2 Falling Star
+3 Red Elemental Blast
+1 Shatterstorm
+2 Tranquility
+4 Whirling Dervish</pre></div></details></div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXIX · The Object</div><h2>Printings and sources</h2>
+<p>Unlike Juzám Djinn, Kird Ape was never frozen into a single scarce paper release. Revised Edition made it broadly available, and later box sets, promos, core sets, premium products, Duel Decks, and Eternal Masters repeatedly returned it to circulation.</p>
+<p>The print history also preserves its two principal visual identities: Ken Meyer Jr.’s original Arabian Nights image and the Terese Nielsen interpretation introduced with Ninth Edition. The card’s frame and surroundings changed; its one-line bargain did not.</p>
+<div class="printings">
+<figure class="printing"><img alt="Kird Ape from Arabian Nights" src="https://api.scryfall.com/cards/arn/40?format=image&amp;version=normal"><figcaption>Arabian Nights · 1993<br>Ken Meyer Jr. · original printing</figcaption></figure>
+<figure class="printing"><img alt="Kird Ape from Revised Edition" src="https://api.scryfall.com/cards/3ed/161?format=image&amp;version=normal"><figcaption>Revised Edition · 1994<br>The widely circulated core-set version</figcaption></figure>
+<figure class="printing"><img alt="Kird Ape from Beatdown" src="https://api.scryfall.com/cards/btd/39?format=image&amp;version=normal"><figcaption>Beatdown Box Set · 2000<br>Preconstructed-box reprint</figcaption></figure>
+<figure class="printing"><img alt="Kird Ape Friday Night Magic promo" src="https://api.scryfall.com/cards/f05/9?format=image&amp;version=normal"><figcaption>Friday Night Magic · 2005<br>Foil promotional printing</figcaption></figure>
+<figure class="printing"><img alt="Kird Ape from Ninth Edition" src="https://api.scryfall.com/cards/9ed/199?format=image&amp;version=normal"><figcaption>Ninth Edition · 2005<br>Terese Nielsen · return to Standard</figcaption></figure>
+<figure class="printing"><img alt="Kird Ape from From the Vault Exiled" src="https://api.scryfall.com/cards/v09/6?format=image&amp;version=normal"><figcaption>From the Vault: Exiled · 2009<br>Premium anthology printing</figcaption></figure>
+<figure class="printing"><img alt="Kird Ape from Duel Decks Ajani versus Nicol Bolas" src="https://api.scryfall.com/cards/ddh/2?format=image&amp;version=normal"><figcaption>Duel Decks: Ajani vs. Nicol Bolas · 2011<br>Duel Deck reprint</figcaption></figure>
+<figure class="printing"><img alt="Kird Ape from Eternal Masters" src="https://api.scryfall.com/cards/ema/137?format=image&amp;version=normal"><figcaption>Eternal Masters · 2016<br>Common with Terese Nielsen artwork</figcaption></figure>
+</div><h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/arn/40/kird-ape">Scryfall — Kird Ape, Arabian Nights</a><span>Oracle text, original printing information, artist, rarity, legalities, and card images.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Kird+Ape%22+include%3Aextras&amp;unique=prints">Scryfall — All Kird Ape printings</a><span>Printing chronology across paper, promotional, and digital releases.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/it-happened-one-nights-2002-08-05">Mark Rosewater — It Happened One Nights</a><span>Official retrospective on Arabian Nights and the experimental character of Magic’s first expansion.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/banned-run-2003-02-17">Mark Rosewater — Banned on the Run</a><span>Official discussion of Kird Ape’s inclusion on the original Extended banned list.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">Mark Rosewater — A Different Worlds</a><span>Official historical account of the first World Championship and Bertrand Lestree’s red-green creature deck.</span></li>
+<li><a href="https://www.mtggoldfish.com/deck/604179">MTGGoldfish — Craig Jones Zoo, Pro Tour Honolulu 2006</a><span>Complete 60-card main deck and 15-card sideboard from the Honolulu runner-up list.</span></li>
+<li><a href="https://articles.starcitygames.com/articles/innovations-the-final-extended-guide-for-pro-tour-berlin/">Patrick Chapin — The Final Extended Guide for Pro Tour Berlin</a><span>Published Heavy Zoo testing list showing Kird Ape beside Wild Nacatl in 2008 Extended.</span></li>
+<li><a href="https://www.eternalcentral.com/grand-prix-columbus-lcv-coverage-news/">Eternal Central — Grand Prix Columbus 2010 coverage</a><span>Alix Hatfield’s 8–0–1 Day One Naya Zoo deck and event context.</span></li>
+<li><a href="https://mtg.wiki/page/Legacy_Zoo_deck">Magic: The Gathering Wiki — Legacy Zoo</a><span>Archetype overview, creature packages, mana structure, and strategic development.</span></li>
+<li><a href="https://moxfield.com/decks/84NuAwcqwkCTwp9AkNahoQ">Moxfield — Representative Naya Zoo 93/94</a><span>Representative Old School list used to illustrate a fully powered Naya Kird Ape shell.</span></li>
+<li><a href="https://mtgdecks.net/Old-school/erhnam-burnem-decklist-by-yorick-karsseboom-2706148">MTGDecks — Yorick Karsseboom, Erhnam Burn’em</a><span>Complete 2025 Uthden Troll Cup VII list and 204-player event context.</span></li>
+<li><a href="https://scryfall.com/card/ema/137/kird-ape">Scryfall — Eternal Masters Kird Ape</a><span>Current rules text, format legalities, later artwork, and linked printing index.</span></li>
+</ol><div class="editor-note"><b>Editorial note.</b> Early tournament archives are incomplete. The article distinguishes representative Old School constructions from documented tournament and published testing lists, and it does not assign unsupported finishes to reconstructed decks.</div><div class="end-nav"><a href="051-juzam-djinn.html"><small>Previous numbered entry</small>Juzám Djinn</a><a href="index.html?focus=entry-053#entry-053"><small>Next numbered entry</small>Savannah Lions</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 052</b><br>Kird Ape made one of Magic’s earliest multicolor promises: build the mana correctly and a humble common becomes larger than one mana should allow.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
