@@ -1,0 +1,1110 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A long-form magazine history of Savannah Lions: Alpha rarity, the one-mana 2/1 benchmark, White Weenie, Tom Chanpheng’s 1996 World Championship deck, Boros and Zoo, creature-type history, descendants, power creep, Foundations, printings, and tournament decklists."><title>Savannah Lions: Two Power, One Mana, No Apology — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+
+
+.hero.stasis-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stasis&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+
+.hero.kird-art:before{
+  background-image:url(https://api.scryfall.com/cards/arn/40?format=image&version=art_crop)!important;
+  background-position:center 38%!important;
+}
+.art-break.kird-art-break{
+  background-image:url(https://api.scryfall.com/cards/arn/40?format=image&version=art_crop)!important;
+  background-position:center 40%!important;
+}
+.kird-descendant .image{
+  min-height:390px;display:flex;align-items:center;justify-content:center;padding:28px;
+  background:linear-gradient(145deg,#253222,#131914)!important;
+}
+.kird-descendant .image img{
+  display:block;width:min(285px,92%);height:auto;border-radius:4.8%;
+  box-shadow:0 22px 44px rgba(0,0,0,.48)
+}
+.ape-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ape-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.ape-row:last-child{border-bottom:0}.ape-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.ape-row p{margin:0}
+.benchmark-grid{width:min(980px,calc(100vw - 32px));margin:34px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.benchmark-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.benchmark-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}.benchmark-card h3{margin:.1em 0 .35em;font-size:1.15rem}.benchmark-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+.turn-sequence{margin:30px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white);box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.turn-step{display:grid;grid-template-columns:125px minmax(0,1fr);gap:18px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.turn-step:last-child{border-bottom:0}.turn-step strong{font:900 .72rem/1.3 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust)}.turn-step p{margin:0}
+@media(max-width:750px){.ape-row,.turn-step{grid-template-columns:92px minmax(0,1fr)}.benchmark-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.savannah-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Savannah%20Lions&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+.lion-descendant .image{
+  min-height:390px;display:flex;align-items:center;justify-content:center;padding:28px;
+  background:linear-gradient(145deg,#483f2a,#17160f)!important;
+}
+.lion-descendant .image img{
+  display:block;width:min(285px,92%);height:auto;border-radius:4.8%;
+  box-shadow:0 22px 44px rgba(0,0,0,.48)
+}
+.lion-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lion-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.lion-row:last-child{border-bottom:0}.lion-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.lion-row p{margin:0}
+@media(max-width:750px){.lion-row{grid-template-columns:92px minmax(0,1fr)}}
+
+</style></head>
+<body><header class="hero savannah-art"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-053#entry-053">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 053 · Old School Icons and the White Aggro Benchmark</div>
+<h1>Two Power, One Mana, No Apology</h1>
+<p class="deckline">Savannah Lions proved that a creature could be aggressively efficient without an explicit drawback, then spent three decades serving as the measuring stick for white’s first turn.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 32 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="052-kird-ape.html">← Entry 052 · Kird Ape</a><div class="center">Entry 053 of 1,000</div><a href="index.html?focus=entry-054#entry-054">Entry 054 · Erhnam Djinn →</a></nav>
+<div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong>
+<a href="#opening">Two power, one mana, no apology</a>
+<a href="#alpha">Alpha put the rate at rare</a>
+<a href="#baseline">What one mana was supposed to buy</a>
+<a href="#drawback">The absence of a printed drawback</a>
+<a href="#white">White learned to start the race</a>
+<a href="#fragility">One toughness was the hidden price</a>
+<a href="#tempo">The mathematics of the second turn</a>
+<a href="#weenie">The creature that named a philosophy</a>
+<a href="#support">The shell mattered as much as the body</a>
+<a href="#geddon">Armageddon made the early damage permanent</a>
+<a href="#core">A rare that survived the first core sets</a>
+<a href="#protour">The Pro Tour gave White Weenie a stage</a>
+<a href="#chanpheng">Tom Chanpheng’s world championship</a>
+<a href="#registration">The dead blue card in the champion’s deck</a>
+<a href="#pup">Why Jackal Pup sometimes won the comparison</a>
+<a href="#eighth">Eighth Edition reopened the cage</a>
+<a href="#isamaru">Isamaru turned one Lion into eight</a>
+<a href="#boros">Boros added reach</a>
+<a href="#honolulu">Honolulu made the curve famous</a>
+<a href="#cat">From Lion to Cat</a>
+<a href="#vanguard">Elite Vanguard moved the rate to common</a>
+<a href="#descendants">The descendants of the benchmark</a>
+<a href="#powercreep">When statistics stopped being enough</a>
+<a href="#pauper">The rare became a Pauper card</a>
+<a href="#foundations">Foundations returned it to Standard</a>
+<a href="#oldschool">Old School preserved the original tension</a>
+<a href="#formats">Where Savannah Lions belongs now</a>
+<a href="#pilot">How to play a textless attacker well</a>
+<a href="#memory">What players remember</a>
+<a href="#decks">The deck archive</a>
+<a href="#sources">Printings and sources</a>
+</nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Declaration</div><h2>Two Power, One Mana, No Apology</h2>
+<p class="opening dropcap">Savannah Lions contains almost nothing. One white mana. Two power. One toughness. No activated ability, no enters-the-battlefield trigger, no keyword, and no sentence explaining how its controller is expected to use it. The card does not suggest a plan. It arrives as the plan: begin the game by attacking harder than one mana should permit.</p>
+<p>That blank text box became one of Magic’s earliest strategic manifestos. A player willing to spend the first turn on pressure rather than development could force the opponent to begin answering questions immediately. The Lion offered no late-game insurance and no compensation when it died. Its value existed in the turns it stole before the opponent’s more expensive cards became relevant.</p>
+<p>For decades, “a Savannah Lions” became design shorthand for a one-mana 2/1. The proper name turned into a category. Every later white one-drop was measured against the original animal, and every improvement revealed how far creature design had moved from Alpha.</p>
+<div class="card-lead"><img alt="Savannah Lions from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Savannah%20Lions&amp;set=lea&amp;format=image&amp;version=normal"><div class="oracle"><div class="kicker">The original object</div><h3>Savannah Lions</h3><p><b>{W} · Creature — Cat</b></p><p class="muted">2/1</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Daniel Gelon</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>The one-mana aggressive benchmark</div></div></div></div>
+</section>
+
+<section id="alpha"><div class="chapter-number">II · The Rarity</div><h2>Alpha put the rate at rare</h2>
+<p>Alpha’s rarity map does not always resemble a modern evaluation of power. Some effects that later became ordinary appeared at rare because they felt dramatic, clean, or dangerous. Savannah Lions belonged to that category. The card did not need rules text to look exceptional. Its numbers alone broke the expectations established by the rest of the set.</p>
+<p>In a world of <span class="card-name" data-card="Mons’s Goblin Raiders" tabindex="0">Mons’s Goblin Raiders</span>, <span class="card-name" data-card="Merfolk of the Pearl Trident" tabindex="0">Merfolk of the Pearl Trident</span>, and other one-mana 1/1s, the extra point of power was not cosmetic. It shortened the clock by entire turns. A player who opened with the Lion could threaten ten damage by the end of the fifth turn without investing another card in the creature.</p>
+<p>The rare symbol also shaped the card’s early mystique. White aggressive decks wanted four copies of a card that did not look spectacular to a collector reading it in isolation. Its prestige came from repetition: one Lion was efficient; four Lions made the first turn reliable.</p>
+</section>
+
+<section id="baseline"><div class="chapter-number">III · The Rate</div><h2>What one mana was supposed to buy</h2>
+<p>Magic’s first one-drops generally offered one of three things: a 1/1 body, a narrow utility ability, or above-rate statistics attached to a visible liability. Savannah Lions skipped the negotiation. It offered two power immediately and asked only that the deck produce white mana on turn one.</p>
+<div class="benchmark-grid">
+<div class="benchmark-card"><b>Blue baseline</b><h3>Merfolk of the Pearl Trident</h3><p>One mana bought a 1/1 with no additional value.</p></div>
+<div class="benchmark-card"><b>Green development</b><h3>Llanowar Elves</h3><p>A 1/1 exchanged combat rate for an extra mana on later turns.</p></div>
+<div class="benchmark-card"><b>Red aggression</b><h3>Jackal Pup</h3><p>Later, red received the same power and toughness with a severe damage drawback.</p></div>
+<div class="benchmark-card"><b>White benchmark</b><h3>Savannah Lions</h3><p>Two power arrived without a printed condition, payment, or delayed setup.</p></div>
+</div>
+<p>The card’s simplicity made it unusually useful as a measuring instrument. There were no synergies to untangle. A new one-drop was better or worse according to the body, the drawback, the creature type, and whatever additional text R&amp;D could attach without breaking the game.</p>
+</section>
+
+<section id="drawback"><div class="chapter-number">IV · The Silence</div><h2>The absence of a printed drawback</h2>
+<p>Early efficient creatures often announced the price of their efficiency. <span class="card-name" data-card="Serendib Efreet" tabindex="0">Serendib Efreet</span> dealt damage to its controller. <span class="card-name" data-card="Juzám Djinn" tabindex="0">Juzám Djinn</span> demanded life every upkeep. <span class="card-name" data-card="Jackal Pup" tabindex="0">Jackal Pup</span> turned damage it received back onto its owner. Savannah Lions presented no such bargain in words.</p>
+<p>The card’s actual costs were structural. It required white mana immediately, demanded a deck interested in attacking, and became a poor draw after the battlefield grew crowded. Those are deck-building and timing liabilities rather than rules-text liabilities. They are easy to overlook when reading the card and impossible to ignore when playing it.</p>
+<p>This difference helped define white aggression. The color did not necessarily receive the most explosive reach, but it could receive disciplined, clean bodies whose efficiency was paid for by commitment to the board.</p>
+</section>
+
+<section id="white"><div class="chapter-number">V · The Color</div><h2>White learned to start the race</h2>
+<p>White’s earliest identity included protection, prevention, symmetry, and order. Savannah Lions added urgency. The same color that could cast <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>, <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span>, and <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span> could also make the first aggressive move.</p>
+<p>The Lion did not contradict white’s philosophy so much as reveal another side of it. White could assemble a small, efficient force and use universal rules—taxes, protection, mass land destruction—to preserve the advantage created by deploying first. The aggression was collective and regimented rather than reckless.</p>
+<p>That pattern became White Weenie: low-cost creatures, efficient answers, and disruptive cards that prevented the opponent from stabilizing. Savannah Lions was the cleanest possible opening sentence for the archetype.</p>
+</section>
+
+<section id="fragility"><div class="chapter-number">VI · The Price</div><h2>One toughness was the hidden price</h2>
+<p>Savannah Lions attacked above rate, but it did not survive above rate. Almost every damage spell, pinger, and ordinary blocker could trade with it. <span class="card-name" data-card="Prodigal Sorcerer" tabindex="0">Prodigal Sorcerer</span> represented a nightmare. A single <span class="card-name" data-card="Mogg Fanatic" tabindex="0">Mogg Fanatic</span> in later years could erase the rare Alpha creature while leaving strategic value behind.</p>
+<p>That fragility made sequencing matter. The Lion was strongest before the opponent had mana and bodies available. It wanted removal pointed at blockers, not held for some theoretical premium target. It wanted combat tricks to generate tempo, not merely card parity.</p>
+<p>A 2/1 is not a small 2/2. The missing toughness changes every attack. Savannah Lions taught aggressive players to value damage already dealt more than the creature’s eventual survival.</p>
+</section>
+
+<section id="tempo"><div class="chapter-number">VII · The Clock</div><h2>The mathematics of the second turn</h2>
+<p>A turn-one Lion attacks for two on turn two, four total by turn three, and six total by turn four. Those numbers sound modest until they are combined with a second creature, a <span class="card-name" data-card="Mishra’s Factory" tabindex="0">Mishra’s Factory</span>, or the reach of a burn spell. The first two damage make every later exchange more dangerous.</p>
+<div class="turn-sequence"><div class="turn-step"><strong>Turn one</strong><p>Cast Savannah Lions and convert otherwise unused opening mana into future damage.</p></div><div class="turn-step"><strong>Turn two</strong><p>Attack for two, then add another threat or remove the first blocker.</p></div><div class="turn-step"><strong>Turn three</strong><p>Force the opponent to spend mana stabilizing rather than developing the game they planned to play.</p></div><div class="turn-step"><strong>Turn four</strong><p>Use land denial, burn, or an anthem to turn the early lead into an ending.</p></div></div>
+<p>The crucial resource is not merely life total. It is the opponent’s freedom. A credible early clock forces defensive lines, makes painful lands matter, and converts cards like <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span> from symmetrical effects into one-sided conclusions.</p>
+</section>
+
+<section id="weenie"><div class="chapter-number">VIII · The Archetype</div><h2>The creature that named a philosophy</h2>
+<p>White Weenie is not simply “a deck with small white creatures.” It is a theory of how to exploit mana efficiency. The deck deploys multiple threats before slower strategies can organize, then uses cheap interaction and disruptive permanents to make the opponent’s more expensive cards arrive too late.</p>
+<p>Savannah Lions mattered because it made the first turn productive without requiring setup. A hand of Plains, Lion, White Knight, removal, and Armageddon told a coherent story from the opening draw. Every card extended the same argument: establish the board, trade efficiently, then remove the resources that could reverse the race.</p>
+<p>The archetype would change its creature packages repeatedly, but the phrase “Savannah Lions start” remained understandable. It meant that the game had begun before the control deck was ready.</p>
+</section>
+
+<section id="support"><div class="chapter-number">IX · The Pride</div><h2>The shell mattered as much as the body</h2>
+<p>Mike Flores later observed that <span class="card-name" data-card="Jackal Pup" tabindex="0">Jackal Pup</span> was often more successful than Savannah Lions despite carrying a clear drawback. The reason was not that the Pup had better statistics. Red surrounded its creature with burn, allowing a two-power attacker to keep connecting and giving the deck reach when combat stopped working.</p>
+<p>White needed its own support system. <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> removed almost any blocker for one mana. <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span> prevented artifacts and enchantments from locking the small creatures out. Protection creatures attacked through color-specific defenses. <span class="card-name" data-card="Crusade" tabindex="0">Crusade</span> made each body relevant for longer.</p>
+<p>The lesson was larger than the comparison between Cat and Hound: an efficient threat is only as good as the deck’s ability to preserve the conditions under which that efficiency matters.</p>
+</section>
+
+<section id="geddon"><div class="chapter-number">X · The Lock</div><h2>Armageddon made the early damage permanent</h2>
+<p><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span> is the card that transforms White Weenie from a fair curve deck into a strategic trap. Once Savannah Lions and its companions establish a board, destroying every land removes the opponent’s ability to cast the expensive cards that would dominate combat.</p>
+<p>The effect is nominally symmetrical. The battlefield is not. The white deck has already converted its mana into creatures; the opponent may still be holding Wrath of God, large blockers, or card-draw spells. After Armageddon, the Lion’s humble two power becomes an inevitability engine.</p>
+<p>This relationship explains why the card remained more than a statistical curiosity. Savannah Lions was not asked to win an unrestricted late game. It was asked to help create a game in which the late game never properly arrived.</p>
+</section>
+
+<section id="core"><div class="chapter-number">XI · The Continuity</div><h2>A rare that survived the first core sets</h2>
+<p>Savannah Lions moved from Alpha through Beta, Unlimited, Revised, and Fourth Edition. For the game’s first years, it remained a visible statement about white creature efficiency and a recurring rare players could build around.</p>
+<p>Its persistence also normalized the benchmark. What had looked startling in 1993 became part of the game’s vocabulary. New players learned that white could receive two power for one mana, while experienced players learned that the body required the correct metagame and support cards to become more than a fast trade.</p>
+<p>The Lion disappeared from several later core sets, but its absence made its eventual return feel less like a routine reprint and more like the reopening of an old argument about how strong a one-drop should be.</p>
+</section>
+
+<section id="protour"><div class="chapter-number">XII · The Stage</div><h2>The Pro Tour gave White Weenie a stage</h2>
+<p>The professional era changed how Magic’s simple cards were understood. Decklists could now demonstrate that a textless creature belonged in a sophisticated metagame plan. Savannah Lions was not included because players lacked alternatives; it was selected because a one-mana two-power attacker created the exact pressure needed against slower and greedier strategies.</p>
+<p>White Weenie’s creature base also became more redundant. <span class="card-name" data-card="White Knight" tabindex="0">White Knight</span>, <span class="card-name" data-card="Order of Leitbur" tabindex="0">Order of Leitbur</span>, and <span class="card-name" data-card="Order of the White Shield" tabindex="0">Order of the White Shield</span> gave the deck resilience against black removal and blockers. <span class="card-name" data-card="Mishra’s Factory" tabindex="0">Mishra’s Factory</span> let the mana base continue attacking after sweepers. The Lion supplied the most efficient first turn in a deck whose later cards were chosen to protect that lead.</p>
+</section>
+
+<section id="chanpheng"><div class="chapter-number">XIII · The Championship</div><h2>Tom Chanpheng’s world championship</h2>
+<p>At the 1996 World Championship, Tom Chanpheng won with a White Weenie deck containing four Savannah Lions. The field was shaped heavily by <span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span>, and Chanpheng’s list attacked that environment with speed, protection from black, land disruption, and some of the most efficient removal ever printed.</p>
+<p>The Lions were the least complicated cards in the deck and among the most important. They made the first turn count, forced Necropotence players to spend life under immediate pressure, and gave Armageddon a board worth preserving. Four copies of an Alpha rare had become part of a world-championship machine.</p>
+<p>The victory remains the card’s clearest historical credential. Savannah Lions was not merely a theoretical benchmark. It opened games for a deck that finished above the entire world.</p>
+<div class="pullquote">The text box was empty. The tournament result supplied the explanation.</div>
+</section>
+
+<section id="registration"><div class="chapter-number">XIV · The Error</div><h2>The dead blue card in the champion’s deck</h2>
+<p>Chanpheng’s registered list famously contained <span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span> but no source of blue mana. Accounts of the event explain that intended copies of <span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span> were omitted during registration and replaced under tournament procedure with basic Plains, leaving the blue instant stranded in the deck.</p>
+<p>The mistake makes the championship story more remarkable, but it also highlights the deck’s underlying robustness. Savannah Lions did not ask for elaborate mana, a combo piece, or a specific matchup. It simply executed the primary plan despite one card in the sixty being functionally unusable.</p>
+<p>The champion’s deck was imperfect on paper and coherent in motion. Its pressure, protection creatures, removal, Factories, and land destruction were strong enough to absorb the registration handicap.</p>
+</section>
+
+<section id="pup"><div class="chapter-number">XV · The Rival</div><h2>Why Jackal Pup sometimes won the comparison</h2>
+<p>When Tempest introduced <span class="card-name" data-card="Jackal Pup" tabindex="0">Jackal Pup</span>, red received the same 2/1 body for one mana with a dangerous damage-reflection ability. On the card face, Savannah Lions looked strictly cleaner. In tournament practice, the Pup often had the better career because red’s supporting cast was built to exploit a short game.</p>
+<p><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, <span class="card-name" data-card="Incinerate" tabindex="0">Incinerate</span>, <span class="card-name" data-card="Fireblast" tabindex="0">Fireblast</span>, and their relatives removed blockers or ended the game directly. White’s removal was often more efficient at answering creatures, but gaining the opponent life with Swords to Plowshares could work against the aggressive clock. The color with the supposedly inferior creature sometimes built the superior pressure deck.</p>
+<p>This is one of Savannah Lions’ most valuable historical lessons: rate cannot be evaluated outside its ecosystem. The body defines possibility; the surrounding color defines conversion.</p>
+</section>
+
+<section id="eighth"><div class="chapter-number">XVI · The Return</div><h2>Eighth Edition reopened the cage</h2>
+<p>Eighth Edition returned Savannah Lions to Standard in 2003 with new Carl Critchlow artwork and the modern card frame. By then, creature design had advanced enough that the once-shocking body could be reconsidered as a useful but manageable aggressive tool.</p>
+<p>The reprint arrived at an important moment. White aggressive decks could combine the Lion with equipment, efficient two-drops, and increasingly reliable multicolor mana. The card no longer represented the maximum imaginable rate; it represented a proven floor for a serious opening play.</p>
+<p>Ninth Edition kept it in Standard, allowing the Lion to overlap with one of the most important descendants of its design.</p>
+</section>
+
+<section id="isamaru"><div class="chapter-number">XVII · The Redundancy</div><h2>Isamaru turned one Lion into eight</h2>
+<p>Champions of Kamigawa introduced <span class="card-name" data-card="Isamaru, Hound of Konda" tabindex="0">Isamaru, Hound of Konda</span>, a legendary 2/2 for one white mana. The legendary supertype limited multiples on the battlefield, but the extra toughness made Isamaru a substantial upgrade whenever only one copy was needed.</p>
+<p>The important deck-building result was redundancy. Aggressive decks could play four Savannah Lions and several Isamaru, dramatically increasing the chance of opening on two power. The cards were different enough to coexist and similar enough to make the first turn dependable.</p>
+<p>That density became central to Boros and Zoo. A deck does not become consistent because it owns one excellent opening; it becomes consistent when the same functional opening can be represented by eight or twelve cards.</p>
+</section>
+
+<section id="boros"><div class="chapter-number">XVIII · The Reach</div><h2>Boros added reach</h2>
+<p>Ravnica gave aggressive white decks a natural red partner. <span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span> made turn-one white mana and later red mana available from the same land base. <span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span>, <span class="card-name" data-card="Char" tabindex="0">Char</span>, and <span class="card-name" data-card="Shock" tabindex="0">Shock</span> cleared blockers or finished opponents who stabilized at a low life total.</p>
+<p>At the 2005 World Championship, Boros decks used Savannah Lions beside Isamaru and a heavy burn package. John Pelcak’s list played four Lions, three Isamaru, twelve direct-damage instants, and twenty-six creatures. The strategy treated the Lion as the first unit in a continuous damage system.</p>
+<p>This was the support structure that early Savannah Lions sometimes lacked. White supplied the clean body and efficient utility; red ensured that every early attack continued to matter after combat became difficult.</p>
+</section>
+
+<section id="honolulu"><div class="chapter-number">XIX · The Moment</div><h2>Honolulu made the curve famous</h2>
+<p>Craig Jones’s Zoo deck at Pro Tour Honolulu in 2006 is remembered for a top-decked <span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span> in the semifinal, one of competitive Magic’s most replayed moments. The dramatic finish rested on an aggressively engineered opening: four Savannah Lions, four <span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span>, and four Isamaru.</p>
+<p>Those twelve one-drops made the deck begin attacking in nearly every game. <span class="card-name" data-card="Watchwolf" tabindex="0">Watchwolf</span> and <span class="card-name" data-card="Burning-Tree Shaman" tabindex="0">Burning-Tree Shaman</span> continued the curve, while Helix, Char, and <span class="card-name" data-card="Flames of the Blood Hand" tabindex="0">Flames of the Blood Hand</span> converted the early creature damage into a finite endgame.</p>
+<p>Savannah Lions was no longer the singular marvel of the deck. That was evidence of its influence. The strategy had grown around the idea the Lion introduced: the first mana should already threaten the opponent’s life total.</p>
+</section>
+
+<section id="cat"><div class="chapter-number">XX · The Species</div><h2>From Lion to Cat</h2>
+<p>The original card was printed as “Summon Lions.” Magic’s creature-type system was literal and fragmented; lions were Lions, tigers were Tigers, and tribal consolidation had not yet become a design priority.</p>
+<p>By Ninth Edition, Savannah Lions appeared as a Cat. Mark Rosewater’s history of Magic’s Cats identifies it as the game’s first Cat in retrospect and notes the twelve-year path from its original Lion type to the broader creature family.</p>
+<p>The change gave the card new interactions without altering its rules text. A creature famous for having no ability acquired relevance through the type line, joining a tribe that would eventually include leonin, Nacatl, Ajani, and dedicated Commander support.</p>
+</section>
+
+<section id="vanguard"><div class="chapter-number">XXI · The Downshift</div><h2>Elite Vanguard moved the rate to common</h2>
+<p><span class="card-name" data-card="Elite Vanguard" tabindex="0">Elite Vanguard</span> appeared in Magic 2010 as a one-mana 2/1 Human Soldier at common. Mechanically, it reproduced Savannah Lions’ battlefield statistics and cost while attaching them to creature types with substantial tribal support.</p>
+<p>The change in rarity told the entire story of creature development. What Alpha treated as a rare reward had become a normal Limited building block. The body was still useful, but it no longer needed rarity to protect the environment from its efficiency.</p>
+<p>Savannah Lions had become a baseline rather than a destination. Designers could begin at 2/1 for one mana and ask what additional identity, synergy, or text the new card required.</p>
+</section>
+
+<section id="descendants"><div class="chapter-number">XXII · The Family</div><h2>The descendants of the benchmark</h2>
+<p>The Savannah Lions family includes direct statistical successors and more elaborate descendants. Isamaru added toughness with a legendary restriction. Elite Vanguard reproduced the rate at common. <span class="card-name" data-card="Dryad Militant" tabindex="0">Dryad Militant</span> added graveyard disruption and hybrid mana. <span class="card-name" data-card="Dauntless Bodyguard" tabindex="0">Dauntless Bodyguard</span> protected another creature. <span class="card-name" data-card="Hopeful Initiate" tabindex="0">Hopeful Initiate</span> scaled through training and threatened artifacts or enchantments.</p>
+<p>Later one-drops increasingly arrived with two power plus a second job. They generated cards, grew, disrupted graveyards, protected teammates, transformed, or carried relevant creature types. The original body remained visible beneath the text.</p>
+<div class="inline-image lion-descendant"><div class="image"><img alt="Isamaru, Hound of Konda, a direct descendant of Savannah Lions" src="https://api.scryfall.com/cards/named?exact=Isamaru%2C%20Hound%20of%20Konda&amp;format=image&amp;version=normal"></div><div class="copy"><div class="kicker">The first obvious upgrade</div><h3>Isamaru, Hound of Konda</h3><p>Isamaru turned the one-mana white attacker into a 2/2. The legendary restriction prevented effortless four-copy deployment, allowing the card to exceed Savannah Lions while still sharing a Standard deck with it.</p></div></div>
+</section>
+
+<section id="powercreep"><div class="chapter-number">XXIII · The Reversal</div><h2>When statistics stopped being enough</h2>
+<p>Savannah Lions was once remarkable because it had no drawback. Modern competitive one-drops are often judged harshly because they have no ability. A creature that trades for any token and contributes nothing when removed can be difficult to justify in formats defined by immediate value and recursive threats.</p>
+<p>The shift does not mean the original card was secretly weak. It means the environments changed. Removal became more flexible, creatures generated more value, and decks gained access to enough redundant one-drops that selection could favor cards with higher ceilings or utility.</p>
+<p>Power creep is easiest to see not in giant mythic creatures but in the shrinking amount of blank space on cards that cost one mana.</p>
+</section>
+
+<section id="pauper"><div class="chapter-number">XXIV · The Rarity Collapse</div><h2>The rare became a Pauper card</h2>
+<p>Masters 25 printed Savannah Lions at common in 2018, making the former Alpha rare legal in Pauper. Few cards illustrate the changing valuation of creature statistics more cleanly: the exact body once protected by the rare sheet became eligible for a format defined by common printings.</p>
+<p>The downshift did not make Savannah Lions a dominant Pauper staple. The format already contained one-drops with evasion, sacrifice value, heroic synergies, artifact interactions, and better resilience. Its legality was historically striking precisely because the competitive environment had moved beyond it.</p>
+<p>The card’s journey from rare to common is not a fall from grace. It is evidence that Savannah Lions successfully established a standard the rest of the game eventually absorbed.</p>
+</section>
+
+<section id="foundations"><div class="chapter-number">XXV · The Return Again</div><h2>Foundations returned it to Standard</h2>
+<p>Magic: The Gathering Foundations reprinted Savannah Lions as an uncommon in 2024, returning the card to Standard and placing it in a set designed to teach the game’s enduring vocabulary. Foundations is scheduled to remain Standard-legal through at least 2029.</p>
+<p>The choice is almost curatorial. Savannah Lions is no longer presented as the most dangerous one-drop available. It is presented as a clear example of aggressive rate: one mana, two power, one toughness, no rules baggage.</p>
+<p>Thirty-one years after Alpha, the card again occupies a role appropriate to its simplicity. It teaches players what an aggressive opening looks like, while the surrounding card pool demonstrates how much more a competitive one-drop may now be expected to do.</p>
+</section>
+
+<section id="oldschool"><div class="chapter-number">XXVI · The Preservation</div><h2>Old School preserved the original tension</h2>
+<p>Old School formats restore the environment in which Savannah Lions’ blank text box remains meaningful. Removal is powerful, but card advantage is scarce and mana development can be fragile. Two damage beginning on turn two can still force control decks to act before their engines are secure.</p>
+<p>The Lion appears in mono-white aggression, Naya shells, and “Lion Dib” strategies that combine white pressure with <span class="card-name" data-card="Serendib Efreet" tabindex="0">Serendib Efreet</span>, burn, and countermagic. The card’s vulnerability remains real; so does the punishment for failing to answer it promptly.</p>
+<p>In this setting, playing Savannah Lions is not nostalgia masquerading as strategy. It is using the card in the ecosystem that made its numbers historic.</p>
+</section>
+
+<section id="formats"><div class="chapter-number">XXVII · The Formats</div><h2>Where Savannah Lions belongs now</h2>
+<div class="format-strip"><div class="format-card"><b>Old School 93/94</b><p>A historically authentic and strategically credible source of immediate pressure.</p></div><div class="format-card"><b>Standard</b><p>Legal through Foundations, primarily as a clean baseline rather than a defining tournament threat.</p></div><div class="format-card"><b>Pauper</b><p>Legal after its common downshift, though usually displaced by one-drops with synergy or additional value.</p></div><div class="format-card"><b>Modern and Legacy</b><p>Fully legal but dramatically outclassed by threats that grow, disrupt, recur, or replace themselves.</p></div></div>
+<p>Commander gives it a narrow home in Cat tribal decks, but a vanilla 2/1 contributes little to a multiplayer game unless the deck strongly rewards the creature type. Cube designers may include it deliberately when they want the purest possible test of white aggro density.</p>
+</section>
+
+<section id="pilot"><div class="chapter-number">XXVIII · The Technique</div><h2>How to play a textless attacker well</h2>
+<p>The lack of rules text does not remove decisions. It concentrates them in deck construction, mulligans, sequencing, combat, and the use of supporting spells.</p>
+<div class="lion-ledger"><div class="lion-row"><strong>Opening hand</strong><p>Value the Lion highest when the hand can cast it on turn one and continue developing without missing mana.</p></div><div class="lion-row"><strong>Removal</strong><p>Use removal on blockers when doing so creates more damage than saving it for a theoretically stronger creature.</p></div><div class="lion-row"><strong>Trading</strong><p>Do not preserve a one-toughness creature merely because it is famous. Trade when the exchange protects a more valuable clock or resource.</p></div><div class="lion-row"><strong>Land denial</strong><p>Cast Armageddon only when the existing battlefield and hand make the symmetrical text asymmetrical in practice.</p></div><div class="lion-row"><strong>Topdecks</strong><p>Recognize when the Lion has become low impact and sideboard accordingly against decks built to clog the ground.</p></div></div>
+<p>Savannah Lions rewards clarity. It cannot rescue an unfocused deck. It can make a focused deck begin doing its job one turn earlier.</p>
+</section>
+
+<section id="memory"><div class="chapter-number">XXIX · The Memory</div><h2>What players remember</h2>
+<p>Some players remember opening a rare with no text and needing an experienced friend to explain why it was good. Others remember paying real money for a playset because White Weenie required the first turn to be occupied. A later generation remembers Savannah Lions as the card Isamaru replaced, or the rare that eventually appeared at common.</p>
+<p>The art also tracks the card’s changing status. Daniel Gelon’s original lions occupy an open, almost naturalistic scene. Carl Critchlow’s core-set interpretation brought the animal closer. Winona Nelson’s later version presents the card as a polished piece of Magic iconography, less mysterious but fully canonized.</p>
+<div class="memory"><div class="kicker">The enduring sentence</div><h3>“It’s a 2/1 for one.”</h3><p>Few descriptions in Magic carry as much history. The phrase once justified a rare, later defined an archetype, and eventually became the starting point for asking what else a one-drop can do.</p></div>
+</section>
+
+<section id="decks"><div class="chapter-number">XXX · The Archive</div><h2>The deck archive</h2>
+<p>The lists below show Savannah Lions in five distinct contexts: a contemporary Old School pressure-control shell, the 1996 World Championship deck, Ravnica Standard Boros, Honolulu Zoo, and a statistical composite of successful Extended Boros lists.</p>
+<div class="deck-archive"><details class="deck"><summary><div><strong>Grigory Kabushev — Lion Dib</strong><small>Sands of Time 93/94 Invitational 2023 · Top 4 · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>A modern Old School expression of the card: four Lions provide the only true one-drop pressure in a blue-red-white shell full of burn, countermagic, and Power.</p><button class="copy" data-target="lion-kabushev2023">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serendib Efreet" tabindex="0">Serendib Efreet</span></div></div><div class="group"><h4>Artifacts · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Instants · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Psionic Blast" tabindex="0">Psionic Blast</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div></div></div><div class="deck-col"><div class="group"><h4>Sorceries · 11</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wheel of Fortune" tabindex="0">Wheel of Fortune</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div></div><div class="group"><h4>Lands · 19</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl&#x27;s Recall" tabindex="0">Hurkyl&#x27;s Recall</span></div></div></div></div><pre hidden id="lion-kabushev2023">Grigory Kabushev — Lion Dib
+Sands of Time 93/94 Invitational 2023 · Top 4 · 60/15
+
+Creatures · 8
+4 Savannah Lions
+4 Serendib Efreet
+
+Artifacts · 7
+1 Black Lotus
+1 Chaos Orb
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+
+Instants · 15
+1 Ancestral Recall
+1 Mana Drain
+2 Counterspell
+3 Disenchant
+1 Divine Offering
+3 Psionic Blast
+4 Lightning Bolt
+
+Sorceries · 11
+4 Chain Lightning
+1 Balance
+1 Time Walk
+1 Timetwister
+1 Wheel of Fortune
+1 Demonic Tutor
+1 Mind Twist
+1 Braingeyser
+
+Lands · 19
+1 Library of Alexandria
+1 Strip Mine
+1 Plateau
+4 Tundra
+4 City of Brass
+4 Mishra&#x27;s Factory
+4 Volcanic Island
+
+Sideboard · 15
+1 Divine Offering
+1 Disenchant
+1 Armageddon
+2 Red Elemental Blast
+3 Swords to Plowshares
+2 Blue Elemental Blast
+1 Circle of Protection: Red
+1 Fireball
+2 Maze of Ith
+1 Hurkyl&#x27;s Recall</pre></div></details><details class="deck"><summary><div><strong>Tom Chanpheng — White Weenie</strong><small>World Championship 1996 · Champion · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>The defining Savannah Lions result: a mono-white pressure deck built to attack Necropotence strategies with protection creatures, land denial, and efficient removal.</p><button class="copy" data-target="lion-chanpheng1996">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of Leitbur" tabindex="0">Order of Leitbur</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of the White Shield" tabindex="0">Order of the White Shield</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Phyrexian War Beast" tabindex="0">Phyrexian War Beast</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="White Knight" tabindex="0">White Knight</span></div></div><div class="group"><h4>Artifacts · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lodestone Bauble" tabindex="0">Lodestone Bauble</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Enchantment · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants · 11</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reinforcements" tabindex="0">Reinforcements</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reprisal" tabindex="0">Reprisal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kjeldoran Outpost" tabindex="0">Kjeldoran Outpost</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div><div class="row"><span class="qty">15</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Arenson&#x27;s Aura" tabindex="0">Arenson&#x27;s Aura</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Energy Storm" tabindex="0">Energy Storm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Exile" tabindex="0">Exile</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kjeldoran Outpost" tabindex="0">Kjeldoran Outpost</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reprisal" tabindex="0">Reprisal</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spirit Link" tabindex="0">Spirit Link</span></div></div></div></div><pre hidden id="lion-chanpheng1996">Tom Chanpheng — White Weenie
+World Championship 1996 · Champion · 60/15
+
+Creatures · 20
+4 Order of Leitbur
+4 Order of the White Shield
+2 Phyrexian War Beast
+4 Savannah Lions
+2 Serra Angel
+4 White Knight
+
+Artifacts · 2
+1 Lodestone Bauble
+1 Zuran Orb
+
+Enchantment · 1
+1 Land Tax
+
+Instants · 11
+4 Disenchant
+1 Reinforcements
+1 Reprisal
+1 Sleight of Mind
+4 Swords to Plowshares
+
+Sorceries · 2
+1 Armageddon
+1 Balance
+
+Lands · 24
+1 Kjeldoran Outpost
+4 Mishra&#x27;s Factory
+15 Plains
+4 Strip Mine
+
+Sideboard · 15
+2 Arenson&#x27;s Aura
+1 Black Vise
+4 Divine Offering
+1 Energy Storm
+1 Exile
+1 Kjeldoran Outpost
+1 Reprisal
+2 Serrated Arrows
+1 Sleight of Mind
+1 Spirit Link</pre></div></details><details class="deck"><summary><div><strong>John Pelcak — Boros Deck Doesn’t Win</strong><small>World Championship 2005 · 19th overall · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>A Standard Boros list from the first Ravnica season, where Savannah Lions joined Isamaru, burn, and Sacred Foundry in an aggressively low curve.</p><button class="copy" data-target="lion-pelcak2005">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 26</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Boros Guildmage" tabindex="0">Boros Guildmage</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Frenzied Goblin" tabindex="0">Frenzied Goblin</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hearth Kami" tabindex="0">Hearth Kami</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Isamaru, Hound of Konda" tabindex="0">Isamaru, Hound of Konda</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Orcish Artillery" tabindex="0">Orcish Artillery</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Zo-Zu the Punisher" tabindex="0">Zo-Zu the Punisher</span></div></div><div class="group"><h4>Instants · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Char" tabindex="0">Char</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Shock" tabindex="0">Shock</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">7</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Battlefield Forge" tabindex="0">Battlefield Forge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Eiganjo Castle" tabindex="0">Eiganjo Castle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mikokoro, Center of the Sea" tabindex="0">Mikokoro, Center of the Sea</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shinka, the Bloodsoaked Keep" tabindex="0">Shinka, the Bloodsoaked Keep</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Bottled Cloister" tabindex="0">Bottled Cloister</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Faith&#x27;s Fetters" tabindex="0">Faith&#x27;s Fetters</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flames of the Blood Hand" tabindex="0">Flames of the Blood Hand</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kami of Ancient Law" tabindex="0">Kami of Ancient Law</span></div></div></div></div><pre hidden id="lion-pelcak2005">John Pelcak — Boros Deck Doesn’t Win
+World Championship 2005 · 19th overall · 60/15
+
+Creatures · 26
+4 Boros Guildmage
+3 Frenzied Goblin
+4 Hearth Kami
+3 Isamaru, Hound of Konda
+4 Orcish Artillery
+4 Savannah Lions
+4 Zo-Zu the Punisher
+
+Instants · 12
+4 Char
+4 Lightning Helix
+4 Shock
+
+Lands · 22
+4 Plains
+7 Mountain
+4 Battlefield Forge
+1 Eiganjo Castle
+1 Mikokoro, Center of the Sea
+4 Sacred Foundry
+1 Shinka, the Bloodsoaked Keep
+
+Sideboard · 15
+3 Bottled Cloister
+4 Faith&#x27;s Fetters
+4 Flames of the Blood Hand
+4 Kami of Ancient Law</pre></div></details><details class="deck"><summary><div><strong>Craig Jones — Zoo</strong><small>Pro Tour Honolulu 2006 · Runner-up · 60/15</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>The celebrated Honolulu list used twelve one-mana attackers, including four Lions, to make every burn spell and every later creature arrive behind immediate pressure.</p><button class="copy" data-target="lion-jones2006">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 22</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Isamaru, Hound of Konda" tabindex="0">Isamaru, Hound of Konda</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Watchwolf" tabindex="0">Watchwolf</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Kami of Ancient Law" tabindex="0">Kami of Ancient Law</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Burning-Tree Shaman" tabindex="0">Burning-Tree Shaman</span></div></div><div class="group"><h4>Spells · 16</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Shock" tabindex="0">Shock</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Bathe in Light" tabindex="0">Bathe in Light</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flames of the Blood Hand" tabindex="0">Flames of the Blood Hand</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Char" tabindex="0">Char</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karplusan Forest" tabindex="0">Karplusan Forest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brushland" tabindex="0">Brushland</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Temple Garden" tabindex="0">Temple Garden</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Eiganjo Castle" tabindex="0">Eiganjo Castle</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Battlefield Forge" tabindex="0">Battlefield Forge</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stomping Ground" tabindex="0">Stomping Ground</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tin Street Hooligan" tabindex="0">Tin Street Hooligan</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Giant Solifuge" tabindex="0">Giant Solifuge</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Hunted Wumpus" tabindex="0">Hunted Wumpus</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Umezawa&#x27;s Jitte" tabindex="0">Umezawa&#x27;s Jitte</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Guerrilla Tactics" tabindex="0">Guerrilla Tactics</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flames of the Blood Hand" tabindex="0">Flames of the Blood Hand</span></div></div></div></div><pre hidden id="lion-jones2006">Craig Jones — Zoo
+Pro Tour Honolulu 2006 · Runner-up · 60/15
+
+Creatures · 22
+4 Savannah Lions
+4 Kird Ape
+4 Isamaru, Hound of Konda
+4 Watchwolf
+3 Kami of Ancient Law
+3 Burning-Tree Shaman
+
+Spells · 16
+3 Shock
+4 Lightning Helix
+2 Bathe in Light
+3 Flames of the Blood Hand
+4 Char
+
+Lands · 22
+2 Forest
+1 Plains
+1 Karplusan Forest
+1 Brushland
+4 Sacred Foundry
+4 Temple Garden
+1 Eiganjo Castle
+4 Battlefield Forge
+4 Stomping Ground
+
+Sideboard · 15
+2 Tin Street Hooligan
+2 Giant Solifuge
+3 Hunted Wumpus
+4 Umezawa&#x27;s Jitte
+3 Guerrilla Tactics
+1 Flames of the Blood Hand</pre></div></details><details class="deck"><summary><div><strong>Composite Boros Deck Wins</strong><small>Extended 2006 season · Statistical composite · 60 cards</small></div><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p>A composite assembled from fifteen successful Extended Boros lists. Savannah Lions was one of only four cards found in every deck examined.</p><button class="copy" data-target="lion-composite2006">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 22</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grim Lavamancer" tabindex="0">Grim Lavamancer</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Isamaru, Hound of Konda" tabindex="0">Isamaru, Hound of Konda</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Silver Knight" tabindex="0">Silver Knight</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Goblin Legionnaire" tabindex="0">Goblin Legionnaire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Soltari Priest" tabindex="0">Soltari Priest</span></div></div><div class="group"><h4>Spells · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Firebolt" tabindex="0">Firebolt</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sudden Shock" tabindex="0">Sudden Shock</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Molten Rain" tabindex="0">Molten Rain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lava Dart" tabindex="0">Lava Dart</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">10</span><span class="card-name" data-card="Fetch lands" tabindex="0">Fetch lands</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Barbarian Ring" tabindex="0">Barbarian Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Eiganjo Castle" tabindex="0">Eiganjo Castle</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div></div></div></div><pre hidden id="lion-composite2006">Composite Boros Deck Wins
+Extended 2006 season · Statistical composite · 60 cards
+
+Creatures · 22
+4 Grim Lavamancer
+4 Savannah Lions
+4 Isamaru, Hound of Konda
+4 Silver Knight
+4 Goblin Legionnaire
+2 Soltari Priest
+
+Spells · 16
+4 Lightning Helix
+4 Firebolt
+3 Sudden Shock
+3 Molten Rain
+2 Lava Dart
+
+Lands · 22
+10 Fetch lands
+4 Sacred Foundry
+2 Barbarian Ring
+1 Eiganjo Castle
+3 Mountain
+2 Plains</pre></div></details></div>
+</section>
+
+<section id="sources"><div class="chapter-number">XXXI · The Object</div><h2>Printings and sources</h2>
+<p>Savannah Lions has one of the most legible printing histories in Magic. The Daniel Gelon image carried it through the game’s earliest core sets. Eighth and Ninth Editions introduced Carl Critchlow’s new interpretation. Masters 25, later reprint products, and Foundations used Winona Nelson’s artwork while moving the card down the rarity scale.</p>
+<p>The selected printings below show the major transitions: black border to white border, old frame to modern frame, Lion to Cat, rare to common, and finally a return to Standard as an uncommon teaching piece.</p>
+<div class="printings">
+<figure class="printing"><img alt="Savannah Lions from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Savannah%20Lions&amp;set=lea&amp;format=image&amp;version=normal"><figcaption>Limited Edition Alpha · 1993<br>Daniel Gelon · original rare</figcaption></figure>
+<figure class="printing"><img alt="Savannah Lions from Unlimited Edition" src="https://api.scryfall.com/cards/named?exact=Savannah%20Lions&amp;set=2ed&amp;format=image&amp;version=normal"><figcaption>Unlimited Edition · 1993<br>First white-bordered release</figcaption></figure>
+<figure class="printing"><img alt="Savannah Lions from Revised Edition" src="https://api.scryfall.com/cards/named?exact=Savannah%20Lions&amp;set=3ed&amp;format=image&amp;version=normal"><figcaption>Revised Edition · 1994<br>Widely circulated early reprint</figcaption></figure>
+<figure class="printing"><img alt="Savannah Lions from Fourth Edition" src="https://api.scryfall.com/cards/named?exact=Savannah%20Lions&amp;set=4ed&amp;format=image&amp;version=normal"><figcaption>Fourth Edition · 1995<br>The World Championship-era version</figcaption></figure>
+<figure class="printing"><img alt="Savannah Lions from Eighth Edition" src="https://api.scryfall.com/cards/named?exact=Savannah%20Lions&amp;set=8ed&amp;format=image&amp;version=normal"><figcaption>Eighth Edition · 2003<br>Carl Critchlow · modern-frame return</figcaption></figure>
+<figure class="printing"><img alt="Savannah Lions from Ninth Edition" src="https://api.scryfall.com/cards/named?exact=Savannah%20Lions&amp;set=9ed&amp;format=image&amp;version=normal"><figcaption>Ninth Edition · 2005<br>Creature type consolidated as Cat</figcaption></figure>
+<figure class="printing"><img alt="Savannah Lions from Masters 25" src="https://api.scryfall.com/cards/named?exact=Savannah%20Lions&amp;set=a25&amp;format=image&amp;version=normal"><figcaption>Masters 25 · 2018<br>Winona Nelson · downshifted to common</figcaption></figure>
+<figure class="printing"><img alt="Savannah Lions from Foundations" src="https://api.scryfall.com/cards/named?exact=Savannah%20Lions&amp;set=fdn&amp;format=image&amp;version=normal"><figcaption>Foundations · 2024<br>Uncommon · returned to Standard</figcaption></figure>
+</div><h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/38/savannah-lions">Scryfall — Savannah Lions, Limited Edition Alpha</a><span>Oracle text, original rarity, artist, release information, legalities, and card imagery.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Savannah+Lions%22+include%3Aextras&amp;unique=prints">Scryfall — All Savannah Lions printings</a><span>Printing history across core sets, digital releases, reprint products, and special editions.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/cats-2017-08-07">Mark Rosewater — Cats</a><span>Official history identifying Savannah Lions as Magic’s first Cat in retrospect and documenting its original Lion creature type.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/strictly-superior-2014-03-03">Mike Flores — Strictly Superior</a><span>Official strategic comparison of Savannah Lions and Jackal Pup and the importance of their surrounding support cards.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/tour-part-1-2004-07-26">Mark Rosewater — On Tour, Part 1</a><span>Official retrospective on the inaugural Pro Tour season and Tom Chanpheng’s 1996 World Championship victory.</span></li>
+<li><a href="https://mtg.fandom.com/wiki/1996_World_Championship_deck">MTG Wiki — 1996 World Championship deck</a><span>Chanpheng’s registered decklist, Savannah Lions count, and the famous missing blue-mana issue.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/tom-chanphengs-white-weenie-1996-wc/">TappedOut — Tom Chanpheng White Weenie</a><span>Complete 60-card main deck and 15-card sideboard used in the deck archive.</span></li>
+<li><a href="https://mtg.wiki/page/2005_World_Championships/Standard_decks">Magic: The Gathering Wiki — 2005 Worlds Standard decks</a><span>John Pelcak’s Boros list and context for Savannah Lions in the first Ravnica Standard season.</span></li>
+<li><a href="https://www.mtggoldfish.com/deck/604179">MTGGoldfish — Craig Jones Zoo, Pro Tour Honolulu 2006</a><span>Complete Honolulu runner-up list featuring four Savannah Lions among twelve one-mana attackers.</span></li>
+<li><a href="https://articles.starcitygames.com/articles/boros-deck-wins-in-extended-examining-the-numbers/">Star City Games — Boros Deck Wins in Extended</a><span>Statistical analysis of fifteen successful lists and the composite Extended Boros deck.</span></li>
+<li><a href="https://mtgdecks.net/Old-school/lion-dib-decklist-by-grigory-kabushev-1865770">MTGDecks — Grigory Kabushev, Lion Dib</a><span>Complete 2023 Old School tournament list demonstrating the card’s continued role in 93/94 play.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/foundations-release-notes">Wizards of the Coast — Foundations Release Notes</a><span>Official set legality and rules information for Savannah Lions’ return to Standard.</span></li>
+<li><a href="https://scryfall.com/card/fdn/146/savannah-lions">Scryfall — Savannah Lions, Foundations</a><span>Foundations rarity, Winona Nelson artwork, current legalities, and the latest main-set printing.</span></li>
+</ol><div class="editor-note"><b>Editorial note.</b> The deck archive distinguishes documented tournament lists from the statistical Extended composite. Historical accounts differ in how they describe the exact registration procedure surrounding Tom Chanpheng’s missing Adarkar Wastes; the uncontested result is that his registered championship deck contained Sleight of Mind without a blue mana source.</div><div class="end-nav"><a href="052-kird-ape.html"><small>Previous numbered entry</small>Kird Ape</a><a href="index.html?focus=entry-054#entry-054"><small>Next numbered entry</small>Erhnam Djinn</a></div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Entry 053</b><br>Savannah Lions made a blank text box historic. Its two power established the benchmark that white one-drops spent the next three decades exceeding.</aside></div>
+<div id="preview"><img alt="Card preview"></div>
+<footer class="footer">Compulsive Research · An independent, noncommercial preservation of Magic history.</footer>
+<script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
