@@ -1,0 +1,1274 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A long-form magazine history of Library of Alexandria: Arabian Nights, the seven-card threshold, early restriction, The Deck, Zak Dolan, Old School, Keeper, Gro-A-Tog, Vintage, the Reserved List, digital releases, strategy, printings, and tournament decklists." name="description"/><title>Library of Alexandria: Seven Is a Kingdom — Compulsive Research</title><style>
+:root{
+  --paper:#f3eee2;
+  --paper2:#e3d7c3;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#100e0a;
+  --night2:#1d1810;
+  --green:#615539;
+  --teal:#567a82;
+  --gold:#aa8749;
+  --rust:#7f5341;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+
+
+.hero.stasis-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stasis&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+
+.hero.kird-art:before{
+  background-image:url(https://api.scryfall.com/cards/arn/40?format=image&version=art_crop)!important;
+  background-position:center 38%!important;
+}
+.art-break.kird-art-break{
+  background-image:url(https://api.scryfall.com/cards/arn/40?format=image&version=art_crop)!important;
+  background-position:center 40%!important;
+}
+.kird-descendant .image{
+  min-height:390px;display:flex;align-items:center;justify-content:center;padding:28px;
+  background:linear-gradient(145deg,#253222,#131914)!important;
+}
+.kird-descendant .image img{
+  display:block;width:min(285px,92%);height:auto;border-radius:4.8%;
+  box-shadow:0 22px 44px rgba(0,0,0,.48)
+}
+.ape-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ape-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.ape-row:last-child{border-bottom:0}.ape-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.ape-row p{margin:0}
+.benchmark-grid{width:min(980px,calc(100vw - 32px));margin:34px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.benchmark-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.benchmark-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}.benchmark-card h3{margin:.1em 0 .35em;font-size:1.15rem}.benchmark-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+.turn-sequence{margin:30px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white);box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.turn-step{display:grid;grid-template-columns:125px minmax(0,1fr);gap:18px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.turn-step:last-child{border-bottom:0}.turn-step strong{font:900 .72rem/1.3 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust)}.turn-step p{margin:0}
+@media(max-width:750px){.ape-row,.turn-step{grid-template-columns:92px minmax(0,1fr)}.benchmark-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.savannah-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Savannah%20Lions&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+.lion-descendant .image{
+  min-height:390px;display:flex;align-items:center;justify-content:center;padding:28px;
+  background:linear-gradient(145deg,#483f2a,#17160f)!important;
+}
+.lion-descendant .image img{
+  display:block;width:min(285px,92%);height:auto;border-radius:4.8%;
+  box-shadow:0 22px 44px rgba(0,0,0,.48)
+}
+.lion-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lion-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.lion-row:last-child{border-bottom:0}.lion-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.lion-row p{margin:0}
+@media(max-width:750px){.lion-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.hero.erhnam-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Erhnam%20Djinn&set=arn&format=image&version=art_crop)!important;
+  background-position:center 37%!important;
+}
+.erhnam-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.erhnam-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.erhnam-row:last-child{border-bottom:0}.erhnam-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.erhnam-row p{margin:0}
+.descendant-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:min(920px,calc(100vw - 32px));margin:34px 0 42px calc((var(--reading) - min(920px,calc(100vw - 32px)))/2)}
+.descendant-cards figure{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden;box-shadow:0 8px 24px rgba(22,25,24,.08)}
+.descendant-cards img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.descendant-cards figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:11px;text-align:center}
+@media(max-width:750px){.erhnam-row{grid-template-columns:92px minmax(0,1fr)}.descendant-cards{width:100%;margin-left:0;grid-template-columns:1fr 1fr}.descendant-cards figure:last-child{grid-column:1/-1;max-width:52%;justify-self:center}}
+
+.hero.city-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=City%20of%20Brass&set=arn&format=image&version=art_crop)!important;
+  background-position:center 54%!important;
+}
+.city-art{background-color:var(--night)}
+.brass-ledger{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:30px 0}
+.brass-row{display:grid;grid-template-columns:145px minmax(0,1fr);background:var(--white)}
+.brass-row strong{padding:18px;background:rgba(184,138,56,.10);font:750 13px/1.35 Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.brass-row p{margin:0;padding:15px 18px}
+.mana-spectrum{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:28px 0}
+.mana-spectrum div{padding:17px 8px;border:1px solid var(--line);border-radius:12px;background:var(--white);text-align:center;font:750 13px/1.35 Inter,sans-serif}
+.mana-spectrum b{display:block;font-size:1.7rem;margin-bottom:5px}
+@media(max-width:750px){.brass-row{grid-template-columns:100px minmax(0,1fr)}.mana-spectrum{grid-template-columns:1fr 1fr}.mana-spectrum div:last-child{grid-column:1/-1}}
+
+.hero.library-art:before{background-image:url(https://api.scryfall.com/cards/arn/76?format=image&version=art_crop)!important;background-position:center 45%!important}.library-art{background-color:var(--night)}
+</style></head><body><header class="hero library-art"><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=entry-056#entry-056">← Back to Compulsive Research</a><div class="eyebrow">Entry 056 · The Land That Drew Too Much</div><h1>Seven Is a Kingdom</h1><p class="deckline">Library of Alexandria turned a full hand into a repeatable engine, taught early players what card advantage meant, and proved that the most dangerous spell in a deck could occupy a land slot.</p><div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Arabian Nights, 1993</span><span class="pill">Approximately 29 minute read</span></div></div></header>
+<nav class="rank-nav"><a href="055-city-of-brass.html">← Entry 055 · City of Brass</a><div class="center">Entry 056 of 1,000</div><a href="index.html?focus=entry-057#entry-057">Entry 057 · Bazaar of Baghdad →</a></nav>
+<div class="article-shell"><nav aria-label="Article table of contents" class="toc"><strong>In this article</strong><a href="#opening">Seven is a kingdom</a><a href="#arabian">Arabian Nights made lands into places</a><a href="#land">A land that behaves like a spell</a><a href="#seven">Exactly seven</a><a href="#drawstep">The draw step is part of the engine</a><a href="#mana">It still taps for mana</a><a href="#multiple">Why multiple Libraries cascaded</a><a href="#pressure">Make the librarian spend cards</a><a href="#art">Mark Poole painted knowledge as light</a><a href="#restriction">Restriction arrived in 1994</a><a href="#thedeck">The Deck made waiting a weapon</a><a href="#advantage">A card that taught card advantage</a><a href="#worlds">Zak Dolan played the long game</a><a href="#oldschool">Old School still revolves around it</a><a href="#keeper">Keeper carried the Library forward</a><a href="#gro">Proactive blue became librarians</a><a href="#notuniversal">Not always the correct land</a><a href="#bazaar">Library and Bazaar</a><a href="#formats">Restricted, banned, preserved</a><a href="#arena">The Library opened on Arena</a><a href="#descendants">The descendants charged admission</a><a href="#reserved">The Reserved List object</a><a href="#pilot">How to play Library</a><a href="#memory">What players remember</a><a href="#identity">Why Library still matters</a><a href="#decks">The deck archive</a><a href="#sources">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The Threshold</div><h2>Seven is a kingdom</h2>
+<p class="opening dropcap">There are powerful lands, and then there are lands that change the rules of attention. <span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span> does not accelerate mana, fix colors, or attack. It simply waits for a player to possess exactly seven cards—and then turns the most ordinary game action in Magic, tapping a land, into a free extra draw.</p>
+<p>The sentence is short enough to look conditional and fair. In practice, the condition often rewards the player who is already best positioned to exploit it: the player with time, cheap interaction, and the discipline to keep a hand full. Once the Library begins working, every unanswered turn can produce another answer, another land drop, or another threat without consuming a spell slot.</p>
+<div class="card-lead"><img alt="Library of Alexandria from Arabian Nights" src="https://api.scryfall.com/cards/arn/76?format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The original object</div><h3>Library of Alexandria</h3><p><b>Land</b></p><p>{T}: Add {C}.</p><p>{T}: Draw a card. Activate only if you have exactly seven cards in hand.</p><div class="stats"><div class="stat"><b>First printing</b>Arabian Nights · 1993</div><div class="stat"><b>Original artist</b>Mark Poole</div><div class="stat"><b>Original rarity</b>Uncommon (U3)</div><div class="stat"><b>Historical role</b>Repeatable card advantage from a land slot</div></div></div></div>
+<p>Library of Alexandria became a symbol of early control not because it solved every game, but because it made one kind of game radically unfair: the quiet game in which neither player was forced to empty a hand. The player with the Library was no longer merely waiting. They were accumulating.</p></section><section id="arabian"><div class="chapter-number">II · The First Expansion</div><h2>Arabian Nights made lands into places</h2>
+<p><i>Arabian Nights</i> was Magic’s first expansion and its first sustained argument that lands could be more than colored mana. <span class="card-name" data-card="Bazaar of Baghdad" tabindex="0">Bazaar of Baghdad</span> traded cards for velocity. <span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span> converted creatures into life. <span class="card-name" data-card="Elephant Graveyard" tabindex="0">Elephant Graveyard</span> protected a narrow tribe. <span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span> offered every color at a price. Library of Alexandria turned geography into knowledge.</p>
+<p>The source was the historical Library of Alexandria as filtered through the literary atmosphere of the set: a legendary place whose cultural meaning already exceeded the certainty of its surviving facts. That made it unusually suited to a card about limitless information. A single brown-framed land could evoke an institution, a lost world, and the fantasy that every answer might be found on the next shelf.</p>
+<p>Unlike many early top-down designs, the mechanic and the name reinforce each other perfectly. The card does not search for one specific object. It gives access to more text, more possibilities, and more future decisions.</p></section><section id="land"><div class="chapter-number">III · The Category Error</div><h2>A land that behaves like a spell</h2>
+<p>Most card-drawing spells ask the player to spend mana and a card from hand. Library does neither. The land occupies a mana-base slot, enters untapped, and can produce colorless mana whenever its second ability is unavailable. When the condition is met, it becomes a repeatable draw engine that cannot be answered by ordinary creature removal or countermagic.</p>
+<p>That compression is the heart of the card’s power. A control deck does not need to choose between its twenty-fifth mana source and another card-advantage spell; Library can be both. The opportunity cost exists—colorless mana can strain demanding spells—but in powered environments the surrounding Moxen, dual lands, and Cities of Brass often reduce that cost.</p>
+<div class="pullquote">The Library is not merely a land that draws cards. It is a draw engine that disguises itself as a land drop.<small>Why the card broke early assumptions</small></div>
+<p>Modern Magic has printed many utility lands, but very few are permitted to generate unconditional cards turn after turn without a mana payment, sacrifice, or meaningful deck-building restriction. Library established why.</p></section><section id="seven"><div class="chapter-number">IV · The Number</div><h2>Exactly seven means exactly seven</h2>
+<p>The activation restriction is precise. Six cards is not enough. Eight cards is too many. The player must have exactly seven cards in hand when activating the ability.</p>
+<p>That creates one of Magic’s most distinctive micro-games. A player may decline to play a land, hold an otherwise useful spell, or sequence an instant during the opponent’s turn so that the next draw step returns the hand to seven. A cantrip that appears to improve card quality may actually move the hand away from the threshold. A discard spell can turn the Library off without ever touching the land.</p>
+<p>The number seven also echoes Magic’s starting hand size. Library is strongest when it preserves the opening state of abundance. It rewards the player who can keep playing the game while appearing not to spend anything.</p></section><section id="drawstep"><div class="chapter-number">V · The Rhythm</div><h2>The draw step is part of the engine</h2>
+<p>Suppose a player ends the opponent’s turn with six cards. Their draw step produces the seventh. Before committing another card, they can activate Library and draw to eight. They may then play a land or cast a spell and return to seven, potentially preparing another activation on the next turn.</p>
+<p>This pattern explains why Library is often described as stronger on the draw. The extra opening card can make the initial threshold easier to maintain, especially when the opponent is not applying immediate pressure. But that generalization is not absolute. Being on the play can protect the land from a turn-one <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span> or allow the Library player to establish interaction first.</p>
+<p>The correct question is not simply play or draw. It is whether the opening hand can reach seven repeatedly without surrendering the board.</p></section><section id="mana"><div class="chapter-number">VI · The Floor</div><h2>When the shelves are closed, it still taps for mana</h2>
+<p>Library’s first ability matters because it prevents the card from becoming dead when the hand shrinks. It can cast artifacts, pay generic costs, or contribute to a late-game spell. This floor separates it from a pure engine piece that must be drawn at the right time.</p>
+<p>Colorless mana is not free. Opening hands with Library and several color-intensive spells can be clumsy, and aggressive or combo decks may not have time to wait for the draw ability. The card’s reputation sometimes obscures that deck construction still matters. A Library that keeps a hand from casting <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span> is not automatically an advantage.</p>
+<p>The best Library decks use flexible costs, artifact mana, or broad fixing so that the land’s ordinary mode remains functional while its extraordinary mode threatens to take over.</p></section><section id="multiple"><div class="chapter-number">VII · The Old Ruling</div><h2>Why multiple Libraries could cascade</h2>
+<p>The seven-card condition is checked when the ability is activated. Under the published ruling, if a player controls multiple Libraries while holding exactly seven cards, they may activate them in response to one another. Each activation was legal at the moment it was announced, even though the first one to resolve increases the hand above seven.</p>
+<p>This interaction mattered most before restriction, when multiple copies could appear in the same deck. It also illustrates a broader rules lesson: activation restrictions are not automatically rechecked on resolution unless the text requires it.</p>
+<p>Four-copy Library was not merely four chances to draw the best opening land. In the rare game where more than one remained in play, the card could produce bursts of advantage that made the “one card per turn” expectation feel quaint.</p></section><section id="pressure"><div class="chapter-number">VIII · The Counterplay</div><h2>Make the librarian spend cards</h2>
+<p>The cleanest answer to Library is pressure. Creatures force removal. Combo forces countermagic. Discard reduces the hand below seven. Land destruction removes the engine directly. The common thread is urgency: the opponent must prevent the Library player from treating time as a free resource.</p>
+<p><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span> is especially brutal because it attacks both the cards already accumulated and the threshold required to draw more. <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span> combines hand pressure with a clock. <span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span> turns the Library player’s abundance into damage. <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span> and later <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> answer the permanent itself.</p>
+<p>Passive play is usually the wrong response. Trading one-for-one while the other player draws two cards each turn is not parity; it is a slow concession.</p></section><section id="art"><div class="chapter-number">IX · The Image</div><h2>Mark Poole painted knowledge as light</h2>
+<p>Mark Poole’s original art does not present a neat reading room. The Library rises from darkness as a dense, luminous structure, its architecture more imagined than archaeological. Repeated windows suggest countless chambers. The surrounding night makes the building feel less like a civic institution than a supernatural reservoir.</p>
+<div class="art-break" style="background-image:url(https://api.scryfall.com/cards/arn/76?format=image&amp;version=art_crop);background-position:center 45%"><div class="art-caption"><b>Library of Alexandria · Mark Poole</b>The original image turns the promise of knowledge into a distant illuminated complex: inviting, immense, and difficult to reach.</div></div>
+<p>The art helped make the card collectible before many players fully understood its strategic ceiling. It looked important. Over time, tournament history supplied the proof.</p></section><section id="restriction"><div class="chapter-number">X · The Verdict</div><h2>Restriction arrived in 1994</h2>
+<p>Library of Alexandria was restricted in Type I in May 1994 for the simplest possible reason: repeatable card drawing from a land was too efficient in multiples. The decision placed it among Magic’s earliest acknowledged design mistakes.</p>
+<p>Restriction changed the card’s role but not its prestige. Instead of building around four copies, control decks began treating the single Library as a powerful opening, a tutor target, and a subgame that could decide a match. The restriction also protected its mystique. A one-of land that appears rarely and dominates visibly feels almost legendary even without the supertype.</p>
+<div class="timeline"><div class="timeline-item"><time>December 1993</time><h3>Arabian Nights</h3><p>Library enters Magic as an uncommon land with no mana cost beyond tapping.</p></div><div class="timeline-item"><time>May 1994</time><h3>Type I restriction</h3><p>Multiple-copy Library is removed from sanctioned play after its card-advantage engine proves too strong.</p></div><div class="timeline-item"><time>1997</time><h3>Oversized recognition</h3><p>An oversized League Prize preserves the original Mark Poole presentation as memorabilia.</p></div><div class="timeline-item"><time>2011–2014</time><h3>Digital return</h3><p>Masters Edition IV and Vintage Masters make the card playable online.</p></div><div class="timeline-item"><time>2026</time><h3>Arena arrival</h3><p>A Special Guests digital treatment brings Library into Arena’s high-powered formats while Historic pre-bans it.</p></div></div></section><section id="thedeck"><div class="chapter-number">XI · The Theory</div><h2>The Deck made waiting a weapon</h2>
+<p>Brian Weissman’s The Deck transformed early card advantage from an intuition into a philosophy. The deck traded efficiently, protected its life total, answered permanent types broadly, and delayed winning until the opponent had exhausted meaningful resistance. Library of Alexandria was almost a physical diagram of that approach.</p>
+<p>When Library is active, a one-for-one exchange favors its controller. <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> for a creature, <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span> for an artifact, and <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span> for a threat no longer leave both players equally depleted. The land replaces the answer. Over several turns, the control player’s hand remains full while the opponent’s options collapse.</p>
+<p>The Deck did not need Library to function, but Library made the deck’s central claim visible: resources matter more than spectacle, and the player who sees more cards eventually controls what the game is allowed to become.</p></section><section id="advantage"><div class="chapter-number">XII · The Vocabulary</div><h2>A card that taught card advantage</h2>
+<p>Early Magic players did not inherit today’s strategic vocabulary fully formed. Ideas such as card advantage, inevitability, tempo, and virtual card advantage had to be discovered through games. Library was an unusually clear teacher.</p>
+<p>Each successful activation is a literal plus one: no card is spent, and one card is gained. The accumulation can be counted without interpretation. Yet the card also teaches that advantage is conditional. A player who loses while holding nine cards did not convert cardboard into survival. A player who refuses to cast a necessary answer merely to preserve seven has mistaken the engine for the objective.</p>
+<p>Library therefore helped teach both sides of resource theory: more cards are powerful, but only when time and mana allow those cards to matter.</p></section><section id="worlds"><div class="chapter-number">XIII · The First Champion</div><h2>Zak Dolan played the long game</h2>
+<p>Zak Dolan’s 1994 World Championship deck combined <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span>, <span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span>, <span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span>, countermagic, removal, and Serra Angels. Library of Alexandria fit a deck built to stretch the game and exploit unusual permanent-based advantages.</p>
+<p>The list reflects an era before archetype boundaries had hardened. It could lock untap steps, control combat, draw cards, and eventually attack through the air. Library did not define every game, but it strengthened the deck’s best posture: a stable board, a protected hand, and enough time to let incremental advantages become absolute.</p></section><section id="oldschool"><div class="chapter-number">XIV · The Living Archive</div><h2>Old School still revolves around the opening Library</h2>
+<p>In contemporary 93/94 play, Library remains restricted in most rules sets and remains one of the format’s most consequential opening cards. The emotional script is familiar: one player places the brown-framed land onto the battlefield, the other immediately begins calculating whether they can deploy pressure or find a Strip Mine before the extra cards become insurmountable.</p>
+<p>The card also contributes to Old School’s social identity. An original Library is simultaneously a game piece, a collectible, and a visible connection to the first months of expansion Magic. Many groups permit later printings or proxies because the gameplay is historically important even when the object is financially inaccessible.</p>
+<p>Few cards better demonstrate the tension between preservation and participation that defines Old School communities.</p></section><section id="keeper"><div class="chapter-number">XV · The Successor</div><h2>Keeper carried the library into mature Vintage</h2>
+<p>As Type I became Vintage, control decks evolved around denser restricted packages, stronger tutors, and more specialized threats. Keeper variants retained Library because the old engine still matched the archetype’s goals. A deck with broad answers and powerful topdecks benefits disproportionately from seeing one additional card every turn.</p>
+<p>The land also demanded judgment. Mature Vintage became faster, making a colorless source that sometimes asked its controller not to cast spells a real cost. Library was no longer a universal control staple simply because it was famous. It belonged in metagames where fair blue mirrors and resource exchanges created room for it to operate.</p></section><section id="gro"><div class="chapter-number">XVI · The Tempo Question</div><h2>Even proactive blue decks could become librarians</h2>
+<p>Gro-A-Tog and related blue decks were not traditional draw-go control. They used cheap cantrips, free countermagic, efficient creatures, and graveyard synergies to generate tempo. Yet a restricted Library could still appear because those decks were unusually capable of preserving hand size while interacting.</p>
+<p><span class="card-name" data-card="Gush" tabindex="0">Gush</span> is the most obvious partner. Returning lands to hand can restore the exact seven-card count while producing additional cards, and free spells allow the player to protect the engine without immediately falling below threshold. The relationship is not automatic—Gush decks may also need colored mana desperately—but it shows how Library can migrate when an archetype’s resource system supports it.</p></section><section id="notuniversal"><div class="chapter-number">XVII · The Limit</div><h2>The most famous land is not always the correct land</h2>
+<p>Library is weak when the game is about emptying the hand quickly, assembling a deterministic combo immediately, or casting color-intensive spells on curve. Aggro decks rarely want to hold seven. Workshop decks often value <span class="card-name" data-card="Mishra&#x27;s Workshop" tabindex="0">Mishra&#x27;s Workshop</span> and artifact density more. Bazaar decks are built around an entirely different resource economy.</p>
+<p>Even control lists can omit Library when <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> is common, when the format punishes slow openings, or when the mana base cannot tolerate another colorless source. Reverence is not deck-building analysis.</p>
+<p>The correct inclusion test is practical: how often can the deck activate Library without declining a better play, and how often will the land’s colorless mana create a loss before the engine creates a win?</p></section><section id="bazaar"><div class="chapter-number">XVIII · The Sister Land</div><h2>Library and Bazaar pull in opposite directions</h2>
+<p><span class="card-name" data-card="Bazaar of Baghdad" tabindex="0">Bazaar of Baghdad</span> is Library’s famous Arabian Nights counterpart. Both are lands that exchange ordinary mana production for access to cards. But they express opposite philosophies.</p>
+<div class="inline-image"><div class="image" style="background-image:url(https://api.scryfall.com/cards/named?exact=Bazaar%20of%20Baghdad&amp;format=image&amp;version=art_crop)"></div><div class="copy"><h3>Preserve versus transform</h3><p>Library rewards a full hand and patient accumulation. Bazaar draws and discards, treating the graveyard as a second hand and card selection as more important than raw count. One asks the player to keep resources; the other asks the player to churn them.</p></div></div>
+<p>Together they foreshadow two great branches of Magic strategy: conventional card advantage and graveyard-based resource conversion. Both were printed before the game fully understood how dangerous a land-based engine could be.</p></section><section id="formats"><div class="chapter-number">XIX · The Boundaries</div><h2>Restricted, banned, and preserved</h2>
+<div class="format-strip"><div class="format-card"><span class="impact">Vintage</span><h3>Restricted</h3><p>One copy is legal. Its value depends heavily on speed, mana demands, and the expected number of fair blue matchups.</p></div><div class="format-card"><span class="impact">Legacy</span><h3>Banned</h3><p>A four-copy card-advantage land would distort slower matchups and punish decks unable to answer it immediately.</p></div><div class="format-card"><span class="impact">Commander</span><h3>Banned</h3><p>The format does not permit the card despite singleton construction, preserving the boundary around early power.</p></div></div>
+<p>These legalities tell the card’s story. Vintage contains it through restriction. Legacy and Commander exclude it. Old School communities generally restrict it. Cube designers decide whether its play pattern is exciting, oppressive, or simply too dependent on opening-hand luck.</p></section><section id="arena"><div class="chapter-number">XX · The Digital Shelf</div><h2>The Library opened on Arena in 2026</h2>
+<p>In 2026, a Special Guests digital treatment brought Library of Alexandria to Magic Arena with new Bruce Brenneise artwork. The release was notable because the Reserved List prevents an ordinary tournament-legal paper reprint, while digital releases remain possible.</p>
+<p>Historic pre-banned the card, but Timeless initially allowed it without Vintage-style restriction. That created a rare modern laboratory for seeing how multiple Libraries behave against a card pool containing efficient threats, digital-only legality choices, and powerful interaction but not the exact structure of paper Vintage.</p>
+<p>The return did not erase the card’s age. It demonstrated that a design from 1993 could still force contemporary players to reconsider mulligans, play/draw incentives, land destruction, and the value of keeping seven cards.</p></section><section id="descendants"><div class="chapter-number">XXI · The Lineage</div><h2>The descendants learned to charge admission</h2>
+<p>Later lands that draw cards nearly always demand more. <span class="card-name" data-card="Mikokoro, Center of the Sea" tabindex="0">Mikokoro, Center of the Sea</span> gives the opponent a card as well. <span class="card-name" data-card="Geier Reach Sanitarium" tabindex="0">Geier Reach Sanitarium</span> makes both players loot. <span class="card-name" data-card="Sea Gate Wreckage" tabindex="0">Sea Gate Wreckage</span> requires an empty hand and a substantial mana payment. <span class="card-name" data-card="War Room" tabindex="0">War Room</span> charges mana and life. <span class="card-name" data-card="The Biblioplex" tabindex="0">The Biblioplex</span> invokes the seven-card threshold but asks for two mana and only looks at the top card under narrow deck-building conditions.</p>
+<div class="inline-image"><div class="image" style="background-image:url(https://api.scryfall.com/cards/named?exact=The%20Biblioplex&amp;format=image&amp;version=art_crop)"></div><div class="copy"><h3>The threshold returns</h3><p>The Biblioplex openly echoes Alexandria’s obsession with seven, but the cost and selection restriction show decades of accumulated caution. Modern design is willing to place card access on lands; it is rarely willing to make that access free.</p></div></div>
+<p>The descendants confirm the original mistake by the care taken not to repeat it.</p></section><section id="reserved"><div class="chapter-number">XXII · The Object</div><h2>The Reserved List froze the paper card in time</h2>
+<p>Library of Alexandria is on the Reserved List. Its only standard-size tournament-legal paper printing remains the Arabian Nights original. Oversized prize cards preserve the name and artwork as memorabilia, while Magic Online and Arena versions provide digital access.</p>
+<p>This scarcity transformed the card into a luxury object. Condition, centering, print quality, and provenance matter to collectors. For players, price can determine whether the card is experienced through an original, a collector-friendly proxy, a digital client, or not at all.</p>
+<p>The tension is sharper here than with many reserved cards because Library’s gameplay is historically central. It is not merely a rare curiosity. It is one of the mechanisms through which early players learned how control works.</p></section><section id="pilot"><div class="chapter-number">XXIII · The Technique</div><h2>How to play Library without worshiping it</h2>
+<h3>Mulligan for a plan, not a photograph</h3><p>An opening Library is powerful only if the rest of the hand can interact and produce the required colors. Do not keep a nonfunctional hand merely because it contains the famous land.</p>
+<h3>Count the next hand, not only the current one</h3><p>Before casting a spell, project the hand size after the opponent’s turn and your next draw step. Sometimes the correct sequence is to hold a land; sometimes it is to spend below seven now and rebuild later.</p>
+<h3>Use the mana mode without shame</h3><p>If casting the necessary answer wins the tempo battle, tap Library for colorless mana. The card is a tool, not a vow to activate the draw ability every turn.</p>
+<h3>Protect time more than the permanent</h3><p>Countering every attempt to destroy Library can be a trap. Ask whether the opponent is spending a resource that allows you to advance another plan. The engine matters because it creates advantage, not because it must survive at any price.</p>
+<h3>Sideboard honestly</h3><p>Against fast combo, heavy Wasteland, or decks that force rapid deployment, Library may be the weakest land. Historical importance does not exempt it from sideboarding.</p></section><section id="memory"><div class="chapter-number">XXIV · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><div class="memory-grid"><div><blockquote>“Land, go” is usually the beginning of a game. With Library of Alexandria, it can sound like the beginning of the end.</blockquote><cite>The emotional weight of an opening Library</cite></div><div><p>Players remember the physical pause after the card appears. The opponent looks at their hand, counts possible turns to a Strip Mine, and asks whether they can afford to play normally.</p><p>They also remember the temptation on the Library side: the desire to preserve seven even when the board demands action. The card creates power and a test of restraint at the same time.</p></div></div></div>
+<p>Its cultural position rests on that instantly recognizable subgame. Black Lotus produces a spectacular opening. Library produces a quiet asymmetry that grows until the game belongs to one player.</p></section><section id="identity"><div class="chapter-number">XXV · The Legacy</div><h2>Why Library of Alexandria still matters</h2>
+<p>Library is one of the clearest examples of early Magic discovering that card types are not equal containers. An effect can be acceptable on a fragile enchantment or expensive artifact and unacceptable on a land that costs no mana to play. The land drop system itself is a resource, and attaching repeatable card advantage to it changes the economics of interaction.</p>
+<p>The card also represents the best kind of iconic design: name, art, mechanic, and strategic identity all point in the same direction. A library should provide knowledge. Alexandria should feel singular. The player who enters should possess more possibilities than the player left outside.</p>
+<p>Its restriction, scarcity, and continuing digital experiments are not separate from the design. They are the long consequences of how perfectly the card delivered its fantasy.</p></section><section id="decks"><div class="chapter-number">XXVI · The Evidence</div><h2>The deck archive</h2><p class="deck-intro">These five lists show Library of Alexandria across three decades: the first world champion’s prison-control shell, Brian Weissman’s foundational theory deck, contemporary Old School, mature Keeper control, and a proactive Gush-era Vintage champion.</p><div class="deck-archive"><details class="deck"><summary><span><strong>Zak Dolan — Control/Prison</strong><small>World Championship 1994 · Champion · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Dolan's two Stases belonged to a broad prison rather than a dedicated combo. Kismet made future permanents enter tapped, Ley Druid could untap a land outside the untap step, Time Elemental could return Stasis to hand, and Serra Angel attacked without tapping while the opponent's battlefield remained frozen.</p>
+<div class="deck-meta"><div><b>Zak Dolan — Control/Prison</b><div class="small">World Championship 1994 · Champion · 60/15</div></div><button class="copy" data-target="library-zak1994">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div></div><div class="group"><h4>Instants and Sorceries · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div></div>
+<pre hidden="" id="library-zak1994">Zak Dolan — Control/Prison
+World Championship 1994 · Champion · 60/15
+
+Creatures · 11
+1 Birds of Paradise
+1 Clone
+1 Ley Druid
+2 Old Man of the Sea
+4 Serra Angel
+1 Time Elemental
+1 Vesuvan Doppelganger
+
+Instants and Sorceries · 15
+1 Ancestral Recall
+1 Armageddon
+2 Disenchant
+1 Mana Drain
+1 Recall
+1 Regrowth
+1 Siren's Call
+4 Swords to Plowshares
+1 Time Walk
+1 Timetwister
+1 Wrath of God
+
+Enchantments · 4
+1 Control Magic
+1 Kismet
+2 Stasis
+
+Artifacts · 15
+1 Black Lotus
+1 Black Vise
+1 Howling Mine
+1 Icy Manipulator
+1 Ivory Tower
+1 Mana Vault
+2 Meekstone
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Winter Orb
+
+Lands · 15
+1 Library of Alexandria
+4 Savannah
+2 Strip Mine
+4 Tropical Island
+4 Tundra
+
+Sideboard · 15
+1 Chaos Orb
+1 Circle of Protection: Red
+1 Copy Artifact
+1 Diamond Valley
+1 Floral Spuzzem
+1 In the Eye of Chaos
+2 Karma
+1 Kismet
+1 Magical Hack
+1 Power Sink
+1 Presence of the Master
+1 Reverse Damage
+1 Sleight of Mind
+1 Winter Blast</pre>
+</div></details><details class="deck"><summary><span><strong>Brian Weissman — The Deck</strong><small>Historic control archetype · documented 60/15 list</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Mind Twist was not a decorative singleton here. The control shell accumulated mana, exchanged cards efficiently, then used Black Lotus, Mana Drain, or Demonic Tutor to turn a single sorcery into the moment the opponent stopped participating. Disrupting Scepter finished the work one card at a time.</p>
+<div class="deck-meta"><div><b>Brian Weissman — The Deck</b><div class="small">Historic control archetype · documented 60/15 list</div></div><button class="copy" data-target="library-weissman">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div></div>
+<pre hidden="" id="library-weissman">Brian Weissman — The Deck
+Historic control archetype · documented 60/15 list
+
+Creatures · 2
+2 Serra Angel
+
+Sorceries · 7
+1 Time Walk
+1 Timetwister
+1 Braingeyser
+1 Recall
+1 Demonic Tutor
+1 Mind Twist
+1 Regrowth
+
+Instants · 17
+4 Mana Drain
+2 Counterspell
+1 Ancestral Recall
+4 Disenchant
+4 Swords to Plowshares
+2 Red Elemental Blast
+
+Artifacts · 11
+2 Disrupting Scepter
+1 Jayemdae Tome
+1 Ivory Tower
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Jet
+1 Mox Sapphire
+1 Mox Emerald
+1 Black Lotus
+1 Sol Ring
+
+Enchantments · 2
+2 Moat
+
+Lands · 21
+2 Strip Mine
+1 Library of Alexandria
+3 City of Brass
+1 Plateau
+1 Underground Sea
+2 Volcanic Island
+4 Tundra
+3 Plains
+4 Island
+
+Sideboard · 15
+1 Plains
+1 Counterspell
+1 Moat
+1 Disrupting Scepter
+1 Jayemdae Tome
+1 Tormod's Crypt
+2 Control Magic
+2 Blood Moon
+3 Circle of Protection: Red
+2 Divine Offering</pre>
+</div></details><details class="deck"><summary><span><strong>Old School 93/94 — The Deck</strong><small>Representative 2019 control construction · 60/15</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>The Deck treats Chaos Orb as nearly unconditional colorless removal. Countermagic and Disenchant manage ordinary threats, while the Orb answers almost any permanent that slips through—including cards such as Mishra's Factory or protected permanents that narrower spells may not reach.</p>
+<div class="deck-meta"><div><b>Old School 93/94 — The Deck</b><div class="small">Representative 2019 control construction · 60/15</div></div><button class="copy" data-target="library-oldschool">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Control and card advantage · 29</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="The Abyss" tabindex="0">The Abyss</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div></div></div><div class="deck-col"><div class="group"><h4>Mana and lands · 31</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Fellwar Stone" tabindex="0">Fellwar Stone</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Greed" tabindex="0">Greed</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div></div>
+<pre hidden="" id="library-oldschool">Old School 93/94 — The Deck
+Representative 2019 control construction · 60/15
+
+Control and card advantage · 29
+1 Ancestral Recall
+1 Balance
+1 Braingeyser
+1 Chaos Orb
+4 Counterspell
+1 Demonic Tutor
+4 Disenchant
+1 Divine Offering
+1 Fireball
+3 Jayemdae Tome
+1 Mana Drain
+1 Mind Twist
+1 Recall
+1 Regrowth
+4 Swords to Plowshares
+2 The Abyss
+1 Time Walk
+
+Mana and lands · 31
+1 Black Lotus
+3 Fellwar Stone
+1 Library of Alexandria
+4 Mishra's Factory
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+4 City of Brass
+4 Strip Mine
+4 Tundra
+4 Underground Sea
+
+Sideboard · 15
+4 Blue Elemental Blast
+1 Circle of Protection: Red
+3 Divine Offering
+1 Greed
+4 Hypnotic Specter
+1 Ivory Tower
+1 Wrath of God</pre>
+</div></details><details class="deck"><summary><span><strong>Mike Panas — Keeper</strong><small>SCG Power Nine Tournament, Virginia · 1st place · 2004</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>Nearly a decade after The Deck, Keeper still used Mind Twist as the perfect bridge from control to inevitability. Mana Drain and artifact acceleration made large values of X realistic, while Cunning Wish and compact win conditions allowed the deck to devote most of its space to interaction.</p>
+<div class="deck-meta"><div><b>Mike Panas — Keeper</b><div class="small">SCG Power Nine Tournament, Virginia · 1st place · 2004</div></div><button class="copy" data-target="library-panas2004">Copy deck</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 3</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Exalted Angel" tabindex="0">Exalted Angel</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Gorilla Shaman" tabindex="0">Gorilla Shaman</span></div></div><div class="group"><h4>Instants and Sorceries · 31</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Decree of Justice" tabindex="0">Decree of Justice</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Fire // Ice" tabindex="0">Fire // Ice</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div>
+<div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Skeletal Scrying" tabindex="0">Skeletal Scrying</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Coffin Purge" tabindex="0">Coffin Purge</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Damping Matrix" tabindex="0">Damping Matrix</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Flametongue Kavu" tabindex="0">Flametongue Kavu</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Gorilla Shaman" tabindex="0">Gorilla Shaman</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div>
+<div class="row"><span class="qty">2</span><span class="card-name" data-card="Rack and Ruin" tabindex="0">Rack and Ruin</span></div>
+<div class="row"><span class="qty">3</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Skeletal Scrying" tabindex="0">Skeletal Scrying</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div>
+<div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div></div></div></div>
+<pre hidden="" id="library-panas2004">Mike Panas — Keeper
+SCG Power Nine Tournament, Virginia · 1st place · 2004
+
+Creatures · 3
+2 Exalted Angel
+1 Gorilla Shaman
+
+Instants and Sorceries · 31
+1 Ancestral Recall
+1 Balance
+4 Brainstorm
+3 Cunning Wish
+2 Decree of Justice
+1 Demonic Tutor
+1 Fact or Fiction
+2 Fire // Ice
+4 Force of Will
+4 Mana Drain
+1 Mind Twist
+1 Mystical Tutor
+2 Skeletal Scrying
+2 Swords to Plowshares
+1 Time Walk
+1 Yawgmoth's Will
+
+Artifacts · 6
+1 Black Lotus
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+
+Lands · 20
+2 City of Brass
+1 Flooded Strand
+1 Island
+1 Library of Alexandria
+3 Polluted Delta
+1 Strip Mine
+3 Tundra
+3 Underground Sea
+2 Volcanic Island
+3 Wasteland
+
+Sideboard · 15
+1 Blue Elemental Blast
+1 Coffin Purge
+1 Damping Matrix
+1 Disenchant
+1 Flametongue Kavu
+1 Gorilla Shaman
+1 Gush
+2 Rack and Ruin
+3 Red Elemental Blast
+1 Skeletal Scrying
+1 Swords to Plowshares
+1 Vampiric Tutor</pre>
+</div></details><details class="deck">
+<summary><span><strong>Stephen Menendian — Gro-A-Tog</strong><small>Champion · Gen Con Vintage Championship 2007</small></span><span class="plus">+</span></summary>
+<div class="deck-body">
+<p>In Gush-based Vintage, Ancestral Recall was simultaneously raw card advantage, a cheap blue spell for Quirion Dryad, a Merchant Scroll target, and material that could be replayed with Yawgmoth’s Will.</p>
+<div class="deck-meta">
+<div><b>Stephen Menendian</b><div class="small">Champion · Gen Con Vintage Championship 2007</div></div>
+<button class="copy" data-target="library-menendian2007">Copy decklist</button>
+</div>
+<div class="deck-columns">
+<div class="deck-col"><div class="group"><h4>Creatures · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Psychatog" tabindex="0">Psychatog</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span></div></div><div class="group"><h4>Lands · 14</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div></div>
+<div class="deck-col"><div class="group"><h4>Instants and sorceries · 35</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div></div><div class="group"><h4>Other spells · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fastbond" tabindex="0">Fastbond</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancient Grudge" tabindex="0">Ancient Grudge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Berserk" tabindex="0">Berserk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fire / Ice" tabindex="0">Fire / Ice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oxidize" tabindex="0">Oxidize</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rack and Ruin" tabindex="0">Rack and Ruin</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div></div>
+</div>
+<pre hidden="" id="library-menendian2007">Stephen Menendian — Gro-A-Tog
+Champion · Gen Con Vintage Championship 2007
+
+Creatures · 5
+1 Psychatog
+4 Quirion Dryad
+
+Lands · 14
+3 Flooded Strand
+1 Island
+1 Library of Alexandria
+3 Polluted Delta
+2 Tropical Island
+3 Underground Sea
+1 Volcanic Island
+
+Instants and sorceries · 35
+1 Ancestral Recall
+4 Brainstorm
+1 Cunning Wish
+1 Demonic Tutor
+4 Duress
+4 Force of Will
+4 Gush
+2 Mana Drain
+4 Merchant Scroll
+2 Misdirection
+1 Mystical Tutor
+3 Opt
+1 Red Elemental Blast
+1 Time Walk
+1 Vampiric Tutor
+1 Yawgmoth's Will
+
+Other spells · 6
+1 Black Lotus
+1 Fastbond
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Sapphire
+
+Sideboard · 15
+1 Ancient Grudge
+1 Berserk
+1 Fire / Ice
+1 Island
+1 Oxidize
+2 Pithing Needle
+2 Pyroblast
+1 Rack and Ruin
+1 Red Elemental Blast
+1 Rushing River
+3 Yixlid Jailer</pre>
+<p class="small">Source: <a href="https://www.mtgtop8.com/event?e=15&amp;f=VI">open the historical record</a></p>
+</div>
+</details></div></section><section id="sources"><div class="chapter-number">XXVII · The Record</div><h2>Printings and sources</h2>
+<p>Library of Alexandria has only one standard-size tournament-legal paper printing. Its other releases are oversized memorabilia or digital objects. The seven entries below are the complete distinct release families catalogued for the card.</p>
+<div class="printings">
+<figure class="printing"><img alt="Library of Alexandria from Arabian Nights" src="https://api.scryfall.com/cards/arn/76?format=image&amp;version=normal"/><figcaption>Arabian Nights · 1993<br/>Mark Poole · original U3</figcaption></figure>
+<figure class="printing"><img alt="Oversized League Prize Library of Alexandria" src="https://api.scryfall.com/cards/olep/11?format=image&amp;version=normal"/><figcaption>Oversized League Prizes · 1997<br/>Mark Poole · nonlegal display card</figcaption></figure>
+<figure class="printing"><img alt="Library of Alexandria from Masters Edition IV" src="https://api.scryfall.com/cards/me4/245?format=image&amp;version=normal"/><figcaption>Masters Edition IV · 2011<br/>First Magic Online release</figcaption></figure>
+<figure class="printing"><img alt="Library of Alexandria from Vintage Masters" src="https://api.scryfall.com/cards/vma/303?format=image&amp;version=normal"/><figcaption>Vintage Masters · 2014<br/>Drew Baker · digital mythic</figcaption></figure>
+<figure class="printing"><img alt="Magic Online promotional Library of Alexandria" src="https://api.scryfall.com/cards/prm/46940?format=image&amp;version=normal"/><figcaption>Magic Online Promos · 2014<br/>Drew Baker · premium digital promo</figcaption></figure>
+<figure class="printing"><img alt="2020 Vintage Championship Library of Alexandria" src="https://api.scryfall.com/cards/ovnt/2020b?format=image&amp;version=normal"/><figcaption>Vintage Championship · 2020<br/>Volkan Baǵa · oversized champion prize</figcaption></figure>
+<figure class="printing"><img alt="Library of Alexandria from Special Guests" src="https://api.scryfall.com/cards/spg/158a?format=image&amp;version=normal"/><figcaption>Special Guests · 2026<br/>Bruce Brenneise · Arena-only release</figcaption></figure>
+</div>
+<h3>Research sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/arn/76/library-of-alexandria">Scryfall — Library of Alexandria, Arabian Nights</a><span>Oracle text, original rarity, artist, Reserved List status, legalities, rulings, and imagery.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Library+of+Alexandria%22+include%3Aextras&amp;unique=prints">Scryfall — all Library of Alexandria releases</a><span>Complete printing index including oversized, promotional, and digital versions.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Magic — Banned and Restricted List</a><span>Current Vintage restriction and Legacy, Commander, and Oathbreaker bans.</span></li>
+<li><a href="https://www.mtggoldfish.com/deck/3732196">MTGGoldfish — Brian Weissman’s April 1994 The Deck</a><span>Historical context for the first fully realized version and the early exploitation of unrestricted Library and Mind Twist.</span></li>
+<li><a href="https://www.classicdojo.org/history/thedeck1.html">The Magic Dojo — The Deck archive</a><span>Contemporary strategy writings and historical lists documenting Library’s role in early Type I control.</span></li>
+<li><a href="https://www.classicdojo.org/history/thedeck4.html">The Magic Dojo — The Deck, November 1996</a><span>Brian Weissman’s later Type I list and the continuing one-copy Library package.</span></li>
+<li><a href="https://mtg.wtf/card/arn/76/Library-of-Alexandria">mtg.wtf — Arabian Nights Library of Alexandria</a><span>Release date, U3 rarity, rules note, printings, and format legality cross-check.</span></li>
+<li><a href="https://mtg.wtf/card/ovnt/2020b/Library-of-Alexandria">mtg.wtf — 2020 Vintage Championship Library</a><span>Oversized prize details, Volkan Baǵa artwork, and complete printing family.</span></li>
+<li><a href="https://scryfall.com/card/spg/158a/library-of-alexandria">Scryfall — Special Guests Library of Alexandria</a><span>2026 Arena-only treatment, Bruce Brenneise artwork, and digital legality.</span></li>
+<li><a href="https://magic.wizards.com/en/rules">Magic — Comprehensive Rules</a><span>Official rules framework for activated abilities, timing, hand size, and mana abilities.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> The article distinguishes standard-size tournament-legal paper printings from oversized prizes and digital releases. Historical decklists are reproduced from surviving project archives and source lists; basic-land lines may be consolidated where old records separated artwork variants.</div>
+<div class="end-nav"><a href="055-city-of-brass.html"><small>Previous numbered entry</small>City of Brass</a><a href="index.html?focus=entry-057#entry-057"><small>Next numbered entry</small>Bazaar of Baghdad</a></div></section></article></div><footer class="footer">Compulsive Research · A card-by-card history of Magic: The Gathering</footer><div id="preview"><img alt="Card preview"/></div><script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
