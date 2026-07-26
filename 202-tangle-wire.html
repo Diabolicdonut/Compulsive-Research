@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A long-form history of Tangle Wire: fading, trigger ordering, Worlds 2000, Tinker, Stompy, Vintage Stax, Workshop prison, decklists, artwork, and printings." name="description"/><title>Tangle Wire: The Opponent’s Next Turn Was Already Spoken For — Compulsive Research</title><style>
+:root{
+  --paper:#f3eee2;
+  --paper2:#e3d7c3;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#100e0a;
+  --night2:#1d1810;
+  --green:#5c5748;
+  --teal:#65757b;
+  --gold:#b28a4a;
+  --rust:#7f5341;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+/* Keep the cover title and interior chapter titles in one display face. */
+h1,h2{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-weight:800;
+  font-style:normal;
+  font-synthesis:none;
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.06em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/atq/82a?format=image&version=art_crop) center 50%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.recall-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.hero.recall-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+}
+.vision-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+}
+.card-advantage{
+  width:min(980px,calc(100vw - 32px));
+  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.advantage-step{background:var(--white);padding:24px}
+.advantage-step b{
+  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
+  margin-bottom:9px
+}
+.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.target-note{
+  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);
+  font:14px/1.65 Inter,system-ui,sans-serif
+}
+.target-note b{color:var(--ink)}
+@media(max-width:750px){
+  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+}
+
+
+.hero
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
+.blazing-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
+}
+.pressure-grid,.discard-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pressure-step,.discard-step{background:var(--white);padding:23px}
+.pressure-step b,.discard-step b{
+  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
+}
+.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
+.hypnotic-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.hypnotic-note b{color:var(--ink)}
+@media(max-width:750px){
+  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
+.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.hero.hypnotic-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.art-break.hypnotic-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
+  background-position:center 25%!important
+}
+
+
+
+.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.hero.royal-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 29%!important
+}
+.art-break.royal-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.avatar-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
+}
+.threat-grid,.timing-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.threat-step,.timing-step{background:var(--white);padding:23px}
+.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.royal-note b{color:var(--ink)}
+.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
+@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
+
+
+.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.sengir-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.art-break.sengir-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+  background-position:center 26%!important
+}
+.sengir-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+}
+.growth-grid,.role-grid{
+  width:min(980px,calc(100vw - 32px));
+  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden
+}
+.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.growth-step,.role-step{background:var(--white);padding:23px}
+.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
+.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
+.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
+.sengir-note b{color:var(--ink)}
+.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
+@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+
+
+.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.hero.force-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 36%!important
+}
+.art-break.force-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
+  background-position:center 33%!important
+}
+.force-note{
+  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.force-note p{margin:.45em 0}
+.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
+@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
+
+
+.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.pit-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.pit-art{
+  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
+  background-position:center 30%!important
+}
+.pit-note{
+  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
+  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
+}
+.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
+.pit-note p{margin:.45em 0}
+.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
+.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
+.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.hero.vesuvan-art:before{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 28%!important
+}
+.art-break.vesuvan-art{
+  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
+  background-position:center 32%!important
+}
+.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
+.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
+.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
+.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
+.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
+@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
+
+.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
+.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
+.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
+.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
+.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
+.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
+.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
+.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
+.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
+.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
+.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
+.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
+.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
+.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
+.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
+.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
+.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
+.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
+.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
+.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.mindtwist-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
+  background-position:center 31%!important;
+}
+
+.hero.sinkhole-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.stonerain-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.howlingmine-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
+  background-position:center 47%!important;
+}
+
+.hero.icy-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.disk-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
+  background-position:center 42%!important;
+}
+
+.hero.jayemdae-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.blackvise-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.therack-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+
+.hero.winterorb-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+.hero.meekstone-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
+  background-position:center 44%!important;
+}
+
+
+
+.hero.stasis-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Stasis&set=lea&format=image&version=art_crop)!important;
+  background-position:center 46%!important;
+}
+
+
+.hero.kird-art:before{
+  background-image:url(https://api.scryfall.com/cards/arn/40?format=image&version=art_crop)!important;
+  background-position:center 38%!important;
+}
+.art-break.kird-art-break{
+  background-image:url(https://api.scryfall.com/cards/arn/40?format=image&version=art_crop)!important;
+  background-position:center 40%!important;
+}
+.kird-descendant .image{
+  min-height:390px;display:flex;align-items:center;justify-content:center;padding:28px;
+  background:linear-gradient(145deg,#253222,#131914)!important;
+}
+.kird-descendant .image img{
+  display:block;width:min(285px,92%);height:auto;border-radius:4.8%;
+  box-shadow:0 22px 44px rgba(0,0,0,.48)
+}
+.ape-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ape-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.ape-row:last-child{border-bottom:0}.ape-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.ape-row p{margin:0}
+.benchmark-grid{width:min(980px,calc(100vw - 32px));margin:34px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.benchmark-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
+.benchmark-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}.benchmark-card h3{margin:.1em 0 .35em;font-size:1.15rem}.benchmark-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
+.turn-sequence{margin:30px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white);box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.turn-step{display:grid;grid-template-columns:125px minmax(0,1fr);gap:18px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.turn-step:last-child{border-bottom:0}.turn-step strong{font:900 .72rem/1.3 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust)}.turn-step p{margin:0}
+@media(max-width:750px){.ape-row,.turn-step{grid-template-columns:92px minmax(0,1fr)}.benchmark-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
+
+.hero.savannah-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Savannah%20Lions&set=lea&format=image&version=art_crop)!important;
+  background-position:center 43%!important;
+}
+.lion-descendant .image{
+  min-height:390px;display:flex;align-items:center;justify-content:center;padding:28px;
+  background:linear-gradient(145deg,#483f2a,#17160f)!important;
+}
+.lion-descendant .image img{
+  display:block;width:min(285px,92%);height:auto;border-radius:4.8%;
+  box-shadow:0 22px 44px rgba(0,0,0,.48)
+}
+.lion-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lion-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.lion-row:last-child{border-bottom:0}.lion-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.lion-row p{margin:0}
+@media(max-width:750px){.lion-row{grid-template-columns:92px minmax(0,1fr)}}
+
+
+.hero.erhnam-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Erhnam%20Djinn&set=arn&format=image&version=art_crop)!important;
+  background-position:center 37%!important;
+}
+.erhnam-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.erhnam-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.erhnam-row:last-child{border-bottom:0}.erhnam-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.erhnam-row p{margin:0}
+.descendant-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:min(920px,calc(100vw - 32px));margin:34px 0 42px calc((var(--reading) - min(920px,calc(100vw - 32px)))/2)}
+.descendant-cards figure{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden;box-shadow:0 8px 24px rgba(22,25,24,.08)}
+.descendant-cards img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.descendant-cards figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:11px;text-align:center}
+@media(max-width:750px){.erhnam-row{grid-template-columns:92px minmax(0,1fr)}.descendant-cards{width:100%;margin-left:0;grid-template-columns:1fr 1fr}.descendant-cards figure:last-child{grid-column:1/-1;max-width:52%;justify-self:center}}
+
+.hero.city-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=City%20of%20Brass&set=arn&format=image&version=art_crop)!important;
+  background-position:center 54%!important;
+}
+.city-art{background-color:var(--night)}
+.brass-ledger{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:30px 0}
+.brass-row{display:grid;grid-template-columns:145px minmax(0,1fr);background:var(--white)}
+.brass-row strong{padding:18px;background:rgba(184,138,56,.10);font:750 13px/1.35 Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.brass-row p{margin:0;padding:15px 18px}
+.mana-spectrum{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:28px 0}
+.mana-spectrum div{padding:17px 8px;border:1px solid var(--line);border-radius:12px;background:var(--white);text-align:center;font:750 13px/1.35 Inter,sans-serif}
+.mana-spectrum b{display:block;font-size:1.7rem;margin-bottom:5px}
+@media(max-width:750px){.brass-row{grid-template-columns:100px minmax(0,1fr)}.mana-spectrum{grid-template-columns:1fr 1fr}.mana-spectrum div:last-child{grid-column:1/-1}}
+
+
+.hero.bazaar-art:before{background-image:url(https://api.scryfall.com/cards/arn/70?format=image&version=art_crop)!important;background-position:center 48%!important}.bazaar-art{background-color:var(--night)}
+
+.mine-ledger{margin:30px 0;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--white);box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.mine-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:18px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.mine-row:last-child{border-bottom:0}.mine-row strong{font:900 .72rem/1.3 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust)}.mine-row p{margin:0}
+@media(max-width:750px){.mine-row{grid-template-columns:94px minmax(0,1fr);padding:15px}}
+
+
+/* Entry 201 — Rishadan Port */
+.hero.port-art:before{background-image:linear-gradient(90deg,rgba(5,10,12,.96) 0%,rgba(5,10,12,.73) 43%,rgba(5,10,12,.18) 75%,rgba(5,10,12,.42) 100%),url("https://api.scryfall.com/cards/mmq/324?format=image&version=art_crop")!important;background-position:center 44%!important}
+.hero.port-art .hero-grid{background-image:linear-gradient(rgba(190,220,217,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(190,220,217,.045) 1px,transparent 1px)!important}
+.port-crop{background-image:linear-gradient(90deg,rgba(5,10,12,.12),rgba(5,10,12,.74)),url("https://api.scryfall.com/cards/mmq/324?format=image&version=art_crop")!important;background-position:center 46%!important}
+.descendant-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}.desc-card{margin:0;border:1px solid #aaa08f;border-radius:14px;background:#fffdf7;padding:14px;box-shadow:0 8px 28px rgba(22,25,24,.10)}.desc-card img{display:block;width:100%;border-radius:10px;margin:0 0 14px}.desc-card figcaption{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#161918;font-size:1rem;line-height:1.65}.desc-card b{display:block;color:#111513;font-family:Georgia,"Times New Roman",serif;font-size:1.2rem;line-height:1.25;margin-bottom:8px}.desc-card span{display:block;color:#292d2a;font-size:.98rem;line-height:1.65}#family>p{color:#242825}
+@media(max-width:850px){.descendant-grid{grid-template-columns:1fr}}
+
+/* Entry 151 — Wasteland */
+.hero.wasteland-art:before{background-image:linear-gradient(90deg,rgba(6,8,8,.97) 0%,rgba(6,8,8,.76) 42%,rgba(6,8,8,.20) 74%,rgba(6,8,8,.48) 100%),url("https://api.scryfall.com/cards/tmp/330?format=image&version=art_crop")!important;background-position:center 48%!important}
+.hero.wasteland-art .hero-grid{background-image:linear-gradient(rgba(218,201,160,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(218,201,160,.045) 1px,transparent 1px)!important}
+.wasteland-crop{background-image:linear-gradient(90deg,rgba(9,10,9,.10),rgba(9,10,9,.75)),url("https://api.scryfall.com/cards/tmp/330?format=image&version=art_crop")!important;background-position:center 49%!important}
+
+.hero.tangle-wire-art:before{background-image:linear-gradient(90deg,rgba(6,8,8,.97) 0%,rgba(6,8,8,.76) 42%,rgba(6,8,8,.20) 74%,rgba(6,8,8,.48) 100%),url("https://api.scryfall.com/cards/named?exact=Tangle%20Wire&set=nem&format=image&version=art_crop")!important;background-position:center 42%!important}
+.hero.tangle-wire-art .hero-grid{background-image:linear-gradient(rgba(218,201,160,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(218,201,160,.045) 1px,transparent 1px)!important}
+.tangle-wire-crop{background-image:linear-gradient(90deg,rgba(9,10,9,.10),rgba(9,10,9,.75)),url("https://api.scryfall.com/cards/named?exact=Tangle%20Wire&set=nem&format=image&version=art_crop")!important;background-position:center 43%!important}
+</style></head><body>
+<header class="hero tangle-wire-art"><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=entry-202#entry-202">← Back to Compulsive Research</a><div class="eyebrow">Entry 202 · The Temporary Prison That Made Permanence Irrelevant</div><h1>The Opponent’s Next Turn Was Already Spoken For</h1><p class="deckline">Tangle Wire turned fading counters into stolen turns, asking the opponent to stop developing while its controller converted temporary denial into attacks, artifacts, and hard locks.</p><div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Nemesis, 2000</span><span class="pill">Approximately 25 minute read</span></div></div></header>
+<nav class="rank-nav"><a href="index.html?focus=entry-201#entry-201">← Entry 201 · Rishadan Port</a><div class="center">Entry 202 of 1,000</div><a href="index.html?focus=entry-203#entry-203">Entry 203 · Dust Bowl →</a></nav>
+<div class="article-shell"><nav aria-label="Article table of contents" class="toc"><strong>In this article</strong><a href="#opening">The Opponent’s Next Turn Was Already Spoken For</a><a href="#fading">Fading and the visible clock</a><a href="#rules">Trigger ordering and rules</a><a href="#asymmetry">How symmetry became one-sided</a><a href="#timing">The deployment window</a><a href="#payments">Paying with spent permanents</a><a href="#nemesis">Nemesis</a><a href="#stompy">Worlds 2000 Stompy</a><a href="#tinker">Jon Finkel’s Tinker</a><a href="#standard">Standard and Fires</a><a href="#workshop">Vintage Workshop</a><a href="#stax">Stax and Smokestack</a><a href="#shops">Workshop evolution</a><a href="#legacy">Legacy and Premodern</a><a href="#sequencing">Sequencing the upkeep</a><a href="#multiple">Multiple Tangle Wires</a><a href="#counterplay">Playing against it</a><a href="#mulligans">Opening hands</a><a href="#current">The card today</a><a href="#descendants">Descendants</a><a href="#art">The artwork</a><a href="#print-history">The collectible</a><a href="#memory">What players remember</a><a href="#identity">Why Tangle Wire matters</a><a href="#decks">The deck archive</a><a href="#sources">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The Borrowed Turn</div><h2>The Opponent’s Next Turn Was Already Spoken For</h2><p>Most prison cards promise permanence. <span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span> became historic by promising only a few turns and making those turns matter more than the rest of the game. Cast on the first or second turn, it did not need to destroy a permanent, counter a spell, or remain forever. It merely announced that the opponent’s next development step had already been spent.</p><p>The card’s fading counters made it look self-correcting. Four counters became three, then two, then one, and finally none. But the controller experienced the decline before the opponent did and could use the artifact itself, mana creatures, spent artifacts, or permanents that had already served their purpose to satisfy the tapping demand. The opponent usually paid with the resources needed to cast spells.</p><p>That difference converted a symmetrical sentence into one of Magic’s most reliable tempo locks. Tangle Wire did not ask which permanent was strongest. It asked whether the opponent could afford to lose the use of four permanents at exactly the moment when the battlefield was smallest.</p><div class="card-lead"><img alt="Tangle Wire from Nemesis" src="https://api.scryfall.com/cards/named?exact=Tangle%20Wire&amp;set=nem&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The temporary prison</div><h3>Tangle Wire</h3><p><b>{3} · Artifact</b></p><p><b>Fading 4</b><br/>At the beginning of each player’s upkeep, that player taps an untapped artifact, creature, or land they control for each fade counter on Tangle Wire.</p><div class="stats"><div class="stat"><b>First printing</b>Nemesis · 2000</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Defining mechanic</b>Fading 4</div><div class="stat"><b>Defining formats</b>Standard, Vintage, Legacy, Premodern</div></div></div></div><div class="pullquote">The Wire did not have to keep the opponent locked forever. It only had to keep the opponent locked while the rest of the deck became unbeatable.</div></section><section id="fading"><div class="chapter-number">II · The Clock</div><h2>Fading made the prison look temporary</h2><p>Fading was introduced in Nemesis as a visible expiration date. A permanent entered with a fixed number of fade counters, lost one during each of its controller’s upkeeps, and was sacrificed when no counter could be removed. On creatures, the mechanic often represented a temporary bargain. On Tangle Wire, it became a scheduling tool.</p><p>The Wire’s tap ability checks the number of counters when the trigger resolves. During the controller’s upkeep, both the fading trigger and the tap trigger go onto the stack. Because the same player controls both, that player chooses their order. Putting fading above the tap trigger removes a counter first, reducing the controller’s payment before the tap instruction resolves.</p><p>The opponent receives no such courtesy. At the beginning of the opponent’s upkeep, only the tap trigger occurs. A newly cast Wire with four counters therefore asks the opponent for four taps, then asks its controller for only three on the following turn.</p></section><section id="rules"><div class="chapter-number">III · The Text</div><h2>The order of the upkeep triggers creates the advantage</h2><p>Tangle Wire’s asymmetry is not hidden in a special exception; it comes from ordinary trigger ordering. The active player places triggers they control on the stack in the order they choose after all beginning-of-upkeep triggers have triggered. The controller normally arranges the fading trigger to resolve first and the tapping trigger second.</p><p>The permanents are chosen when the tap trigger resolves. The player may tap <span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span> itself if it is untapped, and may tap creatures with summoning sickness because the Wire is doing the tapping rather than asking those creatures to activate an ability. Lands, mana rocks, tokens, and artifacts that have already been used can all become payment.</p><p>If the number of fade counters changes before the trigger resolves, the final number is used. Removing counters can weaken the demand; adding counters can strengthen it. Multiple Wires create separate triggers, and each one counts only its own counters.</p></section><section id="asymmetry"><div class="chapter-number">IV · The Exchange</div><h2>Symmetry ended when the permanents had different jobs</h2><p>A numerical reading says both players tap permanents. A functional reading says the aggressive or prison deck taps resources that have already contributed while the opponent taps resources needed for the coming turn. A Llanowar Elves that cast the Wire can be tapped by the Wire. A Chimeric Idol can be tapped before combat and then animated later if the sequence allows. A Mox that already produced mana can become a blank payment.</p><p>The opponent, by contrast, often has only lands. Tapping four permanents on turn three can mean tapping every mana source before the main phase begins. Even when creatures or artifacts are available, the opponent may be forced to surrender blockers or activated abilities to preserve mana.</p><p>Tangle Wire therefore creates virtual card advantage. No cards leave the battlefield, but several opposing cards cease to function during the window in which they were supposed to matter.</p></section><section id="timing"><div class="chapter-number">V · The Window</div><h2>The best Wire arrived one turn before the opponent stabilized</h2><p>A Tangle Wire cast after the opponent has developed eight permanents is inconvenient. A Wire cast while the opponent controls two lands and one creature can be a Time Walk followed by another partial Time Walk. The card’s strength is therefore inseparable from acceleration.</p><p><span class="card-name" data-card="Mishra’s Workshop" tabindex="0">Mishra’s Workshop</span>, <span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span>, <span class="card-name" data-card="Grim Monolith" tabindex="0">Grim Monolith</span>, <span class="card-name" data-card="Metalworker" tabindex="0">Metalworker</span>, and mana creatures all let the controller place the Wire onto a battlefield that has not yet grown large enough to absorb it. The earlier the artifact appears, the greater the percentage of the opponent’s resources it consumes.</p><p>This is why Tangle Wire moved so naturally between green Stompy, Tinker, and Workshop prison. Those decks looked different, but each could deploy a three-mana artifact before three mana should normally have existed.</p></section><section id="payments"><div class="chapter-number">VI · The Material</div><h2>The Wire could be paid with things that had already worked</h2><p>The most elegant sequences use permanents twice. Tap a land for mana, then tap it to Tangle Wire. Use a mana creature to cast a spell, then let it satisfy the upkeep trigger. Tap the Wire itself. Tap a fading creature whose remaining turns are already numbered.</p><p>Artifacts such as <span class="card-name" data-card="Chimeric Idol" tabindex="0">Chimeric Idol</span>, <span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span>, Moxen, and <span class="card-name" data-card="Smokestack" tabindex="0">Smokestack</span> made the payment especially soft. A Workshop deck often controlled many more permanents than the opponent, and several existed primarily to create a lock. The Wire counted every object equally even though their strategic values were radically different.</p><p>This principle became a central lesson of prison design: a symmetrical tax becomes asymmetrical when one deck is constructed to pay with surplus material.</p></section><div aria-label="Tangle Wire across formats" class="format-strip"><div class="format-card"><span class="impact">Standard and Masques Block</span><h3>A tempo card for every permanent deck</h3><p>Stompy and Tinker used acceleration to deploy the Wire before opponents could build enough material to pay comfortably.</p></div><div class="format-card"><span class="impact">Vintage</span><h3>The bridge from tempo to prison</h3><p>Workshop decks used Tangle Wire to protect the first lock piece, buy time for Smokestack, and punish light cantrip mana bases.</p></div><div class="format-card"><span class="impact">Legacy and Premodern</span><h3>A preserved old-frame pressure tool</h3><p>MUD, Stompy, artifact prison, and historical formats retain the original tension between temporary denial and a fast clock.</p></div></div><section id="nemesis"><div class="chapter-number">VII · Nemesis</div><h2>A quiet rare from a set built around vanishing resources</h2><p>Nemesis arrived in 2000 with fading as one of its defining mechanics. The set’s most famous tournament cards often created unusual resource economies: Parallax Wave and Parallax Tide removed permanents temporarily, Lin Sivvi turned Rebels into a recursive toolbox, and Tangle Wire converted time into a countable resource.</p><p>At rare, the Wire did not announce itself as a universal staple. Its text looked cumbersome, the artifact destroyed nothing, and its own sacrifice was guaranteed. Competitive players quickly discovered that a guaranteed expiration date was irrelevant if the game had already been decided before the artifact disappeared.</p><p>The original Glen Angus artwork reinforced the concept. The tangled structure is not a machine that attacks; it is an environment through which movement has become impossible.</p></section><section id="stompy"><div class="chapter-number">VIII · Worlds 2000</div><h2>Green Stompy made four tapped lands equal lethal damage</h2><p>Ed Fear’s mono-green Stompy list at the 2000 World Championship placed four Tangle Wires beside Wild Dogs, Pouncing Jaguar, River Boa, Rancor, and Blastoderm. The deck did not seek a permanent lock. It sought attacks.</p><p>A first-turn creature followed by an accelerated Wire forced the opponent to tap lands instead of casting removal and to tap creatures instead of blocking. When the Wire faded away, the opponent was often at a life total where ordinary combat math had already become impossible.</p><p>This was the cleanest aggressive use of the card: temporary denial converted directly into damage, and the artifact’s eventual disappearance freed the Stompy player to finish the game.</p></section><section id="tinker"><div class="chapter-number">IX · The World Champion</div><h2>Jon Finkel used the Wire to protect an explosion</h2><p>Jon Finkel’s championship Mono-Blue Tinker deck at Worlds 2000 used Metalworker, Grim Monolith, Thran Dynamo, Voltaic Key, and Tinker to produce enormous artifacts far ahead of schedule. Four Tangle Wires made sure the opponent could not use the same turns to answer them.</p><p>The Wire was particularly punishing in a deck that could place many artifacts onto the battlefield. The Tinker player had spare objects to tap and could turn a temporary pause into the time needed for Phyrexian Processor, Masticore, or Phyrexian Colossus to dominate.</p><p>The gold-bordered World Championship printing memorialized this exact role, making Tangle Wire one of the unusual cards whose printing history directly contains the deck that established it.</p></section><section id="standard"><div class="chapter-number">X · Standard</div><h2>The card moved from main decks to sideboards without losing its purpose</h2><p>As Standard changed, Tangle Wire appeared in green aggression, artifact mana, and sideboards of midrange decks that wanted to win races against control or combo. Fires of Yavimaya lists sometimes used the Wire after sideboarding to create an uncontested attack step for Blastoderm and Saproling Burst.</p><p>The card was strongest when the deck already wanted to commit permanents. It was weaker in reactive strategies that held cards in hand and relied on instants. This kept it from becoming universal even while it remained one of the most punishing turn-two plays in the format.</p><p>The distinction would follow it forever: Tangle Wire is not generic denial. It is denial for a deck that has already placed its plan on the table.</p></section><section id="workshop"><div class="chapter-number">XI · Vintage</div><h2>Mishra’s Workshop removed the phrase “three-mana artifact”</h2><p>In Vintage, Mishra’s Workshop could cast Tangle Wire on the first turn from a single land. Against decks built around cantrips and a light mana base, that opening often functioned as a near-complete lock for several turns.</p><p>Workshop also solved the card’s supposed symmetry. The prison deck played Moxen, mana artifacts, Welders, lock pieces, and surplus permanents, while blue decks often controlled only one or two lands. Tangle Wire counted permanents rather than mana value, so the deck with the most cheap objects paid least painfully.</p><p>The Wire became the tempo component of Workshop prison: not the final lock, but the card that made sure the final lock resolved and survived.</p></section><section id="stax"><div class="chapter-number">XII · Stax</div><h2>Smokestack turned temporary denial into permanent collapse</h2><p>The defining partnership was <span class="card-name" data-card="Smokestack" tabindex="0">Smokestack</span>. During the controller’s upkeep, the Stax player could order multiple triggers to remove a fade counter, tap fewer permanents, and manage soot counters or sacrifice demands in the most favorable sequence. The opponent then entered an upkeep already short on usable resources.</p><p><span class="card-name" data-card="Goblin Welder" tabindex="0">Goblin Welder</span> made the artifact even more flexible. A Wire nearing zero counters could be exchanged for another artifact, then later returned with a fresh set of counters. What looked like a one-use prison piece became part of a graveyard-based machine.</p><p>Roland Chang’s 2005 Vintage Championship 5-Color Stax list preserved the classic package: Workshop, Welder, Tangle Wire, Smokestack, Crucible of Worlds, Wasteland, and restricted power. It remains one of the clearest demonstrations of the Wire as the bridge between acceleration and inevitability.</p></section><section id="shops"><div class="chapter-number">XIII · Workshop Evolution</div><h2>Later Shops decks learned when four copies were too many</h2><p>Tangle Wire survived numerous shifts in Vintage, but its role changed as Workshop decks became more creature-heavy. Lodestone Golem, Arcbound Ravager, Walking Ballista, and Foundry Inspector offered disruption or speed while also attacking. A temporary artifact that did not deal damage could become awkward in lists designed to end the game quickly.</p><p>Some eras retained four copies; others trimmed them or moved away entirely. That fluctuation did not diminish the card’s historical importance. It showed that Tangle Wire was a precise metagame tool rather than an automatic artifact staple.</p><p>The Wire was best when one additional turn of restricted movement allowed another engine to take control. When the deck itself became the clock, fewer copies were necessary.</p></section><section id="legacy"><div class="chapter-number">XIV · Legacy</div><h2>Ancient Tomb kept the old prison line alive</h2><p>Legacy lacked Mishra’s Workshop but retained Ancient Tomb, City of Traitors, Metalworker, Goblin Welder, and Chalice of the Void. MUD and artifact prison decks used Tangle Wire to protect expensive threats and to force fair decks to choose between mana, blockers, and equipment.</p><p>The card never became a defining pillar of Legacy in the way it did for Vintage Stax. Force of Will, efficient artifact removal, and the speed of combo limited a three-mana temporary lock. Yet in the correct shell, especially one producing six or more mana on turn two, the original play pattern remained intact.</p><p>Premodern now provides the clearest living museum for the Standard-era use: green Stompy and artifact strategies still cast the Wire beside the exact cards that first made it frightening.</p></section><div aria-label="Tangle Wire historical timeline" class="timeline"><div class="timeline-item"><time>2000</time><h3>Nemesis</h3><p>Tangle Wire appears with fading 4 and immediately rewards decks that can accelerate permanent development.</p></div><div class="timeline-item"><time>2000</time><h3>World Championship</h3><p>Ed Fear’s Stompy and Jon Finkel’s championship Tinker deck demonstrate aggressive and artifact-engine uses.</p></div><div class="timeline-item"><time>2003</time><h3>The birth of Stax</h3><p>Workshop prison combines Wire, Smokestack, Goblin Welder, and Sphere effects against light Vintage mana bases.</p></div><div class="timeline-item"><time>2005</time><h3>Vintage Championship</h3><p>Roland Chang wins with 5-Color Stax and four Tangle Wires.</p></div><div class="timeline-item"><time>2013–present</time><h3>Reprints and preservation</h3><p>From the Vault, Secret Lair, Legacy artifact decks, and Premodern keep the temporary prison visible.</p></div></div><section id="sequencing"><div class="chapter-number">XV · Sequencing</div><h2>The controller’s upkeep is a stack-management exercise</h2><p>The default line is to put the tap trigger on the stack first and the fading trigger above it. Fading resolves, one counter is removed, and the tap trigger then counts the smaller number. Reversing the order can occasionally be correct if the controller wants the larger tap demand for an unusual interaction, but it is rarely desirable.</p><p>Mana should often be generated before permanents are tapped to the Wire. Because the trigger does not care whether a permanent has already been used, a land or Mox can produce mana and then become payment. This lets the controller cast instants or activate abilities during upkeep before moving to the draw step.</p><p>The sequencing burden is part of the card’s identity. Tangle Wire rewards a player who sees the upkeep not as an automatic phase but as a programmable set of triggers.</p></section><section id="multiple"><div class="chapter-number">XVI · Redundancy</div><h2>A second Wire could reset the entire calendar</h2><p>Casting a second Tangle Wire while the first is fading creates overlapping schedules. The opponent may face a four-counter trigger and a smaller trigger in the same upkeep, while the controller can tap the Wires to one another and arrange each fading trigger favorably.</p><p>This is one reason artifact recursion is so effective. The deck does not need every Wire to survive; it needs the opponent never to receive a clean main phase. A Welder, copy effect, or return spell can insert a fresh four-counter object before the old one disappears.</p><p>The danger is drawing temporary denial without a payoff. Multiple Wires and no clock eventually leave both players with ordinary boards. Successful decks pair redundancy with creatures, Smokestack, Tinker targets, or another engine that converts the borrowed turns into a permanent advantage.</p></section><section id="counterplay"><div class="chapter-number">XVII · Playing Against It</div><h2>Use the upkeep before the taps become final</h2><p>The tap trigger uses the stack. Instants, mana abilities, and activated abilities can be used before it resolves. Lands can produce mana, creatures can activate non-tap abilities, and artifacts can be sacrificed or exchanged. The resources may still become tapped, but their value does not have to be lost.</p><p>Cheap artifact removal is strongest when cast before the opponent receives the first favorable upkeep. Countermagic is often worth spending because the first opposing tap for four is the card’s highest-impact moment. If the Wire resolves, expanding the battlefield with cheap permanents can make later triggers easier to absorb.</p><p>The deeper counterplay is strategic: identify whether the opponent has a payoff. If the Wire is buying time for Smokestack or a giant artifact, answering that engine may matter more than answering the Wire itself.</p></section><section id="mulligans"><div class="chapter-number">XVIII · Opening Hands</div><h2>A Wire without acceleration was often merely fair</h2><p>The best Tangle Wire hands cast it before turn three. A hand containing the artifact but no acceleration may be acceptable in a slower matchup, but it loses the percentage advantage that makes the card extraordinary.</p><p>Stompy wants a creature, acceleration, and Wire. Tinker wants mana artifacts and a payoff. Stax wants Workshop or other fast mana plus a second lock piece. In each case, the Wire is strongest as part of a sequence rather than as the only meaningful card.</p><p>This makes mulligan decisions unusually contextual. The artifact can rescue a slightly slow hand on the play and fail to catch up a similar hand on the draw.</p></section><section id="current"><div class="chapter-number">XIX · The Present</div><h2>The card is now a specialist rather than a universal prison staple</h2><p>Tangle Wire remains legal in Legacy and Vintage and is widely played in Commander cubes, Premodern, Old Frame Vintage, and historical gauntlets. Contemporary competitive lists use it selectively because threats have become cheaper and many lock pieces now carry their own clock.</p><p>Its tactical lesson remains current. Temporary interaction can be stronger than permanent interaction when it arrives at the exact point of maximum leverage. Modern designs often reproduce the idea through stun counters, tax effects, or one-turn restrictions rather than a symmetrical upkeep trigger.</p><p>The original still feels distinct because it turns every permanent into a unit of time and lets deck construction decide which player can afford to spend those units.</p></section><section id="descendants"><div class="chapter-number">XX · Descendants</div><h2>Later prison cards chose permanence over choreography</h2><p><span class="card-name" data-card="Sphere of Resistance" tabindex="0">Sphere of Resistance</span>, <span class="card-name" data-card="Static Orb" tabindex="0">Static Orb</span>, <span class="card-name" data-card="Trinisphere" tabindex="0">Trinisphere</span>, <span class="card-name" data-card="Thorn of Amethyst" tabindex="0">Thorn of Amethyst</span>, and <span class="card-name" data-card="Lodestone Golem" tabindex="0">Lodestone Golem</span> all attack the same strategic space: they make ordinary sequencing impossible and reward a deck built to ignore the restriction.</p><p>None reproduces Tangle Wire exactly. Static effects are easier to understand but do not create the same declining schedule or upkeep puzzle. Stun counters and temporary tap effects resemble the duration but usually target selected permanents instead of asking each player to allocate the burden.</p><p>The Wire’s descendants therefore divided its identity into two families: permanent prison pieces and temporary tempo effects. The original remains the rare card that is fully both.</p><div class="card-lead"><img alt="Trinisphere" src="https://api.scryfall.com/cards/named?exact=Trinisphere&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The permanent successor</div><h3>Trinisphere</h3><p><span class="card-name" data-card="Trinisphere" tabindex="0">Trinisphere</span> converted the Workshop deck’s temporary opening into a static minimum cost. It lacked the Wire’s graceful decay but made the same promise: the opponent would not use the next turn normally.</p></div></div></section><section id="art"><div class="chapter-number">XXI · The Image</div><h2>Glen Angus painted obstruction as architecture</h2><p>The original art presents a metallic or organic tangle occupying the entire path. There is no obvious operator and no visible victim. The structure itself is the condition of the world, a maze that turns movement into effort.</p><p>Marco Nelor’s From the Vault interpretation emphasized the artifact as a monumental machine, while the later Secret Lair version transformed the concept through a more stylized visual language. Each treatment preserves the central idea that progress has been physically bound.</p><p>That makes the artwork unusually faithful to gameplay. Tangle Wire does not destroy the opponent’s board; it makes the board temporarily unusable.</p></section><div aria-label="Glen Angus original Tangle Wire artwork" class="art-break tangle-wire-crop" role="img"><div class="art-caption"><b>Tangle Wire · Glen Angus</b>The original Nemesis image turns the entire battlefield into a passage that can no longer be crossed on schedule.</div></div><section id="print-history"><div class="chapter-number">XXII · The Object</div><h2>Four release objects carried an outsized tournament history</h2><p>Tangle Wire has a compact printing history compared with its reputation. The original Nemesis rare appeared in both nonfoil and foil, and the 2000 World Championship deck supplied a gold-bordered version associated with Jon Finkel’s Tinker list.</p><p>From the Vault: Twenty gave the card new Marco Nelor artwork and a premium foil treatment in 2013. A later Secret Lair supplied another visual interpretation. The scarcity of broad reprints helped the original remain a recognizable old-frame collectible.</p><p>Because the card is legal mainly in older formats and Commander, each reprint has felt less like routine circulation and more like a deliberate acknowledgment of tournament history.</p></section><section id="memory"><div class="chapter-number">XXIII · What Players Remember</div><h2>Four, then three, then two—and never a normal turn</h2><p>Players remember the physical ritual of counters disappearing and permanents turning sideways before the draw step. The board remained full, which made the absence of usable resources feel more frustrating than ordinary removal.</p><p>They remember tapping the Wire to itself, using lands first, and arranging the fading trigger with practiced speed. They also remember opponents discovering the trigger-order interaction only after paying four on their own upkeep and watching the controller pay three.</p><p>The card’s emotional signature is anticipation. Everyone can see when it will disappear. The question is whether the game will still be recoverable when it does.</p></section><section id="identity"><div class="chapter-number">XXIV · The Verdict</div><h2>Why Tangle Wire matters</h2><p>Tangle Wire proved that a temporary prison can define a permanent archetype. It gave aggressive decks free attacks, artifact engines protected development, and Workshop prison the time required to turn soft restrictions into hard locks.</p><p>Its strength came from several modest rules interacting perfectly: fading, simultaneous upkeep triggers, the ability to tap itself, and a broad choice of permanent types. None looks broken alone. Together they create one of Magic’s most elegant examples of engineered asymmetry.</p><p>The Wire matters because it made time visible. Four counters were not merely counters; they were the remaining turns in which the opponent was allowed to pretend the game would proceed normally.</p></section><section id="decks"><div class="chapter-number">XXV · The Evidence</div><h2>The deck archive</h2><p class="deck-intro">These five lists trace Tangle Wire from Standard aggression and artifact combo into the Workshop prison engines that made temporary denial a permanent part of Vintage history.</p><div class="deck-archive"><details class="deck"><summary><span><strong>Ed Fear — Mono-Green Stompy</strong><small>World Championship 2000 · Standard · 7th after Day 1</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>Four Tangle Wires converted cheap green creatures into uncontested attacks. The deck’s Gaea’s Cradles and one-mana creatures accelerated the artifact while Rancor and Blastoderm supplied the clock.</p><div class="deck-meta"><div><b>Ed Fear — Mono-Green Stompy</b><div class="small">World Championship 2000 · Standard · 7th after Day 1</div></div><button class="copy" data-target="deck-fear">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 26</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blastoderm" tabindex="0">Blastoderm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Pouncing Jaguar" tabindex="0">Pouncing Jaguar</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="River Boa" tabindex="0">River Boa</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Uktabi Orangutan" tabindex="0">Uktabi Orangutan</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Vine Dryad" tabindex="0">Vine Dryad</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wild Dogs" tabindex="0">Wild Dogs</span></div></div><div class="group"><h4>Instants · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Might of Oaks" tabindex="0">Might of Oaks</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wild Might" tabindex="0">Wild Might</span></div></div><div class="group"><h4>Artifacts and enchantments · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rancor" tabindex="0">Rancor</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">14</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gaea’s Cradle" tabindex="0">Gaea’s Cradle</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Lumbering Satyr" tabindex="0">Lumbering Satyr</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Masticore" tabindex="0">Masticore</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Reverent Silence" tabindex="0">Reverent Silence</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Splinter" tabindex="0">Splinter</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Squallmonger" tabindex="0">Squallmonger</span></div></div></div></div><pre hidden="" id="deck-fear">Ed Fear — Mono-Green Stompy
+World Championship 2000 · Standard · 7th after Day 1
+
+Creatures · 26
+4 Blastoderm
+4 Llanowar Elves
+3 Pouncing Jaguar
+4 River Boa
+3 Uktabi Orangutan
+4 Vine Dryad
+4 Wild Dogs
+
+Instants · 4
+1 Might of Oaks
+3 Wild Might
+
+Artifacts and enchantments · 8
+4 Tangle Wire
+4 Rancor
+
+Lands · 22
+14 Forest
+4 Gaea’s Cradle
+4 Rishadan Port
+
+Sideboard · 15
+3 Lumbering Satyr
+4 Masticore
+3 Reverent Silence
+2 Splinter
+3 Squallmonger</pre></div></details><details class="deck"><summary><span><strong>Jon Finkel — Mono-Blue Tinker</strong><small>World Championship 2000 · Champion · Standard</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>Tangle Wire protected an artifact-mana explosion. Metalworker and Tinker created the threat; the Wire ensured the opponent’s answer arrived several turns too late.</p><div class="deck-meta"><div><b>Jon Finkel — Mono-Blue Tinker</b><div class="small">World Championship 2000 · Champion · Standard</div></div><button class="copy" data-target="deck-finkel">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 9</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Masticore" tabindex="0">Masticore</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Metalworker" tabindex="0">Metalworker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Phyrexian Colossus" tabindex="0">Phyrexian Colossus</span></div></div><div class="group"><h4>Instants and sorceries · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tinker" tabindex="0">Tinker</span></div></div><div class="group"><h4>Artifacts · 22</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Crumbling Sanctuary" tabindex="0">Crumbling Sanctuary</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grim Monolith" tabindex="0">Grim Monolith</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mishra’s Helix" tabindex="0">Mishra’s Helix</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Phyrexian Processor" tabindex="0">Phyrexian Processor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thran Dynamo" tabindex="0">Thran Dynamo</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Voltaic Key" tabindex="0">Voltaic Key</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">9</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Crystal Vein" tabindex="0">Crystal Vein</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Saprazzan Skerry" tabindex="0">Saprazzan Skerry</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chill" tabindex="0">Chill</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Miscalculation" tabindex="0">Miscalculation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mishra’s Helix" tabindex="0">Mishra’s Helix</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Rising Waters" tabindex="0">Rising Waters</span></div></div></div></div><pre hidden="" id="deck-finkel">Jon Finkel — Mono-Blue Tinker
+World Championship 2000 · Champion · Standard
+
+Creatures · 9
+4 Masticore
+4 Metalworker
+1 Phyrexian Colossus
+
+Instants and sorceries · 8
+4 Brainstorm
+4 Tinker
+
+Artifacts · 22
+1 Crumbling Sanctuary
+4 Grim Monolith
+1 Mishra’s Helix
+4 Phyrexian Processor
+4 Tangle Wire
+4 Thran Dynamo
+4 Voltaic Key
+
+Lands · 21
+9 Island
+4 Crystal Vein
+4 Rishadan Port
+4 Saprazzan Skerry
+
+Sideboard · 15
+4 Annul
+4 Chill
+4 Miscalculation
+1 Mishra’s Helix
+2 Rising Waters</pre></div></details><details class="deck"><summary><span><strong>Jon Finkel — Fires of Yavimaya</strong><small>Pro Tour Chicago 2000 · Top 8 · Standard</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>The two sideboard Wires illustrate the card’s use as a matchup tool. Fires could transform a temporary tapping effect into a lethal Saproling Burst attack without rebuilding its deck around prison.</p><div class="deck-meta"><div><b>Jon Finkel — Fires of Yavimaya</b><div class="small">Pro Tour Chicago 2000 · Top 8 · Standard</div></div><button class="copy" data-target="deck-fires">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 20</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ancient Hydra" tabindex="0">Ancient Hydra</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blastoderm" tabindex="0">Blastoderm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Kavu Chameleon" tabindex="0">Kavu Chameleon</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rith, the Awakener" tabindex="0">Rith, the Awakener</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="River Boa" tabindex="0">River Boa</span></div></div><div class="group"><h4>Artifacts and enchantments · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chimeric Idol" tabindex="0">Chimeric Idol</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fires of Yavimaya" tabindex="0">Fires of Yavimaya</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Saproling Burst" tabindex="0">Saproling Burst</span></div></div><div class="group"><h4>Instants · 5</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Urza’s Rage" tabindex="0">Urza’s Rage</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wax // Wane" tabindex="0">Wax // Wane</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brushland" tabindex="0">Brushland</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">6</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Karplusan Forest" tabindex="0">Karplusan Forest</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Aura Mutation" tabindex="0">Aura Mutation</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Earthquake" tabindex="0">Earthquake</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flashfires" tabindex="0">Flashfires</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hurricane" tabindex="0">Hurricane</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kavu Chameleon" tabindex="0">Kavu Chameleon</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Obliterate" tabindex="0">Obliterate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rith, the Awakener" tabindex="0">Rith, the Awakener</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span></div></div></div></div><pre hidden="" id="deck-fires">Jon Finkel — Fires of Yavimaya
+Pro Tour Chicago 2000 · Top 8 · Standard
+
+Creatures · 20
+2 Ancient Hydra
+4 Birds of Paradise
+4 Blastoderm
+2 Kavu Chameleon
+4 Llanowar Elves
+1 Rith, the Awakener
+3 River Boa
+
+Artifacts and enchantments · 12
+4 Chimeric Idol
+4 Fires of Yavimaya
+4 Saproling Burst
+
+Instants · 5
+3 Urza’s Rage
+2 Wax // Wane
+
+Lands · 23
+4 Brushland
+2 City of Brass
+6 Forest
+4 Karplusan Forest
+3 Mountain
+4 Rishadan Port
+
+Sideboard · 15
+2 Aura Mutation
+3 Earthquake
+2 Flashfires
+2 Hurricane
+1 Kavu Chameleon
+2 Obliterate
+1 Rith, the Awakener
+2 Tangle Wire</pre></div></details><details class="deck"><summary><span><strong>Roland Chang — 5-Color Stax</strong><small>Vintage Championship 2005 · Champion</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>This is the classic mature home of Tangle Wire: Workshop acceleration, Goblin Welder recursion, Smokestack permanence, and Crucible-fueled land denial.</p><div class="deck-meta"><div><b>Roland Chang — 5-Color Stax</b><div class="small">Vintage Championship 2005 · Champion</div></div><button class="copy" data-target="deck-chang">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Goblin Welder" tabindex="0">Goblin Welder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gorilla Shaman" tabindex="0">Gorilla Shaman</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karn, Silver Golem" tabindex="0">Karn, Silver Golem</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sundering Titan" tabindex="0">Sundering Titan</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Triskelion" tabindex="0">Triskelion</span></div></div><div class="group"><h4>Artifacts and spells · 34</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Crop Rotation" tabindex="0">Crop Rotation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Crucible of Worlds" tabindex="0">Crucible of Worlds</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sphere of Resistance" tabindex="0">Sphere of Resistance</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Smokestack" tabindex="0">Smokestack</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Thirst for Knowledge" tabindex="0">Thirst for Knowledge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tinker" tabindex="0">Tinker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Trinisphere" tabindex="0">Trinisphere</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Barbarian Ring" tabindex="0">Barbarian Ring</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Gemstone Mine" tabindex="0">Gemstone Mine</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra’s Workshop" tabindex="0">Mishra’s Workshop</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tolarian Academy" tabindex="0">Tolarian Academy</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Choke" tabindex="0">Choke</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jester’s Cap" tabindex="0">Jester’s Cap</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Seal of Cleansing" tabindex="0">Seal of Cleansing</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tormod’s Crypt" tabindex="0">Tormod’s Crypt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Viashino Heretic" tabindex="0">Viashino Heretic</span></div></div></div></div><pre hidden="" id="deck-chang">Roland Chang — 5-Color Stax
+Vintage Championship 2005 · Champion
+
+Creatures · 8
+4 Goblin Welder
+1 Gorilla Shaman
+1 Karn, Silver Golem
+1 Sundering Titan
+1 Triskelion
+
+Artifacts and spells · 34
+1 Ancestral Recall
+1 Balance
+1 Black Lotus
+1 Crop Rotation
+1 Demonic Tutor
+1 Mana Crypt
+1 Mana Vault
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+3 Crucible of Worlds
+3 Sphere of Resistance
+4 Smokestack
+4 Tangle Wire
+3 Thirst for Knowledge
+1 Tinker
+1 Trinisphere
+1 Vampiric Tutor
+1 Swords to Plowshares
+
+Lands · 18
+1 Barbarian Ring
+4 City of Brass
+3 Gemstone Mine
+4 Mishra’s Workshop
+1 Strip Mine
+1 Tolarian Academy
+4 Wasteland
+
+Sideboard · 15
+3 Chalice of the Void
+2 Choke
+1 Jester’s Cap
+3 Red Elemental Blast
+2 Seal of Cleansing
+2 Tormod’s Crypt
+2 Viashino Heretic</pre></div></details><details class="deck"><summary><span><strong>Representative Workshop MUD</strong><small>Vintage · Post-Lodestone Workshop prison</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>Creature-heavy MUD retained Tangle Wire as the temporary bridge between Sphere effects and a lethal artifact board. The list shows how the card survived after Stax became less dependent on Smokestack.</p><div class="deck-meta"><div><b>Representative Workshop MUD</b><div class="small">Vintage · Post-Lodestone Workshop prison</div></div><button class="copy" data-target="deck-mud">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 14</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lodestone Golem" tabindex="0">Lodestone Golem</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Metalworker" tabindex="0">Metalworker</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Steel Hellkite" tabindex="0">Steel Hellkite</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karn, Silver Golem" tabindex="0">Karn, Silver Golem</span></div></div><div class="group"><h4>Artifacts · 28</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Crucible of Worlds" tabindex="0">Crucible of Worlds</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sculpting Steel" tabindex="0">Sculpting Steel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sphere of Resistance" tabindex="0">Sphere of Resistance</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thorn of Amethyst" tabindex="0">Thorn of Amethyst</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Trinisphere" tabindex="0">Trinisphere</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="City of Traitors" tabindex="0">City of Traitors</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mishra’s Factory" tabindex="0">Mishra’s Factory</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra’s Workshop" tabindex="0">Mishra’s Workshop</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tolarian Academy" tabindex="0">Tolarian Academy</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duplicant" tabindex="0">Duplicant</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Crucible of Worlds" tabindex="0">Crucible of Worlds</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Jester’s Cap" tabindex="0">Jester’s Cap</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Relic of Progenitus" tabindex="0">Relic of Progenitus</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tormod’s Crypt" tabindex="0">Tormod’s Crypt</span></div></div></div></div><pre hidden="" id="deck-mud">Representative Workshop MUD
+Vintage · Post-Lodestone Workshop prison
+
+Creatures · 14
+4 Lodestone Golem
+4 Metalworker
+4 Steel Hellkite
+2 Karn, Silver Golem
+
+Artifacts · 28
+1 Black Lotus
+4 Chalice of the Void
+2 Crucible of Worlds
+1 Mana Crypt
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sculpting Steel
+1 Sol Ring
+4 Sphere of Resistance
+4 Tangle Wire
+4 Thorn of Amethyst
+1 Trinisphere
+
+Lands · 18
+4 Ancient Tomb
+2 City of Traitors
+2 Mishra’s Factory
+4 Mishra’s Workshop
+1 Strip Mine
+1 Tolarian Academy
+4 Wasteland
+
+Sideboard · 15
+4 Duplicant
+2 Crucible of Worlds
+2 Jester’s Cap
+4 Relic of Progenitus
+3 Tormod’s Crypt</pre></div></details></div></section><section id="sources"><div class="chapter-number">XXVI · The Record</div><h2>Printings and sources</h2><div class="printings"><figure class="printing"><img alt="Tangle Wire, Nemesis" src="https://api.scryfall.com/cards/named?exact=Tangle%20Wire&amp;set=nem&amp;format=image&amp;version=normal"/><figcaption><b>Nemesis · 2000 · 139</b><br/>Glen Angus’s original rare, issued in nonfoil and foil.</figcaption></figure><figure class="printing"><img alt="Tangle Wire, World Championship Decks 2000" src="https://api.scryfall.com/cards/named?exact=Tangle%20Wire&amp;set=wc00&amp;format=image&amp;version=normal"/><figcaption><b>World Championship Decks 2000</b><br/>The gold-bordered printing from Jon Finkel’s championship Tinker deck.</figcaption></figure><figure class="printing"><img alt="Tangle Wire, From the Vault Twenty" src="https://api.scryfall.com/cards/named?exact=Tangle%20Wire&amp;set=v13&amp;format=image&amp;version=normal"/><figcaption><b>From the Vault: Twenty · 2013 · 8</b><br/>Marco Nelor artwork in the premium anniversary collection.</figcaption></figure><figure class="printing"><img alt="Tangle Wire, Secret Lair Drop" src="https://api.scryfall.com/cards/named?exact=Tangle%20Wire&amp;set=sld&amp;format=image&amp;version=normal"/><figcaption><b>Secret Lair Drop · 2022 · 694</b><br/>A later premium reinterpretation of the temporary prison.</figcaption></figure></div><ol class="sources"><li><a href="https://scryfall.com/card/nem/139/tangle-wire">Scryfall — Tangle Wire, Nemesis</a><span>Oracle text, legality, card imagery, release data, and printings.</span></li><li><a href="https://scryfall.com/search?q=%21%22Tangle+Wire%22+include%3Aextras&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall — exhaustive Tangle Wire printing search</a><span>The complete set of paper, promotional, and championship release objects.</span></li><li><a href="https://mtg.wiki/page/2000_World_Championships/Standard_decks">2000 World Championship Standard deck archive</a><span>Ed Fear’s Stompy list and Jon Finkel’s championship Mono-Blue Tinker list.</span></li><li><a href="https://scryfall.com/sets/wc00">Scryfall — World Championship Decks 2000</a><span>The gold-bordered championship product containing Finkel’s Tangle Wire.</span></li><li><a href="https://www.mtgsalvation.com/articles/16300-stax-the-four-thousand-dollar-solution">“STAX: The Four Thousand Dollar Solution”</a><span>Early Stax history, the prototype list, and Roland Chang’s 2005 Vintage Championship deck.</span></li><li><a href="https://articles.starcitygames.com/articles/the-many-flavors-of-t4ks-learning-cronstax-and-preparing-for-gencon/">Stephen Menendian — “The Many Flavors of $T4KS”</a><span>Contemporary account of Stax development and Tangle Wire’s role against Gro-A-Tog.</span></li><li><a href="https://mtg.wiki/page/Vintage_Stax_deck">Vintage Stax deck archive</a><span>Historical card roles and a representative Workshop MUD list.</span></li><li><a href="https://deckstats.net/decks/52923/2311820-fires-2000">Jon Finkel Fires deck archive</a><span>The Pro Tour Chicago Fires list with Tangle Wire in the sideboard.</span></li></ol><p class="editor-note"><b>Editorial note:</b> The gallery treats premium foil finishes as part of the same release object rather than separate printings. The World Championship card is gold-bordered and not tournament legal, but it is included because it records the card’s defining championship deck.</p></section></article></div>
+<footer class="footer">Compulsive Research · A card-by-card history of Magic: The Gathering</footer><div id="preview"><img alt="Card preview"/></div><script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+</script></body></html>
