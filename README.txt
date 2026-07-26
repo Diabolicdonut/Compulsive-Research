@@ -1,18 +1,14 @@
-COMPULSIVE RESEARCH — COUNTERSPELL ARTICLE EDITION
+COMPULSIVE RESEARCH — AUDITED SITE EDITION
 
 Upload the contents of this folder to the root of a GitHub Pages repository.
 
-Published HTML pages
-- index.html
-- 001-black-lotus.html
-- 002-ancestral-recall.html
-- 012-counterspell.html
-- 102-force-of-will.html
-- 103-brainstorm.html
-- 250-eternal-dragon.html
+This edition contains 68 published numbered articles and 7 honorable-mention articles.
 
-The landing page contains all twenty collapsed waves. Published entries link
-directly to their single canonical root-level article pages.
+Site conventions
+- Eternal Dragon is the canonical article-layout reference.
+- Every numbered article includes the hero, rank navigation, table of contents, article column, archive note, card preview, continue-reading navigation, and footer.
+- Honorable Mentions retain their no-previous/no-next convention but use the same hero, article, archive-note, preview, and footer treatment.
+- Every return link opens the article's own row on index.html using both a focus query and an anchor.
+- Previous and next links that return to the landing page open the row named by the link.
 
-Entry 012 is a new long-form Counterspell article matching the established
-Compulsive Research visual, navigation, decklist, card-preview, and source style.
+See AUDIT-REPORT.txt for the exact validation results and changed files.
