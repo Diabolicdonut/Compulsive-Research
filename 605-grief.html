@@ -212,6 +212,7 @@ p{margin:1em 0}
   .deck-meta{flex-direction:column}.archive-art{min-height:370px}
   #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
   #preview.show{transform:translate(-50%,-50%) scale(1)}
+  .grief-ancestor img.image{min-height:0;height:auto;aspect-ratio:645/510;object-fit:cover}
 }
 
 .rank-nav{
@@ -242,13 +243,33 @@ p{margin:1em 0}
   background-image:url(https://api.scryfall.com/cards/mh2/87?format=image&version=art_crop)!important;
   background-position:center 24%!important
 }
-.grief-ancestor .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Unmask&set=nem&format=image&version=art_crop)!important
-}
+
+.inline-image img.image{width:100%;height:100%;min-height:390px;object-fit:cover;display:block}
+.inline-image.image-missing{grid-template-columns:1fr}
+.inline-image.image-missing .copy{min-height:0}
 .grief-family .image{
   background-image:url(https://api.scryfall.com/cards/named?exact=Fury&set=mh2&format=image&version=art_crop)!important
 }
-</style></head><body><header class="hero grief-art">
+
+.ancestor-summary{
+  width:min(980px,calc(100vw - 32px));
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(28px,5vw,52px);
+  background:var(--night);
+  color:white;
+  border-radius:var(--radius);
+  box-sizing:border-box;
+  min-height:0;
+}
+.ancestor-summary h3{font-size:clamp(1.8rem,4vw,2.5rem);margin:.35em 0 .65em;color:white}
+.ancestor-summary p{color:#d8d9d4;margin:0 0 1em}
+.ancestor-summary p:last-child{margin-bottom:0}
+@media(max-width:760px){
+  .ancestor-summary{width:100%;margin:34px 0 40px;padding:28px 24px}
+}
+
+</style><meta name="grief-build" content="no-blank-v3-2026-07-26">
+</head><body><header class="hero grief-art">
 <div class="hero-grid"></div>
 <div class="hero-inner">
 <a class="archive-link" href="index.html#wave-13">← Wave 13 · The Modern Horizons Era</a>
@@ -314,9 +335,14 @@ p{margin:1em 0}
 <section id="ancestor">
 <div class="chapter-number">IV · Pitch-discard lineage</div>
 <h2>Unmask with a body</h2>
-<p>Grief did not invent free black discard. <span class="card-name" data-card="Unmask" tabindex="0">Unmask</span> had done the conceptual work in Nemesis more than twenty years earlier. Unmask could be cast by exiling a black card from hand rather than paying mana, and it allowed the caster to examine an opponent’s hand and remove a nonland card.</p>
+<p>Grief did not invent free black discard. <span class="card-name" data-card="Unmask" tabindex="0">Unmask</span> had done the conceptual work in Mercadian Masques more than twenty years earlier. Unmask could be cast by exiling a black card from hand rather than paying mana, and it allowed the caster to examine an opponent’s hand and remove a nonland card.</p>
 <p>The difference is exactly the difference between a spell and a permanent. Unmask normally finishes resolving and goes to the graveyard. Grief enters the battlefield before its discard ability resolves. That arrival invites the rest of Magic’s card pool into the transaction.</p>
-<div class="inline-image grief-ancestor"><div class="image"></div><div class="copy"><div class="eyebrow">Nemesis · 2000</div><h3>The free discard spell before the creature</h3><p>Unmask established the pitch-discard exchange. Grief reproduced it on an enters-the-battlefield trigger, making blink, reanimation, sacrifice, and death matter.</p><p>The body did not merely add three power. It changed which categories of cards could interact with the effect.</p></div></div>
+<aside class="ancestor-summary" aria-label="Unmask comparison">
+<div class="eyebrow">Mercadian Masques · 1999</div>
+<h3>The free discard spell before the creature</h3>
+<p>Unmask established the pitch-discard exchange. Grief reproduced it on an enters-the-battlefield trigger, making blink, reanimation, sacrifice, and death matter.</p>
+<p>The body did not merely add three power. It changed which categories of cards could interact with the effect.</p>
+</aside>
 <p>Grief also inherited part of the cultural position of <span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span>. Both cards make the opponent reveal the structure of their game plan and allow the caster to take the most important piece. Thoughtseize is efficient and clean: one mana, one card, one discard. Grief was less efficient in isolation but more explosive when its body could be preserved.</p>
 <p>This is why discussions that treated Grief as “free Thoughtseize” missed the most important fact. The card was not merely a discard spell that cost no mana. It was a discard spell attached to a creature whose temporary existence could be converted into another object.</p>
 </section>
