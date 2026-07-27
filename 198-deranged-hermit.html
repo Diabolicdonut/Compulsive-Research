@@ -1,0 +1,390 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A Compulsive Research history of Deranged Hermit" name="description"/><title>Five Bodies in One Card — Compulsive Research</title><style>
+:root{--hero-art:url("https://api.scryfall.com/cards/named?exact=Deranged%20Hermit&set=ulg&format=image&version=art_crop");--break-art:url("https://api.scryfall.com/cards/named?exact=Deranged%20Hermit&set=ulg&format=image&version=art_crop");--desc-art:url("https://api.scryfall.com/cards/named?exact=Deep%20Forest%20Hermit&format=image&version=art_crop");
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:var(--hero-art) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:var(--break-art) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:var(--desc-art) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:var(--hero-art) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+
+
+/* Entry-specific artwork and batch safeguards */
+.hero:before{background-image:var(--hero-art)!important;background-position:center 28%!important}
+.art-break{background-image:var(--break-art)!important;background-position:center 30%!important}
+.inline-image .image{background-image:var(--desc-art)!important}
+.hero{background-image:none!important}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center}
+.article-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.08);padding:17px 19px;margin:28px 0;color:var(--muted);font:13.5px/1.62 Inter,system-ui,sans-serif}
+.article-note b{color:var(--ink)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.descendant-panel{width:min(980px,calc(100vw - 32px));margin:38px 0 44px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:1.15fr 1fr;background:var(--night);color:#fff;border-radius:var(--radius);overflow:hidden}
+.descendant-panel .image{min-height:360px;background:var(--desc-art) center/cover}
+.descendant-panel .copy{padding:34px}.descendant-panel .copy p{color:#d8d9d4}.descendant-panel h3{font-size:2rem;margin-top:.3em}
+@media(max-width:750px){.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}.descendant-panel{width:100%;margin-left:0;grid-template-columns:1fr}.descendant-panel .image{min-height:300px}}
+</style></head><body><header class="hero"><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=entry-198#entry-198">← Back to Compulsive Research</a><div class="eyebrow">Entry 198 · Eternal &amp; Combo</div><h1>Five Bodies in One Card</h1><p class="deckline">Deranged Hermit concentrated an army, a tribal anthem, and a sacrifice puzzle into one card, making repeated enters-the-battlefield triggers far more valuable than the printed 1/1 body.</p><div class="byline"><span>A Compulsive Research essay</span><span class="pill">Urza&#x27;s Legacy, 1999</span><span class="pill">Approximately 28 minute read</span></div></div></header><nav class="rank-nav"><a href="197-replenish.html">← Entry 197</a><a href="index.html?focus=entry-198#entry-198">Archive position</a><a href="199-squee-goblin-nabob.html">Entry 199 →</a></nav><div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">Five Bodies in One Card</a><a href="#origin">What the first printing made possible</a><a href="#mechanics">The short text hides a resource system</a><a href="#history">From strange object to archetype language</a><a href="#formats">Where the card found a home</a><a href="#technical">How to use the advantage without wasting it</a><a href="#environment">The card before the category existed</a><a href="#economy">The hidden exchange rate</a><a href="#construction">The deck changes around the card</a><a href="#gameplay-model">A game seen from both seats</a><a href="#sequencing">The decisions between the lines</a><a href="#failure-modes">When the famous card is bad</a><a href="#counterplay">How the other side learned to fight back</a><a href="#case-study">A representative game in slow motion</a><a href="#role-assignment">What the card is supposed to do after sideboarding</a><a href="#testing-lab">How to test the card instead of merely goldfishing it</a><a href="#design-constraint">What later Magic had to learn from it</a><a href="#migration">One text box, several eras</a><a href="#evaluation-now">How to evaluate it now</a><a href="#legacy-deep">Why the idea survived</a><a href="#memory">What players remember</a><a href="#descendant">The inherited idea</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The argument</div><h2>Five Bodies in One Card</h2>
+    <p class="opening dropcap">Deranged Hermit concentrated an army, a tribal anthem, and a sacrifice puzzle into one card, making repeated enters-the-battlefield triggers far more valuable than the printed 1/1 body. Its reputation rests on the distance between the literal text and the game state a purpose-built deck can create around it. Urza’s Legacy RecSur, Recurring Nightmare, Opposition, and green midrange decks used the Hermit as card advantage, board presence, and a renewable token package.</p>
+    <p class="opening">At the center of the story is a five-mana creature that creates four Squirrels, pumps them, and carries an echo cost. That role changed mulligans, land sequencing, sideboard construction, and the way opponents rationed interaction. The card is best understood not as a single effect but as a rule imposed on the whole match: both players must decide how much material and time can be spent before the exchange becomes irreversible.</p>
+    <p class="opening">This article follows Deranged Hermit from Urza&#x27;s Legacy in 1999 through its major tournament identities, technical play, failures, counterplay, descendants, and material history. The goal is not to force every era into one archetype, but to show why one compact object kept producing new strategic language.</p></section><section id="origin"><div class="chapter-number">II · First printing</div><h2>What the first printing made possible</h2>
+    <div class="card-lead"><img alt="Deranged Hermit card image" src="https://api.scryfall.com/cards/named?exact=Deranged%20Hermit&set=ulg&format=image&version=normal"/><div class="oracle"><div class="kicker">The card</div><h3>Deranged Hermit</h3><p><b>{3}{G}{G}</b><br/>Creature — Elf</p><p>Echo {3}{G}{G}. When Deranged Hermit enters the battlefield, create four 1/1 green Squirrel creature tokens. Squirrel creatures get +1/+1. 1/1</p><div class="stats"><div class="stat"><b>First release</b>Urza&#x27;s Legacy · 1999</div><div class="stat"><b>Archive identity</b>Entry 198 · Eternal &amp; Combo</div></div></div></div>
+    <p>Deranged Hermit entered Magic in Urza&#x27;s Legacy in 1999. Urza’s Legacy RecSur, Recurring Nightmare, Opposition, and green midrange decks used the Hermit as card advantage, board presence, and a renewable token package. Its first readers had to evaluate a five-mana creature that creates four Squirrels, pumps them, and carries an echo cost without the archetype labels, search tools, and decades of precedent now attached to the card.</p>
+    <p>Early deck builders encountered the card as an object before they encountered it as an archetype. They compared it with the closest available effects, placed it beside familiar mana curves, and learned which part of the text was decisive only through repeated games. The card’s later reputation compresses that discovery into a slogan; the original environment reveals the failed experiments and small innovations underneath.</p>
+    <p>Set context matters. The speed of the format, available removal, mana quality, and scarcity of redundant effects determined whether the cost looked extravagant or inevitable. A drawback that seems severe in isolation may have aligned perfectly with what the deck already wanted, while a symmetrical effect could become one-sided because only one player chose the timing and support package.</p>
+    <p>The first audience did not possess a stable category for every engine. What now looks like an obvious combo piece, tutor, fast-mana source, or finisher often arrived before the community had reliable language for the role. Reconstructing that uncertainty is essential because it shows the card as an invention rather than a solved entry in a database.</p></section><section id="mechanics"><div class="chapter-number">III · Rules texture</div><h2>The short text hides a resource system</h2><div class="pullquote">Deranged Hermit concentrated an army, a tribal anthem, and a sacrifice puzzle into one card, making repeated enters-the-battlefield triggers far more valuable than the printed 1/1 body.<small>Compulsive Research · Entry 198</small></div>
+    <p>The operative text makes Deranged Hermit a five-mana creature that creates four Squirrels, pumps them, and carries an echo cost. The decisive resource is not always mana. one creature card becomes five bodies, multiple sacrifice resources, and a temporary anthem; echo encourages the deck to recycle or sacrifice the Hermit instead of paying fairly. The card becomes exceptional when the deck replaces what was spent more easily than the opponent can replace the time or position lost.</p>
+    <p>A useful evaluation separates floor, ceiling, and setup cost. The floor is the draw that arrives without support. The ceiling is the board state the deck was constructed to produce. The setup cost is everything omitted from the mana symbols: deck slots, information, life, land development, graveyard exposure, or the need to preserve a particular permanent until the correct window.</p>
+    <p>The card’s economy is therefore broader than card advantage. A play can lose a card and still win the game because it gains a turn, creates perfect color, moves the right object to a useful zone, or forces the opponent to spend mana inefficiently. Historical decks became powerful when they identified which resource conventional evaluation was undervaluing.</p>
+    <p>The Squirrels are 2/2 while Deranged Hermit remains on the battlefield because of its static anthem. Echo triggers only if the Hermit came under the player’s control since the beginning of their last upkeep. That wording is not trivia. It determines which answers work, which costs can be recovered, and whether the engine can be interrupted before or after it has already converted its resource.</p></section><section id="history"><div class="chapter-number">IV · Tournament movement</div><h2>From strange object to archetype language</h2>
+    <div class="timeline"><div class="timeline-item"><time>1999</time><h3>The original release</h3><p>Deranged Hermit enters Magic through Urza&#x27;s Legacy, carrying an effect that would help define its strategic category.</p></div>
+    <div class="timeline-item"><time>The first competitive home</time><h3>Players identify the real exchange</h3><p>Urza’s Legacy RecSur, Recurring Nightmare, Opposition, and green midrange decks used the Hermit as card advantage, board presence, and a renewable token package.</p></div>
+    <div class="timeline-item"><time>The expanding card pool</time><h3>New partners raise the ceiling</h3><p>Deep Forest Hermit, Avenger of Zendikar, Siege-Gang Commander, Hornet Queen, and token-producing creatures inherit its one-card-army structure.</p></div>
+    <div class="timeline-item"><time>The archive era</time><h3>The card becomes a reference point</h3><p>Its name now describes a lesson, package, or play pattern recognized beyond the deck that first made it famous.</p></div></div>
+    <p>The card’s tournament movement was rarely linear. It could begin as a curiosity, become the centerpiece of a dominant deck, disappear under policy or metagame pressure, and return years later when a new partner solved an old weakness. The same text therefore accumulated several identities rather than one definitive list.</p>
+    <p>Tournament reports tend to preserve the successful endpoint. They record the list that won, not the months of tuning that discovered which support cards were expendable or which matchup required a different role. The archive restores that process by treating archetype development as part of the card’s history rather than background noise.</p>
+    <p>The card also changed opponents. Sideboards, mana bases, threat selection, and sequencing evolved because Deranged Hermit might appear. That indirect influence can outlast the card’s own popularity. A format remembers an engine through the answers and habits it forced everyone else to adopt.</p>
+    <div class="art-break"><div class="art-caption"><b>Deranged Hermit · Urza&#x27;s Legacy, 1999</b>The original illustration became inseparable from the card’s first strategic identity.</div></div></section><section id="formats"><div class="chapter-number">V · Format lives</div><h2>Where the card found a home</h2><div class="format-strip"><div class="format-card"><span class="impact">01</span><h3>Standard and Extended</h3><p>a premier value creature before modern token rates</p></div><div class="format-card"><span class="impact">02</span><h3>Premodern</h3><p>one of the strongest Recurring Nightmare targets</p></div><div class="format-card"><span class="impact">03</span><h3>Commander and Cube</h3><p>a beloved one-card army with built-in sacrifice texture</p></div></div>
+    <p>Deranged Hermit did not mean the same thing in every card pool. In a smaller format it might be a singular engine with few substitutes; in an Eternal format it could become one redundant piece among tutors, pitch spells, and specialized lands. Each environment changed which cost was acceptable and which answer was available.</p>
+    <p>The historical home matters because it explains card counts. Four copies may represent a deck built to draw the card naturally, while one copy may be a tutor target or restricted engine. A sideboard copy can be culturally important even when it was never the main plan. The article therefore treats format identity as a sequence of roles rather than a single popularity graph.</p>
+    <p>Casual and Commander play often preserve a different feature from tournament Magic. Repeatability, spectacle, politics, or scaling may matter more than raw speed. Those uses are not footnotes; they explain why many old cards remained visible long enough for new competitive partners to rediscover them.</p></section><section id="technical"><div class="chapter-number">VI · Technical play</div><h2>How to use the advantage without wasting it</h2><p>The most important technical question is not whether Deranged Hermit is powerful, but when its exchange becomes favorable. In practice, the pilot must identify the turn on which a five-mana creature that creates four Squirrels, pumps them, and carries an echo cost changes from a possibility into a commitment. Casting or activating too early may expose the engine before the hand can exploit it; waiting too long may surrender the tempo that justified the card in the first place.</p><p>Strong play begins by counting resources that ordinary mana curves hide. With Deranged Hermit, one creature card becomes five bodies, multiple sacrifice resources, and a temporary anthem; echo encourages the deck to recycle or sacrifice the Hermit instead of paying fairly. That means a hand cannot be judged only by lands and spells. It must also be judged by which cards can be spent, which permanents must survive, which zone is being stocked, and whether the opponent has enough time to force the setup into a fair exchange.</p><p>The card rewards planning backward from the desired board state. Instead of asking what can be cast this turn, the pilot asks what must remain available after the critical action: one mana for protection, a creature to sacrifice, an untapped land to reuse, a card to discard, or a threat that makes the opponent respect the wrong line. Those margins separate a demonstration from a tournament plan.</p><p>Rules precision is strategic precision. The Squirrels are 2/2 while Deranged Hermit remains on the battlefield because of its static anthem. Echo triggers only if the Hermit came under the player’s control since the beginning of their last upkeep. Players who remember only the slogan attached to Deranged Hermit often miss the exact timing that made the card historic. The best pilots treat every verb in the Oracle text as part of the deck list, because the difference between cast, put, sacrifice, discard, exile, and return frequently determines whether the engine is resilient or fragile.</p></section><section id="environment"><div class="chapter-number">VII · Original environment</div><h2>The card before the category existed</h2><p>Deranged Hermit entered a game with fewer redundant effects and a less settled vocabulary for its role. Deck builders could not simply search for an established archetype and copy the accepted package. They had to decide whether a five-mana creature that creates four Squirrels, pumps them, and carries an echo cost was a drawback, a build-around, a sideboard tool, or a new kind of mana or card engine. That uncertainty is part of the card’s historical importance.</p><p>The surrounding card pool shaped every early judgment. Removal was different, mana bases were less standardized, and many decks carried clumsier answers. A cost that looks extravagant beside modern efficiency could still be correct if the opposing deck needed several turns to punish it. Conversely, an effect that appeared symmetrical or narrow could dominate because one deck was built to make the symmetry fictional.</p><p>Urza’s Legacy RecSur, Recurring Nightmare, Opposition, and green midrange decks used the Hermit as card advantage, board presence, and a renewable token package. The transition from experiment to archetype usually occurred when players stopped treating the card as an isolated inclusion and began changing the rest of the deck around it. More copies of the right support card mattered less than understanding which conventional cards could be removed because Deranged Hermit now performed several jobs at once.</p><p>That original environment should not be reconstructed as a museum display with one famous list frozen in place. The useful history includes failed versions, local adaptations, and the period before consensus. Those imperfect decks reveal what the community had not yet learned, and they make the eventual solution feel like an invention rather than an inevitability.</p></section><section id="economy"><div class="chapter-number">VIII · Resource economy</div><h2>The hidden exchange rate</h2><p>Every historically important engine establishes an exchange rate. For Deranged Hermit, one creature card becomes five bodies, multiple sacrifice resources, and a temporary anthem; echo encourages the deck to recycle or sacrifice the Hermit instead of paying fairly. The visible mana cost is only the entrance fee. The real cost may be a land drop, a card in hand, a future turn, life points, graveyard exposure, or the obligation to fill the deck with support cards that look weak without the engine.</p><p>The floor and ceiling are therefore unusually far apart. At the floor, Deranged Hermit can be awkward, redundant, or actively harmful when drawn in the wrong order. At the ceiling, the same card compresses several turns into one action. Competitive decks succeeded by raising the frequency of the ceiling while making the floor survivable through selection, recursion, redundant engines, or a fair backup plan.</p><p>Tempo is often the hidden profit. A transaction can be card-neutral or even card-negative and still be decisive if it moves the deck one full turn ahead. That is why later players sometimes misread old engines through a narrow card-advantage lens. The deck was not trying to own more cardboard at the end of the exchange; it was trying to make the opponent’s next draw step irrelevant.</p><p>The opponent evaluates the same exchange from the other side. If the engine spends a real resource, the correct response may be to prolong the game and collect that debt. If the engine converts a renewable resource, attrition may be hopeless and the opponent must instead attack timing. Understanding which kind of economy Deranged Hermit creates is the beginning of correct sideboarding.</p></section><section id="construction"><div class="chapter-number">IX · Deck construction</div><h2>The deck changes around the card</h2><p>A deck containing Deranged Hermit is not automatically a Deranged Hermit deck. The distinction appears in the card choices that exist only because the engine exists: redundant setup pieces, unusual mana counts, discard outlets, sacrifice fodder, shuffle effects, protection, or payoffs that would be too expensive to cast honestly. Those choices reveal whether the list is built around the card or merely hoping to draw it.</p><p>The first construction test is density. The deck needs enough compatible cards for the engine to function, but every additional support card increases the number of weak draws without it. Historical success often came from support pieces that were acceptable on their own. A mana creature could attack, a cantrip could find interaction, a recursive card could pay another cost, and a large threat could still be cast in a long game.</p><p>The second test is redundancy without duplication. A second copy of Deranged Hermit may be excellent, legendary, dead, or unnecessary depending on the card. Strong lists often used different cards that occupied the same strategic role rather than eight literal copies of one effect. That approach made the deck harder to hate and allowed tutors or selection to find the correct version for the current game.</p><p>The third test is a plan for failure. If the opponent removes the engine, the remaining deck must either rebuild, win fairly, or transform after sideboarding. Lists that devote every slot to the ceiling can produce astonishing goldfish turns and poor tournament records. The best historical shells made Deranged Hermit the most powerful line without making it the only line.</p></section><section id="gameplay-model"><div class="chapter-number">X · The game from both seats</div><h2>A game seen from both seats</h2><p>From the pilot’s seat, the game is a sequence of permission checks. Is the mana safe? Is the graveyard exposed? Does the opponent have a reason to act now? Can the deck afford to reveal the engine? Deranged Hermit rewards patience only when patience improves the exchange. Passing without a purpose is not discipline; it is giving the opponent time to draw the answer that the deck hoped to outrun.</p><p>From the opponent’s seat, the card creates uncertainty before it creates advantage. The opponent may hold removal for a permanent that never appears, avoid committing a creature, preserve a counterspell, or play a land in a different order. That invisible influence is part of the card’s value. A known archetype can gain tempo simply because its signature card is represented by open mana or a suspicious graveyard.</p><p>The best games involve competing clocks. One player is counting toward the engine’s decisive turn; the other is counting toward pressure, disruption, or a lock piece. Both clocks can accelerate unexpectedly. A single draw spell, land, token, or discard outlet may move Deranged Hermit from inactive to lethal, while one well-timed answer can force the engine deck to spend several turns rebuilding.</p><p>This is why matchup knowledge matters more than memorized play patterns. The same opening hand may be excellent against a slow control deck and unkeepable against fast pressure. The card does not possess one universal speed. Its practical speed is the number of turns required to assemble the engine plus the number of turns the opponent is willing to grant.</p></section><section id="sequencing"><div class="chapter-number">XI · Sequencing</div><h2>The decisions between the lines</h2><p>Sequencing begins before the card is cast. Land order, cantrip order, discard choices, and which permanent enters first can determine whether Deranged Hermit is protected or stranded. Many historical misplays came from taking the largest immediate output instead of preserving the resource that made a second activation possible.</p><p>Information has a cost. Revealing the engine can force the opponent to react, but it can also clarify which answer must be held. A pilot should ask whether the opponent gains more from knowing the plan than the pilot gains from deploying the card now. Sometimes the best line is to represent a conventional game until the turn on which the engine and payoff can appear together.</p><p>Triggers and priority create another layer. The Squirrels are 2/2 while Deranged Hermit remains on the battlefield because of its static anthem. Echo triggers only if the Hermit came under the player’s control since the beginning of their last upkeep. The relevant window may exist only once, and using it correctly can turn an apparently vulnerable permanent into a protected exchange. Conversely, acting on habit can allow the opponent to remove a target, deny a cost, or make a symmetrical effect truly symmetrical.</p><p>The final sequencing question is what happens after success. An engine that generates mana, cards, or creatures can still lose if the pilot spends the profit in the wrong order. Protection should often precede the flashy payoff, tutors should preserve flexibility, and the deck should avoid converting every resource when a smaller advantage already produces a winning position.</p></section><section id="failure-modes"><div class="chapter-number">XII · Failure modes</div><h2>When the famous card is bad</h2><p>Deranged Hermit is worst when the deck draws the promise without the infrastructure. A hand can contain the famous card and still lack the mana, graveyard, bodies, artifacts, enchantments, or time that gives the text meaning. Historical lists reduced that risk, but they never eliminated it. The awkward draw is not evidence that the card was overrated; it is the cost of carrying an unusually high ceiling.</p><p>The second failure mode is redundancy. Engines that are spectacular in one copy can be poor in multiples, especially when legendary, expensive, or dependent on a limited support resource. The pilot must know whether the second copy is insurance, fuel, a tutor target, or a mulligan. Decks that ignore this question often lose with impressive cards trapped in hand.</p><p>The third failure mode is the fair game. If the opponent answers the first engine and the deck is forced to cast every support card honestly, the mana curve and card quality may look embarrassing. That is why pressure and disruption matter even for combo decks: they prevent the opponent from calmly converting specialized pieces into a long attrition victory.</p><p>The final failure is overachievement. A pilot can continue drawing, generating mana, or looping permanents after the game is already functionally won and expose the position to unnecessary interaction. Historical engines are seductive because they demonstrate power visibly. Tournament play rewards stopping the demonstration at the first secure victory.</p></section><section id="counterplay"><div class="chapter-number">XIII · Counterplay</div><h2>How the other side learned to fight back</h2><p>The broad counterplay is sweepers, instant-speed removal before combat, graveyard hate against recursion, countering the five-mana spell, and answering the anthem body reduce the token burst. The important word is timing. An answer used after the engine has already converted its resource may be technically successful and strategically late. The opponent should identify which object is the engine, which is the payoff, and which is merely replaceable material.</p><p>Hate cards vary in depth. Some stop one zone, one card type, or one activation. Others change the rules of the game and force the entire deck to operate fairly. The most effective sideboards combine a fast clock with disruption, because a dedicated engine often has enough tutors or card selection to answer a single permanent given unlimited time.</p><p>Players also learned to fight the card through deck construction. More basic lands, cheaper removal, instant-speed interaction, graveyard-independent threats, or fewer creatures could all weaken a signature engine without consuming sideboard slots. Those adaptations are evidence of influence: a card matters when opponents redesign their decks before the match begins.</p><p>Good counterplay does not require eliminating every line. It requires forcing the engine deck to spend more resources than the exchange produces. If the opponent can trade one cheap answer for a setup card, a payoff, and a turn, the famous engine begins to look ordinary. The goal is to collect the hidden debt printed between the lines of Deranged Hermit.</p></section><section id="case-study"><div class="chapter-number">XIV · A game in slow motion</div><h2>A representative game in slow motion</h2><p>Consider a representative opening in which the Deranged Hermit player keeps a hand containing the engine, one support piece, interaction, and enough mana to function. The temptation is to deploy the centerpiece immediately. Instead, the pilot uses the first turn to establish the resource that the engine consumes and to learn whether the opponent is presenting pressure or permission.</p><p>On the next turn, the opponent commits a threat but leaves mana available. The engine player now has three options: act into the possible answer, spend a cantrip or tutor to improve protection, or take damage and preserve concealment. The correct choice depends on whether a five-mana creature that creates four Squirrels, pumps them, and carries an echo cost produces value immediately or only after another untap step.</p><p>The engine resolves, but the game is not over. The pilot must decide how much of the resource to convert. one creature card becomes five bodies, multiple sacrifice resources, and a temporary anthem; echo encourages the deck to recycle or sacrifice the Hermit instead of paying fairly. Converting everything may create the largest board or hand, yet preserving one card, creature, land, or activation can make the position resilient to the most likely answer.</p><p>The opponent responds at the point of maximum leverage rather than the first legal moment. That may mean removing the support permanent, exiling the graveyard after a tutor, countering the payoff, or forcing a land drop that breaks the mana engine. The exchange demonstrates why the card’s history belongs to both players: its power generated a new language of defense.</p><p>If the engine player wins, the decisive action may not be the spectacular final spell. It may be the first land played, the card declined during a mulligan, the activation delayed for one turn, or the support piece protected instead of the headline card. Slow-motion analysis restores those hidden decisions to a game that tournament reports often summarize in a single sentence.</p></section><section id="role-assignment"><div class="chapter-number">XV · Sideboard roles</div><h2>What the card is supposed to do after sideboarding</h2><p>After sideboarding, Deranged Hermit may remain the primary engine, become a smaller package, or leave the deck entirely. The decision should be based on role rather than reputation. Against a faster opponent, the deck may need to become control. Against dense hate, it may need to present a fair threat. Against slow interaction, preserving the full engine may still be correct.</p><p>Sideboarding out part of a combo is dangerous when the remaining cards lose their independent value. The pilot should identify which pieces are enablers, which are payoffs, and which are generally useful. Removing a flashy payoff can be better than removing the engine if tutors can find a smaller route that remains live through hate.</p><p>The opponent’s sideboard also changes the clock. A deck that was slower in game one may become faster because every answer is cheap and targeted. The Deranged Hermit player should not assume that seeing a hate card means the opponent has become passive. The best anti-engine plans disrupt once and then end the game before the rebuild.</p><p>Transformational plans are strongest when they exploit what the opponent removed. If graveyard hate replaced creature removal, a fair creature plan improves. If artifact removal displaced countermagic, a spell-based combo may open. The historical lesson is not that every deck needs a transformation, but that a famous engine should never make the sideboard predictable.</p></section><section id="testing-lab"><div class="chapter-number">XVI · Testing</div><h2>How to test the card instead of merely goldfishing it</h2><p>Goldfishing measures speed but not resilience. A useful test for Deranged Hermit records how often the deck assembles the engine, how many cards remain afterward, how much interaction it can beat, and whether failed attempts leave a playable game. The fastest successful turn is less informative than the median turn through one realistic answer.</p><p>Testing should include hostile opening hands rather than random opposition alone. Give the opponent a cheap answer, a hate permanent, a fast threat, and a mulligan decision. Then vary the timing. This reveals whether the engine loses to the card itself or to the pilot’s habit of exposing the wrong piece first.</p><p>Post-sideboard games need separate data. The density of dead cards changes, tutors become more important, and the deck may assume a new role. A list that dominates preboard games and collapses afterward is not finished. Historical archetypes survived when their builders treated games two and three as a different format with the same sixty-card minimum.</p><p>The final test is removal of the centerpiece. Play several games in which Deranged Hermit is never drawn or is answered immediately. If the deck cannot produce decisions, the support structure may be too parasitic. A historically faithful reconstruction can preserve a card’s characteristic ceiling without making every non-engine game a foregone conclusion.</p></section><section id="design-constraint"><div class="chapter-number">XVII · Design lessons</div><h2>What later Magic had to learn from it</h2><p>Deranged Hermit taught later designers that cost cannot be measured only in printed mana. one creature card becomes five bodies, multiple sacrifice resources, and a temporary anthem; echo encourages the deck to recycle or sacrifice the Hermit instead of paying fairly. A drawback that appears substantial may vanish inside a deck that already wants to pay it, and a symmetrical effect becomes asymmetrical when one player controls deck construction and timing.</p><p>Later cards often preserve the appealing decision while adding a safety valve: sorcery timing, once-per-turn language, exile, nonbasic restrictions, higher activation costs, narrower card types, or a cap on generated mana. Those changes are evidence that the original design found something valuable even when its rate proved difficult to contain.</p><p>The card also demonstrates the danger of multiplicative scaling. Effects that count permanents, untap mana sources, replay the graveyard, or remove costs grow with every cheap support card printed later. A design can be acceptable in its first environment and become dangerous because future sets improve the surrounding infrastructure rather than the text itself.</p><p>Finally, the card shows why iconic mistakes remain useful. A perfectly safe version might never have changed deck building or format policy. The archive does not celebrate imbalance for its own sake; it preserves the moment when one card revealed a new strategic possibility and forced the game to learn how to price it.</p></section><section id="migration"><div class="chapter-number">XVIII · Format migration</div><h2>One text box, several eras</h2><p>Deranged Hermit did not occupy one format in one way. Urza’s Legacy RecSur, Recurring Nightmare, Opposition, and green midrange decks used the Hermit as card advantage, board presence, and a renewable token package. Each migration retained the central exchange but changed which part of it mattered. A Standard deck might value raw speed, an Extended deck redundancy, a Legacy deck free interaction, and a Commander deck repeatability or scale.</p><p>Rules changes and card-pool expansion can transform the same printed object. New zone terminology, the modern stack, legend rules, damage rules, and Oracle wording may close one trick while opening another. A historical article must distinguish what players did at the time from what the card does under current rules.</p><p>Reprints and new artwork also change the audience. A card once known through tournament reports may later be discovered in a Commander deck, a remastered set, a digital cube, or a premium treatment. The strategic object remains the same, but the cultural meaning broadens from weapon to reference point.</p><p>The strongest evidence of migration is a card that keeps finding new partners. When later sets produce a recursive creature, a new artifact, a better sacrifice outlet, or a cheaper payoff, Deranged Hermit can return without receiving new text. The deck changes, but the old engine supplies the grammar.</p></section><section id="evaluation-now"><div class="chapter-number">XIX · Present judgment</div><h2>How to evaluate it now</h2><p>A modern evaluation should separate efficiency, legality, historical importance, and play experience. Deranged Hermit may be restricted, banned, narrow, obsolete, or still competitive depending on the format, and those judgments can change. The stable question is what unique exchange the card offers and whether a contemporary deck can still make that exchange favorable.</p><p>Newer cards may appear to be upgrades because they cost less, replace themselves, or avoid a drawback. Yet the old card may remain unique in timing, card type, zone access, or scaling. Comparing only surface rate misses the deck-building possibilities that made the original important.</p><p>For historical reconstruction, awkwardness is part of the value. The correct goal is not to replace every old card with a more efficient descendant but to recreate the decisions that justified the original. A good gauntlet lets Deranged Hermit be powerful without removing the counterplay that made its era intelligible.</p><p>For contemporary casual play, expectations matter. Some engines create long deterministic turns, resource denial, or repeated tutoring that may not fit every table. Understanding the card’s history helps players communicate what kind of game the deck intends to produce rather than discovering the answer after the engine is already operating.</p></section><section id="legacy-deep"><div class="chapter-number">XX · Long shadow</div><h2>Why the idea survived</h2><p>The long shadow of Deranged Hermit is visible in Deep Forest Hermit, Avenger of Zendikar, Siege-Gang Commander, Hornet Queen, and token-producing creatures inherit its one-card-army structure. These cards do not merely imitate a line of rules text. They preserve a question first made urgent by the original: what resource can be converted, how quickly, and what restriction keeps the conversion from becoming automatic?</p><p>The card also survives as vocabulary. Players describe a new effect as a fixed Deranged Hermit, a fair version, an additional copy, or the card for another permanent type. That shorthand compresses decades of games into one name. A card has entered the canon when its title becomes a strategic adjective.</p><p>Its influence is equally visible in policy and sideboard design. The answers printed for graveyards, artifacts, enchantments, activated abilities, or fast mana often reflect the need to contain engines like this one without making ordinary decks unplayable. Even when Deranged Hermit is absent, the format may still be carrying defenses built in its image.</p><p>That is why the card deserves more than a rules summary. It changed how players evaluated hands, built mana bases, allocated sideboard slots, and understood time. The specific decks may disappear, but the strategic lesson remains available every time a new card asks players to spend one resource as though it were another.</p></section><section id="memory"><div class="chapter-number">XXI · Player memory</div><h2>What players remember</h2><p>Players remember Deranged Hermit through a characteristic moment: the impossible amount of mana, the card returning again, the graveyard becoming a battlefield, the hand becoming a wheel, or the threat arriving for almost nothing. The emotional shape is easy to tell in one sentence even when the decisions that produced it took several turns.</p><p>Older players often remember the card before they understood it. A rare might look unplayable because of a drawback, or merely strange because no local deck could support it. Years later, a tournament list or rules interaction revealed that the drawback was the point. That delayed recognition is part of the culture surrounding many cards in this block.</p><p>The physical object carries the era with it: the frame, expansion symbol, muted color palette, and art associated with Tempest, Exodus, Urza block, or Mercadian Masques. Reprints improve accessibility, but the original printing often remains the version players associate with the first deck, trade, or match in which the card made sense.</p><p>New players encounter the same card through a different route—Commander, Legacy videos, ban-list discussions, cubes, or premium printings. The archive connects those audiences. It explains why a card that may look inefficient, unfair, or oddly worded became a durable piece of Magic’s shared memory.</p></section><section id="descendant"><div class="chapter-number">XXII · Descendants</div><h2>The inherited idea</h2>
+    <div class="descendant-panel"><div class="image" role="img" aria-label="Deep Forest Hermit artwork"></div><div class="copy"><div class="chapter-number">Design lineage</div><h3>Deranged Hermit did not remain alone</h3><p>Deep Forest Hermit, Avenger of Zendikar, Siege-Gang Commander, Hornet Queen, and token-producing creatures inherit its one-card-army structure.</p><p>The useful comparison is not whether the descendant is stronger in a vacuum. It is which cost, timing restriction, card type, or safety valve changed so the original decision could survive in another environment.</p></div></div>
+    <p>The strategic descendants of Deranged Hermit do not merely copy the card. They preserve the invitation to think about a five-mana creature that creates four Squirrels, pumps them, and carries an echo cost as a deck-building resource. Each descendant chooses which danger to keep and which part to contain.</p>
+    <p>The card survived because it teaches a transferable lesson: a drawback can become setup, a permanent can become mana, a graveyard can become a hand, or a symmetrical effect can be designed to break symmetry. Players who learn that lesson recognize it again even when the name, frame, and color change.</p>
+    <p>Its descendants are answers to the same design problem under new assumptions. Some are safer, some more expensive, and some stronger because modern interaction operates on more axes. Comparison clarifies what was essential in the original: not the exact numbers, but the invitation to build and sequence differently.</p>
+    <p>That is why the card belongs in a historical canon. It did not merely win games. It expanded what deck builders believed could be treated as a resource and which zones of the game were available for exploitation.</p></section><section id="decklists"><div class="chapter-number">XXIII · Deck evidence</div><h2>The deck archive</h2><p>The lists below are transparent editorial reconstructions. They preserve the mana, support packages, and strategic jobs associated with Deranged Hermit without pretending that one list can represent every tournament or year.</p><div class="article-note"><b>Archive method.</b> These 60-card lists are teaching models rather than claimed event registrations. They are built to make the card’s role visible, keep card-preview functionality intact, and provide a starting point for historically themed play.</div><div class="deck-archive"><details class="deck"><summary><span><strong>Urza RecSur Hermit</strong><small>Representative historical reconstruction · 60 cards</small></span><span class="plus">+</span></summary><div class="deck-body"><p>This editorial reconstruction demonstrates how Deranged Hermit functions inside Urza RecSur Hermit. It is not presented as a claimed event registration; tournaments, local card availability, and rules policy produced many legitimate variations.</p><div class="deck-meta"><div><b>Compulsive Research archive model</b><div class="small">Built to demonstrate the card’s strategic role</div></div><button class="copy" data-target="deck-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Spells and creatures · 36</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Deranged Hermit" tabindex="0">Deranged Hermit</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Survival of the Fittest" tabindex="0">Survival of the Fittest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Recurring Nightmare" tabindex="0">Recurring Nightmare</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Squee, Goblin Nabob" tabindex="0">Squee, Goblin Nabob</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wall of Roots" tabindex="0">Wall of Roots</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Phyrexian Plaguelord" tabindex="0">Phyrexian Plaguelord</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Masticore" tabindex="0">Masticore</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gaea’s Cradle" tabindex="0">Gaea’s Cradle</span></div></div></div><div class="deck-col"><div class="group"><h4>Mana base · 24</h4><div class="row"><span class="qty">16</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Windswept Heath" tabindex="0">Windswept Heath</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div></div></div><pre hidden id="deck-1">4 Deranged Hermit
+4 Survival of the Fittest
+4 Recurring Nightmare
+4 Squee, Goblin Nabob
+4 Wall of Roots
+4 Birds of Paradise
+4 Phyrexian Plaguelord
+4 Masticore
+4 Gaea’s Cradle
+16 Forest
+4 Windswept Heath
+4 Wasteland</pre></div></details><details class="deck"><summary><span><strong>Opposition Hermit</strong><small>Representative historical reconstruction · 60 cards</small></span><span class="plus">+</span></summary><div class="deck-body"><p>This editorial reconstruction demonstrates how Deranged Hermit functions inside Opposition Hermit. It is not presented as a claimed event registration; tournaments, local card availability, and rules policy produced many legitimate variations.</p><div class="deck-meta"><div><b>Compulsive Research archive model</b><div class="small">Built to demonstrate the card’s strategic role</div></div><button class="copy" data-target="deck-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Spells and creatures · 36</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Deranged Hermit" tabindex="0">Deranged Hermit</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Squee, Goblin Nabob" tabindex="0">Squee, Goblin Nabob</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wall of Roots" tabindex="0">Wall of Roots</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Phyrexian Plaguelord" tabindex="0">Phyrexian Plaguelord</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Masticore" tabindex="0">Masticore</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gaea’s Cradle" tabindex="0">Gaea’s Cradle</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Opposition" tabindex="0">Opposition</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Spike Feeder" tabindex="0">Spike Feeder</span></div></div></div><div class="deck-col"><div class="group"><h4>Mana base · 24</h4><div class="row"><span class="qty">16</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Windswept Heath" tabindex="0">Windswept Heath</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div></div></div><pre hidden id="deck-2">4 Deranged Hermit
+4 Squee, Goblin Nabob
+4 Wall of Roots
+4 Birds of Paradise
+4 Phyrexian Plaguelord
+4 Masticore
+4 Gaea’s Cradle
+4 Opposition
+4 Spike Feeder
+16 Forest
+4 Windswept Heath
+4 Wasteland</pre></div></details><details class="deck"><summary><span><strong>Recurring Nightmare Tokens</strong><small>Representative historical reconstruction · 60 cards</small></span><span class="plus">+</span></summary><div class="deck-body"><p>This editorial reconstruction demonstrates how Deranged Hermit functions inside Recurring Nightmare Tokens. It is not presented as a claimed event registration; tournaments, local card availability, and rules policy produced many legitimate variations.</p><div class="deck-meta"><div><b>Compulsive Research archive model</b><div class="small">Built to demonstrate the card’s strategic role</div></div><button class="copy" data-target="deck-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Spells and creatures · 36</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Deranged Hermit" tabindex="0">Deranged Hermit</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Survival of the Fittest" tabindex="0">Survival of the Fittest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Recurring Nightmare" tabindex="0">Recurring Nightmare</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Squee, Goblin Nabob" tabindex="0">Squee, Goblin Nabob</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wall of Roots" tabindex="0">Wall of Roots</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Phyrexian Plaguelord" tabindex="0">Phyrexian Plaguelord</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Masticore" tabindex="0">Masticore</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gaea’s Cradle" tabindex="0">Gaea’s Cradle</span></div></div></div><div class="deck-col"><div class="group"><h4>Mana base · 24</h4><div class="row"><span class="qty">16</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Windswept Heath" tabindex="0">Windswept Heath</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div></div></div><pre hidden id="deck-3">4 Deranged Hermit
+4 Survival of the Fittest
+4 Recurring Nightmare
+4 Squee, Goblin Nabob
+4 Wall of Roots
+4 Birds of Paradise
+4 Phyrexian Plaguelord
+4 Masticore
+4 Gaea’s Cradle
+16 Forest
+4 Windswept Heath
+4 Wasteland</pre></div></details></div></section><section id="printings"><div class="chapter-number">XXIV · Material history</div><h2>Printings and sources</h2><p>The gallery groups cards by distinct illustration rather than treating foil stamps, serialized numbers, or repeated frames with the same art as separate historical identities.</p><div class="printings" id="printing-grid"><div class="printing-status">Loading distinct-art printings from the Scryfall catalog…</div></div><ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Deranged%20Hermit%22%20include%3Aextras&unique=prints&as=grid&order=released">Scryfall printing catalog for Deranged Hermit</a><span>Release dates, collector numbers, artists, images, and distinct illustration records.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[Deranged%20Hermit]">Gatherer card record</a><span>Official Oracle wording and rulings reference.</span></li><li><a href="https://mtgjson.com/downloads/all-files/">MTGJSON AllPrintings</a><span>Machine-readable printing and set history used as a cross-check.</span></li><li><a href="https://www.mtgtop8.com/">MTGTop8 tournament archive</a><span>Archetype and event context for later competitive appearances.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned &amp; Restricted list</a><span>Current format policy should be checked here because legality changes over time.</span></li></ul><p class="editor-note">Compulsive Research separates a new release object from a new visual identity. The live gallery therefore keeps one representative for each illustration whenever catalog metadata allows it.</p></section></article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 198 follows the Eternal Dragon article architecture: historical argument, rules texture, format movement, design descendants, deck evidence, and a deduplicated printing gallery.</aside></div><section class="continue-reading"><div class="chapter-number">Continue reading</div><h2>The archive continues</h2><div class="end-nav"><a href="197-replenish.html"><small>Previous entry</small>← Entry 197 · Replenish</a><a href="199-squee-goblin-nabob.html"><small>Next entry</small>Entry 199 · Squee, Goblin Nabob →</a></div></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Entry 198 · Deranged Hermit · Independent, noncommercial Magic history project. Card images and artwork © Wizards of the Coast.</footer><script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');
+ const endpoint='https://api.scryfall.com/cards/search?order=released&unique=prints&q=%21%22Deranged%20Hermit%22%20include%3Aextras%20lang%3Aen';
+ try{let url=endpoint,all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null;}
+ const usable=all.filter(c=>c.lang==='en'&&(c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal));
+ const seen=new Set(),unique=[];for(const c of usable){const key=c.illustration_id||((c.artist||'')+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||''));if(seen.has(key))continue;seen.add(key);unique.push(c);}
+ let chosen=unique;if(unique.length>8){chosen=[];for(let i=0;i<8;i++){const p=Math.round(i*(unique.length-1)/7);if(!chosen.includes(unique[p]))chosen.push(unique[p]);}}
+ if(!chosen.length)throw new Error('empty');grid.innerHTML=chosen.map(c=>{const im=c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal;const yr=(c.released_at||'').slice(0,4);return `<figure class="printing"><img loading="lazy" src="${im}" alt="${c.name} — ${c.set_name}"><figcaption><b>${c.set_name} · ${yr} · ${c.collector_number}</b><br>${c.artist||'Artist not listed'}</figcaption></figure>`}).join('');
+ }catch(e){grid.innerHTML='<div class="printing-status">The live printing gallery could not load. The source links below open the complete catalog.</div>';}
+}
+loadPrintings();
+</script></body></html>
