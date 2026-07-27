@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A Compulsive Research history of Mishra's Factory" name="description"/><title>Mishra's Factory: The Land That Joined the Attack — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+/* Entry-specific artwork and batch safeguards */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Mishra%27s%20Factory&format=image&version=art_crop")!important;background-position:center 28%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Mishra%27s%20Factory&format=image&version=art_crop")!important;background-position:center 30%!important}
+.descendant-panel .image{background-image:url("https://api.scryfall.com/cards/named?exact=Mutavault&format=image&version=art_crop")!important}
+.hero{background-image:none!important}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center}
+.article-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.08);padding:17px 19px;margin:28px 0;color:var(--muted);font:13.5px/1.62 Inter,system-ui,sans-serif}
+.article-note b{color:var(--ink)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}}
+</style></head><body><header class="hero"><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-060#entry-060">← Wave 02 · Early Expansion Icons</a>
+<div class="eyebrow">Entry 060 · Wave 02 · Early Expansion Icons</div>
+<h1>The Land That Joined the Attack</h1><p class="deckline">Mishra's Factory made a mana source become a threat only when the controller wanted it to, teaching tournament players that a land slot could carry both development and inevitability.</p>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Antiquities, 1994</span><span class="pill">Approximately 21 minute read</span></div>
+</div></header>
+<nav class="rank-nav"><a href="059-strip-mine.html">← Entry 059 · Strip Mine</a><div class="center">Entry 060 of 1,000</div><a href="061-maze-of-ith.html">Entry 061 · Maze of Ith →</a></nav>
+<div class="article-shell">
+<nav class="toc"><strong>In this entry</strong>
+<a href="#opening">The central bargain</a><a href="#origin">Origin and first reading</a><a href="#mechanics">How the card works</a><a href="#history">Tournament evolution</a><a href="#formats">Formats and archetypes</a><a href="#technical">Technical play</a><a href="#environment">Original environment</a><a href="#economy">Resource economy</a><a href="#construction">Deck construction</a><a href="#gameplay-model">Both sides of the table</a><a href="#sequencing">Sequencing and rules</a><a href="#failure-modes">Failure modes</a><a href="#counterplay">Counterplay</a><a href="#migration">Across eras</a><a href="#evaluation-now">Evaluating it now</a><a href="#legacy-deep">Why it endured</a><a href="#memory">What players remember</a><a href="#descendant">The design descendant</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
+<article class="article" data-expanded-word-count="4831">
+<section id="opening"><div class="chapter-number">I · The central bargain</div><h2>The Land That Joined the Attack</h2>
+<p class="opening dropcap">Mishra's Factory made a mana source become a threat only when the controller wanted it to, teaching tournament players that a land slot could carry both development and inevitability.</p><p>The card's text is short enough to read at a glance, but its historical meaning is larger than the rules box. It asks what a deck is willing to exchange—mana, cards, life, creatures, lands, or time—in order to gain an advantage ordinary cards cannot offer.</p>
+<div class="card-lead"><img alt="Mishra's Factory card image" src="https://api.scryfall.com/cards/named?exact=Mishra%27s%20Factory&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The card</div><h3>Mishra's Factory</h3><p><b>Land</b><br/>Land</p><p>{T}: Add {C}. {1}: Mishra's Factory becomes a 2/2 Assembly-Worker artifact creature until end of turn. It's still a land. {T}: Target Assembly-Worker creature gets +1/+1 until end of turn.</p><div class="stats"><div class="stat"><b>First release</b>Antiquities · 1994</div><div class="stat"><b>Historical identity</b>Entry 060 · Old School</div></div></div></div>
+<div class="pullquote">Mishra's Factory made a mana source become a threat only when the controller wanted it to, teaching tournament players that a land slot could carry both development and inevitability.<small>The argument in one sentence</small></div></section>
+<section id="origin"><div class="chapter-number">II · Origin</div><h2>What the first printing made possible</h2><p>Antiquities treated artifacts and lands as parts of the same industrial world, and the Factory was the cleanest expression of that idea. Its four seasonal illustrations also made one rules object feel like a miniature cycle, while early control decks discovered that sweepers were far better when their own win condition could hide as a land.</p><p>Its early reputation was formed in a smaller card pool, where one unusual permanent or spell could reshape an entire game. As the card pool expanded, players stopped asking whether the effect was broadly powerful and began asking which shells could make it one-sided.</p>
+<div class="article-note"><b>Editorial method.</b> This essay treats the card as a historical object rather than only as a current deck choice: rules, tournament use, artwork, later descendants, and player memory all belong to the same story.</div></section>
+<div class="art-break"><div class="art-caption"><b>Mishra's Factory</b>Mishra's Factory first appeared in Antiquities (1994). The article uses Scryfall's current catalog image for display while treating the original release as the historical starting point.</div></div>
+<section id="mechanics"><div class="chapter-number">III · Rules texture</div><h2>The short text hides a resource system</h2><p>The key decision is not merely whether to animate it, but which Factory should attack and which should remain untapped to pump an Assembly-Worker. That self-pump clause turns combat into a small positioning puzzle and rewards players who preserve mana until the last useful moment.</p><p>That exchange explains why Mishra's Factory remained interesting after raw efficiency moved elsewhere. In a deck that pays its cost accidentally, the card is awkward; in a deck built to exploit the cost, the same line of text becomes the reason the archetype exists.</p><p>The important questions are therefore contextual. What has already been spent? What can be recovered? Which player is forced to act first? The card rewards the pilot who answers those questions before simply following the most obvious line.</p></section>
+<section id="history"><div class="chapter-number">IV · Tournament evolution</div><h2>From strange object to archetype language</h2>
+<div class="timeline"><div class="timeline-item"><time>1994</time><h3>The original release</h3><p>Mishra's Factory enters Magic through Antiquities, carrying an effect that would help define how players understood its card type and color.</p></div>
+<div class="timeline-item"><time>The early tournament era</time><h3>Players discover the asymmetry</h3><p>Antiquities treated artifacts and lands as parts of the same industrial world, and the Factory was the cleanest expression of that idea. Its four seasonal illustrations also made one rules object feel like a miniature cycle, while early control decks discovered that sweepers were far better when their own win condition could hide as a land.</p></div>
+<div class="timeline-item"><time>The expanding card pool</time><h3>New partners change the ceiling</h3><p>From The Deck and early control shells to Standstill, Stompy, and Old School midrange, the Factory established the creature-land as permanent design vocabulary. Later manlands became larger or more colorful, but most still repeat its central promise: the mana base can win the game after the spells are gone.</p></div>
+<div class="timeline-item"><time>The historical era</time><h3>The card becomes a reference point</h3><p>That is the recurring pattern of historically important Magic cards: first they are read literally, then competitively, then culturally. By the final stage, Mishra's Factory is no longer only a card choice. It is a reference point for later designs and a memory of how its era understood resources.</p></div></div></section>
+<section id="formats"><div class="chapter-number">V · The field</div><h2>Where the card found a home</h2><p>No single format explains the whole card. Its meaning changes depending on card pool, speed, mana, and the kinds of answers players are expected to possess.</p><div class="format-strip"><div class="format-card"><span class="impact">Control</span><h3>Control</h3><p>A repeatable or resilient resource that lets a slower deck trade early and still possess a way to finish.</p></div><div class="format-card"><span class="impact">Land engines</span><h3>Land engines</h3><p>A spell effect occupying a land slot becomes easier to tutor, recur, and protect from conventional interaction.</p></div><div class="format-card"><span class="impact">Artifact decks</span><h3>Artifact decks</h3><p>Colorless infrastructure allows sacrifice, acceleration, and recursion to turn a narrow artifact into a system.</p></div></div><p>From The Deck and early control shells to Standstill, Stompy, and Old School midrange, the Factory established the creature-land as permanent design vocabulary. Later manlands became larger or more colorful, but most still repeat its central promise: the mana base can win the game after the spells are gone.</p></section>
+<section id="technical"><div class="chapter-number">VI · Technical play</div><h2>How to use the advantage without wasting it</h2><p>The key decision is not merely whether to animate it, but which Factory should attack and which should remain untapped to pump an Assembly-Worker. That self-pump clause turns combat into a small positioning puzzle and rewards players who preserve mana until the last useful moment.</p><p>Good play often means declining the immediate activation, attack, or exchange. The visible possibility of the effect can constrain the opponent more efficiently than using it at the first legal moment.</p><p>Deck construction is the first technical decision. A card this specialized should not ask the rest of the deck to pay its cost repeatedly without compensation. The surrounding cards must either erase the drawback, multiply the reward, or buy enough time for the effect to dominate.</p></section><section id="environment"><div class="chapter-number">VII · Historical reconstruction</div><h2>The card before the category existed</h2><p>To understand Mishra's Factory, it helps to return to the moment before its play pattern had a name.</p><p>Antiquities arrived before creature lands were a familiar category, so a land that could become a creature was not merely efficient; it challenged the assumption that mana development and battlefield pressure had to be separate jobs.</p><p>The original problem was straightforward: control decks needed a win condition that did not consume a spell slot or expose itself to sorcery-speed removal. The available answers were fewer, mana was less consistent, and deck lists could not assume that a modern analogue would fill the same role more cleanly. That scarcity magnified the meaning of every unusual line of text. A card did not need to be universally efficient to become format-shaping; it needed to occupy a strategic space that nothing else occupied.</p><p>In that environment, players first had to determine whether the card's apparent drawback was a real cost, a construction puzzle, or merely the price of gaining an effect outside the normal boundaries of its card type. Mishra's Factory rewarded the player willing to build around the answer rather than judge the card in isolation. Once that lesson was learned, the card stopped looking like a curiosity and began functioning as vocabulary.</p><p>That is why later evaluations can be misleading. A contemporary reader sees decades of descendants and immediately knows the category. The first audience did not. They had to discover the category by playing the card, losing to it, adapting sideboards, and learning which conventional assumptions no longer applied. The historical importance of Mishra's Factory begins with that act of discovery.</p></section><section id="economy"><div class="chapter-number">VIII · Resource economy</div><h2>The hidden exchange rate</h2><p>Every enduring Magic card has an economy beneath its rules text. For Mishra's Factory, the central exchange is that it trades one mana of development for a temporary attacker while preserving the card as a land whenever combat is unprofitable.</p><p>The exchange matters because Magic resources are not interchangeable at a fixed rate. A card in hand, a land drop, a life point, an untapped permanent, and a turn of development all change value as the game progresses. Mishra's Factory becomes powerful when its controller pays with the resource that is currently least important and receives the one the matchup makes scarce. The same activation or spell can therefore be brilliant in one position and wasteful in another.</p><p>This also explains why raw card advantage is an incomplete way to judge the effect. Some uses create no immediate numerical gain but alter initiative, make opposing cards uncastable, or force mana to remain unused. Others look profitable on paper but surrender the tempo needed to exploit them. The card's real output is often measured in constrained choices: attacks that cannot be made, spells that must be delayed, or answers that must be held for a permanent that has not acted yet.</p><p>Expert play begins by identifying when the exchange rate changes. Early in the game, development may matter more than extraction of maximum value. In a stable middle game, preserving optionality may be stronger than acting. Near the end, future resources can be converted aggressively because there may be no future turn in which to use them. Mishra's Factory rewards players who treat its text as a flexible market rather than an automatic instruction.</p></section><section id="construction"><div class="chapter-number">IX · Deck construction</div><h2>The deck changes around the card</h2><p>The first deck-building question is not how many copies of Mishra's Factory fit. It is what the rest of the deck must become once the card is included.</p><p>Historically, its most natural homes were The Deck, Old School control, Standstill, Stompy, and later fair colorless shells. Those shells did more than provide a place to put the card. They supplied the mana, timing, redundant effects, or alternative win conditions needed to make the card's unusual exchange one-sided. In a generic pile, the surrounding cards may compete with it. In a purpose-built shell, each card makes the next one easier to exploit.</p><p>The cost of that commitment is that a colorless source can strain colored requirements, and repeated animation ties up mana that might otherwise represent interaction. Strong lists acknowledge that cost instead of hiding it. They adjust colored sources, threat density, tutor packages, protection, and sideboard plans around the card's weakest draw patterns. The most successful versions are rarely those with the highest theoretical ceiling; they are the ones that still function when the signature card is absent, answered, or drawn at the wrong time.</p><p>This is also where historical reconstruction becomes useful. A deck list should reveal the jobs the card performs: engine, threat, answer, bridge, lock, or payoff. The supporting cards should make those jobs legible. When every slot exists only to create the dream scenario, the deck becomes fragile. When the card is integrated into ordinary game plans, opponents cannot defeat the strategy merely by removing its namesake.</p></section><section id="gameplay-model"><div class="chapter-number">X · Two-sided play</div><h2>A game seen from both seats</h2><p>A useful way to understand Mishra's Factory is to play the same position from both seats. The controller sees it trades one mana of development for a temporary attacker while preserving the card as a land whenever combat is unprofitable; the opponent sees a threat that may force them to spend mana, alter combat, or abandon an otherwise efficient line. Both views are correct, and the game is decided by which player understands the tension first.</p><p>From the controller's side, the ideal sequence is rarely the most spectacular one. The goal is to make ordinary plays carry the possibility of the card's ceiling. Development should remain functional, interaction should stay available, and the signature effect should arrive when it converts several small advantages into one decisive turn. This is why The Deck, Old School control, Standstill, Stompy, and later fair colorless shells proved better homes than decks built around a single all-or-nothing trick.</p><p>From the opponent's side, the first task is to identify what the card is protecting. Sometimes the obvious permanent is only a decoy and the real asset is time, mana, or information. Sometimes the correct response is immediate removal; sometimes spending an answer merely opens the window for a stronger follow-up. The opponent must judge whether the card is an engine that compounds, a threat that closes, or a bridge that allows the deck to reach its real endgame.</p><p>The battle over initiative is especially important. If the controller can wait, choosing which Factory attacks, which one remains untapped to pump, and whether the threat of activation is stronger than the activation itself becomes increasingly valuable because every unused resource may represent another line. If the opponent can force action—through pressure, a must-answer permanent, or a narrowing clock—the controller may have to accept a weaker exchange. Many famous games involving Mishra's Factory are therefore decided before its defining ability resolves.</p><p>Thinking from both seats also improves sideboarding. The controller asks which part of the plan opponents are most likely to attack and whether a secondary route can punish that preparation. The opponent asks whether narrow hate is necessary or whether broadly useful pressure will solve the same problem. This two-sided analysis is more durable than memorizing a single matchup rule.</p></section><section id="sequencing"><div class="chapter-number">XI · Sequencing and rules</div><h2>The decisions between the lines</h2><p>The visible skill test of Mishra's Factory is choosing which Factory attacks, which one remains untapped to pump, and whether the threat of activation is stronger than the activation itself.</p><p>That test begins before the card is used. Information is created by mana left open, cards kept in hand, attacks declined, and permanents deliberately not activated. Opponents respond to possibilities, not merely actions. A player who understands the card can gain value by representing it, while a player who activates automatically often releases the opponent from uncertainty.</p><p>Sequencing is therefore inseparable from timing. Ask which action is reversible, which exposes the plan, and which makes later choices cheaper. Sometimes the correct line is to lead with the card and force the opponent to respond. Sometimes it is to wait until the opponent commits the resource the effect was designed to punish. The card's reputation may suggest aggression or inevitability, but the best line is determined by who is currently required to move first.</p><p>Rules knowledge sharpens those decisions. an animated Factory is simultaneously a land, artifact, and creature; summoning sickness, type-changing layers, and the Assembly-Worker pump all matter. None of these details is ornamental. Each can change whether an exchange succeeds, whether a target remains legal, or whether the controller preserves priority. Historically powerful cards often accumulated reputations for 'tricks' because players learned to exploit the exact boundary between intuitive play and the actual rules.</p></section><section id="failure-modes"><div class="chapter-number">XII · Failure modes</div><h2>When the famous card is bad</h2><p>Reputation can hide failure modes. Mishra's Factory is not powerful merely because history remembers it; it is powerful only when the game supplies the conditions its exchange requires.</p><p>The first failure is structural: a colorless source can strain colored requirements, and repeated animation ties up mana that might otherwise represent interaction. Draws that ignore this constraint often contain the famous card but cannot use it without damaging their own development. That is why experienced deck builders count colored sources, expendable permanents, targets, protection, and timing windows rather than treating the card as a free upgrade.</p><p>The second failure is contextual. Against the wrong opponent, the card may attack a resource that is abundant or irrelevant. A prison effect can be poor against a deck already functioning under it; a narrow answer can miss every target; a slow engine can be embarrassed by a short clock. Sideboarding history is full of cards that were dominant in one pairing and nearly blank in another. The lesson is not that specialization is bad, but that specialized power must be deployed deliberately.</p><p>The third failure is psychological. Because the card is famous, pilots may wait for the perfect story rather than take a modest profitable line. Others activate it automatically because they believe using the signature text is always the point. Both errors confuse identity with obligation. The best use may be ordinary: producing mana, trading for one card, presenting a threat, or simply forcing the opponent to respect an option that never needs to be exercised.</p><p>Finally, every historical card meets newer efficiency. Mutavault, Blinkmoth Nexus, Inkmoth Nexus, and modern creature lands refined the same promise in different directions can make the original look clumsy in a vacuum. Yet comparison should ask what was lost as well as what was improved. Newer cards may be safer, narrower, more expensive, less symmetrical, or unable to reproduce the precise interactions that made the original distinctive. Understanding the weaknesses of Mishra's Factory clarifies its real contribution better than uncritical celebration.</p></section><section id="counterplay"><div class="chapter-number">XIII · Counterplay</div><h2>How the other side learned to fight back</h2><p>A card becomes a format fixture only after opponents learn how to fight it. The most reliable answers to Mishra's Factory include cheap instant removal, Wasteland effects, combat tricks, and forcing the Factory player to spend mana on the wrong turn.</p><p>The important distinction is between answering the card and answering the plan. Removing the permanent may be correct, but it can also be a losing exchange if the controller has already gained the relevant tempo or if recursion makes the removal temporary. Conversely, attacking the mana, hand, graveyard, or supporting engine may leave the signature card stranded. Sideboarding improves when the opponent identifies which layer of the strategy is actually vulnerable.</p><p>Pressure is another form of counterplay. Many engines are strongest in games where both players trade resources slowly and weakest when the controller must act before conditions are ideal. A fast clock can make a theoretically dominant card too slow; a resilient threat can force it to be used inefficiently. The opponent's goal is often not to make the card textless, but to alter the exchange rate until using it is no longer profitable.</p><p>This creates the metagame cycle visible throughout Magic history. The card succeeds, opponents devote slots and sequencing to it, the pilot adapts with protection or a secondary plan, and the card's role shifts again. Its enduring presence is evidence not that it lacked answers, but that answering it demanded respect during deck construction and play.</p></section><section id="migration"><div class="chapter-number">XIV · Format migration</div><h2>One text box, several eras</h2><p>The long history of Mishra's Factory is not a straight line of power. It is a sequence of card pools discovering different portions of the same text.</p><p>In one era the card may be a centerpiece; in another it becomes a tutor target, sideboard bullet, combo component, or historical curiosity. Those changes do not necessarily mean the card itself became weaker. The surrounding format may have accelerated, acquired more efficient answers, or printed a new partner that raises the ceiling again. The meaning of an old card is relational: it changes whenever the cards around it change.</p><p>That migration is visible in Mutavault, Blinkmoth Nexus, Inkmoth Nexus, and modern creature lands refined the same promise in different directions. Each descendant keeps one part of the original proposition while changing another variable—mana cost, symmetry, card type, speed, vulnerability, or scale. Comparing them reveals what designers believed had to be preserved and what had to be restrained. The newer card may be cleaner, but the older one often remains stranger because it was printed before its category had settled into modern limits.</p><p>Formats also preserve different memories. Old School remembers the card in its first ecosystem. Premodern or Legacy may remember a later archetype. Commander emphasizes repeatability and table politics. Vintage cares about mana, tutors, and the most extreme interactions. Together those perspectives explain why a card can be obsolete in one competitive sense yet remain central to the game's historical language.</p></section><section id="evaluation-now"><div class="chapter-number">XV · Modern reading</div><h2>How to evaluate it now</h2><p>Evaluating Mishra's Factory today requires separating three questions that are often collapsed: Is it legal? Is it competitively efficient? Is it historically representative?</p><p>Legality determines the card pool but not the experience. A card may be restricted, banned, reserved, expensive, or simply absent from modern formats while remaining essential to understanding how a strategy developed. Conversely, a reprint can make the object accessible without restoring the metagame that once gave it meaning. The archive should preserve both the rules object and the environment that taught players how to value it.</p><p>Competitive efficiency is narrower. Modern decks ask whether the effect is fast enough, resilient enough, and supported by current mana and interaction. The answer can change with one new printing. A dormant card may return because a tutor, free spell, creature type, land engine, or graveyard payoff suddenly supplies the missing half. This possibility is one reason old cards continue to reward close reading. Their text remains fixed while their context keeps moving.</p><p>Historical representation asks a different question: does the card explain an era, an archetype, or a design idea better than its successors? For Mishra's Factory, the answer lies in the lesson that the mana base can carry inevitability, making a deck less vulnerable to flood and sweepers. Even where a later card is stronger, the original may show the bargain in a purer and more revealing form.</p><p>A present-day player can therefore approach the card on several levels. It can be a tool in a legal format, a build-around in a historical gauntlet, a Commander conversation piece, a collectible illustration, or a case study in systems design. None of those uses cancels the others. Together they explain why the card remains worth a twenty-minute essay rather than a one-line ranking.</p></section><section id="legacy-deep"><div class="chapter-number">XVI · Design and memory</div><h2>Why the idea survived</h2><p>The final measure of Mishra's Factory is not whether every modern deck wants it. It is whether later Magic still thinks in concepts the card helped establish.</p><p>Its design legacy is that the mana base can carry inevitability, making a deck less vulnerable to flood and sweepers. Once players internalize that lesson, they recognize it everywhere: in new card previews, in deck-building heuristics, and in the shorthand used to describe an unfamiliar effect. A card becomes historically important when its name can stand in for an entire family of decisions.</p><p>Its cultural memory is equally concrete: the seasonal Antiquities illustrations and the ritual of leaving one Factory back to protect another. These details matter because players remember games through physical rituals—counters moved, lands left untapped, cards selected at random, life totals rewritten, or a single permanent placed conspicuously beside the mana base. The rules create the decision, but the table gesture preserves it.</p><p>That combination of strategic lesson and sensory memory is why the card belongs in an archive rather than merely a database. Oracle text can describe what Mishra's Factory does. A historical essay must also preserve what the table felt like once both players understood what it could do.</p></section>
+<section id="memory"><div class="chapter-number">XVII · Testimony</div><h2>What players remember</h2><p>Players remember Mishra's Factory less as a collection of words than as a change in atmosphere. Once it appeared, ordinary assumptions about the next turn stopped feeling reliable.</p><div class="memory"><div class="memory-grid"><div><blockquote>“Mishra's Factory made the game operate by a different rule.”</blockquote><cite>Compulsive Research · editorial shorthand for the card’s table presence</cite></div><div><blockquote>“You planned around it before it ever had to act.”</blockquote><cite>Common strategic memory across historical formats</cite></div></div></div><p>The card demanded respect before it acted: mana had to be held differently, attacks reconsidered, or a hand sequenced around the possibility that its defining exchange would occur.</p></section>
+<section id="descendant"><div class="chapter-number">XVIII · Design echo</div><h2>Mutavault and the inherited idea</h2><p>Mutavault removes the colored activation tax and expands the creature type, but it inherits the Factory's fundamental economy: a land that remains useful after the hand is empty.</p><div class="inline-image descendant-panel"><div class="image"></div><div class="copy"><div class="eyebrow">A later design echo</div><h3>Mutavault</h3><p>Mutavault removes the colored activation tax and expands the creature type, but it inherits the Factory's fundamental economy: a land that remains useful after the hand is empty.</p><p>The comparison reveals which part of Mishra's Factory design considered essential and which part later sets needed to restrain.</p></div></div><p>From The Deck and early control shells to Standstill, Stompy, and Old School midrange, the Factory established the creature-land as permanent design vocabulary. Later manlands became larger or more colorful, but most still repeat its central promise: the mana base can win the game after the spells are gone.</p></section>
+<section id="decklists"><div class="chapter-number">XIX · The evidence</div><h2>The deck archive</h2><div class="deck-intro"><p>These three lists are representative historical reconstructions rather than claims about a specific tournament registration. Their purpose is to make the card's strategic jobs visible without interrupting the essay.</p><p>Card names support desktop hover and mobile tap previews.</p></div><div class="deck-archive"><details class="deck" open="">
+<summary><span><strong>Old School Control featuring Mishra's Factory</strong><small>Representative historical reconstruction · 60 cards</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>A patient control reconstruction built around removal, card advantage, and a land-based endgame. This is an editorial reconstruction, not a claimed event registration.</p>
+<div class="deck-meta"><div><b>Compulsive Research archive model</b><div class="small">Built to demonstrate the card's strategic role</div></div><button class="copy" data-target="deck-0">Copy decklist</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Spells and creatures · 28</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div></div><div class="deck-col"><div class="group"><h4>Mana base · 32</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">15</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">9</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div></div></div></div>
+<pre hidden="" id="deck-0">4 Swords to Plowshares
+3 Disenchant
+4 Counterspell
+3 Wrath of God
+2 Jayemdae Tome
+2 Icy Manipulator
+2 Serra Angel
+1 Ancestral Recall
+1 Time Walk
+1 Braingeyser
+2 Mana Drain
+1 Mox Pearl
+1 Mox Sapphire
+1 Sol Ring
+4 City of Brass
+15 Island
+9 Plains
+4 Mishra's Factory</pre></div></details><details class="deck">
+<summary><span><strong>Land Engine Control featuring Mishra's Factory</strong><small>Representative historical reconstruction · 60 cards</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>A land-centered reconstruction where utility lands, recursion, and mana denial replace conventional spell density. This is an editorial reconstruction, not a claimed event registration.</p>
+<div class="deck-meta"><div><b>Compulsive Research archive model</b><div class="small">Built to demonstrate the card's strategic role</div></div><button class="copy" data-target="deck-1">Copy decklist</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Spells and creatures · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Exploration" tabindex="0">Exploration</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Life from the Loam" tabindex="0">Life from the Loam</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Crop Rotation" tabindex="0">Crop Rotation</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mox Diamond" tabindex="0">Mox Diamond</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Gamble" tabindex="0">Gamble</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Punishing Fire" tabindex="0">Punishing Fire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ghost Quarter" tabindex="0">Ghost Quarter</span></div></div></div><div class="deck-col"><div class="group"><h4>Mana base · 36</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dark Depths" tabindex="0">Dark Depths</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Thespian's Stage" tabindex="0">Thespian’s Stage</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grove of the Burnwillows" tabindex="0">Grove of the Burnwillows</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div><div class="row"><span class="qty">12</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div></div></div></div>
+<pre hidden="" id="deck-1">4 Exploration
+4 Life from the Loam
+4 Crop Rotation
+4 Mox Diamond
+3 Gamble
+3 Punishing Fire
+2 Ghost Quarter
+4 Wasteland
+4 Rishadan Port
+2 Maze of Ith
+2 Dark Depths
+2 Thespian’s Stage
+4 Grove of the Burnwillows
+2 Taiga
+12 Forest
+4 Mishra's Factory</pre></div></details><details class="deck">
+<summary><span><strong>Artifact Midrange featuring Mishra's Factory</strong><small>Representative historical reconstruction · 60 cards</small></span><span class="plus">+</span></summary>
+<div class="deck-body"><p>An Antiquities-style artifact shell that turns colorless permanents into pressure, mana, and sacrifice value. This is an editorial reconstruction, not a claimed event registration.</p>
+<div class="deck-meta"><div><b>Compulsive Research archive model</b><div class="small">Built to demonstrate the card's strategic role</div></div><button class="copy" data-target="deck-2">Copy decklist</button></div>
+<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Spells and creatures · 31</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Atog" tabindex="0">Atog</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Su-Chi" tabindex="0">Su-Chi</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Triskelion" tabindex="0">Triskelion</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ornithopter" tabindex="0">Ornithopter</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fellwar Stone" tabindex="0">Fellwar Stone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div></div></div><div class="deck-col"><div class="group"><h4>Mana base · 29</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">21</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div></div></div></div>
+<pre hidden="" id="deck-2">4 Atog
+4 Su-Chi
+2 Triskelion
+4 Ornithopter
+3 Icy Manipulator
+2 Jayemdae Tome
+4 Fellwar Stone
+1 Sol Ring
+3 Shatter
+4 Lightning Bolt
+4 City of Brass
+21 Mountain
+4 Mishra's Factory</pre></div></details></div></section>
+<section id="printings"><div class="chapter-number">XX · Material history</div><h2>Printings and sources</h2><p>The gallery groups cards by distinct illustration rather than treating foil stamps, serialized numbers, or repeated frames with the same art as separate historical identities.</p><div class="printings" id="printing-grid"><div class="printing-status">Loading distinct-art printings from the Scryfall catalog…</div></div>
+<ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Mishra%27s+Factory%22+include%3Aextras&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Mishra's Factory</a><span>Release dates, collector numbers, artists, images, and distinct illustration records.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[Mishra%27s%20Factory]">Gatherer card record</a><span>Official Oracle wording and rulings reference.</span></li><li><a href="https://mtgjson.com/downloads/all-files/">MTGJSON AllPrintings</a><span>Machine-readable printing and set history used as a cross-check.</span></li><li><a href="https://www.mtgtop8.com/">MTGTop8 tournament archive</a><span>Archetype and event context for later competitive appearances.</span></li></ul>
+<p class="editor-note">Compulsive Research separates a new release object from a new visual identity. The gallery therefore keeps one representative for each illustration whenever catalog metadata allows it.</p></section>
+</article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 060 follows the Eternal Dragon article architecture: historical argument, rules texture, format movement, design descendants, deck evidence, and a deduplicated printing gallery.</aside></div>
+<section class="continue-reading"><div class="chapter-number">Continue reading</div><h2>The archive continues</h2><div class="end-nav"><a href="059-strip-mine.html"><small>Previous entry</small>← Entry 059 · Strip Mine</a><a href="061-maze-of-ith.html"><small>Next entry</small>Entry 061 · Maze of Ith →</a></div></section>
+<div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Entry 060 · Mishra's Factory · Independent, noncommercial Magic history project. Card images and artwork © Wizards of the Coast.</footer><script>
+const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){
+ if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
+ const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
+ if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
+ l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
+ preview.style.left=l+'px';preview.style.top=t+'px'
+}
+function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{
+ el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
+ el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
+ el.addEventListener('mouseleave',hide);
+ el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
+ el.addEventListener('blur',hide);
+ el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+ const t=document.getElementById(b.dataset.target).textContent;
+ try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+ const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
+}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
+if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');
+ const endpoint='https://api.scryfall.com/cards/search?order=released&unique=prints&q=%21%22Mishra%27s%20Factory%22%20include%3Aextras%20lang%3Aen';
+ try{let url=endpoint,all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null;}
+ const usable=all.filter(c=>c.lang==='en'&&(c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal));
+ const seen=new Set(),unique=[];for(const c of usable){const key=c.illustration_id||((c.artist||'')+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||''));if(seen.has(key))continue;seen.add(key);unique.push(c);}
+ let chosen=unique;if(unique.length>8){chosen=[];for(let i=0;i<8;i++){const p=Math.round(i*(unique.length-1)/7);if(!chosen.includes(unique[p]))chosen.push(unique[p]);}}
+ if(!chosen.length)throw new Error('empty');grid.innerHTML=chosen.map(c=>{const im=c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal;const yr=(c.released_at||'').slice(0,4);return `<figure class="printing"><img loading="lazy" src="${im}" alt="${c.name} — ${c.set_name}"><figcaption><b>${c.set_name} · ${yr} · ${c.collector_number}</b><br>${c.artist||'Artist not listed'}</figcaption></figure>`}).join('');
+ }catch(e){grid.innerHTML='<div class="printing-status">The live printing gallery could not load. The source links below open the complete catalog.</div>';}
+}
+loadPrintings();
+</script></body></html>
