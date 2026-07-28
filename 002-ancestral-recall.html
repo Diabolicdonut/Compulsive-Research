@@ -61,7 +61,7 @@ p{margin:1em 0}
 }
 .hero:before{
   content:"";position:absolute;inset:0;z-index:-3;
-  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  background:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop) center 27%/cover no-repeat;
   transform:scale(1.018);
 }
 .hero:after{
@@ -139,7 +139,7 @@ p{margin:1em 0}
 .art-break{
   width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
   min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
-  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop) center 25%/cover no-repeat;
 }
 .art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
 .art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
@@ -161,7 +161,7 @@ p{margin:1em 0}
   width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
   display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
 }
-.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .image{min-height:390px;background:var(--night2)}
 .inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
 .memory{
   background:var(--night);color:white;
@@ -248,40 +248,88 @@ p{margin:1em 0}
   .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
 }
 
-.recall-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
 }
-.hero.recall-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
 }
-.vision-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
 }
-.card-advantage{
-  width:min(980px,calc(100vw - 32px));
-  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
 }
-.advantage-step{background:var(--white);padding:24px}
-.advantage-step b{
-  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
-  margin-bottom:9px
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
 }
-.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.target-note{
-  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);
-  font:14px/1.65 Inter,system-ui,sans-serif
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
 }
-.target-note b{color:var(--ink)}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
+.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
 @media(max-width:750px){
-  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
 }
-</style>
-</head>
-<body>
-<header class="hero recall-art">
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+</style></head>
+<body data-article-card="Ancestral Recall">
+<header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&amp;set=lea&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&amp;set=lea&amp;format=image&amp;version=art_crop"/>
 <div class="hero-grid"></div>
 <div class="hero-inner">
 <a class="archive-link" href="index.html#wave-01">← Wave 01 · The Foundational Canon</a>
@@ -291,44 +339,24 @@ p{margin:1em 0}
 <div class="byline">
 <span>A Compulsive Research essay</span><span>·</span>
 <span>Limited Edition Alpha, 1993</span>
-<span class="pill">Approximately 23 minute read</span>
+<span class="pill">Approximately 20 minute read</span>
 </div>
 </div>
 </header>
-<nav class="rank-nav">
-<a href="001-black-lotus.html">← Entry 001 · Black Lotus</a>
-<div class="center">Entry 002 of 1,000</div>
-<a href="index.html#entry-003">Entry 003 · Time Walk →</a>
-</nav>
+<nav class="rank-nav"><a href="index.html?focus=entry-001#entry-001">← Entry 001 · Black Lotus</a><div class="center">Entry 002 of 1,000</div><a href="index.html?focus=entry-003#entry-003">Entry 003 · Time Walk →</a></nav>
 <div class="article-shell">
-<nav class="toc">
-<strong>In this article</strong>
-<a href="#opening">The spell that taught Magic to count</a>
-<a href="#boon">The boon that broke the cycle</a>
-<a href="#advantage">Card advantage before the vocabulary</a>
-<a href="#worlds">The first World Champion</a>
-<a href="#the-deck">The Deck and the doctrine of more</a>
-<a href="#restriction">Restriction, not correction</a>
-<a href="#gush">Gush, Grow, and the blue engine</a>
-<a href="#storm">The draw spell inside the combo turn</a>
-<a href="#formats">A life across formats</a>
-<a href="#target">The target matters</a>
-<a href="#descendants">The impossible descendants</a>
-<a href="#memory">The image of remembering</a>
-<a href="#decklists">The deck archive</a>
-<a href="#printings">Printings and sources</a>
-</nav>
+<nav class="toc"><strong>In this article</strong><a href="#opening">The spell that taught Magic to count</a><a href="#boon">The boon that broke the cycle</a><a href="#advantage">Card advantage before the vocabulary</a><a href="#worlds">The first World Champion</a><a href="#the-deck">The Deck and the doctrine of more</a><a href="#restriction">Restriction, not correction</a><a href="#gush">Gush, Grow, and the Vintage middle years</a><a href="#storm">The draw spell inside the combo turn</a><a href="#formats">A life across formats</a><a href="#target">The target matters</a><a href="#descendants">The impossible descendants</a><a href="#memory">The image of remembering</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
 <article class="article">
 <section id="opening">
 <div class="chapter-number">I · The exchange</div>
 <h2>The spell that taught Magic to count</h2>
 <p class="opening dropcap">The card says draw three. The game learned to count to two.</p>
 <p>One card leaves the hand. Three cards replace it. The player has spent a blue mana and moved from one physical object to three new ones: a net gain of two cards, delivered at instant speed, with no life payment, no discarded hand, no delayed trigger, and no demand that anything already be on the battlefield.</p>
-<p>Ancestral Recall does not look like a game-ending spell. It has no creature, no damage number, no extra turn, and no words that explicitly say the opponent is losing. It simply provides more decisions than the opponent was prepared to answer.</p>
+<p>Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> does not look like a game-ending spell. It has no creature, no damage number, no extra turn, and no words that explicitly say the opponent is losing. It simply provides more decisions than the opponent was prepared to answer.</p>
 <p>That is often enough.</p>
-<p>Magic’s history is full of dramatic effects, but competitive games are frequently decided by ordinary resources accumulating in unequal piles. The player with more cards sees more lands, more protection, more threats, and more ways to recover when the first plan fails. Ancestral Recall compresses that accumulation into a single blue mana.</p>
+<p>Magic’s history is full of dramatic effects, but competitive games are frequently decided by ordinary resources accumulating in unequal piles. The player with more cards sees more lands, more protection, more threats, and more ways to recover when the first plan fails. Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> compresses that accumulation into a single blue mana.</p>
 <div class="card-lead">
-<img alt="Ancestral Recall from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&amp;set=lea&amp;format=image&amp;version=normal"/>
+<img alt="Ancestral Recall original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&amp;set=lea&amp;format=image&amp;version=normal"/>
 <div>
 <div class="oracle"><b>Ancestral Recall</b> · {U}<br/>Instant<br/><br/>
      Target player draws three cards.</div>
@@ -340,16 +368,16 @@ p{margin:1em 0}
 </div>
 </div>
 </div>
-<p>The elegance is part of the problem. Black Lotus requires a player to know what three mana can become. Time Walk requires a board or hand capable of exploiting another turn. Ancestral Recall nearly always solves its own question. Draw the cards. Let the new cards explain what happens next.</p>
+<p>The elegance is part of the problem. <span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span> requires a player to know what three mana can become. <span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span> requires a board or hand capable of exploiting another turn. Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> nearly always solves its own question. Draw the cards. Let the new cards explain what happens next.</p>
 </section>
 <section id="boon">
 <div class="chapter-number">II · Alpha</div>
 <h2>The boon that broke the cycle</h2>
-<p>Richard Garfield created a five-card cycle for Alpha that he called the boons. Each cost one mana and used the number three: <span class="card-name" data-card="Healing Salve" tabindex="0">Healing Salve</span>, Ancestral Recall, <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span>, <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, and <span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span>.</p>
+<p>Richard Garfield created a five-card cycle for Alpha that he called the boons. Each cost one mana and used the number three: <span class="card-name" data-card="Healing Salve" tabindex="0">Healing Salve</span>, Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span>, <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span>, <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, and <span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span>.</p>
 <p>The cycle is one of the clearest windows into early Magic design. Three life, three mana, three damage, and three power all sounded like comparable gifts. Three cards were not comparable. Cards are not merely another resource printed beside life and power. Cards contain every other resource.</p>
-<p>Wizards’ later history of card drawing recounts that Garfield was persuaded Ancestral Recall was too strong to appear at common, so it debuted as a rare while the other boons entered the common sheet. The rarity change protected scarcity, not gameplay. Once players gathered the best cards into constructed decks, one copy was enough to reveal the scale of the mistake.</p>
+<p>Wizards’ later history of card drawing recounts that Garfield was persuaded Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> was too strong to appear at common, so it debuted as a rare while the other boons entered the common sheet. The rarity change protected scarcity, not gameplay. Once players gathered the best cards into constructed decks, one copy was enough to reveal the scale of the mistake.</p>
 <div class="pullquote">Three damage ends one problem. Three cards may contain the answer to every problem that follows.<small>The imbalance inside the boon cycle</small></div>
-<p>The other boons became standards. Lightning Bolt remains the clean benchmark for efficient damage. Dark Ritual defines black acceleration. Giant Growth gave its name to an entire family of combat tricks. Ancestral Recall became something different: a number designers could reference only by adding time, cost, or restriction.</p>
+<p>The other boons became standards. <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span> remains the clean benchmark for efficient damage. <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span> defines black acceleration. <span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span> gave its name to an entire family of combat tricks. Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> became something different: a number designers could reference only by adding time, cost, or restriction.</p>
 </section>
 <div class="art-break recall-art">
 <div class="art-caption"><b>Mark Poole’s original Alpha artwork</b>The image translates card drawing into a vision received from beyond the immediate game: knowledge arriving all at once, bright enough to overwhelm the present.</div>
@@ -358,56 +386,56 @@ p{margin:1em 0}
 <div class="chapter-number">III · Theory</div>
 <h2>Card advantage before the vocabulary</h2>
 <p>Early players did not begin with an agreed language for evaluating exchanges. They had life totals, creatures, spells, and instinct. The idea that cards themselves could be counted as a strategic resource had to become explicit.</p>
-<p>Ancestral Recall is the cleanest possible lesson.</p>
+<p>Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> is the cleanest possible lesson.</p>
 <div class="card-advantage">
 <div class="advantage-step"><b>−1</b><span>The Recall leaves your hand and becomes a spell.</span></div>
 <div class="advantage-step"><b>+3</b><span>Three new cards move from the library into your hand.</span></div>
 <div class="advantage-step"><b>+2</b><span>The net card advantage before considering mana, timing, or quality.</span></div>
 </div>
 <p>The arithmetic is simple, but the consequences are not. Three random cards can include dead lands or redundant effects. They can also include the land drop, the counterspell, and the threat required to convert a losing position into a winning one. The spell does not guarantee quality; it buys enough quantity that quality becomes more likely.</p>
-<p>Instant speed makes the lesson harsher. A control player can hold mana for <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span> or <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span>, wait to see whether the opponent presents something worth answering, then cast Ancestral Recall if the turn passes quietly. The same mana represents defense until the last useful moment and card advantage afterward.</p>
-<p>Competitive theory would eventually distinguish raw card advantage from tempo, selection, virtual cards, and positional value. Recall remains the baseline because it asks almost nothing in exchange for the purest version of “more.”</p>
+<p>Instant speed makes the lesson harsher. A control player can hold mana for <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span> or <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span>, wait to see whether the opponent presents something worth answering, then cast Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> if the turn passes quietly. The same mana represents defense until the last useful moment and card advantage afterward.</p>
+<p>Competitive theory would eventually distinguish raw card advantage from tempo, selection, virtual cards, and positional value. <span class="card-name" data-card="Recall" tabindex="0">Recall</span> remains the baseline because it asks almost nothing in exchange for the purest version of “more.”</p>
 </section>
 <section id="worlds">
 <div class="chapter-number">IV · Organized play begins</div>
 <h2>The first World Champion</h2>
-<p>Zak Dolan won the first Magic World Championship in 1994 with a U/W/G control deck that looks less like a modern archetype than a map of early discovery. Stasis and Kismet share space with Serra Angel, Meekstone, Winter Orb, Howling Mine, Old Man of the Sea, and a suite of restricted cards.</p>
-<p>Ancestral Recall sits among them without requiring explanation. It was not the deck’s theme. It was the one-mana spell almost any blue deck would play if permitted.</p>
-<p>That universality distinguishes Recall from many famous cards. A combo piece may define one engine. A tribal lord may define one creature type. Ancestral Recall improves the chances of drawing whatever the deck was already built to do.</p>
-<p>In Dolan’s list, the new cards might be a land, removal, a lock piece, or Serra Angel. In another deck they might be rituals or creatures. The spell’s identity changes with the hand around it while its efficiency remains constant.</p>
+<p>Zak Dolan won the first Magic World Championship in 1994 with a U/W/G control deck that looks less like a modern archetype than a map of early discovery. <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span> and <span class="card-name" data-card="Kismet" tabindex="0">Kismet</span> share space with <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, <span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span>, <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, <span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span>, <span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span>, and a suite of restricted cards.</p>
+<p>Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> sits among them without requiring explanation. It was not the deck’s theme. It was the one-mana spell almost any blue deck would play if permitted.</p>
+<p>That universality distinguishes <span class="card-name" data-card="Recall" tabindex="0">Recall</span> from many famous cards. A combo piece may define one engine. A tribal lord may define one creature type. Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> improves the chances of drawing whatever the deck was already built to do.</p>
+<p>In Dolan’s list, the new cards might be a land, removal, a lock piece, or <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>. In another deck they might be rituals or creatures. The spell’s identity changes with the hand around it while its efficiency remains constant.</p>
 <div class="pullquote">The first World Champion did not build around Ancestral Recall. He built a deck, and Ancestral Recall made the deck more itself.<small>Worlds 1994</small></div>
 </section>
 <section id="the-deck">
 <div class="chapter-number">V · Doctrine</div>
 <h2>The Deck and the doctrine of more</h2>
 <p>Brian Weissman’s creation became known simply as The Deck. Its importance was not only that it won. It made a philosophy reproducible: answer the opponent efficiently, exhaust the meaningful threats, accumulate cards, and win when resistance has become mathematically unlikely.</p>
-<p>Wizards’ historical treatment of the archetype identifies card advantage as one of its foundational lessons. Ancestral Recall was the idea in miniature.</p>
-<p>The Deck could use Recall on the opponent’s end step, return it with <span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span> or the blue card <span class="card-name" data-card="Recall" tabindex="0">Recall</span>, find it through <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span>, and use the extra cards to maintain a wall of Mana Drains, Counterspells, Disenchants, and Swords to Plowshares. The spell did not merely create a larger hand. It increased the probability that every opposing threat met the correct answer.</p>
-<p>This is where Ancestral Recall’s cultural influence exceeds its tournament record. The card became a visual aid for explaining why a one-for-one exchange can be desirable when another effect has already placed the control player ahead. It helped teach players to see a hand not as hidden information but as a bank of future actions.</p>
+<p>Wizards’ historical treatment of the archetype identifies card advantage as one of its foundational lessons. Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> was the idea in miniature.</p>
+<p>The Deck could use <span class="card-name" data-card="Recall" tabindex="0">Recall</span> on the opponent’s end step, return it with <span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span> or the blue card <span class="card-name" data-card="Recall" tabindex="0">Recall</span>, find it through <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span>, and use the extra cards to maintain a wall of Mana Drains, Counterspells, Disenchants, and <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>. The spell did not merely create a larger hand. It increased the probability that every opposing threat met the correct answer.</p>
+<p>This is where Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span>’s cultural influence exceeds its tournament record. The card became a visual aid for explaining why a one-for-one exchange can be desirable when another effect has already placed the control player ahead. It helped teach players to see a hand not as hidden information but as a bank of future actions.</p>
 </section>
 <section id="restriction">
 <div class="chapter-number">VI · Governance</div>
 <h2>Restriction, not correction</h2>
-<p>In the winter of 1994, the Duelist Convocation established universal constructed-deck rules: sixty-card minimums, a four-copy limit, and the first restricted list. Ancestral Recall was among the cards limited to one copy.</p>
-<p>That response was tied to a failed assumption in Alpha’s original environment. Garfield expected players to purchase relatively small collections and trade within local groups. Under scarcity, a card like Ancestral Recall might appear rarely enough that its rate felt extraordinary rather than structural. Organized players did the opposite: they found the strongest cards, traded for them, and concentrated them.</p>
-<p>Restriction reduced frequency without correcting the exchange. Tutors, Regrowth effects, <span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span>, <span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span>, and later graveyard engines allowed one physical copy to influence a game more than once. The format learned to build routes toward the restricted card.</p>
-<p>Modern policy preserves that compromise. Ancestral Recall remains restricted in Vintage and banned in Legacy and Commander. It also remains on the Reserved List, preventing a functionally identical tournament-legal physical reprint.</p>
+<p>In the winter of 1994, the Duelist Convocation established universal constructed-deck rules: sixty-card minimums, a four-copy limit, and the first restricted list. Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> was among the cards limited to one copy.</p>
+<p>That response was tied to a failed assumption in Alpha’s original environment. Garfield expected players to purchase relatively small collections and trade within local groups. Under scarcity, a card like Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> might appear rarely enough that its rate felt extraordinary rather than structural. Organized players did the opposite: they found the strongest cards, traded for them, and concentrated them.</p>
+<p>Restriction reduced frequency without correcting the exchange. Tutors, <span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span> effects, <span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span>, <span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span>, and later graveyard engines allowed one physical copy to influence a game more than once. The format learned to build routes toward the restricted card.</p>
+<p>Modern policy preserves that compromise. Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> remains restricted in Vintage and banned in Legacy and Commander. It also remains on the Reserved List, preventing a functionally identical tournament-legal physical reprint.</p>
 <div class="target-note"><b>A managed mistake:</b> Vintage does not make Ancestral Recall fair. It permits one copy in an environment designed around other restricted power, free interaction, graveyard hate, and the expectation that the strongest spells in Magic may appear.</div>
 </section>
 <section id="gush">
 <div class="chapter-number">VII · The blue engine</div>
 <h2>Gush, Grow, and the Vintage middle years</h2>
-<p>By the 2000s, Vintage had transformed around cheap cantrips, free countermagic, restricted tutors, and engines that treated cards and lands as resources to be converted repeatedly. Ancestral Recall remained central because the new engines did not replace it. They made finding and replaying it easier.</p>
+<p>By the 2000s, Vintage had transformed around cheap cantrips, free countermagic, restricted tutors, and engines that treated cards and lands as resources to be converted repeatedly. Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> remained central because the new engines did not replace it. They made finding and replaying it easier.</p>
 <p>Stephen Menendian’s 2007 Gen Con-winning Gro-A-Tog list demonstrates this ecology. Four <span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span>s can search for a blue instant. <span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span> can place one on top. <span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span> can cast it again from the graveyard. <span class="card-name" data-card="Gush" tabindex="0">Gush</span> and <span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span> create a dense network of cards moving between hand, library, battlefield, and graveyard.</p>
-<p>Recall is both engine and fuel. It grows <span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span>, supplies Force of Will, finds more Gushes, and provides the raw material that lets a low-land deck continue functioning after returning Islands to hand.</p>
-<p>The list also contains <span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span>, a reminder that the spell’s power comes with a target. In Vintage, an Ancestral Recall on the stack is not merely a draw spell. It is a fight over who receives the three cards.</p>
+<p><span class="card-name" data-card="Recall" tabindex="0">Recall</span> is both engine and fuel. It grows <span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span>, supplies <span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span>, finds more Gushes, and provides the raw material that lets a low-land deck continue functioning after returning Islands to hand.</p>
+<p>The list also contains <span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span>, a reminder that the spell’s power comes with a target. In Vintage, an Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> on the stack is not merely a draw spell. It is a fight over who receives the three cards.</p>
 </section>
 <section id="storm">
 <div class="chapter-number">VIII · Velocity</div>
 <h2>The draw spell inside the combo turn</h2>
-<p>Control decks use Ancestral Recall to widen the game. Combo decks use it to narrow the game until only the winning turn remains.</p>
-<p>Paul Mastriano’s 2008 Vintage World Championship-winning Pitch Long deck is full of effects that exchange resources aggressively: Dark Ritual, Cabal Ritual, Necropotence, Yawgmoth’s Bargain, tutors, artifact mana, and <span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span>. Ancestral Recall is not the largest draw effect in the list. It is the easiest to fit between everything else.</p>
-<p>One blue mana can find a ritual, protection, or Tendrils of Agony. After the Recall enters the graveyard, Yawgmoth’s Will turns it into another one-blue draw three while also replaying the Lotus, Moxen, rituals, and tutors used earlier in the turn.</p>
+<p>Control decks use Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> to widen the game. Combo decks use it to narrow the game until only the winning turn remains.</p>
+<p>Paul Mastriano’s 2008 Vintage World Championship-winning Pitch Long deck is full of effects that exchange resources aggressively: <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span>, Cabal Ritual, Necropotence, Yawgmoth’s Bargain, tutors, artifact mana, and <span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span>. Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> is not the largest draw effect in the list. It is the easiest to fit between everything else.</p>
+<p>One blue mana can find a ritual, protection, or Tendrils of Agony. After the <span class="card-name" data-card="Recall" tabindex="0">Recall</span> enters the graveyard, Yawgmoth’s Will turns it into another one-blue draw three while also replaying the Lotus, Moxen, rituals, and tutors used earlier in the turn.</p>
 <p>The card’s role in Storm explains why evaluating it only as “plus two cards” is incomplete. During a combo turn, the first new card may be mana, the second may be a tutor, and the third may be the protection that lets the entire sequence resolve. The cards are not simply counted. They are chained.</p>
 </section>
 <section id="formats">
@@ -421,70 +449,57 @@ p{margin:1em 0}
 <div class="format-card"><span class="impact">Premium pick</span><h3>Powered Cube</h3><p>Cube separates play access from ownership and lets the spell function as a draft object again.</p></div>
 <div class="format-card"><span class="impact">Digital access</span><h3>Magic Online and Arena events</h3><p>Digital environments allow players to experience Power without the scarcity of an Alpha rare.</p></div>
 </div>
-<p>Powered Cube shows how little context the card requires. Wizards’ discussion of adding Power to the Magic Online Cube observed that Ancestral Recall and Time Walk were worth splashing and could be selected independently of an established color plan. One blue source is a small deck-building concession for three cards.</p>
-<p>Vintage provides the continuous competitive line. In 2024, more than four hundred players entered the North American Vintage Championship. Max Gilmore won with Esper Control, registering Ancestral Recall beside Psychic Frog, Orcish Bowmasters, Force of Negation, Vexing Bauble, and Lurrus of the Dream-Den.</p>
+<p>Powered Cube shows how little context the card requires. Wizards’ discussion of adding Power to the Magic Online Cube observed that Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> and <span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span> were worth splashing and could be selected independently of an established color plan. One blue source is a small deck-building concession for three cards.</p>
+<p>Vintage provides the continuous competitive line. In 2024, more than four hundred players entered the North American Vintage Championship. Max Gilmore won with Esper Control, registering Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> beside Psychic Frog, <span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span>, Force of Negation, Vexing Bauble, and Lurrus of the Dream-Den.</p>
 <p>The surrounding game had changed completely. The sentence had not.</p>
 </section>
 <section id="target">
 <div class="chapter-number">X · Rules texture</div>
 <h2>The target matters</h2>
 <p>“Target player draws three cards” contains more interaction than “draw three cards.” The ordinary target is the caster, but the target can be changed, protected, punished, or—rarely—chosen as the opponent.</p>
-<p><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span> can steal the Recall by changing its target. <span class="card-name" data-card="Notion Thief" tabindex="0">Notion Thief</span> can replace the draws. <span class="card-name" data-card="Narset, Parter of Veils" tabindex="0">Narset, Parter of Veils</span> can limit how many cards an opponent is allowed to draw. <span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span> turns multiple draws into repeated triggers. The best draw spell ever printed eventually accumulated a history of cards designed to make drawing dangerous.</p>
+<p><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span> can steal the <span class="card-name" data-card="Recall" tabindex="0">Recall</span> by changing its target. <span class="card-name" data-card="Notion Thief" tabindex="0">Notion Thief</span> can replace the draws. <span class="card-name" data-card="Narset, Parter of Veils" tabindex="0">Narset, Parter of Veils</span> can limit how many cards an opponent is allowed to draw. <span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span> turns multiple draws into repeated triggers. The best draw spell ever printed eventually accumulated a history of cards designed to make drawing dangerous.</p>
 <p>The opponent can also be targeted deliberately. If that player cannot draw all the required cards from an empty library, the draw can become a win condition. The use is unusual, but it reveals how little text Alpha needed to create a spell with decisions in both directions.</p>
-<p>Then there are the cards that multiply one restricted copy. Merchant Scroll and Mystical Tutor find it. Regrowth and Yawgmoth’s Will return it. Snapcaster Mage gives it flashback. Modern Vintage decks may use graveyard engines or tutors unavailable to the first players who placed the card on a restricted list.</p>
+<p>Then there are the cards that multiply one restricted copy. <span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span> and <span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span> find it. <span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span> and Yawgmoth’s Will return it. <span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span> gives it flashback. Modern Vintage decks may use graveyard engines or tutors unavailable to the first players who placed the card on a restricted list.</p>
 </section>
 <section id="descendants">
 <div class="chapter-number">XI · Design echo</div>
 <h2>The impossible descendants</h2>
-<p>Later draw spells can be read as explanations of why Ancestral Recall cannot simply be printed again.</p>
+<p>Later draw spells can be read as explanations of why Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> cannot simply be printed again.</p>
 <p><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span> keeps the one-mana instant and the number three, but puts two cards back. <span class="card-name" data-card="Concentrate" tabindex="0">Concentrate</span> keeps the three cards, but costs four mana and moves to sorcery speed. <span class="card-name" data-card="Ancestral Vision" tabindex="0">Ancestral Vision</span> keeps the effect and the blue payment, but makes the player wait four turns. <span class="card-name" data-card="Treasure Cruise" tabindex="0">Treasure Cruise</span> begins at eight mana and asks the graveyard to reduce the price.</p>
-<p>Each descendant chooses a tax: mana, time, card quality, speed, or setup. Even when those taxes proved insufficient—Treasure Cruise famously required format intervention—the comparison remained the same. How close had the new card moved toward Recall?</p>
+<p>Each descendant chooses a tax: mana, time, card quality, speed, or setup. Even when those taxes proved insufficient—<span class="card-name" data-card="Treasure Cruise" tabindex="0">Treasure Cruise</span> famously required format intervention—the comparison remained the same. How close had the new card moved toward <span class="card-name" data-card="Recall" tabindex="0">Recall</span>?</p>
 <div class="inline-image vision-descendant">
 <div class="image"></div>
 <div class="copy">
 <div class="eyebrow">Time Spiral · 2006</div>
 <h3>One blue mana, four turns later</h3>
-<p>Ancestral Vision copies the effect and preserves the cost through suspend, but time becomes the missing resource.</p>
+<p><span class="card-name" data-card="Ancestral Vision" tabindex="0">Ancestral Vision</span> copies the effect and preserves the cost through suspend, but time becomes the missing resource.</p>
 <p>The design demonstrates how far Magic must move the payment away from mana before “draw three” can approach fairness.</p>
 </div>
 </div>
-<p>The lineage continues even in explicit homage. In 2026, Wizards presented a new Mark Poole illustration as a visual callback to his best-known card, with a design capable of invoking Ancestral Recall under new conditions. More than thirty years later, the original remains a destination for design rather than reusable space.</p>
+<p>The lineage continues even in explicit homage. In 2026, Wizards presented a new Mark Poole illustration as a visual callback to his best-known card, with a design capable of invoking Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> under new conditions. More than thirty years later, the original remains a destination for design rather than reusable space.</p>
 </section>
 <section id="memory">
 <div class="chapter-number">XII · Image and language</div>
 <h2>The image of remembering</h2>
 <p>Mark Poole’s illustration became one of the defining images of early blue Magic. The card does not depict books being opened or objects being inventoried. It depicts knowledge as an experience—something entering the mind with enough force to alter the person receiving it.</p>
-<p>That image suits the card’s cultural life. Most players encounter Ancestral Recall first as inherited knowledge. Someone explains that it is one of the Power Nine. A price guide or display case establishes scarcity. A Cube draft or digital event finally reveals how little effort the effect requires in play.</p>
+<p>That image suits the card’s cultural life. Most players encounter Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> first as inherited knowledge. Someone explains that it is one of the Power Nine. A price guide or display case establishes scarcity. A Cube draft or digital event finally reveals how little effort the effect requires in play.</p>
 <div class="memory">
 <div class="memory-grid">
 <div><blockquote>The card’s lesson survives even in formats where the card itself is forbidden: more cards mean more possible futures.</blockquote><cite>Compulsive Research</cite></div>
 <div><blockquote>“Ancestral” became a design word for the promise of three cards—and for the delay, cost, or condition required to deserve them.</blockquote><cite>The legacy visible in Ancestral Vision and later callbacks</cite></div>
 </div>
 </div>
-<p>Ancestral Recall is therefore remembered both as an object and as a unit of measurement. Draw spells are praised for approaching it, mocked for imitating it badly, or restricted when a new cost-reduction mechanic makes the distance too small.</p>
+<p>Ancestral <span class="card-name" data-card="Recall" tabindex="0">Recall</span> is therefore remembered both as an object and as a unit of measurement. Draw spells are praised for approaching it, mocked for imitating it badly, or restricted when a new cost-reduction mechanic makes the distance too small.</p>
 <p>The card taught players to count. It taught designers to add a cost. And it taught formats that one copy can still be enough.</p>
 </section>
 <section id="decklists">
 <div class="chapter-number">XIII · The evidence</div>
 <h2>The deck archive</h2>
 <div class="deck-intro">
-<p>The five lists below follow Ancestral Recall across organized Magic: the first World Champion, the first famous control deck, a Gush engine, a Storm championship, and a modern Vintage title.</p>
+<p>The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p>
 <p>The shells change. The card’s role changes with them—from general resource to control doctrine, engine piece, combo velocity, and restricted blue institution.</p>
 </div>
-<div class="deck-archive">
-<details class="deck" open="">
-<summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary>
-<div class="deck-body">
-<p>The first World Champion’s deck shows Ancestral Recall before competitive theory had stabilized. The card is simply the cleanest draw spell in a flexible control list full of restricted one-ofs.</p>
-<div class="deck-meta">
-<div><b>Zak Dolan</b><div class="small">World Champion · Worlds 1994</div></div>
-<button class="copy" data-target="recall-deck-0">Copy decklist</button>
-</div>
-<div class="deck-columns">
-<div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div></div>
-<div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div>
-</div>
-<pre hidden="" id="recall-deck-0">Zak Dolan — U/W/G Stasis Control
+<div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Official or publisher record</span><p>The first World Champion’s deck shows Ancestral Recall before competitive theory had stabilized. The card is simply the cleanest draw spell in a flexible control list full of restricted one-ofs.</p><div class="deck-meta"><div><b>Zak Dolan</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-002-ancestral-recall-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div></div><div class="group"><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div></div><pre hidden="" id="deck-002-ancestral-recall-1">Zak Dolan — U/W/G Stasis Control
 World Champion · Worlds 1994
 
 Creatures · 11
@@ -495,21 +510,6 @@ Creatures · 11
 1 Birds of Paradise
 1 Ley Druid
 4 Serra Angel
-
-Sorceries · 6
-1 Recall
-1 Timetwister
-1 Time Walk
-1 Regrowth
-1 Armageddon
-1 Wrath of God
-
-Instants · 9
-1 Ancestral Recall
-1 Mana Drain
-1 Siren's Call
-2 Disenchant
-4 Swords to Plowshares
 
 Artifacts · 15
 1 Black Lotus
@@ -532,12 +532,27 @@ Enchantments · 4
 2 Stasis
 1 Kismet
 
+Instants · 9
+1 Ancestral Recall
+1 Mana Drain
+1 Siren's Call
+2 Disenchant
+4 Swords to Plowshares
+
 Lands · 15
 1 Library of Alexandria
 4 Savannah
 4 Tropical Island
 4 Tundra
 2 Strip Mine
+
+Sorceries · 6
+1 Recall
+1 Timetwister
+1 Time Walk
+1 Regrowth
+1 Armageddon
+1 Wrath of God
 
 Sideboard · 15
 1 Kismet
@@ -553,310 +568,213 @@ Sideboard · 15
 1 Presence of the Master
 1 Reverse Damage
 1 Sleight of Mind
-1 Winter Blast</pre>
-<p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p>
-</div>
-</details>
-<details class="deck">
-<summary><span><strong>Brian Weissman — The Deck</strong><small>Foundational Type I control archetype · mid-1990s</small></span><span class="plus">+</span></summary>
-<div class="deck-body">
-<p>The Deck turned card advantage into doctrine. Ancestral Recall fit perfectly: one blue mana converted into options while the rest of the deck traded answers, attacked the hand, and prolonged the game.</p>
-<div class="deck-meta">
-<div><b>Brian Weissman</b><div class="small">Foundational Type I control archetype · mid-1990s</div></div>
-<button class="copy" data-target="recall-deck-1">Copy decklist</button>
-</div>
-<div class="deck-columns">
-<div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div></div></div>
-<div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div>
-</div>
-<pre hidden="" id="recall-deck-1">Brian Weissman — The Deck
-Foundational Type I control archetype · mid-1990s
+1 Winter Blast</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Roland Chang–style Stax</strong><small>Representative 2005 Power 9 Series construction · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>A documented historical list featuring Ancestral Recall.</p><div class="deck-meta"><div><b>Roland Chang–style Stax</b><div class="small">Main deck 59 · Sideboard 15</div></div><button class="copy" data-target="deck-002-ancestral-recall-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Goblin Welder" tabindex="0">Goblin Welder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gorilla Shaman" tabindex="0">Gorilla Shaman</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karn, Silver Golem" tabindex="0">Karn, Silver Golem</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Triskelion" tabindex="0">Triskelion</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sundering Titan" tabindex="0">Sundering Titan</span></div></div><div class="group"><h4>Prison · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sphere of Resistance" tabindex="0">Sphere of Resistance</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Smokestack" tabindex="0">Smokestack</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Crucible of Worlds" tabindex="0">Crucible of Worlds</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Trinisphere" tabindex="0">Trinisphere</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Workshop" tabindex="0">Mishra's Workshop</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Gemstone Mine" tabindex="0">Gemstone Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tolarian Academy" tabindex="0">Tolarian Academy</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Barbarian Ring" tabindex="0">Barbarian Ring</span></div></div><div class="group"><h4>Power, draw, and tutors · 18</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Thirst for Knowledge" tabindex="0">Thirst for Knowledge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tinker" tabindex="0">Tinker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Crop Rotation" tabindex="0">Crop Rotation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Choke" tabindex="0">Choke</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Rack and Ruin" tabindex="0">Rack and Ruin</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Duplicant" tabindex="0">Duplicant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jester's Cap" tabindex="0">Jester's Cap</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Triskelion" tabindex="0">Triskelion</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gorilla Shaman" tabindex="0">Gorilla Shaman</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div></div></div><pre hidden="" id="deck-002-ancestral-recall-2">Roland Chang–style Stax
+Representative 2005 Power 9 Series construction · 60/15
 
-Creatures · 2
-2 Serra Angel
-
-Sorceries · 7
-1 Time Walk
-1 Timetwister
-1 Braingeyser
-1 Recall
-1 Demonic Tutor
-1 Mind Twist
-1 Regrowth
-
-Instants · 17
-4 Mana Drain
-2 Counterspell
-1 Ancestral Recall
-4 Disenchant
-4 Swords to Plowshares
-2 Red Elemental Blast
-
-Enchantments · 2
-2 Moat
-
-Artifacts · 11
-2 Disrupting Scepter
-1 Jayemdae Tome
-1 Ivory Tower
-1 Mox Pearl
-1 Mox Ruby
-1 Mox Jet
-1 Mox Sapphire
-1 Mox Emerald
-1 Black Lotus
-1 Sol Ring
-
-Lands · 21
-2 Strip Mine
-1 Library of Alexandria
-3 City of Brass
-1 Plateau
-1 Underground Sea
-2 Volcanic Island
-4 Tundra
-3 Plains
-4 Island
-
-Sideboard · 15
-1 Plains
-1 Counterspell
-1 Moat
-1 Disrupting Scepter
-1 Jayemdae Tome
-1 Tormod's Crypt
-2 Control Magic
-2 Blood Moon
-3 Circle of Protection: Red
-2 Divine Offering</pre>
-<p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">open the historical record</a></p>
-</div>
-</details>
-<details class="deck">
-<summary><span><strong>Stephen Menendian — Gro-A-Tog</strong><small>Champion · Gen Con Vintage Championship 2007</small></span><span class="plus">+</span></summary>
-<div class="deck-body">
-<p>In Gush-based Vintage, Ancestral Recall was simultaneously raw card advantage, a cheap blue spell for Quirion Dryad, a Merchant Scroll target, and material that could be replayed with Yawgmoth’s Will.</p>
-<div class="deck-meta">
-<div><b>Stephen Menendian</b><div class="small">Champion · Gen Con Vintage Championship 2007</div></div>
-<button class="copy" data-target="recall-deck-2">Copy decklist</button>
-</div>
-<div class="deck-columns">
-<div class="deck-col"><div class="group"><h4>Creatures · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Psychatog" tabindex="0">Psychatog</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span></div></div><div class="group"><h4>Lands · 14</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div></div>
-<div class="deck-col"><div class="group"><h4>Instants and sorceries · 35</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div></div><div class="group"><h4>Other spells · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fastbond" tabindex="0">Fastbond</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancient Grudge" tabindex="0">Ancient Grudge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Berserk" tabindex="0">Berserk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fire / Ice" tabindex="0">Fire / Ice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oxidize" tabindex="0">Oxidize</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rack and Ruin" tabindex="0">Rack and Ruin</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div></div>
-</div>
-<pre hidden="" id="recall-deck-2">Stephen Menendian — Gro-A-Tog
-Champion · Gen Con Vintage Championship 2007
-
-Creatures · 5
-1 Psychatog
-4 Quirion Dryad
-
-Lands · 14
-3 Flooded Strand
-1 Island
-1 Library of Alexandria
-3 Polluted Delta
-2 Tropical Island
-3 Underground Sea
-1 Volcanic Island
-
-Instants and sorceries · 35
-1 Ancestral Recall
-4 Brainstorm
-1 Cunning Wish
-1 Demonic Tutor
-4 Duress
-4 Force of Will
-4 Gush
-2 Mana Drain
-4 Merchant Scroll
-2 Misdirection
-1 Mystical Tutor
-3 Opt
-1 Red Elemental Blast
-1 Time Walk
-1 Vampiric Tutor
-1 Yawgmoth's Will
-
-Other spells · 6
-1 Black Lotus
-1 Fastbond
-1 Mox Emerald
-1 Mox Jet
-1 Mox Pearl
-1 Mox Sapphire
-
-Sideboard · 15
-1 Ancient Grudge
-1 Berserk
-1 Fire / Ice
-1 Island
-1 Oxidize
-2 Pithing Needle
-2 Pyroblast
-1 Rack and Ruin
-1 Red Elemental Blast
-1 Rushing River
-3 Yixlid Jailer</pre>
-<p class="small">Source: <a href="https://www.mtgtop8.com/event?e=15&amp;f=VI">open the historical record</a></p>
-</div>
-</details>
-<details class="deck">
-<summary><span><strong>Paul Mastriano — Pitch Long</strong><small>Champion · 2008 Vintage World Championship</small></span><span class="plus">+</span></summary>
-<div class="deck-body">
-<p>Storm treated the card as velocity. Recall found rituals and tutors, protected the combo turn by refilling after disruption, and became especially dangerous when replayed during Yawgmoth’s Will.</p>
-<div class="deck-meta">
-<div><b>Paul Mastriano</b><div class="small">Champion · 2008 Vintage World Championship</div></div>
-<button class="copy" data-target="recall-deck-3">Copy decklist</button>
-</div>
-<div class="deck-columns">
-<div class="deck-col"><div class="group"><h4>Creature · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Darksteel Colossus" tabindex="0">Darksteel Colossus</span></div></div><div class="group"><h4>Lands · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bloodstained Mire" tabindex="0">Bloodstained Mire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div></div></div>
-<div class="deck-col"><div class="group"><h4>Instants and sorceries · 34</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cabal Ritual" tabindex="0">Cabal Ritual</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gifts Ungiven" tabindex="0">Gifts Ungiven</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Grim Tutor" tabindex="0">Grim Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tendrils of Agony" tabindex="0">Tendrils of Agony</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tinker" tabindex="0">Tinker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div></div><div class="group"><h4>Other spells · 13</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Memory Jar" tabindex="0">Memory Jar</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Bargain" tabindex="0">Yawgmoth's Bargain</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Massacre" tabindex="0">Massacre</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Phyrexian Negator" tabindex="0">Phyrexian Negator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rebuild" tabindex="0">Rebuild</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div></div>
-</div>
-<pre hidden="" id="recall-deck-3">Paul Mastriano — Pitch Long
-Champion · 2008 Vintage World Championship
-
-Creature · 1
-1 Darksteel Colossus
-
-Lands · 12
-1 Bloodstained Mire
-2 Island
-4 Polluted Delta
-2 Swamp
-3 Underground Sea
-
-Instants and sorceries · 34
-1 Ancestral Recall
-1 Brainstorm
-2 Cabal Ritual
-1 Chain of Vapor
-4 Dark Ritual
-1 Demonic Tutor
-4 Duress
-1 Fact or Fiction
-4 Force of Will
-1 Gifts Ungiven
-3 Grim Tutor
-1 Hurkyl's Recall
-1 Merchant Scroll
-1 Misdirection
-1 Mystical Tutor
-1 Ponder
-1 Tendrils of Agony
-1 Time Walk
-1 Timetwister
-1 Tinker
-1 Vampiric Tutor
-1 Yawgmoth's Will
-
-Other spells · 13
-1 Black Lotus
-1 Lotus Petal
-1 Mana Crypt
-1 Mana Vault
-1 Memory Jar
-1 Mox Emerald
-1 Mox Jet
-1 Mox Pearl
-1 Mox Ruby
-1 Mox Sapphire
-1 Necropotence
-1 Sol Ring
-1 Yawgmoth's Bargain
-
-Sideboard · 15
-2 Hurkyl's Recall
-2 Hymn to Tourach
-1 Massacre
-3 Phyrexian Negator
-1 Rebuild
-2 Tormod's Crypt
-4 Yixlid Jailer</pre>
-<p class="small">Source: <a href="https://www.mtgtop8.com/event?e=381&amp;f=VI">open the historical record</a></p>
-</div>
-</details>
-<details class="deck">
-<summary><span><strong>Max Gilmore — Esper Control</strong><small>2024 North American Vintage Champion</small></span><span class="plus">+</span></summary>
-<div class="deck-body">
-<p>Thirty years after the first World Championship, the current shell is full of modern threats and free interaction. Ancestral Recall remains because no later draw spell replaced the original exchange.</p>
-<div class="deck-meta">
-<div><b>Max Gilmore</b><div class="small">2024 North American Vintage Champion</div></div>
-<button class="copy" data-target="recall-deck-4">Copy decklist</button>
-</div>
-<div class="deck-columns">
-<div class="deck-col"><div class="group"><h4>Creatures · 9</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lavinia, Azorius Renegade" tabindex="0">Lavinia, Azorius Renegade</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nethergoyf" tabindex="0">Nethergoyf</span></div></div><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza's Saga" tabindex="0">Urza's Saga</span></div></div></div>
-<div class="deck-col"><div class="group"><h4>Spells · 33</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Treasure Cruise" tabindex="0">Treasure Cruise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dig Through Time" tabindex="0">Dig Through Time</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dress Down" tabindex="0">Dress Down</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lorien Revealed" tabindex="0">Lorien Revealed</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vexing Bauble" tabindex="0">Vexing Bauble</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mindbreak Trap" tabindex="0">Mindbreak Trap</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Containment Priest" tabindex="0">Containment Priest</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lurrus of the Dream-Den" tabindex="0">Lurrus of the Dream-Den</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span></div></div></div>
-</div>
-<pre hidden="" id="recall-deck-4">Max Gilmore — Esper Control
-2024 North American Vintage Champion
-
-Creatures · 9
-2 Lavinia, Azorius Renegade
-2 Orcish Bowmasters
-4 Psychic Frog
-1 Nethergoyf
+Creatures · 8
+4 Goblin Welder
+1 Gorilla Shaman
+1 Karn, Silver Golem
+1 Triskelion
+1 Sundering Titan
 
 Lands · 18
+4 Mishra's Workshop
+4 Wasteland
+4 City of Brass
+3 Gemstone Mine
 1 Strip Mine
-3 Wasteland
-3 Underground Sea
-3 Tundra
-1 Karakas
-3 Flooded Strand
-3 Scalding Tarn
-1 Urza's Saga
+1 Tolarian Academy
+1 Barbarian Ring
 
-Spells · 33
-1 Brainstorm
-4 Force of Will
-4 Swords to Plowshares
-1 Demonic Tutor
-1 Time Walk
-1 Ancestral Recall
+Prison · 15
+3 Sphere of Resistance
+4 Tangle Wire
+4 Smokestack
+3 Crucible of Worlds
+1 Trinisphere
+
+Power, draw, and tutors · 18
 1 Black Lotus
-1 Lotus Petal
+1 Mox Emerald
 1 Mox Jet
 1 Mox Pearl
+1 Mox Ruby
 1 Mox Sapphire
-2 Ponder
-2 Spell Pierce
-1 Nihil Spellbomb
-1 Mental Misstep
-1 Gitaxian Probe
-1 Treasure Cruise
-1 Dig Through Time
-3 Force of Negation
-1 Dress Down
-2 Lorien Revealed
-1 Vexing Bauble
+1 Sol Ring
+1 Mana Crypt
+1 Ancestral Recall
+3 Thirst for Knowledge
+1 Demonic Tutor
+1 Vampiric Tutor
+1 Tinker
+1 Crop Rotation
+1 Balance
+1 Swords to Plowshares
 
 Sideboard · 15
-2 Null Rod
-1 The Tabernacle at Pendrell Vale
-1 Pithing Needle
-1 Mindbreak Trap
-1 Nihil Spellbomb
-4 Containment Priest
-2 Fatal Push
-1 Lurrus of the Dream-Den
-2 Consign to Memory</pre>
-<p class="small">Source: <a href="https://articles.starcitygames.com/magic-the-gathering/top-decks-and-winners-from-north-american-eternal-weekend-2024/">open the historical record</a></p>
-</div>
-</details></div>
-</section>
+3 Red Elemental Blast
+2 Choke
+2 Rack and Ruin
+2 Tormod's Crypt
+2 Duplicant
+1 Jester's Cap
+1 Triskelion
+1 Gorilla Shaman
+1 Swords to Plowshares</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>Old School 93/94 — The Deck</strong><small>Representative 2019 control construction · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>The Deck treats Chaos Orb as nearly unconditional colorless removal. Countermagic and Disenchant manage ordinary threats, while the Orb answers almost any permanent that slips through—including cards such as Mishra's Factory or protected permanents that narrower spells may not reach.</p><div class="deck-meta"><div><b>Old School 93/94 — The Deck</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-002-ancestral-recall-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Mana and lands · 31</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Fellwar Stone" tabindex="0">Fellwar Stone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div></div></div><div class="deck-col"><div class="group"><h4>Control and card advantage · 29</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="The Abyss" tabindex="0">The Abyss</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Greed" tabindex="0">Greed</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div></div><pre hidden="" id="deck-002-ancestral-recall-3">Old School 93/94 — The Deck
+Representative 2019 control construction · 60/15
+
+Mana and lands · 31
+1 Black Lotus
+3 Fellwar Stone
+1 Library of Alexandria
+4 Mishra's Factory
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+4 City of Brass
+4 Strip Mine
+4 Tundra
+4 Underground Sea
+
+Control and card advantage · 29
+1 Ancestral Recall
+1 Balance
+1 Braingeyser
+1 Chaos Orb
+4 Counterspell
+1 Demonic Tutor
+4 Disenchant
+1 Divine Offering
+1 Fireball
+3 Jayemdae Tome
+1 Mana Drain
+1 Mind Twist
+1 Recall
+1 Regrowth
+4 Swords to Plowshares
+2 The Abyss
+1 Time Walk
+
+Sideboard · 15
+4 Blue Elemental Blast
+1 Circle of Protection: Red
+3 Divine Offering
+1 Greed
+4 Hypnotic Specter
+1 Ivory Tower
+1 Wrath of God</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>Marco Melillo — Mono Blue</strong><small>Old School Milan Discord Tournament · July 26, 2025</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>A modern Old School example shows the Doppelganger in its surviving natural habitat: a one-of among blue’s iconic creatures, backed by Control Magic, Counterspell, Mana Drain, bounce, and artifact mana.</p><div class="deck-meta"><div><b>Mono Blue</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-002-ancestral-recall-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Azure Drake" tabindex="0">Azure Drake</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flying Men" tabindex="0">Flying Men</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lord of Atlantis" tabindex="0">Lord of Atlantis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mahamoti Djinn" tabindex="0">Mahamoti Djinn</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Serendib Efreet" tabindex="0">Serendib Efreet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">15</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mishra's Workshop" tabindex="0">Mishra's Workshop</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tolaria" tabindex="0">Tolaria</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fellwar Stone" tabindex="0">Fellwar Stone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fountain of Youth" tabindex="0">Fountain of Youth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div></div><div class="group"><h4>Instants · 13</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Boomerang" tabindex="0">Boomerang</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psionic Blast" tabindex="0">Psionic Blast</span></div></div><div class="group"><h4>Sorceries · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Azure Drake" tabindex="0">Azure Drake</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Energy Flux" tabindex="0">Energy Flux</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon's Cane" tabindex="0">Feldon's Cane</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mind Bomb" tabindex="0">Mind Bomb</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Prodigal Sorcerer" tabindex="0">Prodigal Sorcerer</span></div></div></div></div><pre hidden="" id="deck-002-ancestral-recall-4">Marco Melillo — Mono Blue
+Old School Milan Discord Tournament · July 26, 2025
+
+Creatures · 15
+1 Azure Drake
+1 Clone
+3 Flying Men
+4 Lord of Atlantis
+1 Mahamoti Djinn
+3 Serendib Efreet
+1 Time Elemental
+1 Vesuvan Doppelganger
+
+Artifacts · 5
+1 Fellwar Stone
+1 Fountain of Youth
+1 Jayemdae Tome
+1 Mox Sapphire
+1 Sol Ring
+
+Enchantments · 4
+3 Control Magic
+1 Copy Artifact
+
+Instants · 13
+1 Ancestral Recall
+3 Boomerang
+4 Counterspell
+1 Mana Drain
+4 Psionic Blast
+
+Lands · 21
+15 Island
+2 Maze of Ith
+2 Mishra's Workshop
+1 Strip Mine
+1 Tolaria
+
+Sorceries · 2
+1 Braingeyser
+1 Recall
+
+Sideboard · 15
+2 Azure Drake
+3 Blue Elemental Blast
+2 Energy Flux
+1 Feldon's Cane
+3 Mind Bomb
+4 Prodigal Sorcerer</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>Vintage Dragon — Worldgorger Combo</strong><small>Representative early-2000s construction · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>A documented historical list featuring Ancestral Recall.</p><div class="deck-meta"><div><b>Vintage Dragon — Worldgorger Combo</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-002-ancestral-recall-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Squee, Goblin Nabob" tabindex="0">Squee, Goblin Nabob</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Worldgorger Dragon" tabindex="0">Worldgorger Dragon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ambassador Laquatus" tabindex="0">Ambassador Laquatus</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Bazaar of Baghdad" tabindex="0">Bazaar of Baghdad</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div></div><div class="group"><h4>Tutors and draw · 12</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Entomb" tabindex="0">Entomb</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Intuition" tabindex="0">Intuition</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lion's Eye Diamond" tabindex="0">Lion's Eye Diamond</span></div></div><div class="group"><h4>Reanimation · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Animate Dead" tabindex="0">Animate Dead</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Dance of the Dead" tabindex="0">Dance of the Dead</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Necromancy" tabindex="0">Necromancy</span></div></div><div class="group"><h4>Disruption · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Xantid Swarm" tabindex="0">Xantid Swarm</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Coffin Purge" tabindex="0">Coffin Purge</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Stroke of Genius" tabindex="0">Stroke of Genius</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Verdant Force" tabindex="0">Verdant Force</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shallow Grave" tabindex="0">Shallow Grave</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Echoing Truth" tabindex="0">Echoing Truth</span></div></div></div></div><pre hidden="" id="deck-002-ancestral-recall-5">Vintage Dragon — Worldgorger Combo
+Representative early-2000s construction · 60/15
+
+Creatures · 8
+4 Squee, Goblin Nabob
+3 Worldgorger Dragon
+1 Ambassador Laquatus
+
+Artifacts · 9
+1 Black Lotus
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Mana Crypt
+1 Lion's Eye Diamond
+
+Lands · 15
+4 Bazaar of Baghdad
+4 Underground Sea
+4 Polluted Delta
+2 Island
+1 Swamp
+
+Reanimation · 8
+4 Animate Dead
+3 Dance of the Dead
+1 Necromancy
+
+Disruption · 8
+4 Force of Will
+4 Duress
+
+Tutors and draw · 12
+3 Entomb
+2 Cunning Wish
+1 Ancestral Recall
+1 Time Walk
+1 Demonic Tutor
+1 Vampiric Tutor
+1 Mystical Tutor
+1 Intuition
+1 Recall
+
+Sideboard · 15
+3 Xantid Swarm
+3 Coffin Purge
+2 Chain of Vapor
+2 Pyroblast
+1 Stroke of Genius
+1 Verdant Force
+1 Shallow Grave
+1 Hurkyl's Recall
+1 Echoing Truth</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details></div></section>
 <section id="printings">
 <div class="chapter-number">XIV · The archive</div>
 <h2>Printings and sources</h2>
-<p>Ancestral Recall has only three tournament-legal English physical printings with the standard card back: Alpha, Beta, and Unlimited. Collector’s Edition, International Collector’s Edition, and 30th Anniversary Edition preserve the original card as non-tournament-legal commemorative objects.</p>
-<div class="printings">
-<figure class="printing"><img alt="Alpha Ancestral Recall" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption>Limited Edition Alpha · 1993</figcaption></figure>
-<figure class="printing"><img alt="Beta Ancestral Recall" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&amp;set=leb&amp;format=image&amp;version=normal"/><figcaption>Limited Edition Beta · 1993</figcaption></figure>
-<figure class="printing"><img alt="Unlimited Ancestral Recall" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&amp;set=2ed&amp;format=image&amp;version=normal"/><figcaption>Unlimited Edition · 1993</figcaption></figure>
-<figure class="printing"><img alt="Collector's Edition Ancestral Recall" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&amp;set=ced&amp;format=image&amp;version=normal"/><figcaption>Collector’s Edition · 1993 · not tournament legal</figcaption></figure>
-<figure class="printing"><img alt="International Edition Ancestral Recall" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&amp;set=cei&amp;format=image&amp;version=normal"/><figcaption>International Edition · 1993 · not tournament legal</figcaption></figure>
-<figure class="printing"><img alt="30th Anniversary Ancestral Recall" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&amp;set=30a&amp;format=image&amp;version=normal"/><figcaption>30th Anniversary Edition · 2022 · not tournament legal</figcaption></figure>
-</div>
+<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p>
+<div class="printings" data-card="Ancestral Recall" data-original-set="lea" id="printing-grid"><figure class="printing original-printing"><img alt="Ancestral Recall original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div>
 <h3>Research sources</h3>
 <ol class="sources">
 <li><a href="https://magic.wizards.com/en/news/making-magic/creation-magic-gathering-2013-03-12">Richard Garfield, “The Creation of Magic: The Gathering”</a><span>Alpha’s design assumptions, discovery, scarcity, and the origins of the trading-card game.</span></li>
@@ -879,65 +797,54 @@ Sideboard · 15
 <li><a href="https://magic.wizards.com/en/news/feature/collecting-secrets-of-strixhaven">Collecting Secrets of Strixhaven</a><span>Mark Poole’s 2026 visual callback to his original Ancestral Recall artwork.</span></li>
 </ol>
 <p class="editor-note"><b>Editorial note.</b> This is an independent, noncommercial fan-history project. Magic: The Gathering, card names, card images, and artwork belong to Wizards of the Coast and their respective artists. Scryfall image endpoints are used for reference and require internet access.</p>
-<nav class="end-nav">
-<a href="001-black-lotus.html"><small>Previous entry · 001</small>Black Lotus</a>
-<a href="index.html#entry-003"><small>Next entry · 003</small>Time Walk</a>
-</nav>
+
 </section>
 </article>
 <aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 002 follows Black Lotus inside the Foundational Canon. The archive publishes each full history only when the research can support a genuine long-form feature.</aside>
 </div>
-<div id="preview"><img alt=""/></div>
-<footer class="footer">Compulsive Research · Entry 002 · Ancestral Recall · Independent Magic history project.</footer>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Ancestral Recall is entry 2 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-001#entry-001"><small>Previous entry · 001</small>Black Lotus</a><a href="index.html?focus=entry-003#entry-003"><small>Next entry · 003</small>Time Walk</a></nav></section><div id="preview"><img alt=""/></div>
+<footer class="footer">Compulsive Research · Entry 002 · Ancestral Recall · Independent, noncommercial Magic history project.</footer>
 <script>
-const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+const ARTICLE_CARD = "Ancestral Recall";
+const ORIGINAL_SET = "lea";
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
 function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
-function place(x,y){
- if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
- const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
- if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
- l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
- preview.style.left=l+'px';preview.style.top=t+'px'
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(preview&&!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
+document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
+function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
+function chooseIconic(cards){
+  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
+  if(!bySet.length)return [];
+  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
+  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
+  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
+  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
+  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
+  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
+  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
+  for(const c of iconic){add(c);if(selected.length>=target)break}
+  add(bySet[bySet.length-1]);
+  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
+  for(const c of bySet){if(selected.length>=target)break;add(c)}
+  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
 }
-function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
-function hide(){if(!pinned)preview.classList.remove('show')}
-document.querySelectorAll('.card-name').forEach(el=>{
- el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
- el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
- el.addEventListener('mouseleave',hide);
- el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
- el.addEventListener('blur',hide);
- el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
-});
-document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
- const t=document.getElementById(b.dataset.target).textContent;
- try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
- const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
-}));
-const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
-if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
-function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
-addEventListener('scroll',updateProgress,{passive:true});updateProgress();
-
-(function(){
- const root=document.documentElement;
- function progress(){
-   const max=root.scrollHeight-innerHeight;
-   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
- }
- addEventListener('scroll',progress,{passive:true});progress();
-})();
-
-(function(){
- const root=document.documentElement;
- function progress(){
-  const max=root.scrollHeight-innerHeight;
-  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
- }
- addEventListener('scroll',progress,{passive:true});
- progress();
-})();
-</script>
-</body>
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');if(!grid)return;
+ const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
+ try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
+  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
+  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
+ }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
+}
+loadPrintings();
+</script></body>
 </html>

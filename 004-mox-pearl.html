@@ -61,7 +61,7 @@ p{margin:1em 0}
 }
 .hero:before{
   content:"";position:absolute;inset:0;z-index:-3;
-  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  background:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop) center 27%/cover no-repeat;
   transform:scale(1.018);
 }
 .hero:after{
@@ -139,7 +139,7 @@ p{margin:1em 0}
 .art-break{
   width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
   min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
-  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop) center 25%/cover no-repeat;
 }
 .art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
 .art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
@@ -161,7 +161,7 @@ p{margin:1em 0}
   width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
   display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
 }
-.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .image{min-height:390px;background:var(--night2)}
 .inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
 .memory{
   background:var(--night);color:white;
@@ -200,7 +200,7 @@ p{margin:1em 0}
 .footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
 .landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
 .archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
-.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop) center/cover}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop) center/cover}
 .archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
 @media(max-width:1050px){
   .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
@@ -248,172 +248,109 @@ p{margin:1em 0}
   .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
 }
 
-.recall-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
 }
-.hero.recall-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
 }
-.vision-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
 }
-.card-advantage{
-  width:min(980px,calc(100vw - 32px));
-  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
 }
-.advantage-step{background:var(--white);padding:24px}
-.advantage-step b{
-  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
-  margin-bottom:9px
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
 }
-.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.target-note{
-  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);
-  font:14px/1.65 Inter,system-ui,sans-serif
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
 }
-.target-note b{color:var(--ink)}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
+.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
 @media(max-width:750px){
-  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
 }
 
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop")!important}
 
-.timewalk-title{
-  letter-spacing:-.045em;
-  font-kerning:none;
-  font-variant-ligatures:none
-}
-@media(max-width:750px){
-  .timewalk-title{
-    letter-spacing:0;
-    line-height:.91
-  }
-}
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
 
-.timewalk-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important
-}
-.hero.timewalk-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important
-}
-.art-break.timewalk-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important;
-  background-position:center 30%!important
-}
-.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Walk&set=lea&format=image&version=art_crop)!important}
-.time-warp-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Time%20Warp&format=image&version=art_crop)!important
-}
-.turn-grid,.exchange-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.turn-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
-.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.turn-step,.exchange-step{background:var(--white);padding:20px}
-.turn-step b,.exchange-step b{display:block;font:900 1.5rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
-.turn-step span,.exchange-step span{font:12.5px/1.48 Inter,system-ui,sans-serif;color:var(--muted)}
-.time-note{
-  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.time-note b{color:var(--ink)}
-.turn-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.turn-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.turn-row:last-child{border-bottom:0}.turn-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.turn-row p{margin:0}
-@media(max-width:900px){.turn-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:750px){.turn-grid,.exchange-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.turn-grid,.exchange-grid{grid-template-columns:1fr}}
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
 
-
-.moxpearl-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
-  background-position:center 34%!important
-}
-.hero.moxpearl-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
-  background-position:center 34%!important
-}
-.art-break.moxpearl-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important;
-  background-position:center 34%!important
-}
-.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Mox%20Pearl&set=lea&format=image&version=art_crop)!important}
-.mox-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Chrome%20Mox&format=image&version=art_crop)!important
-}
-.mana-grid,.pearl-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.mana-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.pearl-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.mana-step,.pearl-step{background:var(--white);padding:23px}
-.mana-step b,.pearl-step b{display:block;font:900 1.55rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px}
-.mana-step span,.pearl-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.mox-note{
-  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.mox-note b{color:var(--ink)}
-.mox-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.mox-row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.mox-row:last-child{border-bottom:0}.mox-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mox-row p{margin:0}
-@media(max-width:750px){.mana-grid,.pearl-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.mana-grid,.pearl-grid{grid-template-columns:1fr}}
-
-</style>
-</head>
-<body>
-<header class="hero moxpearl-art"><div class="hero-grid"></div><div class="hero-inner">
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+</style></head>
+<body data-article-card="Mox Pearl">
+<header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Mox%20Pearl&amp;set=lea&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Mox%20Pearl&amp;set=lea&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
 <a class="archive-link" href="index.html#entry-004">← Wave 01 · The Foundational Canon</a>
 <div class="eyebrow">Entry 004 · Wave 01 · The Foundational Canon</div>
 <h1>The Land Drop That Cost Nothing</h1>
 <p class="deckline">Mox Pearl looked like a tiny white mana source and behaved like an extra turn of development—an artifact that entered before the first land, remained in play, and made Magic’s normal one-land-per-turn limit negotiable.</p>
-<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 24 minute read</span></div>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 20 minute read</span></div>
 </div></header>
-<nav class="rank-nav"><a href="003-time-walk.html">← Entry 003 · Time Walk</a><div class="center">Entry 004 of 1,000</div><a href="005-mox-sapphire.html">Entry 005 · Mox Sapphire →</a></nav>
-<div class="article-shell"><nav class="toc"><strong>In this article</strong>
-<a href="#opening">The land drop that cost nothing</a>
-<a href="#origin">Five jewels in Alpha</a>
-<a href="#zero">Why zero was the mistake</a>
-<a href="#pearl">The so-called least Mox</a>
-<a href="#white">What white mana bought</a>
-<a href="#worlds">The first World Championship</a>
-<a href="#the-deck">The Deck and permanent mana</a>
-<a href="#artifacts">A land that could be shattered</a>
-<a href="#restriction">Restriction and format identity</a>
-<a href="#vintage">The Pearl in Vintage</a>
-<a href="#prison">White prison and hate</a>
-<a href="#tempo">The hidden extra spell</a>
-<a href="#descendants">Every Mox after the Moxen</a>
-<a href="#cube">Powered Cube</a>
-<a href="#art">Dan Frazier’s jewel</a>
-<a href="#memory">What players remember</a>
-<a href="#decklists">The deck archive</a>
-<a href="#printings">Printings and sources</a>
-</nav>
+<nav class="rank-nav"><a href="index.html?focus=entry-003#entry-003">← Entry 003 · Time Walk</a><div class="center">Entry 004 of 1,000</div><a href="index.html?focus=entry-005#entry-005">Entry 005 · Mox Sapphire →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The land drop that cost nothing</a><a href="#origin">Five jewels in Alpha</a><a href="#zero">Why zero was the mistake</a><a href="#pearl">The so-called least Mox</a><a href="#white">What white mana bought</a><a href="#worlds">The first World Championship</a><a href="#the-deck">The Deck and permanent mana</a><a href="#artifacts">A land that could be shattered</a><a href="#restriction">Restriction and format identity</a><a href="#vintage">The Pearl in Vintage</a><a href="#prison">White prison and hate</a><a href="#tempo">The hidden extra spell</a><a href="#descendants">Every Mox after the Moxen</a><a href="#cube">Powered Cube</a><a href="#art">Dan Frazier’s jewel</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
 <article class="article">
 <section id="opening"><div class="chapter-number">I · The extra permanent</div><h2>The land drop that cost nothing</h2>
 <p class="opening dropcap">Mox Pearl is a Plains that does not count as your land for the turn.</p>
-<p>That description is not technically exact. Mox Pearl is an artifact, can be countered, can be destroyed by Disenchant, and does not carry the Plains land type. Strategically, however, the comparison exposes the original error. The card costs no mana, enters untapped, remains on the battlefield, and produces one white mana every turn. A player can cast it before playing a land and begin the game with two permanent mana sources while the opponent is still entitled to only one.</p>
-<p>Black Lotus is more explosive. Sol Ring produces more raw mana. Mox Sapphire is associated with the most famously broken blue spells. Yet the quiet violence of every original Mox lies in permanence. The card does not borrow mana from a future turn or sacrifice itself after one use. It simply changes the starting economy of the game.</p>
+<p>That description is not technically exact. Mox Pearl is an artifact, can be countered, can be destroyed by <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span>, and does not carry the Plains land type. Strategically, however, the comparison exposes the original error. The card costs no mana, enters untapped, remains on the battlefield, and produces one white mana every turn. A player can cast it before playing a land and begin the game with two permanent mana sources while the opponent is still entitled to only one.</p>
+<p><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span> is more explosive. <span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span> produces more raw mana. <span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span> is associated with the most famously broken blue spells. Yet the quiet violence of every original Mox lies in permanence. The card does not borrow mana from a future turn or sacrifice itself after one use. It simply changes the starting economy of the game.</p>
 <p>For white, that change meant a first-turn <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span> could already be represented after another spell was cast. A <span class="card-name" data-card="Balance" tabindex="0">Balance</span>, <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>, <span class="card-name" data-card="Moat" tabindex="0">Moat</span>, or <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span> could arrive a turn ahead of schedule. In modern Vintage, the same Pearl can cast <span class="card-name" data-card="Lavinia, Azorius Renegade" tabindex="0">Lavinia, Azorius Renegade</span>, <span class="card-name" data-card="Containment Priest" tabindex="0">Containment Priest</span>, or removal while leaving lands available for blue interaction.</p>
-<div class="card-lead"><img alt="Mox Pearl from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Mox%20Pearl&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Mox Pearl</b> · {0}<br/>Artifact<br/><br/>{T}: Add {W}.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Designed by</b>Richard Garfield</div><div class="stat"><b>Illustrated by</b>Dan Frazier</div><div class="stat"><b>Historical status</b>Power Nine · Restricted in Vintage</div></div></div></div>
+<div class="card-lead"><img alt="Mox Pearl original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Mox%20Pearl&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Mox Pearl</b> · {0}<br/>Artifact<br/><br/>{T}: Add {W}.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Designed by</b>Richard Garfield</div><div class="stat"><b>Illustrated by</b>Dan Frazier</div><div class="stat"><b>Historical status</b>Power Nine · Restricted in Vintage</div></div></div></div>
 <p>Mox Pearl became both a singular card and one fifth of a concept. The five original Moxen taught players to evaluate mana sources not merely by how much they produced, but by what rule they bypassed. Pearl’s one white mana is modest. The ability to have it before the first land is not.</p></section>
 <section id="origin"><div class="chapter-number">II · Limited Edition Alpha</div><h2>Five jewels in Alpha</h2>
 <p>Alpha contained one Mox for each color: Pearl for white, Sapphire for blue, Jet for black, Ruby for red, and Emerald for green. Their names presented mana as jewelry—small, precious objects that could be carried into play before the landscape itself had been established.</p>
 <p>The cycle was clean enough to seem almost innocent. Each card cost zero and tapped for one colored mana. Early players could reasonably read them as artifact lands before that phrase existed: sources that traded vulnerability to artifact destruction for the convenience of not consuming a land play.</p>
 <p>That apparent trade was radically uneven. Artifact removal existed, but a player first had to draw it, hold up mana, and spend a card answering something the Mox player had deployed for free. The Mox had often already generated mana before it could be destroyed. Even when exchanged one-for-one, the acceleration had altered the order of the game.</p>
-<p>The Moxen joined Black Lotus, Ancestral Recall, Time Walk, and Timetwister in the group later called the Power Nine. The label did not exist because all nine cards performed the same function. It existed because each violated one of the game’s basic prices: cards, mana, or time.</p>
+<p>The Moxen joined <span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span>, <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span>, <span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span>, and <span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span> in the group later called the Power Nine. The label did not exist because all nine cards performed the same function. It existed because each violated one of the game’s basic prices: cards, mana, or time.</p>
 <div class="pullquote">Pearl does not produce an impressive amount of mana. It produces ordinary mana at an impossible moment.<small>The original Mox equation</small></div>
 </section>
 <div class="art-break moxpearl-art"><div class="art-caption"><b>Dan Frazier’s original Mox Pearl artwork</b>The jewel is presented as a complete magical object rather than a tool in use: polished, suspended, and valuable enough that the image itself helped establish “Mox” as Magic’s word for forbidden acceleration.</div></div>
@@ -425,33 +362,33 @@ p{margin:1em 0}
 <div class="mox-note"><b>The enduring design lesson:</b> Zero-mana artifacts that produce mana must carry restrictions, card costs, deck-building requirements, delayed activation, legendary status, or some combination of them. The original Moxen carried none.</div>
 </section>
 <section id="pearl"><div class="chapter-number">IV · The hierarchy</div><h2>The so-called least Mox</h2>
-<p>Players have long ranked the five Moxen according to the spells their colors unlock. Mox Sapphire usually stands first because blue possesses Ancestral Recall, Time Walk, countermagic, and the densest concentration of Vintage card selection. Mox Jet enables tutors, discard, and Yawgmoth’s Will. Ruby and Emerald have historically supported particular combo engines and sideboard tools.</p>
+<p>Players have long ranked the five Moxen according to the spells their colors unlock. <span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span> usually stands first because blue possesses <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span>, <span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span>, countermagic, and the densest concentration of Vintage card selection. <span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span> enables tutors, discard, and Yawgmoth’s Will. Ruby and Emerald have historically supported particular combo engines and sideboard tools.</p>
 <p>Pearl has often been placed near the bottom of that hierarchy. This does not mean the card is weak. It means white, for much of Vintage history, supplied fewer restricted engine cards than blue or black. A blue deck could want Sapphire even when it played almost no other permanent mana. Pearl sometimes needed a more specific reason.</p>
-<p>Those reasons were real. White offered the best cheap creature removal, broad artifact and enchantment answers, Balance, Moat, Armageddon, and later a growing family of hate creatures. Mox Pearl was not merely the fifth piece of complete jewelry. It was the Mox that turned white’s reactive and restrictive cards into accelerated plays.</p>
+<p>Those reasons were real. White offered the best cheap creature removal, broad artifact and enchantment answers, <span class="card-name" data-card="Balance" tabindex="0">Balance</span>, <span class="card-name" data-card="Moat" tabindex="0">Moat</span>, <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span>, and later a growing family of hate creatures. Mox Pearl was not merely the fifth piece of complete jewelry. It was the Mox that turned white’s reactive and restrictive cards into accelerated plays.</p>
 <div class="pearl-grid"><div class="pearl-step"><b>Removal</b><span>Swords to Plowshares and later white answers become easier to pair with another spell.</span></div><div class="pearl-step"><b>Prison</b><span>Balance, Moat, Armageddon, and taxing permanents arrive earlier.</span></div><div class="pearl-step"><b>Hatebears</b><span>Modern Vintage uses white mana for creatures that police graveyards, free spells, and cheating effects.</span></div></div>
 <p>Calling Pearl the least powerful Mox is therefore like calling one member of the Power Nine the least broken. The comparison is internal to a group whose baseline already exceeds ordinary design.</p>
 </section>
 <section id="white"><div class="chapter-number">V · The color</div><h2>What white mana bought</h2>
 <p>Mox Pearl’s identity is easiest to see in the cards it cast. <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> allowed a player to answer nearly any creature while continuing to develop. <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span> attacked the artifacts and enchantments that defined early constructed Magic. <span class="card-name" data-card="Balance" tabindex="0">Balance</span> could reset creatures, lands, and hands from a position engineered to make the symmetry false.</p>
 <p>White’s expensive cards also benefited disproportionately from acceleration. <span class="card-name" data-card="Moat" tabindex="0">Moat</span> and <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span> asked for four and five mana in an era when reaching those totals safely was a central strategic problem. Pearl shortened the vulnerable interval.</p>
-<p>It also interacted naturally with Armageddon. A player could develop a threat and artifact mana, destroy all lands, and retain Pearl afterward. The spell was symmetrical on its face; the Mox was one of the objects that made the symmetry a lie.</p>
-<div class="mox-sequence"><div class="mox-row"><strong>Turn one</strong><p>Mox Pearl plus a land creates two mana without sacrificing the land drop.</p></div><div class="mox-row"><strong>Turn two</strong><p>A three-mana threat, prison piece, or draw engine enters ahead of schedule.</p></div><div class="mox-row"><strong>Later</strong><p>Armageddon, Balance, or land pressure removes ordinary mana while Pearl remains.</p></div></div>
+<p>It also interacted naturally with <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span>. A player could develop a threat and artifact mana, destroy all lands, and retain Pearl afterward. The spell was symmetrical on its face; the Mox was one of the objects that made the symmetry a lie.</p>
+<div class="mox-sequence"><div class="mox-row"><strong>Turn one</strong><p>Mox Pearl plus a land creates two mana without sacrificing the land drop.</p></div><div class="mox-row"><strong>Turn two</strong><p>A three-mana threat, prison piece, or draw engine enters ahead of schedule.</p></div><div class="mox-row"><strong>Later</strong><p><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span>, <span class="card-name" data-card="Balance" tabindex="0">Balance</span>, or land pressure removes ordinary mana while Pearl remains.</p></div></div>
 </section>
 <section id="worlds"><div class="chapter-number">VI · New York, 1994</div><h2>The first World Championship</h2>
-<p>Zak Dolan’s World Championship deck used all five Moxen, Black Lotus, Sol Ring, and Mana Vault. Mox Pearl sat among a package of fifteen artifacts, helping support four Serra Angels, four Swords to Plowshares, Wrath of God, Armageddon, Disenchant, Kismet, and Stasis.</p>
-<p>The deck is famous for its singletons and strange-looking interactions, but the artifact mana gave those interactions time to assemble. Pearl could help cast early white removal, accelerate a Serra Angel, or remain available through Armageddon. The card’s value was not isolated to one signature combination. It smoothed an entire deck whose white cards ranged from one mana to five.</p>
+<p>Zak Dolan’s World Championship deck used all five Moxen, <span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span>, <span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span>, and <span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span>. Mox Pearl sat among a package of fifteen artifacts, helping support four Serra Angels, four <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>, <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>, <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span>, <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span>, <span class="card-name" data-card="Kismet" tabindex="0">Kismet</span>, and <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span>.</p>
+<p>The deck is famous for its singletons and strange-looking interactions, but the artifact mana gave those interactions time to assemble. Pearl could help cast early white removal, accelerate a <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, or remain available through <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span>. The card’s value was not isolated to one signature combination. It smoothed an entire deck whose white cards ranged from one mana to five.</p>
 <p>The first World Champion therefore demonstrated a pattern that would recur throughout Vintage: Mox Pearl was strongest not when a deck described itself as mono-white, but when a multicolor deck needed white’s most efficient tools without slowing its primary engine.</p>
-<div class="timeline"><div class="timeline-item"><time>August 1993</time><h3>Limited Edition Alpha</h3><p>Mox Pearl enters Magic as one of five zero-mana colored artifacts.</p></div><div class="timeline-item"><time>August 1994</time><h3>World Championship</h3><p>Zak Dolan wins with Pearl supporting white removal, sweepers, Serra Angel, Stasis, and artifact acceleration.</p></div><div class="timeline-item"><time>Mid-1990s</time><h3>The Deck</h3><p>Brian Weissman’s control structure uses Pearl as permanent mana for Swords, Disenchant, Moat, and Serra Angel.</p></div><div class="timeline-item"><time>Modern Vintage</time><h3>White policing tools</h3><p>Pearl increasingly casts Lavinia, Containment Priest, and other efficient answers to Vintage’s fastest engines.</p></div></div>
+<div class="timeline"><div class="timeline-item"><time>August 1993</time><h3>Limited Edition Alpha</h3><p>Mox Pearl enters Magic as one of five zero-mana colored artifacts.</p></div><div class="timeline-item"><time>August 1994</time><h3>World Championship</h3><p>Zak Dolan wins with Pearl supporting white removal, sweepers, <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span>, and artifact acceleration.</p></div><div class="timeline-item"><time>Mid-1990s</time><h3>The Deck</h3><p>Brian Weissman’s control structure uses Pearl as permanent mana for Swords, <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span>, <span class="card-name" data-card="Moat" tabindex="0">Moat</span>, and <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>.</p></div><div class="timeline-item"><time>Modern Vintage</time><h3>White policing tools</h3><p>Pearl increasingly casts Lavinia, <span class="card-name" data-card="Containment Priest" tabindex="0">Containment Priest</span>, and other efficient answers to Vintage’s fastest engines.</p></div></div>
 </section>
 <section id="the-deck"><div class="chapter-number">VII · Control doctrine</div><h2>The Deck and permanent mana</h2>
-<p>Brian Weissman’s The Deck formalized card advantage, answer density, and inevitability in early Type I. Its Mox Pearl had a precise job. The deck needed white mana for four Swords to Plowshares, four Disenchant, two Moat, Serra Angel, and sideboard cards, but it also wanted to play at instant speed and reach Mana Drain quickly.</p>
-<p>Pearl helped the control deck develop without surrendering the ability to respond. A land plus Pearl could cast Swords and still represent another one-mana effect. Two lands plus Pearl could leave Mana Drain available while advancing a permanent. After an Armageddon from the opponent, or under pressure from Strip Mine, the artifact remained a source.</p>
+<p>Brian Weissman’s The Deck formalized card advantage, answer density, and inevitability in early Type I. Its Mox Pearl had a precise job. The deck needed white mana for four <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>, four <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span>, two <span class="card-name" data-card="Moat" tabindex="0">Moat</span>, <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, and sideboard cards, but it also wanted to play at instant speed and reach <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span> quickly.</p>
+<p>Pearl helped the control deck develop without surrendering the ability to respond. A land plus Pearl could cast Swords and still represent another one-mana effect. Two lands plus Pearl could leave <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span> available while advancing a permanent. After an <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span> from the opponent, or under pressure from <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span>, the artifact remained a source.</p>
 <p>The Mox also illustrates a broader truth about control acceleration. Fast mana is not exclusively aggressive. Combo uses it to end the game before resistance forms; control uses it to reach the stage where every opposing threat can be answered. Pearl bought both speed and stability.</p>
 </section>
 <section id="artifacts"><div class="chapter-number">VIII · The false drawback</div><h2>A land that could be shattered</h2>
-<p>The original Moxen were artifacts, and that vulnerability mattered. Disenchant, Shatter, Divine Offering, and later Null Rod, Stony Silence, Collector Ouphe, and artifact sweepers could punish reliance on them. A player keeping a one-land hand because Pearl supplied the second mana source could be exposed by removal.</p>
+<p>The original Moxen were artifacts, and that vulnerability mattered. <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span>, Shatter, Divine Offering, and later Null Rod, Stony Silence, <span class="card-name" data-card="Collector Ouphe" tabindex="0">Collector Ouphe</span>, and artifact sweepers could punish reliance on them. A player keeping a one-land hand because Pearl supplied the second mana source could be exposed by removal.</p>
 <p>But vulnerability is not the same as fair pricing. The opponent still had to spend a card and mana answering a permanent that cost nothing. If Pearl had already produced mana once, the exchange could leave its controller ahead in tempo even when the artifact died.</p>
-<p>The artifact type also created upside. Pearl survived Armageddon, counted toward metalcraft and affinity-like effects in later contexts, could be replayed through artifact recursion, and participated in Tinker, Goblin Welder, and Urza’s Saga ecosystems. The supposed drawback became another axis of synergy.</p>
+<p>The artifact type also created upside. Pearl survived <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span>, counted toward metalcraft and affinity-like effects in later contexts, could be replayed through artifact recursion, and participated in <span class="card-name" data-card="Tinker" tabindex="0">Tinker</span>, Goblin Welder, and Urza’s Saga ecosystems. The supposed drawback became another axis of synergy.</p>
 <div class="pullquote">A zero-mana permanent does not need to be indestructible. It only needs to force the opponent to pay more for the answer than you paid for the threat.<small>The Mox tempo exchange</small></div>
 </section>
 <section id="restriction"><div class="chapter-number">IX · Format law</div><h2>Restriction and format identity</h2>
@@ -461,8 +398,8 @@ p{margin:1em 0}
 </section>
 <section id="vintage"><div class="chapter-number">X · The eternal format</div><h2>The Pearl in Vintage</h2>
 <p>Vintage deck builders do not automatically register every Mox. The correct package depends on colors, Null Rod effects, artifact synergies, and the need to resist opposing hate. Pearl therefore offers an unusually clear measure of what white contributes to a metagame.</p>
-<p>In Stephen Menendian’s 2007 Gro-A-Tog, Pearl was one of four Moxen even though the maindeck contained no obvious white spell. It still accelerated Quirion Dryad, cantrips, Merchant Scroll, and countermagic, and could become another zero-mana spell for storm-like turns or Yawgmoth’s Will. The white color was less important than the fact that the artifact produced mana at no cost.</p>
-<p>By 2024, Max Gilmore’s Esper Control used Pearl more literally. The deck played four Swords to Plowshares and two Lavinia, Azorius Renegade, with four Containment Priests in the sideboard. Pearl helped cast the white cards that constrained creatures, free spells, and graveyard strategies while blue and black supplied the draw and disruption.</p>
+<p>In Stephen Menendian’s 2007 Gro-A-Tog, Pearl was one of four Moxen even though the maindeck contained no obvious white spell. It still accelerated Quirion Dryad, cantrips, <span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span>, and countermagic, and could become another zero-mana spell for storm-like turns or Yawgmoth’s Will. The white color was less important than the fact that the artifact produced mana at no cost.</p>
+<p>By 2024, Max Gilmore’s Esper Control used Pearl more literally. The deck played four <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> and two <span class="card-name" data-card="Lavinia, Azorius Renegade" tabindex="0">Lavinia, Azorius Renegade</span>, with four Containment Priests in the sideboard. Pearl helped cast the white cards that constrained creatures, free spells, and graveyard strategies while blue and black supplied the draw and disruption.</p>
 <p>This evolution captures Pearl’s double life. Sometimes it is simply a Mox: a free permanent mana source worth playing despite imperfect color. Sometimes it is specifically the white Mox, enabling the format’s most efficient police cards.</p>
 </section>
 <section id="prison"><div class="chapter-number">XI · The white weapon</div><h2>White prison and hate</h2>
@@ -471,15 +408,15 @@ p{margin:1em 0}
 <p>That choice is healthy evidence of a real metagame. Pearl is powerful enough to demand inclusion and vulnerable enough to be strategically questioned. The original design remains broken; the surrounding format has become sophisticated enough to make even broken cards contextual.</p>
 </section>
 <section id="tempo"><div class="chapter-number">XII · The invisible action</div><h2>The hidden extra spell</h2>
-<p>Players remember the spell cast with Mox Pearl, not always the Pearl itself. That is the nature of mana acceleration. The visible event may be a turn-one Lavinia, an early Moat, a protected Serra Angel, or Swords to Plowshares plus countermagic in the same turn. Pearl is the missing beat that made the sequence possible.</p>
+<p>Players remember the spell cast with Mox Pearl, not always the Pearl itself. That is the nature of mana acceleration. The visible event may be a turn-one Lavinia, an early <span class="card-name" data-card="Moat" tabindex="0">Moat</span>, a protected <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, or <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> plus countermagic in the same turn. Pearl is the missing beat that made the sequence possible.</p>
 <p>This makes the card’s advantage easy to underestimate in retrospective decklists. It does not draw cards or announce a dramatic effect. It allows two actions where the rules expected one. Over several turns, that extra source compounds: every spell moved forward leaves later mana available for interaction, card draw, or another threat.</p>
-<p>The card also changes mulligan decisions. Hands with Pearl can keep fewer lands, cast color-intensive interaction sooner, and recover from Wasteland differently. The free artifact is not merely the sixty-first land. It changes which combinations of the other fifty-nine cards are functional.</p>
+<p>The card also changes mulligan decisions. Hands with Pearl can keep fewer lands, cast color-intensive interaction sooner, and recover from <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> differently. The free artifact is not merely the sixty-first land. It changes which combinations of the other fifty-nine cards are functional.</p>
 </section>
 <section id="descendants"><div class="chapter-number">XIII · Design echo</div><h2>Every Mox after the Moxen</h2>
 <p>Later Mox designs begin from the assumption that the original equation cannot be repeated. The name promises zero-mana colored acceleration; the rules text explains the price.</p>
 <p><span class="card-name" data-card="Mox Diamond" tabindex="0">Mox Diamond</span> requires a discarded land. <span class="card-name" data-card="Chrome Mox" tabindex="0">Chrome Mox</span> exiles a colored card and inherits its color. <span class="card-name" data-card="Mox Opal" tabindex="0">Mox Opal</span> asks for metalcraft and carries legendary status. <span class="card-name" data-card="Mox Amber" tabindex="0">Mox Amber</span> depends on legendary permanents already in play. <span class="card-name" data-card="Mox Tantalite" tabindex="0">Mox Tantalite</span> waits in suspend before producing mana.</p>
 <p>Each descendant selects a different form of payment: card disadvantage, deck-building restriction, board requirement, timing delay, or uniqueness. None can simply be cast into an empty battlefield and become a permanent colored source without consequence.</p>
-<div class="inline-image mox-descendant"><div class="image"></div><div class="copy"><div class="kicker">The card-cost descendant</div><h3>Chrome Mox</h3><p>Chrome Mox preserves the zero mana cost and immediate colored acceleration, but only by exiling another card. The missing card is the price the original cycle never paid.</p></div></div>
+<div class="inline-image mox-descendant"><div class="image"></div><div class="copy"><div class="kicker">The card-cost descendant</div><h3>Chrome Mox</h3><p><span class="card-name" data-card="Chrome Mox" tabindex="0">Chrome Mox</span> preserves the zero mana cost and immediate colored acceleration, but only by exiling another card. The missing card is the price the original cycle never paid.</p></div></div>
 </section>
 <section id="cube"><div class="chapter-number">XIV · The curated experience</div><h2>Powered Cube</h2>
 <p>Powered Cube is the most common place many players experience Mox Pearl as an actual game piece. There, the card is not restricted by constructed deck-building but by draft scarcity: one copy appears in a pool of hundreds, and the player must decide how highly to select raw acceleration over a powerful spell.</p>
@@ -493,13 +430,13 @@ p{margin:1em 0}
 </section>
 <section id="memory"><div class="chapter-number">XVI · The opening hand</div><h2>What players remember</h2>
 <p>Players remember Mox Pearl as the sound of a game beginning too quickly. A card is placed on the table before the first land, and the ordinary assumptions about available mana must be recalculated immediately.</p>
-<p>They also remember hierarchy: Sapphire first, Jet next, arguments over Ruby, Emerald, and Pearl. Those debates are part of the Power Nine’s mythology, but they can obscure the basic fact that every Mox is an impossible Magic card. Pearl is only “least” when compared with siblings that enable Ancestral Recall or Demonic Tutor.</p>
+<p>They also remember hierarchy: Sapphire first, Jet next, arguments over Ruby, Emerald, and Pearl. Those debates are part of the Power Nine’s mythology, but they can obscure the basic fact that every Mox is an impossible Magic card. Pearl is only “least” when compared with siblings that enable <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span> or <span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span>.</p>
 <p>For white mages, the card carries a more specific fantasy. It is the perfect opening source for a color usually associated with rules, order, and fair exchange—and it is itself profoundly unfair.</p>
 <div class="memory"><div class="memory-grid"><blockquote>The Pearl is quiet because the spell it accelerates receives the applause. The extra mana was the real event.</blockquote><cite>Mox Pearl as invisible tempo</cite></div></div>
 </section>
-<section class="deck-archive" id="decklists"><div class="chapter-number">XVII · The record</div><h2>The deck archive</h2>
-<p class="deck-intro">These four lists trace Mox Pearl from the first World Championship and the foundational control doctrine of The Deck through unrestricted-color Vintage engines and a modern Esper shell where white mana again has a distinct policing role.</p>
-<details class="deck"><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first World Champion used four copies as the immediate answer that allowed a strange, powerful control deck to survive until Serra Angel and its lock pieces took over.</p><button class="copy" data-target="mox-pearl-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div><div class="deck-col"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div></div><pre hidden="" id="mox-pearl-deck-0">Zak Dolan — U/W/G Stasis Control
+<section id="decklists"><div class="chapter-number">XVII · The record</div><h2>The deck archive</h2>
+<p class="deck-intro">The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p>
+<div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Official or publisher record</span><p>A documented historical list featuring Mox Pearl.</p><div class="deck-meta"><div><b>Zak Dolan — U/W/G Stasis Control</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-004-mox-pearl-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div></div><div class="group"><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div></div><pre hidden="" id="deck-004-mox-pearl-1">Zak Dolan — U/W/G Stasis Control
 World Champion · Worlds 1994
 
 Creatures · 11
@@ -510,21 +447,6 @@ Creatures · 11
 1 Birds of Paradise
 1 Ley Druid
 4 Serra Angel
-
-Sorceries · 6
-1 Recall
-1 Timetwister
-1 Time Walk
-1 Regrowth
-1 Armageddon
-1 Wrath of God
-
-Instants · 9
-1 Ancestral Recall
-1 Mana Drain
-1 Siren's Call
-2 Disenchant
-4 Swords to Plowshares
 
 Artifacts · 15
 1 Black Lotus
@@ -547,12 +469,27 @@ Enchantments · 4
 2 Stasis
 1 Kismet
 
+Instants · 9
+1 Ancestral Recall
+1 Mana Drain
+1 Siren's Call
+2 Disenchant
+4 Swords to Plowshares
+
 Lands · 15
 1 Library of Alexandria
 4 Savannah
 4 Tropical Island
 4 Tundra
 2 Strip Mine
+
+Sorceries · 6
+1 Recall
+1 Timetwister
+1 Time Walk
+1 Regrowth
+1 Armageddon
+1 Wrath of God
 
 Sideboard · 15
 1 Kismet
@@ -568,210 +505,236 @@ Sideboard · 15
 1 Presence of the Master
 1 Reverse Damage
 1 Sleight of Mind
-1 Winter Blast</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p></div></details>
-<details class="deck">
-<summary><span><strong>Brian Weissman — The Deck</strong><small>Foundational Type I control archetype · mid-1990s</small></span><span class="plus">+</span></summary>
-<div class="deck-body">
-<p>The Deck used Lotus to reach Mind Twist, Disrupting Scepter, and the mana advantage required to convert answers into permanent control. Its presence in the first famous control deck demonstrates that Lotus was not merely a combo card; it was the best possible opening resource for almost any strategy.</p>
-<div class="deck-meta"><div><b>Brian Weissman</b><div class="small">Foundational Type I control archetype · mid-1990s</div></div>
-<button class="copy" data-target="mox-pearl-deck-1">Copy decklist</button></div>
-<div class="deck-columns">
-<div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div></div></div>
-<div class="deck-col"><div class="group"><h4>Artifacts · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div>
-</div>
-<pre hidden="" id="mox-pearl-deck-1">Brian Weissman — The Deck
-Foundational Type I control archetype · mid-1990s
+1 Winter Blast</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Paul Mastriano — Pitch Long</strong><small>Champion · 2008 Vintage World Championship</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>Storm treated the card as velocity. Recall found rituals and tutors, protected the combo turn by refilling after disruption, and became especially dangerous when replayed during Yawgmoth’s Will.</p><div class="deck-meta"><div><b>Paul Mastriano</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-004-mox-pearl-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creature · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Darksteel Colossus" tabindex="0">Darksteel Colossus</span></div></div><div class="group"><h4>Other spells · 13</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Memory Jar" tabindex="0">Memory Jar</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Necropotence" tabindex="0">Necropotence</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Bargain" tabindex="0">Yawgmoth's Bargain</span></div></div><div class="group"><h4>Lands · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bloodstained Mire" tabindex="0">Bloodstained Mire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants and sorceries · 34</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cabal Ritual" tabindex="0">Cabal Ritual</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gifts Ungiven" tabindex="0">Gifts Ungiven</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Grim Tutor" tabindex="0">Grim Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tendrils of Agony" tabindex="0">Tendrils of Agony</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tinker" tabindex="0">Tinker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Massacre" tabindex="0">Massacre</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Phyrexian Negator" tabindex="0">Phyrexian Negator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rebuild" tabindex="0">Rebuild</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div></div></div><pre hidden="" id="deck-004-mox-pearl-2">Paul Mastriano — Pitch Long
+Champion · 2008 Vintage World Championship
 
-Creatures · 2
-2 Serra Angel
+Creature · 1
+1 Darksteel Colossus
 
-Sorceries · 7
-1 Time Walk
-1 Timetwister
-1 Braingeyser
-1 Recall
-1 Demonic Tutor
-1 Mind Twist
-1 Regrowth
-
-Instants · 17
-4 Mana Drain
-2 Counterspell
+Instants and sorceries · 34
 1 Ancestral Recall
-4 Disenchant
-4 Swords to Plowshares
-2 Red Elemental Blast
-
-Enchantments · 2
-2 Moat
-
-Artifacts · 11
-2 Disrupting Scepter
-1 Jayemdae Tome
-1 Ivory Tower
-1 Mox Pearl
-1 Mox Ruby
-1 Mox Jet
-1 Mox Sapphire
-1 Mox Emerald
-1 Black Lotus
-1 Sol Ring
-
-Lands · 21
-2 Strip Mine
-1 Library of Alexandria
-3 City of Brass
-1 Plateau
-1 Underground Sea
-2 Volcanic Island
-4 Tundra
-3 Plains
-4 Island
-
-Sideboard · 15
-1 Plains
-1 Counterspell
-1 Moat
-1 Disrupting Scepter
-1 Jayemdae Tome
-1 Tormod's Crypt
-2 Control Magic
-2 Blood Moon
-3 Circle of Protection: Red
-2 Divine Offering</pre>
-<p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">open the historical record</a></p>
-</div>
-</details>
-<details class="deck">
-<summary><span><strong>Stephen Menendian — Gro-A-Tog</strong><small>Champion · Gen Con Vintage Championship 2007</small></span><span class="plus">+</span></summary>
-<div class="deck-body">
-<p>In Gush-based Vintage, Ancestral Recall was simultaneously raw card advantage, a cheap blue spell for Quirion Dryad, a Merchant Scroll target, and material that could be replayed with Yawgmoth’s Will.</p>
-<div class="deck-meta">
-<div><b>Stephen Menendian</b><div class="small">Champion · Gen Con Vintage Championship 2007</div></div>
-<button class="copy" data-target="mox-pearl-deck-2">Copy decklist</button>
-</div>
-<div class="deck-columns">
-<div class="deck-col"><div class="group"><h4>Creatures · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Psychatog" tabindex="0">Psychatog</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Quirion Dryad" tabindex="0">Quirion Dryad</span></div></div><div class="group"><h4>Lands · 14</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div></div>
-<div class="deck-col"><div class="group"><h4>Instants and sorceries · 35</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Merchant Scroll" tabindex="0">Merchant Scroll</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div></div><div class="group"><h4>Other spells · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fastbond" tabindex="0">Fastbond</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancient Grudge" tabindex="0">Ancient Grudge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Berserk" tabindex="0">Berserk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fire / Ice" tabindex="0">Fire / Ice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oxidize" tabindex="0">Oxidize</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rack and Ruin" tabindex="0">Rack and Ruin</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span></div></div></div>
-</div>
-<pre hidden="" id="mox-pearl-deck-2">Stephen Menendian — Gro-A-Tog
-Champion · Gen Con Vintage Championship 2007
-
-Creatures · 5
-1 Psychatog
-4 Quirion Dryad
-
-Lands · 14
-3 Flooded Strand
-1 Island
-1 Library of Alexandria
-3 Polluted Delta
-2 Tropical Island
-3 Underground Sea
-1 Volcanic Island
-
-Instants and sorceries · 35
-1 Ancestral Recall
-4 Brainstorm
-1 Cunning Wish
+1 Brainstorm
+2 Cabal Ritual
+1 Chain of Vapor
+4 Dark Ritual
 1 Demonic Tutor
 4 Duress
+1 Fact or Fiction
 4 Force of Will
-4 Gush
-2 Mana Drain
-4 Merchant Scroll
-2 Misdirection
+1 Gifts Ungiven
+3 Grim Tutor
+1 Hurkyl's Recall
+1 Merchant Scroll
+1 Misdirection
 1 Mystical Tutor
-3 Opt
-1 Red Elemental Blast
+1 Ponder
+1 Tendrils of Agony
 1 Time Walk
+1 Timetwister
+1 Tinker
 1 Vampiric Tutor
 1 Yawgmoth's Will
 
-Other spells · 6
+Other spells · 13
 1 Black Lotus
-1 Fastbond
+1 Lotus Petal
+1 Mana Crypt
+1 Mana Vault
+1 Memory Jar
 1 Mox Emerald
 1 Mox Jet
 1 Mox Pearl
+1 Mox Ruby
 1 Mox Sapphire
+1 Necropotence
+1 Sol Ring
+1 Yawgmoth's Bargain
+
+Lands · 12
+1 Bloodstained Mire
+2 Island
+4 Polluted Delta
+2 Swamp
+3 Underground Sea
 
 Sideboard · 15
-1 Ancient Grudge
-1 Berserk
-1 Fire / Ice
-1 Island
-1 Oxidize
-2 Pithing Needle
-2 Pyroblast
-1 Rack and Ruin
-1 Red Elemental Blast
-1 Rushing River
-3 Yixlid Jailer</pre>
-<p class="small">Source: <a href="https://www.mtgtop8.com/event?e=15&amp;f=VI">open the historical record</a></p>
-</div>
-</details>
-<details class="deck"><summary><span><strong>Max Gilmore — Esper Control</strong><small>Champion · North American Vintage Championship 2024</small></span><span class="plus">+</span></summary>
-<div class="deck-body"><p>Nearly three decades after Alliances, the Vintage champion still registered four Forces. Restricted draw spells and artifact mana change around it; the format’s universal answer remains unrestricted.</p><div class="deck-meta"><div><b>Max Gilmore — Esper Control</b><div class="small">Champion · North American Vintage Championship 2024</div></div><button class="copy" data-target="mox-pearl-deck-3">Copy decklist</button></div>
-<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 9</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lavinia, Azorius Renegade" tabindex="0">Lavinia, Azorius Renegade</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nethergoyf" tabindex="0">Nethergoyf</span></div></div><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza's Saga" tabindex="0">Urza's Saga</span></div></div><div class="group"><h4>Spells · 33</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Treasure Cruise" tabindex="0">Treasure Cruise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dig Through Time" tabindex="0">Dig Through Time</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dress Down" tabindex="0">Dress Down</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lórien Revealed" tabindex="0">Lórien Revealed</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vexing Bauble" tabindex="0">Vexing Bauble</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mindbreak Trap" tabindex="0">Mindbreak Trap</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Containment Priest" tabindex="0">Containment Priest</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lurrus of the Dream-Den" tabindex="0">Lurrus of the Dream-Den</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span></div></div></div></div>
-<pre hidden="" id="mox-pearl-deck-3">Max Gilmore — Esper Control
-Champion · North American Vintage Championship 2024
+2 Hurkyl's Recall
+2 Hymn to Tourach
+1 Massacre
+3 Phyrexian Negator
+1 Rebuild
+2 Tormod's Crypt
+4 Yixlid Jailer</pre><p class="small">Source: <a href="https://www.mtgtop8.com/event?e=381&amp;f=VI">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>LogT1 — Bant Beanstalk Control</strong><small>2023 Asia Vintage Championship · Bant Control</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>A documented historical list featuring Mox Pearl.</p><div class="deck-meta"><div><b>LogT1 — Bant Beanstalk Control</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-004-mox-pearl-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ethereal Forager" tabindex="0">Ethereal Forager</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lavinia, Azorius Renegade" tabindex="0">Lavinia, Azorius Renegade</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Monastery Mentor" tabindex="0">Monastery Mentor</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dig Through Time" tabindex="0">Dig Through Time</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 14</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gitaxian Probe" tabindex="0">Gitaxian Probe</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Prismatic Ending" tabindex="0">Prismatic Ending</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Preordain" tabindex="0">Preordain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Treasure Cruise" tabindex="0">Treasure Cruise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lórien Revealed" tabindex="0">Lórien Revealed</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div></div><div class="group"><h4>Enchantments · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Up the Beanstalk" tabindex="0">Up the Beanstalk</span></div></div><div class="group"><h4>Lands · 16</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Containment Priest" tabindex="0">Containment Priest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dress Down" tabindex="0">Dress Down</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Murktide Regent" tabindex="0">Murktide Regent</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nature's Claim" tabindex="0">Nature's Claim</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Collector Ouphe" tabindex="0">Collector Ouphe</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Soul-Guide Lantern" tabindex="0">Soul-Guide Lantern</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Grafdigger's Cage" tabindex="0">Grafdigger's Cage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div></div></div></div><pre hidden="" id="deck-004-mox-pearl-3">LogT1 — Bant Beanstalk Control
+2023 Asia Vintage Championship · Bant Control
 
-Creatures · 9
+Creatures · 6
+3 Ethereal Forager
 2 Lavinia, Azorius Renegade
-2 Orcish Bowmasters
-4 Psychic Frog
-1 Nethergoyf
+1 Monastery Mentor
 
-Lands · 18
-1 Strip Mine
-3 Wasteland
-3 Underground Sea
-3 Tundra
-1 Karakas
-3 Flooded Strand
-3 Scalding Tarn
-1 Urza's Saga
-
-Spells · 33
-1 Brainstorm
-4 Force of Will
-4 Swords to Plowshares
-1 Demonic Tutor
-1 Time Walk
-1 Ancestral Recall
+Artifacts · 4
 1 Black Lotus
-1 Lotus Petal
-1 Mox Jet
+1 Mox Emerald
 1 Mox Pearl
 1 Mox Sapphire
-2 Ponder
-2 Spell Pierce
-1 Nihil Spellbomb
-1 Mental Misstep
-1 Gitaxian Probe
-1 Treasure Cruise
+
+Enchantments · 3
+3 Up the Beanstalk
+
+Instants · 17
+1 Ancestral Recall
+1 Brainstorm
 1 Dig Through Time
 3 Force of Negation
-1 Dress Down
-2 Lórien Revealed
-1 Vexing Bauble
+4 Force of Will
+1 Gush
+1 Mental Misstep
+2 Spell Pierce
+3 Swords to Plowshares
+
+Lands · 16
+1 Flooded Strand
+2 Island
+1 Misty Rainforest
+1 Polluted Delta
+1 Scalding Tarn
+1 Strip Mine
+2 Tropical Island
+3 Tundra
+4 Wasteland
+
+Sorceries · 14
+1 Gitaxian Probe
+1 Prismatic Ending
+1 Ponder
+4 Preordain
+1 Regrowth
+1 Time Walk
+1 Treasure Cruise
+4 Lórien Revealed
 
 Sideboard · 15
-2 Null Rod
-1 The Tabernacle at Pendrell Vale
+2 Containment Priest
+1 Dress Down
+1 Murktide Regent
+2 Nature's Claim
+2 Collector Ouphe
+1 Balance
+1 Soul-Guide Lantern
+1 Surgical Extraction
 1 Pithing Needle
-1 Mindbreak Trap
-1 Nihil Spellbomb
-4 Containment Priest
-2 Fatal Push
-1 Lurrus of the Dream-Den
-2 Consign to Memory</pre><p class="small">Source: <a href="https://articles.starcitygames.com/magic-the-gathering/top-decks-and-winners-from-north-american-eternal-weekend-2024/">open the historical record</a></p></div></details>
-</section>
+1 Swords to Plowshares
+1 Grafdigger's Cage
+1 The Tabernacle at Pendrell Vale</pre><p class="small">Source: <a href="https://mtgdecks.net/Vintage/bant-control-decklist-by-logt1-1812565">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Groundhog Day — Nested Draw Control</strong><small>Old School novelty-control construction · documented 63/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>Groundhog Day places Shahrazad beside Divine Intervention, Eureka, Mirror Universe, Time Vault, and recursion. The deck is less interested in efficiency than in creating games within games, alternate draws, repeated turns, and a match whose structure becomes as important as its final winner.</p><div class="deck-meta"><div><b>Groundhog Day — Nested Draw Control</b><div class="small">Main deck 63 · Sideboard 15</div></div><button class="copy" data-target="deck-004-mox-pearl-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Artifacts and Enchantments · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mirror Universe" tabindex="0">Mirror Universe</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants and Sorceries · 28</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Divine Intervention" tabindex="0">Divine Intervention</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Eureka" tabindex="0">Eureka</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shahrazad" tabindex="0">Shahrazad</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wheel of Fortune" tabindex="0">Wheel of Fortune</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Short" tabindex="0">Mana Short</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Time Vault" tabindex="0">Time Vault</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Transmute Artifact" tabindex="0">Transmute Artifact</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Twiddle" tabindex="0">Twiddle</span></div></div></div></div><pre hidden="" id="deck-004-mox-pearl-4">Groundhog Day — Nested Draw Control
+Old School novelty-control construction · documented 63/15
+
+Artifacts and Enchantments · 15
+1 Black Lotus
+1 Chaos Orb
+1 Mana Vault
+3 Mirror Universe
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+3 Sylvan Library
+
+Instants and Sorceries · 28
+1 Ancestral Recall
+1 Balance
+1 Braingeyser
+2 Counterspell
+1 Demonic Tutor
+3 Disenchant
+4 Divine Intervention
+4 Eureka
+1 Fireball
+1 Mana Drain
+2 Recall
+1 Regrowth
+1 Shahrazad
+1 Time Walk
+1 Timetwister
+1 Wheel of Fortune
+2 Wrath of God
+
+Lands · 20
+4 City of Brass
+1 Library of Alexandria
+4 Savannah
+4 Tropical Island
+4 Tundra
+1 Underground Sea
+2 Volcanic Island
+
+Sideboard · 15
+4 Howling Mine
+1 Mana Short
+2 Recall
+3 Time Vault
+1 Transmute Artifact
+4 Twiddle</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>Vintage Dragon — Worldgorger Combo</strong><small>Representative early-2000s construction · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>A documented historical list featuring Mox Pearl.</p><div class="deck-meta"><div><b>Vintage Dragon — Worldgorger Combo</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-004-mox-pearl-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Squee, Goblin Nabob" tabindex="0">Squee, Goblin Nabob</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Worldgorger Dragon" tabindex="0">Worldgorger Dragon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ambassador Laquatus" tabindex="0">Ambassador Laquatus</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Bazaar of Baghdad" tabindex="0">Bazaar of Baghdad</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div></div><div class="group"><h4>Tutors and draw · 12</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Entomb" tabindex="0">Entomb</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vampiric Tutor" tabindex="0">Vampiric Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Tutor" tabindex="0">Mystical Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Intuition" tabindex="0">Intuition</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Crypt" tabindex="0">Mana Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lion's Eye Diamond" tabindex="0">Lion's Eye Diamond</span></div></div><div class="group"><h4>Reanimation · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Animate Dead" tabindex="0">Animate Dead</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Dance of the Dead" tabindex="0">Dance of the Dead</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Necromancy" tabindex="0">Necromancy</span></div></div><div class="group"><h4>Disruption · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Xantid Swarm" tabindex="0">Xantid Swarm</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Coffin Purge" tabindex="0">Coffin Purge</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Stroke of Genius" tabindex="0">Stroke of Genius</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Verdant Force" tabindex="0">Verdant Force</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shallow Grave" tabindex="0">Shallow Grave</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Echoing Truth" tabindex="0">Echoing Truth</span></div></div></div></div><pre hidden="" id="deck-004-mox-pearl-5">Vintage Dragon — Worldgorger Combo
+Representative early-2000s construction · 60/15
+
+Creatures · 8
+4 Squee, Goblin Nabob
+3 Worldgorger Dragon
+1 Ambassador Laquatus
+
+Artifacts · 9
+1 Black Lotus
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+1 Mana Crypt
+1 Lion's Eye Diamond
+
+Lands · 15
+4 Bazaar of Baghdad
+4 Underground Sea
+4 Polluted Delta
+2 Island
+1 Swamp
+
+Reanimation · 8
+4 Animate Dead
+3 Dance of the Dead
+1 Necromancy
+
+Disruption · 8
+4 Force of Will
+4 Duress
+
+Tutors and draw · 12
+3 Entomb
+2 Cunning Wish
+1 Ancestral Recall
+1 Time Walk
+1 Demonic Tutor
+1 Vampiric Tutor
+1 Mystical Tutor
+1 Intuition
+1 Recall
+
+Sideboard · 15
+3 Xantid Swarm
+3 Coffin Purge
+2 Chain of Vapor
+2 Pyroblast
+1 Stroke of Genius
+1 Verdant Force
+1 Shallow Grave
+1 Hurkyl's Recall
+1 Echoing Truth</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details></div></section>
 <section id="printings"><div class="chapter-number">XVIII · The archive</div><h2>Printings and sources</h2>
-<p>Mox Pearl appeared in Limited Edition Alpha, Beta, and Unlimited Edition. Collector’s Edition, International Collector’s Edition, and later commemorative or digital appearances preserved the image without creating ordinary tournament-legal paper reprints. The card remains on the Reserved List.</p>
+<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p>
 <p>The original is restricted in Vintage and banned from formats whose card pools would otherwise include it. Powered Cube and digital special events provide controlled environments where the design can be experienced without permitting four-copy constructed decks.</p>
-<div aria-label="Mox Pearl printing gallery" class="printings"><figure class="printing"><img alt="Limited Edition Alpha Mox Pearl" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Mox%20Pearl&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption>Limited Edition Alpha · 1993</figcaption></figure><figure class="printing"><img alt="Limited Edition Beta Mox Pearl" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Mox%20Pearl&amp;set=leb&amp;format=image&amp;version=normal"/><figcaption>Limited Edition Beta · 1993</figcaption></figure><figure class="printing"><img alt="Unlimited Edition Mox Pearl" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Mox%20Pearl&amp;set=2ed&amp;format=image&amp;version=normal"/><figcaption>Unlimited Edition · 1993</figcaption></figure><figure class="printing"><img alt="Collector’s Edition Mox Pearl" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Mox%20Pearl&amp;set=ced&amp;format=image&amp;version=normal"/><figcaption>Collector’s Edition · 1993<br/>not tournament legal</figcaption></figure><figure class="printing"><img alt="International Edition Mox Pearl" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Mox%20Pearl&amp;set=cei&amp;format=image&amp;version=normal"/><figcaption>International Edition · 1993<br/>not tournament legal</figcaption></figure><figure class="printing"><img alt="30th Anniversary Edition Mox Pearl" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Mox%20Pearl&amp;set=30a&amp;format=image&amp;version=normal"/><figcaption>30th Anniversary Edition · 2022<br/>not tournament legal</figcaption></figure></div><h3>Research sources</h3><ol class="sources">
+<div aria-label="Mox Pearl printing gallery" class="printings" data-card="Mox Pearl" data-original-set="lea" id="printing-grid"><figure class="printing original-printing"><img alt="Mox Pearl original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Mox%20Pearl&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div><h3>Research sources</h3><ol class="sources">
 <li><a href="https://magic.wizards.com/en/news/feature/power-nine-2003-10-15">Wizards of the Coast, “The Power Nine”</a><span>The original Moxen’s place among Magic’s most powerful cards.</span></li>
 <li><a href="https://magic.wizards.com/en/news/feature/top-50-artifacts-all-time-2005-02-28">Wizards of the Coast, “The Top 50 Artifacts of All Time”</a><span>Historical assessment of the Moxen, their apparent land-like simplicity, and the relative color hierarchy.</span></li>
 <li><a href="https://magic.wizards.com/en/news/making-magic/stories-dominaria-part-3-2018-04-30">Mark Rosewater, “Stories from Dominaria, Part 3”</a><span>The design expectations attached to the word Mox and colored mana.</span></li>
@@ -783,59 +746,51 @@ Sideboard · 15
 <li><a href="https://articles.starcitygames.com/magic-the-gathering/top-decks-and-winners-from-north-american-eternal-weekend-2024/">Star City Games, North American Eternal Weekend 2024</a><span>Max Gilmore’s Vintage Championship victory and Esper Control decklist.</span></li>
 </ol>
 <p class="editor-note"><b>Editorial note.</b> This is an independent, noncommercial fan-history project. Magic: The Gathering, card names, card images, and artwork belong to Wizards of the Coast and their respective artists. Scryfall image endpoints are used for reference and require internet access.</p>
-<nav class="end-nav"><a href="003-time-walk.html"><small>Previous entry · 003</small>Time Walk</a><a href="005-mox-sapphire.html"><small>Next entry · 005</small>Mox Sapphire</a></nav>
+
 </section></article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 004 follows Time Walk inside the Foundational Canon, examining the first white Mox as acceleration, artifact, collectible object, and enduring design prohibition.</aside></div>
-<div id="preview"><img alt=""/></div>
-<footer class="footer">Compulsive Research · Entry 004 · Mox Pearl · Independent Magic history project.</footer>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Mox Pearl is entry 4 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-003#entry-003"><small>Previous entry · 003</small>Time Walk</a><a href="index.html?focus=entry-005#entry-005"><small>Next entry · 005</small>Mox Sapphire</a></nav></section><div id="preview"><img alt=""/></div>
+<footer class="footer">Compulsive Research · Entry 004 · Mox Pearl · Independent, noncommercial Magic history project.</footer>
 <script>
-const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+const ARTICLE_CARD = "Mox Pearl";
+const ORIGINAL_SET = "lea";
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
 function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
-function place(x,y){
- if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
- const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
- if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
- l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
- preview.style.left=l+'px';preview.style.top=t+'px'
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(preview&&!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
+document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
+function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
+function chooseIconic(cards){
+  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
+  if(!bySet.length)return [];
+  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
+  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
+  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
+  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
+  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
+  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
+  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
+  for(const c of iconic){add(c);if(selected.length>=target)break}
+  add(bySet[bySet.length-1]);
+  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
+  for(const c of bySet){if(selected.length>=target)break;add(c)}
+  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
 }
-function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
-function hide(){if(!pinned)preview.classList.remove('show')}
-document.querySelectorAll('.card-name').forEach(el=>{
- el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
- el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
- el.addEventListener('mouseleave',hide);
- el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
- el.addEventListener('blur',hide);
- el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
-});
-document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
- const t=document.getElementById(b.dataset.target).textContent;
- try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
- const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
-}));
-const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
-if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
-function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
-addEventListener('scroll',updateProgress,{passive:true});updateProgress();
-
-(function(){
- const root=document.documentElement;
- function progress(){
-   const max=root.scrollHeight-innerHeight;
-   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
- }
- addEventListener('scroll',progress,{passive:true});progress();
-})();
-
-(function(){
- const root=document.documentElement;
- function progress(){
-  const max=root.scrollHeight-innerHeight;
-  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
- }
- addEventListener('scroll',progress,{passive:true});
- progress();
-})();
-</script>
-</body>
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');if(!grid)return;
+ const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
+ try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
+  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
+  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
+ }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
+}
+loadPrintings();
+</script></body>
 </html>

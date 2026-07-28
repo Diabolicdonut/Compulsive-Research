@@ -55,7 +55,7 @@ p{margin:1em 0}
 }
 .hero:before{
   content:"";position:absolute;inset:0;z-index:-3;
-  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  background:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop) center 27%/cover no-repeat;
   transform:scale(1.018);
 }
 .hero:after{
@@ -133,7 +133,7 @@ p{margin:1em 0}
 .art-break{
   width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
   min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
-  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop) center 25%/cover no-repeat;
 }
 .art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
 .art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
@@ -155,7 +155,7 @@ p{margin:1em 0}
   width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
   display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
 }
-.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .image{min-height:390px;background:var(--night2)}
 .inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
 .memory{
   background:var(--night);color:white;
@@ -242,196 +242,14 @@ p{margin:1em 0}
   .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
 }
 
-.recall-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
-}
-.hero.recall-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
-}
-.vision-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
-}
-.card-advantage{
-  width:min(980px,calc(100vw - 32px));
-  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
-}
-.advantage-step{background:var(--white);padding:24px}
-.advantage-step b{
-  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
-  margin-bottom:9px
-}
-.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.target-note{
-  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);
-  font:14px/1.65 Inter,system-ui,sans-serif
-}
-.target-note b{color:var(--ink)}
-@media(max-width:750px){
-  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
-}
-
-
-.hero
-.hero.hypnotic-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 30%!important
-}
-.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 30%!important
-}
-.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
-.blazing-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
-}
-.pressure-grid,.discard-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.pressure-step,.discard-step{background:var(--white);padding:23px}
-.pressure-step b,.discard-step b{
-  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
-}
-.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.hypnotic-note{
-  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.hypnotic-note b{color:var(--ink)}
-@media(max-width:750px){
-  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
-.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 26%!important
-}
-.hero.hypnotic-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 26%!important
-}
-.art-break.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 25%!important
-}
-
-
-
-.royal-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 29%!important
-}
-.hero.royal-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 29%!important
-}
-.art-break.royal-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 28%!important
-}
-.avatar-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
-}
-.threat-grid,.timing-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.threat-step,.timing-step{background:var(--white);padding:23px}
-.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
-.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
-.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
-.royal-note b{color:var(--ink)}
-.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
-@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
-
-
-.ritual-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important
-}
-.hero.ritual-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important
-}
-.art-break.ritual-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
-  background-position:center 29%!important
-}
-.cabal-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Cabal%20Ritual&format=image&version=art_crop)!important
-}
-.exchange-grid,.opening-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.opening-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.exchange-step,.opening-step{background:var(--white);padding:23px}
-.exchange-step b,.opening-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
-.exchange-step span,.opening-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
-.ritual-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
-.ritual-note b{color:var(--ink)}
-.mana-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.mana-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.mana-row:last-child{border-bottom:0}.mana-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mana-row p{margin:0}
-@media(max-width:750px){.exchange-grid,.opening-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.exchange-grid,.opening-grid{grid-template-columns:1fr}}
-
-
-.swords-art{
+.dragon-art{
   background-image:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop)!important;
-  background-position:center 34%!important
+  background-position:center 27%!important
 }
-.hero.swords-art:before{
+.hero.dragon-art:before{
   background-image:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop)!important;
-  background-position:center 34%!important
+  background-position:center 27%!important
 }
-.art-break.swords-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop)!important;
-  background-position:center 32%!important
-}
-.path-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Path%20to%20Exile&format=image&version=art_crop)!important
-}
-.trade-grid,.answer-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.trade-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.answer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.trade-step,.answer-step{background:var(--white);padding:23px}
-.trade-step b,.answer-step b{
-  display:block;font:900 1.95rem/1.03 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px
-}
-.trade-step span,.answer-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.swords-note{
-  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.swords-note b{color:var(--ink)}
-.resolution-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.resolution-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.resolution-row:last-child{border-bottom:0}.resolution-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.resolution-row p{margin:0}
-@media(max-width:750px){.trade-grid,.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.trade-grid,.answer-grid{grid-template-columns:1fr}}
 
 /* Compulsive Research canonical-format audit — Eternal Dragon template */
 .article-shell > aside.sidebar-note{
@@ -448,25 +266,79 @@ p{margin:1em 0}
 }
 .article a{overflow-wrap:anywhere;word-break:normal}
 @media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
-</style></head><body>
-<header class="hero swords-art"><div class="hero-grid"></div><div class="hero-inner">
+
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
+.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+</style></head><body data-article-card="Swords to Plowshares">
+<header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&amp;set=lea&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&amp;set=lea&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
 <a class="archive-link" href="index.html?focus=entry-014#entry-014">← Wave 01 · The Foundational Canon</a>
 <div class="eyebrow">Entry 014 · Wave 01 · The Foundational Canon</div>
 <h1>The One-Mana Answer That Made Every Creature Temporary</h1>
 <p class="deckline">Swords to Plowshares exiled almost any creature for one white mana and taught generations of players that an opponent's life total is often the cheapest possible price for a perfect answer.</p>
-<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 27 minute read</span></div>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 20 minute read</span></div>
 </div></header>
-<nav class="rank-nav"><a href="013-dark-ritual.html">← Entry 013 · Dark Ritual</a><div class="center">Entry 014 of 1,000</div><a href="015-demonic-tutor.html">Entry 015 · Demonic Tutor →</a></nav>
-<div class="article-shell"><nav class="toc"><strong>In this article</strong>
-<a href="#opening">One white mana, any creature</a><a href="#origin">Alpha's peaceful execution</a><a href="#exile">Before exile had a name</a><a href="#payment">Life is not a card</a><a href="#tempo">Why one mana changes everything</a><a href="#worlds">The first World Champion</a><a href="#the-deck">The Deck's first line of defense</a><a href="#pro-tour">The first Pro Tour</a><a href="#own">Turning the sword inward</a><a href="#creatures">The shadow over creature design</a><a href="#departure">Leaving ordinary Standard behind</a><a href="#legacy">Legacy's default white answer</a><a href="#formats">A life across formats</a><a href="#descendants">The bargains that followed</a><a href="#art">The image and the phrase</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
+<nav class="rank-nav"><a href="index.html?focus=entry-013#entry-013">← Entry 013 · Dark Ritual</a><div class="center">Entry 014 of 1,000</div><a href="index.html?focus=entry-015#entry-015">Entry 015 · Demonic Tutor →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The One-Mana Answer That Made Every Creature Temporary</a><a href="#origin">Alpha's peaceful execution</a><a href="#exile">Before exile had a name</a><a href="#payment">Life is not a card</a><a href="#tempo">Why one mana changes everything</a><a href="#worlds">The first World Champion</a><a href="#pro-tour">The first Pro Tour</a><a href="#creatures">The shadow over creature design</a><a href="#departure">Leaving ordinary Standard behind</a><a href="#legacy">Legacy's default white answer</a><a href="#formats">A life across formats</a><a href="#descendants">The bargains that followed</a><a href="#art">The image and the phrase</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
 <article class="article">
 <section id="opening"><div class="chapter-number">I · The exchange</div><h2>The One-Mana Answer That Made Every Creature Temporary</h2>
-<p class="opening dropcap">A creature can require ten mana, three colors, a graveyard full of setup, or an entire deck built around it. Swords to Plowshares asks for one Plains.</p>
+<p class="opening dropcap">A creature can require ten mana, three colors, a graveyard full of setup, or an entire deck built around it. Swords to Plowshares asks for one <span class="card-name" data-card="Plains" tabindex="0">Plains</span>.</p>
 <p>The spell does not care how much the creature cost. It does not care whether the creature is black, artifact, indestructible, recursive, legendary, enormous, or protected from destruction. It exiles the target and gives that creature's controller life equal to its power. The battlefield loses a card. The opponent receives a number.</p>
 <p>That asymmetry is the secret. Magic games are usually won by cards, mana, board position, and time. Life matters, but life is also the resource most willing to be spent. A control deck at three life may be desperate; a control deck whose opponent has gained six life but has no creature may simply need one more attack later. Swords turns a permanent problem into a delayed arithmetic problem.</p>
 <p>The effect was present in Alpha, when the game did not yet possess an established scale for removal. More than three decades of design have not made its rate ordinary. It remains the benchmark against which one-mana creature answers are compared, the spell that explains why white's best exile effects now arrive with restrictions, extra mana, timing clauses, or compensation more strategically meaningful than life.</p>
-<div class="card-lead"><img alt="Swords to Plowshares from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Swords to Plowshares</b> · {W}<br/>Instant<br/><br/>Exile target creature. Its controller gains life equal to its power.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Illustrated by</b>Jeff A. Menges</div><div class="stat"><b>Historical role</b>The benchmark one-mana creature answer</div></div></div></div>
-<p>Lightning Bolt asks whether three damage is enough. Counterspell asks whether two blue mana can remain untapped at the right moment. Terror asks about color and artifact status. Swords asks only whether the target is a creature and whether the spell is allowed to resolve.</p>
+<div class="card-lead"><img alt="Swords to Plowshares original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Swords to Plowshares</b> · {W}<br/>Instant<br/><br/>Exile target creature. Its controller gains life equal to its power.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Illustrated by</b>Jeff A. Menges</div><div class="stat"><b>Historical role</b>The benchmark one-mana creature answer</div></div></div></div>
+<p><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span> asks whether three damage is enough. <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span> asks whether two blue mana can remain untapped at the right moment. Terror asks about color and artifact status. Swords asks only whether the target is a creature and whether the spell is allowed to resolve.</p>
 </section>
 <section id="origin"><div class="chapter-number">II · Limited Edition Alpha</div><h2>Alpha's peaceful execution</h2>
 <p>White's original identity contained a contradiction. It was the color of order, protection, healing, armies, and rules, but a game about magical conflict still needed white to remove threats. Swords to Plowshares solved the flavor problem by refusing to describe the result as killing.</p>
@@ -485,7 +357,7 @@ p{margin:1em 0}
 <section id="payment"><div class="chapter-number">IV · The compensation</div><h2>Life is not a card</h2>
 <p>The opponent gains life. This is the clause intended to make the spell fair, and it is the clause that most often fails to do so.</p>
 <p>Life gain does not replace the removed card. It does not refund the mana spent casting the creature. It does not restore an enters-the-battlefield trigger that never occurred or rebuild a synergy piece that has vanished. Unless the game is already a pure race, the additional life may have little influence on the next several turns.</p>
-<p>Control decks exploit this most clearly. A deck planning to win with Serra Angel, Mishra's Factory, a planeswalker, or inevitability does not care whether the opponent finishes at zero after five attacks or seven. It cares whether the opposing threat survives long enough to force bad blocks, consume a sweeper, or end the game before card advantage takes control.</p>
+<p>Control decks exploit this most clearly. A deck planning to win with <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, <span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span>, a planeswalker, or inevitability does not care whether the opponent finishes at zero after five attacks or seven. It cares whether the opposing threat survives long enough to force bad blocks, consume a sweeper, or end the game before card advantage takes control.</p>
 <p>Aggressive decks also use the card because tempo can outweigh the payment. Exiling a blocker for one mana may unlock six or eight points of attack damage immediately. The life gained can be less than the damage created by removing the creature.</p>
 <div class="trade-grid"><div class="trade-step"><b>1 mana</b><span>The caster keeps nearly the entire turn available.</span></div><div class="trade-step"><b>1 card</b><span>The exchange is usually even in physical cards.</span></div><div class="trade-step"><b>Any size</b><span>The target's mana value and toughness do not matter.</span></div><div class="trade-step"><b>Life</b><span>The opponent receives a resource that often matters later, if at all.</span></div></div>
 <div class="swords-note"><b>The central evaluation:</b> Swords is not “free” because life never matters. It is extraordinary because the caster chooses when the life matters less than every other resource involved.</div>
@@ -493,81 +365,68 @@ p{margin:1em 0}
 <section id="tempo"><div class="chapter-number">V · The rate</div><h2>Why one mana changes everything</h2>
 <p>Efficient removal does more than trade up on mana. It changes which other actions fit into the turn.</p>
 <p>A four-mana answer to a four-mana creature creates an even exchange and consumes the turn. A one-mana answer to that creature leaves three mana for a counterspell, card draw, another threat, equipment activation, or a second answer. The tactical exchange becomes a strategic swing because the Swords player gets to continue playing Magic.</p>
-<p>One mana also makes the spell unusually easy to represent. A single untapped Plains can invalidate the opponent's most expensive creature. Fetch lands and dual lands let multicolor decks access that answer with little warning. In Eternal formats, the possibility of Swords changes attacks, protection decisions, and sequencing even when it is not actually in hand.</p>
+<p>One mana also makes the spell unusually easy to represent. A single untapped <span class="card-name" data-card="Plains" tabindex="0">Plains</span> can invalidate the opponent's most expensive creature. Fetch lands and dual lands let multicolor decks access that answer with little warning. In Eternal formats, the possibility of Swords changes attacks, protection decisions, and sequencing even when it is not actually in hand.</p>
 <p>The efficiency is especially punishing against creatures whose cost includes deck-building concessions. A reanimation deck may spend multiple cards placing a giant creature into the graveyard and returning it. A natural-order strategy may sacrifice a creature and a spell. A control deck may finally tap out for its finisher. Swords does not reimburse setup. It sees only one target.</p>
 <div class="answer-grid"><div class="answer-step"><b>Mana</b><span>It often trades one mana for three, five, or more.</span></div><div class="answer-step"><b>Time</b><span>It can erase an entire turn while preserving the caster's own.</span></div><div class="answer-step"><b>Structure</b><span>It punishes threats that required tutors, recursion, or multiple setup cards.</span></div></div>
 </section>
 <section id="worlds"><div class="chapter-number">VI · Milwaukee, 1994</div><h2>The first World Champion</h2>
 <p>Zak Dolan won the first Magic World Championship with four Swords to Plowshares in a U/W/G control deck filled with the young game's most powerful cards and strangest discoveries.</p>
 <p>The list did not resemble later streamlined control decks. It contained <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span>, <span class="card-name" data-card="Kismet" tabindex="0">Kismet</span>, <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, <span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span>, <span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span>, four <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>s, the Power Nine, and numerous singletons. Swords was one of the few cards present as a full playset.</p>
-<p>That count reveals its role. The deck could tolerate drawing the wrong lock piece or situational artifact because Swords gave it a universal early action. Bertrand Lestrée's aggressive red-white-black finalist deck could produce efficient creatures and burn; Dolan's one-mana exile bought the turns required for Library of Alexandria, Ivory Tower, Stasis, and Serra Angel to become decisive.</p>
+<p>That count reveals its role. The deck could tolerate drawing the wrong lock piece or situational artifact because Swords gave it a universal early action. Bertrand Lestrée's aggressive red-white-black finalist deck could produce efficient creatures and burn; Dolan's one-mana exile bought the turns required for <span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span>, <span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span>, <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span>, and <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span> to become decisive.</p>
 <p>The first World Champion therefore established a pattern that would persist for decades: white control decks could spend most of their card slots on engines, sweepers, counters, and finishers because four copies of one inexpensive instant covered an enormous range of creature problems.</p>
 </section>
-<section id="the-deck"><div class="chapter-number">VII · Control architecture</div><h2>The Deck's first line of defense</h2>
-<p>Brian Weissman's The Deck turned early control theory into a system. It sought to survive the opening, trade efficiently, establish card advantage, empty the opponent's hand, and win only after resistance had been reduced to topdecks.</p>
-<p>Swords to Plowshares was essential because The Deck's expensive machinery needed protection from the game's cheap creatures. It could not begin every game by casting <span class="card-name" data-card="Moat" tabindex="0">Moat</span>, activating <span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span>, or drawing cards with <span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span>. It needed a play that stopped an early threat without forcing the control player to tap out of <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span> or <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span> on the following turn.</p>
-<p>The sequence became foundational: exile the first creature, counter the spell that would create lasting advantage, establish a permanent defense, then use card draw and hand destruction to move beyond one-for-one exchanges. Swords was not the engine. It was the bridge to the engine.</p>
-<p>The Deck also demonstrated another advantage of nearly creatureless control. Opposing removal often had no target, while Swords remained live against almost every creature deck. The same card that was merely efficient in a creature mirror became structurally asymmetric when one player had four excellent targets and the other had only two Serra Angels.</p>
-</section>
-<section id="pro-tour"><div class="chapter-number">VIII · New York, 1996</div><h2>The first Pro Tour</h2>
-<p>Michael Loconto won the first Pro Tour with blue-white Millstone control and four Swords to Plowshares. The deck contained only two conventional creatures, both <span class="card-name" data-card="Blinking Spirit" tabindex="0">Blinking Spirit</span>. Its principal victory condition was <span class="card-name" data-card="Millstone" tabindex="0">Millstone</span>.</p>
+<section id="pro-tour"><div class="chapter-number">VII · New York, 1996</div><h2>The first Pro Tour</h2>
+<p>Michael Loconto won the first Pro Tour with blue-white <span class="card-name" data-card="Millstone" tabindex="0">Millstone</span> control and four Swords to Plowshares. The deck contained only two conventional creatures, both <span class="card-name" data-card="Blinking Spirit" tabindex="0">Blinking Spirit</span>. Its principal victory condition was <span class="card-name" data-card="Millstone" tabindex="0">Millstone</span>.</p>
 <p>The format required players to include cards from every current set, producing some unusual construction, but Loconto's defensive core was brutally coherent: Swords, <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span>, <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span>, <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>, <span class="card-name" data-card="Balance" tabindex="0">Balance</span>, <span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span>, and life-gain artifacts. Every part of the deck existed to make the game continue.</p>
-<p>Swords handled the creature that was too early or too singular to justify Wrath. It protected the life total without spending a full turn, kept Mishra's Factory available as a blocker, and let the control player save Counterspell for Armageddon, card advantage, or a threat whose noncreature text mattered.</p>
+<p>Swords handled the creature that was too early or too singular to justify Wrath. It protected the life total without spending a full turn, kept <span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span> available as a blocker, and let the control player save <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span> for <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span>, card advantage, or a threat whose noncreature text mattered.</p>
 <p>The first professional champion thus won with a deck that treated the opponent's life total as almost irrelevant. It did not plan to deal twenty damage at all. Giving six life to a creature's controller had no relationship to the actual end condition of drawing from an empty library.</p>
 </section>
-<section id="own"><div class="chapter-number">IX · The emergency line</div><h2>Turning the sword inward</h2>
-<p>Swords can target any creature, including one controlled by its caster. That sentence created one of the card's most memorable secondary uses.</p>
-<p>A player facing lethal damage can exile a large creature of their own and gain enough life to survive. A creature that is already doomed to removal, theft, or a sweeper can be converted into a final reserve. An animated <span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span>, a Serra Angel, or a creature enlarged by temporary effects can become a white instant that says, in practice, “gain several life.”</p>
-<p>The line is costly. The caster spends a card and a creature, usually creating card disadvantage. But cards only matter while the player remains in the game. Swords converts board position into another draw step, and another draw step can contain the answer that changes everything.</p>
-<p>Targeting one's own creature also exposes the precise nature of the compensation. The life gain is not an unrelated drawback attached to the spell. It is part of the same exchange and can be claimed by whichever player controls the target.</p>
-<div class="swords-note"><b>Rules discipline:</b> If the target becomes illegal before Swords resolves—because it is sacrificed, gains protection from white, or otherwise leaves—the entire spell fails to resolve and no one gains life.</div>
-</section>
-<section id="creatures"><div class="chapter-number">X · The benchmark problem</div><h2>The shadow over creature design</h2>
+<section id="creatures"><div class="chapter-number">VIII · The benchmark problem</div><h2>The shadow over creature design</h2>
 <p>For early Magic, Swords to Plowshares helped define an unfavorable equation: threats cost several mana, while the cleanest answer cost one. A five-mana creature that merely attacked could be erased at an enormous mana loss before producing value.</p>
 <p>This pressure influenced how competitive players evaluated creatures. A finisher needed haste, an enters-the-battlefield effect, protection, recursion, untargetability, or such low cost that trading with Swords remained acceptable. “Dies to removal” became an incomplete criticism, but it emerged from a real environment in which the removal was dramatically more efficient than most threats.</p>
 <p>Design eventually responded from both sides. Creatures became stronger and more likely to generate value immediately. Removal became narrower, slower, or more expensive. Wizards writers have repeatedly used Swords as the upper bound—the card that makes it difficult to balance creature combat because any target, regardless of investment, can disappear for one mana.</p>
 <p>This is part of why the card feels simultaneously fair in Legacy and impossible in Standard. Eternal creatures are powerful enough to demand an answer of this efficiency, and Eternal decks contain enough noncreature plans to punish a hand full of removal. In a smaller format, Swords can make ambitious creature design feel irresponsible.</p>
 </section>
-<section id="departure"><div class="chapter-number">XI · The changing baseline</div><h2>Leaving ordinary Standard behind</h2>
+<section id="departure"><div class="chapter-number">IX · The changing baseline</div><h2>Leaving ordinary Standard behind</h2>
 <p>Swords appeared through Magic's earliest core sets and in Ice Age, then disappeared from the environments meant to define ordinary contemporary play. Its absence was not an accident of theme. It reflected a new understanding of how much one mana should accomplish.</p>
-<p>White continued receiving exile removal, but the bargains changed. <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> became a historical ceiling rather than a routine staple. Effects such as <span class="card-name" data-card="Condemn" tabindex="0">Condemn</span> required the creature to attack. <span class="card-name" data-card="Journey to Nowhere" tabindex="0">Journey to Nowhere</span> operated at sorcery speed and could be undone. <span class="card-name" data-card="Oblivion Ring" tabindex="0">Oblivion Ring</span> cost three and left a permanent vulnerability. <span class="card-name" data-card="Path to Exile" tabindex="0">Path to Exile</span> gave the opponent a basic land—a payment that can accelerate the opponent's entire future rather than merely extend the game.</p>
+<p>White continued receiving exile removal, but the bargains changed. Swords to Plowshares became a historical ceiling rather than a routine staple. Effects such as <span class="card-name" data-card="Condemn" tabindex="0">Condemn</span> required the creature to attack. <span class="card-name" data-card="Journey to Nowhere" tabindex="0">Journey to Nowhere</span> operated at sorcery speed and could be undone. <span class="card-name" data-card="Oblivion Ring" tabindex="0">Oblivion Ring</span> cost three and left a permanent vulnerability. <span class="card-name" data-card="Path to Exile" tabindex="0">Path to Exile</span> gave the opponent a basic land—a payment that can accelerate the opponent's entire future rather than merely extend the game.</p>
 <p>When Swords appeared in Strixhaven's Mystical Archive, it was not Standard legal, and on MTG Arena it was among the cards withheld from Historic because of power concerns. The reprint celebrated the spell as part of Magic's library without pretending it belonged in every current competitive environment.</p>
 <p>That separation became the card's modern identity: widely reprinted, culturally central, and intentionally confined to formats designed to absorb the strongest historical interactions.</p>
 </section>
-<section id="legacy"><div class="chapter-number">XII · The eternal battlefield</div><h2>Legacy's default white answer</h2>
+<section id="legacy"><div class="chapter-number">X · The eternal battlefield</div><h2>Legacy's default white answer</h2>
 <p>Legacy gave Swords to Plowshares the format it was built to inhabit before anyone knew such a format would exist.</p>
 <p>The threats are too varied for conditional removal to cover comfortably. <span class="card-name" data-card="Murktide Regent" tabindex="0">Murktide Regent</span> can outgrow damage. <span class="card-name" data-card="Marit Lage" tabindex="0">Marit Lage</span> is a 20/20 indestructible token. Reanimated creatures arrive before ordinary four-mana answers. <span class="card-name" data-card="Griselbrand" tabindex="0">Griselbrand</span> and other engines threaten to produce value immediately. Creature-based prison decks need to answer opposing threats while spending mana on ports, equipment, and disruptive creatures.</p>
 <p>Swords fits control, midrange, Stoneblade, Maverick, Deadguy Ale, and Death and Taxes because its requirements are so small. One white mana remains available through a <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> game, can be held beside a two-mana spell, and gives white decks a reliable answer while the rest of the list pursues an entirely different plan.</p>
 <p>The life payment matters most against tempo and combo-race situations. Exiling a large creature may buy the opponent several turns against a fair attacking deck. Skilled play therefore asks not merely “Can I Swords this?” but “What does the game become after I do?” Sometimes the correct answer is immediate exile. Sometimes the creature should be contained, raced, or allowed to remain until a more important target appears.</p>
 <p>Even so, very few cards have remained this close to an automatic four-of for this long. Legacy changed around Swords—new creatures, new mechanics, new free spells—while the one-mana sentence continued to do exactly what white decks required.</p>
 </section>
-<section id="formats"><div class="chapter-number">XIII · The formats</div><h2>A life across formats</h2>
+<section id="formats"><div class="chapter-number">XI · The formats</div><h2>A life across formats</h2>
 <div class="format-strip"><div class="format-card"><span class="impact">Defining</span><h3>Legacy</h3><p>The default clean creature answer for white control, midrange, and disruptive creature decks.</p></div><div class="format-card"><span class="impact">Historic</span><h3>Vintage</h3><p>An efficient answer to creatures in a format where every mana and every card of interaction matters.</p></div><div class="format-card"><span class="impact">Staple</span><h3>Commander</h3><p>One mana and exile justify a slot even when the opponent's life total begins at forty.</p></div><div class="format-card"><span class="impact">Benchmark</span><h3>Cube</h3><p>A premium white pick that keeps expensive and recursive threats honest.</p></div></div>
 <p>Commander demonstrates the weakness of the drawback most dramatically. Granting five or ten life in a forty-life multiplayer game is often negligible compared with removing a commander, combo creature, or engine at instant speed. The spell's low cost also lets a player intervene without abandoning development on their own turn.</p>
 <p>Vintage uses fewer fair creatures than Legacy, but the creatures that matter can be extraordinarily consequential. A one-mana answer that exiles remains useful when the opponent's threat is powered out early or designed to exploit the graveyard.</p>
 <p>Cube treats the card as both history and infrastructure. Draft environments full of Magic's strongest creatures need answers capable of preventing expensive threats from becoming automatic wins. Swords lets white decks participate at that power level without turning every removal spell into a clumsy four-mana event.</p>
 </section>
-<section id="descendants"><div class="chapter-number">XIV · The bargain family</div><h2>The bargains that followed</h2>
+<section id="descendants"><div class="chapter-number">XII · The bargain family</div><h2>The bargains that followed</h2>
 <p>Every descendant changes the compensation, timing, scope, or mana cost because the original leaves so little room to improve.</p>
 <p><span class="card-name" data-card="Path to Exile" tabindex="0">Path to Exile</span> is the closest famous revision. It retains one mana, instant speed, and exile, but gives the opponent a basic land. Life may be irrelevant; a land is development, color fixing, and an additional spell every later turn. The “fixed” card became a major staple in its own right, which says as much about Swords as it does about Path.</p>
 <p><span class="card-name" data-card="Condemn" tabindex="0">Condemn</span> preserves one mana and life compensation but only targets an attacking creature and places it into the library. <span class="card-name" data-card="On Thin Ice" tabindex="0">On Thin Ice</span>, <span class="card-name" data-card="Ossification" tabindex="0">Ossification</span>, and <span class="card-name" data-card="Portable Hole" tabindex="0">Portable Hole</span> use vulnerable permanents. <span class="card-name" data-card="Prismatic Ending" tabindex="0">Prismatic Ending</span> scales with mana and colors. <span class="card-name" data-card="March of Otherworldly Light" tabindex="0">March of Otherworldly Light</span> asks the caster to pay for the target's value or pitch cards.</p>
-<p><span class="card-name" data-card="Solitude" tabindex="0">Solitude</span> is the most explicit modern heir. Its enters-the-battlefield ability exiles a creature and grants life equal to power; evoke can make the interaction cost no mana, but the caster gives up another white card and the Solitude itself. The descendant recreates the sensation of impossible efficiency while charging a real card-economy price.</p>
+<p><span class="card-name" data-card="Solitude" tabindex="0">Solitude</span> is the most explicit modern heir. Its enters-the-battlefield ability exiles a creature and grants life equal to power; evoke can make the interaction cost no mana, but the caster gives up another white card and the <span class="card-name" data-card="Solitude" tabindex="0">Solitude</span> itself. The descendant recreates the sensation of impossible efficiency while charging a real card-economy price.</p>
 <div class="inline-image path-descendant"><div class="image"></div><div class="copy"><div class="kicker">The land instead of life</div><h3>Path to Exile</h3><p>Path demonstrates how small the original drawback really was. Replacing life with a basic land created a visibly meaningful cost—and still produced one of the defining removal spells of its era.</p></div></div>
 </section>
-<section id="art"><div class="chapter-number">XV · The object</div><h2>The image and the phrase</h2>
+<section id="art"><div class="chapter-number">XIII · The object</div><h2>The image and the phrase</h2>
 <p>The name “Swords to Plowshares” carries more cultural weight than most card titles. It describes disarmament through transformation: the weapon does not merely vanish but becomes an instrument of cultivation. That idea lets the card perform severe mechanical removal while presenting white as the color that ends conflict.</p>
 <p>Jeff A. Menges's original artwork is quieter than the card's reputation. The visual language is not a duel or explosion. It is aftermath, labor, and a world in which the sword's purpose has been reassigned. The illustration makes the life gain legible: the creature's power has not been destroyed so much as translated into peaceful existence.</p>
 <p>Later printings have reinterpreted the same concept through different worlds and visual traditions. The Strixhaven Mystical Archive version presented the spell as an illuminated scholarly record, and numerous promotional and supplemental printings have treated the card as an icon worthy of new frames and commissioned art.</p>
 <p>The abbreviation “StP” became tournament vocabulary. “Plow it,” “Swords your creature,” and “gets Plowed” convert the pastoral phrase back into the ruthless action players actually experience: the creature is gone, cleanly and usually forever.</p>
 </section>
-<section id="memory"><div class="chapter-number">XVI · The gesture</div><h2>What players remember</h2>
-<p>Players remember the mismatch between the size of the problem and the size of the answer. A huge creature enters the battlefield, its controller straightens the card with a sense of arrival, and the opponent taps one Plains.</p>
+<section id="memory"><div class="chapter-number">XIV · The gesture</div><h2>What players remember</h2>
+<p>Players remember the mismatch between the size of the problem and the size of the answer. A huge creature enters the battlefield, its controller straightens the card with a sense of arrival, and the opponent taps one <span class="card-name" data-card="Plains" tabindex="0">Plains</span>.</p>
 <p>The spell teaches several durable lessons. Mana value is not protection. Life total is a resource. Exile and destruction are not interchangeable. The correct target is not always the largest creature. An answer held for one turn can be worth more than an answer cast immediately.</p>
 <p>It also creates distinctive regrets. Using Swords on an early utility creature may leave no clean answer for the true finisher. Waiting may allow the utility creature to generate enough value that the later answer no longer matters. Exiling a giant attacker can grant precisely the life needed for an opponent to stabilize. Saving one's own creature can consume the card that would have answered the next threat.</p>
 <p>That density of decisions helps explain the card's longevity. Its text is simple, but the life payment, universal targeting, and one-mana rate make every use a statement about what the game is actually about.</p>
 <div class="memory"><div class="memory-grid"><blockquote>The creature was the most expensive card on the battlefield. The answer was the untapped Plains everyone had already seen.</blockquote><cite>The ritual of Swords to Plowshares</cite></div></div>
 </section>
-<section class="deck-archive" id="decklists"><div class="chapter-number">XVII · The record</div><h2>The deck archive</h2><p class="deck-intro">These four lists show Swords moving from the first World Championship through the invention of control, the first Pro Tour, and a mature Legacy midrange shell.</p><details class="deck"><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first World Champion used four copies as the immediate answer that allowed a strange, powerful control deck to survive until Serra Angel and its lock pieces took over.</p><button class="copy" data-target="stp-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div><div class="deck-col"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div></div><pre hidden="" id="stp-deck-0">Zak Dolan — U/W/G Stasis Control
+<section id="decklists"><div class="chapter-number">XV · The record</div><h2>The deck archive</h2><p class="deck-intro">The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p><div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Official or publisher record</span><p>A documented historical list featuring Swords to Plowshares.</p><div class="deck-meta"><div><b>Zak Dolan — U/W/G Stasis Control</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-014-swords-to-plowshares-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div></div><div class="group"><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div></div><pre hidden="" id="deck-014-swords-to-plowshares-1">Zak Dolan — U/W/G Stasis Control
 World Champion · Worlds 1994
 
 Creatures · 11
@@ -578,21 +437,6 @@ Creatures · 11
 1 Birds of Paradise
 1 Ley Druid
 4 Serra Angel
-
-Sorceries · 6
-1 Recall
-1 Timetwister
-1 Time Walk
-1 Regrowth
-1 Armageddon
-1 Wrath of God
-
-Instants · 9
-1 Ancestral Recall
-1 Mana Drain
-1 Siren's Call
-2 Disenchant
-4 Swords to Plowshares
 
 Artifacts · 15
 1 Black Lotus
@@ -615,12 +459,27 @@ Enchantments · 4
 2 Stasis
 1 Kismet
 
+Instants · 9
+1 Ancestral Recall
+1 Mana Drain
+1 Siren's Call
+2 Disenchant
+4 Swords to Plowshares
+
 Lands · 15
 1 Library of Alexandria
 4 Savannah
 4 Tropical Island
 4 Tundra
 2 Strip Mine
+
+Sorceries · 6
+1 Recall
+1 Timetwister
+1 Time Walk
+1 Regrowth
+1 Armageddon
+1 Wrath of God
 
 Sideboard · 15
 1 Kismet
@@ -636,159 +495,192 @@ Sideboard · 15
 1 Presence of the Master
 1 Reverse Damage
 1 Sleight of Mind
-1 Winter Blast</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Brian Weissman — The Deck</strong><small>Foundational Type I control archetype · mid-1990s</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The Deck made Swords part of the basic control sequence: remove the early creature for one mana, preserve countermagic, establish Moat and card advantage, then win only after the opponent had been exhausted.</p><button class="copy" data-target="stp-deck-1">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><h4>Lands · 21</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div><div class="deck-col"><h4>Sorceries · 7</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div><h4>Artifacts · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Moat" tabindex="0">Moat</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div><pre hidden="" id="stp-deck-1">Brian Weissman — The Deck
-Foundational Type I control archetype · mid-1990s
+1 Winter Blast</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Olle Rade — 1996 World Championship</strong><small>Semifinalist · 4ED-ALL standard · 1996-08-18</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from 1996 World Championship. The list is preserved at its registered size: 61 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Olle Rade</b><div class="small">Main deck 61 · Sideboard 15</div></div><button class="copy" data-target="deck-014-swords-to-plowshares-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 22</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Elvish Archers" tabindex="0">Elvish Archers</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fyndhorn Elves" tabindex="0">Fyndhorn Elves</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spectral Bears" tabindex="0">Spectral Bears</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div></div><div class="group"><h4>Sorceries · 3</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div></div><div class="group"><h4>Enchantments · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div></div><div class="group"><h4>Instants · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brushland" tabindex="0">Brushland</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">7</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Black" tabindex="0">Circle of Protection: Black</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Energy Storm" tabindex="0">Energy Storm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Essence Filter" tabindex="0">Essence Filter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lhurgoyf" tabindex="0">Lhurgoyf</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div></div><pre hidden="" id="deck-014-swords-to-plowshares-2">Olle Rade — 1996 World Championship
+Semifinalist · 4ED-ALL standard · 1996-08-18
 
-Creatures · 2
-2 Serra Angel
+Creatures · 22
+4 Elvish Archers
+4 Erhnam Djinn
+2 Fyndhorn Elves
+2 Llanowar Elves
+4 Savannah Lions
+2 Spectral Bears
+4 Whirling Dervish
 
-Sorceries · 7
-1 Time Walk
-1 Timetwister
-1 Braingeyser
-1 Recall
-1 Demonic Tutor
-1 Mind Twist
-1 Regrowth
-
-Instants · 17
-4 Mana Drain
-2 Counterspell
-1 Ancestral Recall
-4 Disenchant
-4 Swords to Plowshares
-2 Red Elemental Blast
-
-Enchantments · 2
-2 Moat
-
-Artifacts · 11
-2 Disrupting Scepter
-1 Jayemdae Tome
-1 Ivory Tower
-1 Mox Pearl
-1 Mox Ruby
-1 Mox Jet
-1 Mox Sapphire
-1 Mox Emerald
-1 Black Lotus
-1 Sol Ring
-
-Lands · 21
-2 Strip Mine
-1 Library of Alexandria
-3 City of Brass
-1 Plateau
-1 Underground Sea
-2 Volcanic Island
-4 Tundra
-3 Plains
-4 Island
-
-Sideboard · 15
-1 Plains
-1 Counterspell
-1 Moat
-1 Disrupting Scepter
-1 Jayemdae Tome
-1 Tormod's Crypt
-2 Control Magic
-2 Blood Moon
-3 Circle of Protection: Red
-2 Divine Offering</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Michael Loconto — U/W Millstone</strong><small>Champion · Pro Tour New York 1996</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first Pro Tour champion registered a 62-card U/W control deck pairing four Swords with Counterspell, Wrath of God, Balance, and Millstone. One-mana exile bought the time required for a nearly creatureless deck to make the opponent draw the last card.</p><button class="copy" data-target="stp-deck-2">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blinking Spirit" tabindex="0">Blinking Spirit</span></div><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><h4>Artifacts · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Feldon's Cane" tabindex="0">Feldon's Cane</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fountain of Youth" tabindex="0">Fountain of Youth</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Millstone" tabindex="0">Millstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div><h4>Lands · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">7</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ruins of Trokair" tabindex="0">Ruins of Trokair</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Svyelunite Temple" tabindex="0">Svyelunite Temple</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wizards' School" tabindex="0">Wizards' School</span></div></div><div class="deck-col"><h4>Instants · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Deflection" tabindex="0">Deflection</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Enchantments · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hallowed Ground" tabindex="0">Hallowed Ground</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Aeolipile" tabindex="0">Aeolipile</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jester's Cap" tabindex="0">Jester's Cap</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sea Sprite" tabindex="0">Sea Sprite</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Steal Artifact" tabindex="0">Steal Artifact</span></div></div></div><pre hidden="" id="stp-deck-2">Michael Loconto — U/W Millstone
-Champion · Pro Tour New York 1996
-
-Creatures · 2
-2 Blinking Spirit
-
-Instants · 13
-4 Counterspell
-1 Deflection
-4 Disenchant
-4 Swords to Plowshares
-
-Sorceries · 6
-1 Balance
-1 Recall
-4 Wrath of God
-
-Artifacts · 11
-1 Feldon's Cane
-2 Fountain of Youth
-2 Icy Manipulator
-1 Ivory Tower
-1 Jayemdae Tome
-3 Millstone
+Artifacts · 1
 1 Zuran Orb
 
-Enchantments · 6
-2 Control Magic
-2 Hallowed Ground
-2 Land Tax
+Enchantments · 1
+1 Land Tax
 
-Lands · 24
-4 Adarkar Wastes
-4 Island
-4 Mishra's Factory
-7 Plains
-1 Ruins of Trokair
-1 Strip Mine
-2 Svyelunite Temple
-1 Wizards' School
-
-Sideboard · 15
-2 Aeolipile
-2 Circle of Protection: Red
-1 Control Magic
+Instants · 13
+4 Disenchant
 1 Divine Offering
-2 Hydroblast
-1 Jester's Cap
-2 Sea Sprite
-2 Serrated Arrows
-2 Steal Artifact</pre><p class="small">Source: <a href="https://mtg.wtf/deck/ptc/michael-loconto-champion">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Ricky Wen — Dead Guy Ale</strong><small>4th place · SCG Open San Jose 2011 · Legacy</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">A later Legacy shell shows the card outside pure control: discard clears the path, efficient creatures apply pressure, and Swords removes whatever would stabilize or race the battlefield.</p><button class="copy" data-target="stp-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tidehollow Sculler" tabindex="0">Tidehollow Sculler</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Confidant" tabindex="0">Dark Confidant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mother of Runes" tabindex="0">Mother of Runes</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stoneforge Mystic" tabindex="0">Stoneforge Mystic</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Vampire Nighthawk" tabindex="0">Vampire Nighthawk</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diabolic Edict" tabindex="0">Diabolic Edict</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Faerie Macabre" tabindex="0">Faerie Macabre</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Engineered Plague" tabindex="0">Engineered Plague</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Path to Exile" tabindex="0">Path to Exile</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div></div><div class="deck-col"><h4>Sorceries · 10</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Inquisition of Kozilek" tabindex="0">Inquisition of Kozilek</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Vindicate" tabindex="0">Vindicate</span></div><h4>Instants · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diabolic Edict" tabindex="0">Diabolic Edict</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><h4>Artifacts · 3</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sword of Fire and Ice" tabindex="0">Sword of Fire and Ice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sword of Light and Shadow" tabindex="0">Sword of Light and Shadow</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Umezawa's Jitte" tabindex="0">Umezawa's Jitte</span></div><h4>Lands · 22</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">5</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Marsh Flats" tabindex="0">Marsh Flats</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scrubland" tabindex="0">Scrubland</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urborg, Tomb of Yawgmoth" tabindex="0">Urborg, Tomb of Yawgmoth</span></div></div></div><pre hidden="" id="stp-deck-3">Ricky Wen — Dead Guy Ale
-4th place · SCG Open San Jose 2011 · Legacy
-
-Creatures · 20
-4 Tidehollow Sculler
-4 Dark Confidant
-4 Mother of Runes
-4 Stoneforge Mystic
-4 Vampire Nighthawk
-
-Sorceries · 10
-2 Inquisition of Kozilek
-4 Thoughtseize
-4 Vindicate
-
-Instants · 5
-1 Diabolic Edict
+4 Giant Growth
 4 Swords to Plowshares
 
-Artifacts · 3
-1 Sword of Fire and Ice
-1 Sword of Light and Shadow
-1 Umezawa's Jitte
+Lands · 21
+4 Brushland
+4 City of Brass
+7 Forest
+2 Plains
+4 Strip Mine
 
-Lands · 22
-3 Plains
-5 Swamp
-4 Marsh Flats
-4 Scrubland
-4 Wasteland
-1 Karakas
-1 Urborg, Tomb of Yawgmoth
+Sorceries · 3
+2 Armageddon
+1 Balance
 
 Sideboard · 15
-1 Diabolic Edict
-4 Pithing Needle
-4 Faerie Macabre
-3 Engineered Plague
-1 Path to Exile
-2 Duress</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/white-black-dead-guy-ale-2011-01-19">open the historical record</a></p></div></details></section>
-<section id="printings"><div class="chapter-number">XVIII · The archive</div><h2>Printings and sources</h2>
-<p>Swords to Plowshares began in Limited Edition Alpha and remained visible through Magic's earliest core sets and Ice Age. Once it left ordinary Standard rotation, supplemental products, Masters releases, Commander decks, promotional treatments, Secret Lair drops, the Strixhaven Mystical Archive, and Mystery Booster products kept it continuously available as both game piece and historical object.</p>
+2 Circle of Protection: Black
+2 Divine Offering
+1 Energy Storm
+1 Essence Filter
+1 Karma
+2 Lhurgoyf
+2 Serrated Arrows
+2 Winter Orb
+2 Wrath of God</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Jelger Wiegersma — Pro Tour New Orleans 2001</strong><small>Semifinalist · extended thru ODY · 2001-11-04</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from Pro Tour New Orleans 2001. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Jelger Wiegersma</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-014-swords-to-plowshares-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 3</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Morphling" tabindex="0">Morphling</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spike Feeder" tabindex="0">Spike Feeder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spike Weaver" tabindex="0">Spike Weaver</span></div></div><div class="group"><h4>Instants · 23</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Accumulated Knowledge" tabindex="0">Accumulated Knowledge</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Enlightened Tutor" tabindex="0">Enlightened Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Gaea's Blessing" tabindex="0">Gaea's Blessing</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Powder Keg" tabindex="0">Powder Keg</span></div></div><div class="group"><h4>Enchantments · 7</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Oath of Druids" tabindex="0">Oath of Druids</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Overgrown Estate" tabindex="0">Overgrown Estate</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Seal of Cleansing" tabindex="0">Seal of Cleansing</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wild Research" tabindex="0">Wild Research</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flood Plain" tabindex="0">Flood Plain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Treetop Village" tabindex="0">Treetop Village</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Crater Hellion" tabindex="0">Crater Hellion</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Morphling" tabindex="0">Morphling</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pernicious Deed" tabindex="0">Pernicious Deed</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Seal of Cleansing" tabindex="0">Seal of Cleansing</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div></div><pre hidden="" id="deck-014-swords-to-plowshares-3">Jelger Wiegersma — Pro Tour New Orleans 2001
+Semifinalist · extended thru ODY · 2001-11-04
+
+Creatures · 3
+1 Morphling
+1 Spike Feeder
+1 Spike Weaver
+
+Artifacts · 1
+1 Powder Keg
+
+Enchantments · 7
+2 Oath of Druids
+1 Overgrown Estate
+2 Seal of Cleansing
+1 Sylvan Library
+1 Wild Research
+
+Instants · 23
+4 Accumulated Knowledge
+4 Brainstorm
+4 Counterspell
+4 Enlightened Tutor
+4 Force of Will
+3 Swords to Plowshares
+
+Lands · 24
+4 Flood Plain
+2 Savannah
+3 Treetop Village
+4 Tropical Island
+4 Tundra
+1 Underground Sea
+3 Volcanic Island
+3 Wasteland
+
+Sorceries · 2
+2 Gaea's Blessing
+
+Sideboard · 15
+1 Circle of Protection: Red
+1 Crater Hellion
+2 Morphling
+1 Pernicious Deed
+4 Pyroblast
+1 Seal of Cleansing
+1 Swords to Plowshares
+4 Wrath of God</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Old School 93/94 — The Deck</strong><small>Representative 2019 control construction · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>The Deck treats Chaos Orb as nearly unconditional colorless removal. Countermagic and Disenchant manage ordinary threats, while the Orb answers almost any permanent that slips through—including cards such as Mishra's Factory or protected permanents that narrower spells may not reach.</p><div class="deck-meta"><div><b>Old School 93/94 — The Deck</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-014-swords-to-plowshares-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Mana and lands · 31</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Fellwar Stone" tabindex="0">Fellwar Stone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div></div></div><div class="deck-col"><div class="group"><h4>Control and card advantage · 29</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="The Abyss" tabindex="0">The Abyss</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Greed" tabindex="0">Greed</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div></div><pre hidden="" id="deck-014-swords-to-plowshares-4">Old School 93/94 — The Deck
+Representative 2019 control construction · 60/15
+
+Mana and lands · 31
+1 Black Lotus
+3 Fellwar Stone
+1 Library of Alexandria
+4 Mishra's Factory
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+4 City of Brass
+4 Strip Mine
+4 Tundra
+4 Underground Sea
+
+Control and card advantage · 29
+1 Ancestral Recall
+1 Balance
+1 Braingeyser
+1 Chaos Orb
+4 Counterspell
+1 Demonic Tutor
+4 Disenchant
+1 Divine Offering
+1 Fireball
+3 Jayemdae Tome
+1 Mana Drain
+1 Mind Twist
+1 Recall
+1 Regrowth
+4 Swords to Plowshares
+2 The Abyss
+1 Time Walk
+
+Sideboard · 15
+4 Blue Elemental Blast
+1 Circle of Protection: Red
+3 Divine Offering
+1 Greed
+4 Hypnotic Specter
+1 Ivory Tower
+1 Wrath of God</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>The Balance Deck</strong><small>Wizards historical archive · Early Type I</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Official or publisher record</span><p>A documented historical list featuring Swords to Plowshares.</p><div class="deck-meta"><div><b>The Balance Deck</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-014-swords-to-plowshares-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Atog" tabindex="0">Atog</span></div></div><div class="group"><h4>Enchantments · 5</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Consecrate Land" tabindex="0">Consecrate Land</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div></div><div class="group"><h4>Instants · 7</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Bazaar of Baghdad" tabindex="0">Bazaar of Baghdad</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Candelabra of Tawnos" tabindex="0">Candelabra of Tawnos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Library of Leng" tabindex="0">Library of Leng</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="The Rack" tabindex="0">The Rack</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Relic Barrier" tabindex="0">Relic Barrier</span></div></div><div class="group"><h4>Sorceries · 9</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chain Lightning" tabindex="0">Chain Lightning</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Consecrate Land" tabindex="0">Consecrate Land</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Relic Barrier" tabindex="0">Relic Barrier</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tranquility" tabindex="0">Tranquility</span></div></div></div></div><pre hidden="" id="deck-014-swords-to-plowshares-5">The Balance Deck
+Wizards historical archive · Early Type I
+
+Creatures · 3
+3 Atog
+
+Artifacts · 15
+1 Black Lotus
+1 Candelabra of Tawnos
+1 Chaos Orb
+3 Library of Leng
+1 Mox Emerald
+1 Mox Ruby
+1 Mox Pearl
+4 The Rack
+2 Relic Barrier
+
+Enchantments · 5
+2 Consecrate Land
+3 Sylvan Library
+
+Instants · 7
+3 Disenchant
+4 Lightning Bolt
+
+Lands · 21
+4 Bazaar of Baghdad
+1 Maze of Ith
+4 Mishra's Factory
+4 Plateau
+4 Savannah
+4 Taiga
+
+Sorceries · 9
+4 Balance
+4 Chain Lightning
+1 Regrowth
+
+Sideboard · 15
+2 Consecrate Land
+1 Disenchant
+2 Relic Barrier
+2 Circle of Protection: Red
+3 Red Elemental Blast
+3 Swords to Plowshares
+2 Tranquility</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/top-50-white-cards-2003-02-07-0">open the historical record</a></p></div></details></div></section>
+<section id="printings"><div class="chapter-number">XVI · The archive</div><h2>Printings and sources</h2>
+<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p>
 <p>The abundance of versions suits the card's status. Players may prefer the original Menges scene, an Ice Age printing, an old-border foil, a judge or Friday Night Magic treatment, a Japanese Mystical Archive illustration, or a modern special frame. The rules sentence remains recognizable across all of them.</p>
-<div aria-label="Swords to Plowshares printing gallery" class="printings"><figure class="printing"><img alt="Limited Edition Alpha Swords to Plowshares" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption>Limited Edition Alpha · 1993</figcaption></figure><figure class="printing"><img alt="Ice Age Swords to Plowshares" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&amp;set=ice&amp;format=image&amp;version=normal"/><figcaption>Ice Age · 1995</figcaption></figure><figure class="printing"><img alt="Eternal Masters Swords to Plowshares" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&amp;set=ema&amp;format=image&amp;version=normal"/><figcaption>Eternal Masters · 2016</figcaption></figure><figure class="printing"><img alt="Masters 25 Swords to Plowshares" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&amp;set=a25&amp;format=image&amp;version=normal"/><figcaption>Masters 25 · 2018</figcaption></figure><figure class="printing"><img alt="Strixhaven Mystical Archive Swords to Plowshares" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&amp;set=sta&amp;format=image&amp;version=normal"/><figcaption>Strixhaven Mystical Archive · 2021</figcaption></figure></div><h3>Research sources</h3><ul class="sources">
+<div aria-label="Swords to Plowshares printing gallery" class="printings" data-card="Swords to Plowshares" data-original-set="lea" id="printing-grid"><figure class="printing original-printing"><img alt="Swords to Plowshares original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div><h3>Research sources</h3><ul class="sources">
 <li><a href="https://magic.wizards.com/en/news/feature/top-50-white-cards-2003-02-07-0">Wizards of the Coast, “The Top 50 White Cards”</a><span>Historical ranking, strategic summary, self-targeting use, and the card's reputation as Magic's premier single-target removal.</span></li>
 <li><a href="https://magic.wizards.com/en/news/making-magic/different-worlds-2005-11-28">Wizards of the Coast, “A Different Worlds”</a><span>Zak Dolan's 1994 World Championship deck and early tournament context.</span></li>
 <li><a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">Wizards of the Coast, “The Deck”</a><span>Brian Weissman's control architecture, decklist, and the role of Swords in the early game.</span></li>
@@ -804,55 +696,47 @@ Sideboard · 15
 <div class="end-nav"><a href="013-dark-ritual.html"><small>Previous entry</small>013 · Dark Ritual</a><a href="015-demonic-tutor.html"><small>Next entry</small>015 · Demonic Tutor</a></div>
 </section>
 </article><aside class="margin-note sidebar-note"><b>The essential bargain</b><p>The creature disappears now. The opponent receives life that may matter later. Swords is strongest when “later” belongs to the caster.</p></aside></div>
-<div class="card-preview" id="preview"><img alt=""/></div><footer class="footer">Compulsive Research · Entry 014 · Swords to Plowshares · Independent, noncommercial Magic history project. Card images and artwork © Wizards of the Coast.</footer>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Swords to Plowshares is entry 14 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-013#entry-013"><small>Previous entry · 013</small>Dark Ritual</a><a href="index.html?focus=entry-015#entry-015"><small>Next entry · 015</small>Demonic Tutor</a></nav></section><div class="card-preview" id="preview"><img alt=""/></div><footer class="footer">Compulsive Research · Entry 014 · Swords to Plowshares · Independent, noncommercial Magic history project.</footer>
 <script>
-const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+const ARTICLE_CARD = "Swords to Plowshares";
+const ORIGINAL_SET = "lea";
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
 function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
-function place(x,y){
- if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
- const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
- if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
- l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
- preview.style.left=l+'px';preview.style.top=t+'px'
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(preview&&!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
+document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
+function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
+function chooseIconic(cards){
+  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
+  if(!bySet.length)return [];
+  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
+  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
+  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
+  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
+  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
+  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
+  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
+  for(const c of iconic){add(c);if(selected.length>=target)break}
+  add(bySet[bySet.length-1]);
+  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
+  for(const c of bySet){if(selected.length>=target)break;add(c)}
+  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
 }
-function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
-function hide(){if(!pinned)preview.classList.remove('show')}
-document.querySelectorAll('.card-name').forEach(el=>{
- el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
- el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
- el.addEventListener('mouseleave',hide);
- el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
- el.addEventListener('blur',hide);
- el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
-});
-document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
- const t=document.getElementById(b.dataset.target).textContent;
- try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
- const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
-}));
-const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
-if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
-function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
-addEventListener('scroll',updateProgress,{passive:true});updateProgress();
-
-(function(){
- const root=document.documentElement;
- function progress(){
-   const max=root.scrollHeight-innerHeight;
-   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
- }
- addEventListener('scroll',progress,{passive:true});progress();
-})();
-
-(function(){
- const root=document.documentElement;
- function progress(){
-  const max=root.scrollHeight-innerHeight;
-  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
- }
- addEventListener('scroll',progress,{passive:true});
- progress();
-})();
-</script>
-</body></html>
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');if(!grid)return;
+ const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
+ try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
+  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
+  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
+ }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
+}
+loadPrintings();
+</script></body></html>

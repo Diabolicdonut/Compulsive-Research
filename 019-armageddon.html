@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A long-form magazine history of Armageddon: Alpha, symmetry, Erhnamgeddon, White Weenie, Worlds, prison, Commander, descendants, artwork, and player memory." name="description"/><title>Armageddon: The Spell That Made the Lead Permanent — Compulsive Research</title><style>
 :root{
   --paper:#f4f0e7;
@@ -54,7 +55,7 @@ p{margin:1em 0}
 }
 .hero:before{
   content:"";position:absolute;inset:0;z-index:-3;
-  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  background:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop) center 27%/cover no-repeat;
   transform:scale(1.018);
 }
 .hero:after{
@@ -132,7 +133,7 @@ p{margin:1em 0}
 .art-break{
   width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
   min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
-  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop) center 25%/cover no-repeat;
 }
 .art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
 .art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
@@ -154,7 +155,7 @@ p{margin:1em 0}
   width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
   display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
 }
-.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .image{min-height:390px;background:var(--night2)}
 .inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
 .memory{
   background:var(--night);color:white;
@@ -193,7 +194,7 @@ p{margin:1em 0}
 .footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
 .landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
 .archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
-.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop) center/cover}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop) center/cover}
 .archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
 @media(max-width:1050px){
   .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
@@ -241,254 +242,105 @@ p{margin:1em 0}
   .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
 }
 
-.recall-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
 }
-.hero.recall-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop)!important;
+  background-position:center 27%!important
 }
-.vision-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
 }
-.card-advantage{
-  width:min(980px,calc(100vw - 32px));
-  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
 }
-.advantage-step{background:var(--white);padding:24px}
-.advantage-step b{
-  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
-  margin-bottom:9px
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
 }
-.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.target-note{
-  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);
-  font:14px/1.65 Inter,system-ui,sans-serif
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
 }
-.target-note b{color:var(--ink)}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
+.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
 @media(max-width:750px){
-  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
 }
 
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop")!important}
 
-.hero
-.hero.hypnotic-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 30%!important
-}
-.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 30%!important
-}
-.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
-.blazing-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
-}
-.pressure-grid,.discard-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.pressure-step,.discard-step{background:var(--white);padding:23px}
-.pressure-step b,.discard-step b{
-  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
-}
-.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.hypnotic-note{
-  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.hypnotic-note b{color:var(--ink)}
-@media(max-width:750px){
-  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
-.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 26%!important
-}
-.hero.hypnotic-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 26%!important
-}
-.art-break.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 25%!important
-}
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
 
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
 
-
-.royal-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 29%!important
-}
-.hero.royal-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 29%!important
-}
-.art-break.royal-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 28%!important
-}
-.avatar-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
-}
-.threat-grid,.timing-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.threat-step,.timing-step{background:var(--white);padding:23px}
-.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
-.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
-.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
-.royal-note b{color:var(--ink)}
-.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
-@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
-
-
-.ritual-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important
-}
-.hero.ritual-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important
-}
-.art-break.ritual-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
-  background-position:center 29%!important
-}
-.cabal-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Cabal%20Ritual&format=image&version=art_crop)!important
-}
-.exchange-grid,.opening-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.opening-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.exchange-step,.opening-step{background:var(--white);padding:23px}
-.exchange-step b,.opening-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
-.exchange-step span,.opening-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
-.ritual-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
-.ritual-note b{color:var(--ink)}
-.mana-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.mana-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.mana-row:last-child{border-bottom:0}.mana-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mana-row p{margin:0}
-@media(max-width:750px){.exchange-grid,.opening-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.exchange-grid,.opening-grid{grid-template-columns:1fr}}
-
-
-.wrath-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important
-}
-.hero.wrath-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important
-}
-.art-break.wrath-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&set=lea&format=image&version=art_crop)!important;
-  background-position:center 28%!important
-}
-.day-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Day%20of%20Judgment&format=image&version=art_crop)!important
-}
-.exchange-grid,.discipline-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.discipline-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.exchange-step,.discipline-step{background:var(--white);padding:23px}
-.exchange-step b,.discipline-step b{
-  display:block;font:900 1.95rem/1.03 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px
-}
-.exchange-step span,.discipline-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.wrath-note{
-  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.wrath-note b{color:var(--ink)}
-.board-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.board-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.board-row:last-child{border-bottom:0}.board-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.board-row p{margin:0}
-@media(max-width:750px){.exchange-grid,.discipline-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.exchange-grid,.discipline-grid{grid-template-columns:1fr}}
-
-
-.armageddon-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop)!important;
-  background-position:center 34%!important
-}
-.hero.armageddon-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop)!important;
-  background-position:center 34%!important
-}
-.art-break.armageddon-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important
-}
-.cataclysm-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Cataclysm&format=image&version=art_crop)!important
-}
-.parity-grid,.recovery-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.parity-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.recovery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.parity-step,.recovery-step{background:var(--white);padding:23px}
-.parity-step b,.recovery-step b{display:block;font:900 1.85rem/1.04 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
-.parity-step span,.recovery-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.geddon-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
-.geddon-note b{color:var(--ink)}
-.geddon-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.geddon-row{display:grid;grid-template-columns:116px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.geddon-row:last-child{border-bottom:0}.geddon-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.geddon-row p{margin:0}
-@media(max-width:750px){.parity-grid,.recovery-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.parity-grid,.recovery-grid{grid-template-columns:1fr}}
-.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Armageddon&set=lea&format=image&version=art_crop)!important}
-
-</style></head><body><header class="hero armageddon-art"><div class="hero-grid"></div><div class="hero-inner">
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+</style></head><body data-article-card="Armageddon"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Armageddon&amp;set=lea&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Armageddon&amp;set=lea&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
 <a class="archive-link" href="index.html#wave-01">← Wave 01 · The Foundational Canon</a>
 <div class="eyebrow">Entry 019 · Wave 01 · The Foundational Canon</div>
 <h1>The Spell That Made the Lead Permanent</h1>
 <p class="deckline">Armageddon taught players that a symmetrical effect becomes brutally one-sided when one player already has the creature, artifact mana, or plan that can survive the end of the world.</p>
-<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 25 minute read</span></div>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 20 minute read</span></div>
 </div></header>
-<nav class="rank-nav"><a href="018-wrath-of-god.html">← Entry 018 · Wrath of God</a><div class="center">Entry 019 of 1,000</div><a href="020-birds-of-paradise.html">Entry 020 · Birds of Paradise →</a></nav>
-<div class="article-shell"><nav class="toc"><strong>In this article</strong>
-<a href="#opening">The spell that made the lead permanent</a><a href="#origin">Alpha's second catastrophe</a><a href="#symmetry">Equal destruction, unequal game</a><a href="#timing">The fourth land as a trap</a><a href="#erhnam">Erhnamgeddon</a><a href="#weenie">Attack, then erase the mana</a><a href="#control">The control killer</a><a href="#mana">What survives the end</a><a href="#recovery">Land Tax, Zuran Orb, and rebuilding</a><a href="#worlds94">The first World Champion</a><a href="#worlds96">The White Weenie champion</a><a href="#prison">Winter Orb, Icy, and Prison</a><a href="#departure">Why Armageddon left the core set</a><a href="#formats">A life across formats</a><a href="#commander">The Commander argument</a><a href="#descendants">Catastrophes after Armageddon</a><a href="#memory">The image and the memory</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
+<nav class="rank-nav"><a href="index.html?focus=entry-018#entry-018">← Entry 018 · Wrath of God</a><div class="center">Entry 019 of 1,000</div><a href="index.html?focus=entry-020#entry-020">Entry 020 · Birds of Paradise →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The spell that made the lead permanent</a><a href="#origin">Alpha's second catastrophe</a><a href="#symmetry">Equal destruction, unequal game</a><a href="#timing">The fourth land as a trap</a><a href="#erhnam">Erhnamgeddon</a><a href="#weenie">Attack, then erase the mana</a><a href="#control">The control killer</a><a href="#mana">What survives the end</a><a href="#recovery">Land Tax, Zuran Orb, and rebuilding</a><a href="#worlds94">The first World Champion</a><a href="#worlds96">The White Weenie champion</a><a href="#prison">Winter Orb, Icy, and Prison</a><a href="#departure">Why Armageddon left the core set</a><a href="#formats">A life across formats</a><a href="#commander">The Commander argument</a><a href="#descendants">Catastrophes after Armageddon</a><a href="#memory">The image and the memory</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
 <article class="article">
 <section id="opening"><div class="chapter-number">I · The turn after</div><h2>The spell that made the lead permanent</h2>
 <p class="opening dropcap">Armageddon does not end the game. It removes the part of the game that might have allowed the losing player to return.</p>
 <p>The text is one of Alpha’s shortest complete disasters: <em>Destroy all lands.</em> Four mana erases every ordinary source of mana on both sides of the battlefield. No land type is spared. No controller receives compensation. The spell appears symmetrical, severe, and almost self-defeating. The caster loses lands too.</p>
 <p>But Magic is not scored by counting surviving lands. It is won by converting the resources already spent into a position the opponent cannot answer. A single creature remains after Armageddon. So does an artifact that taps for mana. So does a full hand whose cheap spells can be cast from the first land drawn. If the caster prepares for the catastrophe and the opponent merely experiences it, “destroy all lands” becomes much closer to “protect everything I have already accomplished.”</p>
-<div class="card-lead"><img alt="Armageddon from Limited Edition Alpha" src="https://api.scryfall.com/cards/named?exact=Armageddon&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Armageddon</b> · {3}{W}<br/>Sorcery<br/><br/>Destroy all lands.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Illustrated by</b>Jesper Myrfors</div><div class="stat"><b>Historical identity</b>The original mass-land-destruction spell</div></div></div></div>
+<div class="card-lead"><img alt="Armageddon original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Armageddon&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Armageddon</b> · {3}{W}<br/>Sorcery<br/><br/>Destroy all lands.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Illustrated by</b>Jesper Myrfors</div><div class="stat"><b>Historical identity</b>The original mass-land-destruction spell</div></div></div></div>
 <p>Armageddon therefore became a lesson about tempo, parity, and commitment. It punished control players for needing future land drops, punished opponents for tapping out, and rewarded aggressive decks for establishing a clock before destroying the economy that could answer it. The card was not merely land destruction on a larger scale. It was the conversion of a temporary lead into a permanent one.</p></section>
 <section id="origin"><div class="chapter-number">II · Limited Edition Alpha</div><h2>Alpha's second catastrophe</h2>
 <p>White entered Magic with two four-mana rare sorceries that could reset an entire class of permanent. <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span> destroyed every creature. Armageddon destroyed every land. Together they defined an early version of white’s philosophy: order could be restored through absolute, universal judgment.</p>
-<p>The pairing is revealing. Wrath of God helps the player who has fewer creatures. Armageddon helps the player who needs future mana less. Both are symmetrical only in rules text. Their actual value depends on what has already happened and how each deck is constructed.</p>
-<p>Richard Garfield’s original environment was full of mana that was not land: the Moxen, Black Lotus, Sol Ring, Mana Vault, Birds of Paradise, and Ley Druid. Armageddon could destroy all lands while leaving those resources untouched. Alpha therefore supplied the disaster and many of the tools needed to survive it in the same card pool.</p>
+<p>The pairing is revealing. <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span> helps the player who has fewer creatures. Armageddon helps the player who needs future mana less. Both are symmetrical only in rules text. Their actual value depends on what has already happened and how each deck is constructed.</p>
+<p>Richard Garfield’s original environment was full of mana that was not land: the Moxen, <span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span>, <span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span>, <span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span>, <span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span>, and <span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span>. Armageddon could destroy all lands while leaving those resources untouched. Alpha therefore supplied the disaster and many of the tools needed to survive it in the same card pool.</p>
 <p>Jesper Myrfors’s original illustration depicts catastrophe without a visible victor. Towers and landscape are consumed by a brilliant rupture; the world appears to be ending rather than changing ownership. That impartial image fits the rules text. The strategic reality would be far less impartial.</p></section>
 <div class="art-break armageddon-art"><div class="art-caption"><b>Jesper Myrfors’s original Armageddon artwork</b>The blast consumes the entire landscape, but competitive players learned to enter that landscape with something already capable of living after it.</div></div>
 <section id="symmetry"><div class="chapter-number">III · Breaking parity</div><h2>Equal destruction, unequal game</h2>
@@ -500,51 +352,51 @@ p{margin:1em 0}
 <p>The most obvious Armageddon turn is turn four, but the strongest cast is not necessarily the earliest one. The caster must ask whether the current battlefield can win without further development, whether the opponent can recover faster, whether a land has been held back, and whether the spell itself can resolve.</p>
 <p>Casting it too early can create a fair top-deck contest. Casting it too late can allow the opponent to deploy a permanent that survives the destruction or leave counterspell mana available. The ideal moment arrives when the opponent has invested heavily in lands but has not yet converted those lands into a stabilizing answer.</p>
 <div class="geddon-sequence"><div class="geddon-row"><strong>Establish</strong><p>Deploy a creature, manland, lock piece, or other permanent that will matter after the lands disappear.</p></div><div class="geddon-row"><strong>Invite</strong><p>Let the opponent commit additional lands in pursuit of a larger spell or a future sweeper.</p></div><div class="geddon-row"><strong>Resolve</strong><p>Cast Armageddon when the opponent cannot counter it or when countering it requires abandoning another critical line.</p></div><div class="geddon-row"><strong>Close</strong><p>Attack with what remains while rebuilding only enough mana to protect the advantage.</p></div></div>
-<p>The threat of Armageddon also changed play before it was cast. Control players had to decide whether to hold lands, expose countermagic, or tap out for card draw. Aggressive mirrors had to consider whether adding another creature helped race or merely increased vulnerability to removal before a land reset. Like Counterspell, Armageddon could influence decisions while still in the library.</p></section>
+<p>The threat of Armageddon also changed play before it was cast. Control players had to decide whether to hold lands, expose countermagic, or tap out for card draw. Aggressive mirrors had to consider whether adding another creature helped race or merely increased vulnerability to removal before a land reset. Like <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span>, Armageddon could influence decisions while still in the library.</p></section>
 <section id="erhnam"><div class="chapter-number">V · The named archetype</div><h2>Erhnamgeddon</h2>
 <p>No partnership explains Armageddon more efficiently than <span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span>. The Djinn cost four mana, attacked as a 4/5, and could be followed by Armageddon. The opponent would face a four-turn clock with no lands, while the Djinn’s drawback—granting an opposing creature forestwalk—became nearly irrelevant when there were no Forests left to walk through and often no time to exploit the ability.</p>
-<p>The combination became famous enough to name an archetype: Erhnamgeddon, often shortened to Erhnam ’Geddon. Green supplied efficient creatures, mana acceleration, and sometimes land-search tools; white supplied Swords to Plowshares, Disenchant, and the catastrophe that converted a large creature into inevitability.</p>
+<p>The combination became famous enough to name an archetype: Erhnamgeddon, often shortened to Erhnam ’Geddon. Green supplied efficient creatures, mana acceleration, and sometimes land-search tools; white supplied <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span>, <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span>, and the catastrophe that converted a large creature into inevitability.</p>
 <p>The archetype was not a two-card combo in the modern sense. Neither card ended the game immediately, and both could be played independently. Its power came from sequencing. The threat consumed the mana first. Armageddon then made the already-paid-for threat much harder to answer.</p>
 <div class="pullquote">The Djinn was the clock. Armageddon removed the calendar.<small>The logic of Erhnamgeddon</small></div>
-<p>That structure became a recurring Magic pattern: resolve a threat, then attack the opponent’s ability to respond. Later decks would use Winter Orb, Wasteland, Daze, Ravages of War, Cataclysm, or planeswalker-backed sweepers, but the strategic sentence was already complete in the mid-1990s.</p></section>
+<p>That structure became a recurring Magic pattern: resolve a threat, then attack the opponent’s ability to respond. Later decks would use <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, Wasteland, Daze, <span class="card-name" data-card="Ravages of War" tabindex="0">Ravages of War</span>, <span class="card-name" data-card="Cataclysm" tabindex="0">Cataclysm</span>, or planeswalker-backed sweepers, but the strategic sentence was already complete in the mid-1990s.</p></section>
 <section id="weenie"><div class="chapter-number">VI · White Weenie</div><h2>Attack, then erase the mana</h2>
-<p>White Weenie was an even more natural home. Its creatures cost one or two mana, its battlefield developed quickly, and its curve often had little use for a fifth or sixth land. The opponent’s deck, by contrast, might require four mana for Wrath of God, five for a finisher, or repeated land drops to produce multiple spells in one turn.</p>
-<p>Armageddon gave the aggressive deck a form of reach that did not deal damage directly. A board of Savannah Lions, White Knight, and Order of Leitbur might look answerable if the defending player was one land away from a sweeper. Destroying every land changed the meaning of that same board. The creatures did not become larger; the answer became temporally unreachable.</p>
-<p>The strategy also exposed a common misconception about aggro. The deck was not merely trying to cast every card as quickly as possible. It was trying to make future resources irrelevant. Holding an extra Plains after reaching four mana could be stronger than adding it to the battlefield. The land in hand represented recovery after the catastrophe; the land in play represented one more object Armageddon would destroy.</p>
+<p>White Weenie was an even more natural home. Its creatures cost one or two mana, its battlefield developed quickly, and its curve often had little use for a fifth or sixth land. The opponent’s deck, by contrast, might require four mana for <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>, five for a finisher, or repeated land drops to produce multiple spells in one turn.</p>
+<p>Armageddon gave the aggressive deck a form of reach that did not deal damage directly. A board of <span class="card-name" data-card="Savannah" tabindex="0">Savannah</span> Lions, White Knight, and <span class="card-name" data-card="Order of Leitbur" tabindex="0">Order of Leitbur</span> might look answerable if the defending player was one land away from a sweeper. Destroying every land changed the meaning of that same board. The creatures did not become larger; the answer became temporally unreachable.</p>
+<p>The strategy also exposed a common misconception about aggro. The deck was not merely trying to cast every card as quickly as possible. It was trying to make future resources irrelevant. Holding an extra <span class="card-name" data-card="Plains" tabindex="0">Plains</span> after reaching four mana could be stronger than adding it to the battlefield. The land in hand represented recovery after the catastrophe; the land in play represented one more object Armageddon would destroy.</p>
 <div class="geddon-note"><b>The White Weenie rule:</b> Armageddon is strongest when the aggressive deck has already spent its mana and the opponent is still accumulating mana for a future that the spell can delete.</div></section>
 <section id="control"><div class="chapter-number">VII · The other matchup</div><h2>The control killer</h2>
 <p>Armageddon was not limited to aggressive decks. Against control, it could function as a must-counter threat more dangerous than a creature. A control deck could remove one attacker after resolving; it could not easily recover from losing every land while the opponent retained artifact mana, a Mishra’s Factory, or a hand prepared to rebuild first.</p>
 <p>The spell created difficult counter wars. If the control player saved permission for Armageddon, other threats might resolve. If the player tapped out for card advantage or a finisher, the land base could disappear. If both players had countermagic, the Armageddon caster could wait until a preceding exchange exhausted the opponent’s blue mana.</p>
-<p>Zak Dolan’s 1994 World Championship deck illustrates this flexibility. Armageddon sat beside Stasis, Kismet, Winter Orb, artifact mana, Serra Angel, and Wrath of God. It was not the sole identity of the deck. It was another way to ensure that once control had been established, the opponent could not rebuild the resources needed to escape.</p></section>
+<p>Zak Dolan’s 1994 World Championship deck illustrates this flexibility. Armageddon sat beside <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span>, <span class="card-name" data-card="Kismet" tabindex="0">Kismet</span>, <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, artifact mana, <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, and <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>. It was not the sole identity of the deck. It was another way to ensure that once control had been established, the opponent could not rebuild the resources needed to escape.</p></section>
 <section id="mana"><div class="chapter-number">VIII · The survivors</div><h2>What survives the end</h2>
-<p>Armageddon’s deck-building history is a catalog of mana sources that are not lands. Moxen and Sol Ring made the earliest versions lopsided. Later decks used Marble Diamond and Sky Diamond. Creatures such as Birds of Paradise could keep producing mana, though sweepers made them less reliable. Tithe could find lands before the destruction and prepare a faster rebuild afterward.</p>
+<p>Armageddon’s deck-building history is a catalog of mana sources that are not lands. Moxen and <span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span> made the earliest versions lopsided. Later decks used <span class="card-name" data-card="Marble Diamond" tabindex="0">Marble Diamond</span> and <span class="card-name" data-card="Sky Diamond" tabindex="0">Sky Diamond</span>. Creatures such as <span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span> could keep producing mana, though sweepers made them less reliable. <span class="card-name" data-card="Tithe" tabindex="0">Tithe</span> could find lands before the destruction and prepare a faster rebuild afterward.</p>
 <p>Manlands occupied a stranger position. <span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span> was destroyed because it was a land, but it could attack before Armageddon and forced opponents to respect a threat that did not consume a spell slot. <span class="card-name" data-card="Kjeldoran Outpost" tabindex="0">Kjeldoran Outpost</span> could convert lands into Soldier tokens before the reset, leaving creatures behind after the land itself vanished.</p>
-<p>Winter Orb created another kind of advantage. If both players were already operating under constrained mana, the player with Diamonds and Icy Manipulator could function while the opponent committed more lands just to cast ordinary spells. Armageddon then punished that commitment. The lock did not merely reduce mana; it encouraged the opponent to place more resources in the blast radius.</p></section>
+<p><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> created another kind of advantage. If both players were already operating under constrained mana, the player with Diamonds and <span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span> could function while the opponent committed more lands just to cast ordinary spells. Armageddon then punished that commitment. The lock did not merely reduce mana; it encouraged the opponent to place more resources in the blast radius.</p></section>
 <section id="recovery"><div class="chapter-number">IX · The rebuild</div><h2>Land Tax, Zuran Orb, and rebuilding</h2>
 <p>Some of Armageddon’s strongest partners made losing lands beneficial. <span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span> could sacrifice lands for life before the sorcery resolved. The lands were going to be destroyed anyway, so the Orb converted doomed permanents into a cushion that helped the caster survive the low-resource turns afterward.</p>
 <p><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span> rewarded the player who controlled fewer lands than an opponent. A deck could search basic lands into hand, establish a threat, then cast Armageddon with a reserve ready to replay. The battlefield would look empty, but the hands would not be equal.</p>
-<p>Tithe played a similar role at instant speed, while effects such as <span class="card-name" data-card="Gaea's Blessing" tabindex="0">Gaea's Blessing</span> or Sylvan Library helped ensure the correct mix of threats and recovery. The strategic point was always the same: the caster did not need immunity from Armageddon. The caster needed a better first turn after it.</p>
+<p><span class="card-name" data-card="Tithe" tabindex="0">Tithe</span> played a similar role at instant speed, while effects such as <span class="card-name" data-card="Gaea's Blessing" tabindex="0">Gaea's Blessing</span> or <span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span> helped ensure the correct mix of threats and recovery. The strategic point was always the same: the caster did not need immunity from Armageddon. The caster needed a better first turn after it.</p>
 <div class="recovery-grid"><div class="recovery-step"><b>Bank lands</b><span>Land Tax and Tithe move future land drops into the hand before destruction.</span></div><div class="recovery-step"><b>Cash out</b><span>Zuran Orb turns lands that will die into life that persists after them.</span></div><div class="recovery-step"><b>Keep mana</b><span>Artifacts and creatures let one player cast spells before lands return.</span></div></div></section>
 <section id="worlds94"><div class="chapter-number">X · Worlds 1994</div><h2>The first World Champion</h2>
 <p>Zak Dolan’s first World Championship deck contained one Armageddon. The number matters. The card did not need to appear as a four-copy linear plan to shape a control deck. In a list filled with tutors, card draw, artifact mana, lock pieces, and singletons, one copy was a decisive endpoint available when the board and hand made it asymmetrical.</p>
-<p>Dolan could establish Serra Angel, Stasis plus Kismet, Meekstone, or a mana advantage built from the Power Nine. Armageddon then attacked the opponent’s capacity to deploy a solution. It also shared the deck with Wrath of God, demonstrating the two directions of white catastrophe: remove every creature when behind, remove every land when ahead.</p>
+<p>Dolan could establish <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, <span class="card-name" data-card="Stasis" tabindex="0">Stasis</span> plus <span class="card-name" data-card="Kismet" tabindex="0">Kismet</span>, <span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span>, or a mana advantage built from the Power Nine. Armageddon then attacked the opponent’s capacity to deploy a solution. It also shared the deck with <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>, demonstrating the two directions of white catastrophe: remove every creature when behind, remove every land when ahead.</p>
 <p>The first World Champion therefore used Armageddon not as a blunt aggressive weapon but as part of a broad theory of control. The deck’s many unusual cards have made it look chaotic in retrospect. Its underlying principle was coherent: create a board that functions under restrictions the opponent cannot tolerate.</p></section>
 <section id="worlds96"><div class="chapter-number">XI · Worlds 1996</div><h2>The White Weenie champion</h2>
-<p>Two years later, Tom Chanpheng won the World Championship with White Weenie. His deck was designed to attack a field dominated by Necropotence, using twelve protection-from-black two-drops, Savannah Lions, White Knight, Phyrexian War Beast, manlands, and efficient white interaction.</p>
-<p>The list contained only one Armageddon, but it also contained Balance and four Strip Mines. The mana-denial package did not need to dominate every draw. It needed to appear often enough that black decks could not assume their long game would exist. Once Chanpheng established pressure, a single mass-land-destruction spell could invalidate the extra cards Necropotence had purchased by denying the mana needed to cast them.</p>
+<p>Two years later, Tom Chanpheng won the World Championship with White Weenie. His deck was designed to attack a field dominated by Necropotence, using twelve protection-from-black two-drops, <span class="card-name" data-card="Savannah" tabindex="0">Savannah</span> Lions, White Knight, Phyrexian War Beast, manlands, and efficient white interaction.</p>
+<p>The list contained only one Armageddon, but it also contained <span class="card-name" data-card="Balance" tabindex="0">Balance</span> and four Strip Mines. The mana-denial package did not need to dominate every draw. It needed to appear often enough that black decks could not assume their long game would exist. Once Chanpheng established pressure, a single mass-land-destruction spell could invalidate the extra cards Necropotence had purchased by denying the mana needed to cast them.</p>
 <p>This is Armageddon’s central competitive paradox. It is card disadvantage in the most literal battlefield count: the caster destroys several of their own lands. Yet when the game has become about time rather than raw card count, removing all mana can make a hand full of cards functionally blank.</p></section>
 <section id="prison"><div class="chapter-number">XII · Pro Tour Chicago 1997</div><h2>Winter Orb, Icy, and Prison</h2>
-<p>Jon Finkel’s third-place Prison deck at Pro Tour Chicago 1997 gave Armageddon a different supporting cast. The deck used seven Diamonds, Winter Orb, Icy Manipulator, Counterspell, Tithe, Wrath of God, and three copies of Armageddon. It sought not to race but to reduce the opponent’s mana to a controlled trickle.</p>
-<p>Under Winter Orb, the opponent had to keep playing lands to accumulate usable mana. Icy Manipulator could tap the one land that untapped or tap Winter Orb at the right time so Finkel could untap normally. Diamonds remained active throughout. When the opposing battlefield finally contained enough lands to threaten an escape, Armageddon reset the entire effort.</p>
-<p>The sideboard made the deck famous for another reason. Opponents would remove creature removal and bring in artifact and enchantment hate against the prison shell. Finkel could transform into Erhnam Djinn and Wildfire Emissary, presenting resilient creatures against a deck now holding the wrong answers. Armageddon connected both configurations: it locked the prison game and protected the post-sideboard threats.</p></section>
+<p>Jon Finkel’s third-place Prison deck at Pro Tour Chicago 1997 gave Armageddon a different supporting cast. The deck used seven Diamonds, <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, <span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span>, <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span>, <span class="card-name" data-card="Tithe" tabindex="0">Tithe</span>, <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>, and three copies of Armageddon. It sought not to race but to reduce the opponent’s mana to a controlled trickle.</p>
+<p>Under <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, the opponent had to keep playing lands to accumulate usable mana. <span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span> could tap the one land that untapped or tap <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> at the right time so Finkel could untap normally. Diamonds remained active throughout. When the opposing battlefield finally contained enough lands to threaten an escape, Armageddon reset the entire effort.</p>
+<p>The sideboard made the deck famous for another reason. Opponents would remove creature removal and bring in artifact and enchantment hate against the prison shell. Finkel could transform into <span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span> and <span class="card-name" data-card="Wildfire Emissary" tabindex="0">Wildfire Emissary</span>, presenting resilient creatures against a deck now holding the wrong answers. Armageddon connected both configurations: it locked the prison game and protected the post-sideboard threats.</p></section>
 <section id="departure"><div class="chapter-number">XIII · The missing staple</div><h2>Why Armageddon left the core set</h2>
-<p>Armageddon remained a core-set card from Alpha through Classic Sixth Edition. For years it stood beside Wrath of God as one of white’s defining rare sorceries. Then it disappeared from regular Standard reprinting.</p>
+<p>Armageddon remained a core-set card from Alpha through Classic Sixth Edition. For years it stood beside <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span> as one of white’s defining rare sorceries. Then it disappeared from regular Standard reprinting.</p>
 <p>The reason was not that mass land destruction had become mechanically incomprehensible. It was that a reliable turn-four destruction of every land created games that were powerful, repetitive, and often difficult to recover from. Wizards’ own retrospective ranking noted the familiar pattern: cast it while ahead, with artifact mana, or against control, and the chance of winning rose dramatically.</p>
 <p>Modern design still permits mass land destruction, but usually at higher costs, with conditions, in supplemental products, or attached to effects that preserve selected permanents. The disappearance of Armageddon from core sets marked a philosophical shift. Lands were increasingly treated not merely as permanents but as the infrastructure required for players to participate.</p></section>
 <section id="formats"><div class="chapter-number">XIV · The legal afterlife</div><h2>A life across formats</h2>
 <div class="format-strip"><div class="format-card"><span class="impact">Historic</span><h3>Old School and Premodern</h3><p>Still central to White Weenie, Erhnamgeddon, prison, and other low-resource strategies.</p></div><div class="format-card"><span class="impact">Niche</span><h3>Legacy and Vintage</h3><p>Legal but largely displaced by cheaper, repeatable, or asymmetric mana denial.</p></div><div class="format-card"><span class="impact">Political</span><h3>Commander</h3><p>Powerful and legal, but commonly governed by expectations about mass land destruction.</p></div><div class="format-card"><span class="impact">Iconic</span><h3>Cube and Canadian Highlander</h3><p>A classic reward for aggressive white decks, mana rocks, and carefully engineered parity breaks.</p></div></div>
-<p>In Legacy and Vintage, Armageddon competes with Wasteland, Strip Mine, Sphere effects, and faster combos. Four mana at sorcery speed is a serious investment. Yet the card still appears where a deck can establish a protected threat and use mass land destruction as a final lock.</p>
-<p>Old School preserves its original relationships with artifact mana, Serra Angel, Erhnam Djinn, Land Tax, and Zuran Orb. Premodern adds Rishadan Port, Wasteland, Parallax Wave, Exalted Angel, and more efficient creatures. In both environments, Armageddon remains recognizable not because it is always dominant, but because every opponent must understand what four mana can mean.</p></section>
+<p>In Legacy and Vintage, Armageddon competes with Wasteland, <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span>, Sphere effects, and faster combos. Four mana at sorcery speed is a serious investment. Yet the card still appears where a deck can establish a protected threat and use mass land destruction as a final lock.</p>
+<p>Old School preserves its original relationships with artifact mana, <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span>, <span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span>, <span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span>, and <span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span>. Premodern adds Rishadan Port, Wasteland, <span class="card-name" data-card="Parallax Wave" tabindex="0">Parallax Wave</span>, Exalted Angel, and more efficient creatures. In both environments, Armageddon remains recognizable not because it is always dominant, but because every opponent must understand what four mana can mean.</p></section>
 <section id="commander"><div class="chapter-number">XV · The table</div><h2>The Commander argument</h2>
 <p>Armageddon occupies a peculiar place in Commander. It is legal, strategically coherent, and capable of protecting a winning position. It is also one of the clearest examples of a card whose social meaning may matter as much as its rules text.</p>
 <p>Mass land destruction can be a legitimate finisher when it immediately closes the game: cast Armageddon with a lethal board, a commander capable of ending combat quickly, or a planeswalker and artifact-mana advantage that makes the outcome clear. It becomes far more contentious when used without a route to victory, extending a multiplayer game in which three opponents must slowly redraw mana.</p>
@@ -554,13 +406,13 @@ p{margin:1em 0}
 <p><span class="card-name" data-card="Ravages of War" tabindex="0">Ravages of War</span> is the cleanest functional reprint, preserving the four-mana text in Portal Three Kingdoms. Its scarcity made it famous in Commander and Cube long after Armageddon itself had become readily available through many reprints.</p>
 <p><span class="card-name" data-card="Cataclysm" tabindex="0">Cataclysm</span> changes the reset into selection: each player keeps one artifact, creature, enchantment, and land. This lets the caster build around a single superior threat or permanent package. Brian Hacker’s 1998 White Weenie deck used four Cataclysms in the main deck and Armageddon in the sideboard, a concise record of design moving from complete erasure toward structured asymmetry.</p>
 <p><span class="card-name" data-card="Catastrophe" tabindex="0">Catastrophe</span> offers a choice between destroying all lands and destroying all creatures, at six mana. <span class="card-name" data-card="Boom // Bust" tabindex="0">Boom // Bust</span> divides targeted and global land destruction across two halves. <span class="card-name" data-card="Fall of the Thran" tabindex="0">Fall of the Thran</span> destroys lands but includes a staged return. <span class="card-name" data-card="Worldslayer" tabindex="0">Worldslayer</span> attaches the apocalypse to combat. Red cards such as <span class="card-name" data-card="Jokulhaups" tabindex="0">Jokulhaups</span> and <span class="card-name" data-card="Obliterate" tabindex="0">Obliterate</span> broaden the destruction beyond lands, while white cards increasingly preserve some kind of order after the reset.</p>
-<div class="inline-image cataclysm-descendant"><div class="image"></div><div class="copy"><div class="kicker">The selective descendant</div><h3>Cataclysm</h3><p>Rather than leave nothing, Cataclysm asks each player to choose one permanent of each major type. The deck built around the best survivor turns the apparent equality into a new version of the Armageddon lesson.</p></div></div></section>
+<div class="inline-image cataclysm-descendant"><div class="image"></div><div class="copy"><div class="kicker">The selective descendant</div><h3>Cataclysm</h3><p>Rather than leave nothing, <span class="card-name" data-card="Cataclysm" tabindex="0">Cataclysm</span> asks each player to choose one permanent of each major type. The deck built around the best survivor turns the apparent equality into a new version of the Armageddon lesson.</p></div></div></section>
 <section id="memory"><div class="chapter-number">XVII · The empty battlefield</div><h2>The image and the memory</h2>
 <p>Players remember Armageddon through the physical act of gathering lands. A battlefield that took four or five turns to construct disappears in one sweep. Creatures remain stranded above an empty lower half of the table. Hands become promises without the mana to fulfill them.</p>
 <p>The original art’s explosion and the card’s apocalyptic name made the effect feel larger than ordinary land destruction. Stone Rain removes a resource. Armageddon removes the landscape. The term “’Geddon” became productive deck-building language: Erhnamgeddon, Blastogeddon, and other names used the suffix to announce that a deck’s plan culminated in destroying mana.</p>
 <p>For the caster, the memorable moment is often one of restraint rather than destruction: holding the fifth land, waiting for the opponent to tap out, counting the clock, and deciding that the board is sufficient. For the opponent, it is the realization that the game continues but the future has been pushed several turns away.</p>
 <div class="memory"><div class="memory-grid"><blockquote>Armageddon did not ask whether both players lost the same number of lands. It asked which player had already finished spending them.</blockquote><cite>The defining lesson of the card</cite></div></div></section>
-<section class="deck-archive" id="decklists"><div class="chapter-number">XVIII · The record</div><h2>The deck archive</h2><p class="deck-intro">These four exact historical lists show Armageddon as a control endpoint, a White Weenie finisher, the climax of a prison lock, and finally a sideboard option beside Cataclysm as white mass destruction evolved.</p><details class="deck"><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The first World Champion registered a single Armageddon beside Wrath of God. In a deck with artifact mana, Serra Angels, Stasis, and Strip Mine, the one copy could convert an established lock or aerial advantage into an unrecoverable resource gap.</p><button class="copy" data-target="armageddon-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div></div><pre hidden="" id="armageddon-deck-0">Zak Dolan — U/W/G Stasis Control
+<section id="decklists"><div class="chapter-number">XVIII · The record</div><h2>The deck archive</h2><p class="deck-intro">The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p><div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Zak Dolan — U/W/G Stasis Control</strong><small>World Champion · Worlds 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>A documented historical list featuring Armageddon.</p><div class="deck-meta"><div><b>Zak Dolan — U/W/G Stasis Control</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-019-armageddon-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Old Man of the Sea" tabindex="0">Old Man of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Elemental" tabindex="0">Time Elemental</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vesuvan Doppelganger" tabindex="0">Vesuvan Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ley Druid" tabindex="0">Ley Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stasis" tabindex="0">Stasis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div></div><div class="group"><h4>Instants · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Siren's Call" tabindex="0">Siren's Call</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recall" tabindex="0">Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Lands · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Library of Alexandria" tabindex="0">Library of Alexandria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kismet" tabindex="0">Kismet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diamond Valley" tabindex="0">Diamond Valley</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="In the Eye of Chaos" tabindex="0">In the Eye of Chaos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Floral Spuzzem" tabindex="0">Floral Spuzzem</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Presence of the Master" tabindex="0">Presence of the Master</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reverse Damage" tabindex="0">Reverse Damage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Winter Blast" tabindex="0">Winter Blast</span></div></div></div></div><pre hidden="" id="deck-019-armageddon-1">Zak Dolan — U/W/G Stasis Control
 World Champion · Worlds 1994
 
 Creatures · 11
@@ -571,21 +423,6 @@ Creatures · 11
 1 Birds of Paradise
 1 Ley Druid
 4 Serra Angel
-
-Sorceries · 6
-1 Recall
-1 Timetwister
-1 Time Walk
-1 Regrowth
-1 Armageddon
-1 Wrath of God
-
-Instants · 9
-1 Ancestral Recall
-1 Mana Drain
-1 Siren's Call
-2 Disenchant
-4 Swords to Plowshares
 
 Artifacts · 15
 1 Black Lotus
@@ -608,12 +445,27 @@ Enchantments · 4
 2 Stasis
 1 Kismet
 
+Instants · 9
+1 Ancestral Recall
+1 Mana Drain
+1 Siren's Call
+2 Disenchant
+4 Swords to Plowshares
+
 Lands · 15
 1 Library of Alexandria
 4 Savannah
 4 Tropical Island
 4 Tundra
 2 Strip Mine
+
+Sorceries · 6
+1 Recall
+1 Timetwister
+1 Time Walk
+1 Regrowth
+1 Armageddon
+1 Wrath of God
 
 Sideboard · 15
 1 Kismet
@@ -629,63 +481,56 @@ Sideboard · 15
 1 Presence of the Master
 1 Reverse Damage
 1 Sleight of Mind
-1 Winter Blast</pre><p class="small">Source: <a href="022-serra-angel.html#decklists">open the Compulsive Research historical deck archive</a></p></div></details><details class="deck"><summary><span><strong>Tom Chanpheng — White Weenie</strong><small>World Champion · Worlds 1996</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">Chanpheng’s anti-Necropotence White Weenie deck used one Armageddon, four Strip Mines, cheap protection creatures, and manlands. The spell was not the deck’s only plan; it was the point at which a modest battlefield advantage became a closed game.</p><button class="copy" data-target="armageddon-deck-1">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of Leitbur" tabindex="0">Order of Leitbur</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of the White Shield" tabindex="0">Order of the White Shield</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Phyrexian War Beast" tabindex="0">Phyrexian War Beast</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="White Knight" tabindex="0">White Knight</span></div></div><div class="group"><h4>Instants · 11</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reinforcements" tabindex="0">Reinforcements</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reprisal" tabindex="0">Reprisal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts and enchantments · 3</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lodestone Bauble" tabindex="0">Lodestone Bauble</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kjeldoran Outpost" tabindex="0">Kjeldoran Outpost</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">15</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Arenson's Aura" tabindex="0">Arenson's Aura</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Energy Storm" tabindex="0">Energy Storm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Exile" tabindex="0">Exile</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kjeldoran Outpost" tabindex="0">Kjeldoran Outpost</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reprisal" tabindex="0">Reprisal</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spirit Link" tabindex="0">Spirit Link</span></div></div></div></div><pre hidden="" id="armageddon-deck-1">Tom Chanpheng — White Weenie
-World Champion · Worlds 1996
+1 Winter Blast</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>Bertrand Lestree — Pro Tour New York 1996</strong><small>Finalist · 4ED-HML standard+ · 1996-02-18</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from Pro Tour New York 1996. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Bertrand Lestree</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-019-armageddon-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 14</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Order of Leitbur" tabindex="0">Order of Leitbur</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Autumn Willow" tabindex="0">Autumn Willow</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spectral Bears" tabindex="0">Spectral Bears</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fyndhorn Elves" tabindex="0">Fyndhorn Elves</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brushland" tabindex="0">Brushland</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Havenwood Battleground" tabindex="0">Havenwood Battleground</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ruins of Trokair" tabindex="0">Ruins of Trokair</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">6</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">6</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Zuran Orb" tabindex="0">Zuran Orb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ivory Tower" tabindex="0">Ivory Tower</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fellwar Stone" tabindex="0">Fellwar Stone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Land Tax" tabindex="0">Land Tax</span></div></div><div class="group"><h4>Instants · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Green" tabindex="0">Circle of Protection: Green</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karma" tabindex="0">Karma</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Whirling Dervish" tabindex="0">Whirling Dervish</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Order of Leitbur" tabindex="0">Order of Leitbur</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Abbey Gargoyles" tabindex="0">Abbey Gargoyles</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Divine Offering" tabindex="0">Divine Offering</span></div></div></div></div><pre hidden="" id="deck-019-armageddon-2">Bertrand Lestree — Pro Tour New York 1996
+Finalist · 4ED-HML standard+ · 1996-02-18
 
-Creatures · 20
-4 Order of Leitbur
-4 Order of the White Shield
-2 Phyrexian War Beast
-4 Savannah Lions
-2 Serra Angel
-4 White Knight
+Creatures · 14
+4 Erhnam Djinn
+2 Order of Leitbur
+1 Autumn Willow
+2 Spectral Bears
+2 Fyndhorn Elves
+2 Llanowar Elves
+1 Serra Angel
 
-Instants · 11
+Artifacts · 6
+1 Zuran Orb
+1 Ivory Tower
+2 Fellwar Stone
+2 Icy Manipulator
+
+Enchantments · 4
+2 Sylvan Library
+2 Land Tax
+
+Instants · 8
 4 Disenchant
-1 Reinforcements
-1 Reprisal
-1 Sleight of Mind
 4 Swords to Plowshares
 
-Sorceries · 2
-1 Armageddon
-1 Balance
-
-Artifacts and enchantments · 3
-1 Lodestone Bauble
-1 Zuran Orb
-1 Land Tax
-
-Lands · 24
-1 Kjeldoran Outpost
-4 Mishra's Factory
-15 Plains
+Lands · 22
+4 Brushland
+1 Havenwood Battleground
+1 Ruins of Trokair
 4 Strip Mine
+6 Plains
+6 Forest
+
+Sorceries · 6
+2 Wrath of God
+1 Balance
+3 Armageddon
 
 Sideboard · 15
-2 Arenson's Aura
+2 Circle of Protection: Green
+2 Karma
+2 Circle of Protection: Red
+2 Whirling Dervish
+1 Wrath of God
+1 Order of Leitbur
+2 Abbey Gargoyles
 1 Black Vise
-4 Divine Offering
-1 Energy Storm
-1 Exile
-1 Kjeldoran Outpost
-1 Reprisal
-2 Serrated Arrows
-1 Sleight of Mind
-1 Spirit Link</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/top-50-white-cards-2003-02-07-0">open Wizards’ historical deck record</a></p></div></details><details class="deck"><summary><span><strong>Jon Finkel — Prison</strong><small>3rd place · Pro Tour Chicago 1997 · Extended</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">Finkel’s first Pro Tour Top 8 used Diamonds to function under Winter Orb, Icy Manipulator to control untaps, and three Armageddons to erase the lands opponents were forced to commit. Its transformational sideboard then punished opponents for removing creature answers.</p><button class="copy" data-target="armageddon-deck-2">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Sorceries · 11</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Gaea's Blessing" tabindex="0">Gaea's Blessing</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Gerrard's Wisdom" tabindex="0">Gerrard's Wisdom</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Instants · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tithe" tabindex="0">Tithe</span></div></div><div class="group"><h4>Artifacts · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Marble Diamond" tabindex="0">Marble Diamond</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sky Diamond" tabindex="0">Sky Diamond</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 5</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Aura of Silence" tabindex="0">Aura of Silence</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div></div><div class="group"><h4>Lands · 17</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flood Plain" tabindex="0">Flood Plain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Undiscovered Paradise" tabindex="0">Undiscovered Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Aura of Silence" tabindex="0">Aura of Silence</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gaea's Blessing" tabindex="0">Gaea's Blessing</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Gerrard's Wisdom" tabindex="0">Gerrard's Wisdom</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wildfire Emissary" tabindex="0">Wildfire Emissary</span></div></div></div></div><pre hidden="" id="armageddon-deck-2">Jon Finkel — Prison
+2 Divine Offering</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Jon Finkel — Prison</strong><small>3rd place · Pro Tour Chicago 1997 · Extended</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Official or publisher record</span><p>A documented historical list featuring Armageddon.</p><div class="deck-meta"><div><b>Jon Finkel — Prison</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-019-armageddon-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Artifacts · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Icy Manipulator" tabindex="0">Icy Manipulator</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Marble Diamond" tabindex="0">Marble Diamond</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Serrated Arrows" tabindex="0">Serrated Arrows</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sky Diamond" tabindex="0">Sky Diamond</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Sorceries · 11</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Gaea's Blessing" tabindex="0">Gaea's Blessing</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Gerrard's Wisdom" tabindex="0">Gerrard's Wisdom</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 5</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Aura of Silence" tabindex="0">Aura of Silence</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sylvan Library" tabindex="0">Sylvan Library</span></div></div><div class="group"><h4>Instants · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tithe" tabindex="0">Tithe</span></div></div><div class="group"><h4>Lands · 17</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flood Plain" tabindex="0">Flood Plain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Plateau" tabindex="0">Plateau</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Undiscovered Paradise" tabindex="0">Undiscovered Paradise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Aura of Silence" tabindex="0">Aura of Silence</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gaea's Blessing" tabindex="0">Gaea's Blessing</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Gerrard's Wisdom" tabindex="0">Gerrard's Wisdom</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Erhnam Djinn" tabindex="0">Erhnam Djinn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl's Recall" tabindex="0">Hurkyl's Recall</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wildfire Emissary" tabindex="0">Wildfire Emissary</span></div></div></div></div><pre hidden="" id="deck-019-armageddon-3">Jon Finkel — Prison
 3rd place · Pro Tour Chicago 1997 · Extended
-
-Sorceries · 11
-3 Armageddon
-2 Gaea's Blessing
-2 Gerrard's Wisdom
-1 Pyroclasm
-3 Wrath of God
-
-Instants · 10
-4 Counterspell
-2 Swords to Plowshares
-4 Tithe
 
 Artifacts · 17
 4 Icy Manipulator
@@ -698,6 +543,11 @@ Enchantments · 5
 3 Aura of Silence
 2 Sylvan Library
 
+Instants · 10
+4 Counterspell
+2 Swords to Plowshares
+4 Tithe
+
 Lands · 17
 1 Flood Plain
 4 Mishra's Factory
@@ -706,6 +556,13 @@ Lands · 17
 4 Tundra
 2 Undiscovered Paradise
 1 Volcanic Island
+
+Sorceries · 11
+3 Armageddon
+2 Gaea's Blessing
+2 Gerrard's Wisdom
+1 Pyroclasm
+3 Wrath of God
 
 Sideboard · 15
 1 Aura of Silence
@@ -716,92 +573,138 @@ Sideboard · 15
 1 Hurkyl's Recall
 2 Pyroblast
 1 Red Elemental Blast
-3 Wildfire Emissary</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/sideboarding-strategies-and-tactics-part-1-2013-08-29">open Wizards’ deck and strategy archive</a></p></div></details><details class="deck"><summary><span><strong>Brian Hacker — White Weenie</strong><small>7th place · World Championship 1998 · Standard</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">Hacker’s main deck had moved from Armageddon to Cataclysm, a selective catastrophe that preserved one creature, land, artifact, and enchantment. Two Armageddons remained in the sideboard, showing both the old card’s continuing threat and the direction white mass destruction was taking.</p><button class="copy" data-target="armageddon-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 27</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Nomads en-Kor" tabindex="0">Nomads en-Kor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Paladin en-Vec" tabindex="0">Paladin en-Vec</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Soltari Monk" tabindex="0">Soltari Monk</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Soltari Priest" tabindex="0">Soltari Priest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Soltari Visionary" tabindex="0">Soltari Visionary</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Soul Warden" tabindex="0">Soul Warden</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Warrior en-Kor" tabindex="0">Warrior en-Kor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="White Knight" tabindex="0">White Knight</span></div></div><div class="group"><h4>Instants · 7</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tithe" tabindex="0">Tithe</span></div></div><div class="group"><h4>Sorceries · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cataclysm" tabindex="0">Cataclysm</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Aura of Silence" tabindex="0">Aura of Silence</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Empyrial Armor" tabindex="0">Empyrial Armor</span></div></div><div class="group"><h4>Lands · 17</h4><div class="row"><span class="qty">17</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Abeyance" tabindex="0">Abeyance</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Aura of Silence" tabindex="0">Aura of Silence</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Spirit Link" tabindex="0">Spirit Link</span></div></div></div></div><pre hidden="" id="armageddon-deck-3">Brian Hacker — White Weenie
-7th place · World Championship 1998 · Standard
+3 Wildfire Emissary</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/making-magic/sideboarding-strategies-and-tactics-part-1-2013-08-29">open Wizards’ deck and strategy archive</a></p></div></details><details class="deck"><summary><span><strong>Nicolas Labarre — 2000 World Championship</strong><small>8th place · PCY standard · 2000-08-06</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from 2000 World Championship. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Nicolas Labarre</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-019-armageddon-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Academy Rector" tabindex="0">Academy Rector</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Llanowar Elves" tabindex="0">Llanowar Elves</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Priest of Titania" tabindex="0">Priest of Titania</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Serra Avatar" tabindex="0">Serra Avatar</span></div></div><div class="group"><h4>Instants · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Enlightened Tutor" tabindex="0">Enlightened Tutor</span></div></div><div class="group"><h4>Sorceries · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Will" tabindex="0">Yawgmoth's Will</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 6</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ashnod's Altar" tabindex="0">Ashnod's Altar</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Snake Basket" tabindex="0">Snake Basket</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Whetstone" tabindex="0">Whetstone</span></div></div><div class="group"><h4>Enchantments · 11</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Confiscate" tabindex="0">Confiscate</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fecundity" tabindex="0">Fecundity</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pattern of Rebirth" tabindex="0">Pattern of Rebirth</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Saproling Cluster" tabindex="0">Saproling Cluster</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Yawgmoth's Bargain" tabindex="0">Yawgmoth's Bargain</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brushland" tabindex="0">Brushland</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">8</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="High Market" tabindex="0">High Market</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Phyrexian Tower" tabindex="0">Phyrexian Tower</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Thran Quarry" tabindex="0">Thran Quarry</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Absolute Law" tabindex="0">Absolute Law</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Aura Fracture" tabindex="0">Aura Fracture</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blaze" tabindex="0">Blaze</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Defense Grid" tabindex="0">Defense Grid</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Energy Flux" tabindex="0">Energy Flux</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Heart of Ramos" tabindex="0">Heart of Ramos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Light of Day" tabindex="0">Light of Day</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Parallax Wave" tabindex="0">Parallax Wave</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Phyrexian Processor" tabindex="0">Phyrexian Processor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Seal of Cleansing" tabindex="0">Seal of Cleansing</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Worship" tabindex="0">Worship</span></div></div></div></div><pre hidden="" id="deck-019-armageddon-4">Nicolas Labarre — 2000 World Championship
+8th place · PCY standard · 2000-08-06
 
-Creatures · 27
-3 Nomads en-Kor
-3 Paladin en-Vec
-4 Soltari Monk
-4 Soltari Priest
-1 Soltari Visionary
-4 Soul Warden
-4 Warrior en-Kor
-4 White Knight
+Creatures · 17
+4 Academy Rector
+4 Birds of Paradise
+4 Llanowar Elves
+4 Priest of Titania
+1 Serra Avatar
 
-Instants · 7
-3 Disenchant
-4 Tithe
+Artifacts · 6
+4 Ashnod's Altar
+1 Snake Basket
+1 Whetstone
 
-Sorceries · 4
-4 Cataclysm
+Enchantments · 11
+1 Confiscate
+4 Fecundity
+1 Pattern of Rebirth
+4 Saproling Cluster
+1 Yawgmoth's Bargain
 
-Enchantments · 5
-1 Aura of Silence
-4 Empyrial Armor
+Instants · 4
+4 Enlightened Tutor
 
-Lands · 17
-17 Plains
+Lands · 21
+4 Brushland
+3 City of Brass
+8 Forest
+2 High Market
+2 Phyrexian Tower
+2 Thran Quarry
+
+Sorceries · 1
+1 Yawgmoth's Will
 
 Sideboard · 15
-3 Abeyance
+1 Absolute Law
+3 Armageddon
+1 Aura Fracture
+1 Blaze
+1 Defense Grid
+1 Energy Flux
+1 Heart of Ramos
+1 Light of Day
+1 Meekstone
+1 Parallax Wave
+1 Phyrexian Processor
+1 Seal of Cleansing
+1 Worship</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Mike Elliott — The New Rebels</strong><small>Nemesis Player’s Guide · Standard sample deck</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>The official Nemesis guide used a single Dust Bowl in a blue-white Rebel shell. The list illustrates the card’s intended utility role: a late land that could attack opposing engines after the Rebel chain stabilized.</p><div class="deck-meta"><div><b>Mike Elliott — The New Rebels</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-019-armageddon-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 23</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Cho-Manno, Revolutionary" tabindex="0">Cho-Manno, Revolutionary</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Defiant Falcon" tabindex="0">Defiant Falcon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Defiant Vanguard" tabindex="0">Defiant Vanguard</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lin Sivvi, Defiant Hero" tabindex="0">Lin Sivvi, Defiant Hero</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nightwind Glider" tabindex="0">Nightwind Glider</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ramosian Captain" tabindex="0">Ramosian Captain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ramosian Lieutenant" tabindex="0">Ramosian Lieutenant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ramosian Sergeant" tabindex="0">Ramosian Sergeant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rappelling Scouts" tabindex="0">Rappelling Scouts</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Steadfast Guard" tabindex="0">Steadfast Guard</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thermal Glider" tabindex="0">Thermal Glider</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants and enchantments · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Crusade" tabindex="0">Crusade</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Last Breath" tabindex="0">Last Breath</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dust Bowl" tabindex="0">Dust Bowl</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kor Haven" tabindex="0">Kor Haven</span></div><div class="row"><span class="qty">15</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Arrest" tabindex="0">Arrest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Last Breath" tabindex="0">Last Breath</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Story Circle" tabindex="0">Story Circle</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Thermal Glider" tabindex="0">Thermal Glider</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Topple" tabindex="0">Topple</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div></div><pre hidden="" id="deck-019-armageddon-5">Mike Elliott — The New Rebels
+Nemesis Player’s Guide · Standard sample deck
+
+Creatures · 23
+1 Cho-Manno, Revolutionary
+4 Defiant Falcon
+1 Defiant Vanguard
+2 Lin Sivvi, Defiant Hero
+1 Nightwind Glider
+1 Ramosian Captain
+4 Ramosian Lieutenant
+4 Ramosian Sergeant
+1 Rappelling Scouts
+3 Steadfast Guard
+1 Thermal Glider
+
+Instants and enchantments · 13
+4 Crusade
+3 Disenchant
+2 Last Breath
+4 Power Sink
+
+Lands · 24
+4 Adarkar Wastes
+1 Dust Bowl
+3 Island
+1 Kor Haven
+15 Plains
+
+Sideboard · 15
 2 Armageddon
-3 Aura of Silence
-3 Cursed Scroll
+1 Arrest
 1 Disenchant
-3 Spirit Link</pre><p class="small">Source: <a href="https://mtg.wtf/deck/wc98/brian-hacker-white-weenie">open the World Championship deck record</a></p></div></details></section>
+2 Last Breath
+3 Story Circle
+2 Thermal Glider
+2 Topple
+2 Wrath of God</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details></div></section>
 <section id="printings"><div class="chapter-number">XIX · The archive</div><h2>Printings and sources</h2>
-<p>Armageddon debuted as a rare in Limited Edition Alpha and appeared in Beta, Unlimited, Revised, Fourth Edition, Fifth Edition, and Classic Sixth Edition. Later appearances moved largely to supplemental, promotional, Masters, and special-treatment products, including Portal printings, From the Vault, Masters 25, Amonkhet Invocations, and other curated releases. The original Jesper Myrfors artwork remained one of the defining images of early white magic.</p>
-<div aria-label="Armageddon printing gallery" class="printings"><figure class="printing"><img alt="Limited Edition Alpha Armageddon" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Armageddon&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption>Limited Edition Alpha · 1993</figcaption></figure><figure class="printing"><img alt="Fourth Edition Armageddon" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Armageddon&amp;set=4ed&amp;format=image&amp;version=normal"/><figcaption>Fourth Edition · 1995</figcaption></figure><figure class="printing"><img alt="Fifth Edition Armageddon" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Armageddon&amp;set=5ed&amp;format=image&amp;version=normal"/><figcaption>Fifth Edition · 1997</figcaption></figure><figure class="printing"><img alt="Classic Sixth Edition Armageddon" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Armageddon&amp;set=6ed&amp;format=image&amp;version=normal"/><figcaption>Classic Sixth Edition · 1999</figcaption></figure><figure class="printing"><img alt="Portal Armageddon" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Armageddon&amp;set=por&amp;format=image&amp;version=normal"/><figcaption>Portal · 1997</figcaption></figure><figure class="printing"><img alt="Masters 25 Armageddon" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Armageddon&amp;set=a25&amp;format=image&amp;version=normal"/><figcaption>Masters 25 · 2018</figcaption></figure></div><h3>Research sources</h3><ul class="sources"><li><a href="https://magic.wizards.com/en/news/feature/top-50-white-cards-2003-02-07-0">Wizards of the Coast, “The Top 50 White Cards”</a><span>Armageddon’s place beside Wrath of God, the turn-four power problem, and Tom Chanpheng’s White Weenie list.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/symmetry-symmetrical-effects-2014-04-07">Mark Rosewater, “Symmetry”</a><span>Armageddon as the classic example of breaking a symmetrical effect with creatures and nonland mana.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/sideboarding-strategies-and-tactics-part-1-2013-08-29">Mike Flores, “Sideboarding Strategies and Tactics, Part 1”</a><span>Jon Finkel’s 1997 Prison list, Armageddon lock, and transformational creature sideboard.</span></li><li><a href="https://magic.gg/news/jon-finkel-hall-of-fame">Wizards of the Coast, Jon Finkel Hall of Fame profile</a><span>Pro Tour Chicago 1997 as Finkel’s first Pro Tour Top 8 and a third-place finish with Prison.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/all-worlds-stage-2014-12-01">Mark Rosewater, “All the World’s a Stage”</a><span>Historical context for Tom Chanpheng’s anti-Necropotence World Championship victory.</span></li><li><a href="https://magic.wizards.com/en/news/feature/top-50-artifacts-all-time-2005-02-28">Wizards of the Coast, “The Top 50 Artifacts of All Time”</a><span>Zuran Orb’s interaction with Armageddon, Land Tax, and resource conversion.</span></li><li><a href="https://mtg.wtf/deck/wc98/brian-hacker-white-weenie">World Championship Decks 1998 archive</a><span>Brian Hacker’s Cataclysm White Weenie list and sideboard Armageddons.</span></li><li><a href="https://mtg.wtf/card/lea/2/Armageddon">Armageddon printing archive</a><span>Original Alpha printing, artist credit, rules text, and later printings.</span></li></ul>
+<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p>
+<div aria-label="Armageddon printing gallery" class="printings" data-card="Armageddon" data-original-set="lea" id="printing-grid"><figure class="printing original-printing"><img alt="Armageddon original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Armageddon&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div><h3>Research sources</h3><ul class="sources"><li><a href="https://magic.wizards.com/en/news/feature/top-50-white-cards-2003-02-07-0">Wizards of the Coast, “The Top 50 White Cards”</a><span>Armageddon’s place beside Wrath of God, the turn-four power problem, and Tom Chanpheng’s White Weenie list.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/symmetry-symmetrical-effects-2014-04-07">Mark Rosewater, “Symmetry”</a><span>Armageddon as the classic example of breaking a symmetrical effect with creatures and nonland mana.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/sideboarding-strategies-and-tactics-part-1-2013-08-29">Mike Flores, “Sideboarding Strategies and Tactics, Part 1”</a><span>Jon Finkel’s 1997 Prison list, Armageddon lock, and transformational creature sideboard.</span></li><li><a href="https://magic.gg/news/jon-finkel-hall-of-fame">Wizards of the Coast, Jon Finkel Hall of Fame profile</a><span>Pro Tour Chicago 1997 as Finkel’s first Pro Tour Top 8 and a third-place finish with Prison.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/all-worlds-stage-2014-12-01">Mark Rosewater, “All the World’s a Stage”</a><span>Historical context for Tom Chanpheng’s anti-Necropotence World Championship victory.</span></li><li><a href="https://magic.wizards.com/en/news/feature/top-50-artifacts-all-time-2005-02-28">Wizards of the Coast, “The Top 50 Artifacts of All Time”</a><span>Zuran Orb’s interaction with Armageddon, Land Tax, and resource conversion.</span></li><li><a href="https://mtg.wtf/deck/wc98/brian-hacker-white-weenie">World Championship Decks 1998 archive</a><span>Brian Hacker’s Cataclysm White Weenie list and sideboard Armageddons.</span></li><li><a href="https://mtg.wtf/card/lea/2/Armageddon">Armageddon printing archive</a><span>Original Alpha printing, artist credit, rules text, and later printings.</span></li></ul>
 <div class="end-nav"><a href="018-wrath-of-god.html"><small>Previous entry</small>018 · Wrath of God</a><a href="020-birds-of-paradise.html"><small>Next entry</small>020 · Birds of Paradise</a></div></section>
 </article><aside class="margin-note"><div class="kicker">The benchmark</div><h3>Four mana, no lands</h3><p>Armageddon established the cheapest clean mass-land-destruction rate and taught generations of players to treat a developed board as a resource that could survive without mana.</p></aside></div>
-<div class="card-preview" id="preview"><img alt=""/><div class="label"></div></div><script>
-const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Armageddon is entry 19 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-018#entry-018"><small>Previous entry · 018</small>Wrath of God</a><a href="index.html?focus=entry-020#entry-020"><small>Next entry · 020</small>Birds of Paradise</a></nav></section><div class="card-preview" id="preview"><img alt=""/><div class="label"></div></div><footer class="footer">Compulsive Research · Entry 019 · Armageddon · Independent, noncommercial Magic history project.</footer><aside class="sidebar-note"><b>Compulsive Research</b><br/>A long-form preservation study of Armageddon: design, play, tournament history, artwork, and memory.</aside><script>
+const ARTICLE_CARD = "Armageddon";
+const ORIGINAL_SET = "lea";
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
 function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
-function place(x,y){
- if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
- const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
- if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
- l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
- preview.style.left=l+'px';preview.style.top=t+'px'
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(preview&&!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
+document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
+function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
+function chooseIconic(cards){
+  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
+  if(!bySet.length)return [];
+  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
+  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
+  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
+  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
+  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
+  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
+  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
+  for(const c of iconic){add(c);if(selected.length>=target)break}
+  add(bySet[bySet.length-1]);
+  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
+  for(const c of bySet){if(selected.length>=target)break;add(c)}
+  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
 }
-function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
-function hide(){if(!pinned)preview.classList.remove('show')}
-document.querySelectorAll('.card-name').forEach(el=>{
- el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
- el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
- el.addEventListener('mouseleave',hide);
- el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
- el.addEventListener('blur',hide);
- el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
-});
-document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
- const t=document.getElementById(b.dataset.target).textContent;
- try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
- const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
-}));
-const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
-if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
-function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
-addEventListener('scroll',updateProgress,{passive:true});updateProgress();
-
-(function(){
- const root=document.documentElement;
- function progress(){
-   const max=root.scrollHeight-innerHeight;
-   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
- }
- addEventListener('scroll',progress,{passive:true});progress();
-})();
-
-(function(){
- const root=document.documentElement;
- function progress(){
-  const max=root.scrollHeight-innerHeight;
-  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
- }
- addEventListener('scroll',progress,{passive:true});
- progress();
-})();
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');if(!grid)return;
+ const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
+ try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
+  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
+  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
+ }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
+}
+loadPrintings();
 </script></body></html>
