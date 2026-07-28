@@ -1,0 +1,631 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A Compulsive Research history of Engineered Explosives" name="description"/><title>Engineered Explosives: The Sweeper Hidden in the Mana Base — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:var(--night2)}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
+.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+
+/* Entry-specific original-art overrides */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Jackal%20Pup&set=tmp&format=image&version=art_crop")!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Jackal%20Pup&set=tmp&format=image&version=art_crop")!important}
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+/* Entry-specific original-art overrides */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Engineered%20Explosives&set=5dn&format=image&version=art_crop")!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Engineered%20Explosives&set=5dn&format=image&version=art_crop")!important}
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+</style></head><body data-article-card="Engineered Explosives"><header class="hero"><img class="hero-media" alt="" loading="eager" src="https://api.scryfall.com/cards/named?exact=Engineered%20Explosives&set=5dn&format=image&version=art_crop" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Engineered%20Explosives&set=5dn&format=image&version=normal';"/><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=entry-323#entry-323">← Back to Compulsive Research</a><div class="eyebrow">Entry 323 · Constructed History</div><h1>The Sweeper Hidden in the Mana Base</h1><p class="deckline">Engineered Explosives made color diversity and chosen mana value into a flexible answer to entire rows of permanents.</p><div class="byline"><span>A Compulsive Research essay</span><span class="pill">Fifth Dawn, 2004</span><span class="pill">Approximately 20 minute read</span></div></div></header>
+<nav class="rank-nav"><a href="index.html?focus=entry-322#entry-322">← Entry 322 · Eternal Witness</a><span class="center">Entry 323 of 1,000</span><a href="index.html?focus=entry-324#entry-324">Entry 324 · Vedalken Shackles →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The Sweeper Hidden in the Mana Base</a><a href="#origin">What the first printing made possible</a><a href="#mechanics">The short text hides a resource system</a><a href="#history">From strange object to archetype language</a><a href="#formats">Where the card found a home</a><a href="#technical">How to use the advantage without wasting it</a><a href="#failure-modes">When the famous card is bad</a><a href="#counterplay">How the other side learned to fight back</a><a href="#case-study">A representative game in slow motion</a><a href="#memory">What players remember</a><a href="#descendant">The inherited idea</a><a href="#close-reading">The position after the famous play</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
+<article class="article">
+<section id="opening"><div class="chapter-number">I · The argument</div><h2>The Sweeper Hidden in the Mana Base</h2><p class="opening dropcap">Engineered Explosives made color diversity and chosen mana value into a flexible answer to entire rows of permanents.</p><div class="card-lead"><img alt="Engineered Explosives original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Engineered%20Explosives&set=5dn&format=image&version=normal"/><div class="oracle"><div class="kicker">The card</div><h3>Engineered Explosives</h3><p><b>{X}</b><br/>Artifact</p><p>Sunburst. {2}, Sacrifice Engineered Explosives: Destroy each nonland permanent with mana value equal to the number of charge counters on Engineered Explosives.</p><div class="stats"><div class="stat"><b>First release</b>Fifth Dawn · 2004</div><div class="stat"><b>Archive identity</b>Entry 323 · Constructed History</div></div></div></div><p>This article follows Engineered Explosives from Fifth Dawn through the decks that learned to exploit a sunburst artifact that destroys nonland permanents at one selected mana value. Its history is not only a record of appearances. It is the history of players discovering that casting it for the relevant counter count and timing the sacrifice to trade one card for a concentrated battlefield could reorganize how an entire archetype valued mana, cards, timing, and information.</p><p>The central argument is that Engineered Explosives mattered because it gave successful pilots a repeatable strategic language. In CounterTop, the card performed one job; in Landstill, it performed another; and in Tron, the same printed text became a different kind of pressure. The connecting idea was always a sunburst artifact that destroys nonland permanents at one selected mana value.</p></section>
+<section id="origin"><div class="chapter-number">II · First printing</div><h2>What the first printing made possible</h2><p>Engineered Explosives arrived in Fifth Dawn in 2004, when players had to evaluate the card without the benefit of the stock lists and matchup maps that later made its role appear obvious. The first challenge was not reading the text. It was deciding which apparent cost was a real drawback and which was an invitation to build differently.</p><p>The surrounding card pool supplied the first clues. <span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span>, <span class="card-name" data-card="Gifts Ungiven" tabindex="0">Gifts Ungiven</span>, <span class="card-name" data-card="Trinket Mage" tabindex="0">Trinket Mage</span>, and <span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span> all changed the value of the resources that Engineered Explosives touched. A card that seemed narrow in isolation became much broader once those interactions were treated as the foundation of a deck rather than as occasional bonuses.</p><p>Early lists therefore look exploratory. Mana bases can appear cautious, sideboards can look improvised, and some card counts violate later conventions. Those imperfections are useful historical evidence: they show deck builders learning how much support Engineered Explosives required and how much ordinary efficiency could be surrendered in exchange for a sunburst artifact that destroys nonland permanents at one selected mana value.</p><p>The breakthrough came when the card stopped being judged as a single object and started being judged as a position. If resolving, activating, or merely representing Engineered Explosives changed the opponent’s safe line, then the card had already produced value before its most famous effect occurred.</p></section>
+<section id="mechanics"><div class="chapter-number">III · Rules texture</div><h2>The short text hides a resource system</h2><div class="pullquote">Engineered Explosives made color diversity and chosen mana value into a flexible answer to entire rows of permanents.<small>Compulsive Research · Entry 323</small></div><p>The Oracle text is compact, but the decisions it creates are not. The pilot must identify what is paid, when priority changes, which effects use the stack, and what remains true if the first plan is answered. With Engineered Explosives, the defining conversion is casting it for the relevant counter count and timing the sacrifice to trade one card for a concentrated battlefield.</p><p>That conversion is why rules precision matters. The difference between casting a spell, activating an ability, triggering an ability, sacrificing a permanent, discarding a card, or playing a land decides which responses are legal. Cards such as <span class="card-name" data-card="Sensei’s Divining Top" tabindex="0">Sensei’s Divining Top</span>, <span class="card-name" data-card="Vedalken Shackles" tabindex="0">Vedalken Shackles</span>, and <span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span> became natural companions or natural enemies because they interacted with the exact event the deck cared about.</p><p>The card also creates information pressure. Open mana, cards in hand, graveyard contents, and visible support pieces can force the opponent to respect a line that has not yet happened. The resulting hesitation is strategically real: attacks change, removal is held, and spells are sequenced around the possibility that Engineered Explosives will convert a small opening into a decisive advantage.</p><p>Expert play therefore begins before the card is used. The strongest pilots know the minimum resource commitment needed to represent it, the point at which the opponent can safely ignore it, and the backup line preserved when the obvious exchange is denied.</p></section>
+<section id="history"><div class="chapter-number">IV · Tournament movement</div><h2>From strange object to archetype language</h2><div class="timeline"><div class="timeline-item"><time>2004</time><h3>Fifth Dawn introduces Engineered Explosives</h3><p>Players encounter a sunburst artifact that destroys nonland permanents at one selected mana value before the archetype has a settled list.</p></div><div class="timeline-item"><time>Early adoption</time><h3>CounterTop finds the first repeatable shell</h3><p>Deck builders reorganize resources around casting it for the relevant counter count and timing the sacrifice to trade one card for a concentrated battlefield.</p></div><div class="timeline-item"><time>Metagame response</time><h3>Opponents learn the real point of interaction</h3><p>Sideboards and sequencing adapt to the engine rather than merely the card.</p></div><div class="timeline-item"><time>Format migration</time><h3>Engineered Explosives enters Extended and Modern</h3><p>The same text takes on a different role in a larger or faster card pool.</p></div><div class="timeline-item"><time>Long memory</time><h3>The card becomes archetype vocabulary</h3><p>Later designs revisit part of the strategic territory it opened.</p></div></div><p>The history of Engineered Explosives is a movement from discovery to vocabulary. In its first season, it was a strange new option. Once CounterTop established a repeatable shell, the card became an expectation. Opponents then changed removal, sideboards, mulligans, and sequencing to meet it.</p><p>That response did not end the card’s career; it clarified its true strengths. The best later decks used Engineered Explosives when its floor was acceptable and its ceiling attacked the format from an angle ordinary answers could not cover efficiently. This is why the card could migrate from Fifth Dawn Standard into Extended and Modern and finally into Legacy without performing exactly the same role each time.</p><p>Tournament history often compresses this process into deck names and finishes. The more revealing story is the exchange of ideas: one archetype proved the card could work, another reduced the support cost, and a third used the card as a sideboard threat or tutor target. By then, Engineered Explosives was no longer an experiment. It was part of the format’s grammar.</p><div class="art-break"><img class="art-break-media" alt="Engineered Explosives original artwork" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Engineered%20Explosives&set=5dn&format=image&version=art_crop" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Engineered%20Explosives&set=5dn&format=image&version=normal';"/><div class="art-caption"><b>Engineered Explosives · Fifth Dawn, 2004</b>The original illustration and frame established the visual identity preserved throughout this article.</div></div></section>
+<section id="formats"><div class="chapter-number">V · Format map</div><h2>Where the card found a home</h2><div class="format-strip"><div class="format-card"><span class="impact">First home</span><h3>Fifth Dawn Standard</h3><p>CounterTop established the first durable interpretation of the card.</p></div><div class="format-card"><span class="impact">Migration</span><h3>Extended and Modern</h3><p>Landstill changed the support package while preserving the core exchange.</p></div><div class="format-card"><span class="impact">Long memory</span><h3>Legacy</h3><p>Tron kept the card’s strategic idea alive after rotation.</p></div></div><p>Engineered Explosives did not occupy every format in the same way. Its first home valued a sunburst artifact that destroys nonland permanents at one selected mana value because the surrounding card pool made that exchange scarce. Later formats offered stronger mana, tutors, threats, and answers, forcing the card to become either more specialized or more explosive.</p><p>The most revealing comparisons are with <span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span>, <span class="card-name" data-card="Gifts Ungiven" tabindex="0">Gifts Ungiven</span>, and <span class="card-name" data-card="Trinket Mage" tabindex="0">Trinket Mage</span>. Each companion changes what counts as a successful use of Engineered Explosives. One supplies redundancy, another protects the line, and another gives the deck a second plan when the article card is answered.</p><p>Format history therefore measures more than raw power. It measures whether the card’s support cost, interaction window, and opportunity cost fit the games people were actually playing. That is why Engineered Explosives could be central in one environment, a sideboard tool in another, and a remembered design ancestor elsewhere.</p></section>
+<section id="technical"><div class="chapter-number">VI · Technical play</div><h2>How to use the advantage without wasting it</h2><p>Playing Engineered Explosives well begins with identifying the turn on which its text matters more than ordinary development. Casting or activating it as soon as possible is not automatically correct. The pilot must compare the visible gain with the information revealed, the mana left unused, and the opponent’s best response window.</p><p>In CounterTop, the card is usually treated as a sunburst artifact that destroys nonland permanents at one selected mana value. In Landstill, it is more often a bridge between setup and inevitability. In Tron, it may be a compact package, tutor target, or sideboard transformation. The same card count can therefore imply very different mulligan and sequencing rules.</p><p>A useful technical habit is to plan two turns beyond the famous play. Ask what the battlefield, graveyard, hand, and mana will look like after the exchange. If Engineered Explosives succeeds but leaves no profitable follow-up, the line may be theatrical rather than good. If it fails but forces the opponent to spend the only answer to <span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span> or <span class="card-name" data-card="Gifts Ungiven" tabindex="0">Gifts Ungiven</span>, the exchange may still be favorable.</p><p>The best use often preserves optionality. Hold the land that supplies a shuffle, retain the creature that can be sacrificed, keep the tutor that finds a different answer, or sequence the discard spell before committing. Engineered Explosives rewards pilots who treat flexibility as a resource rather than as indecision.</p></section>
+<section id="failure-modes"><div class="chapter-number">VII · Failure modes</div><h2>When the famous card is bad</h2><p>Famous cards attract situations in which players cast them because they recognize the pattern rather than because the current position supports it. Engineered Explosives is poor when its setup consumes more resources than the payoff replaces, when the opponent’s answers line up cleanly, or when the surrounding deck cannot exploit the time it creates.</p><p>The card is also vulnerable to metagame compression. Faster clocks reduce the number of setup turns; cheaper interaction narrows the window; graveyard hate, land disruption, sweepers, or stack interaction can attack the enabling structure instead of the card itself. The exact answer varies, but the principle is consistent: fight the conversion, not merely the headline effect.</p><p>Finally, redundancy can make a once-unique effect ordinary. Later cards may offer a safer floor, a lower cost, or fewer deck-building restrictions. That does not erase the historical importance of Engineered Explosives, but it changes when nostalgia should yield to optimization.</p></section>
+<section id="counterplay"><div class="chapter-number">VIII · Counterplay</div><h2>How the other side learned to fight back</h2><p>The cleanest counterplay begins by asking which resource Engineered Explosives is trying to transform. If the answer is mana, shorten the game or tax development. If it is the graveyard, attack the graveyard before the payoff turn. If it is a triggered or activated ability, use interaction such as <span class="card-name" data-card="Stifle" tabindex="0">Stifle</span> only at the point that removes the most structural value.</p><p>Opponents should also distinguish the card from the shell. Removing Engineered Explosives may be correct, but sometimes the enabling permanent, tutor, discard outlet, mana engine, or tribal lord is the scarcer resource. The deck archive below shows why this diagnosis matters: the same article card appears beside different support packages, and the correct point of attack moves with them.</p><p>Good counterplay therefore combines pressure with precision. Force the pilot to act before every resource is aligned, then answer the part of the sequence that cannot be replaced. Merely holding a theoretically relevant card is not enough if the game ends before the window arrives.</p></section>
+<section id="case-study"><div class="chapter-number">IX · A game in slow motion</div><h2>A representative game</h2><p>Consider a representative game with CounterTop. The opening hand contains functional mana, one support piece, and Engineered Explosives. The temptation is to build immediately toward the card’s most dramatic line, but the first decision is whether the opponent’s pace permits that plan.</p><p>On the early turns, the pilot develops while concealing as much information as possible. A fetchland may wait to preserve a shuffle; a discard spell may precede the engine; a small creature may be held because it is worth more as a later resource. The opponent sees ordinary development but must already respect a sunburst artifact that destroys nonland permanents at one selected mana value.</p><p>The middle turn creates the fork. One line commits Engineered Explosives now and takes the visible gain. The other uses <span class="card-name" data-card="Trinket Mage" tabindex="0">Trinket Mage</span> or <span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span> to test interaction, improve the position, or force the opponent to spend mana. Strong play chooses the line that makes the opponent’s best answer least efficient, not the line that produces the largest immediate number.</p><p>When the key exchange happens, the result should be evaluated structurally. Which player has more live draws? Which zones contain reusable material? Who is required to act first? The famous text on Engineered Explosives matters because it changes those answers, not because resolving a celebrated card is an end in itself.</p><p>The closing turns demonstrate the card’s real legacy. Once the opponent has spent resources respecting the first activation or copy, the rest of the deck becomes stronger. <span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span>, <span class="card-name" data-card="Gifts Ungiven" tabindex="0">Gifts Ungiven</span>, and even ordinary lands or creatures inherit the space that Engineered Explosives created.</p></section>
+<section id="memory"><div class="chapter-number">X · Player memory</div><h2>What players remember</h2><div class="memory"><blockquote>“The card was never only the text that resolved. It was the turn the whole table or match began to orbit around what might happen next.”</blockquote><cite>Composite player memory · Compulsive Research oral-history convention</cite></div><p>Players tend to remember Engineered Explosives as a moment: the first time the hidden line became clear, the first impossible recovery, or the first game in which an apparently modest resource produced an overwhelming turn. That memory is useful because it records surprise, but it can also obscure the patient setup that made the moment possible.</p><p>The card’s reputation came from repetition. Across kitchen tables, qualifiers, online leagues, and championship coverage, players encountered the same lesson: casting it for the relevant counter count and timing the sacrifice to trade one card for a concentrated battlefield. Once learned, that lesson changed how they read later cards even when Engineered Explosives was no longer legal or efficient.</p><p>This is the distinction between nostalgia and historical influence. Nostalgia remembers the artwork and the dramatic play. Influence survives in deck-building habits, rules awareness, sideboard construction, and the expectation that a card performing a sunburst artifact that destroys nonland permanents at one selected mana value deserves immediate scrutiny.</p></section>
+<section id="descendant"><div class="chapter-number">XI · Descendants</div><h2>The inherited idea</h2><div class="inline-image"><div class="image"><img class="inline-image-media" alt="Ratchet Bomb artwork" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Ratchet%20Bomb&format=image&version=art_crop" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Ratchet%20Bomb&format=image&version=normal';"/></div><div class="copy"><div class="kicker">A later echo</div><h3>Ratchet Bomb</h3><p>Later Magic revisited part of Engineered Explosives’s strategic territory with different costs, restrictions, and expectations.</p></div></div><p><span class="card-name" data-card="Ratchet Bomb" tabindex="0">Ratchet Bomb</span> inherits part of the design territory opened by Engineered Explosives. The cards are not identical, and the differences reveal what later design wanted to preserve, simplify, or restrain.</p><p>The relationship is conceptual rather than literal. Both cards ask players to value a sunburst artifact that destroys nonland permanents at one selected mana value, but the later card changes cost, timing, reliability, or deck-building requirements. Comparing them separates the essential strategic idea from the historical environment that first made it famous.</p><p>Other descendants share only fragments: a zone change, a scalable payoff, a free sacrifice, a tribal count, a tutor restriction, or an alternate cost. Together they show that influential designs rarely produce one direct copy. They produce a family of questions.</p><p>That family is the strongest reason to preserve Engineered Explosives. Its importance exceeds the number of tournaments in which it appeared. The card taught players and designers to recognize a reusable pattern, and later Magic continued arguing with that pattern through cards such as <span class="card-name" data-card="Ratchet Bomb" tabindex="0">Ratchet Bomb</span>.</p></section>
+<section id="close-reading"><div class="chapter-number">XII · Close reading</div><h2>The position after the famous play</h2><p>A close reading of Engineered Explosives separates visible action from structural pressure. The controller is not merely trying to resolve one spell or activate one permanent. The deck is arranging mana, zones, information, and threat order so that casting it for the relevant counter count and timing the sacrifice to trade one card for a concentrated battlefield occurs when the opponent has the fewest profitable alternatives.</p><p>This explains why the card can look ordinary in an unsupported list and oppressive in a tuned one. The surrounding seventy-five cards determine whether its printed cost is a real payment, a temporary inconvenience, or a resource the deck wanted to spend anyway. In CounterTop, success is measured by the resulting position, not by the spectacle of the individual play.</p><p>The durable lesson is therefore methodological. Evaluate the card’s floor, its best supported ceiling, the information it creates before use, and the position it leaves afterward. That method preserves the history of Engineered Explosives without confusing historical fame with universal efficiency.</p></section>
+<section id="decklists"><div class="chapter-number">XIII · Deck evidence</div><h2>The deck archive</h2><p>The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive in the existing archive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p><div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority. Supplemental models appear only to reach the archive minimum of three lists.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Makihito Mihara — Pro Tour Valencia 2007</strong><small>8th place · extended thru 10E · 2007-10-14</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from Pro Tour Valencia 2007. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Makihito Mihara</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-323-engineered-explosives-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sundering Titan" tabindex="0">Sundering Titan</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Condescend" tabindex="0">Condescend</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Gifts Ungiven" tabindex="0">Gifts Ungiven</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Repeal" tabindex="0">Repeal</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thirst for Knowledge" tabindex="0">Thirst for Knowledge</span></div></div><div class="group"><h4>Sorceries · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Decree of Justice" tabindex="0">Decree of Justice</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 14</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Azorius Signet" tabindex="0">Azorius Signet</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Chrome Mox" tabindex="0">Chrome Mox</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Crucible of Worlds" tabindex="0">Crucible of Worlds</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mindslaver" tabindex="0">Mindslaver</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ghost Quarter" tabindex="0">Ghost Quarter</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hallowed Fountain" tabindex="0">Hallowed Fountain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Petrified Field" tabindex="0">Petrified Field</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Skycloud Expanse" tabindex="0">Skycloud Expanse</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tolaria West" tabindex="0">Tolaria West</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Urza's Mine" tabindex="0">Urza's Mine</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Urza's Power Plant" tabindex="0">Urza's Power Plant</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Urza's Tower" tabindex="0">Urza's Tower</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Exalted Angel" tabindex="0">Exalted Angel</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ghost Quarter" tabindex="0">Ghost Quarter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kataki, War's Wage" tabindex="0">Kataki, War's Wage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mindslaver" tabindex="0">Mindslaver</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sphere of Law" tabindex="0">Sphere of Law</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Threads of Disloyalty" tabindex="0">Threads of Disloyalty</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div></div></div></div><pre hidden="" id="deck-323-engineered-explosives-1">Makihito Mihara — Pro Tour Valencia 2007
+8th place · extended thru 10E · 2007-10-14
+
+Creatures · 1
+1 Sundering Titan
+
+Artifacts · 14
+3 Azorius Signet
+4 Chalice of the Void
+3 Chrome Mox
+1 Crucible of Worlds
+1 Engineered Explosives
+1 Mindslaver
+1 Tormod's Crypt
+
+Instants · 17
+4 Condescend
+3 Gifts Ungiven
+3 Remand
+3 Repeal
+4 Thirst for Knowledge
+
+Lands · 23
+1 Academy Ruins
+1 Ghost Quarter
+4 Hallowed Fountain
+1 Petrified Field
+1 Plains
+2 Skycloud Expanse
+4 Tolaria West
+3 Urza's Mine
+3 Urza's Power Plant
+3 Urza's Tower
+
+Sorceries · 5
+1 Decree of Justice
+4 Wrath of God
+
+Sideboard · 15
+2 Engineered Explosives
+3 Exalted Angel
+3 Ghost Quarter
+1 Kataki, War's Wage
+1 Mindslaver
+1 Sphere of Law
+2 Threads of Disloyalty
+2 Tormod's Crypt</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Ben Friedman — Esper Stoneblade</strong><small>Grand Prix Atlanta 2012 · 12th Place · Legacy</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>A singleton Dust Bowl gave a basic-heavy control deck a late-game land engine without committing to Wasteland. Academy Ruins and Riptide Laboratory reinforced the same utility-land philosophy.</p><div class="deck-meta"><div><b>Ben Friedman — Esper Stoneblade</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-323-engineered-explosives-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stoneforge Mystic" tabindex="0">Stoneforge Mystic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Vendilion Clique" tabindex="0">Vendilion Clique</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dust Bowl" tabindex="0">Dust Bowl</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Glacial Fortress" tabindex="0">Glacial Fortress</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Riptide Laboratory" tabindex="0">Riptide Laboratory</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div></div></div><div class="deck-col"><div class="group"><h4>Planeswalkers · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Jace, the Mind Sculptor" tabindex="0">Jace, the Mind Sculptor</span></div></div><div class="group"><h4>Spells · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Batterskull" tabindex="0">Batterskull</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Inquisition of Kozilek" tabindex="0">Inquisition of Kozilek</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Umezawa’s Jitte" tabindex="0">Umezawa’s Jitte</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cabal Therapy" tabindex="0">Cabal Therapy</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Intuition" tabindex="0">Intuition</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Perish" tabindex="0">Perish</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vindicate" tabindex="0">Vindicate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Lingering Souls" tabindex="0">Lingering Souls</span></div></div></div></div><pre hidden="" id="deck-323-engineered-explosives-2">Ben Friedman — Esper Stoneblade
+Grand Prix Atlanta 2012 · 12th Place · Legacy
+
+Creatures · 10
+4 Snapcaster Mage
+4 Stoneforge Mystic
+2 Vendilion Clique
+
+Planeswalkers · 3
+3 Jace, the Mind Sculptor
+
+Spells · 24
+4 Brainstorm
+1 Batterskull
+1 Counterspell
+2 Engineered Explosives
+4 Force of Will
+1 Inquisition of Kozilek
+3 Spell Pierce
+4 Swords to Plowshares
+3 Thoughtseize
+1 Umezawa’s Jitte
+
+Lands · 23
+1 Academy Ruins
+1 Dust Bowl
+4 Flooded Strand
+1 Glacial Fortress
+2 Island
+1 Karakas
+2 Misty Rainforest
+1 Plains
+2 Polluted Delta
+1 Riptide Laboratory
+4 Tundra
+3 Underground Sea
+
+Sideboard · 15
+2 Cabal Therapy
+1 Disenchant
+1 Engineered Explosives
+1 Intuition
+1 Perish
+1 Spell Pierce
+3 Surgical Extraction
+1 Vindicate
+1 Wrath of God
+3 Lingering Souls</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>Christian Calcano — Pro Tour Lord of the Rings</strong><small>Finalist · modern thru LTR · 2023-07-28</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from Pro Tour Lord of the Rings. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Christian Calcano</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-323-engineered-explosives-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 4</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ulamog, the Ceaseless Hunger" tabindex="0">Ulamog, the Ceaseless Hunger</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wurmcoil Engine" tabindex="0">Wurmcoil Engine</span></div></div><div class="group"><h4>Artifacts · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chromatic Sphere" tabindex="0">Chromatic Sphere</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chromatic Star" tabindex="0">Chromatic Star</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Expedition Map" tabindex="0">Expedition Map</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Oblivion Stone" tabindex="0">Oblivion Stone</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Relic of Progenitus" tabindex="0">Relic of Progenitus</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="The One Ring" tabindex="0">The One Ring</span></div></div><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ancient Stirrings" tabindex="0">Ancient Stirrings</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sylvan Scrying" tabindex="0">Sylvan Scrying</span></div></div></div><div class="deck-col"><div class="group"><h4>Planeswalkers · 7</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Karn Liberated" tabindex="0">Karn Liberated</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Karn, the Great Creator" tabindex="0">Karn, the Great Creator</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ugin, the Spirit Dragon" tabindex="0">Ugin, the Spirit Dragon</span></div></div><div class="group"><h4>Instants · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Warping Wail" tabindex="0">Warping Wail</span></div></div><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Boseiju, Who Endures" tabindex="0">Boseiju, Who Endures</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gemstone Caverns" tabindex="0">Gemstone Caverns</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Mine" tabindex="0">Urza's Mine</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Power Plant" tabindex="0">Urza's Power Plant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Tower" tabindex="0">Urza's Tower</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jegantha, the Wellspring" tabindex="0">Jegantha, the Wellspring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Cityscape Leveler" tabindex="0">Cityscape Leveler</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ensnaring Bridge" tabindex="0">Ensnaring Bridge</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Haywire Mite" tabindex="0">Haywire Mite</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Liquimetal Coating" tabindex="0">Liquimetal Coating</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oblivion Stone" tabindex="0">Oblivion Stone</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pyrite Spellbomb" tabindex="0">Pyrite Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sundering Titan" tabindex="0">Sundering Titan</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The One Ring" tabindex="0">The One Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Stone Brain" tabindex="0">The Stone Brain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Walking Ballista" tabindex="0">Walking Ballista</span></div></div></div></div><pre hidden="" id="deck-323-engineered-explosives-3">Christian Calcano — Pro Tour Lord of the Rings
+Finalist · modern thru LTR · 2023-07-28
+
+Creatures · 4
+2 Ulamog, the Ceaseless Hunger
+2 Wurmcoil Engine
+
+Planeswalkers · 7
+2 Karn Liberated
+4 Karn, the Great Creator
+1 Ugin, the Spirit Dragon
+
+Artifacts · 21
+4 Chromatic Sphere
+4 Chromatic Star
+4 Expedition Map
+3 Oblivion Stone
+3 Relic of Progenitus
+3 The One Ring
+
+Instants · 2
+2 Warping Wail
+
+Lands · 18
+2 Boseiju, Who Endures
+3 Forest
+1 Gemstone Caverns
+4 Urza's Mine
+4 Urza's Power Plant
+4 Urza's Tower
+
+Sorceries · 8
+4 Ancient Stirrings
+4 Sylvan Scrying
+
+Sideboard · 15
+1 Jegantha, the Wellspring
+1 Chalice of the Void
+1 Cityscape Leveler
+1 Engineered Explosives
+1 Ensnaring Bridge
+2 Haywire Mite
+1 Liquimetal Coating
+1 Oblivion Stone
+1 Pyrite Spellbomb
+1 Sundering Titan
+1 The One Ring
+1 The Stone Brain
+1 Tormod's Crypt
+1 Walking Ballista</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Gerard Piella — Dredge</strong><small>Documented Vintage list · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>A documented historical list featuring Bazaar of Baghdad.</p><div class="deck-meta"><div><b>Gerard Piella — Dredge</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-323-engineered-explosives-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Bloodghast" tabindex="0">Bloodghast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flame-Kin Zealot" tabindex="0">Flame-Kin Zealot</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Golgari Grave-Troll" tabindex="0">Golgari Grave-Troll</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Golgari Thug" tabindex="0">Golgari Thug</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ichorid" tabindex="0">Ichorid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Narcomoeba" tabindex="0">Narcomoeba</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stinkweed Imp" tabindex="0">Stinkweed Imp</span></div></div><div class="group"><h4>Lands · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Bazaar of Baghdad" tabindex="0">Bazaar of Baghdad</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dakmor Salvage" tabindex="0">Dakmor Salvage</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Undiscovered Paradise" tabindex="0">Undiscovered Paradise</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serum Powder" tabindex="0">Serum Powder</span></div></div><div class="group"><h4>Enchantments · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Bridge from Below" tabindex="0">Bridge from Below</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Leyline of the Void" tabindex="0">Leyline of the Void</span></div></div><div class="group"><h4>Spells · 11</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nature's Claim" tabindex="0">Nature's Claim</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cabal Therapy" tabindex="0">Cabal Therapy</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dread Return" tabindex="0">Dread Return</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Unmask" tabindex="0">Unmask</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ingot Chewer" tabindex="0">Ingot Chewer</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Darkblast" tabindex="0">Darkblast</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nature's Claim" tabindex="0">Nature's Claim</span></div></div></div></div><pre hidden="" id="deck-323-engineered-explosives-4">Gerard Piella — Dredge
+Documented Vintage list · 60/15
+
+Creatures · 21
+4 Bloodghast
+1 Flame-Kin Zealot
+4 Golgari Grave-Troll
+2 Golgari Thug
+2 Ichorid
+4 Narcomoeba
+4 Stinkweed Imp
+
+Artifacts · 8
+4 Chalice of the Void
+4 Serum Powder
+
+Enchantments · 8
+4 Bridge from Below
+4 Leyline of the Void
+
+Spells · 11
+2 Nature's Claim
+4 Cabal Therapy
+2 Dread Return
+3 Unmask
+
+Lands · 12
+4 Bazaar of Baghdad
+3 City of Brass
+1 Dakmor Salvage
+4 Undiscovered Paradise
+
+Sideboard · 15
+1 City of Brass
+3 Ingot Chewer
+4 Chain of Vapor
+2 Darkblast
+3 Engineered Explosives
+2 Nature's Claim</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>Raoul Behnert — U/W/x Landstill</strong><small>Top 4 · Legacy ASL Berlin 08/08</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>Legacy compressed the card to one or two copies. Under Standstill, plainscycling improved mana without casting a spell; later the Dragon became a recursive clock.</p><div class="deck-meta"><div><b>Raoul Behnert</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-323-engineered-explosives-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Eternal Dragon" tabindex="0">Eternal Dragon</span></div></div><div class="group"><h4>Enchantments · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Humility" tabindex="0">Humility</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Standstill" tabindex="0">Standstill</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scrubland" tabindex="0">Scrubland</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nevinyrral's Disk" tabindex="0">Nevinyrral's Disk</span></div></div><div class="group"><h4>Instants · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sorceries · 5</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Decree of Justice" tabindex="0">Decree of Justice</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Meddling Mage" tabindex="0">Meddling Mage</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Enlightened Tutor" tabindex="0">Enlightened Tutor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Extirpate" tabindex="0">Extirpate</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pulse of the Fields" tabindex="0">Pulse of the Fields</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Return to Dust" tabindex="0">Return to Dust</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Slaughter Pact" tabindex="0">Slaughter Pact</span></div></div></div></div><pre hidden="" id="deck-323-engineered-explosives-5">Raoul Behnert — U/W/x Landstill
+Top 4 · Legacy ASL Berlin 08/08
+
+Creatures · 2
+2 Eternal Dragon
+
+Artifacts · 4
+3 Engineered Explosives
+1 Nevinyrral's Disk
+
+Enchantments · 6
+2 Humility
+4 Standstill
+
+Instants · 20
+4 Brainstorm
+4 Counterspell
+2 Cunning Wish
+2 Fact or Fiction
+4 Force of Will
+4 Swords to Plowshares
+
+Lands · 23
+1 Academy Ruins
+4 Flooded Strand
+3 Island
+4 Mishra's Factory
+2 Plains
+2 Polluted Delta
+1 Scrubland
+4 Tundra
+1 Underground Sea
+1 Wasteland
+
+Sorceries · 5
+3 Decree of Justice
+2 Wrath of God
+
+Sideboard · 15
+4 Meddling Mage
+2 Blue Elemental Blast
+1 Enlightened Tutor
+3 Extirpate
+2 Hydroblast
+1 Pulse of the Fields
+1 Return to Dust
+1 Slaughter Pact</pre><p class="small">Source: <a href="https://mtgdecks.net/Legacy/landstill-uwx-decklist-by-raoul-behnert-6327/visual">open the historical record</a></p></div></details></div></section>
+<section id="printings"><div class="chapter-number">XIV · Material history</div><h2>Printings and sources</h2><p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p><div class="printings" data-card="Engineered Explosives" data-original-set="5dn" id="printing-grid"><figure class="printing original-printing"><img alt="Engineered Explosives original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Engineered%20Explosives&set=5dn&format=image&version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div><ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Engineered%20Explosives%22%20include%3Aextras&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Engineered Explosives</a><span>Release dates, collector numbers, artists, images, and distinct illustration records.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[Engineered%20Explosives]">Gatherer card record</a><span>Official Oracle wording and rulings reference.</span></li><li><a href="https://mtgjson.com/downloads/all-files/">MTGJSON AllPrintings</a><span>Machine-readable printing and set history used as a cross-check.</span></li><li><a href="https://www.mtgtop8.com/">MTGTop8 tournament archive</a><span>Archetype and event context for competitive appearances.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned &amp; Restricted list</a><span>Current format policy should be checked here because legality changes over time.</span></li></ul><p class="editor-note">Compulsive Research separates a new release object from a new visual identity. The live gallery therefore keeps one representative for each illustration whenever catalog metadata allows it.</p></section>
+</article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 323 follows the Eternal Dragon article architecture: historical argument, rules texture, format movement, design descendants, deck evidence, and a deduplicated printing gallery.</aside></div>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XV · Continue reading</div><h2>The numbered archive</h2><p>Engineered Explosives is entry 323 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-322#entry-322"><small>Previous entry · 322</small>Eternal Witness</a><a href="index.html?focus=entry-324#entry-324"><small>Next entry · 324</small>Vedalken Shackles</a></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Entry 323 · Engineered Explosives · Independent, noncommercial Magic history project.</footer><script>
+const ARTICLE_CARD = "Engineered Explosives";
+const ORIGINAL_SET = "5dn";
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(preview&&!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
+document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
+function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
+function chooseIconic(cards){
+  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
+  if(!bySet.length)return [];
+  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
+  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
+  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
+  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
+  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
+  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
+  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
+  for(const c of iconic){add(c);if(selected.length>=target)break}
+  add(bySet[bySet.length-1]);
+  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
+  for(const c of bySet){if(selected.length>=target)break;add(c)}
+  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+}
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');if(!grid)return;
+ const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
+ try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
+  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
+  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
+ }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
+}
+loadPrintings();
+</script></body></html>
