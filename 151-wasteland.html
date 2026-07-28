@@ -2,16 +2,16 @@
 
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A long-form history of Wasteland: its Tempest design, tournament rise, Legacy tempo shells, Death and Taxes, Lands, sequencing, artwork, decklists, and printings." name="description"/><title>Wasteland: Every Nonbasic Land Came with an Expiration Date — Compulsive Research</title><style>
 :root{
-  --paper:#f3eee2;
-  --paper2:#e3d7c3;
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
   --ink:#161918;
   --muted:#686a65;
-  --night:#100e0a;
-  --night2:#1d1810;
-  --green:#5c5748;
-  --teal:#65757b;
-  --gold:#b28a4a;
-  --rust:#7f5341;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
   --line:#cbc3b4;
   --white:#fffdf7;
   --reading:760px;
@@ -42,15 +42,8 @@ img{max-width:100%}
 h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
 }
-/* Keep the cover title and interior chapter titles in one display face. */
-h1,h2{
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-weight:800;
-  font-style:normal;
-  font-synthesis:none;
-}
 h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
-h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.06em;margin:0 0 .55em}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
 h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
 p{margin:1em 0}
 .hero{
@@ -62,7 +55,7 @@ p{margin:1em 0}
 }
 .hero:before{
   content:"";position:absolute;inset:0;z-index:-3;
-  background:url(https://api.scryfall.com/cards/atq/82a?format=image&version=art_crop) center 50%/cover no-repeat;
+  background:url(https://api.scryfall.com/cards/named?exact=Wasteland&set=tmp&format=image&version=art_crop) center 27%/cover no-repeat;
   transform:scale(1.018);
 }
 .hero:after{
@@ -140,7 +133,7 @@ p{margin:1em 0}
 .art-break{
   width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
   min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
-  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Wasteland&set=tmp&format=image&version=art_crop) center 25%/cover no-repeat;
 }
 .art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
 .art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
@@ -162,7 +155,7 @@ p{margin:1em 0}
   width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
   display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
 }
-.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .image{min-height:390px;background:var(--night2)}
 .inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
 .memory{
   background:var(--night);color:white;
@@ -201,7 +194,7 @@ p{margin:1em 0}
 .footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
 .landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
 .archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
-.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop) center/cover}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Wasteland&set=tmp&format=image&version=art_crop) center/cover}
 .archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
 @media(max-width:1050px){
   .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
@@ -249,458 +242,95 @@ p{margin:1em 0}
   .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
 }
 
-.recall-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
-}
-.hero.recall-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
-}
-.vision-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
-}
-.card-advantage{
-  width:min(980px,calc(100vw - 32px));
-  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
-}
-.advantage-step{background:var(--white);padding:24px}
-.advantage-step b{
-  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
-  margin-bottom:9px
-}
-.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.target-note{
-  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);
-  font:14px/1.65 Inter,system-ui,sans-serif
-}
-.target-note b{color:var(--ink)}
-@media(max-width:750px){
-  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
-}
-
-
-.hero
-.hero.hypnotic-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 30%!important
-}
-.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 30%!important
-}
-.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
-.blazing-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
-}
-.pressure-grid,.discard-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.pressure-step,.discard-step{background:var(--white);padding:23px}
-.pressure-step b,.discard-step b{
-  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
-}
-.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.hypnotic-note{
-  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.hypnotic-note b{color:var(--ink)}
-@media(max-width:750px){
-  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
-.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 26%!important
-}
-.hero.hypnotic-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 26%!important
-}
-.art-break.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 25%!important
-}
-
-
-
-.royal-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 29%!important
-}
-.hero.royal-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 29%!important
-}
-.art-break.royal-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 28%!important
-}
-.avatar-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
-}
-.threat-grid,.timing-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.threat-step,.timing-step{background:var(--white);padding:23px}
-.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
-.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
-.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
-.royal-note b{color:var(--ink)}
-.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
-@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
-
-
-.sengir-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Wasteland&set=tmp&format=image&version=art_crop)!important;
   background-position:center 27%!important
 }
-.hero.sengir-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Wasteland&set=tmp&format=image&version=art_crop)!important;
   background-position:center 27%!important
 }
-.art-break.sengir-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%20Vampire&set=lea&format=image&version=art_crop)!important;
-  background-position:center 26%!important
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
 }
-.sengir-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Sengir%2C%20the%20Dark%20Baron&format=image&version=art_crop)!important
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
 }
-.growth-grid,.role-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
 }
-.growth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.growth-step,.role-step{background:var(--white);padding:23px}
-.growth-step b,.role-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
-.growth-step span,.role-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
-.sengir-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
-.sengir-note b{color:var(--ink)}
-.combat-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.combat-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.combat-row:last-child{border-bottom:0}.combat-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.combat-row p{margin:0}
-@media(max-width:750px){.growth-grid,.role-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.growth-grid,.role-grid{grid-template-columns:1fr}}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
 
 
-.force-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
-  background-position:center 36%!important
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
 }
-.hero.force-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
-  background-position:center 36%!important
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
 }
-.art-break.force-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Force%20of%20Nature&set=lea&format=image&version=art_crop)!important;
-  background-position:center 33%!important
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
 }
-.force-note{
-  border-left:4px solid var(--green);background:rgba(53,95,82,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.force-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
-.force-note p{margin:.45em 0}
-.size-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.size-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.size-row:last-child{border-bottom:0}.size-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.size-row p{margin:0}
-@media(max-width:750px){.size-row{grid-template-columns:72px minmax(0,1fr)}}
-
-
-.pit-art{
-  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
-  background-position:center 28%!important
-}
-.hero.pit-art:before{
-  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
-  background-position:center 28%!important
-}
-.art-break.pit-art{
-  background-image:url(https://api.scryfall.com/cards/lea/114?format=image&version=art_crop)!important;
-  background-position:center 30%!important
-}
-.pit-note{
-  border-left:4px solid var(--rust);background:rgba(154,84,66,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.pit-note h3{color:var(--ink);margin:.1em 0 .55em;font-size:1.12rem}
-.pit-note p{margin:.45em 0}
-.sacrifice-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.sacrifice-row{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.sacrifice-row:last-child{border-bottom:0}.sacrifice-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.sacrifice-row p{margin:0}
-.pit-duel .image{background-image:url(https://api.scryfall.com/cards/ddc/30?format=image&version=art_crop)!important;background-position:center 26%!important}
-.pit-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Abyssal%20Persecutor&format=image&version=art_crop)!important;background-position:center 25%!important}
-@media(max-width:750px){.sacrifice-row{grid-template-columns:92px minmax(0,1fr)}}
-
-
-.vesuvan-art{
-  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
-  background-position:center 28%!important
-}
-.hero.vesuvan-art:before{
-  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
-  background-position:center 28%!important
-}
-.art-break.vesuvan-art{
-  background-image:url(https://api.scryfall.com/cards/lea/87?format=image&version=art_crop)!important;
-  background-position:center 32%!important
-}
-.mirror-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.mirror-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
-.mirror-row:last-child{border-bottom:0}.mirror-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mirror-row p{margin:0}
-.worlds-card{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(24px,5vw,52px);margin:36px 0;box-shadow:var(--shadow)}
-.worlds-card h3{font-family:Georgia,serif;font-size:clamp(1.65rem,3.4vw,2.75rem);margin:.15em 0 .45em}.worlds-card p{color:#d9ddd9}.worlds-card .kicker{color:#d8b878}
-.copy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
-.copy-cell{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px}.copy-cell h3{font-size:1rem;margin:0 0 7px}.copy-cell p{font:14px/1.56 Inter,sans-serif;color:var(--muted);margin:0}
-.vesuvan-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vesuvan%20Shapeshifter&format=image&version=art_crop)!important;background-position:center 25%!important}
-@media(max-width:750px){.mirror-row{grid-template-columns:98px minmax(0,1fr)}.copy-grid{grid-template-columns:1fr}}
-
-.hero.clone-art:before{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
-.clone-art-break{background-image:url(https://api.scryfall.com/cards/lea/51?format=image&version=art_crop)!important;background-position:center 28%!important}
-.morphling-origin .image{background-image:url(https://api.scryfall.com/cards/named?exact=Morphling&format=image&version=art_crop)!important;background-position:center 27%!important}
-.metamorph-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Phyrexian%20Metamorph&format=image&version=art_crop)!important;background-position:center 30%!important}
-.copy-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.copy-rule{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
-.copy-rule b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
-.copy-rule p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
-@media(max-width:750px){.copy-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
-
-.hero.control-magic-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
-.control-magic-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Control%20Magic&set=lea&format=image&version=art_crop)!important;background-position:center 31%!important}
-.treachery-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Treachery&format=image&version=art_crop)!important;background-position:center 30%!important}
-.sower-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Sower%20of%20Temptation&format=image&version=art_crop)!important;background-position:center 28%!important}
-.exchange-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.exchange-step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
-.exchange-step b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
-.exchange-step p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
-@media(max-width:750px){.exchange-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
-
-.hero.disenchant-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
-.disenchant-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Disenchant&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
-.seal-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Seal%20of%20Cleansing&format=image&version=art_crop)!important;background-position:center 34%!important}
-.naturalize-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Naturalize&format=image&version=art_crop)!important;background-position:center 35%!important}
-.answer-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.answer-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
-.answer-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
-.answer-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
-@media(max-width:750px){.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
-
-.hero.giant-growth-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
-.giant-growth-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Giant%20Growth&set=lea&format=image&version=art_crop)!important;background-position:center 43%!important}
-.might-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Might%20of%20Old%20Krosa&format=image&version=art_crop)!important;background-position:center 36%!important}
-.vines-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Vines%20of%20Vastwood&format=image&version=art_crop)!important;background-position:center 38%!important}
-.growth-grid{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.growth-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
-.growth-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
-.growth-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
-@media(max-width:750px){.growth-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
-
-.hero.fireball-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 44%!important}
-.fireball-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 45%!important}
-.channel-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 42%!important}
-.rolling-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Rolling%20Thunder&format=image&version=art_crop)!important;background-position:center 40%!important}
-.fireball-math{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.fireball-math-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
-.fireball-math-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
-.fireball-math-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
-@media(max-width:750px){.fireball-math{width:100%;margin-left:0;grid-template-columns:1fr}}
-
-.hero.channel-art:before{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
-.channel-art-break{background-image:url(https://api.scryfall.com/cards/named?exact=Channel&set=lea&format=image&version=art_crop)!important;background-position:center 38%!important}
-.fireball-pair .image{background-image:url(https://api.scryfall.com/cards/named?exact=Fireball&set=lea&format=image&version=art_crop)!important;background-position:center 35%!important}
-.emrakul-descendant .image{background-image:url(https://api.scryfall.com/cards/named?exact=Emrakul%2C%20the%20Aeons%20Torn&format=image&version=art_crop)!important;background-position:center 25%!important}
-.life-ledger{width:min(980px,calc(100vw - 32px));margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.life-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
-.life-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}
-.life-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
-@media(max-width:750px){.life-ledger{width:100%;margin-left:0;grid-template-columns:1fr}}
-
-.hero.mindtwist-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Mind%20Twist&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important;
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
+.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
 }
 
-.hero.sinkhole-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Sinkhole&set=lea&format=image&version=art_crop)!important;
-  background-position:center 46%!important;
-}
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Wasteland&set=tmp&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Wasteland&set=tmp&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Wasteland&set=tmp&format=image&version=art_crop")!important}
 
-.hero.stonerain-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Stone%20Rain&set=lea&format=image&version=art_crop)!important;
-  background-position:center 42%!important;
-}
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
 
-.hero.howlingmine-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Howling%20Mine&set=lea&format=image&version=art_crop)!important;
-  background-position:center 47%!important;
-}
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
 
-.hero.icy-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Icy%20Manipulator&set=lea&format=image&version=art_crop)!important;
-  background-position:center 42%!important;
-}
-
-.hero.disk-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Nevinyrral%27s%20Disk&set=lea&format=image&version=art_crop)!important;
-  background-position:center 42%!important;
-}
-
-.hero.jayemdae-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Jayemdae%20Tome&set=lea&format=image&version=art_crop)!important;
-  background-position:center 43%!important;
-}
-
-.hero.blackvise-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Vise&set=lea&format=image&version=art_crop)!important;
-  background-position:center 43%!important;
-}
-
-.hero.therack-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=The%20Rack&set=atq&format=image&version=art_crop)!important;
-  background-position:center 43%!important;
-}
-
-.hero.winterorb-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Winter%20Orb&set=lea&format=image&version=art_crop)!important;
-  background-position:center 46%!important;
-}
-
-.hero.meekstone-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Meekstone&set=lea&format=image&version=art_crop)!important;
-  background-position:center 44%!important;
-}
-
-
-
-.hero.stasis-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Stasis&set=lea&format=image&version=art_crop)!important;
-  background-position:center 46%!important;
-}
-
-
-.hero.kird-art:before{
-  background-image:url(https://api.scryfall.com/cards/arn/40?format=image&version=art_crop)!important;
-  background-position:center 38%!important;
-}
-.art-break.kird-art-break{
-  background-image:url(https://api.scryfall.com/cards/arn/40?format=image&version=art_crop)!important;
-  background-position:center 40%!important;
-}
-.kird-descendant .image{
-  min-height:390px;display:flex;align-items:center;justify-content:center;padding:28px;
-  background:linear-gradient(145deg,#253222,#131914)!important;
-}
-.kird-descendant .image img{
-  display:block;width:min(285px,92%);height:auto;border-radius:4.8%;
-  box-shadow:0 22px 44px rgba(0,0,0,.48)
-}
-.ape-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.ape-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
-.ape-row:last-child{border-bottom:0}.ape-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.ape-row p{margin:0}
-.benchmark-grid{width:min(980px,calc(100vw - 32px));margin:34px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.benchmark-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:0 8px 26px rgba(22,25,24,.06)}
-.benchmark-card b{display:block;font:900 .72rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);margin-bottom:8px}.benchmark-card h3{margin:.1em 0 .35em;font-size:1.15rem}.benchmark-card p{margin:0;font:14px/1.58 Inter,sans-serif;color:var(--muted)}
-.turn-sequence{margin:30px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white);box-shadow:0 8px 28px rgba(22,25,24,.06)}
-.turn-step{display:grid;grid-template-columns:125px minmax(0,1fr);gap:18px;padding:18px 20px;border-bottom:1px solid var(--line)}
-.turn-step:last-child{border-bottom:0}.turn-step strong{font:900 .72rem/1.3 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust)}.turn-step p{margin:0}
-@media(max-width:750px){.ape-row,.turn-step{grid-template-columns:92px minmax(0,1fr)}.benchmark-grid{width:100%;margin-left:0;grid-template-columns:1fr}}
-
-.hero.savannah-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Savannah%20Lions&set=lea&format=image&version=art_crop)!important;
-  background-position:center 43%!important;
-}
-.lion-descendant .image{
-  min-height:390px;display:flex;align-items:center;justify-content:center;padding:28px;
-  background:linear-gradient(145deg,#483f2a,#17160f)!important;
-}
-.lion-descendant .image img{
-  display:block;width:min(285px,92%);height:auto;border-radius:4.8%;
-  box-shadow:0 22px 44px rgba(0,0,0,.48)
-}
-.lion-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.lion-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
-.lion-row:last-child{border-bottom:0}.lion-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.lion-row p{margin:0}
-@media(max-width:750px){.lion-row{grid-template-columns:92px minmax(0,1fr)}}
-
-
-.hero.erhnam-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Erhnam%20Djinn&set=arn&format=image&version=art_crop)!important;
-  background-position:center 37%!important;
-}
-.erhnam-ledger{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.erhnam-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
-.erhnam-row:last-child{border-bottom:0}.erhnam-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.erhnam-row p{margin:0}
-.descendant-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:min(920px,calc(100vw - 32px));margin:34px 0 42px calc((var(--reading) - min(920px,calc(100vw - 32px)))/2)}
-.descendant-cards figure{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden;box-shadow:0 8px 24px rgba(22,25,24,.08)}
-.descendant-cards img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
-.descendant-cards figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:11px;text-align:center}
-@media(max-width:750px){.erhnam-row{grid-template-columns:92px minmax(0,1fr)}.descendant-cards{width:100%;margin-left:0;grid-template-columns:1fr 1fr}.descendant-cards figure:last-child{grid-column:1/-1;max-width:52%;justify-self:center}}
-
-.hero.city-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=City%20of%20Brass&set=arn&format=image&version=art_crop)!important;
-  background-position:center 54%!important;
-}
-.city-art{background-color:var(--night)}
-.brass-ledger{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:30px 0}
-.brass-row{display:grid;grid-template-columns:145px minmax(0,1fr);background:var(--white)}
-.brass-row strong{padding:18px;background:rgba(184,138,56,.10);font:750 13px/1.35 Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em}
-.brass-row p{margin:0;padding:15px 18px}
-.mana-spectrum{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:28px 0}
-.mana-spectrum div{padding:17px 8px;border:1px solid var(--line);border-radius:12px;background:var(--white);text-align:center;font:750 13px/1.35 Inter,sans-serif}
-.mana-spectrum b{display:block;font-size:1.7rem;margin-bottom:5px}
-@media(max-width:750px){.brass-row{grid-template-columns:100px minmax(0,1fr)}.mana-spectrum{grid-template-columns:1fr 1fr}.mana-spectrum div:last-child{grid-column:1/-1}}
-
-
-.hero.bazaar-art:before{background-image:url(https://api.scryfall.com/cards/arn/70?format=image&version=art_crop)!important;background-position:center 48%!important}.bazaar-art{background-color:var(--night)}
-
-.mine-ledger{margin:30px 0;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--white);box-shadow:0 8px 28px rgba(22,25,24,.06)}
-.mine-row{display:grid;grid-template-columns:145px minmax(0,1fr);gap:18px;padding:18px 20px;border-bottom:1px solid var(--line)}
-.mine-row:last-child{border-bottom:0}.mine-row strong{font:900 .72rem/1.3 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--rust)}.mine-row p{margin:0}
-@media(max-width:750px){.mine-row{grid-template-columns:94px minmax(0,1fr);padding:15px}}
-
-
-/* Entry 201 — Rishadan Port */
-.hero.port-art:before{background-image:linear-gradient(90deg,rgba(5,10,12,.96) 0%,rgba(5,10,12,.73) 43%,rgba(5,10,12,.18) 75%,rgba(5,10,12,.42) 100%),url("https://api.scryfall.com/cards/mmq/324?format=image&version=art_crop")!important;background-position:center 44%!important}
-.hero.port-art .hero-grid{background-image:linear-gradient(rgba(190,220,217,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(190,220,217,.045) 1px,transparent 1px)!important}
-.port-crop{background-image:linear-gradient(90deg,rgba(5,10,12,.12),rgba(5,10,12,.74)),url("https://api.scryfall.com/cards/mmq/324?format=image&version=art_crop")!important;background-position:center 46%!important}
-.descendant-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}.desc-card{margin:0;border:1px solid #aaa08f;border-radius:14px;background:#fffdf7;padding:14px;box-shadow:0 8px 28px rgba(22,25,24,.10)}.desc-card img{display:block;width:100%;border-radius:10px;margin:0 0 14px}.desc-card figcaption{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#161918;font-size:1rem;line-height:1.65}.desc-card b{display:block;color:#111513;font-family:Georgia,"Times New Roman",serif;font-size:1.2rem;line-height:1.25;margin-bottom:8px}.desc-card span{display:block;color:#292d2a;font-size:.98rem;line-height:1.65}#family>p{color:#242825}
-@media(max-width:850px){.descendant-grid{grid-template-columns:1fr}}
-
-/* Entry 151 — Wasteland */
-.hero.wasteland-art:before{background-image:linear-gradient(90deg,rgba(6,8,8,.97) 0%,rgba(6,8,8,.76) 42%,rgba(6,8,8,.20) 74%,rgba(6,8,8,.48) 100%),url("https://api.scryfall.com/cards/tmp/330?format=image&version=art_crop")!important;background-position:center 48%!important}
-.hero.wasteland-art .hero-grid{background-image:linear-gradient(rgba(218,201,160,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(218,201,160,.045) 1px,transparent 1px)!important}
-.wasteland-crop{background-image:linear-gradient(90deg,rgba(9,10,9,.10),rgba(9,10,9,.75)),url("https://api.scryfall.com/cards/tmp/330?format=image&version=art_crop")!important;background-position:center 49%!important}
-</style></head><body>
-<header class="hero wasteland-art"><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=entry-151#entry-151">← Back to Compulsive Research</a><div class="eyebrow">Entry 151 · The Fixed Strip Mine That Defined Legacy</div><h1>Every Nonbasic Land Came with an Expiration Date</h1><p class="deckline">Wasteland turned a land drop into a universal warning: ambitious mana, utility lands, and land-based combos could survive only as long as the opponent allowed.</p><div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Tempest, 1997</span><span class="pill">Approximately 28 minute read</span></div></div></header>
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+</style></head><body data-article-card="Wasteland">
+<header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Wasteland&amp;set=tmp&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Wasteland&amp;set=tmp&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=entry-151#entry-151">← Back to Compulsive Research</a><div class="eyebrow">Entry 151 · The Fixed Strip Mine That Defined Legacy</div><h1>Every Nonbasic Land Came with an Expiration Date</h1><p class="deckline">Wasteland turned a land drop into a universal warning: ambitious mana, utility lands, and land-based combos could survive only as long as the opponent allowed.</p><div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Tempest, 1997</span><span class="pill">Approximately 20 minute read</span></div></div></header>
 <nav class="rank-nav"><a href="index.html?focus=entry-150#entry-150">← Entry 150 · Desertion</a><div class="center">Entry 151 of 1,000</div><a href="index.html?focus=entry-152#entry-152">Entry 152 · Lotus Petal →</a></nav>
-<div class="article-shell"><nav aria-label="Article table of contents" class="toc"><strong>In this article</strong><a href="#opening">Every Nonbasic Land Came with an Expiration Date</a><a href="#design">The fixed Strip Mine</a><a href="#rules">What the card actually does</a><a href="#parity">The one-for-one exchange</a><a href="#timing">Timing the activation</a><a href="#fetchlands">Fetchlands and Stifle</a><a href="#tempest">Tempest</a><a href="#block">Pro Tour Los Angeles</a><a href="#standard">Standard</a><a href="#legacy-birth">The birth of Legacy</a><a href="#threshold">Canadian Threshold</a><a href="#delver">Delver</a><a href="#dnt">Death and Taxes</a><a href="#lands">Lands</a><a href="#other-shells">Other fair shells</a><a href="#recursion">Recursion engines</a><a href="#combos">Land-combo defense</a><a href="#sequencing">Sequencing</a><a href="#mulligans">Opening hands</a><a href="#counterplay">Counterplay</a><a href="#modern-absence">Why Modern feels different</a><a href="#current">Legacy today</a><a href="#descendants">Descendants</a><a href="#art">The artwork</a><a href="#print-history">The collectible</a><a href="#memory">What players remember</a><a href="#identity">Why Wasteland matters</a><a href="#decks">The deck archive</a><a href="#sources">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The Threat in the Mana Base</div><h2>Every Nonbasic Land Came with an Expiration Date</h2>
-<p class="opening dropcap">A land is normally the safest permanent in Magic. It enters, produces mana, and remains in play unless a deck has spent an actual spell on removing it. <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> changed that assumption. From the moment it appeared in <em>Tempest</em>, every nonbasic land carried an invisible warning: this resource might exist for only one turn.</p>
+<div class="article-shell"><nav aria-label="Article table of contents" class="toc"><strong>In this article</strong><a href="#opening">Every Nonbasic Land Came with an Expiration Date</a><a href="#design">A fixed Strip Mine became a format-defining card</a><a href="#rules">The sacrifice is the cost, not the effect</a><a href="#parity">One land for one land was rarely an equal trade</a><a href="#timing">The best target was often a turn, not a land</a><a href="#fetchlands">Perfect mana gave Wasteland perfect information</a><a href="#tempest">The uncommon that completed a brutal block</a><a href="#block">Red Deck Wins found four free Stone Rains</a><a href="#standard">The card crossed archetype boundaries immediately</a><a href="#legacy-birth">A new format needed a check on old mana</a><a href="#threshold">The mana-denial shell found its permanent form</a><a href="#delver">The clock became faster; the land stayed the same</a><a href="#dnt">Aether Vial made the sacrifice almost free</a><a href="#lands">Life from the Loam removed the word sacrifice</a><a href="#modern-absence">Modern was partly defined by not having it</a><a href="#current">Still legal, still structural, no longer universal</a><a href="#descendants">The imitators reveal how exact the original rate was</a><a href="#art">A landscape after agency has disappeared</a><a href="#print-history">An uncommon that became an eternal-format collectible</a><a href="#memory">The pause before the land went to the graveyard</a><a href="#identity">Why Wasteland matters</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The Threat in the Mana Base</div><h2>Every Nonbasic Land Came with an Expiration Date</h2>
+<p class="opening dropcap">A land is normally the safest permanent in Magic. It enters, produces mana, and remains in play unless a deck has spent an actual spell on removing it. Wasteland changed that assumption. From the moment it appeared in <em>Tempest</em>, every nonbasic land carried an invisible warning: this resource might exist for only one turn.</p>
 <p>The card is not card advantage. The Wasteland player sacrifices one land to destroy one land. Yet that apparently fair exchange became one of the most consequential trades in tournament history because lands do not all have equal value, and turns do not all have equal value. Destroying the only blue source, the land needed for a four-drop, or the dual land fetched to cast two colors could be worth far more than the cardboard exchanged.</p>
-<div class="card-lead"><img alt="Wasteland from Tempest" src="https://api.scryfall.com/cards/tmp/330?format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The fixed Strip Mine</div><h3>Wasteland</h3><p><b>Land</b></p><p><b>{T}:</b> Add {C}.<br/><b>{T}, Sacrifice Wasteland:</b> Destroy target nonbasic land.</p><div class="stats"><div class="stat"><b>First printing</b>Tempest · 1997</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Designer’s intent</b>A fixed Strip Mine</div><div class="stat"><b>Defining formats</b>Tempest Block, Legacy, Vintage, Premodern</div></div></div></div>
+<div class="card-lead"><img alt="Wasteland original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Wasteland&amp;set=tmp&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The fixed Strip Mine</div><h3>Wasteland</h3><p><b>Land</b></p><p><b>{T}:</b> Add {C}.<br/><b>{T}, Sacrifice Wasteland:</b> Destroy target nonbasic land.</p><div class="stats"><div class="stat"><b>First printing</b>Tempest · 1997</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Designer’s intent</b>A fixed Strip Mine</div><div class="stat"><b>Defining formats</b>Tempest Block, Legacy, Vintage, Premodern</div></div></div></div>
 <div class="pullquote">Strip Mine punished the existence of lands. Wasteland punished the ambition to make lands do more than produce ordinary mana.</div>
-<p>That restriction—<em>nonbasic</em>—was intended to make the card fair. Instead, it gave competitive Magic a permanent regulator. The stronger mana bases became, the more important Wasteland became. Every new dual land, utility land, tribal land, creature land, combo land, and fetchland gave the old Tempest uncommon another reason to matter.</p></section><section id="design"><div class="chapter-number">II · The Correction</div><h2>A fixed Strip Mine became a format-defining card</h2><p>Mark Rosewater has repeatedly described Wasteland as his attempt to create a “fixed” <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span>. The correction was elegant: basic lands would be protected, while lands that offered unusual power or perfect colors remained vulnerable.</p><p>The design solved the most obvious problem with Strip Mine. A player could no longer destroy an opponent’s only land regardless of deck construction. Anyone who wanted immunity could play basics. The apparent safety valve was not a ban or restriction; it was a deck-building decision.</p><p>That decision proved more interesting than a weaker rate would have been. Wasteland did not ask whether land destruction should exist. It asked how much greed a mana base could afford. The answer changed from matchup to matchup and even from opening hand to opening hand.</p></section><section id="rules"><div class="chapter-number">III · The Text</div><h2>The sacrifice is the cost, not the effect</h2><p>Activating Wasteland requires tapping and sacrificing it. The land is already in the graveyard before either player can respond. Destroying or tapping Wasteland after the ability has been activated cannot stop the ability because its cost has already been paid.</p><p>The ability itself can still be answered. <span class="card-name" data-card="Stifle" tabindex="0">Stifle</span>, <span class="card-name" data-card="Dress Down" tabindex="0">Dress Down</span>’s rules relatives, or another effect that counters an activated ability can stop the destruction. A targeted land can also leave the battlefield in response—most commonly because a fetchland is sacrificed—causing Wasteland’s ability to resolve without a legal target.</p><p>A land with a basic land type is not necessarily a basic land. Underground Sea is an Island and a Swamp, but it lacks the basic supertype and is a legal target. The same is true of shock lands, typed triomes, Dryad Arbor, and most lands that merely happen to contain the words Plains, Island, Swamp, Mountain, or Forest.</p></section><section id="parity"><div class="chapter-number">IV · The Exchange</div><h2>One land for one land was rarely an equal trade</h2><p>Measured only in cards, Wasteland is symmetrical. Measured in function, it almost never is. The Wasteland player chooses when the exchange occurs and which resource disappears. That agency lets a colorless land trade for a dual land, a creature land, a combo piece, or the opponent’s only untapped source during a critical turn.</p><p>The most punishing activations do not merely remove mana. They invalidate cards already drawn. A hand containing Swords to Plowshares and no remaining white source has not lost one card; it has lost access to every white card until another source appears. The destroyed land therefore reaches into the opponent’s hand and delays several spells at once.</p><p>This is why Wasteland belongs to tempo decks, prison decks, and recursive engines despite those strategies having little else in common. Each can exploit the difference between nominal parity and functional asymmetry.</p></section><section id="timing"><div class="chapter-number">V · The Window</div><h2>The best target was often a turn, not a land</h2><p>Players commonly describe Wasteland by the land it destroys: a Tropical Island, a Dark Depths, a Rishadan Port. In practice the true target is usually the turn that land would have enabled. The correct activation removes a color before a spell can be cast, a fourth mana before a sweeper, or an untapped source before a protective counterspell.</p><p>Using Wasteland immediately is therefore not automatically correct. If the opponent is missing land drops, the early activation may be decisive. If both players are developing, keeping Wasteland untapped may force the opponent to fetch a basic, delay a utility land, or leave mana open in fear of losing a source.</p><p>The possibility of activation is part of the card’s value. An unspent Wasteland can shape sequencing for several turns without sacrificing itself.</p></section><section id="fetchlands"><div class="chapter-number">VI · The Fetchland Era</div><h2>Perfect mana gave Wasteland perfect information</h2><p>Fetchlands made Legacy mana bases more reliable, but they also made Wasteland more precise. A fetchland lets its controller wait before choosing a dual land. Once the choice is made, however, the Wasteland player knows exactly which colors and land types the opponent has committed to.</p><p>Tempo decks intensified the punishment with <span class="card-name" data-card="Stifle" tabindex="0">Stifle</span>. If the opponent kept the fetchland uncracked, Stifle threatened the search ability. If the opponent fetched early to play around Stifle, Wasteland threatened the land found. The pair converted ordinary mana development into a series of losing decisions.</p><p>This interaction became one of Legacy’s fundamental lessons: fetch basics when the matchup and hand permit it, and do not expose a dual land simply because perfect mana is available.</p></section><div aria-label="Wasteland across formats" class="format-strip"><div class="format-card"><span class="impact">Tempest Block and Standard</span><h3>A universal pressure card</h3><p>Aggro, control, and sideboards used Wasteland to punish utility lands and color-hungry mana bases without spending a spell slot.</p></div><div class="format-card"><span class="impact">Legacy</span><h3>The format’s quiet regulator</h3><p>Delver, Death and Taxes, Lands, Goblins, Maverick, and many fair decks use it to keep nonbasic mana from becoming consequence-free.</p></div><div class="format-card"><span class="impact">Vintage and Premodern</span><h3>A fairer heir to Strip Mine</h3><p>Vintage combines it with Strip Mine and recursion, while Premodern preserves the original Tempest-era tension between basics and utility.</p></div></div><section id="tempest"><div class="chapter-number">VII · Tempest</div><h2>The uncommon that completed a brutal block</h2><p>Tempest was filled with cards whose efficiency would shape older formats for decades: Ancient Tomb, Lotus Petal, Cursed Scroll, Intuition, Humility, and more. Wasteland fit that environment because it was simple, flexible, and much stronger than its text first appeared.</p><p>Its uncommon rarity also mattered. Unlike many iconic early lands, Wasteland was not initially a scarce prestige rare. It entered tournament circulation in playsets and quickly became part of the practical vocabulary of constructed Magic.</p><p>The card’s visual austerity reinforced its function. Una Fricker’s original landscape contains no duel, no wizard, and no visible spell. The devastation has already happened. The card presents destruction as a condition of the world rather than an event.</p></section><section id="block"><div class="chapter-number">VIII · Pro Tour Los Angeles</div><h2>Red Deck Wins found four free Stone Rains</h2><p>David Price’s victory at Pro Tour Los Angeles in 1998 supplied the first unmistakable championship image of Wasteland. His Deadguy Red deck used sixteen Mountains and four Wastelands, allowing an aggressive mono-red strategy to attack mana without weakening its primary color.</p><p>The interaction with <span class="card-name" data-card="Jackal Pup" tabindex="0">Jackal Pup</span>, <span class="card-name" data-card="Mogg Fanatic" tabindex="0">Mogg Fanatic</span>, <span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span>, and <span class="card-name" data-card="Kindle" tabindex="0">Kindle</span> was direct. Every turn the opponent spent rebuilding mana was a turn in which Price’s creatures attacked and Scroll moved closer to ending the game.</p><p>Wasteland did not need to lock the opponent out completely. In an aggressive deck, deleting a single turn was enough.</p></section><section id="standard"><div class="chapter-number">IX · Standard</div><h2>The card crossed archetype boundaries immediately</h2><p>During its Standard life, Wasteland appeared in aggressive red decks, green decks, control sideboards, and strategies whose color requirements were disciplined enough to afford colorless lands. Its value rose whenever the opposing environment leaned on creature lands, multicolor sources, or utility lands.</p><p>Randy Buehler’s 1998 World Championship Draw-Go deck famously kept four copies in the sideboard. That placement captured another identity: Wasteland could be a metagame tool rather than a structural commitment, brought in when opposing lands were more threatening than additional colored sources were necessary.</p><p>The gold-bordered World Championship versions that followed also helped establish the card’s visual presence. Even players who never owned Tempest copies saw Wasteland printed inside famous decks.</p></section><section id="legacy-birth"><div class="chapter-number">X · Type 1.5 to Legacy</div><h2>A new format needed a check on old mana</h2><p>When Legacy was established as a distinct format in 2004, it inherited the original dual lands, fetchlands, City of Traitors, Ancient Tomb, Mishra’s Factory, manlands, tribal lands, and decades of utility. Wasteland arrived already qualified to police all of them.</p><p>The card helped create the difference between Legacy mana and theoretical perfect mana. A deck could play several colors with extraordinary consistency, but doing so required accepting vulnerability. Basic lands became strategic resources rather than merely budget substitutes.</p><p>Because Wasteland itself occupied a land slot, fair decks could carry this regulation without surrendering the density of threats and interaction needed for an eternal format.</p></section><section id="threshold"><div class="chapter-number">XI · Canadian Threshold</div><h2>The mana-denial shell found its permanent form</h2><p>David Caplan’s Canadian Threshold paired four Wastelands with four <span class="card-name" data-card="Stifle" tabindex="0">Stifle</span>, four <span class="card-name" data-card="Daze" tabindex="0">Daze</span>, and eight cheap creatures. The deck’s objective was not to trade resources until both players reached an empty board. It wanted to strand the opponent on an unfinished game while <span class="card-name" data-card="Nimble Mongoose" tabindex="0">Nimble Mongoose</span> or <span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span> ended the match.</p><p>Wasteland was indispensable because it made soft permission remain live. Daze and Spell Snare are strongest when the opponent is forced to cast spells on curve. Each land removed extended the period in which those cards functioned as efficient answers.</p><p>This became the classic Legacy tempo equation: deploy a threat for one mana, exchange cards cheaply, and make the opponent’s expensive hand irrelevant by denying the mana needed to use it.</p></section><section id="delver"><div class="chapter-number">XII · Delver</div><h2>The clock became faster; the land stayed the same</h2><p>The printing of <span class="card-name" data-card="Delver of Secrets" tabindex="0">Delver of Secrets</span> in 2011 did not replace Canadian Threshold’s mana plan. It improved the threat that plan protected. A turn-one flying creature reduced the number of turns Wasteland needed to steal.</p><p>RUG Delver’s lands looked reckless—few mana-producing lands, several colors, and four Wastelands—but the deck was built to function on one or two sources. Brainstorm and Ponder found land when needed; Daze returned an Island; nearly every spell cost one. The opponent was usually less capable of surviving the same resource shortage.</p><p>For years, the sight of Delver, Volcanic Island, and Wasteland communicated an entire strategy before another card was revealed.</p></section><section id="dnt"><div class="chapter-number">XIII · Death and Taxes</div><h2>Aether Vial made the sacrifice almost free</h2><p>Death and Taxes approached Wasteland from the opposite direction. Instead of protecting a single threat with countermagic, it used <span class="card-name" data-card="Aether Vial" tabindex="0">Aether Vial</span> to put creatures into play while its lands disrupted the opponent.</p><p><span class="card-name" data-card="Thalia, Guardian of Thraben" tabindex="0">Thalia, Guardian of Thraben</span> increased spell costs, <span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span> denied temporary access, and Wasteland removed the nonbasic sources permanently. Each piece was modest alone. Together they turned a functional mana base into a puzzle whose solution changed every upkeep.</p><p>Thomas Enevoldsen’s Grand Prix Strasbourg victory in 2013 made the structure canonical: four Wasteland, four Port, a high basic Plains count, and Vial as the mechanism that let the deck advance while spending lands as disruption.</p></section><section id="lands"><div class="chapter-number">XIV · Lands</div><h2>Life from the Loam removed the word sacrifice</h2><p>In Lands, Wasteland became something closer to a repeatable spell. <span class="card-name" data-card="Life from the Loam" tabindex="0">Life from the Loam</span> returned it from the graveyard. <span class="card-name" data-card="Exploration" tabindex="0">Exploration</span> supplied extra land drops. <span class="card-name" data-card="Mox Diamond" tabindex="0">Mox Diamond</span> let the deck operate while devoting lands to utility instead of ordinary mana.</p><p>The result was no longer a one-for-one exchange. A single Wasteland could destroy land after land while Loam replenished both it and the mana base around it. Against creature decks, The Tabernacle at Pendrell Vale and Maze of Ith converted the missing lands into missing creatures and failed attacks.</p><p>Jarvis Yu’s 2015 Grand Prix Seattle-Tacoma championship demonstrated the complete machine: Wasteland and Port constrained the opponent while <span class="card-name" data-card="Dark Depths" tabindex="0">Dark Depths</span> and <span class="card-name" data-card="Thespian's Stage" tabindex="0">Thespian’s Stage</span> supplied a sudden 20/20 finish.</p></section><section id="other-shells"><div class="chapter-number">XV · Every Fair Deck</div><h2>Goblins, Maverick, Pox, and Stoneblade all found uses</h2><p>Wasteland’s historical reach is larger than any single archetype. Goblins used Aether Vial and Goblin Lackey to develop without mana, then combined Wasteland with Rishadan Port. Maverick found Wasteland with Knight of the Reliquary. Pox sacrificed lands willingly and recurred them with Crucible of Worlds or Life from the Loam.</p><p>Stoneblade and midrange decks used fewer copies when their colors were demanding, but even two or three could protect a lead or answer a land-based threat. Eldrazi and prison decks used Wasteland alongside Ancient Tomb and Chalice of the Void to ensure that opponents could not simply wait out the lock.</p><p>The card’s identity was therefore not “land destruction deck.” It was “deck capable of operating while the opponent cannot.”</p></section><div aria-label="Wasteland historical timeline" class="timeline"><div class="timeline-item"><time>1997</time><h3>Tempest</h3><p>Wasteland appears at uncommon as Mark Rosewater’s fixed version of Strip Mine.</p></div><div class="timeline-item"><time>1998</time><h3>Pro Tour Los Angeles</h3><p>David Price wins with Deadguy Red, using four Wastelands to turn missed mana into lethal tempo.</p></div><div class="timeline-item"><time>2004–2007</time><h3>Legacy and Canadian Threshold</h3><p>The new eternal format makes Wasteland a permanent answer to dual lands, fetchlands, and utility mana.</p></div><div class="timeline-item"><time>2011–2013</time><h3>Delver and Death and Taxes</h3><p>Two opposite fair strategies establish Wasteland as both tempo weapon and prison component.</p></div><div class="timeline-item"><time>2015–present</time><h3>Recursion and permanence</h3><p>Lands wins a Grand Prix, broad reprints arrive, and Wasteland remains one of Legacy’s central deck-building constraints.</p></div></div><section id="recursion"><div class="chapter-number">XVI · The Graveyard</div><h2>Every recursion card threatened to break the bargain</h2><p>Wasteland’s balancing cost is sacrifice. Any card that returns lands weakens that cost. <span class="card-name" data-card="Crucible of Worlds" tabindex="0">Crucible of Worlds</span>, <span class="card-name" data-card="Life from the Loam" tabindex="0">Life from the Loam</span>, <span class="card-name" data-card="Ramunap Excavator" tabindex="0">Ramunap Excavator</span>, and <span class="card-name" data-card="Wrenn and Six" tabindex="0">Wrenn and Six</span> have each turned Wasteland from a single exchange into a prospective lock.</p><p>These engines differ in speed and vulnerability, but the opponent’s response is similar: remove the recursion piece, find basic lands, or end the game before every nonbasic disappears. The Wasteland player gains inevitability simply by making land drops from the graveyard.</p><p>This interaction also explains why cards that recur lands are scrutinized so carefully in Legacy. Their most obvious text may be value; their most dangerous text often reads, indirectly, “activate Wasteland again.”</p></section><section id="combos"><div class="chapter-number">XVII · The Emergency Brake</div><h2>Some lands could not be allowed to survive</h2><p>Wasteland is not only a tempo card. It is one of Legacy’s cleanest answers to land-based combos. <span class="card-name" data-card="Dark Depths" tabindex="0">Dark Depths</span>, <span class="card-name" data-card="Thespian's Stage" tabindex="0">Thespian’s Stage</span>, <span class="card-name" data-card="Gaea's Cradle" tabindex="0">Gaea’s Cradle</span>, <span class="card-name" data-card="Urza's Saga" tabindex="0">Urza’s Saga</span>, <span class="card-name" data-card="Cloudpost" tabindex="0">Cloudpost</span>, and creature lands can demand immediate removal.</p><p>Against the Stage–Depths combination, timing matters. Destroying the copied Dark Depths while its zero-counter trigger is on the stack prevents the controller from sacrificing it during resolution, so the Marit Lage token is not created. Against Urza’s Saga, Wasteland can trade for the land before the final chapter tutors an artifact.</p><p>The card’s existence keeps these lands interactive without forcing every deck to devote colored spell slots to narrow answers.</p></section><section id="sequencing"><div class="chapter-number">XVIII · Sequencing</div><h2>Do not Wasteland merely because the button is available</h2><p>The most common misuse is sacrificing Wasteland before understanding whose development matters more. A hand with two lands and several two-drops may need the colorless mana. A hand with a one-mana threat and Daze may gain more from destroying the opponent’s first dual immediately.</p><p>Ask three questions: What spell does the target land enable? Can the opponent replace it? Can your own hand function after losing a land? The correct activation is the one that creates the largest difference between those answers.</p><p>Sometimes the right play is to attack mana. Sometimes it is to cast a spell. Sometimes it is to hold Wasteland untapped so a combo land can never be exposed safely.</p></section><section id="mulligans"><div class="chapter-number">XIX · Opening Hands</div><h2>Wasteland is not automatically a mana source</h2><p>A hand containing one colored land and one Wasteland may look like a two-land hand but behave like a one-land hand. Decks with demanding colored costs must evaluate whether Wasteland can be used as mana without abandoning the matchup’s central plan.</p><p>Tempo decks keep low-land hands because their curve is compressed and cantrips repair draws. Death and Taxes keeps them when Aether Vial carries development. Lands keeps them because Mox Diamond, Exploration, and Loam change the meaning of land count entirely.</p><p>The card rewards decks built to absorb its opportunity cost. A random inclusion in an ambitious three-color mana base can harm its controller more than the opponent.</p></section><section id="counterplay"><div class="chapter-number">XX · Playing Against It</div><h2>Basic lands are a strategic asset</h2><p>The cleanest defense is to fetch basics before Wasteland can attack the mana base. This sounds simple, but it requires deck construction that includes the necessary basics and sequencing that does not demand every color immediately.</p><p>Players can also make Wasteland awkward by presenting redundant sources, declining to expose utility lands, or forcing the Wasteland player to keep it as mana. Pithing Needle and similar effects can shut off the activated ability, while Stifle can counter it at the cost of a card.</p><p>The deeper answer is to recognize the matchup’s economy. If the opponent benefits from both players having few lands, trading a fetchland for a basic and casting cheap spells may be more important than achieving perfect colors.</p></section><section id="modern-absence"><div class="chapter-number">XXI · The Format Boundary</div><h2>Modern was partly defined by not having it</h2><p>Wasteland’s absence from Modern is as revealing as its presence in Legacy. Modern received Ghost Quarter, Tectonic Edge, Field of Ruin, and later other conditional answers, but not a zero-mana land that trades directly for any nonbasic.</p><p>That difference changes mana-base incentives. Modern decks have historically been able to use shock lands and fetchlands with less fear of losing the land itself, paying life rather than exposure as the principal cost. Legacy players must calculate both.</p><p>Wasteland therefore helps explain why similarly colored decks feel different across formats. It is not merely another legal card; it alters what counts as a responsible mana base.</p></section><section id="current"><div class="chapter-number">XXII · Legacy Today</div><h2>Still legal, still structural, no longer universal</h2><p>Wasteland remains legal in Legacy and Vintage and continues to appear across tempo, Death and Taxes, Lands, Eldrazi, tribal, and fair midrange strategies. It is not mandatory in every deck. Combo decks often prefer explosive mana, and control decks with demanding colors may choose basics or Back to Basics instead.</p><p>Its influence nevertheless extends beyond its metagame percentage. Deck builders count Wasteland even when they decide not to play it. They choose basic lands, reconsider double-colored spells, test hands against early mana loss, and evaluate whether a utility land is worth the exposure.</p><p>Few cards regulate a format so effectively while remaining an ordinary four-of rather than a banned or restricted exception.</p></section><section id="descendants"><div class="chapter-number">XXIII · Descendants</div><h2>The imitators reveal how exact the original rate was</h2><p><span class="card-name" data-card="Ghost Quarter" tabindex="0">Ghost Quarter</span> can target any land but usually gives the opponent a basic. <span class="card-name" data-card="Tectonic Edge" tabindex="0">Tectonic Edge</span> waits until the opponent controls four lands. <span class="card-name" data-card="Field of Ruin" tabindex="0">Field of Ruin</span> replaces both lands and requires mana. <span class="card-name" data-card="Demolition Field" tabindex="0">Demolition Field</span> repeats that safer template. Each imitator adds a cost, condition, or replacement land.</p><p>Those changes show how little room exists below Wasteland. A land that enters untapped, produces mana, costs no additional mana to activate, and denies replacement is already near the maximum rate acceptable for repeatable tournament play.</p><p>Strip Mine sits above it and is restricted in Vintage. Ghost Quarter sits below it and became broadly printable. Wasteland occupies the narrow historical point between them.</p><div class="card-lead"><img alt="Ghost Quarter" src="https://api.scryfall.com/cards/named?exact=Ghost%20Quarter&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The printable descendant</div><h3>Ghost Quarter</h3><p>Ghost Quarter preserves the land-removal function but gives the target’s controller a basic land. Its existence in many later formats demonstrates how much of Wasteland’s power lies in denying that replacement.</p></div></div></section><section id="art"><div class="chapter-number">XXIV · The Image</div><h2>A landscape after agency has disappeared</h2><p>Una Fricker’s original art does not depict the spell that ruined the land. It depicts the remaining fact. Jagged earth, dead color, and an empty horizon make the card feel permanent even though its rules text represents a single activated ability.</p><p>Later artists expanded the concept in different directions: Carl Critchlow’s judge image, Steven Belledin’s depleted terrain, William Wu’s expedition, Eytan Zana’s monumental ruin, Adam Paquette’s Zendikar vista, and Mark Poole’s collapsing library. The common subject is not violence but aftermath.</p><p>That visual history matches how the card feels in play. The important moment is not the sacrifice animation or the land entering the graveyard. It is the next turn, when the opponent looks at a hand that no longer functions.</p></section><div aria-label="Una Fricker's original Wasteland artwork" class="art-break wasteland-crop" role="img"><div class="art-caption"><b>Wasteland · Una Fricker</b>The original Tempest landscape gives the card its defining mood: no explosion, no victor, only a resource that no longer exists.</div></div><section id="print-history"><div class="chapter-number">XXV · The Object</div><h2>An uncommon that became an eternal-format collectible</h2><p>The original Tempest printing became expensive because Legacy and Vintage decks often wanted four copies and because the card remained absent from ordinary expansion sets for many years. Promotional foils and judge versions transformed a utilitarian uncommon into a prestige card.</p><p>Eternal Masters finally supplied a broad paper reprint in 2016 with new Eytan Zana artwork. Zendikar Expeditions, Zendikar Rising Expeditions, Secret Lair, Universes Beyond treatments, and other premium releases subsequently gave players many visual choices without changing the tournament role.</p><p>The printing history mirrors the card’s cultural movement: first an accessible tool, then a scarce eternal staple, then one of the lands most frequently selected for premium reinterpretation.</p></section><section id="memory"><div class="chapter-number">XXVI · What Players Remember</div><h2>The pause before the land went to the graveyard</h2><p>Players remember Wasteland as a sound and a gesture: tap it, point, sacrifice it, and wait. The opponent studies the board, checks the hand, and decides whether the game remains functional. The exchange is visually small and strategically enormous.</p><p>They also remember the games in which it did nothing—four copies drawn against basics, or a colorless source stranded beside double-colored spells. Those failures are part of the card’s honesty. Wasteland is powerful because the deck accepts a real construction cost to play it.</p><p>The card creates stories about sequencing rather than spectacle. A player fetched the wrong dual, waited one turn too long, fired Wasteland too early, or protected it until Dark Depths appeared. The decisive mistake often happened several turns before the game visibly ended.</p></section><section id="identity"><div class="chapter-number">XXVII · The Verdict</div><h2>Why Wasteland matters</h2><p>Wasteland is one of Magic’s best examples of a safety valve becoming an institution. It was designed to correct Strip Mine, yet the correction was powerful enough to define an eternal format for more than two decades.</p><p>It makes basic lands relevant, places a cost on perfect mana, gives fair decks interaction against land-based engines, and rewards players who understand timing rather than merely card strength. It can be aggressive, defensive, proactive, reactive, temporary, or recursive depending on the deck around it.</p><p>Most importantly, Wasteland proves that a land can shape a game without producing exceptional mana. Its greatest resource is the right to decide that another land does not deserve to remain.</p></section><section id="decks"><div class="chapter-number">XXVIII · The Evidence</div><h2>The deck archive</h2><p class="deck-intro">These five lists trace Wasteland from Tempest Block aggression through the tempo, prison, and recursive engines that made it a permanent pillar of Legacy.</p><div class="deck-archive"><details class="deck"><summary><span><strong>David Price — Deadguy Red</strong><small>Pro Tour Los Angeles 1998 · Champion · Tempest Block</small></span><span class="plus">+</span></summary>
-<div class="deck-body"><p>In the first great Wasteland deck, the land did not form a lock. It shortened the opponent’s clock. Price’s red creatures and <span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span> made every lost mana source translate into damage that could never be recovered.</p><div class="deck-meta"><div><b>David Price — Deadguy Red</b><div class="small">Pro Tour Los Angeles 1998 · Champion · Tempest Block</div></div><button class="copy" data-target="deck-price">Copy deck</button></div>
-<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 26</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Canyon Wildcat" tabindex="0">Canyon Wildcat</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fireslinger" tabindex="0">Fireslinger</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Jackal Pup" tabindex="0">Jackal Pup</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mogg Conscripts" tabindex="0">Mogg Conscripts</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mogg Fanatic" tabindex="0">Mogg Fanatic</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mogg Raider" tabindex="0">Mogg Raider</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Rathi Dragon" tabindex="0">Rathi Dragon</span></div></div><div class="group"><h4>Instants · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kindle" tabindex="0">Kindle</span></div></div><div class="group"><h4>Artifacts and enchantments · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Scalding Tongs" tabindex="0">Scalding Tongs</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Strength" tabindex="0">Giant Strength</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">16</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Apocalypse" tabindex="0">Apocalypse</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Jinxed Idol" tabindex="0">Jinxed Idol</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rathi Dragon" tabindex="0">Rathi Dragon</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Scalding Tongs" tabindex="0">Scalding Tongs</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stone Rain" tabindex="0">Stone Rain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Torture Chamber" tabindex="0">Torture Chamber</span></div></div></div></div>
-<pre hidden="" id="deck-price">David Price — Deadguy Red
-Pro Tour Los Angeles 1998 · Champion · Tempest Block · 60/15
+<p>That restriction—<em>nonbasic</em>—was intended to make the card fair. Instead, it gave competitive Magic a permanent regulator. The stronger mana bases became, the more important Wasteland became. Every new dual land, utility land, tribal land, creature land, combo land, and fetchland gave the old Tempest uncommon another reason to matter.</p></section><section id="design"><div class="chapter-number">II · The Correction</div><h2>A fixed Strip Mine became a format-defining card</h2><p>Mark Rosewater has repeatedly described Wasteland as his attempt to create a “fixed” <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span>. The correction was elegant: basic lands would be protected, while lands that offered unusual power or perfect colors remained vulnerable.</p><p>The design solved the most obvious problem with <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span>. A player could no longer destroy an opponent’s only land regardless of deck construction. Anyone who wanted immunity could play basics. The apparent safety valve was not a ban or restriction; it was a deck-building decision.</p><p>That decision proved more interesting than a weaker rate would have been. Wasteland did not ask whether land destruction should exist. It asked how much greed a mana base could afford. The answer changed from matchup to matchup and even from opening hand to opening hand.</p></section><section id="rules"><div class="chapter-number">III · The Text</div><h2>The sacrifice is the cost, not the effect</h2><p>Activating Wasteland requires tapping and sacrificing it. The land is already in the graveyard before either player can respond. Destroying or tapping Wasteland after the ability has been activated cannot stop the ability because its cost has already been paid.</p><p>The ability itself can still be answered. <span class="card-name" data-card="Stifle" tabindex="0">Stifle</span>, <span class="card-name" data-card="Dress Down" tabindex="0">Dress Down</span>’s rules relatives, or another effect that counters an activated ability can stop the destruction. A targeted land can also leave the battlefield in response—most commonly because a fetchland is sacrificed—causing Wasteland’s ability to resolve without a legal target.</p><p>A land with a basic land type is not necessarily a basic land. Underground Sea is an Island and a Swamp, but it lacks the basic supertype and is a legal target. The same is true of shock lands, typed triomes, Dryad Arbor, and most lands that merely happen to contain the words <span class="card-name" data-card="Plains" tabindex="0">Plains</span>, Island, Swamp, <span class="card-name" data-card="Mountain" tabindex="0">Mountain</span>, or <span class="card-name" data-card="Forest" tabindex="0">Forest</span>.</p></section><section id="parity"><div class="chapter-number">IV · The Exchange</div><h2>One land for one land was rarely an equal trade</h2><p>Measured only in cards, Wasteland is symmetrical. Measured in function, it almost never is. The Wasteland player chooses when the exchange occurs and which resource disappears. That agency lets a colorless land trade for a dual land, a creature land, a combo piece, or the opponent’s only untapped source during a critical turn.</p><p>The most punishing activations do not merely remove mana. They invalidate cards already drawn. A hand containing <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> and no remaining white source has not lost one card; it has lost access to every white card until another source appears. The destroyed land therefore reaches into the opponent’s hand and delays several spells at once.</p><p>This is why Wasteland belongs to tempo decks, prison decks, and recursive engines despite those strategies having little else in common. Each can exploit the difference between nominal parity and functional asymmetry.</p></section><section id="timing"><div class="chapter-number">V · The Window</div><h2>The best target was often a turn, not a land</h2><p>Players commonly describe Wasteland by the land it destroys: a <span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span>, a <span class="card-name" data-card="Dark Depths" tabindex="0">Dark Depths</span>, a <span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span>. In practice the true target is usually the turn that land would have enabled. The correct activation removes a color before a spell can be cast, a fourth mana before a sweeper, or an untapped source before a protective counterspell.</p><p>Using Wasteland immediately is therefore not automatically correct. If the opponent is missing land drops, the early activation may be decisive. If both players are developing, keeping Wasteland untapped may force the opponent to fetch a basic, delay a utility land, or leave mana open in fear of losing a source.</p><p>The possibility of activation is part of the card’s value. An unspent Wasteland can shape sequencing for several turns without sacrificing itself.</p></section><section id="fetchlands"><div class="chapter-number">VI · The Fetchland Era</div><h2>Perfect mana gave Wasteland perfect information</h2><p>Fetchlands made Legacy mana bases more reliable, but they also made Wasteland more precise. A fetchland lets its controller wait before choosing a dual land. Once the choice is made, however, the Wasteland player knows exactly which colors and land types the opponent has committed to.</p><p>Tempo decks intensified the punishment with <span class="card-name" data-card="Stifle" tabindex="0">Stifle</span>. If the opponent kept the fetchland uncracked, <span class="card-name" data-card="Stifle" tabindex="0">Stifle</span> threatened the search ability. If the opponent fetched early to play around <span class="card-name" data-card="Stifle" tabindex="0">Stifle</span>, Wasteland threatened the land found. The pair converted ordinary mana development into a series of losing decisions.</p><p>This interaction became one of Legacy’s fundamental lessons: fetch basics when the matchup and hand permit it, and do not expose a dual land simply because perfect mana is available.</p></section><div aria-label="Wasteland across formats" class="format-strip"><div class="format-card"><span class="impact">Tempest Block and Standard</span><h3>A universal pressure card</h3><p>Aggro, control, and sideboards used Wasteland to punish utility lands and color-hungry mana bases without spending a spell slot.</p></div><div class="format-card"><span class="impact">Legacy</span><h3>The format’s quiet regulator</h3><p>Delver, Death and Taxes, Lands, Goblins, Maverick, and many fair decks use it to keep nonbasic mana from becoming consequence-free.</p></div><div class="format-card"><span class="impact">Vintage and Premodern</span><h3>A fairer heir to Strip Mine</h3><p>Vintage combines it with <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span> and recursion, while Premodern preserves the original Tempest-era tension between basics and utility.</p></div></div><section id="tempest"><div class="chapter-number">VII · Tempest</div><h2>The uncommon that completed a brutal block</h2><p>Tempest was filled with cards whose efficiency would shape older formats for decades: <span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span>, <span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span>, <span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span>, <span class="card-name" data-card="Intuition" tabindex="0">Intuition</span>, Humility, and more. Wasteland fit that environment because it was simple, flexible, and much stronger than its text first appeared.</p><p>Its uncommon rarity also mattered. Unlike many iconic early lands, Wasteland was not initially a scarce prestige rare. It entered tournament circulation in playsets and quickly became part of the practical vocabulary of constructed Magic.</p><p>The card’s visual austerity reinforced its function. Una Fricker’s original landscape contains no duel, no wizard, and no visible spell. The devastation has already happened. The card presents destruction as a condition of the world rather than an event.</p></section><section id="block"><div class="chapter-number">VIII · Pro Tour Los Angeles</div><h2>Red Deck Wins found four free Stone Rains</h2><p>David Price’s victory at Pro Tour Los Angeles in 1998 supplied the first unmistakable championship image of Wasteland. His Deadguy Red deck used sixteen Mountains and four Wastelands, allowing an aggressive mono-red strategy to attack mana without weakening its primary color.</p><p>The interaction with <span class="card-name" data-card="Jackal Pup" tabindex="0">Jackal Pup</span>, <span class="card-name" data-card="Mogg Fanatic" tabindex="0">Mogg Fanatic</span>, <span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span>, and <span class="card-name" data-card="Kindle" tabindex="0">Kindle</span> was direct. Every turn the opponent spent rebuilding mana was a turn in which Price’s creatures attacked and Scroll moved closer to ending the game.</p><p>Wasteland did not need to lock the opponent out completely. In an aggressive deck, deleting a single turn was enough.</p></section><section id="standard"><div class="chapter-number">IX · Standard</div><h2>The card crossed archetype boundaries immediately</h2><p>During its Standard life, Wasteland appeared in aggressive red decks, green decks, control sideboards, and strategies whose color requirements were disciplined enough to afford colorless lands. Its value rose whenever the opposing environment leaned on creature lands, multicolor sources, or utility lands.</p><p>Randy Buehler’s 1998 World Championship Draw-Go deck famously kept four copies in the sideboard. That placement captured another identity: Wasteland could be a metagame tool rather than a structural commitment, brought in when opposing lands were more threatening than additional colored sources were necessary.</p><p>The gold-bordered World Championship versions that followed also helped establish the card’s visual presence. Even players who never owned Tempest copies saw Wasteland printed inside famous decks.</p></section><section id="legacy-birth"><div class="chapter-number">X · Type 1.5 to Legacy</div><h2>A new format needed a check on old mana</h2><p>When Legacy was established as a distinct format in 2004, it inherited the original dual lands, fetchlands, City of Traitors, <span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span>, Mishra’s Factory, manlands, tribal lands, and decades of utility. Wasteland arrived already qualified to police all of them.</p><p>The card helped create the difference between Legacy mana and theoretical perfect mana. A deck could play several colors with extraordinary consistency, but doing so required accepting vulnerability. Basic lands became strategic resources rather than merely budget substitutes.</p><p>Because Wasteland itself occupied a land slot, fair decks could carry this regulation without surrendering the density of threats and interaction needed for an eternal format.</p></section><section id="threshold"><div class="chapter-number">XI · Canadian Threshold</div><h2>The mana-denial shell found its permanent form</h2><p>David Caplan’s Canadian Threshold paired four Wastelands with four <span class="card-name" data-card="Stifle" tabindex="0">Stifle</span>, four <span class="card-name" data-card="Daze" tabindex="0">Daze</span>, and eight cheap creatures. The deck’s objective was not to trade resources until both players reached an empty board. It wanted to strand the opponent on an unfinished game while <span class="card-name" data-card="Nimble Mongoose" tabindex="0">Nimble Mongoose</span> or <span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span> ended the match.</p><p>Wasteland was indispensable because it made soft permission remain live. <span class="card-name" data-card="Daze" tabindex="0">Daze</span> and Spell Snare are strongest when the opponent is forced to cast spells on curve. Each land removed extended the period in which those cards functioned as efficient answers.</p><p>This became the classic Legacy tempo equation: deploy a threat for one mana, exchange cards cheaply, and make the opponent’s expensive hand irrelevant by denying the mana needed to use it.</p></section><section id="delver"><div class="chapter-number">XII · Delver</div><h2>The clock became faster; the land stayed the same</h2><p>The printing of <span class="card-name" data-card="Delver of Secrets" tabindex="0">Delver of Secrets</span> in 2011 did not replace Canadian Threshold’s mana plan. It improved the threat that plan protected. A turn-one flying creature reduced the number of turns Wasteland needed to steal.</p><p>RUG Delver’s lands looked reckless—few mana-producing lands, several colors, and four Wastelands—but the deck was built to function on one or two sources. <span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span> and Ponder found land when needed; <span class="card-name" data-card="Daze" tabindex="0">Daze</span> returned an Island; nearly every spell cost one. The opponent was usually less capable of surviving the same resource shortage.</p><p>For years, the sight of Delver, <span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span>, and Wasteland communicated an entire strategy before another card was revealed.</p></section><section id="dnt"><div class="chapter-number">XIII · Death and Taxes</div><h2>Aether Vial made the sacrifice almost free</h2><p>Death and Taxes approached Wasteland from the opposite direction. Instead of protecting a single threat with countermagic, it used <span class="card-name" data-card="Aether Vial" tabindex="0">Aether Vial</span> to put creatures into play while its lands disrupted the opponent.</p><p><span class="card-name" data-card="Thalia, Guardian of Thraben" tabindex="0">Thalia, Guardian of Thraben</span> increased spell costs, <span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span> denied temporary access, and Wasteland removed the nonbasic sources permanently. Each piece was modest alone. Together they turned a functional mana base into a puzzle whose solution changed every upkeep.</p><p>Thomas Enevoldsen’s Grand Prix Strasbourg victory in 2013 made the structure canonical: four Wasteland, four Port, a high basic <span class="card-name" data-card="Plains" tabindex="0">Plains</span> count, and Vial as the mechanism that let the deck advance while spending lands as disruption.</p></section><section id="lands"><div class="chapter-number">XIV · Lands</div><h2>Life from the Loam removed the word sacrifice</h2><p>In Lands, Wasteland became something closer to a repeatable spell. <span class="card-name" data-card="Life from the Loam" tabindex="0">Life from the Loam</span> returned it from the graveyard. <span class="card-name" data-card="Exploration" tabindex="0">Exploration</span> supplied extra land drops. <span class="card-name" data-card="Mox Diamond" tabindex="0">Mox Diamond</span> let the deck operate while devoting lands to utility instead of ordinary mana.</p><p>The result was no longer a one-for-one exchange. A single Wasteland could destroy land after land while Loam replenished both it and the mana base around it. Against creature decks, <span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span> and <span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span> converted the missing lands into missing creatures and failed attacks.</p><p>Jarvis Yu’s 2015 Grand Prix Seattle-Tacoma championship demonstrated the complete machine: Wasteland and Port constrained the opponent while <span class="card-name" data-card="Dark Depths" tabindex="0">Dark Depths</span> and <span class="card-name" data-card="Thespian's Stage" tabindex="0">Thespian’s Stage</span> supplied a sudden 20/20 finish.</p></section><div aria-label="Wasteland historical timeline" class="timeline"><div class="timeline-item"><time>1997</time><h3>Tempest</h3><p>Wasteland appears at uncommon as Mark Rosewater’s fixed version of <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span>.</p></div><div class="timeline-item"><time>1998</time><h3>Pro Tour Los Angeles</h3><p>David Price wins with Deadguy Red, using four Wastelands to turn missed mana into lethal tempo.</p></div><div class="timeline-item"><time>2004–2007</time><h3>Legacy and Canadian Threshold</h3><p>The new eternal format makes Wasteland a permanent answer to dual lands, fetchlands, and utility mana.</p></div><div class="timeline-item"><time>2011–2013</time><h3>Delver and Death and Taxes</h3><p>Two opposite fair strategies establish Wasteland as both tempo weapon and prison component.</p></div><div class="timeline-item"><time>2015–present</time><h3>Recursion and permanence</h3><p>Lands wins a Grand Prix, broad reprints arrive, and Wasteland remains one of Legacy’s central deck-building constraints.</p></div></div><section id="modern-absence"><div class="chapter-number">XV · The Format Boundary</div><h2>Modern was partly defined by not having it</h2><p>Wasteland’s absence from Modern is as revealing as its presence in Legacy. Modern received <span class="card-name" data-card="Ghost Quarter" tabindex="0">Ghost Quarter</span>, <span class="card-name" data-card="Tectonic Edge" tabindex="0">Tectonic Edge</span>, <span class="card-name" data-card="Field of Ruin" tabindex="0">Field of Ruin</span>, and later other conditional answers, but not a zero-mana land that trades directly for any nonbasic.</p><p>That difference changes mana-base incentives. Modern decks have historically been able to use shock lands and fetchlands with less fear of losing the land itself, paying life rather than exposure as the principal cost. Legacy players must calculate both.</p><p>Wasteland therefore helps explain why similarly colored decks feel different across formats. It is not merely another legal card; it alters what counts as a responsible mana base.</p></section><section id="current"><div class="chapter-number">XVI · Legacy Today</div><h2>Still legal, still structural, no longer universal</h2><p>Wasteland remains legal in Legacy and Vintage and continues to appear across tempo, Death and Taxes, Lands, Eldrazi, tribal, and fair midrange strategies. It is not mandatory in every deck. Combo decks often prefer explosive mana, and control decks with demanding colors may choose basics or Back to Basics instead.</p><p>Its influence nevertheless extends beyond its metagame percentage. Deck builders count Wasteland even when they decide not to play it. They choose basic lands, reconsider double-colored spells, test hands against early mana loss, and evaluate whether a utility land is worth the exposure.</p><p>Few cards regulate a format so effectively while remaining an ordinary four-of rather than a banned or restricted exception.</p></section><section id="descendants"><div class="chapter-number">XVII · Descendants</div><h2>The imitators reveal how exact the original rate was</h2><p><span class="card-name" data-card="Ghost Quarter" tabindex="0">Ghost Quarter</span> can target any land but usually gives the opponent a basic. <span class="card-name" data-card="Tectonic Edge" tabindex="0">Tectonic Edge</span> waits until the opponent controls four lands. <span class="card-name" data-card="Field of Ruin" tabindex="0">Field of Ruin</span> replaces both lands and requires mana. <span class="card-name" data-card="Demolition Field" tabindex="0">Demolition Field</span> repeats that safer template. Each imitator adds a cost, condition, or replacement land.</p><p>Those changes show how little room exists below Wasteland. A land that enters untapped, produces mana, costs no additional mana to activate, and denies replacement is already near the maximum rate acceptable for repeatable tournament play.</p><p><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span> sits above it and is restricted in Vintage. <span class="card-name" data-card="Ghost Quarter" tabindex="0">Ghost Quarter</span> sits below it and became broadly printable. Wasteland occupies the narrow historical point between them.</p><div class="card-lead"><img alt="Wasteland original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Wasteland&amp;set=tmp&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The printable descendant</div><h3>Ghost Quarter</h3><p>Ghost Quarter preserves the land-removal function but gives the target’s controller a basic land. Its existence in many later formats demonstrates how much of Wasteland’s power lies in denying that replacement.</p></div></div></section><section id="art"><div class="chapter-number">XVIII · The Image</div><h2>A landscape after agency has disappeared</h2><p>Una Fricker’s original art does not depict the spell that ruined the land. It depicts the remaining fact. Jagged earth, dead color, and an empty horizon make the card feel permanent even though its rules text represents a single activated ability.</p><p>Later artists expanded the concept in different directions: Carl Critchlow’s judge image, Steven Belledin’s depleted terrain, William Wu’s expedition, Eytan Zana’s monumental ruin, Adam Paquette’s Zendikar vista, and Mark Poole’s collapsing library. The common subject is not violence but aftermath.</p><p>That visual history matches how the card feels in play. The important moment is not the sacrifice animation or the land entering the graveyard. It is the next turn, when the opponent looks at a hand that no longer functions.</p></section><div aria-label="Una Fricker's original Wasteland artwork" class="art-break wasteland-crop" role="img"><div class="art-caption"><b>Wasteland · Una Fricker</b>The original Tempest landscape gives the card its defining mood: no explosion, no victor, only a resource that no longer exists.</div></div><section id="print-history"><div class="chapter-number">XIX · The Object</div><h2>An uncommon that became an eternal-format collectible</h2><p>The original Tempest printing became expensive because Legacy and Vintage decks often wanted four copies and because the card remained absent from ordinary expansion sets for many years. Promotional foils and judge versions transformed a utilitarian uncommon into a prestige card.</p><p>Eternal Masters finally supplied a broad paper reprint in 2016 with new Eytan Zana artwork. Zendikar Expeditions, Zendikar Rising Expeditions, Secret Lair, Universes Beyond treatments, and other premium releases subsequently gave players many visual choices without changing the tournament role.</p><p>The printing history mirrors the card’s cultural movement: first an accessible tool, then a scarce eternal staple, then one of the lands most frequently selected for premium reinterpretation.</p></section><section id="memory"><div class="chapter-number">XX · What Players Remember</div><h2>The pause before the land went to the graveyard</h2><p>Players remember Wasteland as a sound and a gesture: tap it, point, sacrifice it, and wait. The opponent studies the board, checks the hand, and decides whether the game remains functional. The exchange is visually small and strategically enormous.</p><p>They also remember the games in which it did nothing—four copies drawn against basics, or a colorless source stranded beside double-colored spells. Those failures are part of the card’s honesty. Wasteland is powerful because the deck accepts a real construction cost to play it.</p><p>The card creates stories about sequencing rather than spectacle. A player fetched the wrong dual, waited one turn too long, fired Wasteland too early, or protected it until <span class="card-name" data-card="Dark Depths" tabindex="0">Dark Depths</span> appeared. The decisive mistake often happened several turns before the game visibly ended.</p></section><section id="identity"><div class="chapter-number">XXI · The Verdict</div><h2>Why Wasteland matters</h2><p>Wasteland is one of Magic’s best examples of a safety valve becoming an institution. It was designed to correct <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span>, yet the correction was powerful enough to define an eternal format for more than two decades.</p><p>It makes basic lands relevant, places a cost on perfect mana, gives fair decks interaction against land-based engines, and rewards players who understand timing rather than merely card strength. It can be aggressive, defensive, proactive, reactive, temporary, or recursive depending on the deck around it.</p><p>Most importantly, Wasteland proves that a land can shape a game without producing exceptional mana. Its greatest resource is the right to decide that another land does not deserve to remain.</p></section><section id="decklists"><div class="chapter-number">XXII · The Evidence</div><h2>The deck archive</h2><p class="deck-intro">The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p><div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>David Price — Deadguy Red</strong><small>Pro Tour Los Angeles 1998 · Champion · Tempest Block</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>In the first great Wasteland deck, the land did not form a lock. It shortened the opponent’s clock. Price’s red creatures and Cursed Scroll made every lost mana source translate into damage that could never be recovered.</p><div class="deck-meta"><div><b>David Price — Deadguy Red</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-151-wasteland-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 26</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Canyon Wildcat" tabindex="0">Canyon Wildcat</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fireslinger" tabindex="0">Fireslinger</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Jackal Pup" tabindex="0">Jackal Pup</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mogg Conscripts" tabindex="0">Mogg Conscripts</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mogg Fanatic" tabindex="0">Mogg Fanatic</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mogg Raider" tabindex="0">Mogg Raider</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Rathi Dragon" tabindex="0">Rathi Dragon</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts and enchantments · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Scalding Tongs" tabindex="0">Scalding Tongs</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Strength" tabindex="0">Giant Strength</span></div></div><div class="group"><h4>Instants · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kindle" tabindex="0">Kindle</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">16</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Apocalypse" tabindex="0">Apocalypse</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Jinxed Idol" tabindex="0">Jinxed Idol</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rathi Dragon" tabindex="0">Rathi Dragon</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Shatter" tabindex="0">Shatter</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Scalding Tongs" tabindex="0">Scalding Tongs</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stone Rain" tabindex="0">Stone Rain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Torture Chamber" tabindex="0">Torture Chamber</span></div></div></div></div><pre hidden="" id="deck-151-wasteland-1">David Price — Deadguy Red
+Pro Tour Los Angeles 1998 · Champion · Tempest Block
 
 Creatures · 26
 4 Canyon Wildcat
@@ -711,13 +341,13 @@ Creatures · 26
 4 Mogg Raider
 2 Rathi Dragon
 
-Instants · 4
-4 Kindle
-
 Artifacts and enchantments · 10
 4 Cursed Scroll
 2 Scalding Tongs
 4 Giant Strength
+
+Instants · 4
+4 Kindle
 
 Lands · 20
 16 Mountain
@@ -730,129 +360,86 @@ Sideboard · 15
 4 Shatter
 2 Scalding Tongs
 4 Stone Rain
-1 Torture Chamber</pre></div></details><details class="deck"><summary><span><strong>David Caplan — Canadian Threshold</strong><small>Gen Con 2007 · Legacy Top 8</small></span><span class="plus">+</span></summary>
-<div class="deck-body"><p>This is the architecture that turned Wasteland into Legacy’s signature tempo card. <span class="card-name" data-card="Stifle" tabindex="0">Stifle</span> attacked fetchlands, Wasteland attacked the lands that survived, and eight cheap creatures made the opponent pay for every missed development step.</p><div class="deck-meta"><div><b>David Caplan — Canadian Threshold</b><div class="small">Gen Con 2007 · Legacy Top 8</div></div><button class="copy" data-target="deck-caplan">Copy deck</button></div>
-<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Nimble Mongoose" tabindex="0">Nimble Mongoose</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span></div></div><div class="group"><h4>Instants and sorceries · 34</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fire // Ice" tabindex="0">Fire // Ice</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stifle" tabindex="0">Stifle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wipe Away" tabindex="0">Wipe Away</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disrupt" tabindex="0">Disrupt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Krosan Grip" tabindex="0">Krosan Grip</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Submerge" tabindex="0">Submerge</span></div></div></div></div>
-<pre hidden="" id="deck-caplan">David Caplan — Canadian Threshold
-Gen Con 2007 · Legacy Top 8 · 60/15
+1 Torture Chamber</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>Tommi Hovi — Pro Tour Rome 1998</strong><small>Winner · extended thru USG · 1998-11-15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from Pro Tour Rome 1998. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Tommi Hovi</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-151-wasteland-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Artifacts · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lotus Petal" tabindex="0">Lotus Petal</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mox Diamond" tabindex="0">Mox Diamond</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Scroll Rack" tabindex="0">Scroll Rack</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Voltaic Key" tabindex="0">Voltaic Key</span></div></div><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Time Spiral" tabindex="0">Time Spiral</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Windfall" tabindex="0">Windfall</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mind Over Matter" tabindex="0">Mind Over Matter</span></div></div><div class="group"><h4>Instants · 13</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Abeyance" tabindex="0">Abeyance</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Intuition" tabindex="0">Intuition</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Power Sink" tabindex="0">Power Sink</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stroke of Genius" tabindex="0">Stroke of Genius</span></div></div><div class="group"><h4>Lands · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="City of Brass" tabindex="0">City of Brass</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tolarian Academy" tabindex="0">Tolarian Academy</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Arcane Denial" tabindex="0">Arcane Denial</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Chill" tabindex="0">Chill</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gorilla Shaman" tabindex="0">Gorilla Shaman</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div></div></div><pre hidden="" id="deck-151-wasteland-2">Tommi Hovi — Pro Tour Rome 1998
+Winner · extended thru USG · 1998-11-15
 
-Creatures · 8
-4 Nimble Mongoose
-4 Tarmogoyf
+Artifacts · 17
+4 Lotus Petal
+4 Mana Vault
+4 Mox Diamond
+2 Scroll Rack
+3 Voltaic Key
 
-Instants and sorceries · 34
-4 Brainstorm
-4 Daze
-4 Fire // Ice
-4 Force of Will
-4 Lightning Bolt
-4 Ponder
-1 Rushing River
-4 Spell Snare
-4 Stifle
-1 Wipe Away
+Enchantments · 3
+3 Mind Over Matter
 
-Lands · 18
-3 Flooded Strand
-3 Polluted Delta
-4 Tropical Island
-4 Volcanic Island
-4 Wasteland
-
-Sideboard · 15
-4 Disrupt
-1 Engineered Explosives
-1 Krosan Grip
-2 Pyroblast
-1 Pyroclasm
-2 Red Elemental Blast
-4 Submerge</pre></div></details><details class="deck"><summary><span><strong>Ryan Overturf — RUG Delver</strong><small>SCG Legacy Open Des Moines 2012 · Champion</small></span><span class="plus">+</span></summary>
-<div class="deck-body"><p><span class="card-name" data-card="Delver of Secrets" tabindex="0">Delver of Secrets</span> transformed the old Threshold shell into a faster clock without changing its mana-denial core. Wasteland remained the bridge between one-mana threats, soft counters, and a game that never reached the opponent’s expensive spells.</p><div class="deck-meta"><div><b>Ryan Overturf — RUG Delver</b><div class="small">SCG Legacy Open Des Moines 2012 · Champion</div></div><button class="copy" data-target="deck-overturf">Copy deck</button></div>
-<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Delver of Secrets" tabindex="0">Delver of Secrets</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Nimble Mongoose" tabindex="0">Nimble Mongoose</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tarmogoyf" tabindex="0">Tarmogoyf</span></div></div><div class="group"><h4>Instants and sorceries · 29</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dismember" tabindex="0">Dismember</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Forked Bolt" tabindex="0">Forked Bolt</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stifle" tabindex="0">Stifle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thought Scour" tabindex="0">Thought Scour</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Pierce" tabindex="0">Spell Pierce</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Submerge" tabindex="0">Submerge</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sulfur Elemental" tabindex="0">Sulfur Elemental</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div></div></div></div>
-<pre hidden="" id="deck-overturf">Ryan Overturf — RUG Delver
-SCG Legacy Open Des Moines 2012 · Champion · 60/15
-
-Creatures · 12
-4 Delver of Secrets
-4 Nimble Mongoose
-4 Tarmogoyf
-
-Instants and sorceries · 29
-4 Brainstorm
-3 Daze
-1 Dismember
-2 Forked Bolt
-3 Force of Will
-4 Lightning Bolt
-4 Ponder
-3 Spell Snare
-4 Stifle
-1 Thought Scour
+Instants · 13
+3 Abeyance
+3 Intuition
+3 Power Sink
+4 Stroke of Genius
 
 Lands · 19
-4 Misty Rainforest
-1 Polluted Delta
-4 Scalding Tarn
-3 Tropical Island
-3 Volcanic Island
-4 Wasteland
+4 Ancient Tomb
+3 City of Brass
+4 Tolarian Academy
+4 Tundra
+4 Volcanic Island
+
+Sorceries · 8
+4 Time Spiral
+4 Windfall
 
 Sideboard · 15
-1 Force of Will
-3 Hydroblast
-1 Pyroblast
-1 Red Elemental Blast
-2 Spell Pierce
-2 Submerge
-2 Sulfur Elemental
-3 Tormod's Crypt</pre></div></details><details class="deck"><summary><span><strong>Thomas Enevoldsen — Death and Taxes</strong><small>Grand Prix Strasbourg 2013 · Champion · Legacy</small></span><span class="plus">+</span></summary>
-<div class="deck-body"><p>Death and Taxes did not pair Wasteland with blue permission. It used <span class="card-name" data-card="Aether Vial" tabindex="0">Aether Vial</span>, <span class="card-name" data-card="Thalia, Guardian of Thraben" tabindex="0">Thalia, Guardian of Thraben</span>, and <span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span> to keep developing while the opponent’s mana base was dismantled one decision at a time.</p><div class="deck-meta"><div><b>Thomas Enevoldsen — Death and Taxes</b><div class="small">Grand Prix Strasbourg 2013 · Champion · Legacy</div></div><button class="copy" data-target="deck-enevoldsen">Copy deck</button></div>
-<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 27</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Aven Mindcensor" tabindex="0">Aven Mindcensor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fiend Hunter" tabindex="0">Fiend Hunter</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flickerwisp" tabindex="0">Flickerwisp</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mangara of Corondor" tabindex="0">Mangara of Corondor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mirran Crusader" tabindex="0">Mirran Crusader</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mother of Runes" tabindex="0">Mother of Runes</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Phyrexian Revoker" tabindex="0">Phyrexian Revoker</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stoneforge Mystic" tabindex="0">Stoneforge Mystic</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thalia, Guardian of Thraben" tabindex="0">Thalia, Guardian of Thraben</span></div></div><div class="group"><h4>Artifacts and spells · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Aether Vial" tabindex="0">Aether Vial</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Batterskull" tabindex="0">Batterskull</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Umezawa's Jitte" tabindex="0">Umezawa's Jitte</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Cavern of Souls" tabindex="0">Cavern of Souls</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Eiganjo Castle" tabindex="0">Eiganjo Castle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Horizon Canopy" tabindex="0">Horizon Canopy</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div><div class="row"><span class="qty">9</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cataclysm" tabindex="0">Cataclysm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ethersworn Canonist" tabindex="0">Ethersworn Canonist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gut Shot" tabindex="0">Gut Shot</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Leonin Relic-Warder" tabindex="0">Leonin Relic-Warder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oblivion Ring" tabindex="0">Oblivion Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Relic of Progenitus" tabindex="0">Relic of Progenitus</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Rest in Peace" tabindex="0">Rest in Peace</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sunlance" tabindex="0">Sunlance</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Umezawa's Jitte" tabindex="0">Umezawa's Jitte</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wilt-Leaf Liege" tabindex="0">Wilt-Leaf Liege</span></div></div></div></div>
-<pre hidden="" id="deck-enevoldsen">Thomas Enevoldsen — Death and Taxes
-Grand Prix Strasbourg 2013 · Champion · Legacy · 60/15
+1 Arcane Denial
+4 Chill
+4 Gorilla Shaman
+2 Red Elemental Blast
+4 Wasteland</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Tomi Walamies — Pro Tour New Orleans 2001</strong><small>Finalist · extended thru ODY · 2001-11-04</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from Pro Tour New Orleans 2001. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Tomi Walamies</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-151-wasteland-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Morphling" tabindex="0">Morphling</span></div></div><div class="group"><h4>Instants · 27</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Forbid" tabindex="0">Forbid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Impulse" tabindex="0">Impulse</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Intuition" tabindex="0">Intuition</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tithe" tabindex="0">Tithe</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Seal of Cleansing" tabindex="0">Seal of Cleansing</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Flood Plain" tabindex="0">Flood Plain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah" tabindex="0">Savannah</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Call of the Herd" tabindex="0">Call of the Herd</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Gaea's Blessing" tabindex="0">Gaea's Blessing</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Call of the Herd" tabindex="0">Call of the Herd</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Devout Witness" tabindex="0">Devout Witness</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Intuition" tabindex="0">Intuition</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Powder Keg" tabindex="0">Powder Keg</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Rootwater Thief" tabindex="0">Rootwater Thief</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Seal of Cleansing" tabindex="0">Seal of Cleansing</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div></div></div><pre hidden="" id="deck-151-wasteland-3">Tomi Walamies — Pro Tour New Orleans 2001
+Finalist · extended thru ODY · 2001-11-04
 
-Creatures · 27
-2 Aven Mindcensor
-1 Fiend Hunter
-3 Flickerwisp
-2 Mangara of Corondor
-3 Mirran Crusader
-4 Mother of Runes
-4 Phyrexian Revoker
-4 Stoneforge Mystic
-4 Thalia, Guardian of Thraben
+Creatures · 1
+1 Morphling
 
-Artifacts and spells · 10
-4 Aether Vial
-1 Batterskull
-4 Swords to Plowshares
-1 Umezawa's Jitte
+Enchantments · 3
+3 Seal of Cleansing
 
-Lands · 23
-1 Cavern of Souls
-1 Eiganjo Castle
-1 Horizon Canopy
-3 Karakas
-9 Plains
-4 Rishadan Port
-4 Wasteland
+Instants · 27
+3 Brainstorm
+4 Counterspell
+4 Fact or Fiction
+1 Forbid
+4 Force of Will
+4 Impulse
+1 Intuition
+3 Swords to Plowshares
+3 Tithe
+
+Lands · 21
+3 Adarkar Wastes
+3 Flood Plain
+1 Plains
+4 Savannah
+4 Tropical Island
+4 Tundra
+2 Wasteland
+
+Sorceries · 8
+3 Call of the Herd
+2 Gaea's Blessing
+3 Wrath of God
 
 Sideboard · 15
-2 Cataclysm
-2 Ethersworn Canonist
-1 Gut Shot
-1 Leonin Relic-Warder
-1 Oblivion Ring
-1 Pithing Needle
-1 Relic of Progenitus
-2 Rest in Peace
-1 Sunlance
-1 Umezawa's Jitte
-2 Wilt-Leaf Liege</pre></div></details><details class="deck"><summary><span><strong>Jarvis Yu — Lands</strong><small>Grand Prix Seattle-Tacoma 2015 · Champion · Legacy</small></span><span class="plus">+</span></summary>
-<div class="deck-body"><p>Here Wasteland ceased to be a one-shot trade. <span class="card-name" data-card="Life from the Loam" tabindex="0">Life from the Loam</span>, <span class="card-name" data-card="Exploration" tabindex="0">Exploration</span>, and <span class="card-name" data-card="Mox Diamond" tabindex="0">Mox Diamond</span> made it a recurring engine that could erase every relevant nonbasic while the deck assembled <span class="card-name" data-card="Dark Depths" tabindex="0">Dark Depths</span> and <span class="card-name" data-card="Thespian's Stage" tabindex="0">Thespian’s Stage</span>.</p><div class="deck-meta"><div><b>Jarvis Yu — Lands</b><div class="small">Grand Prix Seattle-Tacoma 2015 · Champion · Legacy</div></div><button class="copy" data-target="deck-yu">Copy deck</button></div>
-<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Spells · 25</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Crop Rotation" tabindex="0">Crop Rotation</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Exploration" tabindex="0">Exploration</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gamble" tabindex="0">Gamble</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Life from the Loam" tabindex="0">Life from the Loam</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Manabond" tabindex="0">Manabond</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mox Diamond" tabindex="0">Mox Diamond</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Punishing Fire" tabindex="0">Punishing Fire</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 35</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Depths" tabindex="0">Dark Depths</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Glacial Chasm" tabindex="0">Glacial Chasm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grove of the Burnwillows" tabindex="0">Grove of the Burnwillows</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Riftstone Portal" tabindex="0">Riftstone Portal</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thespian's Stage" tabindex="0">Thespian's Stage</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tranquil Thicket" tabindex="0">Tranquil Thicket</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Verdant Catacombs" tabindex="0">Verdant Catacombs</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Windswept Heath" tabindex="0">Windswept Heath</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wooded Foothills" tabindex="0">Wooded Foothills</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bojuka Bog" tabindex="0">Bojuka Bog</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Choke" tabindex="0">Choke</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Krosan Grip" tabindex="0">Krosan Grip</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Molten Vortex" tabindex="0">Molten Vortex</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sphere of Resistance" tabindex="0">Sphere of Resistance</span></div></div></div></div>
-<pre hidden="" id="deck-yu">Jarvis Yu — Lands
-Grand Prix Seattle-Tacoma 2015 · Champion · Legacy · 60/15
+1 Call of the Herd
+3 Circle of Protection: Red
+2 Devout Witness
+2 Hydroblast
+1 Intuition
+2 Powder Keg
+2 Rootwater Thief
+1 Seal of Cleansing
+1 Swords to Plowshares</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Jarvis Yu — Lands</strong><small>Grand Prix Seattle-Tacoma 2015 · Champion · Legacy</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>Here Wasteland ceased to be a one-shot trade. Life from the Loam , Exploration , and Mox Diamond made it a recurring engine that could erase every relevant nonbasic while the deck assembled Dark Depths and Thespian’s Stage .</p><div class="deck-meta"><div><b>Jarvis Yu — Lands</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-151-wasteland-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Spells · 25</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Crop Rotation" tabindex="0">Crop Rotation</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Exploration" tabindex="0">Exploration</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gamble" tabindex="0">Gamble</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Life from the Loam" tabindex="0">Life from the Loam</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Manabond" tabindex="0">Manabond</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mox Diamond" tabindex="0">Mox Diamond</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Punishing Fire" tabindex="0">Punishing Fire</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 35</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dark Depths" tabindex="0">Dark Depths</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Glacial Chasm" tabindex="0">Glacial Chasm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grove of the Burnwillows" tabindex="0">Grove of the Burnwillows</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Maze of Ith" tabindex="0">Maze of Ith</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Riftstone Portal" tabindex="0">Riftstone Portal</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Taiga" tabindex="0">Taiga</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thespian's Stage" tabindex="0">Thespian's Stage</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tranquil Thicket" tabindex="0">Tranquil Thicket</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Verdant Catacombs" tabindex="0">Verdant Catacombs</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Windswept Heath" tabindex="0">Windswept Heath</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wooded Foothills" tabindex="0">Wooded Foothills</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bojuka Bog" tabindex="0">Bojuka Bog</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Choke" tabindex="0">Choke</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Krosan Grip" tabindex="0">Krosan Grip</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Molten Vortex" tabindex="0">Molten Vortex</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sphere of Resistance" tabindex="0">Sphere of Resistance</span></div></div></div></div><pre hidden="" id="deck-151-wasteland-4">Jarvis Yu — Lands
+Grand Prix Seattle-Tacoma 2015 · Champion · Legacy
 
 Spells · 25
 4 Crop Rotation
@@ -887,7 +474,59 @@ Sideboard · 15
 1 Karakas
 4 Krosan Grip
 1 Molten Vortex
-4 Sphere of Resistance</pre></div></details></div></section><section id="sources"><div class="chapter-number">XXIX · The Record</div><h2>Printings and sources</h2><div class="printings"><figure class="printing"><img alt="Wasteland, Tempest · 1997 · 330" src="https://api.scryfall.com/cards/tmp/330?format=image&amp;version=normal"/><figcaption><b>Tempest · 1997 · 330</b><br/>Una Fricker’s original uncommon and the version that established the card’s visual identity.</figcaption></figure><figure class="printing"><img alt="Wasteland, Magic Player Rewards · 2001 · 1" src="https://api.scryfall.com/cards/mpr/1?format=image&amp;version=normal"/><figcaption><b>Magic Player Rewards · 2001 · 1</b><br/>A foil textless-era promotional treatment retaining the original artwork and adding the T. S. Eliot quotation.</figcaption></figure><figure class="printing"><img alt="Wasteland, Judge Gift Cards · 2010 · 8" src="https://api.scryfall.com/cards/g10/8?format=image&amp;version=normal"/><figcaption><b>Judge Gift Cards · 2010 · 8</b><br/>Carl Critchlow artwork and a DCI watermark on a foil judge promotion.</figcaption></figure><figure class="printing"><img alt="Wasteland, Judge Gift Cards · 2015 · 8" src="https://api.scryfall.com/cards/j15/8?format=image&amp;version=normal"/><figcaption><b>Judge Gift Cards · 2015 · 8</b><br/>Steven Belledin artwork, later shared with a Magic Online promotional version.</figcaption></figure><figure class="printing"><img alt="Wasteland, Zendikar Expeditions · 2015 · 45" src="https://api.scryfall.com/cards/exp/45?format=image&amp;version=normal"/><figcaption><b>Zendikar Expeditions · 2015 · 45</b><br/>William Wu’s full-art expedition treatment.</figcaption></figure><figure class="printing"><img alt="Wasteland, Eternal Masters · 2016 · 248" src="https://api.scryfall.com/cards/ema/248?format=image&amp;version=normal"/><figcaption><b>Eternal Masters · 2016 · 248</b><br/>The first broad paper reprint, with new Eytan Zana artwork.</figcaption></figure><figure class="printing"><img alt="Wasteland, Zendikar Rising Expeditions · 2020 · 30" src="https://api.scryfall.com/cards/zne/30?format=image&amp;version=normal"/><figcaption><b>Zendikar Rising Expeditions · 2020 · 30</b><br/>Adam Paquette’s borderless expedition version, issued in nonfoil and foil.</figcaption></figure><figure class="printing"><img alt="Wasteland, Secret Lair Drop · 2021 · 178" src="https://api.scryfall.com/cards/sld/178?format=image&amp;version=normal"/><figcaption><b>Secret Lair Drop · 2021 · 178</b><br/>Mark Poole’s library-in-the-desert interpretation.</figcaption></figure></div><ol class="sources">
+4 Sphere of Resistance</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>Takakuwa Yuusuke — Vintage Stax</strong><small>10th Vintage God Challenger Event · Top 8 · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>Takakuwa's Workshop deck used three Ensnaring Bridges inside a dense prison of Smokestack, Tangle Wire, Spheres, Null Rod, Wasteland, and Tabernacle. Bottled Cloister could remove the controller's hand during the opponent's turn, reducing the Bridge threshold to zero while drawing fresh cards on the controller's upkeep.</p><div class="deck-meta"><div><b>Takakuwa Yuusuke — Vintage Stax</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-151-wasteland-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lodestone Golem" tabindex="0">Lodestone Golem</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Phyrexian Metamorph" tabindex="0">Phyrexian Metamorph</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Phyrexian Revoker" tabindex="0">Phyrexian Revoker</span></div></div><div class="group"><h4>Mana artifacts · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Buried Ruin" tabindex="0">Buried Ruin</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Inventors' Fair" tabindex="0">Inventors' Fair</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Workshop" tabindex="0">Mishra's Workshop</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tolarian Academy" tabindex="0">Tolarian Academy</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urborg, Tomb of Yawgmoth" tabindex="0">Urborg, Tomb of Yawgmoth</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div></div><div class="deck-col"><div class="group"><h4>Prison artifacts · 28</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bottled Cloister" tabindex="0">Bottled Cloister</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Crucible of Worlds" tabindex="0">Crucible of Worlds</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ensnaring Bridge" tabindex="0">Ensnaring Bridge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ghirapur Orrery" tabindex="0">Ghirapur Orrery</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Smokestack" tabindex="0">Smokestack</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sorcerous Spyglass" tabindex="0">Sorcerous Spyglass</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sphere of Resistance" tabindex="0">Sphere of Resistance</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tangle Wire" tabindex="0">Tangle Wire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thorn of Amethyst" tabindex="0">Thorn of Amethyst</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Trinisphere" tabindex="0">Trinisphere</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Karakas" tabindex="0">Karakas</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="The Tabernacle at Pendrell Vale" tabindex="0">The Tabernacle at Pendrell Vale</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Silent Arbiter" tabindex="0">Silent Arbiter</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dismember" tabindex="0">Dismember</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Leyline of the Void" tabindex="0">Leyline of the Void</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Contagion Engine" tabindex="0">Contagion Engine</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Grafdigger's Cage" tabindex="0">Grafdigger's Cage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spine of Ish Sah" tabindex="0">Spine of Ish Sah</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Uba Mask" tabindex="0">Uba Mask</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Witchbane Orb" tabindex="0">Witchbane Orb</span></div></div></div></div><pre hidden="" id="deck-151-wasteland-5">Takakuwa Yuusuke — Vintage Stax
+10th Vintage God Challenger Event · Top 8 · 60/15
+
+Creatures · 6
+1 Lodestone Golem
+1 Phyrexian Metamorph
+4 Phyrexian Revoker
+
+Prison artifacts · 28
+1 Bottled Cloister
+1 Chalice of the Void
+3 Crucible of Worlds
+3 Ensnaring Bridge
+1 Ghirapur Orrery
+3 Null Rod
+4 Smokestack
+2 Sorcerous Spyglass
+4 Sphere of Resistance
+4 Tangle Wire
+1 Thorn of Amethyst
+1 Trinisphere
+
+Mana artifacts · 6
+1 Mox Emerald
+1 Mox Jet
+1 Mox Pearl
+1 Mox Ruby
+1 Mox Sapphire
+1 Sol Ring
+
+Lands · 20
+4 Ancient Tomb
+1 Buried Ruin
+1 Inventors' Fair
+2 Mishra's Factory
+4 Mishra's Workshop
+1 Strip Mine
+1 The Tabernacle at Pendrell Vale
+1 Tolarian Academy
+1 Urborg, Tomb of Yawgmoth
+4 Wasteland
+
+Sideboard · 15
+1 Karakas
+1 The Tabernacle at Pendrell Vale
+1 Silent Arbiter
+2 Dismember
+4 Leyline of the Void
+1 Contagion Engine
+2 Grafdigger's Cage
+1 Spine of Ish Sah
+1 Uba Mask
+1 Witchbane Orb</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details></div></section><section id="printings"><div class="chapter-number">XXIII · The Record</div><h2>Printings and sources</h2><div class="printings" data-card="Wasteland" data-original-set="tmp" id="printing-grid"><figure class="printing original-printing"><img alt="Wasteland original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Wasteland&amp;set=tmp&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div><ol class="sources">
 <li><a href="https://magic.wizards.com/en/news/making-magic/design-files-tempest-part-1">Mark Rosewater — “Design Files: Tempest, Part 1”</a><span>Design-file discussion of Wasteland and the attempt to make a fixed Strip Mine.</span></li>
 <li><a href="https://magic.wizards.com/en/news/making-magic/magic-design-a-to-z-part-3">Mark Rosewater — “Magic Design A to Z, Part 3”</a><span>Retrospective statement on Wasteland’s origin and design purpose.</span></li>
 <li><a href="https://scryfall.com/card/tmp/330/wasteland">Scryfall — Wasteland, Tempest</a><span>Oracle text, legality, release information, and original printing.</span></li>
@@ -898,35 +537,47 @@ Sideboard · 15
 <li><a href="https://www.coolstuffinc.com/a/carlosgutierrez-news-results-04142013-thomas-takes-down-strasbourg">CoolStuffInc — “Thomas Takes Down Strasbourg”</a><span>Thomas Enevoldsen’s Grand Prix-winning Death and Taxes list.</span></li>
 <li><a href="https://magic.wizards.com/en/events/coverage/gpsea15/top-8-decklists-2015-11-08">Wizards of the Coast — Grand Prix Seattle-Tacoma 2015 Top 8 Decklists</a><span>Jarvis Yu’s championship Lands list.</span></li>
 <li><a href="https://www.coolstuffinc.com/a/jarvisyu-120115-legacy-lands-primer/">Jarvis Yu — Legacy Lands Primer</a><span>Technical explanation of Wasteland inside the recursive Lands engine.</span></li>
-</ol><p class="editor-note"><b>Editorial note:</b> The decklists reproduce documented tournament lists. Premium foil finishes are not treated as separate printings when the underlying release object is otherwise identical. The gallery presents eight representative official card releases rather than every language, digital object, World Championship proxy, or premium finish.</p></section></article></div>
-<footer class="footer">Compulsive Research · A card-by-card history of Magic: The Gathering</footer><div id="preview"><img alt="Card preview"/></div><script>
-const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+</ol><p class="editor-note">The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p></section></article></div>
+<footer class="footer">Compulsive Research · Entry 151 · Wasteland · Independent, noncommercial Magic history project.</footer><section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Wasteland is entry 151 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-150#entry-150"><small>Previous entry · 150</small>Desertion</a><a href="index.html?focus=entry-152#entry-152"><small>Next entry · 152</small>Lotus Petal</a></nav></section><div id="preview"><img alt="Card preview"/></div><aside class="sidebar-note"><b>Compulsive Research</b><br/>A long-form preservation study of Wasteland: design, play, tournament history, artwork, and memory.</aside><script>
+const ARTICLE_CARD = "Wasteland";
+const ORIGINAL_SET = "tmp";
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
 function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
-function place(x,y){
- if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
- const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
- if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
- l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
- preview.style.left=l+'px';preview.style.top=t+'px'
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(preview&&!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
+document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
+function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
+function chooseIconic(cards){
+  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
+  if(!bySet.length)return [];
+  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
+  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
+  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
+  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
+  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
+  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
+  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
+  for(const c of iconic){add(c);if(selected.length>=target)break}
+  add(bySet[bySet.length-1]);
+  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
+  for(const c of bySet){if(selected.length>=target)break;add(c)}
+  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
 }
-function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
-function hide(){if(!pinned)preview.classList.remove('show')}
-document.querySelectorAll('.card-name').forEach(el=>{
- el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
- el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
- el.addEventListener('mouseleave',hide);
- el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
- el.addEventListener('blur',hide);
- el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
-});
-document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
- const t=document.getElementById(b.dataset.target).textContent;
- try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
- const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
-}));
-const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
-if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
-function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
-addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');if(!grid)return;
+ const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
+ try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
+  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
+  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
+ }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
+}
+loadPrintings();
 </script></body></html>
