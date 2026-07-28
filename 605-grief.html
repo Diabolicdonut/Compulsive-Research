@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A long-form magazine history of Grief: its Modern Horizons 2 design, evoke interaction, Rakdos Evoke championship, Modern and Legacy bans, artwork, decklists, and printings." name="description"/><title>Grief: The First Turn Was Already Gone — Compulsive Research</title><style>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A long-form magazine history of Grief: its Modern Horizons 2 design, evoke interaction, Rakdos Evoke championship, Modern and Legacy bans, artwork, decklists, and printings." name="description"/><title>Grief: The First Turn Was Already Gone — Compulsive Research</title><meta content="no-blank-v3-2026-07-26" name="grief-build"/>
+<style>
 :root{
   --paper:#f4f0e7;
   --paper2:#e9e2d4;
@@ -55,7 +56,7 @@ p{margin:1em 0}
 }
 .hero:before{
   content:"";position:absolute;inset:0;z-index:-3;
-  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  background:url(https://api.scryfall.com/cards/named?exact=Grief&set=mh2&format=image&version=art_crop) center 27%/cover no-repeat;
   transform:scale(1.018);
 }
 .hero:after{
@@ -133,7 +134,7 @@ p{margin:1em 0}
 .art-break{
   width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
   min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
-  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Grief&set=mh2&format=image&version=art_crop) center 25%/cover no-repeat;
 }
 .art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
 .art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
@@ -155,7 +156,7 @@ p{margin:1em 0}
   width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
   display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
 }
-.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .image{min-height:390px;background:var(--night2)}
 .inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
 .memory{
   background:var(--night);color:white;
@@ -194,7 +195,7 @@ p{margin:1em 0}
 .footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
 .landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
 .archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
-.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop) center/cover}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Grief&set=mh2&format=image&version=art_crop) center/cover}
 .archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
 @media(max-width:1050px){
   .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
@@ -213,7 +214,6 @@ p{margin:1em 0}
   .deck-meta{flex-direction:column}.archive-art{min-height:370px}
   #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
   #preview.show{transform:translate(-50%,-50%) scale(1)}
-  .grief-ancestor img.image{min-height:0;height:auto;aspect-ratio:645/510;object-fit:cover}
 }
 
 .rank-nav{
@@ -223,6 +223,12 @@ p{margin:1em 0}
 }
 .rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
 .rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
 .article-note{
   border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
   padding:17px 19px;margin:28px 0;color:var(--muted);
@@ -237,38 +243,14 @@ p{margin:1em 0}
   .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
 }
 
-.grief-art{
-  background-image:url(https://api.scryfall.com/cards/mh2/87?format=image&version=art_crop)!important
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Grief&set=mh2&format=image&version=art_crop)!important;
+  background-position:center 27%!important
 }
-.hero.grief-art:before{
-  background-image:url(https://api.scryfall.com/cards/mh2/87?format=image&version=art_crop)!important;
-  background-position:center 24%!important
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Grief&set=mh2&format=image&version=art_crop)!important;
+  background-position:center 27%!important
 }
-
-.inline-image img.image{width:100%;height:100%;min-height:390px;object-fit:cover;display:block}
-.inline-image.image-missing{grid-template-columns:1fr}
-.inline-image.image-missing .copy{min-height:0}
-.grief-family .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Fury&set=mh2&format=image&version=art_crop)!important
-}
-
-.ancestor-summary{
-  width:min(980px,calc(100vw - 32px));
-  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  padding:clamp(28px,5vw,52px);
-  background:var(--night);
-  color:white;
-  border-radius:var(--radius);
-  box-sizing:border-box;
-  min-height:0;
-}
-.ancestor-summary h3{font-size:clamp(1.8rem,4vw,2.5rem);margin:.35em 0 .65em;color:white}
-.ancestor-summary p{color:#d8d9d4;margin:0 0 1em}
-.ancestor-summary p:last-child{margin-bottom:0}
-@media(max-width:760px){
-  .ancestor-summary{width:100%;margin:34px 0 40px;padding:28px 24px}
-}
-
 
 /* Compulsive Research canonical-format audit — Eternal Dragon template */
 .article-shell > aside.sidebar-note{
@@ -285,33 +267,73 @@ p{margin:1em 0}
 }
 .article a{overflow-wrap:anywhere;word-break:normal}
 @media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
-</style><meta content="no-blank-v3-2026-07-26" name="grief-build"/>
-</head><body><header class="hero grief-art">
+
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
+.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Grief&set=mh2&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Grief&set=mh2&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Grief&set=mh2&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+</style></head><body data-article-card="Grief"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Grief&amp;set=mh2&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Grief&amp;set=mh2&amp;format=image&amp;version=art_crop"/>
 <div class="hero-grid"></div>
 <div class="hero-inner">
 <a class="archive-link" href="index.html?focus=entry-605#entry-605">← Wave 13 · The Modern Horizons Era</a>
 <div class="eyebrow">Entry 605 · Wave 13 · The Modern Horizons Era</div>
 <h1>The First Turn Was Already Gone</h1>
 <p class="deckline">Grief turned a black card into a zero-mana hand check, then let blink and reanimation turn that exchange into a creature, a second discard trigger, and eventually simultaneous Modern and Legacy bans.</p>
-<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Modern Horizons 2, 2021</span><span class="pill">Approximately 24 minute read</span></div>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Modern Horizons 2, 2021</span><span class="pill">Approximately 20 minute read</span></div>
 </div></header>
 <nav class="rank-nav"><a href="index.html?focus=entry-604#entry-604">← Entry 604 · Murktide Regent</a><div class="center">Entry 605 of 1,000</div><a href="index.html?focus=entry-606#entry-606">Entry 606 · Fury →</a></nav>
 <div class="article-shell">
-<nav class="toc"><strong>In this article</strong>
-<a href="#opening">The First Turn Was Already Gone</a>
-<a href="#origin">Modern Horizons 2 skipped the safety rail</a>
-<a href="#rules">The window between arrival and death</a>
-<a href="#ancestor">Unmask with a body</a>
-<a href="#rise">From support spell to archetype</a>
-<a href="#championship">A Pro Tour champion</a>
-<a href="#ban">The bans arrived together</a>
-<a href="#formats">A life across formats</a>
-<a href="#art">The artwork and the object</a>
-<a href="#family">The Incarnation cycle</a>
-<a href="#memory">What players remember</a>
-<a href="#decklists">The deck archive</a>
-<a href="#printings">Printings and sources</a>
-</nav>
+<nav class="toc"><strong>In this article</strong><a href="#opening">The First Turn Was Already Gone</a><a href="#origin">Modern Horizons 2 skipped the safety rail</a><a href="#rules">The window between arrival and death</a><a href="#ancestor">Unmask with a body</a><a href="#rise">From support spell to archetype</a><a href="#championship">A Pro Tour champion</a><a href="#ban">The bans arrived together</a><a href="#formats">A life across formats</a><a href="#art">The artwork and the object</a><a href="#family">The Incarnation cycle</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav>
 <article class="article">
 <section id="opening">
 <div class="chapter-number">I · Before the first land</div>
@@ -322,7 +344,7 @@ p{margin:1em 0}
 <p>The problem was the word <em>creature</em>.</p>
 <p>Because the discard effect belonged to an enters-the-battlefield ability, the brief life of the evoked creature became a resource. <span class="card-name" data-card="Ephemerate" tabindex="0">Ephemerate</span> could blink it before the evoke sacrifice resolved. <span class="card-name" data-card="Undying Malice" tabindex="0">Undying Malice</span>, <span class="card-name" data-card="Feign Death" tabindex="0">Feign Death</span>, <span class="card-name" data-card="Malakir Rebirth" tabindex="0">Malakir Rebirth</span>, and later <span class="card-name" data-card="Not Dead After All" tabindex="0">Not Dead After All</span> could let it die and return it. Each route produced another discard trigger and left a three-power menace creature behind.</p>
 <div class="card-lead">
-<img alt="Grief from Modern Horizons 2" src="https://api.scryfall.com/cards/mh2/87?format=image&amp;version=normal"/>
+<img alt="Grief original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Grief&amp;set=mh2&amp;format=image&amp;version=normal"/>
 <div><div class="oracle"><b>Grief</b> · {2}{B}{B}<br/>Creature — Elemental Incarnation<br/><br/>Menace<br/>When this creature enters, target opponent reveals their hand. You choose a nonland card from it. That player discards that card.<br/><br/>Evoke—Exile a black card from your hand.<br/><br/><b>3/2</b></div>
 <div class="stats"><div class="stat"><b>First printed</b>Modern Horizons 2 · June 2021</div><div class="stat"><b>Illustrated by</b>Nicholas Gregory</div><div class="stat"><b>Defining formats</b>Modern · Legacy</div><div class="stat"><b>Historical status</b>Banned in Modern and Legacy</div></div></div></div>
 <p>The result was a play pattern that compressed information, disruption, tempo, and threat deployment into the opening turn. Grief looked like a free spell with a built-in safety valve. Competitive decks discovered that the valve was a doorway.</p>
@@ -352,16 +374,16 @@ p{margin:1em 0}
 <section id="ancestor">
 <div class="chapter-number">IV · Pitch-discard lineage</div>
 <h2>Unmask with a body</h2>
-<p>Grief did not invent free black discard. <span class="card-name" data-card="Unmask" tabindex="0">Unmask</span> had done the conceptual work in Mercadian Masques more than twenty years earlier. Unmask could be cast by exiling a black card from hand rather than paying mana, and it allowed the caster to examine an opponent’s hand and remove a nonland card.</p>
-<p>The difference is exactly the difference between a spell and a permanent. Unmask normally finishes resolving and goes to the graveyard. Grief enters the battlefield before its discard ability resolves. That arrival invites the rest of Magic’s card pool into the transaction.</p>
+<p>Grief did not invent free black discard. <span class="card-name" data-card="Unmask" tabindex="0">Unmask</span> had done the conceptual work in Mercadian Masques more than twenty years earlier. <span class="card-name" data-card="Unmask" tabindex="0">Unmask</span> could be cast by exiling a black card from hand rather than paying mana, and it allowed the caster to examine an opponent’s hand and remove a nonland card.</p>
+<p>The difference is exactly the difference between a spell and a permanent. <span class="card-name" data-card="Unmask" tabindex="0">Unmask</span> normally finishes resolving and goes to the graveyard. Grief enters the battlefield before its discard ability resolves. That arrival invites the rest of Magic’s card pool into the transaction.</p>
 <aside aria-label="Unmask comparison" class="ancestor-summary">
 <div class="eyebrow">Mercadian Masques · 1999</div>
 <h3>The free discard spell before the creature</h3>
-<p>Unmask established the pitch-discard exchange. Grief reproduced it on an enters-the-battlefield trigger, making blink, reanimation, sacrifice, and death matter.</p>
+<p><span class="card-name" data-card="Unmask" tabindex="0">Unmask</span> established the pitch-discard exchange. Grief reproduced it on an enters-the-battlefield trigger, making blink, reanimation, sacrifice, and death matter.</p>
 <p>The body did not merely add three power. It changed which categories of cards could interact with the effect.</p>
 </aside>
-<p>Grief also inherited part of the cultural position of <span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span>. Both cards make the opponent reveal the structure of their game plan and allow the caster to take the most important piece. Thoughtseize is efficient and clean: one mana, one card, one discard. Grief was less efficient in isolation but more explosive when its body could be preserved.</p>
-<p>This is why discussions that treated Grief as “free Thoughtseize” missed the most important fact. The card was not merely a discard spell that cost no mana. It was a discard spell attached to a creature whose temporary existence could be converted into another object.</p>
+<p>Grief also inherited part of the cultural position of <span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span>. Both cards make the opponent reveal the structure of their game plan and allow the caster to take the most important piece. <span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span> is efficient and clean: one mana, one card, one discard. Grief was less efficient in isolation but more explosive when its body could be preserved.</p>
+<p>This is why discussions that treated Grief as “free <span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span>” missed the most important fact. The card was not merely a discard spell that cost no mana. It was a discard spell attached to a creature whose temporary existence could be converted into another object.</p>
 </section>
 <section id="rise">
 <div class="chapter-number">V · The archetypes</div>
@@ -369,7 +391,7 @@ p{margin:1em 0}
 <p>Grief first spread because several established strategies already wanted exactly what it offered.</p>
 <p><span class="card-name" data-card="Living End" tabindex="0">Living End</span> could pitch Grief for early interaction, then return it later with the rest of the deck’s cycling creatures. The initial card disadvantage became less meaningful because the cascade spell converted a stocked graveyard into a battlefield. Grief gave a linear combo deck perfect information and a way to clear countermagic before committing.</p>
 <p>Reanimator strategies viewed the card from another angle. Evoke placed a creature into the graveyard without spending mana. <span class="card-name" data-card="Reanimate" tabindex="0">Reanimate</span> could bring it back for a single black mana, producing another discard trigger and a threat. In Legacy, that line was protected by <span class="card-name" data-card="Daze" tabindex="0">Daze</span> and <span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span>; the same deck could also use Grief to remove graveyard hate before attempting to reanimate something larger.</p>
-<p>Rakdos decks made the card’s interaction the center rather than a supporting line. They paired Grief and Fury with eight or more one-mana spells that returned a creature after death. The opening high roll was frightening, but the shell’s longevity came from everything else: Thoughtseize, Ragavan, Dauthi Voidwalker, removal, and Fable of the Mirror-Breaker. A deck built around an explosive opening was still capable of playing midrange Magic for ten turns.</p>
+<p>Rakdos decks made the card’s interaction the center rather than a supporting line. They paired Grief and <span class="card-name" data-card="Fury" tabindex="0">Fury</span> with eight or more one-mana spells that returned a creature after death. The opening high roll was frightening, but the shell’s longevity came from everything else: <span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span>, Ragavan, <span class="card-name" data-card="Dauthi Voidwalker" tabindex="0">Dauthi Voidwalker</span>, removal, and <span class="card-name" data-card="Fable of the Mirror-Breaker" tabindex="0">Fable of the Mirror-Breaker</span>. A deck built around an explosive opening was still capable of playing midrange Magic for ten turns.</p>
 <div class="timeline">
 <div class="timeline-item"><time>June 2021</time><h3>Modern Horizons 2 releases</h3><p>Grief enters Modern, Legacy, Vintage, and Commander alongside the other four pitch Incarnations.</p></div>
 <div class="timeline-item"><time>2021–2022</time><h3>Living End and Reanimator adopt it</h3><p>Existing graveyard strategies use Grief as both protection and material.</p></div>
@@ -384,7 +406,7 @@ p{margin:1em 0}
 <h2>A Pro Tour champion</h2>
 <p>Pro Tour The Lord of the Rings in July 2023 gave Grief its defining tournament image. Jake Beardsley reached the final with Rakdos Evoke in his first Pro Tour appearance. Across the table sat Christian Calcano on Mono-Green Tron, a deck built to assemble enormous mana rather than trade resources one card at a time.</p>
 <p>The matchup dramatized Grief’s purpose. Tron’s opening hands often contain a delicate relationship among lands, search effects, and expensive payoffs. A chosen discard spell could remove the bridge between those pieces. A second trigger could take the next best route. The menace creature then began attacking while the Tron player tried to rebuild.</p>
-<p>The fifth game began with Grief and Undying Malice. Beardsley removed Wurmcoil Engine and The One Ring, then followed with Blood Moon. Calcano’s deck was not merely slowed; its plan had been read, edited, and locked before it could produce green mana.</p>
+<p>The fifth game began with Grief and <span class="card-name" data-card="Undying Malice" tabindex="0">Undying Malice</span>. Beardsley removed Wurmcoil Engine and <span class="card-name" data-card="The One Ring" tabindex="0">The One Ring</span>, then followed with <span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span>. Calcano’s deck was not merely slowed; its plan had been read, edited, and locked before it could produce green mana.</p>
 <p>That victory mattered because it made Grief more than a controversial ladder experience or an online metagame complaint. The card had won one of competitive Magic’s highest stages inside a deck that was both explosive and structurally sound.</p>
 <div class="pullquote">The deciding game opened with two chosen discards and ended with Grief still attacking.<small>Pro Tour The Lord of the Rings · 2023</small></div>
 <p>The championship also complicated the public argument. Rakdos Evoke was not unbeatable; the Pro Tour data did not show it overwhelming every matchup. Yet its most visible games displayed exactly the experience critics objected to: an opponent keeping a reasonable hand and discovering that its meaningful decisions had been removed before the first draw step could repair them.</p>
@@ -392,11 +414,11 @@ p{margin:1em 0}
 <section id="ban">
 <div class="chapter-number">VII · The verdict</div>
 <h2>The bans arrived together</h2>
-<p>Wizards first acted against the deck by banning Fury from Modern in December 2023. Fury was the better battlefield stabilizer and a major reason creature decks struggled against Rakdos Evoke. Grief remained legal, partly because it appeared less dominant when separated from the full Incarnation package.</p>
-<p>The card did not disappear. Rakdos rebuilt around Not Dead After All and conventional black-red interaction. Living End kept it. Esper Goryo’s used it with Ephemerate, Solitude, Atraxa, and Goryo’s Vengeance. Mono-black strategies adopted it. The exact shell changed, but the opening sequence remained available wherever a deck could support enough black cards and one-mana recursion.</p>
-<p>At Pro Tour Modern Horizons 3 in June 2024, Matt Sperling went 10–0 in the Modern rounds with Esper Goryo’s. Grief was not the namesake engine, but it protected the graveyard plan, interacted for no mana, and shared Ephemerate with the deck’s other creatures. The card had proved that banning Fury removed one deck configuration without removing the underlying interaction.</p>
-<p>Legacy developed an even more compact version. Reanimate cost one mana, Animate Dead cost two, and blue countermagic protected the sequence. Grief could attack the opponent’s graveyard hate, enter the graveyard itself, and return as a threat. Dimir Reanimator gradually absorbed elements of tempo decks until it could win with Psychic Frog and Wasteland even when the graveyard plan was contained.</p>
-<p>On August 26, 2024, Wizards banned Grief in both Modern and Legacy. The Modern explanation emphasized the experience of beginning down multiple chosen cards while facing a three- or four-power menace creature. The Legacy explanation emphasized that the format had failed to self-correct against Grief plus Reanimate and that the card attacked the hate intended to contain Reanimator.</p>
+<p>Wizards first acted against the deck by banning <span class="card-name" data-card="Fury" tabindex="0">Fury</span> from Modern in December 2023. <span class="card-name" data-card="Fury" tabindex="0">Fury</span> was the better battlefield stabilizer and a major reason creature decks struggled against Rakdos Evoke. Grief remained legal, partly because it appeared less dominant when separated from the full Incarnation package.</p>
+<p>The card did not disappear. Rakdos rebuilt around <span class="card-name" data-card="Not Dead After All" tabindex="0">Not Dead After All</span> and conventional black-red interaction. <span class="card-name" data-card="Living End" tabindex="0">Living End</span> kept it. Esper Goryo’s used it with <span class="card-name" data-card="Ephemerate" tabindex="0">Ephemerate</span>, <span class="card-name" data-card="Solitude" tabindex="0">Solitude</span>, Atraxa, and Goryo’s Vengeance. Mono-black strategies adopted it. The exact shell changed, but the opening sequence remained available wherever a deck could support enough black cards and one-mana recursion.</p>
+<p>At Pro Tour Modern Horizons 3 in June 2024, Matt Sperling went 10–0 in the Modern rounds with Esper Goryo’s. Grief was not the namesake engine, but it protected the graveyard plan, interacted for no mana, and shared <span class="card-name" data-card="Ephemerate" tabindex="0">Ephemerate</span> with the deck’s other creatures. The card had proved that banning <span class="card-name" data-card="Fury" tabindex="0">Fury</span> removed one deck configuration without removing the underlying interaction.</p>
+<p>Legacy developed an even more compact version. <span class="card-name" data-card="Reanimate" tabindex="0">Reanimate</span> cost one mana, <span class="card-name" data-card="Animate Dead" tabindex="0">Animate Dead</span> cost two, and blue countermagic protected the sequence. Grief could attack the opponent’s graveyard hate, enter the graveyard itself, and return as a threat. Dimir Reanimator gradually absorbed elements of tempo decks until it could win with <span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span> and <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> even when the graveyard plan was contained.</p>
+<p>On August 26, 2024, Wizards banned Grief in both Modern and Legacy. The Modern explanation emphasized the experience of beginning down multiple chosen cards while facing a three- or four-power menace creature. The Legacy explanation emphasized that the format had failed to self-correct against Grief plus <span class="card-name" data-card="Reanimate" tabindex="0">Reanimate</span> and that the card attacked the hate intended to contain Reanimator.</p>
 <p>The simultaneous bans were historically fitting. Modern and Legacy have different speeds, answers, and card pools, but Grief found the same pressure point in both: the opponent needed cards in hand to participate, and Grief was best at removing those cards before participation began.</p>
 </section>
 <section id="formats">
@@ -404,7 +426,7 @@ p{margin:1em 0}
 <h2>A life across formats</h2>
 <div class="format-strip">
 <div class="format-card"><span class="impact">Banned</span><h3>Modern</h3><p>Its defining format banned it in August 2024 after years of evoke-and-return openings across multiple archetypes.</p></div>
-<div class="format-card"><span class="impact">Banned</span><h3>Legacy</h3><p>Grief plus Reanimate became the disruption engine of Dimir Reanimator and was removed in the same announcement.</p></div>
+<div class="format-card"><span class="impact">Banned</span><h3>Legacy</h3><p>Grief plus <span class="card-name" data-card="Reanimate" tabindex="0">Reanimate</span> became the disruption engine of Dimir Reanimator and was removed in the same announcement.</p></div>
 <div class="format-card"><span class="impact">Legal</span><h3>Vintage</h3><p>The format contains stronger free interaction and faster mana, leaving Grief powerful but not uniquely format-defining.</p></div>
 <div class="format-card"><span class="impact">Legal</span><h3>Timeless</h3><p>Arena’s highest-powered constructed format retains the card, where reanimation and free interaction remain central tools.</p></div>
 <div class="format-card"><span class="impact">Legal</span><h3>Commander</h3><p>Singleton construction and multiplayer politics reduce the reliability and impact of the opening two-card sequence.</p></div>
@@ -433,7 +455,7 @@ p{margin:1em 0}
 <div class="format-card"><span class="impact">Green</span><h3>Endurance</h3><p>Graveyard reset, surprise blocker, and a lasting Eternal-format safety valve.</p></div>
 </div>
 <p>The cycle changed the meaning of holding up interaction. A tapped-out player could still threaten removal, graveyard disruption, hand attack, or tempo. The price was visible in card economy, but the opponent could no longer infer safety from mana alone.</p>
-<p>Grief became the most emotionally charged member because it acted before hidden information became public action. Solitude answered a creature the opponent had chosen to cast. Endurance answered a graveyard that had been built. Grief answered the intention itself.</p>
+<p>Grief became the most emotionally charged member because it acted before hidden information became public action. <span class="card-name" data-card="Solitude" tabindex="0">Solitude</span> answered a creature the opponent had chosen to cast. <span class="card-name" data-card="Endurance" tabindex="0">Endurance</span> answered a graveyard that had been built. Grief answered the intention itself.</p>
 <div class="inline-image grief-family"><div class="image"></div><div class="copy"><div class="eyebrow">Modern Horizons 2 · 2021</div><h3>Five free spells wearing creature frames</h3><p>The cycle was designed as emergency interaction paid for with a card rather than mana. Grief demonstrated that a creature frame creates opportunities no instant could offer.</p><p>Its legacy is therefore larger than one ban: it changed how players evaluate every enters-the-battlefield creature with an alternate cost.</p></div></div>
 </section>
 <section id="memory">
@@ -448,15 +470,9 @@ p{margin:1em 0}
 <section id="decklists">
 <div class="chapter-number">XII · The evidence</div>
 <h2>The deck archive</h2>
-<div class="deck-intro"><p>These lists show Grief in three distinct roles: the centerpiece of a Pro Tour-winning Rakdos deck, protection and value inside Esper Goryo’s, and the disruptive bridge between tempo and reanimation in Legacy.</p><p>The decklists preserve documented tournament constructions. Card names support desktop hover and mobile tap previews.</p></div>
-<div class="deck-archive"><details class="deck" open="">
-<summary><span><strong>Jake Beardsley — Rakdos Evoke</strong><small>Pro Tour The Lord of the Rings 2023 · Champion · 60/15</small></span><span class="plus">+</span></summary>
-<div class="deck-body">
-<p>The championship list is the cleanest record of the deck that made Grief notorious. Eight one-mana return spells turned evoke into a permanent threat and a second discard trigger, while Ragavan, Dauthi Voidwalker, Bowmasters, and Fable ensured the deck could win ordinary games after the opening exchange.</p>
-<div class="deck-meta"><div><b>Jake Beardsley — Rakdos Evoke</b><div class="small">Pro Tour The Lord of the Rings 2023 · Champion · 60/15</div></div><button class="copy" data-target="grief-deck-0">Copy decklist</button></div>
-<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fury" tabindex="0">Fury</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grief" tabindex="0">Grief</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dauthi Voidwalker" tabindex="0">Dauthi Voidwalker</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ragavan, Nimble Pilferer" tabindex="0">Ragavan, Nimble Pilferer</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kroxa, Titan of Death's Hunger" tabindex="0">Kroxa, Titan of Death's Hunger</span></div></div><div class="group"><h4>Sorceries · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div></div><div class="group"><h4>Enchantments · 5</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fable of the Mirror-Breaker" tabindex="0">Fable of the Mirror-Breaker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants · 10</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Undying Malice" tabindex="0">Undying Malice</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Feign Death" tabindex="0">Feign Death</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Terminate" tabindex="0">Terminate</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blood Crypt" tabindex="0">Blood Crypt</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Blackcleave Cliffs" tabindex="0">Blackcleave Cliffs</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Bloodstained Mire" tabindex="0">Bloodstained Mire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Marsh Flats" tabindex="0">Marsh Flats</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Verdant Catacombs" tabindex="0">Verdant Catacombs</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Takenuma, Abandoned Mire" tabindex="0">Takenuma, Abandoned Mire</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sheoldred, the Apocalypse" tabindex="0">Sheoldred, the Apocalypse</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kroxa, Titan of Death's Hunger" tabindex="0">Kroxa, Titan of Death's Hunger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Terminate" tabindex="0">Terminate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div></div></div></div>
-<pre hidden="" id="grief-deck-0">Jake Beardsley — Rakdos Evoke
-Pro Tour The Lord of the Rings 2023 · Champion
+<div class="deck-intro"><p>The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p><p>The decklists preserve documented tournament constructions. Card names support desktop hover and mobile tap previews.</p></div>
+<div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Jake Beardsley — Rakdos Evoke</strong><small>Pro Tour The Lord of the Rings 2023 · Champion · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>The championship list is the cleanest record of the deck that made Grief notorious. Eight one-mana return spells turned evoke into a permanent threat and a second discard trigger, while Ragavan, Dauthi Voidwalker, Bowmasters, and Fable ensured the deck could win ordinary games after the opening exchange.</p><div class="deck-meta"><div><b>Jake Beardsley — Rakdos Evoke</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-605-grief-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fury" tabindex="0">Fury</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grief" tabindex="0">Grief</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dauthi Voidwalker" tabindex="0">Dauthi Voidwalker</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ragavan, Nimble Pilferer" tabindex="0">Ragavan, Nimble Pilferer</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kroxa, Titan of Death's Hunger" tabindex="0">Kroxa, Titan of Death's Hunger</span></div></div><div class="group"><h4>Sorceries · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 5</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fable of the Mirror-Breaker" tabindex="0">Fable of the Mirror-Breaker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div></div><div class="group"><h4>Instants · 10</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Undying Malice" tabindex="0">Undying Malice</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Feign Death" tabindex="0">Feign Death</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Terminate" tabindex="0">Terminate</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blood Crypt" tabindex="0">Blood Crypt</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Blackcleave Cliffs" tabindex="0">Blackcleave Cliffs</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Bloodstained Mire" tabindex="0">Bloodstained Mire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Marsh Flats" tabindex="0">Marsh Flats</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Verdant Catacombs" tabindex="0">Verdant Catacombs</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Takenuma, Abandoned Mire" tabindex="0">Takenuma, Abandoned Mire</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sheoldred, the Apocalypse" tabindex="0">Sheoldred, the Apocalypse</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kroxa, Titan of Death's Hunger" tabindex="0">Kroxa, Titan of Death's Hunger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Terminate" tabindex="0">Terminate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pithing Needle" tabindex="0">Pithing Needle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div></div></div></div><pre hidden="" id="deck-605-grief-1">Jake Beardsley — Rakdos Evoke
+Pro Tour The Lord of the Rings 2023 · Champion · 60/15
 
 Creatures · 21
 4 Fury
@@ -465,9 +481,6 @@ Creatures · 21
 4 Dauthi Voidwalker
 4 Ragavan, Nimble Pilferer
 1 Kroxa, Titan of Death's Hunger
-
-Sorceries · 4
-4 Thoughtseize
 
 Enchantments · 5
 4 Fable of the Mirror-Breaker
@@ -489,6 +502,9 @@ Lands · 20
 2 Verdant Catacombs
 1 Takenuma, Abandoned Mire
 
+Sorceries · 4
+4 Thoughtseize
+
 Sideboard · 15
 3 Chalice of the Void
 2 Sheoldred, the Apocalypse
@@ -498,68 +514,8 @@ Sideboard · 15
 1 Kroxa, Titan of Death's Hunger
 1 Terminate
 1 Pithing Needle
-1 Nihil Spellbomb</pre>
-<p class="small">Source: <a href="https://magic.gg/news/metagame-mentor-the-best-decks-at-pro-tour-the-lord-of-the-rings">open the historical record</a></p>
-</div></details><details class="deck">
-<summary><span><strong>Matt Sperling — Esper Goryo's</strong><small>Pro Tour Modern Horizons 3, 2024 · 10-0 in Modern · 60/15</small></span><span class="plus">+</span></summary>
-<div class="deck-body">
-<p>In Esper Goryo’s, Grief was not the entire deck. It was protection for a reanimation plan, an Ephemerate target, and another black card that made the opening hand functional. The same blink spell that saved Grief could preserve Atraxa or Solitude, binding the Incarnation to a wider enters-the-battlefield engine.</p>
-<div class="deck-meta"><div><b>Matt Sperling — Esper Goryo's</b><div class="small">Pro Tour Modern Horizons 3, 2024 · 10-0 in Modern · 60/15</div></div><button class="copy" data-target="grief-deck-1">Copy decklist</button></div>
-<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fallaji Archaeologist" tabindex="0">Fallaji Archaeologist</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grief" tabindex="0">Grief</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Atraxa, Grand Unifier" tabindex="0">Atraxa, Grand Unifier</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Solitude" tabindex="0">Solitude</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Priest of Fell Rites" tabindex="0">Priest of Fell Rites</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Griselbrand" tabindex="0">Griselbrand</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Prismatic Ending" tabindex="0">Prismatic Ending</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ephemerate" tabindex="0">Ephemerate</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Goryo's Vengeance" tabindex="0">Goryo's Vengeance</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tainted Indulgence" tabindex="0">Tainted Indulgence</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Marsh Flats" tabindex="0">Marsh Flats</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Godless Shrine" tabindex="0">Godless Shrine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Watery Grave" tabindex="0">Watery Grave</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hallowed Fountain" tabindex="0">Hallowed Fountain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Mortuary" tabindex="0">Underground Mortuary</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shadowy Backstreet" tabindex="0">Shadowy Backstreet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Undercity Sewers" tabindex="0">Undercity Sewers</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Meticulous Archive" tabindex="0">Meticulous Archive</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wrath of the Skies" tabindex="0">Wrath of the Skies</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Celestial Purge" tabindex="0">Celestial Purge</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Drannith Magistrate" tabindex="0">Drannith Magistrate</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Leyline of Sanctity" tabindex="0">Leyline of Sanctity</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Teferi, Time Raveler" tabindex="0">Teferi, Time Raveler</span></div></div></div></div>
-<pre hidden="" id="grief-deck-1">Matt Sperling — Esper Goryo's
-Pro Tour Modern Horizons 3, 2024 · 10-0 in Modern
-
-Creatures · 21
-4 Fallaji Archaeologist
-4 Grief
-4 Atraxa, Grand Unifier
-3 Solitude
-2 Priest of Fell Rites
-2 Psychic Frog
-2 Griselbrand
-
-Instants · 13
-4 Ephemerate
-4 Goryo's Vengeance
-4 Tainted Indulgence
-1 Force of Negation
-
-Sorceries · 6
-3 Prismatic Ending
-3 Thoughtseize
-
-Lands · 20
-4 Polluted Delta
-4 Marsh Flats
-2 Flooded Strand
-1 Godless Shrine
-1 Watery Grave
-1 Hallowed Fountain
-1 Underground Mortuary
-1 Shadowy Backstreet
-1 Undercity Sewers
-1 Meticulous Archive
-1 Island
-1 Swamp
-1 Plains
-
-Sideboard · 15
-3 Wrath of the Skies
-3 Celestial Purge
-3 Consign to Memory
-2 Drannith Magistrate
-2 Nihil Spellbomb
-1 Leyline of Sanctity
-1 Teferi, Time Raveler</pre>
-<p class="small">Source: <a href="https://magic.gg/news/metagame-mentor-wins-and-lessons-from-pro-tour-modern-horizons-3">open the historical record</a></p>
-</div></details><details class="deck">
-<summary><span><strong>Jaime Herzog — Dimir Reanimator</strong><small>Legacy · August 2024 · 1st · 60/15</small></span><span class="plus">+</span></summary>
-<div class="deck-body">
-<p>The final Legacy form was less a traditional all-in Reanimator deck than a blue-black tempo deck with a reanimation package. Grief cleared the path, entered the graveyard naturally, and could return as a menacing clock while Daze, Force of Will, Wasteland, and Psychic Frog protected the advantage.</p>
-<div class="deck-meta"><div><b>Jaime Herzog — Dimir Reanimator</b><div class="small">Legacy · August 2024 · 1st · 60/15</div></div><button class="copy" data-target="grief-deck-2">Copy decklist</button></div>
-<div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grief" tabindex="0">Grief</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Troll of Khazad-dûm" tabindex="0">Troll of Khazad-dûm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Brazen Borrower" tabindex="0">Brazen Borrower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Archon of Cruelty" tabindex="0">Archon of Cruelty</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Atraxa, Grand Unifier" tabindex="0">Atraxa, Grand Unifier</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Animate Dead" tabindex="0">Animate Dead</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants and sorceries · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Entomb" tabindex="0">Entomb</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Reanimate" tabindex="0">Reanimate</span></div></div><div class="group"><h4>Lands · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Undercity Sewers" tabindex="0">Undercity Sewers</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Harbinger of the Seas" tabindex="0">Harbinger of the Seas</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brazen Borrower" tabindex="0">Brazen Borrower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Go for the Throat" tabindex="0">Go for the Throat</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div></div></div></div>
-<pre hidden="" id="grief-deck-2">Jaime Herzog — Dimir Reanimator
-Legacy event, August 10, 2024 · 1st
+1 Nihil Spellbomb</pre><p class="small">Source: <a href="https://magic.gg/news/metagame-mentor-the-best-decks-at-pro-tour-the-lord-of-the-rings">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Jaime Herzog — Dimir Reanimator</strong><small>Legacy · August 2024 · 1st · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>The final Legacy form was less a traditional all-in Reanimator deck than a blue-black tempo deck with a reanimation package. Grief cleared the path, entered the graveyard naturally, and could return as a menacing clock while Daze, Force of Will, Wasteland, and Psychic Frog protected the advantage.</p><div class="deck-meta"><div><b>Jaime Herzog — Dimir Reanimator</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-605-grief-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grief" tabindex="0">Grief</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Troll of Khazad-dûm" tabindex="0">Troll of Khazad-dûm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Brazen Borrower" tabindex="0">Brazen Borrower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Archon of Cruelty" tabindex="0">Archon of Cruelty</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Atraxa, Grand Unifier" tabindex="0">Atraxa, Grand Unifier</span></div></div><div class="group"><h4>Lands · 17</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Undercity Sewers" tabindex="0">Undercity Sewers</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Animate Dead" tabindex="0">Animate Dead</span></div></div><div class="group"><h4>Instants and sorceries · 24</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Entomb" tabindex="0">Entomb</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Reanimate" tabindex="0">Reanimate</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Harbinger of the Seas" tabindex="0">Harbinger of the Seas</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Brazen Borrower" tabindex="0">Brazen Borrower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Go for the Throat" tabindex="0">Go for the Throat</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div></div></div></div><pre hidden="" id="deck-605-grief-2">Jaime Herzog — Dimir Reanimator
+Legacy · August 2024 · 1st · 60/15
 
 Creatures · 15
 4 Grief
@@ -569,6 +525,9 @@ Creatures · 15
 1 Archon of Cruelty
 1 Atraxa, Grand Unifier
 
+Enchantments · 4
+4 Animate Dead
+
 Instants and sorceries · 24
 4 Brainstorm
 4 Daze
@@ -576,9 +535,6 @@ Instants and sorceries · 24
 4 Force of Will
 4 Ponder
 4 Reanimate
-
-Enchantments · 4
-4 Animate Dead
 
 Lands · 17
 4 Polluted Delta
@@ -600,21 +556,130 @@ Sideboard · 15
 1 Go for the Throat
 1 Nihil Spellbomb
 1 Null Rod
-1 Surgical Extraction</pre>
-<p class="small">Source: <a href="https://www.mtgtop8.com/event?e=58356&amp;d=639883&amp;f=LE">open the historical record</a></p>
-</div></details></div>
-</section>
+1 Surgical Extraction</pre><p class="small">Source: <a href="https://www.mtgtop8.com/event?e=58356&amp;d=639883&amp;f=LE">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Matt Sperling — Esper Goryo's</strong><small>Pro Tour Modern Horizons 3, 2024 · 10-0 in Modern · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>In Esper Goryo’s, Grief was not the entire deck. It was protection for a reanimation plan, an Ephemerate target, and another black card that made the opening hand functional. The same blink spell that saved Grief could preserve Atraxa or Solitude, binding the Incarnation to a wider enters-the-battlefield engine.</p><div class="deck-meta"><div><b>Matt Sperling — Esper Goryo's</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-605-grief-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fallaji Archaeologist" tabindex="0">Fallaji Archaeologist</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grief" tabindex="0">Grief</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Atraxa, Grand Unifier" tabindex="0">Atraxa, Grand Unifier</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Solitude" tabindex="0">Solitude</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Priest of Fell Rites" tabindex="0">Priest of Fell Rites</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Psychic Frog" tabindex="0">Psychic Frog</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Griselbrand" tabindex="0">Griselbrand</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Prismatic Ending" tabindex="0">Prismatic Ending</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants · 13</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ephemerate" tabindex="0">Ephemerate</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Goryo's Vengeance" tabindex="0">Goryo's Vengeance</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tainted Indulgence" tabindex="0">Tainted Indulgence</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Marsh Flats" tabindex="0">Marsh Flats</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Godless Shrine" tabindex="0">Godless Shrine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Watery Grave" tabindex="0">Watery Grave</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hallowed Fountain" tabindex="0">Hallowed Fountain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Mortuary" tabindex="0">Underground Mortuary</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shadowy Backstreet" tabindex="0">Shadowy Backstreet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Undercity Sewers" tabindex="0">Undercity Sewers</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Meticulous Archive" tabindex="0">Meticulous Archive</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wrath of the Skies" tabindex="0">Wrath of the Skies</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Celestial Purge" tabindex="0">Celestial Purge</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Drannith Magistrate" tabindex="0">Drannith Magistrate</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nihil Spellbomb" tabindex="0">Nihil Spellbomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Leyline of Sanctity" tabindex="0">Leyline of Sanctity</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Teferi, Time Raveler" tabindex="0">Teferi, Time Raveler</span></div></div></div></div><pre hidden="" id="deck-605-grief-3">Matt Sperling — Esper Goryo's
+Pro Tour Modern Horizons 3, 2024 · 10-0 in Modern · 60/15
+
+Creatures · 21
+4 Fallaji Archaeologist
+4 Grief
+4 Atraxa, Grand Unifier
+3 Solitude
+2 Priest of Fell Rites
+2 Psychic Frog
+2 Griselbrand
+
+Instants · 13
+4 Ephemerate
+4 Goryo's Vengeance
+4 Tainted Indulgence
+1 Force of Negation
+
+Lands · 20
+4 Polluted Delta
+4 Marsh Flats
+2 Flooded Strand
+1 Godless Shrine
+1 Watery Grave
+1 Hallowed Fountain
+1 Underground Mortuary
+1 Shadowy Backstreet
+1 Undercity Sewers
+1 Meticulous Archive
+1 Island
+1 Swamp
+1 Plains
+
+Sorceries · 6
+3 Prismatic Ending
+3 Thoughtseize
+
+Sideboard · 15
+3 Wrath of the Skies
+3 Celestial Purge
+3 Consign to Memory
+2 Drannith Magistrate
+2 Nihil Spellbomb
+1 Leyline of Sanctity
+1 Teferi, Time Raveler</pre><p class="small">Source: <a href="https://magic.gg/news/metagame-mentor-wins-and-lessons-from-pro-tour-modern-horizons-3">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Seth Manfield — Pro Tour Modern Horizons 3</strong><small>8th place · modern thru MH3 · 2024-06-28</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from Pro Tour Modern Horizons 3. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Seth Manfield</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-605-grief-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Boggart Trawler" tabindex="0">Boggart Trawler</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grief" tabindex="0">Grief</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Orcish Bowmasters" tabindex="0">Orcish Bowmasters</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Shambling Ghast" tabindex="0">Shambling Ghast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sheoldred, the Apocalypse" tabindex="0">Sheoldred, the Apocalypse</span></div></div><div class="group"><h4>Lands · 11</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Phyrexian Tower" tabindex="0">Phyrexian Tower</span></div><div class="row"><span class="qty">6</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Urborg, Tomb of Yawgmoth" tabindex="0">Urborg, Tomb of Yawgmoth</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Agadeem's Awakening" tabindex="0">Agadeem's Awakening</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Inquisition of Kozilek" tabindex="0">Inquisition of Kozilek</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="The One Ring" tabindex="0">The One Ring</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Necrodominance" tabindex="0">Necrodominance</span></div></div><div class="group"><h4>Instants · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fell the Profane" tabindex="0">Fell the Profane</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flare of Malice" tabindex="0">Flare of Malice</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Force of Despair" tabindex="0">Force of Despair</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Malakir Rebirth" tabindex="0">Malakir Rebirth</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="March of Wretched Sorrow" tabindex="0">March of Wretched Sorrow</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Soul Spike" tabindex="0">Soul Spike</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Break the Ice" tabindex="0">Break the Ice</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dauthi Voidwalker" tabindex="0">Dauthi Voidwalker</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Force of Despair" tabindex="0">Force of Despair</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Soulless Jailer" tabindex="0">Soulless Jailer</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div></div></div></div><pre hidden="" id="deck-605-grief-4">Seth Manfield — Pro Tour Modern Horizons 3
+8th place · modern thru MH3 · 2024-06-28
+
+Creatures · 16
+4 Boggart Trawler
+4 Grief
+4 Orcish Bowmasters
+2 Shambling Ghast
+2 Sheoldred, the Apocalypse
+
+Artifacts · 4
+4 The One Ring
+
+Enchantments · 4
+4 Necrodominance
+
+Instants · 19
+4 Fell the Profane
+2 Flare of Malice
+1 Force of Despair
+4 Malakir Rebirth
+4 March of Wretched Sorrow
+4 Soul Spike
+
+Lands · 11
+3 Phyrexian Tower
+6 Swamp
+2 Urborg, Tomb of Yawgmoth
+
+Sorceries · 6
+2 Agadeem's Awakening
+4 Inquisition of Kozilek
+
+Sideboard · 15
+3 Break the Ice
+2 Dauthi Voidwalker
+2 Fatal Push
+1 Force of Despair
+4 Soulless Jailer
+1 Surgical Extraction
+2 Thoughtseize</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Asai Takahiro — Dredge</strong><small>Emperor of Vintage, June 2026 · Top 8 · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>A documented historical list featuring Grief.</p><div class="deck-meta"><div><b>Asai Takahiro — Dredge</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-605-grief-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 34</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hollow One" tabindex="0">Hollow One</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Narcomoeba" tabindex="0">Narcomoeba</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Street Wraith" tabindex="0">Street Wraith</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Golgari Thug" tabindex="0">Golgari Thug</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stinkweed Imp" tabindex="0">Stinkweed Imp</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Golgari Grave-Troll" tabindex="0">Golgari Grave-Troll</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Shambling Shell" tabindex="0">Shambling Shell</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ichorid" tabindex="0">Ichorid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grief" tabindex="0">Grief</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Master of Death" tabindex="0">Master of Death</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serum Powder" tabindex="0">Serum Powder</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Bridge from Below" tabindex="0">Bridge from Below</span></div></div><div class="group"><h4>Spells · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cabal Therapy" tabindex="0">Cabal Therapy</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Unmask" tabindex="0">Unmask</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Creeping Chill" tabindex="0">Creeping Chill</span></div></div><div class="group"><h4>Lands · 6</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Bazaar of Baghdad" tabindex="0">Bazaar of Baghdad</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Petrified Field" tabindex="0">Petrified Field</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Leyline of the Void" tabindex="0">Leyline of the Void</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Noxious Revival" tabindex="0">Noxious Revival</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sickening Shoal" tabindex="0">Sickening Shoal</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Vigor" tabindex="0">Force of Vigor</span></div></div></div></div><pre hidden="" id="deck-605-grief-5">Asai Takahiro — Dredge
+Emperor of Vintage, June 2026 · Top 8 · 60/15
+
+Creatures · 34
+4 Hollow One
+4 Narcomoeba
+3 Street Wraith
+4 Golgari Thug
+4 Stinkweed Imp
+1 Golgari Grave-Troll
+4 Shambling Shell
+4 Ichorid
+4 Grief
+2 Master of Death
+
+Artifacts · 4
+4 Serum Powder
+
+Enchantments · 4
+4 Bridge from Below
+
+Spells · 12
+4 Cabal Therapy
+4 Unmask
+4 Creeping Chill
+
+Lands · 6
+4 Bazaar of Baghdad
+2 Petrified Field
+
+Sideboard · 15
+4 Leyline of the Void
+4 Noxious Revival
+3 Sickening Shoal
+4 Force of Vigor</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details></div></section>
 <section id="printings">
 <div class="chapter-number">XIII · The archive</div>
 <h2>Printings and sources</h2>
-<p>Grief accumulated many treatments in a short period. The gallery below uses one representative object for each meaningfully distinct visual release and omits stamped duplicates, ordinary foil finishes, and repeated collector-number variants that do not add new artwork.</p>
-<div class="printings">
-<figure class="printing"><img alt="Grief, Modern Horizons 2 regular frame" loading="lazy" src="https://api.scryfall.com/cards/mh2/87?format=image&amp;version=normal"/><figcaption>Modern Horizons 2 · 2021 · Nicholas Gregory</figcaption></figure>
-<figure class="printing"><img alt="Grief, Modern Horizons 2 borderless" loading="lazy" src="https://api.scryfall.com/cards/mh2/311?format=image&amp;version=normal"/><figcaption>Modern Horizons 2 borderless · 2021 · Svetlin Velinov</figcaption></figure>
-<figure class="printing"><img alt="Grief, Modern Horizons 2 Timeshifts" loading="lazy" src="https://api.scryfall.com/cards/h2r/7?format=image&amp;version=normal"/><figcaption>Modern Horizons 2 Timeshifts · retro frame</figcaption></figure>
-<figure class="printing"><img alt="Grief, Special Guests" loading="lazy" src="https://api.scryfall.com/cards/spg/46?format=image&amp;version=normal"/><figcaption>Special Guests · Campbell White</figcaption></figure>
-<figure class="printing"><img alt="Grief, Secret Lair" loading="lazy" src="https://api.scryfall.com/cards/sld/7006?format=image&amp;version=normal"/><figcaption>Secret Lair Drop · Anna Pavleeva</figcaption></figure>
-</div>
+<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p>
+<div class="printings" data-card="Grief" data-original-set="mh2" id="printing-grid"><figure class="printing original-printing"><img alt="Grief original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Grief&amp;set=mh2&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div>
 <h3>Research sources</h3>
 <ol class="sources">
 <li><a href="https://magic.wizards.com/en/news/card-image-gallery/modern-horizons-2-card-image-gallery">Wizards of the Coast, Modern Horizons 2 Card Image Gallery</a><span>Official set context, original release, and June 18, 2021 release date.</span></li>
@@ -629,50 +694,52 @@ Sideboard · 15
 <li><a href="https://www.mtgtop8.com/event?e=58356&amp;d=639883&amp;f=LE">MTGTop8, Jaime Herzog Dimir Reanimator</a><span>The August 2024 Legacy list preserved in the deck archive.</span></li>
 </ol>
 <p class="editor-note"><b>Editorial note.</b> This is an independent, noncommercial fan-history project. Magic: The Gathering, card names, card images, and artwork belong to Wizards of the Coast and their respective artists. The printing gallery intentionally favors distinct artwork and release families over duplicate foil, stamp, and collector-number treatments.</p>
-<nav class="end-nav"><a href="index.html?focus=entry-605#entry-605"><small>Return to archive</small>Wave 13 · The Modern Horizons Era</a><a href="index.html?focus=entry-606#entry-606"><small>Next entry · 606</small>Fury</a></nav>
+
 </section>
 </article>
 <aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 605 belongs to the Modern Horizons era. Its archive number is preserved even though the article was rebuilt from the foundational site template.</aside>
 </div>
-
-<div id="preview"><img alt=""/></div><footer class="footer">Compulsive Research · Entry 605 · Grief · Independent, noncommercial Magic history project. Card images and artwork © Wizards of the Coast.</footer>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Grief is entry 605 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-604#entry-604"><small>Previous entry · 604</small>Murktide Regent</a><a href="index.html?focus=entry-606#entry-606"><small>Next entry · 606</small>Fury</a></nav></section><div id="preview"><img alt=""/></div><footer class="footer">Compulsive Research · Entry 605 · Grief · Independent, noncommercial Magic history project.</footer>
 <script>
-const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+const ARTICLE_CARD = "Grief";
+const ORIGINAL_SET = "mh2";
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
 function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
-function place(x,y){
- if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
- const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
- if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
- l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
- preview.style.left=l+'px';preview.style.top=t+'px'
-}
-function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
-function hide(){if(!pinned)preview.classList.remove('show')}
-document.querySelectorAll('.card-name').forEach(el=>{
- el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
- el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
- el.addEventListener('mouseleave',hide);
- el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
- el.addEventListener('blur',hide);
- el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
-});
-document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
- const t=document.getElementById(b.dataset.target).textContent;
- try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
- const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
-}));
-const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
-if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
-function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
-addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(preview&&!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
+document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
 
-(function(){
- const root=document.documentElement;
- function progress(){
-   const max=root.scrollHeight-innerHeight;
-   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
- }
- addEventListener('scroll',progress,{passive:true});progress();
-})();
+function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
+function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
+function chooseIconic(cards){
+  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
+  if(!bySet.length)return [];
+  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
+  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
+  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
+  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
+  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
+  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
+  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
+  for(const c of iconic){add(c);if(selected.length>=target)break}
+  add(bySet[bySet.length-1]);
+  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
+  for(const c of bySet){if(selected.length>=target)break;add(c)}
+  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+}
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');if(!grid)return;
+ const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
+ try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
+  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
+  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
+ }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
+}
+loadPrintings();
 </script></body></html>

@@ -55,7 +55,7 @@ p{margin:1em 0}
 }
 .hero:before{
   content:"";position:absolute;inset:0;z-index:-3;
-  background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 27%/cover no-repeat;
+  background:url(https://api.scryfall.com/cards/named?exact=Spelljack&set=jud&format=image&version=art_crop) center 27%/cover no-repeat;
   transform:scale(1.018);
 }
 .hero:after{
@@ -133,7 +133,7 @@ p{margin:1em 0}
 .art-break{
   width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
   min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
-  color:white;background:url(https://api.scryfall.com/cards/scg/12?format=image&version=art_crop) center 25%/cover no-repeat;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Spelljack&set=jud&format=image&version=art_crop) center 25%/cover no-repeat;
 }
 .art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
 .art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
@@ -155,7 +155,7 @@ p{margin:1em 0}
   width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
   display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
 }
-.inline-image .image{min-height:390px;background:url(https://api.scryfall.com/cards/named?exact=Timeless%20Dragon&format=image&version=art_crop) center/cover}
+.inline-image .image{min-height:390px;background:var(--night2)}
 .inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
 .memory{
   background:var(--night);color:white;
@@ -194,7 +194,7 @@ p{margin:1em 0}
 .footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
 .landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
 .archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
-.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop) center/cover}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Spelljack&set=jud&format=image&version=art_crop) center/cover}
 .archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
 @media(max-width:1050px){
   .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
@@ -215,6 +215,13 @@ p{margin:1em 0}
   #preview.show{transform:translate(-50%,-50%) scale(1)}
 }
 
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
 .lotus-art{
   background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
 }
@@ -227,241 +234,22 @@ p{margin:1em 0}
   font:13.5px/1.62 Inter,system-ui,sans-serif
 }
 .article-note b{color:var(--ink)}
-
-.recall-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
-}
-.hero.recall-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&set=lea&format=image&version=art_crop)!important
-}
-.vision-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Ancestral%20Vision&format=image&version=art_crop)!important
-}
-.card-advantage{
-  width:min(980px,calc(100vw - 32px));
-  margin:38px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
-}
-.advantage-step{background:var(--white);padding:24px}
-.advantage-step b{
-  display:block;font:900 2.2rem/1 Inter,system-ui,sans-serif;color:var(--green);
-  margin-bottom:9px
-}
-.advantage-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.target-note{
-  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);
-  font:14px/1.65 Inter,system-ui,sans-serif
-}
-.target-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
 @media(max-width:750px){
-  .card-advantage{width:100%;margin-left:0;grid-template-columns:1fr}
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
 }
 
-
-.hero
-.hero.hypnotic-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 30%!important
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Spelljack&set=jud&format=image&version=art_crop)!important;
+  background-position:center 27%!important
 }
-.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 30%!important
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Spelljack&set=jud&format=image&version=art_crop)!important;
+  background-position:center 27%!important
 }
-.archive-art{background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important}
-.blazing-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Blazing%20Specter&format=image&version=art_crop)!important
-}
-.pressure-grid,.discard-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.pressure-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.discard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.pressure-step,.discard-step{background:var(--white);padding:23px}
-.pressure-step b,.discard-step b{
-  display:block;font:900 1.72rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:8px
-}
-.pressure-step span,.discard-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.hypnotic-note{
-  border-left:4px solid var(--rust);background:rgba(154,84,66,.08);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.hypnotic-note b{color:var(--ink)}
-@media(max-width:750px){
-  .pressure-grid,.discard-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){.pressure-grid,.discard-grid{grid-template-columns:1fr}}
-.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 26%!important
-}
-.hero.hypnotic-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 26%!important
-}
-.art-break.hypnotic-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Hypnotic%20Specter&set=lea&format=image&version=art_crop)!important;
-  background-position:center 25%!important
-}
-
-
-
-.royal-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 29%!important
-}
-.hero.royal-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 29%!important
-}
-.art-break.royal-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Royal%20Assassin&set=lea&format=image&version=art_crop)!important;
-  background-position:center 28%!important
-}
-.avatar-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Avatar%20of%20Woe&format=image&version=art_crop)!important
-}
-.threat-grid,.timing-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.threat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.timing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.threat-step,.timing-step{background:var(--white);padding:23px}
-.threat-step b,.timing-step b{display:block;font:900 1.75rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
-.threat-step span,.timing-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
-.royal-note{border-left:4px solid var(--gold);background:rgba(183,139,68,.09);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
-.royal-note b{color:var(--ink)}
-.kill-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.kill-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.kill-row:last-child{border-bottom:0}.kill-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.kill-row p{margin:0}
-@media(max-width:750px){.threat-grid,.timing-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.threat-grid,.timing-grid{grid-template-columns:1fr}}
-
-
-.ritual-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important
-}
-.hero.ritual-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
-  background-position:center 31%!important
-}
-.art-break.ritual-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Dark%20Ritual&set=lea&format=image&version=art_crop)!important;
-  background-position:center 29%!important
-}
-.cabal-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Cabal%20Ritual&format=image&version=art_crop)!important
-}
-.exchange-grid,.opening-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.exchange-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.opening-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.exchange-step,.opening-step{background:var(--white);padding:23px}
-.exchange-step b,.opening-step b{display:block;font:900 1.8rem/1 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
-.exchange-step span,.opening-step span{font:13px/1.52 Inter,system-ui,sans-serif;color:var(--muted)}
-.ritual-note{border-left:4px solid var(--rust);background:rgba(154,84,66,.08);padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif}
-.ritual-note b{color:var(--ink)}
-.mana-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.mana-row{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.mana-row:last-child{border-bottom:0}.mana-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.mana-row p{margin:0}
-@media(max-width:750px){.exchange-grid,.opening-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.exchange-grid,.opening-grid{grid-template-columns:1fr}}
-
-
-.swords-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop)!important;
-  background-position:center 34%!important
-}
-.hero.swords-art:before{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop)!important;
-  background-position:center 34%!important
-}
-.art-break.swords-art{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&set=lea&format=image&version=art_crop)!important;
-  background-position:center 32%!important
-}
-.path-descendant .image{
-  background-image:url(https://api.scryfall.com/cards/named?exact=Path%20to%20Exile&format=image&version=art_crop)!important
-}
-.trade-grid,.answer-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.trade-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.answer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.trade-step,.answer-step{background:var(--white);padding:23px}
-.trade-step b,.answer-step b{
-  display:block;font:900 1.95rem/1.03 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px
-}
-.trade-step span,.answer-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.swords-note{
-  border-left:4px solid var(--gold);background:rgba(183,139,68,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.swords-note b{color:var(--ink)}
-.resolution-sequence{margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.resolution-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
-.resolution-row:last-child{border-bottom:0}.resolution-row strong{color:var(--rust);font:900 .72rem/1.3 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em}.resolution-row p{margin:0}
-@media(max-width:750px){.trade-grid,.answer-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.trade-grid,.answer-grid{grid-template-columns:1fr}}
-
-
-.spelljack-art{
-  background-image:url(https://api.scryfall.com/cards/jud/51?format=image&version=art_crop)!important;
-  background-position:center 34%!important
-}
-.hero.spelljack-art:before{
-  background-image:url(https://api.scryfall.com/cards/jud/51?format=image&version=art_crop)!important;
-  background-position:center 34%!important
-}
-.art-break.spelljack-art{
-  background-image:url(https://api.scryfall.com/cards/jud/51?format=image&version=art_crop)!important;
-  background-position:center 32%!important
-}
-.archive-art{background-image:url(https://api.scryfall.com/cards/jud/51?format=image&version=art_crop)!important}
-.honorable-badge{
-  display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(216,184,120,.48);
-  border-radius:999px;padding:6px 11px;margin:0 0 14px;background:rgba(5,10,10,.34);
-  color:#edd9ad;font:900 .7rem/1 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em
-}
-.value-grid,.rules-grid{
-  width:min(980px,calc(100vw - 32px));
-  margin:36px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
-  display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
-  border-radius:var(--radius);overflow:hidden
-}
-.value-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.rules-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.value-step,.rules-step{background:var(--white);padding:23px}
-.value-step b,.rules-step b{display:block;font:900 1.8rem/1.05 Inter,system-ui,sans-serif;color:var(--green);margin-bottom:9px}
-.value-step span,.rules-step span{font:13px/1.5 Inter,system-ui,sans-serif;color:var(--muted)}
-.spelljack-note{
-  border-left:4px solid var(--teal);background:rgba(103,155,145,.09);
-  padding:18px 20px;margin:28px 0;color:var(--muted);font:14px/1.65 Inter,system-ui,sans-serif
-}
-.spelljack-note b{color:var(--ink)}
-.context-label{
-  display:inline-block;margin-left:8px;border:1px solid var(--line);border-radius:999px;
-  padding:3px 7px;color:var(--rust);font:900 .61rem/1 Inter,system-ui,sans-serif;
-  text-transform:uppercase;letter-spacing:.08em;vertical-align:middle
-}
-@media(max-width:750px){.value-grid,.rules-grid{width:100%;margin-left:0;grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.value-grid,.rules-grid{grid-template-columns:1fr}}
-
 
 /* Compulsive Research canonical-format audit — Eternal Dragon template */
 .article-shell > aside.sidebar-note{
@@ -478,41 +266,78 @@ p{margin:1em 0}
 }
 .article a{overflow-wrap:anywhere;word-break:normal}
 @media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
+.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Spelljack&set=jud&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Spelljack&set=jud&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Spelljack&set=jud&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
 </style></head>
-<body>
-<header class="hero spelljack-art"><div class="hero-grid"></div><div class="hero-inner">
+<body data-article-card="Spelljack">
+<header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Spelljack&amp;set=jud&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Spelljack&amp;set=jud&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
 <a class="archive-link" href="index.html?focus=honorable-spelljack#honorable-spelljack">← Honorable Mentions</a>
 <div class="honorable-badge">Beyond the Thousand · Honorable Mention 002</div>
 <div class="eyebrow">Judgment · 2002</div>
 <h1>The Counterspell That Kept What It Stopped</h1>
 <p class="deckline">Spelljack did not merely deny an opponent's spell. It placed that spell outside the game, held it indefinitely, and promised that one day the thief could cast it for free.</p>
-<div class="byline"><span>A Compulsive Research honorable mention</span><span>·</span><span>Judgment, 2002</span><span class="pill">Approximately 22 minute read</span></div>
-</div></header>
-<div class="article-shell"><nav class="toc"><strong>In this article</strong>
-<a href="#opening">The counterspell that kept what it stopped</a>
-<a href="#judgment">A rare from Judgment</a>
-<a href="#limbo">Exile before exile had a name</a>
-<a href="#exchange">Counter, store, recast</a>
-<a href="#six-mana">The six-mana problem</a>
-<a href="#timing">The spell waits for you</a>
-<a href="#rules">What exactly did you steal?</a>
-<a href="#wish">The Cunning Wish comparison</a>
-<a href="#psychatog">The format it could not crack</a>
-<a href="#wake">Even Wake had better things to do</a>
-<a href="#formats">A life across formats</a>
-<a href="#family">The spell-theft family</a>
-<a href="#art">Pete Venters and the literal theft</a>
-<a href="#memory">What players remember</a>
-<a href="#honorable">Why it belongs here</a>
-<a href="#decklists">The context archive</a>
-<a href="#printings">Printings and sources</a>
-</nav><article class="article">
+<div class="byline"><span>A Compulsive Research honorable mention</span><span>·</span><span>Judgment, 2002</span><span class="pill">Approximately 20 minute read</span></div>
+</div></header><nav class="rank-nav"><a href="honorable-001-compulsive-research.html">← Honorable 001 · Compulsive Research</a><div class="center">Honorable Mention 002 of 007</div><a href="honorable-003-browbeat.html">Honorable 003 · Browbeat →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The counterspell that kept what it stopped</a><a href="#judgment">A rare from Judgment</a><a href="#limbo">Exile before exile had a name</a><a href="#exchange">Counter, store, recast</a><a href="#six-mana">The six-mana problem</a><a href="#timing">The spell waits for you</a><a href="#rules">What exactly did you steal?</a><a href="#wish">The Cunning Wish comparison</a><a href="#psychatog">The format it could not crack</a><a href="#wake">Even Wake had better things to do</a><a href="#formats">A life across formats</a><a href="#family">The spell-theft family</a><a href="#art">Pete Venters and the literal theft</a><a href="#memory">What players remember</a><a href="#honorable">Why it belongs in Honorable Mentions</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
 <section id="opening"><div class="chapter-number">I · The promise</div><h2>The counterspell that kept what it stopped</h2>
 <p class="opening dropcap">Spelljack is what happens when a counterspell refuses to let the story end at “no.”</p>
 <p>An opponent casts the largest, strangest, or most important spell in their hand. You spend six mana and counter it. The ordinary exchange would end there: both cards move to their owners' graveyards, and the game continues with one threat answered by one response.</p>
 <p>Spelljack changes the destination. The opposing card is exiled instead. It remains visible, suspended between players, no longer part of the opponent's resources but not yet converted into yours. As long as it stays there, you may play it without paying its mana cost.</p>
 <p>The card therefore turns permission into possession. It is <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span> followed by delayed theft, a two-act design in which the answer creates a future threat. The first resolution prevents disaster. The second may reproduce the disaster under new management.</p>
-<div class="card-lead"><img alt="Spelljack from Judgment" src="https://api.scryfall.com/cards/jud/51?format=image&amp;version=normal"/><div><div class="oracle"><b>Spelljack</b> · {3}{U}{U}{U}<br/>Instant<br/><br/>Counter target spell. If that spell is countered this way, exile it instead of putting it into its owner's graveyard. You may play it without paying its mana cost for as long as it remains exiled. <br/><br/><span class="small">If it has X in its mana cost, X is 0.</span></div><div class="stats"><div class="stat"><b>First printed</b>Judgment · May 2002</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Illustrated by</b>Pete Venters</div><div class="stat"><b>Historical status</b>Memorable dream counterspell</div></div></div></div>
+<div class="card-lead"><img alt="Spelljack original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Spelljack&amp;set=jud&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Spelljack</b> · {3}{U}{U}{U}<br/>Instant<br/><br/>Counter target spell. If that spell is countered this way, exile it instead of putting it into its owner's graveyard. You may play it without paying its mana cost for as long as it remains exiled. <br/><br/><span class="small">If it has X in its mana cost, X is 0.</span></div><div class="stats"><div class="stat"><b>First printed</b>Judgment · May 2002</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Illustrated by</b>Pete Venters</div><div class="stat"><b>Historical status</b>Memorable dream counterspell</div></div></div></div>
 <p>That promise is why the card survives in memory despite barely disturbing competitive Magic. Spelljack is expensive, color intensive, conditional, and often unnecessary. It is also one of the cleanest expressions of a fantasy that players immediately understand: your opponent brought the spectacular spell, but you are the one who gets to use it.</p></section>
 <section id="judgment"><div class="chapter-number">II · The set</div><h2>A rare from Judgment</h2>
 <p>Judgment arrived in 2002 as the final expansion of Odyssey block. Odyssey had made the graveyard a resource; Torment had deliberately weighted the color balance toward black; Judgment leaned toward white and green while completing the block's themes and introducing a group of cards interested in unusual zones and permissions.</p>
@@ -550,19 +375,19 @@ p{margin:1em 0}
 <section id="wish"><div class="chapter-number">VIII · Judgment's winner</div><h2>The Cunning Wish comparison</h2>
 <p>The cruelest comparison for Spelljack appeared in the same set.</p>
 <p><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span> cost half as much and let a player choose an instant they owned from outside the game. In tournament play, this usually meant a carefully designed sideboard toolbox. The Wish did not depend on the opponent presenting a desirable spell. It did not require triple blue. It found the answer or engine the deck builder had selected in advance.</p>
-<p>Contemporary discussion immediately recognized the contrast. Writers looking at Judgment's additions to Psychatog described Cunning Wish as the obvious prize. Spelljack was acknowledged as cute and perhaps worth wishing for, but too slow for the metagame. That assessment captures the card's entire career in miniature.</p>
-<p>Cunning Wish maximized control over outcomes. Spelljack maximized surprise and story. The competitive card became a pillar. The spectacular card became an honorable mention.</p></section>
+<p>Contemporary discussion immediately recognized the contrast. Writers looking at Judgment's additions to <span class="card-name" data-card="Psychatog" tabindex="0">Psychatog</span> described <span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span> as the obvious prize. Spelljack was acknowledged as cute and perhaps worth wishing for, but too slow for the metagame. That assessment captures the card's entire career in miniature.</p>
+<p><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span> maximized control over outcomes. Spelljack maximized surprise and story. The competitive card became a pillar. The spectacular card became an honorable mention.</p></section>
 <section id="psychatog"><div class="chapter-number">IX · Standard 2002</div><h2>The format it could not crack</h2>
-<p>Spelljack entered Standard during the reign of Psychatog, one of the most efficient control finishers ever printed. The archetype already had <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span>, <span class="card-name" data-card="Memory Lapse" tabindex="0">Memory Lapse</span>, <span class="card-name" data-card="Circular Logic" tabindex="0">Circular Logic</span>, <span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span>, <span class="card-name" data-card="Repulse" tabindex="0">Repulse</span>, and <span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span>. Its late game was organized around <span class="card-name" data-card="Upheaval" tabindex="0">Upheaval</span> and a creature that converted spare cards into lethal damage.</p>
-<p>Carlos Romão's World Championship list showed how disciplined the shell had become. The deck could afford to play long games, but its permission remained cheap. The sideboard was a Wish package of narrow answers that became broad because Cunning Wish could select among them.</p>
+<p>Spelljack entered Standard during the reign of <span class="card-name" data-card="Psychatog" tabindex="0">Psychatog</span>, one of the most efficient control finishers ever printed. The archetype already had <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span>, <span class="card-name" data-card="Memory Lapse" tabindex="0">Memory Lapse</span>, <span class="card-name" data-card="Circular Logic" tabindex="0">Circular Logic</span>, <span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span>, <span class="card-name" data-card="Repulse" tabindex="0">Repulse</span>, and <span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span>. Its late game was organized around <span class="card-name" data-card="Upheaval" tabindex="0">Upheaval</span> and a creature that converted spare cards into lethal damage.</p>
+<p>Carlos Romão's World Championship list showed how disciplined the shell had become. The deck could afford to play long games, but its permission remained cheap. The sideboard was a Wish package of narrow answers that became broad because <span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span> could select among them.</p>
 <p>Spelljack theoretically fit the archetype's desires. It was an instant, a hard counter, and a source of eventual card advantage. In practice it competed with cards that protected the deck earlier, cycled through the library, or won the game more reliably.</p>
 <p>This is an important kind of historical failure. Spelljack was not rejected because its text was weak. It was rejected because the surrounding deck was too good to indulge it.</p></section>
 <section id="wake"><div class="chapter-number">X · Standard 2003</div><h2>Even Wake had better things to do</h2>
-<p>If any tournament deck of the era appeared capable of embracing Spelljack, it was <span class="card-name" data-card="Mirari's Wake" tabindex="0">Mirari's Wake</span> control. Wake doubled land mana, played long games, and used Cunning Wish. Daniel Zink's 2003 World Championship deck could generate enough resources to cast six-mana interaction while still threatening <span class="card-name" data-card="Decree of Justice" tabindex="0">Decree of Justice</span> or copying spells with <span class="card-name" data-card="Mirari" tabindex="0">Mirari</span>.</p>
+<p>If any tournament deck of the era appeared capable of embracing Spelljack, it was <span class="card-name" data-card="Mirari's Wake" tabindex="0">Mirari's Wake</span> control. Wake doubled land mana, played long games, and used <span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span>. Daniel Zink's 2003 World Championship deck could generate enough resources to cast six-mana interaction while still threatening <span class="card-name" data-card="Decree of Justice" tabindex="0">Decree of Justice</span> or copying spells with <span class="card-name" data-card="Mirari" tabindex="0">Mirari</span>.</p>
 <p>Yet the champion list again demonstrates the difference between available mana and useful mana. It relied on <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span>, a single <span class="card-name" data-card="Circular Logic" tabindex="0">Circular Logic</span>, fog effects, life gain, sweepers, and a sideboard designed around specific matchups. Once Wake was active, almost any powerful card could be cast. The deck therefore valued cards that helped it survive before Wake more than cards that were merely impressive afterward.</p>
 <p>Spelljack's dream condition—abundant mana and a high-value opposing spell—was real. But a deck that reached that condition was often already favored. The card improved the most dramatic part of the game rather than the most vulnerable part.</p></section>
 <section id="formats"><div class="chapter-number">XI · After Standard</div><h2>A life across formats</h2>
-<div class="format-strip"><div class="format-card"><span class="impact">Marginal</span><h3>Standard and Extended</h3><p>Legal during powerful blue-control eras, but generally displaced by cheaper permission and Cunning Wish packages.</p></div><div class="format-card"><span class="impact">Aspirational</span><h3>Premodern</h3><p>Legal and occasionally discussed as a one-of dream card in very slow control environments.</p></div><div class="format-card"><span class="impact">Natural home</span><h3>Commander</h3><p>Long games, expensive spells, multiple opponents, and story value give the card its clearest modern purpose.</p></div><div class="format-card"><span class="impact">Curiosity</span><h3>Cube and casual</h3><p>A memorable inclusion when the environment rewards theatrical swings more than raw rate.</p></div></div>
+<div class="format-strip"><div class="format-card"><span class="impact">Marginal</span><h3>Standard and Extended</h3><p>Legal during powerful blue-control eras, but generally displaced by cheaper permission and <span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span> packages.</p></div><div class="format-card"><span class="impact">Aspirational</span><h3>Premodern</h3><p>Legal and occasionally discussed as a one-of dream card in very slow control environments.</p></div><div class="format-card"><span class="impact">Natural home</span><h3>Commander</h3><p>Long games, expensive spells, multiple opponents, and story value give the card its clearest modern purpose.</p></div><div class="format-card"><span class="impact">Curiosity</span><h3>Cube and casual</h3><p>A memorable inclusion when the environment rewards theatrical swings more than raw rate.</p></div></div>
 <p>Commander solves several of Spelljack's problems at once. Games last longer, mana engines are common, and opponents cast expensive spells worth stealing. A six-mana counter is still slow, but the prize can be a board-changing sorcery, a giant creature, or an effect chosen for multiplayer scale.</p>
 <p>The card also creates politics. Leaving the stolen spell in exile advertises future leverage. A board wipe may discourage overextension. A stolen extra-turn spell becomes a table-wide concern. A haymaker taken from one opponent may be aimed at another.</p>
 <p>Spelljack is not a staple even there. Modern Commander has more efficient free interaction, flexible counters, and theft effects. But Commander values moments that cannot be reduced to rate. Spelljack is a card people remember resolving.</p></section>
@@ -587,90 +412,113 @@ p{margin:1em 0}
 <p>But historical importance is not the only reason a card survives. Some cards perfectly express a possibility that players want Magic to contain. Spelljack says that a counterspell can be more than refusal. It can be larceny, suspense, delayed gratification, and revenge.</p>
 <p>That is the purpose of the Honorable Mentions section. The numbered archive preserves the cards that most clearly shaped the game. This expanding appendix preserves cards that shaped individual imaginations, local tables, binders, favorite plays, and the stories players still volunteer decades later.</p>
 <p>Spelljack is exactly the sort of card that misses the cut and still deserves an article.</p></section>
-<section class="deck-archive" id="decklists"><div class="chapter-number">XVI · The environments</div><h2>The context archive</h2>
-<p class="deck-intro">Spelljack's history is better explained by the decks around it than by a nonexistent string of championship appearances. The first two lists are exact historical champions that show why it struggled. The final two are explicitly labeled reconstructions that show where players tried—or still try—to live the dream.</p>
-<details class="deck"><summary><span><strong>Carlos Romão — Psychatog</strong><small>World Champion · Sydney 2002 · Standard</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The exact champion list demonstrates the ruthless efficiency of the environment Spelljack entered. It used Cunning Wish, but every sideboard slot and every untapped mana mattered.</p><button class="copy" data-target="spelljack-deck-0">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Nightscape Familiar" tabindex="0">Nightscape Familiar</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psychatog" tabindex="0">Psychatog</span></div><h4>Instants · 20</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circular Logic" tabindex="0">Circular Logic</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Memory Lapse" tabindex="0">Memory Lapse</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Repulse" tabindex="0">Repulse</span></div></div><div class="deck-col"><h4>Sorceries · 8</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Chainer's Edict" tabindex="0">Chainer's Edict</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Deep Analysis" tabindex="0">Deep Analysis</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Upheaval" tabindex="0">Upheaval</span></div><h4>Lands · 24</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cephalid Coliseum" tabindex="0">Cephalid Coliseum</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Darkwater Catacombs" tabindex="0">Darkwater Catacombs</span></div><div class="row"><span class="qty">10</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Salt Marsh" tabindex="0">Salt Marsh</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground River" tabindex="0">Underground River</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Coffin Purge" tabindex="0">Coffin Purge</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gainsay" tabindex="0">Gainsay</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ghastly Demise" tabindex="0">Ghastly Demise</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hibernation" tabindex="0">Hibernation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Short" tabindex="0">Mana Short</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recoil" tabindex="0">Recoil</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Slay" tabindex="0">Slay</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Teferi's Response" tabindex="0">Teferi's Response</span></div></div></div><pre hidden="" id="spelljack-deck-0">Carlos Romão — Psychatog
-World Champion · Sydney 2002 · Standard
+<section id="decklists"><div class="chapter-number">XVI · The environments</div><h2>The deck archive</h2>
+<p class="deck-intro">The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p>
+<div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Lord_Zer0 — Play Other People's Decks</strong><small>Published Commander record · Xanathar theft · 100 cards</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Commander/cEDH record</span><p>A full published Commander list that preserves Spelljack’s later life as part of a blue-black theft theme. It is an attributed community record, not a sanctioned-event registration.</p><div class="deck-meta"><div><b>Lord_Zer0</b><div class="small">Main deck 100</div></div><button class="copy" data-target="deck-honorable-002-spelljack-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 23</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Burnished Hart" tabindex="0">Burnished Hart</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Diluvian Primordial" tabindex="0">Diluvian Primordial</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dimir Doppelganger" tabindex="0">Dimir Doppelganger</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fiend of the Shadows" tabindex="0">Fiend of the Shadows</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Geth, Lord of the Vault" tabindex="0">Geth, Lord of the Vault</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gonti, Lord of Luxury" tabindex="0">Gonti, Lord of Luxury</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Grazilaxx, Illithid Scholar" tabindex="0">Grazilaxx, Illithid Scholar</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ink-Eyes, Servant of Oni" tabindex="0">Ink-Eyes, Servant of Oni</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jace's Mindseeker" tabindex="0">Jace's Mindseeker</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kheru Mind-Eater" tabindex="0">Kheru Mind-Eater</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Kheru Spellsnatcher" tabindex="0">Kheru Spellsnatcher</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Knacksaw Clique" tabindex="0">Knacksaw Clique</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lazav, Dimir Mastermind" tabindex="0">Lazav, Dimir Mastermind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lim-Dul the Necromancer" tabindex="0">Lim-Dul the Necromancer</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lord of the Void" tabindex="0">Lord of the Void</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mindleech Mass" tabindex="0">Mindleech Mass</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nightveil Specter" tabindex="0">Nightveil Specter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oblivion Sower" tabindex="0">Oblivion Sower</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scion of Darkness" tabindex="0">Scion of Darkness</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sepulchral Primordial" tabindex="0">Sepulchral Primordial</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sphinx Ambassador" tabindex="0">Sphinx Ambassador</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thada Adel, Acquisitor" tabindex="0">Thada Adel, Acquisitor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrexial, the Risen Deep" tabindex="0">Wrexial, the Risen Deep</span></div></div><div class="group"><h4>Lands · 35</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Arcane Lighthouse" tabindex="0">Arcane Lighthouse</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Darkwater Catacombs" tabindex="0">Darkwater Catacombs</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dreadship Reef" tabindex="0">Dreadship Reef</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Drowned Catacomb" tabindex="0">Drowned Catacomb</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Duskmantle, House of Shadow" tabindex="0">Duskmantle, House of Shadow</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fabled Passage" tabindex="0">Fabled Passage</span></div><div class="row"><span class="qty">7</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Morphic Pool" tabindex="0">Morphic Pool</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Myriad Landscape" tabindex="0">Myriad Landscape</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Nephalia Drownyard" tabindex="0">Nephalia Drownyard</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Prismatic Vista" tabindex="0">Prismatic Vista</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sunken Hollow" tabindex="0">Sunken Hollow</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sunken Ruins" tabindex="0">Sunken Ruins</span></div><div class="row"><span class="qty">7</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tainted Isle" tabindex="0">Tainted Isle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Temple of the False God" tabindex="0">Temple of the False God</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground River" tabindex="0">Underground River</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Volrath's Stronghold" tabindex="0">Volrath's Stronghold</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Watery Grave" tabindex="0">Watery Grave</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 12</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Chaos Wand" tabindex="0">Chaos Wand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Charcoal Diamond" tabindex="0">Charcoal Diamond</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Coalition Relic" tabindex="0">Coalition Relic</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dimir Signet" tabindex="0">Dimir Signet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gilded Lotus" tabindex="0">Gilded Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Grinning Totem" tabindex="0">Grinning Totem</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Muse Vessel" tabindex="0">Muse Vessel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ornate Kanzashi" tabindex="0">Ornate Kanzashi</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sky Diamond" tabindex="0">Sky Diamond</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thran Dynamo" tabindex="0">Thran Dynamo</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wizard's Spellbook" tabindex="0">Wizard's Spellbook</span></div></div><div class="group"><h4>Enchantments · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Grave Betrayal" tabindex="0">Grave Betrayal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hedonist's Trove" tabindex="0">Hedonist's Trove</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mind's Dilation" tabindex="0">Mind's Dilation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rogue Class" tabindex="0">Rogue Class</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shared Fate" tabindex="0">Shared Fate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wizard Class" tabindex="0">Wizard Class</span></div></div><div class="group"><h4>Instants · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Aethersnatch" tabindex="0">Aethersnatch</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fated Return" tabindex="0">Fated Return</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gifts Given" tabindex="0">Gifts Given</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Memory Plunder" tabindex="0">Memory Plunder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spelljack" tabindex="0">Spelljack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="You Find the Villains' Lair" tabindex="0">You Find the Villains' Lair</span></div></div><div class="group"><h4>Commander · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Xanathar, Guild Kingpin" tabindex="0">Xanathar, Guild Kingpin</span></div></div><div class="group"><h4>Sorceries · 17</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Acquire" tabindex="0">Acquire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ashen Powder" tabindex="0">Ashen Powder</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Beacon of Unrest" tabindex="0">Beacon of Unrest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blatant Thievery" tabindex="0">Blatant Thievery</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Bribery" tabindex="0">Bribery</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Eternal Dominion" tabindex="0">Eternal Dominion</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Extract from Darkness" tabindex="0">Extract from Darkness</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Knowledge Exploitation" tabindex="0">Knowledge Exploitation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Praetor's Grasp" tabindex="0">Praetor's Grasp</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Psychic Intrusion" tabindex="0">Psychic Intrusion</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Psychic Theft" tabindex="0">Psychic Theft</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rise of the Dark Realms" tabindex="0">Rise of the Dark Realms</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Scrounge" tabindex="0">Scrounge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spelltwine" tabindex="0">Spelltwine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Stolen Goods" tabindex="0">Stolen Goods</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Talent of the Telepath" tabindex="0">Talent of the Telepath</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Telemin Performance" tabindex="0">Telemin Performance</span></div></div></div></div><pre hidden="" id="deck-honorable-002-spelljack-1">Lord_Zer0 — Play Other People's Decks
+Published Commander record · Xanathar theft · 100 cards
 
-Creatures · 8
-4 Nightscape Familiar
-4 Psychatog
+Creatures · 23
+1 Burnished Hart
+1 Diluvian Primordial
+1 Dimir Doppelganger
+1 Fiend of the Shadows
+1 Geth, Lord of the Vault
+1 Gonti, Lord of Luxury
+1 Grazilaxx, Illithid Scholar
+1 Ink-Eyes, Servant of Oni
+1 Jace's Mindseeker
+1 Kheru Mind-Eater
+1 Kheru Spellsnatcher
+1 Knacksaw Clique
+1 Lazav, Dimir Mastermind
+1 Lim-Dul the Necromancer
+1 Lord of the Void
+1 Mindleech Mass
+1 Nightveil Specter
+1 Oblivion Sower
+1 Scion of Darkness
+1 Sepulchral Primordial
+1 Sphinx Ambassador
+1 Thada Adel, Acquisitor
+1 Wrexial, the Risen Deep
 
-Instants · 20
-3 Circular Logic
-4 Counterspell
-3 Cunning Wish
-3 Fact or Fiction
-3 Memory Lapse
-4 Repulse
-
-Sorceries · 8
-3 Chainer's Edict
-3 Deep Analysis
-2 Upheaval
-
-Lands · 24
-2 Cephalid Coliseum
-1 Darkwater Catacombs
-10 Island
-4 Salt Marsh
-3 Swamp
-4 Underground River
-
-Sideboard · 15
-1 Coffin Purge
-4 Duress
-1 Fact or Fiction
-1 Gainsay
-3 Ghastly Demise
-1 Hibernation
-1 Mana Short
-1 Recoil
-1 Slay
-1 Teferi's Response</pre><p class="small">Source: <a href="https://mtg.wtf/deck/wc02/carlos-rom-o-psychatog">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Daniel Zink — White-Blue-Green Wake</strong><small>World Champion · Berlin 2003 · Standard</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">The exact Wake list could generate enormous mana, yet still favored Mana Leak, Circular Logic, and a disciplined Cunning Wish package over Spelljack.</p><button class="copy" data-target="spelljack-deck-1">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Instants · 16</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circular Logic" tabindex="0">Circular Logic</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Moment's Peace" tabindex="0">Moment's Peace</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Renewed Faith" tabindex="0">Renewed Faith</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Vengeful Dreams" tabindex="0">Vengeful Dreams</span></div><h4>Sorceries · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Deep Analysis" tabindex="0">Deep Analysis</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Decree of Justice" tabindex="0">Decree of Justice</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><h4>Artifacts · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mirari" tabindex="0">Mirari</span></div></div><div class="deck-col"><h4>Enchantments · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Compulsion" tabindex="0">Compulsion</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mirari's Wake" tabindex="0">Mirari's Wake</span></div><h4>Lands · 27</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Elfhame Palace" tabindex="0">Elfhame Palace</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div><div class="row"><span class="qty">7</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Krosan Verge" tabindex="0">Krosan Verge</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Skycloud Expanse" tabindex="0">Skycloud Expanse</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Anurid Brushhopper" tabindex="0">Anurid Brushhopper</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Circular Logic" tabindex="0">Circular Logic</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Exalted Angel" tabindex="0">Exalted Angel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hunting Pack" tabindex="0">Hunting Pack</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Krosan Reclamation" tabindex="0">Krosan Reclamation</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ray of Revelation" tabindex="0">Ray of Revelation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ray of Distortion" tabindex="0">Ray of Distortion</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Renewed Faith" tabindex="0">Renewed Faith</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vengeful Dreams" tabindex="0">Vengeful Dreams</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wing Shards" tabindex="0">Wing Shards</span></div></div></div><pre hidden="" id="spelljack-deck-1">Daniel Zink — White-Blue-Green Wake
-World Champion · Berlin 2003 · Standard
-
-Instants · 16
-1 Circular Logic
-3 Cunning Wish
-4 Mana Leak
-3 Moment's Peace
-3 Renewed Faith
-2 Vengeful Dreams
-
-Sorceries · 10
-4 Deep Analysis
-2 Decree of Justice
-4 Wrath of God
-
-Artifacts · 1
-1 Mirari
+Artifacts · 12
+1 Chaos Wand
+1 Charcoal Diamond
+1 Coalition Relic
+1 Dimir Signet
+1 Gilded Lotus
+1 Grinning Totem
+1 Muse Vessel
+1 Ornate Kanzashi
+1 Sky Diamond
+1 Sol Ring
+1 Thran Dynamo
+1 Wizard's Spellbook
 
 Enchantments · 6
-3 Compulsion
-3 Mirari's Wake
+1 Grave Betrayal
+1 Hedonist's Trove
+1 Mind's Dilation
+1 Rogue Class
+1 Shared Fate
+1 Wizard Class
 
-Lands · 27
-2 Elfhame Palace
-2 Flooded Strand
-4 Forest
+Instants · 6
+1 Aethersnatch
+1 Fated Return
+1 Gifts Given
+1 Memory Plunder
+1 Spelljack
+1 You Find the Villains' Lair
+
+Lands · 35
+1 Academy Ruins
+1 Ancient Tomb
+1 Arcane Lighthouse
+1 Darkwater Catacombs
+1 Dreadship Reef
+1 Drowned Catacomb
+1 Duskmantle, House of Shadow
+1 Fabled Passage
 7 Island
-4 Krosan Verge
-4 Plains
-4 Skycloud Expanse
+1 Morphic Pool
+1 Myriad Landscape
+1 Nephalia Drownyard
+1 Polluted Delta
+1 Prismatic Vista
+1 Sunken Hollow
+1 Sunken Ruins
+7 Swamp
+1 Tainted Isle
+1 Temple of the False God
+1 Underground River
+1 Underground Sea
+1 Volrath's Stronghold
+1 Watery Grave
 
-Sideboard · 15
-3 Anurid Brushhopper
-1 Circular Logic
-2 Exalted Angel
-1 Hunting Pack
-1 Krosan Reclamation
-3 Ray of Revelation
-1 Ray of Distortion
-1 Renewed Faith
-1 Vengeful Dreams
-1 Wing Shards</pre><p class="small">Source: <a href="https://mtg.wtf/deck/wc03/daniel-zink-white-blue-green-wake">open the historical record</a></p></div></details><details class="deck"><summary><span><strong>Judgment-Era Psychatog — Spelljack Wish Experiment</strong><small>Period reconstruction · Standard 2002</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">A clearly labeled reconstruction based on a contemporary Star City Games testing list. Spelljack is added as the spectacular Cunning Wish target writers discussed but generally rejected as too slow.</p><button class="copy" data-target="spelljack-deck-2">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 9</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Nightscape Familiar" tabindex="0">Nightscape Familiar</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psychatog" tabindex="0">Psychatog</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Possessed Aven" tabindex="0">Possessed Aven</span></div><h4>Instants · 22</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Memory Lapse" tabindex="0">Memory Lapse</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circular Logic" tabindex="0">Circular Logic</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flash of Insight" tabindex="0">Flash of Insight</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Repulse" tabindex="0">Repulse</span></div><h4>Sorceries · 5</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Probe" tabindex="0">Probe</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Upheaval" tabindex="0">Upheaval</span></div></div><div class="deck-col"><h4>Lands · 24</h4><div class="row"><span class="qty">11</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Salt Marsh" tabindex="0">Salt Marsh</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground River" tabindex="0">Underground River</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Darkwater Catacombs" tabindex="0">Darkwater Catacombs</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Divert" tabindex="0">Divert</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gainsay" tabindex="0">Gainsay</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hibernation" tabindex="0">Hibernation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recoil" tabindex="0">Recoil</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Short" tabindex="0">Mana Short</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Evacuation" tabindex="0">Evacuation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Opportunity" tabindex="0">Opportunity</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flash of Insight" tabindex="0">Flash of Insight</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spelljack" tabindex="0">Spelljack</span></div></div></div><pre hidden="" id="spelljack-deck-2">Judgment-Era Psychatog — Spelljack Wish Experiment
-Period reconstruction · Standard 2002
+Commander · 1
+1 Xanathar, Guild Kingpin
+
+Sorceries · 17
+1 Acquire
+1 Ashen Powder
+1 Beacon of Unrest
+1 Blatant Thievery
+1 Bribery
+1 Eternal Dominion
+1 Extract from Darkness
+1 Knowledge Exploitation
+1 Praetor's Grasp
+1 Psychic Intrusion
+1 Psychic Theft
+1 Rise of the Dark Realms
+1 Scrounge
+1 Spelltwine
+1 Stolen Goods
+1 Talent of the Telepath
+1 Telemin Performance</pre><p class="small">Source: <a href="https://tappedout.net/mtg-decks/play-other-peoples-decks/">Open the complete published Commander list</a></p></div></details><details class="deck"><summary><span><strong>Judgment-Era Psychatog — Spelljack Wish Experiment</strong><small>Supplemental historical model · no event registration claimed</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge supplement">Supplemental historical model</span><p>This supplemental historical model demonstrates how Spelljack functioned in the indicated archetype. It is included only because fewer than three complete documentary registrations survive in the assembled sources; no player, finish, event, or registration is claimed.</p><div class="deck-meta"><div><b>Judgment-Era Psychatog — Spelljack Wish Experiment</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-002-spelljack-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 9</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Nightscape Familiar" tabindex="0">Nightscape Familiar</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Psychatog" tabindex="0">Psychatog</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Possessed Aven" tabindex="0">Possessed Aven</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">11</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Salt Marsh" tabindex="0">Salt Marsh</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground River" tabindex="0">Underground River</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Darkwater Catacombs" tabindex="0">Darkwater Catacombs</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants · 22</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Memory Lapse" tabindex="0">Memory Lapse</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circular Logic" tabindex="0">Circular Logic</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cunning Wish" tabindex="0">Cunning Wish</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flash of Insight" tabindex="0">Flash of Insight</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Repulse" tabindex="0">Repulse</span></div></div><div class="group"><h4>Sorceries · 5</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Probe" tabindex="0">Probe</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Upheaval" tabindex="0">Upheaval</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Divert" tabindex="0">Divert</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gainsay" tabindex="0">Gainsay</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hibernation" tabindex="0">Hibernation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Recoil" tabindex="0">Recoil</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Short" tabindex="0">Mana Short</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Evacuation" tabindex="0">Evacuation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Opportunity" tabindex="0">Opportunity</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flash of Insight" tabindex="0">Flash of Insight</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spelljack" tabindex="0">Spelljack</span></div></div></div></div><pre hidden="" id="deck-honorable-002-spelljack-2">Judgment-Era Psychatog — Spelljack Wish Experiment
+Supplemental historical model · no event registration claimed
 
 Creatures · 9
 4 Nightscape Familiar
@@ -686,16 +534,16 @@ Instants · 22
 1 Flash of Insight
 3 Repulse
 
-Sorceries · 5
-3 Probe
-2 Upheaval
-
 Lands · 24
 11 Island
 4 Swamp
 4 Salt Marsh
 4 Underground River
 1 Darkwater Catacombs
+
+Sorceries · 5
+3 Probe
+2 Upheaval
 
 Sideboard · 15
 4 Duress
@@ -709,12 +557,18 @@ Sideboard · 15
 1 Evacuation
 1 Opportunity
 1 Flash of Insight
-1 Spelljack</pre><p class="small">Source: <a href="https://articles.starcitygames.com/articles/the-daily-blister-theenkin-aboot-psychertog/">read the contemporary discussion</a></p></div></details><details class="deck"><summary><span><strong>U/W Standstill — “Living the Dream”</strong><small>Illustrative reconstruction · Premodern</small></span><span class="plus">+</span></summary><div class="deck-body"><div class="deck-meta"><p class="small">Not a recorded tournament list. This reconstruction shows the sort of slow control shell in which a one-of Spelljack can be defended as a late-game experience rather than an efficiency choice.</p><button class="copy" data-target="spelljack-deck-3">Copy deck</button></div><div class="deck-columns"><div class="deck-col"><h4>Creatures · 3</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Morphling" tabindex="0">Morphling</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rainbow Efreet" tabindex="0">Rainbow Efreet</span></div><h4>Instants · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Impulse" tabindex="0">Impulse</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dismiss" tabindex="0">Dismiss</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Forbid" tabindex="0">Forbid</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spelljack" tabindex="0">Spelljack</span></div><h4>Sorceries · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="deck-col"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Standstill" tabindex="0">Standstill</span></div><h4>Artifacts · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Nevinyrral's Disk" tabindex="0">Nevinyrral's Disk</span></div><h4>Lands · 25</h4><div class="row"><span class="qty">12</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dust Bowl" tabindex="0">Dust Bowl</span></div><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meddling Mage" tabindex="0">Meddling Mage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Powder Keg" tabindex="0">Powder Keg</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Forbid" tabindex="0">Forbid</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spelljack" tabindex="0">Spelljack</span></div></div></div><pre hidden="" id="spelljack-deck-3">U/W Standstill — “Living the Dream”
-Illustrative reconstruction · Premodern
+1 Spelljack</pre><p class="small">Source: <a href="https://articles.starcitygames.com/articles/the-daily-blister-theenkin-aboot-psychertog/">read the contemporary discussion</a></p></div></details><details class="deck"><summary><span><strong>U/W Standstill — “Living the Dream”</strong><small>Supplemental historical model · no event registration claimed</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge supplement">Supplemental historical model</span><p>This supplemental historical model demonstrates how Spelljack functioned in the indicated archetype. It is included only because fewer than three complete documentary registrations survive in the assembled sources; no player, finish, event, or registration is claimed.</p><div class="deck-meta"><div><b>U/W Standstill — “Living the Dream”</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-002-spelljack-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 3</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Morphling" tabindex="0">Morphling</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rainbow Efreet" tabindex="0">Rainbow Efreet</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Standstill" tabindex="0">Standstill</span></div></div><div class="group"><h4>Lands · 25</h4><div class="row"><span class="qty">12</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mishra's Factory" tabindex="0">Mishra's Factory</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dust Bowl" tabindex="0">Dust Bowl</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Nevinyrral's Disk" tabindex="0">Nevinyrral's Disk</span></div></div><div class="group"><h4>Instants · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Fact or Fiction" tabindex="0">Fact or Fiction</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Impulse" tabindex="0">Impulse</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dismiss" tabindex="0">Dismiss</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Forbid" tabindex="0">Forbid</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spelljack" tabindex="0">Spelljack</span></div></div><div class="group"><h4>Sorceries · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meddling Mage" tabindex="0">Meddling Mage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Powder Keg" tabindex="0">Powder Keg</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Forbid" tabindex="0">Forbid</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spelljack" tabindex="0">Spelljack</span></div></div></div></div><pre hidden="" id="deck-honorable-002-spelljack-3">U/W Standstill — “Living the Dream”
+Supplemental historical model · no event registration claimed
 
 Creatures · 3
 2 Morphling
 1 Rainbow Efreet
+
+Artifacts · 3
+3 Nevinyrral's Disk
+
+Enchantments · 4
+4 Standstill
 
 Instants · 21
 4 Counterspell
@@ -726,21 +580,15 @@ Instants · 21
 1 Forbid
 1 Spelljack
 
-Sorceries · 4
-4 Wrath of God
-
-Enchantments · 4
-4 Standstill
-
-Artifacts · 3
-3 Nevinyrral's Disk
-
 Lands · 25
 12 Island
 4 Plains
 4 Mishra's Factory
 4 Adarkar Wastes
 1 Dust Bowl
+
+Sorceries · 4
+4 Wrath of God
 
 Sideboard · 15
 3 Annul
@@ -750,12 +598,11 @@ Sideboard · 15
 2 Meddling Mage
 1 Powder Keg
 1 Forbid
-1 Spelljack</pre><p class="small">Source: <a href="https://premodernmagic.com/blog/counterspells-in-premodern/">read the Premodern context</a></p></div></details>
-</section>
+1 Spelljack</pre><p class="small">Source: <a href="https://premodernmagic.com/blog/counterspells-in-premodern/">read the Premodern context</a></p></div></details></div></section>
 <section id="printings"><div class="chapter-number">XVII · The archive</div><h2>Printings and sources</h2>
-<p>Spelljack first appeared as rare number 51 in Judgment, illustrated by Pete Venters. Unlike many beloved casual cards from its era, it has remained unusually tied to that original printing. Its scarcity is not financial in the manner of a Reserved List card; it is aesthetic and historical. The Judgment frame, art, and wording are the version most players remember.</p>
+<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p>
 <p>The Oracle update replaced “remove it from the game” with “exile it,” clarified the destination replacement, and retained the essential permission to play the card without paying its mana cost for as long as it remains exiled.</p>
-<div aria-label="Spelljack printing gallery" class="printings"><figure class="printing"><img alt="Judgment Spelljack" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Spelljack&amp;set=jud&amp;format=image&amp;version=normal"/><figcaption>Judgment · 2002<br/>the card’s sole paper set printing</figcaption></figure></div><h3>Research sources</h3><ul class="sources">
+<div aria-label="Spelljack printing gallery" class="printings" data-card="Spelljack" data-original-set="jud" id="printing-grid"><figure class="printing original-printing"><img alt="Spelljack original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Spelljack&amp;set=jud&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div><h3>Research sources</h3><ul class="sources">
 <li><a href="https://gatherer.wizards.com/JUD/en-us/51/spelljack">Wizards of the Coast, Gatherer: Spelljack</a><span>Official Oracle text, card details, and rulings.</span></li>
 <li><a href="https://scryfall.com/card/jud/51/spelljack">Scryfall, Spelljack printing archive</a><span>Judgment printing, image reference, artist credit, legality, and Oracle text.</span></li>
 <li><a href="https://magic.wizards.com/en/news/making-magic/it-happened-one-nights-2002-08-05">Mark Rosewater, “It Happened One Nights”</a><span>The development of removed-from-game space as limbo and Spelljack's place in that design lineage.</span></li>
@@ -767,55 +614,47 @@ Sideboard · 15
 </ul>
 </section>
 </article><aside class="margin-note sidebar-note"><b>The essential fantasy</b><p>You did not merely stop the spell. You put it somewhere safe until you were ready to make it yours.</p></aside></div>
-<div class="card-preview" id="preview"><img alt=""/></div><footer class="footer">Compulsive Research · Honorable Mention 002 · Spelljack · Independent, noncommercial Magic history project. Card images and artwork © Wizards of the Coast.</footer>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The honorable archive</h2><p>Spelljack is Honorable Mention 002 in the supplemental archive. Honorable Mentions remain separate from the one thousand numbered entries.</p><nav class="end-nav"><a href="honorable-001-compulsive-research.html"><small>Previous honorable mention · 001</small>Compulsive Research</a><a href="honorable-003-browbeat.html"><small>Next honorable mention · 003</small>Browbeat</a></nav></section><div class="card-preview" id="preview"><img alt=""/></div><footer class="footer">Compulsive Research · Honorable Mention · Spelljack · Independent, noncommercial Magic history project.</footer>
 <script>
-const preview=document.getElementById('preview'),pimg=preview.querySelector('img');let pinned=false;
+const ARTICLE_CARD = "Spelljack";
+const ORIGINAL_SET = "jud";
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
 function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
-function place(x,y){
- if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}
- const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;
- if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;
- l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));
- preview.style.left=l+'px';preview.style.top=t+'px'
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(preview&&!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
+document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
+function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
+function chooseIconic(cards){
+  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
+  if(!bySet.length)return [];
+  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
+  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
+  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
+  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
+  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
+  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
+  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
+  for(const c of iconic){add(c);if(selected.length>=target)break}
+  add(bySet[bySet.length-1]);
+  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
+  for(const c of bySet){if(selected.length>=target)break;add(c)}
+  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
 }
-function show(el,x,y,p=false){pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
-function hide(){if(!pinned)preview.classList.remove('show')}
-document.querySelectorAll('.card-name').forEach(el=>{
- el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));
- el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));
- el.addEventListener('mouseleave',hide);
- el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});
- el.addEventListener('blur',hide);
- el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})
-});
-document.addEventListener('click',e=>{if(pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
- const t=document.getElementById(b.dataset.target).textContent;
- try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
- const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)
-}));
-const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];
-if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
-function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-innerHeight;const pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}
-addEventListener('scroll',updateProgress,{passive:true});updateProgress();
-
-(function(){
- const root=document.documentElement;
- function progress(){
-   const max=root.scrollHeight-innerHeight;
-   document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
- }
- addEventListener('scroll',progress,{passive:true});progress();
-})();
-
-(function(){
- const root=document.documentElement;
- function progress(){
-  const max=root.scrollHeight-innerHeight;
-  document.body.style.setProperty('--progress',(max>0?scrollY/max*100:0)+'%');
- }
- addEventListener('scroll',progress,{passive:true});
- progress();
-})();
-</script>
-</body></html>
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');if(!grid)return;
+ const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
+ try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
+  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
+  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
+ }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
+}
+loadPrintings();
+</script></body></html>
