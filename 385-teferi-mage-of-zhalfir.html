@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A Compulsive Research history of Teferi, Mage of Zhalfir" name="description"/><title>Teferi, Mage of Zhalfir: The End of Instant Speed — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:var(--night2)}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
+.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+
+/* Entry-specific original-art overrides */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Jackal%20Pup&set=tmp&format=image&version=art_crop")!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Jackal%20Pup&set=tmp&format=image&version=art_crop")!important}
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+/* Entry-specific original-art overrides */
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Teferi%2C%20Mage%20of%20Zhalfir&set=tsp&format=image&version=art_crop")!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Teferi%2C%20Mage%20of%20Zhalfir&set=tsp&format=image&version=art_crop")!important}
+.archive-art{background-image:url("https://api.scryfall.com/cards/named?exact=Teferi%2C%20Mage%20of%20Zhalfir&set=tsp&format=image&version=art_crop")!important}
+</style></head><body data-article-card="Teferi, Mage of Zhalfir"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Teferi%2C%20Mage%20of%20Zhalfir&amp;set=tsp&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Teferi%2C%20Mage%20of%20Zhalfir&amp;set=tsp&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=entry-385#entry-385">← Back to Compulsive Research</a><div class="eyebrow">Entry 385 · Modern Foundations</div><h1>The End of Instant Speed</h1><p class="deckline">Teferi, Mage of Zhalfir made one player’s game operate at instant speed while forcing the opponent back into sorcery timing.</p><div class="byline"><span>A Compulsive Research essay</span><span class="pill">Time Spiral, 2006</span><span class="pill">Approximately 20 minute read</span></div></div></header>
+<nav class="rank-nav"><a href="index.html?focus=entry-384#entry-384">← Entry 384 · Academy Ruins</a><span class="center">Entry 385 of 1,000</span><a href="index.html?focus=entry-386#entry-386">Entry 386 · Counterbalance →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The End of Instant Speed</a><a href="#origin">What the first printing made possible</a><a href="#mechanics">The short text hides a resource system</a><a href="#history">From strange object to archetype language</a><a href="#formats">Where the card found a home</a><a href="#technical">How to use the advantage without wasting it</a><a href="#failure-modes">When the famous card is bad</a><a href="#counterplay">How the other side learned to fight back</a><a href="#case-study">A representative game in slow motion</a><a href="#memory">What players remember</a><a href="#descendant">The inherited idea</a><a href="#close-reading">The position after the famous play</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The argument</div><h2>The End of Instant Speed</h2><p class="opening dropcap">Teferi, Mage of Zhalfir made one player’s game operate at instant speed while forcing the opponent back into sorcery timing.</p><div class="card-lead"><img alt="Teferi, Mage of Zhalfir original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Teferi%2C%20Mage%20of%20Zhalfir&amp;set=tsp&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The card</div><h3>Teferi, Mage of Zhalfir</h3><p><b>{2}{U}{U}{U}</b><br/>Legendary Creature — Human Wizard</p><p>Flash. Creature cards you own that aren’t on the battlefield have flash. Each opponent can cast spells only any time they could cast a sorcery.</p><div class="stats"><div class="stat"><b>First release</b>Time Spiral · 2006</div><div class="stat"><b>Archive identity</b>Entry 385 · Modern Foundations</div></div></div></div><p>This article follows Teferi, Mage of Zhalfir from Time Spiral through the decks that learned to exploit a flash enabler and timing lock. Its history is not merely a list of appearances. It is a record of players discovering that granting flash to your creatures while denying opponents the ability to cast spells outside their main phases could reorganize how an archetype valued mana, cards, timing, information, and risk.</p><p>The central argument is that Teferi, Mage of Zhalfir mattered because it gave successful pilots a repeatable strategic language. In Time Spiral Block control, the card performed one job; in Extended Teachings, it performed another; and in Commander flash and control decks, the same printed text became a different kind of pressure. The connecting idea remained a flash enabler and timing lock.</p></section>
+<section id="origin"><div class="chapter-number">II · First printing</div><h2>What the first printing made possible</h2><p>Teferi, Mage of Zhalfir arrived in Time Spiral in 2006, when players had to evaluate it without the stock lists, matchup maps, and accumulated rules knowledge that later made its role seem obvious. The first challenge was not reading the text. It was deciding which apparent cost was a real drawback and which was an invitation to build differently.</p><p>The surrounding card pool supplied the first clues. <span class="card-name" data-card="Dreadship Reef" tabindex="0">Dreadship Reef</span>, <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span>, <span class="card-name" data-card="Mystical Teachings" tabindex="0">Mystical Teachings</span>, and <span class="card-name" data-card="Careful Consideration" tabindex="0">Careful Consideration</span> all changed the value of the resources that Teferi, Mage of Zhalfir touched. A card that looked narrow in isolation became broader once those interactions were treated as the foundation of a deck rather than as occasional bonuses.</p><p>Early lists therefore look exploratory. Mana bases can appear cautious, sideboards can seem improvised, and some card counts violate later conventions. Those imperfections are useful evidence: they show deck builders learning how much support Teferi, Mage of Zhalfir required and how much ordinary efficiency could be surrendered in exchange for granting flash to your creatures while denying opponents the ability to cast spells outside their main phases.</p><p>The breakthrough came when the card stopped being judged as a single object and started being judged as a position. If resolving, activating, attacking with, or merely representing Teferi, Mage of Zhalfir changed the opponent’s safe line, then the card had already created strategic value before its most famous effect occurred.</p></section>
+<section id="mechanics"><div class="chapter-number">III · Rules texture</div><h2>The short text hides a resource system</h2><div class="pullquote">Teferi, Mage of Zhalfir made one player’s game operate at instant speed while forcing the opponent back into sorcery timing.<small>Compulsive Research · Entry 385</small></div><p>The Oracle text is compact, but the decisions it creates are not. The pilot must identify what is paid, when priority changes, which effects use the stack, and what remains true if the first plan is answered. With Teferi, Mage of Zhalfir, the defining conversion is granting flash to your creatures while denying opponents the ability to cast spells outside their main phases.</p><p>That conversion is why rules precision matters. The difference between casting a spell, activating an ability, triggering an ability, sacrificing a permanent, replacing a draw, or playing a land decides which responses are legal. Cards such as <span class="card-name" data-card="Urza's Factory" tabindex="0">Urza's Factory</span>, <span class="card-name" data-card="Draining Whelk" tabindex="0">Draining Whelk</span>, and <span class="card-name" data-card="Damnation" tabindex="0">Damnation</span> became natural companions or natural enemies because they interacted with the exact event the deck cared about.</p><p>The card also creates information pressure. Open mana, cards in hand, graveyard contents, permanent types, and visible support pieces can force the opponent to respect a line that has not happened. The resulting hesitation is strategically real: attacks change, removal is held, and spells are sequenced around the possibility that Teferi, Mage of Zhalfir will turn a small opening into a decisive advantage.</p><p>Expert play therefore begins before the card is used. The strongest pilots know the minimum resource commitment needed to represent it, the point at which the opponent can safely ignore it, and the backup line preserved when the obvious exchange is denied.</p></section>
+<section id="history"><div class="chapter-number">IV · Tournament movement</div><h2>From strange object to archetype language</h2><div class="timeline"><div class="timeline-item"><time>2006</time><h3>Time Spiral introduces Teferi, Mage of Zhalfir</h3><p>Players encounter a flash enabler and timing lock before its strongest shell has a settled list.</p></div><div class="timeline-item"><time>Early adoption</time><h3>Time Spiral Block control finds the first repeatable shell</h3><p>Deck builders reorganize resources around granting flash to your creatures while denying opponents the ability to cast spells outside their main phases.</p></div><div class="timeline-item"><time>Metagame response</time><h3>Opponents learn the real point of interaction</h3><p>Sideboards and sequencing adapt to the engine rather than merely the visible card.</p></div><div class="timeline-item"><time>Format migration</time><h3>Teferi, Mage of Zhalfir enters Extended Teachings</h3><p>The same printed text takes on a different job in a larger, faster, or more specialized card pool.</p></div><div class="timeline-item"><time>Long memory</time><h3>The card becomes archetype vocabulary</h3><p>Later designs revisit the strategic territory that Teferi, Mage of Zhalfir made legible.</p></div></div><p>The history of Teferi, Mage of Zhalfir is a movement from discovery to vocabulary. In its first season, it was a strange option whose support cost was not fully understood. Once Time Spiral Block control established a repeatable shell, the card became an expectation. Opponents then changed removal, sideboards, mulligans, mana bases, and sequencing to meet it.</p><p>That response did not end the card’s career; it clarified its real strengths. The best later decks used Teferi, Mage of Zhalfir when its floor was acceptable and its ceiling attacked the format from an angle ordinary answers could not cover efficiently. This is why it could migrate into Extended Teachings and Commander flash and control decks without performing exactly the same job each time.</p><p>Tournament history often compresses this process into deck names and finishes. The more revealing story is the exchange of ideas: one archetype proved the card could work, another reduced the support cost, and a third used it as a sideboard threat, tutor target, mana source, or compact package. By then, Teferi, Mage of Zhalfir was no longer an experiment. It was part of the format’s grammar.</p><div class="art-break"><img alt="Teferi, Mage of Zhalfir original artwork" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Teferi%2C%20Mage%20of%20Zhalfir&amp;set=tsp&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Teferi%2C%20Mage%20of%20Zhalfir&amp;set=tsp&amp;format=image&amp;version=art_crop"/><div class="art-caption"><b>Teferi, Mage of Zhalfir · Time Spiral, 2006</b>The original illustration and frame established the visual identity preserved throughout this article.</div></div></section>
+<section id="formats"><div class="chapter-number">V · Format lives</div><h2>Where the card found a home</h2><div class="format-strip"><div class="format-card"><span class="impact">First home</span><h3>Time Spiral Block control</h3><p>Time Spiral Block control established the first repeatable use of flash enabler and timing lock.</p></div><div class="format-card"><span class="impact">Expanded card pool</span><h3>Extended Teachings</h3><p>Extended Teachings reduced the support cost or exploited a more powerful set of companions.</p></div><div class="format-card"><span class="impact">Long afterlife</span><h3>Commander flash and control decks</h3><p>Commander flash and control decks preserved the card as a staple, specialist tool, or historical reference point.</p></div></div><p>Format changes alter what a card is allowed to ask from the rest of the deck. A setup turn that was inexpensive in the original Standard or Block environment can become dangerous in a faster eternal format. Conversely, stronger mana, tutors, and redundant effects can turn a once-fragile idea into a reliable package.</p><p>Teferi, Mage of Zhalfir survived those transitions because its central exchange remained legible: granting flash to your creatures while denying opponents the ability to cast spells outside their main phases. The surrounding seventy-five cards changed, but pilots continued to recognize the resource being created and the opponent continued to recognize the window in which it had to be stopped.</p><p>The card’s format history also demonstrates that “staple” is not a single condition. In one era, Teferi, Mage of Zhalfir could be the reason to play an archetype. In another, it could be a two-copy role player, sideboard option, tutor target, or mana-base component. Historical significance includes all of those lives.</p></section>
+<section id="technical"><div class="chapter-number">VI · Technical play</div><h2>How to use the advantage without wasting it</h2><p>Playing Teferi, Mage of Zhalfir well begins with identifying the turn on which its text matters more than ordinary development. Casting, activating, suspending, dredging, or playing it as soon as possible is not automatically correct. The pilot must compare the visible gain with the information revealed, the mana left unused, and the opponent’s best response window.</p><p>In Time Spiral Block control, the card is usually treated as a flash enabler and timing lock. In Extended Teachings, it is more often a bridge between setup and inevitability. In Commander flash and control decks, it may be a compact package, mana-base choice, tutor target, or sideboard transformation. The same card count can therefore imply very different mulligan and sequencing rules.</p><p>A useful technical habit is to plan two turns beyond the famous play. Ask what the battlefield, graveyard, hand, library, life total, and mana will look like after the exchange. If Teferi, Mage of Zhalfir succeeds but leaves no profitable follow-up, the line may be theatrical rather than good. If it fails but forces the opponent to spend the only answer to <span class="card-name" data-card="Dreadship Reef" tabindex="0">Dreadship Reef</span> and <span class="card-name" data-card="Careful Consideration" tabindex="0">Careful Consideration</span>, the exchange may still be favorable.</p><p>The best use often preserves optionality. Hold the land that supplies a shuffle, retain the creature that can be sacrificed, keep the tutor that finds a different answer, or sequence the discard spell before committing. Teferi, Mage of Zhalfir rewards pilots who treat flexibility as a resource rather than as indecision.</p></section>
+<section id="failure-modes"><div class="chapter-number">VII · Failure modes</div><h2>When the famous card is bad</h2><p>Famous cards attract situations in which players use them because they recognize the pattern rather than because the current position supports it. Teferi, Mage of Zhalfir is poor when its setup consumes more resources than the payoff replaces, when the opponent’s answers line up cleanly, or when the surrounding deck cannot exploit the time or material it creates.</p><p>The card is also vulnerable to metagame compression. Faster clocks reduce the number of setup turns; cheaper interaction narrows the window; graveyard hate, land disruption, sweepers, or stack interaction can attack the enabling structure instead of the card itself. The exact answer varies, but the principle is consistent: fight the conversion, not merely the headline effect.</p><p>Finally, redundancy can make a once-unique effect ordinary. Later cards may offer a safer floor, lower cost, stronger body, or fewer deck-building restrictions. That does not erase the historical importance of Teferi, Mage of Zhalfir, but it changes when nostalgia should yield to optimization.</p></section>
+<section id="counterplay"><div class="chapter-number">VIII · Counterplay</div><h2>How the other side learned to fight back</h2><p>The cleanest counterplay begins by asking which resource Teferi, Mage of Zhalfir is trying to transform. If the answer is mana, shorten the game or tax development. If it is the graveyard, attack the graveyard before the payoff turn. If it is a triggered or activated ability, interact at the point that removes the most structural value rather than the most visible object.</p><p>Opponents should also distinguish the card from the shell. Removing Teferi, Mage of Zhalfir may be correct, but sometimes the enabling permanent, tutor, discard outlet, mana engine, tribal count, or land type is the scarcer resource. The deck archive below shows why this diagnosis matters: the same article card appears beside different support packages, and the correct point of attack moves with them.</p><p>Good counterplay therefore combines pressure with precision. Force the pilot to act before every resource is aligned, then answer the part of the sequence that cannot be replaced. Merely holding a theoretically relevant answer is not enough if the game ends before the window arrives.</p></section>
+<section id="case-study"><div class="chapter-number">IX · A game in slow motion</div><h2>A representative game</h2><p>Consider a representative game with Time Spiral Block control. The opening hand contains functional mana, one support piece, and Teferi, Mage of Zhalfir. The temptation is to build immediately toward the card’s most dramatic line, but the first decision is whether the opponent’s pace permits that plan.</p><p>On the early turns, the pilot develops while concealing as much information as possible. A fetchland may wait to preserve a shuffle; a discard spell may precede the engine; a small creature may be held because it is worth more as a later resource. The opponent sees ordinary development but must already respect a flash enabler and timing lock.</p><p>The middle turn creates the fork. One line commits Teferi, Mage of Zhalfir now and takes the visible gain. The other uses <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span> and <span class="card-name" data-card="Mystical Teachings" tabindex="0">Mystical Teachings</span> to test interaction, improve the position, or force the opponent to spend mana. Strong play chooses the line that makes the opponent’s best answer least efficient, not the line that produces the largest immediate number.</p><p>When the key exchange happens, the result should be evaluated structurally. Which player has more live draws? Which zones contain reusable material? Who is required to act first? The famous text on Teferi, Mage of Zhalfir matters because it changes those answers, not because resolving a celebrated card is an end in itself.</p><p>The closing turns demonstrate the card’s real legacy. Once the opponent has spent resources respecting the first activation, trigger, land drop, or spell, the rest of the deck becomes stronger. <span class="card-name" data-card="Careful Consideration" tabindex="0">Careful Consideration</span>, <span class="card-name" data-card="Urza's Factory" tabindex="0">Urza's Factory</span>, and <span class="card-name" data-card="Remand" tabindex="0">Remand</span> and even ordinary lands or creatures inherit the space that Teferi, Mage of Zhalfir created.</p></section>
+<section id="memory"><div class="chapter-number">X · Player memory</div><h2>What players remember</h2><div class="memory"><blockquote>“The card was never only the text that resolved. It was the turn the whole match began to orbit around what might happen next.”</blockquote><cite>Composite player memory · Compulsive Research oral-history convention</cite></div><p>Players tend to remember Teferi, Mage of Zhalfir as a moment: the first time the hidden line became clear, the first impossible recovery, or the first game in which an apparently modest resource produced an overwhelming turn. That memory records surprise, but it can also obscure the patient setup that made the moment possible.</p><p>The card’s reputation came from repetition. Across kitchen tables, qualifiers, online leagues, and championship coverage, players encountered the same lesson: granting flash to your creatures while denying opponents the ability to cast spells outside their main phases. Once learned, that lesson changed how they read later cards even when Teferi, Mage of Zhalfir was no longer legal, efficient, or fashionable.</p><p>This is the distinction between nostalgia and historical influence. Nostalgia remembers artwork and dramatic plays. Influence survives in deck-building habits, rules awareness, sideboard construction, mana-base design, and the expectation that a flash enabler and timing lock deserves immediate scrutiny.</p></section>
+<section id="descendant"><div class="chapter-number">XI · Descendants</div><h2>The inherited idea</h2><div class="inline-image"><div class="image"><img alt="Teferi, Time Raveler artwork" class="inline-image-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Teferi%2C%20Time%20Raveler&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Teferi%2C%20Time%20Raveler&amp;format=image&amp;version=art_crop"/></div><div class="copy"><div class="kicker">A later echo</div><h3>Teferi, Time Raveler</h3><p>Later Magic revisited part of Teferi, Mage of Zhalfir’s strategic territory with different costs, restrictions, and expectations.</p></div></div><p><span class="card-name" data-card="Teferi, Time Raveler" tabindex="0">Teferi, Time Raveler</span> inherits part of the design territory opened by Teferi, Mage of Zhalfir. The cards are not identical, and the differences reveal what later design wanted to preserve, simplify, or restrain.</p><p>The relationship is conceptual rather than literal. Both cards ask players to value a flash enabler and timing lock, but the later card changes cost, timing, reliability, color, or deck-building requirements. Comparing them separates the essential strategic idea from the historical environment that first made it famous.</p><p>Other descendants share only fragments: a zone change, scalable payoff, free sacrifice, tribal count, tutor restriction, alternate cost, land type, or repeated loyalty effect. Together they show that influential designs rarely produce one direct copy. They produce a family of questions.</p><p>That family is the strongest reason to preserve Teferi, Mage of Zhalfir. Its importance exceeds the number of tournaments in which it appeared. The card taught players and designers to recognize a reusable pattern, and later Magic continued arguing with that pattern through cards such as <span class="card-name" data-card="Teferi, Time Raveler" tabindex="0">Teferi, Time Raveler</span>.</p></section>
+<section id="close-reading"><div class="chapter-number">XII · Close reading</div><h2>The position after the famous play</h2><p>A close reading of Teferi, Mage of Zhalfir benefits from separating visible action from structural pressure. The controller is not simply trying to resolve one effect. The deck is arranging mana, information, threat order, and zones so that granting flash to your creatures while denying opponents the ability to cast spells outside their main phases occurs when the opponent has the fewest profitable alternatives.</p><p>This is why the same card can look ordinary in an unsupported list and oppressive in a tuned archetype. The surrounding seventy-five cards determine whether the printed drawback is a real payment, a temporary inconvenience, or a resource the deck wanted to spend anyway. <span class="card-name" data-card="Draining Whelk" tabindex="0">Draining Whelk</span> and <span class="card-name" data-card="Remand" tabindex="0">Remand</span> demonstrate how support pieces can turn a narrow exchange into a full strategy.</p><p>The practical lesson is to measure success by the position after the famous play rather than by the spectacle of the play itself. Cards in hand, usable mana, live draws, graveyard access, battlefield pressure, and forced responses reveal whether Teferi, Mage of Zhalfir actually created advantage.</p></section>
+<section id="decklists"><div class="chapter-number">XIII · Deck evidence</div><h2>The deck archive</h2><p>The archive prioritizes complete tournament registrations from the published premier-event compilation. When fewer than three documentary lists survive in that reusable source, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p><div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations take priority; a transparent supplemental model appears only when fewer than three complete documentary lists could be assembled from the premier-event dataset.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Ryou Ogura — 2006 World Championship</strong><small>2nd place · TSP standard · 2006-12-03</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published single-elimination deck registration from 2006 World Championship. The list is preserved at its recorded size: 144114442211421422223432 cards in the main deck and 3211311111 in the sideboard.</p><div class="deck-meta"><div><b>Ryou Ogura</b><div class="small">Main deck 144114442211421422223432 · Sideboard 3211311111</div></div><button class="copy" data-target="deck-385-teferi-mage-of-zhalfir-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 4</h4><div class="row"><span class="qty">2</span>Teferi, Mage of Zhalfir</div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Triskelavus" tabindex="0">Triskelavus</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Faith's Fetters" tabindex="0">Faith's Fetters</span></div></div><div class="group"><h4>Sorceries · 9</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Compulsive Research" tabindex="0">Compulsive Research</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tidings" tabindex="0">Tidings</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 7</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Azorius Signet" tabindex="0">Azorius Signet</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Dimir Signet" tabindex="0">Dimir Signet</span></div></div><div class="group"><h4>Instants · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Careful Consideration" tabindex="0">Careful Consideration</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Commandeer" tabindex="0">Commandeer</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mystical Teachings" tabindex="0">Mystical Teachings</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Burst" tabindex="0">Spell Burst</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Think Twice" tabindex="0">Think Twice</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hallowed Fountain" tabindex="0">Hallowed Fountain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza's Factory" tabindex="0">Urza's Factory</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Mine" tabindex="0">Urza's Mine</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Power Plant" tabindex="0">Urza's Power Plant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Tower" tabindex="0">Urza's Tower</span></div></div><div class="group"><h4>Sideboard · 3211311111</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Annex" tabindex="0">Annex</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Draining Whelk" tabindex="0">Draining Whelk</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Faith's Fetters" tabindex="0">Faith's Fetters</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Jester's Scepter" tabindex="0">Jester's Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Remove Soul" tabindex="0">Remove Soul</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Return to Dust" tabindex="0">Return to Dust</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Trickbind" tabindex="0">Trickbind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div></div></div><pre hidden="" id="deck-385-teferi-mage-of-zhalfir-1">Ryou Ogura — 2006 World Championship
+2nd place · TSP standard · 2006-12-03
+
+Creatures · 4
+2 Teferi, Mage of Zhalfir
+2 Triskelavus
+
+Artifacts · 7
+4 Azorius Signet
+3 Dimir Signet
+
+Enchantments · 2
+2 Faith's Fetters
+
+Instants · 15
+1 Careful Consideration
+1 Commandeer
+2 Mana Leak
+1 Mystical Teachings
+4 Remand
+2 Spell Burst
+2 Spell Snare
+2 Think Twice
+
+Sorceries · 9
+4 Compulsive Research
+2 Tidings
+3 Wrath of God
+
+Lands · 23
+1 Academy Ruins
+4 Adarkar Wastes
+4 Hallowed Fountain
+1 Island
+1 Urza's Factory
+4 Urza's Mine
+4 Urza's Power Plant
+4 Urza's Tower
+
+Sideboard · 3211311111
+3 Annex
+2 Circle of Protection: Red
+1 Draining Whelk
+1 Faith's Fetters
+3 Jester's Scepter
+1 Remove Soul
+1 Return to Dust
+1 Spell Snare
+1 Trickbind
+1 Wrath of God</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Guillaume Wafo-Tapa — Pro Tour Yokohama 2007</strong><small>1st place · Time Spiral block · 2007-04-22</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published single-elimination deck registration from Pro Tour Yokohama 2007. The list is preserved at its recorded size: 14101144122214441312224 cards in the main deck and 3111113211 in the sideboard.</p><div class="deck-meta"><div><b>Guillaume Wafo-Tapa</b><div class="small">Main deck 14101144122214441312224 · Sideboard 3111113211</div></div><button class="copy" data-target="deck-385-teferi-mage-of-zhalfir-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 7</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Aeon Chronicler" tabindex="0">Aeon Chronicler</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Draining Whelk" tabindex="0">Draining Whelk</span></div><div class="row"><span class="qty">2</span>Teferi, Mage of Zhalfir</div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Triskelavus" tabindex="0">Triskelavus</span></div></div><div class="group"><h4>Instants · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cancel" tabindex="0">Cancel</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Careful Consideration" tabindex="0">Careful Consideration</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Haunting Hymn" tabindex="0">Haunting Hymn</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mystical Teachings" tabindex="0">Mystical Teachings</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Snapback" tabindex="0">Snapback</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sudden Death" tabindex="0">Sudden Death</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tendrils of Corruption" tabindex="0">Tendrils of Corruption</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Think Twice" tabindex="0">Think Twice</span></div></div><div class="group"><h4>Lands · 26</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Academy Ruins" tabindex="0">Academy Ruins</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dreadship Reef" tabindex="0">Dreadship Reef</span></div><div class="row"><span class="qty">10</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Molten Slagheap" tabindex="0">Molten Slagheap</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Terramorphic Expanse" tabindex="0">Terramorphic Expanse</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urborg, Tomb of Yawgmoth" tabindex="0">Urborg, Tomb of Yawgmoth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza's Factory" tabindex="0">Urza's Factory</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Prismatic Lens" tabindex="0">Prismatic Lens</span></div></div><div class="group"><h4>Sorceries · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Damnation" tabindex="0">Damnation</span></div></div><div class="group"><h4>Sideboard · 3111113211</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Detritivore" tabindex="0">Detritivore</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Extirpate" tabindex="0">Extirpate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fortune Thief" tabindex="0">Fortune Thief</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Premature Burial" tabindex="0">Premature Burial</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pull from Eternity" tabindex="0">Pull from Eternity</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sudden Death" tabindex="0">Sudden Death</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Temporal Isolation" tabindex="0">Temporal Isolation</span></div></div></div></div><pre hidden="" id="deck-385-teferi-mage-of-zhalfir-2">Guillaume Wafo-Tapa — Pro Tour Yokohama 2007
+1st place · Time Spiral block · 2007-04-22
+
+Creatures · 7
+2 Aeon Chronicler
+2 Draining Whelk
+2 Teferi, Mage of Zhalfir
+1 Triskelavus
+
+Artifacts · 4
+4 Prismatic Lens
+
+Instants · 19
+4 Cancel
+4 Careful Consideration
+1 Haunting Hymn
+3 Mystical Teachings
+1 Snapback
+2 Sudden Death
+2 Tendrils of Corruption
+2 Think Twice
+
+Sorceries · 4
+4 Damnation
+
+Lands · 26
+1 Academy Ruins
+4 Dreadship Reef
+10 Island
+1 Molten Slagheap
+1 Swamp
+4 Terramorphic Expanse
+4 Urborg, Tomb of Yawgmoth
+1 Urza's Factory
+
+Sideboard · 3111113211
+3 Detritivore
+1 Disenchant
+1 Extirpate
+1 Fortune Thief
+1 Mountain
+1 Plains
+3 Premature Burial
+2 Pull from Eternity
+1 Sudden Death
+1 Temporal Isolation</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Michael Jacob — Pro Tour Amsterdam 2010</strong><small>3rd place · extended thru M11 · 2010-09-05</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published single-elimination deck registration from Pro Tour Amsterdam 2010. The list is preserved at its recorded size: 3341331113211112411314243123 cards in the main deck and 111232122 in the sideboard.</p><div class="deck-meta"><div><b>Michael Jacob</b><div class="small">Main deck 3341331113211112411314243123 · Sideboard 111232122</div></div><button class="copy" data-target="deck-385-teferi-mage-of-zhalfir-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 2</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Grave Titan" tabindex="0">Grave Titan</span></div><div class="row"><span class="qty">1</span>Teferi, Mage of Zhalfir</div></div><div class="group"><h4>Artifacts · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Coalition Relic" tabindex="0">Coalition Relic</span></div></div><div class="group"><h4>Sorceries · 7</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cruel Ultimatum" tabindex="0">Cruel Ultimatum</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Damnation" tabindex="0">Damnation</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Preordain" tabindex="0">Preordain</span></div></div></div><div class="deck-col"><div class="group"><h4>Planeswalkers · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Jace, the Mind Sculptor" tabindex="0">Jace, the Mind Sculptor</span></div></div><div class="group"><h4>Instants · 20</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Consume the Meek" tabindex="0">Consume the Meek</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Extirpate" tabindex="0">Extirpate</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Logic Knot" tabindex="0">Logic Knot</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mystical Teachings" tabindex="0">Mystical Teachings</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Punishing Fire" tabindex="0">Punishing Fire</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Terminate" tabindex="0">Terminate</span></div></div><div class="group"><h4>Lands · 26</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cascade Bluffs" tabindex="0">Cascade Bluffs</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Creeping Tar Pit" tabindex="0">Creeping Tar Pit</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Crumbling Necropolis" tabindex="0">Crumbling Necropolis</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dreadship Reef" tabindex="0">Dreadship Reef</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Grove of the Burnwillows" tabindex="0">Grove of the Burnwillows</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Reflecting Pool" tabindex="0">Reflecting Pool</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="River of Tears" tabindex="0">River of Tears</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sunken Ruins" tabindex="0">Sunken Ruins</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urborg, Tomb of Yawgmoth" tabindex="0">Urborg, Tomb of Yawgmoth</span></div></div><div class="group"><h4>Sideboard · 111232122</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Consume the Meek" tabindex="0">Consume the Meek</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Damnation" tabindex="0">Damnation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flashfreeze" tabindex="0">Flashfreeze</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Negate" tabindex="0">Negate</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Relic of Progenitus" tabindex="0">Relic of Progenitus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thought Hemorrhage" tabindex="0">Thought Hemorrhage</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Volcanic Fallout" tabindex="0">Volcanic Fallout</span></div></div></div></div><pre hidden="" id="deck-385-teferi-mage-of-zhalfir-3">Michael Jacob — Pro Tour Amsterdam 2010
+3rd place · extended thru M11 · 2010-09-05
+
+Creatures · 2
+1 Grave Titan
+1 Teferi, Mage of Zhalfir
+
+Planeswalkers · 3
+3 Jace, the Mind Sculptor
+
+Artifacts · 2
+2 Coalition Relic
+
+Instants · 20
+1 Consume the Meek
+4 Cryptic Command
+1 Extirpate
+3 Lightning Bolt
+1 Logic Knot
+4 Mana Leak
+2 Mystical Teachings
+3 Punishing Fire
+1 Terminate
+
+Sorceries · 7
+2 Cruel Ultimatum
+1 Damnation
+4 Preordain
+
+Lands · 26
+3 Cascade Bluffs
+3 Creeping Tar Pit
+4 Crumbling Necropolis
+1 Dreadship Reef
+3 Grove of the Burnwillows
+3 Island
+1 Mountain
+1 Reflecting Pool
+1 River of Tears
+3 Scalding Tarn
+2 Sunken Ruins
+1 Urborg, Tomb of Yawgmoth
+
+Sideboard · 111232122
+1 Consume the Meek
+1 Damnation
+1 Duress
+2 Flashfreeze
+3 Negate
+2 Relic of Progenitus
+1 Thought Hemorrhage
+2 Thoughtseize
+2 Volcanic Fallout</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Ben Stark — 2013 World Championship</strong><small>3rd place · modern thru M14 · 2013-08-04</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published single-elimination deck registration from 2013 World Championship. The list is preserved at its recorded size: 442311142134444232114221 cards in the main deck and 112121111112 in the sideboard.</p><div class="deck-meta"><div><b>Ben Stark</b><div class="small">Main deck 442311142134444232114221 · Sideboard 112121111112</div></div><button class="copy" data-target="deck-385-teferi-mage-of-zhalfir-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span></div></div><div class="group"><h4>Instants · 28</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Electrolyze" tabindex="0">Electrolyze</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Path to Exile" tabindex="0">Path to Exile</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shadow of Doubt" tabindex="0">Shadow of Doubt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sphinx's Revelation" tabindex="0">Sphinx's Revelation</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Think Twice" tabindex="0">Think Twice</span></div></div><div class="group"><h4>Lands · 26</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Arid Mesa" tabindex="0">Arid Mesa</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Celestial Colonnade" tabindex="0">Celestial Colonnade</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hallowed Fountain" tabindex="0">Hallowed Fountain</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sulfur Falls" tabindex="0">Sulfur Falls</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tectonic Edge" tabindex="0">Tectonic Edge</span></div></div></div><div class="deck-col"><div class="group"><h4>Planeswalkers · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gideon Jura" tabindex="0">Gideon Jura</span></div></div><div class="group"><h4>Sorceries · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div></div><div class="group"><h4>Sideboard · 112121111112</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Aven Mindcensor" tabindex="0">Aven Mindcensor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Baneslayer Angel" tabindex="0">Baneslayer Angel</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterflux" tabindex="0">Counterflux</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dispel" tabindex="0">Dispel</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hallowed Burial" tabindex="0">Hallowed Burial</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shadow of Doubt" tabindex="0">Shadow of Doubt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sowing Salt" tabindex="0">Sowing Salt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tectonic Edge" tabindex="0">Tectonic Edge</span></div><div class="row"><span class="qty">1</span>Teferi, Mage of Zhalfir</div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Threads of Disloyalty" tabindex="0">Threads of Disloyalty</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wear // Tear" tabindex="0">Wear // Tear</span></div></div></div></div><pre hidden="" id="deck-385-teferi-mage-of-zhalfir-4">Ben Stark — 2013 World Championship
+3rd place · modern thru M14 · 2013-08-04
+
+Creatures · 4
+4 Snapcaster Mage
+
+Planeswalkers · 1
+1 Gideon Jura
+
+Instants · 28
+4 Cryptic Command
+4 Electrolyze
+4 Lightning Bolt
+2 Lightning Helix
+3 Mana Leak
+2 Path to Exile
+1 Shadow of Doubt
+4 Spell Snare
+2 Sphinx's Revelation
+2 Think Twice
+
+Sorceries · 1
+1 Pyroclasm
+
+Lands · 26
+4 Arid Mesa
+4 Celestial Colonnade
+2 Hallowed Fountain
+3 Island
+1 Mountain
+1 Plains
+1 Sacred Foundry
+4 Scalding Tarn
+2 Steam Vents
+1 Sulfur Falls
+3 Tectonic Edge
+
+Sideboard · 112121111112
+1 Aven Mindcensor
+1 Baneslayer Angel
+2 Counterflux
+1 Dispel
+2 Hallowed Burial
+1 Pyroclasm
+1 Shadow of Doubt
+1 Sowing Salt
+1 Tectonic Edge
+1 Teferi, Mage of Zhalfir
+1 Threads of Disloyalty
+2 Wear // Tear</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Lee Shi Tian — Pro Tour Born of the Gods</strong><small>5th place · modern thru BNG · 2014-02-23</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published single-elimination deck registration from Pro Tour Born of the Gods. The list is preserved at its recorded size: 10414323242344224222 cards in the main deck and 311112123 in the sideboard.</p><div class="deck-meta"><div><b>Lee Shi Tian</b><div class="small">Main deck 10414323242344224222 · Sideboard 311112123</div></div><button class="copy" data-target="deck-385-teferi-mage-of-zhalfir-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 5</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Master of Waves" tabindex="0">Master of Waves</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span></div></div><div class="group"><h4>Enchantments · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spreading Seas" tabindex="0">Spreading Seas</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Threads of Disloyalty" tabindex="0">Threads of Disloyalty</span></div></div><div class="group"><h4>Sorceries · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serum Visions" tabindex="0">Serum Visions</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Batterskull" tabindex="0">Batterskull</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Vedalken Shackles" tabindex="0">Vedalken Shackles</span></div></div><div class="group"><h4>Instants · 17</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Vapor Snag" tabindex="0">Vapor Snag</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">10</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div></div><div class="group"><h4>Sideboard · 311112123</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Anger of the Gods" tabindex="0">Anger of the Gods</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Combust" tabindex="0">Combust</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterflux" tabindex="0">Counterflux</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flame Slash" tabindex="0">Flame Slash</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Negate" tabindex="0">Negate</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spreading Seas" tabindex="0">Spreading Seas</span></div><div class="row"><span class="qty">1</span>Teferi, Mage of Zhalfir</div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Vandalblast" tabindex="0">Vandalblast</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Vendilion Clique" tabindex="0">Vendilion Clique</span></div></div></div></div><pre hidden="" id="deck-385-teferi-mage-of-zhalfir-5">Lee Shi Tian — Pro Tour Born of the Gods
+5th place · modern thru BNG · 2014-02-23
+
+Creatures · 5
+2 Master of Waves
+3 Snapcaster Mage
+
+Artifacts · 4
+2 Batterskull
+2 Vedalken Shackles
+
+Enchantments · 8
+4 Blood Moon
+2 Spreading Seas
+2 Threads of Disloyalty
+
+Instants · 17
+2 Cryptic Command
+4 Lightning Bolt
+2 Mana Leak
+3 Remand
+4 Spell Snare
+2 Vapor Snag
+
+Sorceries · 4
+4 Serum Visions
+
+Lands · 22
+10 Island
+4 Misty Rainforest
+1 Mountain
+4 Scalding Tarn
+3 Steam Vents
+
+Sideboard · 311112123
+3 Anger of the Gods
+1 Combust
+1 Counterflux
+1 Flame Slash
+1 Negate
+2 Spreading Seas
+1 Teferi, Mage of Zhalfir
+2 Vandalblast
+3 Vendilion Clique</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details></div></section>
+<section id="printings"><div class="chapter-number">XIV · Material history</div><h2>Printings and sources</h2><p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate paper printings show every available version instead.</p><div class="printings" data-card="Teferi, Mage of Zhalfir" data-original-set="tsp" id="printing-grid"><figure class="printing original-printing"><img alt="Teferi, Mage of Zhalfir original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Teferi%2C%20Mage%20of%20Zhalfir&amp;set=tsp&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div><ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Teferi%2C%20Mage%20of%20Zhalfir%22%20include%3Aextras&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Teferi, Mage of Zhalfir</a><span>Release dates, collector numbers, artists, images, and distinct illustration records.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+%5BTeferi%2C%20Mage%20of%20Zhalfir%5D">Gatherer card record</a><span>Official Oracle wording and rulings reference.</span></li><li><a href="https://mtgjson.com/downloads/all-files/">MTGJSON card and printing data</a><span>Machine-readable card, set, and printing history used as a cross-check.</span></li><li><a href="https://github.com/ajlvi/pt-decks-csv">Premier-event deck compilation</a><span>Published single-elimination deck registrations used by the deck archive.</span></li><li><a href="https://www.mtgtop8.com/">MTGTop8 tournament archive</a><span>Broader archetype and event context for competitive appearances.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned &amp; Restricted list</a><span>Current format policy should be checked here because legality changes over time.</span></li></ul><p class="editor-note">Compulsive Research separates a new release object from a new visual identity. The live gallery therefore keeps one representative for each illustration whenever catalog metadata allows it.</p></section>
+</article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 385 follows the Eternal Dragon article architecture: historical argument, rules texture, format movement, design descendants, deck evidence, and a deduplicated printing gallery.</aside></div>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XV · Continue reading</div><h2>The numbered archive</h2><p>Teferi, Mage of Zhalfir is entry 385 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-384#entry-384"><small>Previous entry · 384</small>Academy Ruins</a><a href="index.html?focus=entry-386#entry-386"><small>Next entry · 386</small>Counterbalance</a></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Entry 385 · Teferi, Mage of Zhalfir · Independent, noncommercial Magic history project.</footer><script>
+const ARTICLE_CARD = "Teferi, Mage of Zhalfir";
+const ORIGINAL_SET = "tsp";
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(preview&&!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
+document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
+function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
+function chooseIconic(cards){
+  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
+  if(!bySet.length)return [];
+  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
+  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
+  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
+  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
+  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
+  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
+  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
+  for(const c of iconic){add(c);if(selected.length>=target)break}
+  add(bySet[bySet.length-1]);
+  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
+  for(const c of bySet){if(selected.length>=target)break;add(c)}
+  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+}
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');if(!grid)return;
+ const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
+ try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
+  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
+  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
+ }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
+}
+loadPrintings();
+</script></body></html>

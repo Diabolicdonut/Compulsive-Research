@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A Compulsive Research history of Electrolyze" name="description"/><title>Electrolyze: Two Damage, One Card — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:var(--night2)}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
+.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+
+/* Entry-specific original-art overrides */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Jackal%20Pup&set=tmp&format=image&version=art_crop")!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Jackal%20Pup&set=tmp&format=image&version=art_crop")!important}
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+/* Entry-specific original-art overrides */
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Electrolyze&set=gpt&format=image&version=art_crop")!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Electrolyze&set=gpt&format=image&version=art_crop")!important}
+.archive-art{background-image:url("https://api.scryfall.com/cards/named?exact=Electrolyze&set=gpt&format=image&version=art_crop")!important}
+</style></head><body data-article-card="Electrolyze"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Electrolyze&amp;set=gpt&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Electrolyze&amp;set=gpt&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=entry-364#entry-364">← Back to Compulsive Research</a><div class="eyebrow">Entry 364 · Modern Foundations</div><h1>Two Damage, One Card</h1><p class="deckline">Electrolyze made small creatures and damaged planeswalkers dangerous liabilities while replacing itself and preserving control’s card count.</p><div class="byline"><span>A Compulsive Research essay</span><span class="pill">Guildpact, 2006</span><span class="pill">Approximately 20 minute read</span></div></div></header>
+<nav class="rank-nav"><a href="index.html?focus=entry-363#entry-363">← Entry 363 · Jace Beleren</a><span class="center">Entry 364 of 1,000</span><a href="index.html?focus=entry-365#entry-365">Entry 365 · Spell Snare →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">Two Damage, One Card</a><a href="#origin">What the first printing made possible</a><a href="#mechanics">The short text hides a resource system</a><a href="#history">From strange object to archetype language</a><a href="#formats">Where the card found a home</a><a href="#technical">How to use the advantage without wasting it</a><a href="#failure-modes">When the famous card is bad</a><a href="#counterplay">How the other side learned to fight back</a><a href="#case-study">A representative game in slow motion</a><a href="#memory">What players remember</a><a href="#descendant">The inherited idea</a><a href="#close-reading">The position after the famous play</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The argument</div><h2>Two Damage, One Card</h2><p class="opening dropcap">Electrolyze made small creatures and damaged planeswalkers dangerous liabilities while replacing itself and preserving control’s card count.</p><div class="card-lead"><img alt="Electrolyze original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Electrolyze&amp;set=gpt&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The card</div><h3>Electrolyze</h3><p><b>{1}{U}{R}</b><br/>Instant</p><p>Electrolyze deals 2 damage divided as you choose among one or two targets. Draw a card.</p><div class="stats"><div class="stat"><b>First release</b>Guildpact · 2006</div><div class="stat"><b>Archive identity</b>Entry 364 · Modern Foundations</div></div></div></div><p>This article follows Electrolyze from Guildpact through the decks that learned to exploit a divisible damage cantrip. Its history is not merely a list of appearances. It is a record of players discovering that dividing two damage across one or two targets and drawing a replacement card could reorganize how an archetype valued mana, cards, timing, information, and risk.</p><p>The central argument is that Electrolyze mattered because it gave successful pilots a repeatable strategic language. In Izzet and Jeskai Control, the card performed one job; in Extended blue-red decks, it performed another; and in Modern tempo and control, the same printed text became a different kind of pressure. The connecting idea remained a divisible damage cantrip.</p></section>
+<section id="origin"><div class="chapter-number">II · First printing</div><h2>What the first printing made possible</h2><p>Electrolyze arrived in Guildpact in 2006, when players had to evaluate it without the stock lists, matchup maps, and accumulated rules knowledge that later made its role seem obvious. The first challenge was not reading the text. It was deciding which apparent cost was a real drawback and which was an invitation to build differently.</p><p>The surrounding card pool supplied the first clues. <span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span>, <span class="card-name" data-card="Remand" tabindex="0">Remand</span>, <span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span>, and <span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span> all changed the value of the resources that Electrolyze touched. A card that looked narrow in isolation became broader once those interactions were treated as the foundation of a deck rather than as occasional bonuses.</p><p>Early lists therefore look exploratory. Mana bases can appear cautious, sideboards can seem improvised, and some card counts violate later conventions. Those imperfections are useful evidence: they show deck builders learning how much support Electrolyze required and how much ordinary efficiency could be surrendered in exchange for dividing two damage across one or two targets and drawing a replacement card.</p><p>The breakthrough came when the card stopped being judged as a single object and started being judged as a position. If resolving, activating, attacking with, or merely representing Electrolyze changed the opponent’s safe line, then the card had already created strategic value before its most famous effect occurred.</p></section>
+<section id="mechanics"><div class="chapter-number">III · Rules texture</div><h2>The short text hides a resource system</h2><div class="pullquote">Electrolyze made small creatures and damaged planeswalkers dangerous liabilities while replacing itself and preserving control’s card count.<small>Compulsive Research · Entry 364</small></div><p>The Oracle text is compact, but the decisions it creates are not. The pilot must identify what is paid, when priority changes, which effects use the stack, and what remains true if the first plan is answered. With Electrolyze, the defining conversion is dividing two damage across one or two targets and drawing a replacement card.</p><p>That conversion is why rules precision matters. The difference between casting a spell, activating an ability, triggering an ability, sacrificing a permanent, replacing a draw, or playing a land decides which responses are legal. Cards such as <span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span>, <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span>, and <span class="card-name" data-card="Vendilion Clique" tabindex="0">Vendilion Clique</span> became natural companions or natural enemies because they interacted with the exact event the deck cared about.</p><p>The card also creates information pressure. Open mana, cards in hand, graveyard contents, permanent types, and visible support pieces can force the opponent to respect a line that has not happened. The resulting hesitation is strategically real: attacks change, removal is held, and spells are sequenced around the possibility that Electrolyze will turn a small opening into a decisive advantage.</p><p>Expert play therefore begins before the card is used. The strongest pilots know the minimum resource commitment needed to represent it, the point at which the opponent can safely ignore it, and the backup line preserved when the obvious exchange is denied.</p></section>
+<section id="history"><div class="chapter-number">IV · Tournament movement</div><h2>From strange object to archetype language</h2><div class="timeline"><div class="timeline-item"><time>2006</time><h3>Guildpact introduces Electrolyze</h3><p>Players encounter a divisible damage cantrip before its strongest shell has a settled list.</p></div><div class="timeline-item"><time>Early adoption</time><h3>Izzet and Jeskai Control finds the first repeatable shell</h3><p>Deck builders reorganize resources around dividing two damage across one or two targets and drawing a replacement card.</p></div><div class="timeline-item"><time>Metagame response</time><h3>Opponents learn the real point of interaction</h3><p>Sideboards and sequencing adapt to the engine rather than merely the visible card.</p></div><div class="timeline-item"><time>Format migration</time><h3>Electrolyze enters Extended blue-red decks</h3><p>The same printed text takes on a different job in a larger, faster, or more specialized card pool.</p></div><div class="timeline-item"><time>Long memory</time><h3>The card becomes archetype vocabulary</h3><p>Later designs revisit the strategic territory that Electrolyze made legible.</p></div></div><p>The history of Electrolyze is a movement from discovery to vocabulary. In its first season, it was a strange option whose support cost was not fully understood. Once Izzet and Jeskai Control established a repeatable shell, the card became an expectation. Opponents then changed removal, sideboards, mulligans, mana bases, and sequencing to meet it.</p><p>That response did not end the card’s career; it clarified its real strengths. The best later decks used Electrolyze when its floor was acceptable and its ceiling attacked the format from an angle ordinary answers could not cover efficiently. This is why it could migrate into Extended blue-red decks and Modern tempo and control without performing exactly the same job each time.</p><p>Tournament history often compresses this process into deck names and finishes. The more revealing story is the exchange of ideas: one archetype proved the card could work, another reduced the support cost, and a third used it as a sideboard threat, tutor target, mana source, or compact package. By then, Electrolyze was no longer an experiment. It was part of the format’s grammar.</p><div class="art-break"><img alt="Electrolyze original artwork" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Electrolyze&amp;set=gpt&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Electrolyze&amp;set=gpt&amp;format=image&amp;version=art_crop"/><div class="art-caption"><b>Electrolyze · Guildpact, 2006</b>The original illustration and frame established the visual identity preserved throughout this article.</div></div></section>
+<section id="formats"><div class="chapter-number">V · Format lives</div><h2>Where the card found a home</h2><div class="format-strip"><div class="format-card"><span class="impact">First home</span><h3>Izzet and Jeskai Control</h3><p>Izzet and Jeskai Control established the first repeatable use of divisible damage cantrip.</p></div><div class="format-card"><span class="impact">Expanded card pool</span><h3>Extended blue-red decks</h3><p>Extended blue-red decks reduced the support cost or exploited a more powerful set of companions.</p></div><div class="format-card"><span class="impact">Long afterlife</span><h3>Modern tempo and control</h3><p>Modern tempo and control preserved the card as a staple, specialist tool, or historical reference point.</p></div></div><p>Format changes alter what a card is allowed to ask from the rest of the deck. A setup turn that was inexpensive in the original Standard or Block environment can become dangerous in a faster eternal format. Conversely, stronger mana, tutors, and redundant effects can turn a once-fragile idea into a reliable package.</p><p>Electrolyze survived those transitions because its central exchange remained legible: dividing two damage across one or two targets and drawing a replacement card. The surrounding seventy-five cards changed, but pilots continued to recognize the resource being created and the opponent continued to recognize the window in which it had to be stopped.</p><p>The card’s format history also demonstrates that “staple” is not a single condition. In one era, Electrolyze could be the reason to play an archetype. In another, it could be a two-copy role player, sideboard option, tutor target, or mana-base component. Historical significance includes all of those lives.</p></section>
+<section id="technical"><div class="chapter-number">VI · Technical play</div><h2>How to use the advantage without wasting it</h2><p>Playing Electrolyze well begins with identifying the turn on which its text matters more than ordinary development. Casting, activating, suspending, dredging, or playing it as soon as possible is not automatically correct. The pilot must compare the visible gain with the information revealed, the mana left unused, and the opponent’s best response window.</p><p>In Izzet and Jeskai Control, the card is usually treated as a divisible damage cantrip. In Extended blue-red decks, it is more often a bridge between setup and inevitability. In Modern tempo and control, it may be a compact package, mana-base choice, tutor target, or sideboard transformation. The same card count can therefore imply very different mulligan and sequencing rules.</p><p>A useful technical habit is to plan two turns beyond the famous play. Ask what the battlefield, graveyard, hand, library, life total, and mana will look like after the exchange. If Electrolyze succeeds but leaves no profitable follow-up, the line may be theatrical rather than good. If it fails but forces the opponent to spend the only answer to <span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span> and <span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span>, the exchange may still be favorable.</p><p>The best use often preserves optionality. Hold the land that supplies a shuffle, retain the creature that can be sacrificed, keep the tutor that finds a different answer, or sequence the discard spell before committing. Electrolyze rewards pilots who treat flexibility as a resource rather than as indecision.</p></section>
+<section id="failure-modes"><div class="chapter-number">VII · Failure modes</div><h2>When the famous card is bad</h2><p>Famous cards attract situations in which players use them because they recognize the pattern rather than because the current position supports it. Electrolyze is poor when its setup consumes more resources than the payoff replaces, when the opponent’s answers line up cleanly, or when the surrounding deck cannot exploit the time or material it creates.</p><p>The card is also vulnerable to metagame compression. Faster clocks reduce the number of setup turns; cheaper interaction narrows the window; graveyard hate, land disruption, sweepers, or stack interaction can attack the enabling structure instead of the card itself. The exact answer varies, but the principle is consistent: fight the conversion, not merely the headline effect.</p><p>Finally, redundancy can make a once-unique effect ordinary. Later cards may offer a safer floor, lower cost, stronger body, or fewer deck-building restrictions. That does not erase the historical importance of Electrolyze, but it changes when nostalgia should yield to optimization.</p></section>
+<section id="counterplay"><div class="chapter-number">VIII · Counterplay</div><h2>How the other side learned to fight back</h2><p>The cleanest counterplay begins by asking which resource Electrolyze is trying to transform. If the answer is mana, shorten the game or tax development. If it is the graveyard, attack the graveyard before the payoff turn. If it is a triggered or activated ability, interact at the point that removes the most structural value rather than the most visible object.</p><p>Opponents should also distinguish the card from the shell. Removing Electrolyze may be correct, but sometimes the enabling permanent, tutor, discard outlet, mana engine, tribal count, or land type is the scarcer resource. The deck archive below shows why this diagnosis matters: the same article card appears beside different support packages, and the correct point of attack moves with them.</p><p>Good counterplay therefore combines pressure with precision. Force the pilot to act before every resource is aligned, then answer the part of the sequence that cannot be replaced. Merely holding a theoretically relevant answer is not enough if the game ends before the window arrives.</p></section>
+<section id="case-study"><div class="chapter-number">IX · A game in slow motion</div><h2>A representative game</h2><p>Consider a representative game with Izzet and Jeskai Control. The opening hand contains functional mana, one support piece, and Electrolyze. The temptation is to build immediately toward the card’s most dramatic line, but the first decision is whether the opponent’s pace permits that plan.</p><p>On the early turns, the pilot develops while concealing as much information as possible. A fetchland may wait to preserve a shuffle; a discard spell may precede the engine; a small creature may be held because it is worth more as a later resource. The opponent sees ordinary development but must already respect a divisible damage cantrip.</p><p>The middle turn creates the fork. One line commits Electrolyze now and takes the visible gain. The other uses <span class="card-name" data-card="Remand" tabindex="0">Remand</span> and <span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span> to test interaction, improve the position, or force the opponent to spend mana. Strong play chooses the line that makes the opponent’s best answer least efficient, not the line that produces the largest immediate number.</p><p>When the key exchange happens, the result should be evaluated structurally. Which player has more live draws? Which zones contain reusable material? Who is required to act first? The famous text on Electrolyze matters because it changes those answers, not because resolving a celebrated card is an end in itself.</p><p>The closing turns demonstrate the card’s real legacy. Once the opponent has spent resources respecting the first activation, trigger, land drop, or spell, the rest of the deck becomes stronger. <span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span>, <span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span>, and <span class="card-name" data-card="Sulfur Falls" tabindex="0">Sulfur Falls</span> and even ordinary lands or creatures inherit the space that Electrolyze created.</p></section>
+<section id="memory"><div class="chapter-number">X · Player memory</div><h2>What players remember</h2><div class="memory"><blockquote>“The card was never only the text that resolved. It was the turn the whole match began to orbit around what might happen next.”</blockquote><cite>Composite player memory · Compulsive Research oral-history convention</cite></div><p>Players tend to remember Electrolyze as a moment: the first time the hidden line became clear, the first impossible recovery, or the first game in which an apparently modest resource produced an overwhelming turn. That memory records surprise, but it can also obscure the patient setup that made the moment possible.</p><p>The card’s reputation came from repetition. Across kitchen tables, qualifiers, online leagues, and championship coverage, players encountered the same lesson: dividing two damage across one or two targets and drawing a replacement card. Once learned, that lesson changed how they read later cards even when Electrolyze was no longer legal, efficient, or fashionable.</p><p>This is the distinction between nostalgia and historical influence. Nostalgia remembers artwork and dramatic plays. Influence survives in deck-building habits, rules awareness, sideboard construction, mana-base design, and the expectation that a divisible damage cantrip deserves immediate scrutiny.</p></section>
+<section id="descendant"><div class="chapter-number">XI · Descendants</div><h2>The inherited idea</h2><div class="inline-image"><div class="image"><img alt="Prismari Command artwork" class="inline-image-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Prismari%20Command&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Prismari%20Command&amp;format=image&amp;version=art_crop"/></div><div class="copy"><div class="kicker">A later echo</div><h3>Prismari Command</h3><p>Later Magic revisited part of Electrolyze’s strategic territory with different costs, restrictions, and expectations.</p></div></div><p><span class="card-name" data-card="Prismari Command" tabindex="0">Prismari Command</span> inherits part of the design territory opened by Electrolyze. The cards are not identical, and the differences reveal what later design wanted to preserve, simplify, or restrain.</p><p>The relationship is conceptual rather than literal. Both cards ask players to value a divisible damage cantrip, but the later card changes cost, timing, reliability, color, or deck-building requirements. Comparing them separates the essential strategic idea from the historical environment that first made it famous.</p><p>Other descendants share only fragments: a zone change, scalable payoff, free sacrifice, tribal count, tutor restriction, alternate cost, land type, or repeated loyalty effect. Together they show that influential designs rarely produce one direct copy. They produce a family of questions.</p><p>That family is the strongest reason to preserve Electrolyze. Its importance exceeds the number of tournaments in which it appeared. The card taught players and designers to recognize a reusable pattern, and later Magic continued arguing with that pattern through cards such as <span class="card-name" data-card="Prismari Command" tabindex="0">Prismari Command</span>.</p></section>
+<section id="close-reading"><div class="chapter-number">XII · Close reading</div><h2>The position after the famous play</h2><p>A close reading of Electrolyze benefits from separating visible action from structural pressure. The controller is not simply trying to resolve one effect. The deck is arranging mana, information, threat order, and zones so that dividing two damage across one or two targets and drawing a replacement card occurs when the opponent has the fewest profitable alternatives.</p><p>This is why the same card can look ordinary in an unsupported list and oppressive in a tuned archetype. The surrounding seventy-five cards determine whether the printed drawback is a real payment, a temporary inconvenience, or a resource the deck wanted to spend anyway. <span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span> and <span class="card-name" data-card="Sulfur Falls" tabindex="0">Sulfur Falls</span> demonstrate how support pieces can turn a narrow exchange into a full strategy.</p><p>The practical lesson is to measure success by the position after the famous play rather than by the spectacle of the play itself. Cards in hand, usable mana, live draws, graveyard access, battlefield pressure, and forced responses reveal whether Electrolyze actually created advantage.</p></section>
+<section id="decklists"><div class="chapter-number">XIII · Deck evidence</div><h2>The deck archive</h2><p>The archive prioritizes complete tournament registrations from the published premier-event compilation. When fewer than three documentary lists survive in that reusable source, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p><div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations take priority; a transparent supplemental model appears only when fewer than three complete documentary lists could be assembled from the premier-event dataset.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Osyp Lebedowicz — Pro Tour Honolulu 2006</strong><small>5th place · GPT standard · 2006-03-05</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published single-elimination deck registration from Pro Tour Honolulu 2006. The list is preserved at its recorded size: 14424444414414242124 cards in the main deck and 442212 in the sideboard.</p><div class="deck-meta"><div><b>Osyp Lebedowicz</b><div class="small">Main deck 14424444414414242124 · Sideboard 442212</div></div><button class="copy" data-target="deck-364-electrolyze-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Keiga, the Tide Star" tabindex="0">Keiga, the Tide Star</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Meloku the Clouded Mirror" tabindex="0">Meloku the Clouded Mirror</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Confiscate" tabindex="0">Confiscate</span></div></div><div class="group"><h4>Sorceries · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blaze" tabindex="0">Blaze</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Compulsive Research" tabindex="0">Compulsive Research</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Invoke the Firemind" tabindex="0">Invoke the Firemind</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tidings" tabindex="0">Tidings</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Izzet Signet" tabindex="0">Izzet Signet</span></div></div><div class="group"><h4>Instants · 14</h4><div class="row"><span class="qty">4</span>Electrolyze</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Telling Time" tabindex="0">Telling Time</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Minamo, School at Water's Edge" tabindex="0">Minamo, School at Water's Edge</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Shivan Reef" tabindex="0">Shivan Reef</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tendo Ice Bridge" tabindex="0">Tendo Ice Bridge</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Mine" tabindex="0">Urza's Mine</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Power Plant" tabindex="0">Urza's Power Plant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Tower" tabindex="0">Urza's Tower</span></div></div><div class="group"><h4>Sideboard · 442212</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Annex" tabindex="0">Annex</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Solifuge" tabindex="0">Giant Solifuge</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Repeal" tabindex="0">Repeal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ryusei, the Falling Star" tabindex="0">Ryusei, the Falling Star</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Smash" tabindex="0">Smash</span></div></div></div></div><pre hidden="" id="deck-364-electrolyze-1">Osyp Lebedowicz — Pro Tour Honolulu 2006
+5th place · GPT standard · 2006-03-05
+
+Creatures · 8
+4 Keiga, the Tide Star
+4 Meloku the Clouded Mirror
+
+Artifacts · 4
+4 Izzet Signet
+
+Enchantments · 2
+2 Confiscate
+
+Instants · 14
+4 Electrolyze
+4 Mana Leak
+4 Remand
+2 Telling Time
+
+Sorceries · 9
+1 Blaze
+4 Compulsive Research
+1 Invoke the Firemind
+2 Pyroclasm
+1 Tidings
+
+Lands · 23
+1 Minamo, School at Water's Edge
+4 Shivan Reef
+4 Steam Vents
+2 Tendo Ice Bridge
+4 Urza's Mine
+4 Urza's Power Plant
+4 Urza's Tower
+
+Sideboard · 442212
+4 Annex
+4 Giant Solifuge
+2 Pyroclasm
+2 Repeal
+1 Ryusei, the Falling Star
+2 Smash</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Shahar Shenhar — 2013 World Championship</strong><small>1st place · modern thru M14 · 2013-08-04</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published single-elimination deck registration from 2013 World Championship. The list is preserved at its recorded size: 34122111422324233423322211 cards in the main deck and 121132221 in the sideboard.</p><div class="deck-meta"><div><b>Shahar Shenhar</b><div class="small">Main deck 34122111422324233423322211 · Sideboard 121132221</div></div><button class="copy" data-target="deck-364-electrolyze-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Restoration Angel" tabindex="0">Restoration Angel</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Vendilion Clique" tabindex="0">Vendilion Clique</span></div></div><div class="group"><h4>Instants · 25</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span></div><div class="row"><span class="qty">3</span>Electrolyze</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Path to Exile" tabindex="0">Path to Exile</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Shadow of Doubt" tabindex="0">Shadow of Doubt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sphinx's Revelation" tabindex="0">Sphinx's Revelation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Think Twice" tabindex="0">Think Twice</span></div></div></div><div class="deck-col"><div class="group"><h4>Planeswalkers · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ajani Vengeant" tabindex="0">Ajani Vengeant</span></div></div><div class="group"><h4>Lands · 26</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Arid Mesa" tabindex="0">Arid Mesa</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Celestial Colonnade" tabindex="0">Celestial Colonnade</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Glacial Fortress" tabindex="0">Glacial Fortress</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hallowed Fountain" tabindex="0">Hallowed Fountain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sulfur Falls" tabindex="0">Sulfur Falls</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Tectonic Edge" tabindex="0">Tectonic Edge</span></div></div><div class="group"><h4>Sideboard · 121132221</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Celestial Purge" tabindex="0">Celestial Purge</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterflux" tabindex="0">Counterflux</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dispel" tabindex="0">Dispel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Engineered Explosives" tabindex="0">Engineered Explosives</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Molten Rain" tabindex="0">Molten Rain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Supreme Verdict" tabindex="0">Supreme Verdict</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Thundermaw Hellkite" tabindex="0">Thundermaw Hellkite</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vendilion Clique" tabindex="0">Vendilion Clique</span></div></div></div></div><pre hidden="" id="deck-364-electrolyze-2">Shahar Shenhar — 2013 World Championship
+1st place · modern thru M14 · 2013-08-04
+
+Creatures · 8
+2 Restoration Angel
+4 Snapcaster Mage
+2 Vendilion Clique
+
+Planeswalkers · 1
+1 Ajani Vengeant
+
+Instants · 25
+3 Cryptic Command
+3 Electrolyze
+4 Lightning Bolt
+2 Lightning Helix
+3 Mana Leak
+3 Path to Exile
+2 Shadow of Doubt
+2 Spell Snare
+2 Sphinx's Revelation
+1 Think Twice
+
+Lands · 26
+3 Arid Mesa
+4 Celestial Colonnade
+1 Glacial Fortress
+2 Hallowed Fountain
+2 Island
+1 Mountain
+1 Plains
+1 Sacred Foundry
+4 Scalding Tarn
+2 Steam Vents
+2 Sulfur Falls
+3 Tectonic Edge
+
+Sideboard · 121132221
+1 Celestial Purge
+2 Counterflux
+1 Dispel
+1 Engineered Explosives
+3 Molten Rain
+2 Pyroclasm
+2 Supreme Verdict
+2 Thundermaw Hellkite
+1 Vendilion Clique</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Shaun McLaren — Pro Tour Born of the Gods</strong><small>1st place · modern thru BNG · 2014-02-23</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published single-elimination deck registration from Pro Tour Born of the Gods. The list is preserved at its recorded size: 342211142244113344432122 cards in the main deck and 111111222111 in the sideboard.</p><div class="deck-meta"><div><b>Shaun McLaren</b><div class="small">Main deck 342211142244113344432122 · Sideboard 111111222111</div></div><button class="copy" data-target="deck-364-electrolyze-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 5</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vendilion Clique" tabindex="0">Vendilion Clique</span></div></div><div class="group"><h4>Instants · 26</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span></div><div class="row"><span class="qty">3</span>Electrolyze</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Path to Exile" tabindex="0">Path to Exile</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sphinx's Revelation" tabindex="0">Sphinx's Revelation</span></div></div><div class="group"><h4>Lands · 26</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Arid Mesa" tabindex="0">Arid Mesa</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Celestial Colonnade" tabindex="0">Celestial Colonnade</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hallowed Fountain" tabindex="0">Hallowed Fountain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sulfur Falls" tabindex="0">Sulfur Falls</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tectonic Edge" tabindex="0">Tectonic Edge</span></div></div></div><div class="deck-col"><div class="group"><h4>Planeswalkers · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ajani Vengeant" tabindex="0">Ajani Vengeant</span></div></div><div class="group"><h4>Sorceries · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Anger of the Gods" tabindex="0">Anger of the Gods</span></div></div><div class="group"><h4>Sideboard · 111111222111</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Anger of the Gods" tabindex="0">Anger of the Gods</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Celestial Purge" tabindex="0">Celestial Purge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Counterflux" tabindex="0">Counterflux</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Crucible of Worlds" tabindex="0">Crucible of Worlds</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Izzet Staticaster" tabindex="0">Izzet Staticaster</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Logic Knot" tabindex="0">Logic Knot</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Porphyry Nodes" tabindex="0">Porphyry Nodes</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Relic of Progenitus" tabindex="0">Relic of Progenitus</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stony Silence" tabindex="0">Stony Silence</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Threads of Disloyalty" tabindex="0">Threads of Disloyalty</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timely Reinforcements" tabindex="0">Timely Reinforcements</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wear // Tear" tabindex="0">Wear // Tear</span></div></div></div></div><pre hidden="" id="deck-364-electrolyze-3">Shaun McLaren — Pro Tour Born of the Gods
+1st place · modern thru BNG · 2014-02-23
+
+Creatures · 5
+4 Snapcaster Mage
+1 Vendilion Clique
+
+Planeswalkers · 2
+2 Ajani Vengeant
+
+Instants · 26
+3 Cryptic Command
+3 Electrolyze
+4 Lightning Bolt
+4 Lightning Helix
+4 Mana Leak
+3 Path to Exile
+2 Remand
+1 Spell Snare
+2 Sphinx's Revelation
+
+Sorceries · 1
+1 Anger of the Gods
+
+Lands · 26
+3 Arid Mesa
+4 Celestial Colonnade
+2 Hallowed Fountain
+2 Island
+1 Mountain
+1 Plains
+1 Sacred Foundry
+4 Scalding Tarn
+2 Steam Vents
+2 Sulfur Falls
+4 Tectonic Edge
+
+Sideboard · 111111222111
+1 Anger of the Gods
+1 Celestial Purge
+1 Counterflux
+1 Crucible of Worlds
+1 Izzet Staticaster
+1 Logic Knot
+2 Porphyry Nodes
+2 Relic of Progenitus
+2 Stony Silence
+1 Threads of Disloyalty
+1 Timely Reinforcements
+1 Wear // Tear</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Antonio del Moral Leon — Pro Tour Fate Reforged</strong><small>1st place · modern thru FRF · 2015-02-08</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published single-elimination deck registration from Pro Tour Fate Reforged. The list is preserved at its recorded size: 15414314142322121414424 cards in the main deck and 112111211121 in the sideboard.</p><div class="deck-meta"><div><b>Antonio del Moral Leon</b><div class="small">Main deck 15414314142322121414424 · Sideboard 112111211121</div></div><button class="copy" data-target="deck-364-electrolyze-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Deceiver Exarch" tabindex="0">Deceiver Exarch</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pestermite" tabindex="0">Pestermite</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Vendilion Clique" tabindex="0">Vendilion Clique</span></div></div><div class="group"><h4>Instants · 16</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dispel" tabindex="0">Dispel</span></div><div class="row"><span class="qty">2</span>Electrolyze</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Peek" tabindex="0">Peek</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Desolate Lighthouse" tabindex="0">Desolate Lighthouse</span></div><div class="row"><span class="qty">5</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Stomping Ground" tabindex="0">Stomping Ground</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sulfur Falls" tabindex="0">Sulfur Falls</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tectonic Edge" tabindex="0">Tectonic Edge</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Splinter Twin" tabindex="0">Splinter Twin</span></div></div><div class="group"><h4>Sorceries · 5</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flame Slash" tabindex="0">Flame Slash</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serum Visions" tabindex="0">Serum Visions</span></div></div><div class="group"><h4>Sideboard · 112111211121</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancient Grudge" tabindex="0">Ancient Grudge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Anger of the Gods" tabindex="0">Anger of the Gods</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Dispel" tabindex="0">Dispel</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Flame Slash" tabindex="0">Flame Slash</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jace, Architect of Thought" tabindex="0">Jace, Architect of Thought</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Keranos, God of Storms" tabindex="0">Keranos, God of Storms</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Negate" tabindex="0">Negate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shatterstorm" tabindex="0">Shatterstorm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Spellskite" tabindex="0">Spellskite</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Threads of Disloyalty" tabindex="0">Threads of Disloyalty</span></div></div></div></div><pre hidden="" id="deck-364-electrolyze-4">Antonio del Moral Leon — Pro Tour Fate Reforged
+1st place · modern thru FRF · 2015-02-08
+
+Creatures · 11
+4 Deceiver Exarch
+2 Pestermite
+3 Snapcaster Mage
+2 Vendilion Clique
+
+Enchantments · 4
+4 Splinter Twin
+
+Instants · 16
+2 Cryptic Command
+1 Dispel
+2 Electrolyze
+4 Lightning Bolt
+1 Peek
+4 Remand
+2 Spell Snare
+
+Sorceries · 5
+1 Flame Slash
+4 Serum Visions
+
+Lands · 24
+1 Desolate Lighthouse
+5 Island
+4 Misty Rainforest
+1 Mountain
+4 Scalding Tarn
+3 Steam Vents
+1 Stomping Ground
+4 Sulfur Falls
+1 Tectonic Edge
+
+Sideboard · 112111211121
+1 Ancient Grudge
+1 Anger of the Gods
+2 Blood Moon
+1 Dispel
+1 Flame Slash
+1 Jace, Architect of Thought
+2 Keranos, God of Storms
+1 Negate
+1 Pyroclasm
+1 Shatterstorm
+2 Spellskite
+1 Threads of Disloyalty</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Pascal Vieren — Pro Tour Rivals of Ixalan</strong><small>3rd place · modern thru RIX · 2018-02-04</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published single-elimination deck registration from Pro Tour Rivals of Ixalan. The list is preserved at its recorded size: 32111441131433133141242241 cards in the main deck and 122112111111 in the sideboard.</p><div class="deck-meta"><div><b>Pascal Vieren</b><div class="small">Main deck 32111441131433133141242241 · Sideboard 122112111111</div></div><button class="copy" data-target="deck-364-electrolyze-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Snapcaster Mage" tabindex="0">Snapcaster Mage</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Thing in the Ice" tabindex="0">Thing in the Ice</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Young Pyromancer" tabindex="0">Young Pyromancer</span></div></div><div class="group"><h4>Sorceries · 9</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ancestral Vision" tabindex="0">Ancestral Vision</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Roast" tabindex="0">Roast</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Serum Visions" tabindex="0">Serum Visions</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants · 19</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Abrade" tabindex="0">Abrade</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span></div><div class="row"><span class="qty">1</span>Electrolyze</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Logic Knot" tabindex="0">Logic Knot</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Field of Ruin" tabindex="0">Field of Ruin</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Snow-Covered Island" tabindex="0">Snow-Covered Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Snow-Covered Mountain" tabindex="0">Snow-Covered Mountain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spirebluff Canal" tabindex="0">Spirebluff Canal</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sulfur Falls" tabindex="0">Sulfur Falls</span></div></div><div class="group"><h4>Sideboard · 122112111111</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Abrade" tabindex="0">Abrade</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Anger of the Gods" tabindex="0">Anger of the Gods</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ceremonious Rejection" tabindex="0">Ceremonious Rejection</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Crumble to Dust" tabindex="0">Crumble to Dust</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disdainful Stroke" tabindex="0">Disdainful Stroke</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dispel" tabindex="0">Dispel</span></div><div class="row"><span class="qty">1</span>Electrolyze</div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Molten Rain" tabindex="0">Molten Rain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Negate" tabindex="0">Negate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Relic of Progenitus" tabindex="0">Relic of Progenitus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vendilion Clique" tabindex="0">Vendilion Clique</span></div></div></div></div><pre hidden="" id="deck-364-electrolyze-5">Pascal Vieren — Pro Tour Rivals of Ixalan
+3rd place · modern thru RIX · 2018-02-04
+
+Creatures · 10
+4 Snapcaster Mage
+3 Thing in the Ice
+3 Young Pyromancer
+
+Instants · 19
+1 Abrade
+3 Cryptic Command
+1 Electrolyze
+4 Lightning Bolt
+1 Logic Knot
+2 Mana Leak
+4 Opt
+2 Remand
+1 Spell Snare
+
+Sorceries · 9
+3 Ancestral Vision
+2 Roast
+4 Serum Visions
+
+Lands · 22
+3 Field of Ruin
+2 Flooded Strand
+1 Island
+1 Misty Rainforest
+1 Polluted Delta
+4 Scalding Tarn
+4 Snow-Covered Island
+1 Snow-Covered Mountain
+1 Spirebluff Canal
+3 Steam Vents
+1 Sulfur Falls
+
+Sideboard · 122112111111
+1 Abrade
+2 Anger of the Gods
+2 Ceremonious Rejection
+1 Crumble to Dust
+1 Disdainful Stroke
+2 Dispel
+1 Electrolyze
+1 Molten Rain
+1 Negate
+1 Relic of Progenitus
+1 Spell Snare
+1 Vendilion Clique</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details></div></section>
+<section id="printings"><div class="chapter-number">XIV · Material history</div><h2>Printings and sources</h2><p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate paper printings show every available version instead.</p><div class="printings" data-card="Electrolyze" data-original-set="gpt" id="printing-grid"><figure class="printing original-printing"><img alt="Electrolyze original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Electrolyze&amp;set=gpt&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div><ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Electrolyze%22%20include%3Aextras&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Electrolyze</a><span>Release dates, collector numbers, artists, images, and distinct illustration records.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+%5BElectrolyze%5D">Gatherer card record</a><span>Official Oracle wording and rulings reference.</span></li><li><a href="https://mtgjson.com/downloads/all-files/">MTGJSON card and printing data</a><span>Machine-readable card, set, and printing history used as a cross-check.</span></li><li><a href="https://github.com/ajlvi/pt-decks-csv">Premier-event deck compilation</a><span>Published single-elimination deck registrations used by the deck archive.</span></li><li><a href="https://www.mtgtop8.com/">MTGTop8 tournament archive</a><span>Broader archetype and event context for competitive appearances.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned &amp; Restricted list</a><span>Current format policy should be checked here because legality changes over time.</span></li></ul><p class="editor-note">Compulsive Research separates a new release object from a new visual identity. The live gallery therefore keeps one representative for each illustration whenever catalog metadata allows it.</p></section>
+</article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 364 follows the Eternal Dragon article architecture: historical argument, rules texture, format movement, design descendants, deck evidence, and a deduplicated printing gallery.</aside></div>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XV · Continue reading</div><h2>The numbered archive</h2><p>Electrolyze is entry 364 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-363#entry-363"><small>Previous entry · 363</small>Jace Beleren</a><a href="index.html?focus=entry-365#entry-365"><small>Next entry · 365</small>Spell Snare</a></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Entry 364 · Electrolyze · Independent, noncommercial Magic history project.</footer><script>
+const ARTICLE_CARD = "Electrolyze";
+const ORIGINAL_SET = "gpt";
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hide(){if(preview&&!pinned)preview.classList.remove('show')}
+document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
+document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
+function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
+function chooseIconic(cards){
+  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
+  if(!bySet.length)return [];
+  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
+  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
+  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
+  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
+  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
+  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
+  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
+  for(const c of iconic){add(c);if(selected.length>=target)break}
+  add(bySet[bySet.length-1]);
+  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
+  for(const c of bySet){if(selected.length>=target)break;add(c)}
+  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
+}
+async function loadPrintings(){
+ const grid=document.getElementById('printing-grid');if(!grid)return;
+ const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
+ try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
+  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
+  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
+ }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
+}
+loadPrintings();
+</script></body></html>
