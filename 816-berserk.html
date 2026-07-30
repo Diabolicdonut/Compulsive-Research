@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A Compulsive Research study of Berserk, first printed in Limited Edition Alpha." name="description"/><title>Berserk: A Body With Immediate Consequences — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/e173c8ce-2352-405e-ad00-e3bb94ced1ad?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/e173c8ce-2352-405e-ad00-e3bb94ced1ad?format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:var(--night2)}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Lightning%20Rift&set=ons&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+
+/* Entry-specific original-art overrides */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Jackal%20Pup&set=tmp&format=image&version=art_crop")!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Jackal%20Pup&set=tmp&format=image&version=art_crop")!important}
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+/* Entry-specific original-art overrides */
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Garruk%20Wildspeaker&set=lrw&format=image&version=art_crop")!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Garruk%20Wildspeaker&set=lrw&format=image&version=art_crop")!important}
+.archive-art{background-image:url("https://api.scryfall.com/cards/named?exact=Garruk%20Wildspeaker&set=lrw&format=image&version=art_crop")!important}
+
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_START */
+/* Eternal Dragon is the visual authority for every artwork spotlight. */
+.art-break.artwork-spotlight{
+  width:100vw!important;max-width:none!important;min-height:min(69vw,720px)!important;
+  margin:72px 0 72px calc((var(--reading) - 100vw)/2)!important;transform:none!important;
+  position:relative!important;display:flex!important;align-items:flex-end!important;overflow:hidden!important;
+  color:white!important;background:none!important;isolation:isolate;
+}
+.art-break.artwork-spotlight:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(0deg,rgba(4,8,8,.93),rgba(4,8,8,.18) 55%,transparent 76%)!important;pointer-events:none;
+}
+.artwork-spotlight .art-break-media{
+  position:absolute!important;inset:0!important;z-index:0!important;display:block!important;
+  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;
+  object-position:center 25%!important;transform:none!important;pointer-events:none;
+}
+.artwork-spotlight .art-caption{
+  position:relative!important;z-index:2!important;width:min(var(--wide),calc(100% - 32px))!important;
+  margin:auto!important;padding:35px 0!important;color:#ddd!important;
+  font:13px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72);
+}
+.artwork-spotlight .art-caption b{display:block!important;margin-bottom:5px!important;color:white!important;font-size:1rem!important;line-height:1.35!important}
+.artwork-spotlight .art-caption-excerpt{display:block}
+@media(max-width:750px){
+ .art-break.artwork-spotlight{width:100vw!important;max-width:none!important;min-height:72vh!important;margin-left:calc((100% - 100vw)/2)!important;margin-right:0!important}
+ .artwork-spotlight .art-break-media{object-position:center 25%!important}
+ .artwork-spotlight .art-caption{width:calc(100% - 48px)!important;padding:31px 0!important}
+}
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_END */
+
+/* CR_CANONICAL_DESIGN_ECHO_START */
+/* Eternal Dragon is the structural and responsive authority for every
+   Design Echo image-plus-copy panel. */
+.design-echo-section>.inline-image.canonical-inline-image,
+.inline-image.canonical-inline-image{
+  box-sizing:border-box!important;
+  width:min(980px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  background:transparent!important;
+  color:white!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:var(--radius)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+.inline-image.canonical-inline-image>.image{
+  box-sizing:border-box!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:390px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:var(--night2)!important;
+  border:0!important;
+  border-radius:var(--radius) 0 0 var(--radius)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.image:before{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  padding:28px!important;
+  color:#c7cfca!important;
+  text-align:center!important;
+  font:800 .82rem/1.5 Inter,system-ui,sans-serif!important;
+  letter-spacing:.04em!important;
+  pointer-events:none!important;
+}
+.inline-image.canonical-inline-image>.image.image-loading:before{
+  content:"Loading " attr(data-card-label) " artwork…"!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed:before{
+  content:attr(data-card-label) " artwork could not be loaded"!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded:before{content:""!important}
+.inline-image.canonical-inline-image .inline-image-media{
+  box-sizing:border-box!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:opacity .18s ease!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded .inline-image-media{
+  display:block!important;
+  opacity:1!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed .inline-image-media{
+  display:none!important;
+  opacity:0!important;
+}
+.inline-image.canonical-inline-image>.copy{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:35px!important;
+  align-self:stretch!important;
+  background:#20322f!important;
+  color:white!important;
+  border:1px solid #586963!important;
+  border-left:0!important;
+  border-radius:0 var(--radius) var(--radius) 0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.copy .eyebrow,
+.inline-image.canonical-inline-image>.copy .kicker{
+  display:block!important;
+  margin:0 0 12px!important;
+  color:#d8b878!important;
+  text-transform:uppercase!important;
+  letter-spacing:.18em!important;
+  font:900 .73rem/1.35 Inter,system-ui,sans-serif!important;
+}
+.inline-image.canonical-inline-image>.copy h3{
+  margin:0 0 16px!important;
+  color:white!important;
+  font-size:2rem!important;
+  line-height:1.12!important;
+}
+.inline-image.canonical-inline-image>.copy p{
+  margin:0 0 1em!important;
+  color:#d8d9d4!important;
+}
+.inline-image.canonical-inline-image>.copy p:last-child{margin-bottom:0!important}
+@media(max-width:750px){
+  .design-echo-section>.inline-image.canonical-inline-image,
+  .inline-image.canonical-inline-image{
+    width:100%!important;
+    max-width:100%!important;
+    margin:42px 0 48px!important;
+    padding:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .inline-image.canonical-inline-image>.image{
+    width:100%!important;
+    min-height:390px!important;
+    margin:0!important;
+    border-radius:var(--radius) var(--radius) 0 0!important;
+  }
+  .inline-image.canonical-inline-image>.copy{
+    width:100%!important;
+    margin:0!important;
+    padding:35px!important;
+    border:1px solid #586963!important;
+    border-top:0!important;
+    border-radius:0 0 var(--radius) var(--radius)!important;
+  }
+}
+/* CR_CANONICAL_DESIGN_ECHO_END */
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+</style>
+<style id="cr-printing-gallery-style">
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+</style>
+</head><body data-article-card="Garruk Wildspeaker"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Garruk%20Wildspeaker&amp;set=lrw&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Garruk%20Wildspeaker&amp;set=lrw&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=entry-816#entry-816">← Back to Compulsive Research</a><div class="eyebrow">Entry 816 · Wave 17 · Kitchen-Table Legends and Casual Memory</div><h1>A Body With Immediate Consequences</h1><p class="deckline">Berserk entered Magic in Limited Edition Alpha (1993) as a Instant centered on combat pressure. This metadata-grounded dossier studies the decisions created by that object without inventing tournament provenance.</p><div class="byline"><span class="pill">A Compulsive Research essay</span><span class="pill">Limited Edition Alpha, 1993</span><span class="pill">Approximately 20 minute read</span></div></div></header>
+<nav class="rank-nav"><a href="index.html?focus=entry-815#entry-815">← Entry 815 · Coat of Arms</a><span class="center">Entry 816 of 1,000</span><a href="index.html?focus=entry-817#entry-817">Entry 817 · Lure →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>Contents</strong><a href="#opening">A Body With Immediate Consequences</a><a href="#origin">The original object and its constraints</a><a href="#rules">Read every verb, cost, and timing window</a><a href="#economy">What the exchange is actually worth</a><a href="#deckbuilding">What a deck must provide</a><a href="#sequencing">The turn before the famous turn</a><a href="#counterplay">How opponents reduce the ceiling</a><a href="#formats">The same text under different clocks</a><a href="#memory">Why the card remains easy to remember</a><a href="#descendant">A later comparison</a><a href="#case-study">A representative decision tree</a><a href="#close-reading">Preserve the question, not only the result</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article"><section class="opening" id="opening"><div class="chapter-number">I · Opening hand</div><h2>A Body With Immediate Consequences</h2><p><span class="dropcap">B</span>erserk is easiest to understand when the card is treated as a decision machine rather than a reputation. Its printed object combines instant structure with an emphasis on combat pressure. The important question is not merely whether the card is powerful. It is what sequence, resource exchange, and deck construction make that power reliable.</p><p>The core operation is forcing defensive decisions immediately through efficient or evasive combat. That operation can look modest in isolation because Magic cards are not played in isolation. Mana development, combat, hidden information, opposing interaction, and the value of future draw steps all change what the same line of text is worth. A useful history therefore begins with the card as played, not with a ranking or a slogan.</p><p>This dossier records the stable facts first: Berserk appeared in Limited Edition Alpha in 1993, carries the type line Instant, and is credited to Dan Frazier in its original printing. From there, the article follows the card through rules texture, deck-building demands, sequencing, counterplay, comparison, and material print history. Where tournament documentation has not been independently verified, the deck archive uses transparent editorial study shells instead of invented registrations.</p><div class="card-lead"><img alt="Berserk card image" decoding="async" loading="eager" src="https://api.scryfall.com/cards/e173c8ce-2352-405e-ad00-e3bb94ced1ad?format=image&amp;version=normal"/><div class="oracle"><div class="eyebrow">Original object · Limited Edition Alpha</div><h3>Berserk</h3><p><b>Instant</b></p><p>Cast this spell only before the combat damage step. Target creature gains trample and gets +X/+0 until end of turn, where X is its power. At the beginning of the next end step, destroy that creature if it attacked this turn.</p><div class="stats"><div class="stat"><b>Original set</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Mana cost</b>{G}</div><div class="stat"><b>Mana value</b>1.0</div><div class="stat"><b>Card class</b>Instant</div></div></div></div></section><section id="origin"><div class="chapter-number">II · First printing</div><h2>The original object and its constraints</h2><p>The original Limited Edition Alpha printing fixed three things at once: a mana cost of {G}, a mana value of 1.0, and the exact rules package reproduced above. Those facts establish the card’s floor before metagames and memories add interpretation. A lower cost changes how early the object can enter play; a higher cost increases the amount of protection or setup a deck may need. Neither number alone determines quality, but both determine the kinds of turns on which the card can participate.</p><p>Type line matters just as much. As a Instant, the card enters a web of rules that controls when it can be cast, what zones and removal effects can reach it, whether it can attack or block, and what other cards can search for or reuse it. The card’s identity is therefore partly printed text and partly the general rules carried by its types. This is why apparently concise designs can create long strategic arguments.</p><p>The original environment is not reconstructed here by invented anecdotes. The defensible claim is narrower: once Berserk entered the card pool in 1993, deck builders could test forcing defensive decisions immediately through efficient or evasive combat at this exact rate and with this exact object type. Later card pools supplied different companions and opponents, but they did not erase the baseline established by the first printing.</p><p>Comparison clarifies the baseline. <span class="card-name" data-card="Orim's Chant" tabindex="0">Orim's Chant</span> and <span class="card-name" data-card="Joraga Warcaller" tabindex="0">Joraga Warcaller</span> occupy adjacent design territory, yet each changes at least one of cost, timing, card type, targeting restriction, or payoff. Reading those differences prevents the archive from collapsing every card with a similar purpose into the same story.</p></section><div class="art-break artwork-spotlight" data-artwork-artist="Dan Frazier" data-artwork-card="Berserk" data-artwork-set="lea" data-artwork-set-name="Limited Edition Alpha"><img alt="Berserk artwork by Dan Frazier" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/e173c8ce-2352-405e-ad00-e3bb94ced1ad?format=image&amp;version=normal';" src="https://api.scryfall.com/cards/e173c8ce-2352-405e-ad00-e3bb94ced1ad?format=image&amp;version=art_crop"/><div class="art-caption"><b aria-live="polite" data-artwork-credit="">Dan Frazier’s original Limited Edition Alpha artwork</b><span class="art-caption-excerpt">The illustration uses framing, contrast, and directional motion to turn an abstract magical event into a readable scene. Light and shadow separate the focal action from the background, preserving clarity even at the small scale of a card.</span></div></div><section id="rules"><div class="chapter-number">III · Rules text</div><h2>Read every verb, cost, and timing window</h2><p>The Oracle text of Berserk should be parsed in order. Costs are paid before effects happen. Targets, if any, are chosen when the spell or ability is put on the stack. Conditional clauses determine whether the promised exchange occurs, while duration language determines how long a bonus, restriction, or permission survives. These are elementary rules, but the card’s practical ceiling depends on respecting them.</p><p>The listed mechanical themes—combat pressure—describe the card’s jobs, not shortcuts around its wording. A card that produces mana still requires a plan for spending it. A card that removes something still depends on legal targets and the opponent’s response window. A card that creates material still asks whether that material can be converted into damage, cards, mana, or protection before the battlefield changes.</p><p>Players often lose value by treating the most visible sentence as the whole card. The hidden text includes the cost of holding mana open, the information revealed by a chosen target, the opportunity cost of using an ability now rather than later, and the possibility that an opponent can answer the enabling permanent instead of the payoff. Exact play begins by naming those hidden costs.</p><p><span class="card-name" data-card="Heritage Druid" tabindex="0">Heritage Druid</span> offers a useful comparison because its text reaches a related strategic destination through a different rules path. The lesson is not that the cards are interchangeable. It is that timing words, zone changes, and target restrictions are part of power, even when deck summaries reduce both cards to the same role label.</p></section><section id="economy"><div class="chapter-number">IV · Resource economy</div><h2>What the exchange is actually worth</h2><p>Every use of Berserk can be described as an exchange among cards, mana, time, life, board position, and information. The printed effect may directly name only one or two of those resources, but the others remain present. Spending a card and mana now may protect several future draw steps. Declining to act may preserve flexibility but allow the opponent to improve their board. The right evaluation is situational rather than absolute.</p><p>The card’s strongest turns usually compress two tasks into one decision. A threat that also protects a resource, an answer that also advances a clock, or an engine that also stabilizes the board reduces the number of separate cards a deck must draw. Conversely, a use that accomplishes only the smallest printed task can leave the controller behind even when the effect technically resolves.</p><p>Tempo is especially easy to misread. Mana value 1.0 tells us the printed investment, but not the full turn cost. Colored requirements affect the mana base. Sorcery-speed commitment may expose a player to a counterattack. Holding the card for a perfect target can waste mana that might have advanced another plan. Good play asks which resource is scarce on this turn, not which mode looks most impressive in a vacuum.</p><p><span class="card-name" data-card="Temur Battle Rage" tabindex="0">Temur Battle Rage</span> and <span class="card-name" data-card="Delighted Halfling" tabindex="0">Delighted Halfling</span> help frame the same exchange from other angles. One may ask for more mana but offer a broader result; the other may be narrower yet easier to sequence. The archive uses such comparisons to identify the essential bargain without pretending that a card has one fixed numerical value in every game.</p></section><section id="deckbuilding"><div class="chapter-number">V · Construction</div><h2>What a deck must provide</h2><p>A deck that includes Berserk must do more than make the mana cost legal. It must decide whether the card is an engine, an answer, a threat, a bridge between phases of the game, or a redundant copy of an effect the deck already wants. Those roles imply different copy counts. Engines reward early access but can be poor in multiples. Reactive cards depend on the expected targets. Finishers require enough setup to survive until their turn arrives.</p><p>The mana base should be built from actual colored requirements rather than total color count. A spell needed on curve may demand more sources than a later splash card with the same symbols. Lands also carry opportunity cost: tapped lands slow interaction, utility lands reduce colored consistency, and greedy fixing may expose the deck to nonbasic-land pressure. The printed cost of Berserk is therefore a deck-building instruction as well as a rules fact.</p><p>Support cards should cover failure states rather than merely imitate the best-case scenario. If Berserk needs a battlefield, include ways to establish one. If it is vulnerable to a particular answer, decide whether protection, recursion, redundancy, or speed is the better response. If it is strongest after an exchange, include cards that force that exchange. Synergy is most durable when the surrounding deck remains functional without drawing the namesake card.</p><p>Adjacent archive cards such as <span class="card-name" data-card="Orim's Chant" tabindex="0">Orim's Chant</span>, <span class="card-name" data-card="Heritage Druid" tabindex="0">Heritage Druid</span>, and <span class="card-name" data-card="Venerated Rotpriest" tabindex="0">Venerated Rotpriest</span> illustrate three common construction choices: redundancy, complement, and alternate angle. Redundancy increases consistency; complement covers a weakness; an alternate angle punishes opponents for sideboarding too narrowly. The best package is the one that improves the deck’s total decision tree rather than maximizing a single screenshot-worthy turn.</p></section><section id="sequencing"><div class="chapter-number">VI · Sequencing</div><h2>The turn before the famous turn</h2><p>The decisive play with Berserk is often prepared one turn earlier. A land was fetched to preserve the right color. A disposable permanent was held rather than traded. An opponent was allowed to resolve a minor spell so that interaction remained available for the true bottleneck. These choices are difficult to notice because the payoff card receives the visual attention while preparation looks like ordinary housekeeping.</p><p>Before casting the card, count available mana on both sides, identify likely instant-speed responses, and decide what happens if the first plan fails. This does not require perfect knowledge. It requires a branch: if the opponent answers now, which resource did they spend and what becomes possible next? If they decline, what follow-up converts the resolved card into an advantage before their next untap?</p><p>After resolution, avoid automatic activation. Permanents with choices are most powerful when their controller values the future option as part of the current board. The obvious mode may create immediate material, while a quieter mode protects against a sweep, preserves mana, or changes combat math. Even a straightforward spell can create a post-resolution choice about targets, attacks, and which resource to expose.</p><p>The comparison with <span class="card-name" data-card="Joraga Warcaller" tabindex="0">Joraga Warcaller</span> is useful here because two cards can share a role while demanding opposite sequencing. One rewards deployment into an empty window; another rewards patience until a target appears. Role labels help with deck selection, but timing texture determines actual play.</p></section><section id="counterplay"><div class="chapter-number">VII · Counterplay</div><h2>How opponents reduce the ceiling</h2><p>Counterplay begins by separating the card from the conditions that make it exceptional. Sometimes the efficient answer is the card itself. In other games, the better target is the mana source, token maker, graveyard enabler, protection spell, or payoff that turns a fair exchange into an engine. The opponent should attack the narrowest structural point rather than the most famous permanent.</p><p>Timing matters. Answering before an ability resolves can prevent value; answering afterward may still be correct if it removes a repeated source of advantage. Leaving mana untapped can alter the controller’s sequence even when no answer is held. Conversely, representing too much can give the Berserk player free time to develop a second plan. Good counterplay balances actual interaction with the cost of bluffing it.</p><p>Sideboarding should identify which part of the card matters in the matchup. Graveyard hate is weak if the deck can win as an ordinary midrange strategy. Narrow removal is poor if the card’s value is already earned on entry. Expensive universal answers may solve the object but lose the mana exchange. The best sideboard card often changes several matchups while still reaching the relevant permanent or zone.</p><p><span class="card-name" data-card="Temur Battle Rage" tabindex="0">Temur Battle Rage</span> demonstrates a different failure mode within related territory, while <span class="card-name" data-card="Delighted Halfling" tabindex="0">Delighted Halfling</span> shows another kind of resilience. Studying both helps an opponent avoid the mistake of using one answer pattern against every card that shares a broad strategic label.</p></section><section id="formats"><div class="chapter-number">VIII · Formats</div><h2>The same text under different clocks</h2><p>Formats change the value of Berserk without changing its Oracle text. Faster environments punish setup and reward low opportunity cost. Slower environments increase the value of repeatable engines and flexible topdecks. Larger card pools supply stronger combinations but also stronger answers. Multiplayer adds more opponents, more total resources, and a political cost to becoming the visible leader.</p><p>The right question is therefore not whether the card is “a Modern card,” “a Commander card,” or “a Standard card” in the abstract. The question is what job it performs in a specific deck under a specific clock. A card can be central in one shell, a sideboard tool in another, and a nostalgic but inefficient option in a third. Those differences are evidence of context, not contradictions.</p><p>Legality and metagame position can change, so this archive does not freeze current format claims into prose. Before building for sanctioned play, readers should check the official format policy and the card’s current legality. The stable historical object remains the printed cost, type, text, and release; competitive status is a moving layer placed on top.</p><p>Comparisons to <span class="card-name" data-card="Orim's Chant" tabindex="0">Orim's Chant</span>, <span class="card-name" data-card="Joraga Warcaller" tabindex="0">Joraga Warcaller</span>, and <span class="card-name" data-card="Heritage Druid" tabindex="0">Heritage Druid</span> show how card-pool scale changes evaluation. A newer or broader environment may offer cleaner redundancy. An older or narrower environment may make a distinctive effect uniquely important. Both situations can explain influence without requiring the card to remain optimal forever.</p></section><section id="memory"><div class="chapter-number">IX · Memory</div><h2>Why the card remains easy to remember</h2><p>Cards endure in player memory for more than win rate. Some create a recognizable turn pattern. Some change how hands are mulliganed or how opponents leave mana open. Some make a deck’s plan legible from a single battlefield object. Berserk belongs in an archive because its combination of combat pressure and instant structure gives players a compact story about what a deck is trying to do.</p><p>That story can survive even after the card’s competitive share falls. Later designs may improve the rate, divide the effect across new card types, or attach the same idea to a different color. The older card remains useful as vocabulary. Players can point to it when explaining a family of decisions, and designers can vary its constraints while preserving the recognizable question.</p><p>Material history reinforces that memory. The archive currently identifies 12 English paper printing record(s) sharing the same Oracle identity in the source export, with up to twelve shown below and distinct illustration records prioritized. Different frames and artworks change the object’s emotional tone even when the rules remain stable.</p><p>The original credit to Dan Frazier is therefore not decorative metadata. It records the first visual form through which players encountered the card. Rules create strategic memory; image, frame, set symbol, and physical handling create object memory. A preservation project needs both.</p></section><section class="design-echo-section" data-card-discovery="oracle-catalog-v2" data-card-references="[&quot;Orim's Chant&quot;]" id="descendant"><div class="chapter-number">X · Design echo</div><h2>A later comparison</h2><p><span class="card-name" data-card="Orim's Chant" tabindex="0">Orim's Chant</span> occupies adjacent design territory. The comparison is conceptual rather than a claim of direct lineage: it isolates what later design kept, redirected, restricted, or priced differently.</p><div class="inline-image canonical-inline-image" data-image-card="Orim&#x27;s Chant">
+<div class="image image-loading" data-card-label="Orim&#x27;s Chant">
+<img class="inline-image-media" alt="Orim&#x27;s Chant artwork" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-card-name="Orim&#x27;s Chant" data-api-url="https://api.scryfall.com/cards/named?exact=Orim%27s+Chant" data-fallback-art="https://api.scryfall.com/cards/named?exact=Orim%27s+Chant&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Orim%27s+Chant&amp;format=image&amp;version=normal" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Orim%27s+Chant&amp;format=image&amp;version=art_crop">
+</div>
+<div class="copy"><div class="eyebrow">A comparative echo</div><h3>Orim's Chant</h3><p>Both cards engage combat pressure, but the later object changes cost, type, timing, or required support. Those changes reveal which part of the older card’s question remained reusable.</p></div>
+</div><p><span class="card-name" data-card="Orim's Chant" tabindex="0">Orim's Chant</span> should not be read as a replacement verdict. A later card can be more efficient in one environment while exposing a different weakness in another. The useful comparison is the shape of the decision: what must be invested, when value is earned, and how an opponent can interrupt it.</p><p>Design echoes are rarely exact copies. They distribute an older idea across new card types, colors, zones, or multiplayer assumptions. Preserving the original card alongside the echo makes that evolution visible without inventing a single straight line of descent.</p></section><section id="case-study"><div class="chapter-number">XI · Practical reading</div><h2>A representative decision tree</h2><p>Imagine a game in which Berserk is available, the opponent can plausibly interact, and both players have competing uses for their mana. The first branch is whether casting the card now improves the board enough to justify exposing it. The second is whether waiting gains information or merely gives the opponent a cleaner development turn. The third is what resource the controller is willing to lose if the answer arrives.</p><p>On the proactive branch, the controller casts the card and immediately plans the next conversion: attack, activate, sacrifice, recur, protect, or spend newly created mana. On the patient branch, the controller advances with another card while preserving Berserk as a later pivot. Neither branch is automatically correct. The choice depends on hand texture, known information, and whether the opponent’s likely answer is more valuable than the card being exposed.</p><p>Now reverse the seat. The opponent asks whether a direct answer is necessary, whether the enabling resource can be attacked, and whether racing is more efficient than interaction. A player who answers every famous card on sight can be manipulated into poor exchanges. A player who refuses to respect an engine can lose several turns to one unresolved object. The skill is identifying the turn on which the card crosses from possibility into inevitability.</p><p><span class="card-name" data-card="Delighted Halfling" tabindex="0">Delighted Halfling</span> supplies a useful alternate branch because it asks a similar strategic question at a different rate or with a different vulnerability. Comparing the two makes the decision tree concrete: which card is better when behind, which is safer when ahead, and which leaves more useful play when the first plan is answered?</p></section><section id="close-reading"><div class="chapter-number">XII · Closing argument</div><h2>Preserve the question, not only the result</h2><p>The lasting value of Berserk is the question it repeatedly asks: how much is forcing defensive decisions immediately through efficient or evasive combat worth at this cost, on this card type, and at this point in the game? That question can be answered differently by different formats and eras without making the archive incoherent. Influence is often the persistence of the question rather than permanent dominance of one answer.</p><p>A complete reading therefore resists two simplifications. The first is nostalgia, which treats remembered success as proof that the card remains universally efficient. The second is presentism, which treats later competition as proof that the earlier design no longer matters. The historical object sits between them. It established a playable rate, taught a sequence, and became a comparison point for later cards.</p><p>The related cards discussed throughout this dossier—<span class="card-name" data-card="Orim's Chant" tabindex="0">Orim's Chant</span>, <span class="card-name" data-card="Joraga Warcaller" tabindex="0">Joraga Warcaller</span>, <span class="card-name" data-card="Heritage Druid" tabindex="0">Heritage Druid</span>, <span class="card-name" data-card="Temur Battle Rage" tabindex="0">Temur Battle Rage</span>, and <span class="card-name" data-card="Delighted Halfling" tabindex="0">Delighted Halfling</span>—do not replace Berserk. They map the design space around it. Some preserve the role while changing the cost. Others preserve the timing while changing the payoff. Together they show why card history is best written as a network of decisions rather than a list of isolated rankings.</p><p>For play, the practical conclusion is equally direct: build the surrounding deck to make the ordinary case acceptable, sequence for the opponent’s real answers, and treat the spectacular case as upside rather than entitlement. That discipline is what turns a famous card from a story into a tool.</p></section><section id="decklists"><div class="chapter-number">XIII · Deck laboratory</div><h2>The deck archive</h2><p>The original project standard favors documented tournament registrations. For this full-sequence continuation, no player, event, placement, or historical seventy-five is asserted without independent verification. The five shells below are clearly labeled editorial exercises: they preserve the page’s interactive deck component and provide practical testing material while leaving provenance research visible as future editorial work.</p><div class="archive-standard-note">These lists are not historical evidence. They are format-agnostic teaching shells built to test the namesake card’s ordinary sequencing, support requirements, and interaction patterns.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Efficiency model — Berserk</strong><small>Format-agnostic editorial exercise · 60 cards + 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Editorial study shell</span><p>This list is a teaching model for testing sequencing and role density. It is not presented as a historical tournament registration, a legality claim, or an optimized recommendation.</p><div class="deck-meta"><div><b>Compulsive Research editorial laboratory</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-816-berserk-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Core and support · 20</h4><div class="row"><span class="qty">4</span>Berserk</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Orim's Chant" tabindex="0">Orim's Chant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Joraga Warcaller" tabindex="0">Joraga Warcaller</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Heritage Druid" tabindex="0">Heritage Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Temur Battle Rage" tabindex="0">Temur Battle Rage</span></div></div><div class="group"><h4>Interaction and texture · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Delighted Halfling" tabindex="0">Delighted Halfling</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Venerated Rotpriest" tabindex="0">Venerated Rotpriest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grist, Voracious Larva" tabindex="0">Grist, Voracious Larva</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tamiyo, Inquisitive Student" tabindex="0">Tamiyo, Inquisitive Student</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">24</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Lure" tabindex="0">Lure</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sliver Legion" tabindex="0">Sliver Legion</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sliver Overlord" tabindex="0">Sliver Overlord</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sliver Queen" tabindex="0">Sliver Queen</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ignoble Hierarch" tabindex="0">Ignoble Hierarch</span></div></div></div></div><pre hidden="" id="deck-816-berserk-1">Efficiency model — Berserk
+Editorial study shell; not a tournament registration
+
+Core
+4 Berserk
+4 Orim's Chant
+4 Joraga Warcaller
+4 Heritage Druid
+4 Temur Battle Rage
+
+Interaction
+4 Delighted Halfling
+4 Venerated Rotpriest
+4 Grist, Voracious Larva
+4 Tamiyo, Inquisitive Student
+
+Lands
+24 Forest
+
+Sideboard
+3 Lure
+3 Sliver Legion
+3 Sliver Overlord
+3 Sliver Queen
+3 Ignoble Hierarch</pre></div></details><details class="deck"><summary><span><strong>Synergy model — Berserk</strong><small>Format-agnostic editorial exercise · 60 cards + 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Editorial study shell</span><p>This list is a teaching model for testing sequencing and role density. It is not presented as a historical tournament registration, a legality claim, or an optimized recommendation.</p><div class="deck-meta"><div><b>Compulsive Research editorial laboratory</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-816-berserk-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Core and support · 20</h4><div class="row"><span class="qty">4</span>Berserk</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Joraga Warcaller" tabindex="0">Joraga Warcaller</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Heritage Druid" tabindex="0">Heritage Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Temur Battle Rage" tabindex="0">Temur Battle Rage</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Delighted Halfling" tabindex="0">Delighted Halfling</span></div></div><div class="group"><h4>Interaction and texture · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Venerated Rotpriest" tabindex="0">Venerated Rotpriest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grist, Voracious Larva" tabindex="0">Grist, Voracious Larva</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tamiyo, Inquisitive Student" tabindex="0">Tamiyo, Inquisitive Student</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lure" tabindex="0">Lure</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">24</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sliver Legion" tabindex="0">Sliver Legion</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sliver Overlord" tabindex="0">Sliver Overlord</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sliver Queen" tabindex="0">Sliver Queen</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ignoble Hierarch" tabindex="0">Ignoble Hierarch</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Multani, Maro-Sorcerer" tabindex="0">Multani, Maro-Sorcerer</span></div></div></div></div><pre hidden="" id="deck-816-berserk-2">Synergy model — Berserk
+Editorial study shell; not a tournament registration
+
+Core
+4 Berserk
+4 Joraga Warcaller
+4 Heritage Druid
+4 Temur Battle Rage
+4 Delighted Halfling
+
+Interaction
+4 Venerated Rotpriest
+4 Grist, Voracious Larva
+4 Tamiyo, Inquisitive Student
+4 Lure
+
+Lands
+24 Forest
+
+Sideboard
+3 Sliver Legion
+3 Sliver Overlord
+3 Sliver Queen
+3 Ignoble Hierarch
+3 Multani, Maro-Sorcerer</pre></div></details><details class="deck"><summary><span><strong>Resilience model — Berserk</strong><small>Format-agnostic editorial exercise · 60 cards + 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Editorial study shell</span><p>This list is a teaching model for testing sequencing and role density. It is not presented as a historical tournament registration, a legality claim, or an optimized recommendation.</p><div class="deck-meta"><div><b>Compulsive Research editorial laboratory</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-816-berserk-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Core and support · 20</h4><div class="row"><span class="qty">4</span>Berserk</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Heritage Druid" tabindex="0">Heritage Druid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Temur Battle Rage" tabindex="0">Temur Battle Rage</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Delighted Halfling" tabindex="0">Delighted Halfling</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Venerated Rotpriest" tabindex="0">Venerated Rotpriest</span></div></div><div class="group"><h4>Interaction and texture · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grist, Voracious Larva" tabindex="0">Grist, Voracious Larva</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tamiyo, Inquisitive Student" tabindex="0">Tamiyo, Inquisitive Student</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lure" tabindex="0">Lure</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sliver Legion" tabindex="0">Sliver Legion</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">24</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sliver Overlord" tabindex="0">Sliver Overlord</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sliver Queen" tabindex="0">Sliver Queen</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ignoble Hierarch" tabindex="0">Ignoble Hierarch</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Multani, Maro-Sorcerer" tabindex="0">Multani, Maro-Sorcerer</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Verdant Force" tabindex="0">Verdant Force</span></div></div></div></div><pre hidden="" id="deck-816-berserk-3">Resilience model — Berserk
+Editorial study shell; not a tournament registration
+
+Core
+4 Berserk
+4 Heritage Druid
+4 Temur Battle Rage
+4 Delighted Halfling
+4 Venerated Rotpriest
+
+Interaction
+4 Grist, Voracious Larva
+4 Tamiyo, Inquisitive Student
+4 Lure
+4 Sliver Legion
+
+Lands
+24 Forest
+
+Sideboard
+3 Sliver Overlord
+3 Sliver Queen
+3 Ignoble Hierarch
+3 Multani, Maro-Sorcerer
+3 Verdant Force</pre></div></details><details class="deck"><summary><span><strong>Interaction model — Berserk</strong><small>Format-agnostic editorial exercise · 60 cards + 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Editorial study shell</span><p>This list is a teaching model for testing sequencing and role density. It is not presented as a historical tournament registration, a legality claim, or an optimized recommendation.</p><div class="deck-meta"><div><b>Compulsive Research editorial laboratory</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-816-berserk-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Core and support · 20</h4><div class="row"><span class="qty">4</span>Berserk</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Temur Battle Rage" tabindex="0">Temur Battle Rage</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Delighted Halfling" tabindex="0">Delighted Halfling</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Venerated Rotpriest" tabindex="0">Venerated Rotpriest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grist, Voracious Larva" tabindex="0">Grist, Voracious Larva</span></div></div><div class="group"><h4>Interaction and texture · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tamiyo, Inquisitive Student" tabindex="0">Tamiyo, Inquisitive Student</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lure" tabindex="0">Lure</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sliver Legion" tabindex="0">Sliver Legion</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sliver Overlord" tabindex="0">Sliver Overlord</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">24</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sliver Queen" tabindex="0">Sliver Queen</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ignoble Hierarch" tabindex="0">Ignoble Hierarch</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Multani, Maro-Sorcerer" tabindex="0">Multani, Maro-Sorcerer</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Verdant Force" tabindex="0">Verdant Force</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Scaled Wurm" tabindex="0">Scaled Wurm</span></div></div></div></div><pre hidden="" id="deck-816-berserk-4">Interaction model — Berserk
+Editorial study shell; not a tournament registration
+
+Core
+4 Berserk
+4 Temur Battle Rage
+4 Delighted Halfling
+4 Venerated Rotpriest
+4 Grist, Voracious Larva
+
+Interaction
+4 Tamiyo, Inquisitive Student
+4 Lure
+4 Sliver Legion
+4 Sliver Overlord
+
+Lands
+24 Forest
+
+Sideboard
+3 Sliver Queen
+3 Ignoble Hierarch
+3 Multani, Maro-Sorcerer
+3 Verdant Force
+3 Scaled Wurm</pre></div></details><details class="deck"><summary><span><strong>Long-game model — Berserk</strong><small>Format-agnostic editorial exercise · 60 cards + 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Editorial study shell</span><p>This list is a teaching model for testing sequencing and role density. It is not presented as a historical tournament registration, a legality claim, or an optimized recommendation.</p><div class="deck-meta"><div><b>Compulsive Research editorial laboratory</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-816-berserk-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Core and support · 20</h4><div class="row"><span class="qty">4</span>Berserk</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Delighted Halfling" tabindex="0">Delighted Halfling</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Venerated Rotpriest" tabindex="0">Venerated Rotpriest</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grist, Voracious Larva" tabindex="0">Grist, Voracious Larva</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tamiyo, Inquisitive Student" tabindex="0">Tamiyo, Inquisitive Student</span></div></div><div class="group"><h4>Interaction and texture · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lure" tabindex="0">Lure</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sliver Legion" tabindex="0">Sliver Legion</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sliver Overlord" tabindex="0">Sliver Overlord</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sliver Queen" tabindex="0">Sliver Queen</span></div></div></div><div class="deck-col"><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">24</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ignoble Hierarch" tabindex="0">Ignoble Hierarch</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Multani, Maro-Sorcerer" tabindex="0">Multani, Maro-Sorcerer</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Verdant Force" tabindex="0">Verdant Force</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Scaled Wurm" tabindex="0">Scaled Wurm</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Birds of Paradise" tabindex="0">Birds of Paradise</span></div></div></div></div><pre hidden="" id="deck-816-berserk-5">Long-game model — Berserk
+Editorial study shell; not a tournament registration
+
+Core
+4 Berserk
+4 Delighted Halfling
+4 Venerated Rotpriest
+4 Grist, Voracious Larva
+4 Tamiyo, Inquisitive Student
+
+Interaction
+4 Lure
+4 Sliver Legion
+4 Sliver Overlord
+4 Sliver Queen
+
+Lands
+24 Forest
+
+Sideboard
+3 Ignoble Hierarch
+3 Multani, Maro-Sorcerer
+3 Verdant Force
+3 Scaled Wurm
+3 Birds of Paradise</pre></div></details></div></section><section id="printings"><div class="chapter-number">XIV · Material history</div><h2>Printings and sources</h2><p>The static gallery begins with the earliest verified English paper printing in the current data snapshot, then prioritizes distinct illustration identifiers before filling remaining slots chronologically. It shows up to twelve exact-identity printings; the canonical runtime rechecks Scryfall when the page is online.</p><div class="printings canonical-printing-gallery" data-card="Berserk" data-gallery-fallback-count="12" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="lea" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Berserk" data-collector-number="185" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="e173c8ce-2352-405e-ad00-e3bb94ced1ad" data-set="lea"><img alt="Berserk — Limited Edition Alpha" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/e173c8ce-2352-405e-ad00-e3bb94ced1ad?format=image&amp;version=normal"/><figcaption><b>Limited Edition Alpha · 1993</b><br/>Original printing · Dan Frazier · 185</figcaption></figure><figure class="printing" data-card-name="Berserk" data-collector-number="2" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="2fcc1f3a-85da-4012-8b01-adf9b8e56c63" data-set="v09"><img alt="Berserk — From the Vault: Exiled" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/2fcc1f3a-85da-4012-8b01-adf9b8e56c63?format=image&amp;version=normal"/><figcaption><b>From the Vault: Exiled · 2009</b><br/>Steve Prescott · 2</figcaption></figure><figure class="printing" data-card-name="Berserk" data-collector-number="1003" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="86ec6360-d69d-41b8-bfca-2c1a3aea2272" data-set="sld"><img alt="Berserk — Secret Lair Drop" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/86ec6360-d69d-41b8-bfca-2c1a3aea2272?format=image&amp;version=normal"/><figcaption><b>Secret Lair Drop · 2019</b><br/>Volkan Baǵa · 1003</figcaption></figure><figure class="printing" data-card-name="Berserk" data-collector-number="1738" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="9866e64e-308b-4920-a76b-ddea0c6bc830" data-set="sld"><img alt="Berserk — Secret Lair Drop" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/9866e64e-308b-4920-a76b-ddea0c6bc830?format=image&amp;version=normal"/><figcaption><b>Secret Lair Drop · 2019</b><br/>Alexander Mokhov · 1738</figcaption></figure><figure class="printing" data-card-name="Berserk" data-collector-number="50" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="0fe6e7d3-7e33-4e6b-91c8-47fd4ba3cb5b" data-set="soa"><img alt="Berserk — Secrets of Strixhaven Mystical Archive" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/0fe6e7d3-7e33-4e6b-91c8-47fd4ba3cb5b?format=image&amp;version=normal"/><figcaption><b>Secrets of Strixhaven Mystical Archive · 2026</b><br/>Paul Adam · 50</figcaption></figure><figure class="printing" data-card-name="Berserk" data-collector-number="186" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="88d6f431-a7ea-4508-a52c-86d33e12e4e4" data-set="leb"><img alt="Berserk — Limited Edition Beta" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/88d6f431-a7ea-4508-a52c-86d33e12e4e4?format=image&amp;version=normal"/><figcaption><b>Limited Edition Beta · 1993</b><br/>Dan Frazier · 186</figcaption></figure><figure class="printing" data-card-name="Berserk" data-collector-number="186" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="fd082697-493f-48e3-a41f-123700435025" data-set="2ed"><img alt="Berserk — Unlimited Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/fd082697-493f-48e3-a41f-123700435025?format=image&amp;version=normal"/><figcaption><b>Unlimited Edition · 1993</b><br/>Dan Frazier · 186</figcaption></figure><figure class="printing" data-card-name="Berserk" data-collector-number="186" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="b8fbd395-514d-4bb2-a0a4-f593517248a5" data-set="ced"><img alt="Berserk — Collectors' Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/b8fbd395-514d-4bb2-a0a4-f593517248a5?format=image&amp;version=normal"/><figcaption><b>Collectors' Edition · 1993</b><br/>Dan Frazier · 186</figcaption></figure><figure class="printing" data-card-name="Berserk" data-collector-number="186" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="771cfdef-9826-45d3-a16d-94adfe51bbb3" data-set="cei"><img alt="Berserk — Intl. Collectors' Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/771cfdef-9826-45d3-a16d-94adfe51bbb3?format=image&amp;version=normal"/><figcaption><b>Intl. Collectors' Edition · 1993</b><br/>Dan Frazier · 186</figcaption></figure><figure class="printing" data-card-name="Berserk" data-collector-number="175" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="62bc9bff-89bd-4454-a876-53822cf48546" data-set="cn2"><img alt="Berserk — Conspiracy: Take the Crown" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/62bc9bff-89bd-4454-a876-53822cf48546?format=image&amp;version=normal"/><figcaption><b>Conspiracy: Take the Crown · 2016</b><br/>Steve Prescott · 175</figcaption></figure><figure class="printing" data-card-name="Berserk" data-collector-number="181" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="b5474dc6-d81e-4d10-81b9-84135ae8dd21" data-set="30a"><img alt="Berserk — 30th Anniversary Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/b5474dc6-d81e-4d10-81b9-84135ae8dd21?format=image&amp;version=normal"/><figcaption><b>30th Anniversary Edition · 2022</b><br/>Dan Frazier · 181</figcaption></figure><figure class="printing" data-card-name="Berserk" data-collector-number="478" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="56f2998c-a309-4a56-91c5-d717e7366a7d" data-set="30a"><img alt="Berserk — 30th Anniversary Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/56f2998c-a309-4a56-91c5-d717e7366a7d?format=image&amp;version=normal"/><figcaption><b>30th Anniversary Edition · 2022</b><br/>Dan Frazier · 478</figcaption></figure></div><h3>Sources</h3><ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Berserk%22&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Berserk</a><span>Card identity, printing chronology, images, and illustration records.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+%5BBerserk%5D">Gatherer card record</a><span>Official Oracle wording and rulings reference.</span></li><li><a href="https://mtgjson.com/downloads/all-files/">MTGJSON card and printing data</a><span>Machine-readable set, printing, artist, and identifier data used for the static snapshot.</span></li><li><a href="https://magic.wizards.com/en/rules">Magic Comprehensive Rules</a><span>Official rules framework for timing, zones, costs, targets, and card types.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned &amp; Restricted list</a><span>Current legality should be verified here because format policy changes over time.</span></li></ul><p class="editor-note">The metadata snapshot records 12 English paper printing record(s) with the selected Oracle identity. Double-faced cards may retain the verified static gallery if Scryfall’s exact-name runtime returns the combined face name.</p></section></article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 400 follows the Eternal Dragon article architecture: historical argument, rules texture, format movement, design descendants, deck evidence, and a deduplicated printing gallery.</aside></div>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XV · Continue reading</div><h2>The numbered archive</h2><p>Berserk is entry 816 in the archive’s reading sequence. The number preserves archive order.</p><nav class="end-nav"><a href="index.html?focus=entry-815#entry-815"><small>Previous entry · 815</small>Coat of Arms</a><a href="index.html?focus=entry-817#entry-817"><small>Next entry · 817</small>Lure</a></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Entry 816 · Berserk · Independent, noncommercial Magic history project.</footer><script>/* CR_CARD_PREVIEW_RUNTIME_START */
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function showCard(el,x,y,p=false){if(!preview||!pimg||!el||!el.dataset.card)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script><script defer="" src="assets/artwork-spotlight.js"></script>
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
+
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+<script defer="" src="assets/design-echo.js"></script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+<script defer="" src="assets/printing-gallery.js"></script>
+</body></html>
