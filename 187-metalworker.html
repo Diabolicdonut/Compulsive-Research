@@ -267,7 +267,6 @@ p{margin:1em 0}
 .article a{overflow-wrap:anywhere;word-break:normal}
 @media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
 
-
 /* Compatibility layer for the complete Compulsive Research archive.
    Colors, spacing, typography, cards, decks, and galleries remain governed by
    Eternal Dragon's canonical stylesheet above. */
@@ -296,11 +295,8 @@ p{margin:1em 0}
 .end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
 .end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
 .end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
-.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
-.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
 .article a{overflow-wrap:anywhere;word-break:normal}
 .card-lead img,.printing img{background:#ded8cc}
-.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
 @media(max-width:750px){
   .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
   .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
@@ -321,7 +317,213 @@ p{margin:1em 0}
 .inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
 
 .rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
-</style></head><body data-article-card="Metalworker"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Metalworker&amp;set=uds&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Metalworker&amp;set=uds&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=entry-187#entry-187">← Back to Compulsive Research</a><div class="eyebrow">Entry 187 · Eternal &amp; Combo</div><h1>The Hand Became Six Mana</h1><p class="deckline">Metalworker turned hidden artifact cards into visible bursts of mana, allowing a deck to cast its entire hand precisely because the hand was full of expensive machines.</p><div class="byline"><span>A Compulsive Research essay</span><span class="pill">Urza's Destiny, 1999</span><span class="pill">Approximately 20 minute read</span></div></div></header><nav class="rank-nav"><a href="index.html?focus=entry-186#entry-186">← Entry 186 · Voltaic Key</a><div class="center">Entry 187 of 1,000</div><a href="index.html?focus=entry-188#entry-188">Entry 188 · Masticore →</a></nav><div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The Hand Became Six Mana</a><a href="#origin">What the first printing made possible</a><a href="#mechanics">The short text hides a resource system</a><a href="#history">From strange object to archetype language</a><a href="#formats">Where the card found a home</a><a href="#technical">How to use the advantage without wasting it</a><a href="#failure-modes">When the famous card is bad</a><a href="#counterplay">How the other side learned to fight back</a><a href="#case-study">A representative game in slow motion</a><a href="#memory">What players remember</a><a href="#descendant">The inherited idea</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The argument</div><h2>The Hand Became Six Mana</h2>
+
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_START */
+/* Eternal Dragon is the visual authority for every artwork spotlight. */
+.art-break.artwork-spotlight{
+  width:100vw!important;max-width:none!important;min-height:min(69vw,720px)!important;
+  margin:72px 0 72px calc((var(--reading) - 100vw)/2)!important;transform:none!important;
+  position:relative!important;display:flex!important;align-items:flex-end!important;overflow:hidden!important;
+  color:white!important;background:none!important;isolation:isolate;
+}
+.art-break.artwork-spotlight:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(0deg,rgba(4,8,8,.93),rgba(4,8,8,.18) 55%,transparent 76%)!important;pointer-events:none;
+}
+.artwork-spotlight .art-break-media{
+  position:absolute!important;inset:0!important;z-index:0!important;display:block!important;
+  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;
+  object-position:center 25%!important;transform:none!important;pointer-events:none;
+}
+.artwork-spotlight .art-caption{
+  position:relative!important;z-index:2!important;width:min(var(--wide),calc(100% - 32px))!important;
+  margin:auto!important;padding:35px 0!important;color:#ddd!important;
+  font:13px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72);
+}
+.artwork-spotlight .art-caption b{display:block!important;margin-bottom:5px!important;color:white!important;font-size:1rem!important;line-height:1.35!important}
+.artwork-spotlight .art-caption-excerpt{display:block}
+@media(max-width:750px){
+ .art-break.artwork-spotlight{width:100vw!important;max-width:none!important;min-height:72vh!important;margin-left:calc((100% - 100vw)/2)!important;margin-right:0!important}
+ .artwork-spotlight .art-break-media{object-position:center 25%!important}
+ .artwork-spotlight .art-caption{width:calc(100% - 48px)!important;padding:31px 0!important}
+}
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_END */
+
+/* CR_CANONICAL_DESIGN_ECHO_START */
+/* Eternal Dragon is the structural and responsive authority for every
+   Design Echo image-plus-copy panel. */
+.design-echo-section>.inline-image.canonical-inline-image,
+.inline-image.canonical-inline-image{
+  box-sizing:border-box!important;
+  width:min(980px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  background:transparent!important;
+  color:white!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:var(--radius)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+.inline-image.canonical-inline-image>.image{
+  box-sizing:border-box!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:390px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:var(--night2)!important;
+  border:0!important;
+  border-radius:var(--radius) 0 0 var(--radius)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.image:before{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  padding:28px!important;
+  color:#c7cfca!important;
+  text-align:center!important;
+  font:800 .82rem/1.5 Inter,system-ui,sans-serif!important;
+  letter-spacing:.04em!important;
+  pointer-events:none!important;
+}
+.inline-image.canonical-inline-image>.image.image-loading:before{
+  content:"Loading " attr(data-card-label) " artwork…"!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed:before{
+  content:attr(data-card-label) " artwork could not be loaded"!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded:before{content:""!important}
+.inline-image.canonical-inline-image .inline-image-media{
+  box-sizing:border-box!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:opacity .18s ease!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded .inline-image-media{
+  display:block!important;
+  opacity:1!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed .inline-image-media{
+  display:none!important;
+  opacity:0!important;
+}
+.inline-image.canonical-inline-image>.copy{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:35px!important;
+  align-self:stretch!important;
+  background:#20322f!important;
+  color:white!important;
+  border:1px solid #586963!important;
+  border-left:0!important;
+  border-radius:0 var(--radius) var(--radius) 0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.copy .eyebrow,
+.inline-image.canonical-inline-image>.copy .kicker{
+  display:block!important;
+  margin:0 0 12px!important;
+  color:#d8b878!important;
+  text-transform:uppercase!important;
+  letter-spacing:.18em!important;
+  font:900 .73rem/1.35 Inter,system-ui,sans-serif!important;
+}
+.inline-image.canonical-inline-image>.copy h3{
+  margin:0 0 16px!important;
+  color:white!important;
+  font-size:2rem!important;
+  line-height:1.12!important;
+}
+.inline-image.canonical-inline-image>.copy p{
+  margin:0 0 1em!important;
+  color:#d8d9d4!important;
+}
+.inline-image.canonical-inline-image>.copy p:last-child{margin-bottom:0!important}
+@media(max-width:750px){
+  .design-echo-section>.inline-image.canonical-inline-image,
+  .inline-image.canonical-inline-image{
+    width:100%!important;
+    max-width:100%!important;
+    margin:42px 0 48px!important;
+    padding:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .inline-image.canonical-inline-image>.image{
+    width:100%!important;
+    min-height:390px!important;
+    margin:0!important;
+    border-radius:var(--radius) var(--radius) 0 0!important;
+  }
+  .inline-image.canonical-inline-image>.copy{
+    width:100%!important;
+    margin:0!important;
+    padding:35px!important;
+    border:1px solid #586963!important;
+    border-top:0!important;
+    border-radius:0 0 var(--radius) var(--radius)!important;
+  }
+}
+/* CR_CANONICAL_DESIGN_ECHO_END */
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+</style>
+<style id="cr-printing-gallery-style">
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+</style>
+</head><body data-article-card="Metalworker"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Metalworker&amp;set=uds&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Metalworker&amp;set=uds&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=entry-187#entry-187">← Back to Compulsive Research</a><div class="eyebrow">Entry 187 · Wave 04 · Tempest, Stronghold, Exodus, and the Urza Era</div><h1>The Hand Became Six Mana</h1><p class="deckline">Metalworker turned hidden artifact cards into visible bursts of mana, allowing a deck to cast its entire hand precisely because the hand was full of expensive machines.</p><div class="byline"><span>A Compulsive Research essay</span><span class="pill">Urza's Destiny, 1999</span><span class="pill">Approximately 20 minute read</span></div></div></header><nav class="rank-nav"><a href="index.html?focus=entry-186#entry-186">← Entry 186 · Voltaic Key</a><div class="center">Entry 187 of 1,000</div><a href="index.html?focus=entry-188#entry-188">Entry 188 · Masticore →</a></nav><div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The Hand Became Six Mana</a><a href="#origin">What the first printing made possible</a><a href="#mechanics">The short text hides a resource system</a><a href="#history">From strange object to archetype language</a><a href="#formats">Where the card found a home</a><a href="#technical">How to use the advantage without wasting it</a><a href="#failure-modes">When the famous card is bad</a><a href="#counterplay">How the other side learned to fight back</a><a href="#case-study">A representative game in slow motion</a><a href="#memory">What players remember</a><a href="#descendant">The inherited idea</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The argument</div><h2>The Hand Became Six Mana</h2>
 <p class="opening dropcap">Metalworker turned hidden artifact cards into visible bursts of mana, allowing a deck to cast its entire hand precisely because the hand was full of expensive machines. Its reputation rests on the distance between the literal text and the game state a purpose-built deck can create around it. Urza’s Destiny artifact decks and later Vintage and Legacy MUD shells used Metalworker to power out <span class="card-name" data-card="Masticore" tabindex="0">Masticore</span>, Sundering Titan, Staff of Domination, and lock pieces.</p>
 <p class="opening">At the center of the story is a three-mana creature that reveals artifacts from hand to generate two colorless mana for each. That role changed mulligans, land sequencing, sideboard construction, and the way opponents rationed interaction. The card is best understood not as a single effect but as a rule imposed on the whole match: both players must decide how much material and time can be spent before the exchange becomes irreversible.</p>
 <p class="opening">This article follows Metalworker from Urza's Destiny in 1999 through its major tournament identities, technical play, failures, counterplay, descendants, and material history. The goal is not to force every era into one archetype, but to show why one compact object kept producing new strategic language.</p></section><section id="origin"><div class="chapter-number">II · First printing</div><h2>What the first printing made possible</h2>
@@ -329,7 +531,11 @@ p{margin:1em 0}
 <p>Metalworker entered Magic in Urza's Destiny in 1999. Urza’s Destiny artifact decks and later Vintage and Legacy MUD shells used Metalworker to power out <span class="card-name" data-card="Masticore" tabindex="0">Masticore</span>, Sundering Titan, Staff of Domination, and lock pieces. Its first readers had to evaluate a three-mana creature that reveals artifacts from hand to generate two colorless mana for each without the archetype labels, search tools, and decades of precedent now attached to the card.</p>
 <p>Early deck builders encountered the card as an object before they encountered it as an archetype. They compared it with the closest available effects, placed it beside familiar mana curves, and learned which part of the text was decisive only through repeated games. The card’s later reputation compresses that discovery into a slogan; the original environment reveals the failed experiments and small innovations underneath.</p>
 <p>Set context matters. The speed of the format, available removal, mana quality, and scarcity of redundant effects determined whether the cost looked extravagant or inevitable. A drawback that seems severe in isolation may have aligned perfectly with what the deck already wanted, while a symmetrical effect could become one-sided because only one player chose the timing and support package.</p>
-<p>The first audience did not possess a stable category for every engine. What now looks like an obvious combo piece, tutor, fast-mana source, or finisher often arrived before the community had reliable language for the role. Reconstructing that uncertainty is essential because it shows the card as an invention rather than a solved entry in a database.</p></section><section id="mechanics"><div class="chapter-number">III · Rules texture</div><h2>The short text hides a resource system</h2><div class="pullquote">Metalworker turned hidden artifact cards into visible bursts of mana, allowing a deck to cast its entire hand precisely because the hand was full of expensive machines.<small>Compulsive Research · Entry 187</small></div>
+<p>The first audience did not possess a stable category for every engine. What now looks like an obvious combo piece, tutor, fast-mana source, or finisher often arrived before the community had reliable language for the role. Reconstructing that uncertainty is essential because it shows the card as an invention rather than a solved entry in a database.</p></section>
+<div class="art-break artwork-spotlight" data-artwork-artist="Don Hazeltine" data-artwork-card="Metalworker" data-artwork-set="uds" data-artwork-set-name="Urza's Destiny">
+<img alt="Metalworker artwork by Don Hazeltine" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Metalworker&amp;set=uds&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Metalworker&amp;set=uds&amp;format=image&amp;version=art_crop"/>
+<div class="art-caption"><b aria-live="polite" data-artwork-credit="">Don Hazeltine’s original Urza's Destiny artwork</b><span class="art-caption-excerpt">The illustration presents Metalworker as a construct pressing toward the foreground, with strong silhouette, open space, and carefully directed light giving the body weight and immediacy. The tight framing turns the image into an encounter rather than a neutral portrait.</span></div>
+</div><section id="mechanics"><div class="chapter-number">III · Rules texture</div><h2>The short text hides a resource system</h2><div class="pullquote">Metalworker turned hidden artifact cards into visible bursts of mana, allowing a deck to cast its entire hand precisely because the hand was full of expensive machines.<small>Compulsive Research · Entry 187</small></div>
 <p>The operative text makes Metalworker a three-mana creature that reveals artifacts from hand to generate two colorless mana for each. The decisive resource is not always mana. cards in hand become mana without being spent, making artifact density, mulligan decisions, and the tension between revealing information and maximizing output central to the deck. The card becomes exceptional when the deck replaces what was spent more easily than the opponent can replace the time or position lost.</p>
 <p>A useful evaluation separates floor, ceiling, and setup cost. The floor is the draw that arrives without support. The ceiling is the board state the deck was constructed to produce. The setup cost is everything omitted from the mana symbols: deck slots, information, life, land development, graveyard exposure, or the need to preserve a particular permanent until the correct window.</p>
 <p>The card’s economy is therefore broader than card advantage. A play can lose a card and still win the game because it gains a turn, creates perfect color, moves the right object to a useful zone, or forces the opponent to spend mana inefficiently. Historical decks became powerful when they identified which resource conventional evaluation was undervaluing.</p>
@@ -341,11 +547,20 @@ p{margin:1em 0}
 <p>The card’s tournament movement was rarely linear. It could begin as a curiosity, become the centerpiece of a dominant deck, disappear under policy or metagame pressure, and return years later when a new partner solved an old weakness. The same text therefore accumulated several identities rather than one definitive list.</p>
 <p>Tournament reports tend to preserve the successful endpoint. They record the list that won, not the months of tuning that discovered which support cards were expendable or which matchup required a different role. The archive restores that process by treating archetype development as part of the card’s history rather than background noise.</p>
 <p>The card also changed opponents. Sideboards, mana bases, threat selection, and sequencing evolved because Metalworker might appear. That indirect influence can outlast the card’s own popularity. A format remembers an engine through the answers and habits it forced everyone else to adopt.</p>
-<div class="art-break"><img alt="" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Metalworker&amp;set=uds&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Metalworker&amp;set=uds&amp;format=image&amp;version=art_crop"/><div class="art-caption"><b>Metalworker · Urza's Destiny, 1999</b>The original illustration became inseparable from the card’s first strategic identity.</div></div></section><section id="formats"><div class="chapter-number">V · Format lives</div><h2>Where the card found a home</h2><div class="format-strip"><div class="format-card"><span class="impact">01</span><h3>Vintage and Legacy</h3><p>a creature that turns artifact density into absurd mana</p></div><div class="format-card"><span class="impact">02</span><h3>Commander</h3><p>a famous engine for colorless decks</p></div><div class="format-card"><span class="impact">03</span><h3>Historical Standard</h3><p>a symbol of Urza-block artifact acceleration</p></div></div>
+</section><section id="formats"><div class="chapter-number">V · Format lives</div><h2>Where the card found a home</h2><div class="format-strip"><div class="format-card"><span class="impact">01</span><h3>Vintage and Legacy</h3><p>a creature that turns artifact density into absurd mana</p></div><div class="format-card"><span class="impact">02</span><h3>Commander</h3><p>a famous engine for colorless decks</p></div><div class="format-card"><span class="impact">03</span><h3>Historical Standard</h3><p>a symbol of Urza-block artifact acceleration</p></div></div>
 <p>Metalworker did not mean the same thing in every card pool. In a smaller format it might be a singular engine with few substitutes; in an Eternal format it could become one redundant piece among tutors, pitch spells, and specialized lands. Each environment changed which cost was acceptable and which answer was available.</p>
 <p>The historical home matters because it explains card counts. Four copies may represent a deck built to draw the card naturally, while one copy may be a tutor target or restricted engine. A sideboard copy can be culturally important even when it was never the main plan. The article therefore treats format identity as a sequence of roles rather than a single popularity graph.</p>
-<p>Casual and Commander play often preserve a different feature from tournament Magic. Repeatability, spectacle, politics, or scaling may matter more than raw speed. Those uses are not footnotes; they explain why many old cards remained visible long enough for new competitive partners to rediscover them.</p></section><section id="technical"><div class="chapter-number">VI · Technical play</div><h2>How to use the advantage without wasting it</h2><p>The most important technical question is not whether Metalworker is powerful, but when its exchange becomes favorable. In practice, the pilot must identify the turn on which a three-mana creature that reveals artifacts from hand to generate two colorless mana for each changes from a possibility into a commitment. Casting or activating too early may expose the engine before the hand can exploit it; waiting too long may surrender the tempo that justified the card in the first place.</p><p>Strong play begins by counting resources that ordinary mana curves hide. With Metalworker, cards in hand become mana without being spent, making artifact density, mulligan decisions, and the tension between revealing information and maximizing output central to the deck. That means a hand cannot be judged only by lands and spells. It must also be judged by which cards can be spent, which permanents must survive, which zone is being stocked, and whether the opponent has enough time to force the setup into a fair exchange.</p><p>The card rewards planning backward from the desired board state. Instead of asking what can be cast this turn, the pilot asks what must remain available after the critical action: one mana for protection, a creature to sacrifice, an untapped land to reuse, a card to discard, or a threat that makes the opponent respect the wrong line. Those margins separate a demonstration from a tournament plan.</p><p>Rules precision is strategic precision. The player chooses how many artifact cards to reveal on resolution and may reveal none. The cards remain in hand, but revealing them gives opponents exact information until the hand changes. Players who remember only the slogan attached to Metalworker often miss the exact timing that made the card historic. The best pilots treat every verb in the Oracle text as part of the deck list, because the difference between cast, put, sacrifice, discard, exile, and return frequently determines whether the engine is resilient or fragile.</p></section><section id="failure-modes"><div class="chapter-number">VII · Failure modes</div><h2>When the famous card is bad</h2><p>Metalworker is worst when the deck draws the promise without the infrastructure. A hand can contain the famous card and still lack the mana, graveyard, bodies, artifacts, enchantments, or time that gives the text meaning. Historical lists reduced that risk, but they never eliminated it. The awkward draw is not evidence that the card was overrated; it is the cost of carrying an unusually high ceiling.</p><p>The second failure mode is redundancy. Engines that are spectacular in one copy can be poor in multiples, especially when legendary, expensive, or dependent on a limited support resource. The pilot must know whether the second copy is insurance, fuel, a tutor target, or a mulligan. Decks that ignore this question often lose with impressive cards trapped in hand.</p><p>The third failure mode is the fair game. If the opponent answers the first engine and the deck is forced to cast every support card honestly, the mana curve and card quality may look embarrassing. That is why pressure and disruption matter even for combo decks: they prevent the opponent from calmly converting specialized pieces into a long attrition victory.</p><p>The final failure is overachievement. A pilot can continue drawing, generating mana, or looping permanents after the game is already functionally won and expose the position to unnecessary interaction. Historical engines are seductive because they demonstrate power visibly. Tournament play rewards stopping the demonstration at the first secure victory.</p></section><section id="counterplay"><div class="chapter-number">VIII · Counterplay</div><h2>How the other side learned to fight back</h2><p>The broad counterplay is creature removal before untapping, Null Rod effects, discard, countering the three-mana creature, and forcing the artifact deck to empty its hand reduce both output and resilience. The important word is timing. An answer used after the engine has already converted its resource may be technically successful and strategically late. The opponent should identify which object is the engine, which is the payoff, and which is merely replaceable material.</p><p>Hate cards vary in depth. Some stop one zone, one card type, or one activation. Others change the rules of the game and force the entire deck to operate fairly. The most effective sideboards combine a fast clock with disruption, because a dedicated engine often has enough tutors or card selection to answer a single permanent given unlimited time.</p><p>Players also learned to fight the card through deck construction. More basic lands, cheaper removal, instant-speed interaction, graveyard-independent threats, or fewer creatures could all weaken a signature engine without consuming sideboard slots. Those adaptations are evidence of influence: a card matters when opponents redesign their decks before the match begins.</p><p>Good counterplay does not require eliminating every line. It requires forcing the engine deck to spend more resources than the exchange produces. If the opponent can trade one cheap answer for a setup card, a payoff, and a turn, the famous engine begins to look ordinary. The goal is to collect the hidden debt printed between the lines of Metalworker.</p></section><section id="case-study"><div class="chapter-number">IX · A game in slow motion</div><h2>A representative game in slow motion</h2><p>Consider a representative opening in which the Metalworker player keeps a hand containing the engine, one support piece, interaction, and enough mana to function. The temptation is to deploy the centerpiece immediately. Instead, the pilot uses the first turn to establish the resource that the engine consumes and to learn whether the opponent is presenting pressure or permission.</p><p>On the next turn, the opponent commits a threat but leaves mana available. The engine player now has three options: act into the possible answer, spend a cantrip or tutor to improve protection, or take damage and preserve concealment. The correct choice depends on whether a three-mana creature that reveals artifacts from hand to generate two colorless mana for each produces value immediately or only after another untap step.</p><p>The engine resolves, but the game is not over. The pilot must decide how much of the resource to convert. cards in hand become mana without being spent, making artifact density, mulligan decisions, and the tension between revealing information and maximizing output central to the deck. Converting everything may create the largest board or hand, yet preserving one card, creature, land, or activation can make the position resilient to the most likely answer.</p><p>The opponent responds at the point of maximum leverage rather than the first legal moment. That may mean removing the support permanent, exiling the graveyard after a tutor, countering the payoff, or forcing a land drop that breaks the mana engine. The exchange demonstrates why the card’s history belongs to both players: its power generated a new language of defense.</p><p>If the engine player wins, the decisive action may not be the spectacular final spell. It may be the first land played, the card declined during a mulligan, the activation delayed for one turn, or the support piece protected instead of the headline card. Slow-motion analysis restores those hidden decisions to a game that tournament reports often summarize in a single sentence.</p></section><section id="memory"><div class="chapter-number">X · Player memory</div><h2>What players remember</h2><p>Players remember Metalworker through a characteristic moment: the impossible amount of mana, the card returning again, the graveyard becoming a battlefield, the hand becoming a wheel, or the threat arriving for almost nothing. The emotional shape is easy to tell in one sentence even when the decisions that produced it took several turns.</p><p>Older players often remember the card before they understood it. A rare might look unplayable because of a drawback, or merely strange because no local deck could support it. Years later, a tournament list or rules interaction revealed that the drawback was the point. That delayed recognition is part of the culture surrounding many cards in this block.</p><p>The physical object carries the era with it: the frame, expansion symbol, muted color palette, and art associated with Tempest, Exodus, Urza block, or Mercadian Masques. Reprints improve accessibility, but the original printing often remains the version players associate with the first deck, trade, or match in which the card made sense.</p><p>New players encounter the same card through a different route—Commander, Legacy videos, ban-list discussions, cubes, or premium printings. The archive connects those audiences. It explains why a card that may look inefficient, unfair, or oddly worded became a durable piece of Magic’s shared memory.</p></section><section id="descendant"><div class="chapter-number">XI · Descendants</div><h2>The inherited idea</h2>
-<div class="descendant-panel"><div aria-label="Kinnan, Bonder Prodigy artwork" class="image" role="img"></div><div class="copy"><div class="chapter-number">Design lineage</div><h3>Metalworker did not remain alone</h3><p>Priest of Titania, Rofellos, Llanowar Emissary, Urza, Lord High Artificer, Kinnan, and reveal-for-mana designs inherit its permanent-based explosive scaling.</p><p>The useful comparison is not whether the descendant is stronger in a vacuum. It is which cost, timing restriction, card type, or safety valve changed so the original decision could survive in another environment.</p></div></div>
+<p>Casual and Commander play often preserve a different feature from tournament Magic. Repeatability, spectacle, politics, or scaling may matter more than raw speed. Those uses are not footnotes; they explain why many old cards remained visible long enough for new competitive partners to rediscover them.</p></section><section id="technical"><div class="chapter-number">VI · Technical play</div><h2>How to use the advantage without wasting it</h2><p>The most important technical question is not whether Metalworker is powerful, but when its exchange becomes favorable. In practice, the pilot must identify the turn on which a three-mana creature that reveals artifacts from hand to generate two colorless mana for each changes from a possibility into a commitment. Casting or activating too early may expose the engine before the hand can exploit it; waiting too long may surrender the tempo that justified the card in the first place.</p><p>Strong play begins by counting resources that ordinary mana curves hide. With Metalworker, cards in hand become mana without being spent, making artifact density, mulligan decisions, and the tension between revealing information and maximizing output central to the deck. That means a hand cannot be judged only by lands and spells. It must also be judged by which cards can be spent, which permanents must survive, which zone is being stocked, and whether the opponent has enough time to force the setup into a fair exchange.</p><p>The card rewards planning backward from the desired board state. Instead of asking what can be cast this turn, the pilot asks what must remain available after the critical action: one mana for protection, a creature to sacrifice, an untapped land to reuse, a card to discard, or a threat that makes the opponent respect the wrong line. Those margins separate a demonstration from a tournament plan.</p><p>Rules precision is strategic precision. The player chooses how many artifact cards to reveal on resolution and may reveal none. The cards remain in hand, but revealing them gives opponents exact information until the hand changes. Players who remember only the slogan attached to Metalworker often miss the exact timing that made the card historic. The best pilots treat every verb in the Oracle text as part of the deck list, because the difference between cast, put, sacrifice, discard, exile, and return frequently determines whether the engine is resilient or fragile.</p></section><section id="failure-modes"><div class="chapter-number">VII · Failure modes</div><h2>When the famous card is bad</h2><p>Metalworker is worst when the deck draws the promise without the infrastructure. A hand can contain the famous card and still lack the mana, graveyard, bodies, artifacts, enchantments, or time that gives the text meaning. Historical lists reduced that risk, but they never eliminated it. The awkward draw is not evidence that the card was overrated; it is the cost of carrying an unusually high ceiling.</p><p>The second failure mode is redundancy. Engines that are spectacular in one copy can be poor in multiples, especially when legendary, expensive, or dependent on a limited support resource. The pilot must know whether the second copy is insurance, fuel, a tutor target, or a mulligan. Decks that ignore this question often lose with impressive cards trapped in hand.</p><p>The third failure mode is the fair game. If the opponent answers the first engine and the deck is forced to cast every support card honestly, the mana curve and card quality may look embarrassing. That is why pressure and disruption matter even for combo decks: they prevent the opponent from calmly converting specialized pieces into a long attrition victory.</p><p>The final failure is overachievement. A pilot can continue drawing, generating mana, or looping permanents after the game is already functionally won and expose the position to unnecessary interaction. Historical engines are seductive because they demonstrate power visibly. Tournament play rewards stopping the demonstration at the first secure victory.</p></section><section id="counterplay"><div class="chapter-number">VIII · Counterplay</div><h2>How the other side learned to fight back</h2><p>The broad counterplay is creature removal before untapping, Null Rod effects, discard, countering the three-mana creature, and forcing the artifact deck to empty its hand reduce both output and resilience. The important word is timing. An answer used after the engine has already converted its resource may be technically successful and strategically late. The opponent should identify which object is the engine, which is the payoff, and which is merely replaceable material.</p><p>Hate cards vary in depth. Some stop one zone, one card type, or one activation. Others change the rules of the game and force the entire deck to operate fairly. The most effective sideboards combine a fast clock with disruption, because a dedicated engine often has enough tutors or card selection to answer a single permanent given unlimited time.</p><p>Players also learned to fight the card through deck construction. More basic lands, cheaper removal, instant-speed interaction, graveyard-independent threats, or fewer creatures could all weaken a signature engine without consuming sideboard slots. Those adaptations are evidence of influence: a card matters when opponents redesign their decks before the match begins.</p><p>Good counterplay does not require eliminating every line. It requires forcing the engine deck to spend more resources than the exchange produces. If the opponent can trade one cheap answer for a setup card, a payoff, and a turn, the famous engine begins to look ordinary. The goal is to collect the hidden debt printed between the lines of Metalworker.</p></section><section id="case-study"><div class="chapter-number">IX · A game in slow motion</div><h2>A representative game in slow motion</h2><p>Consider a representative opening in which the Metalworker player keeps a hand containing the engine, one support piece, interaction, and enough mana to function. The temptation is to deploy the centerpiece immediately. Instead, the pilot uses the first turn to establish the resource that the engine consumes and to learn whether the opponent is presenting pressure or permission.</p><p>On the next turn, the opponent commits a threat but leaves mana available. The engine player now has three options: act into the possible answer, spend a cantrip or tutor to improve protection, or take damage and preserve concealment. The correct choice depends on whether a three-mana creature that reveals artifacts from hand to generate two colorless mana for each produces value immediately or only after another untap step.</p><p>The engine resolves, but the game is not over. The pilot must decide how much of the resource to convert. cards in hand become mana without being spent, making artifact density, mulligan decisions, and the tension between revealing information and maximizing output central to the deck. Converting everything may create the largest board or hand, yet preserving one card, creature, land, or activation can make the position resilient to the most likely answer.</p><p>The opponent responds at the point of maximum leverage rather than the first legal moment. That may mean removing the support permanent, exiling the graveyard after a tutor, countering the payoff, or forcing a land drop that breaks the mana engine. The exchange demonstrates why the card’s history belongs to both players: its power generated a new language of defense.</p><p>If the engine player wins, the decisive action may not be the spectacular final spell. It may be the first land played, the card declined during a mulligan, the activation delayed for one turn, or the support piece protected instead of the headline card. Slow-motion analysis restores those hidden decisions to a game that tournament reports often summarize in a single sentence.</p></section><section id="memory"><div class="chapter-number">X · Player memory</div><h2>What players remember</h2><p>Players remember Metalworker through a characteristic moment: the impossible amount of mana, the card returning again, the graveyard becoming a battlefield, the hand becoming a wheel, or the threat arriving for almost nothing. The emotional shape is easy to tell in one sentence even when the decisions that produced it took several turns.</p><p>Older players often remember the card before they understood it. A rare might look unplayable because of a drawback, or merely strange because no local deck could support it. Years later, a tournament list or rules interaction revealed that the drawback was the point. That delayed recognition is part of the culture surrounding many cards in this block.</p><p>The physical object carries the era with it: the frame, expansion symbol, muted color palette, and art associated with Tempest, Exodus, Urza block, or Mercadian Masques. Reprints improve accessibility, but the original printing often remains the version players associate with the first deck, trade, or match in which the card made sense.</p><p>New players encounter the same card through a different route—Commander, Legacy videos, ban-list discussions, cubes, or premium printings. The archive connects those audiences. It explains why a card that may look inefficient, unfair, or oddly worded became a durable piece of Magic’s shared memory.</p></section><section class="design-echo-section" data-card-aliases='{"Kinnan":"Kinnan, Bonder Prodigy"}' data-card-discovery="oracle-catalog-v2" data-card-references='["Kinnan, Bonder Prodigy","Priest of Titania","Rofellos, Llanowar Emissary","Urza, Lord High Artificer"]' id="descendant"><div class="chapter-number">XI · Descendants</div><h2>The inherited idea</h2>
+<div class="inline-image canonical-inline-image" data-image-card="Priest of Titania">
+<div class="image image-loading" data-card-label="Priest of Titania">
+<img class="inline-image-media" alt="Priest of Titania artwork" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-card-name="Priest of Titania" data-api-url="https://api.scryfall.com/cards/named?exact=Priest+of+Titania" data-fallback-art="https://api.scryfall.com/cards/named?exact=Priest+of+Titania&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Priest+of+Titania&amp;format=image&amp;version=normal" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Priest+of+Titania&amp;format=image&amp;version=art_crop">
+</div>
+<div class="copy">
+<div class="eyebrow">Urza's Saga · 1998</div>
+<h3>Metalworker did not remain alone</h3>
+<p><span class="card-name" data-card="Priest of Titania" tabindex="0">Priest of Titania</span>, <span class="card-name" data-card="Rofellos, Llanowar Emissary" tabindex="0">Rofellos, Llanowar Emissary</span>, <span class="card-name" data-card="Urza, Lord High Artificer" tabindex="0">Urza, Lord High Artificer</span>, <span class="card-name" data-card="Kinnan, Bonder Prodigy" tabindex="0">Kinnan</span>, and reveal-for-mana designs inherit its permanent-based explosive scaling.</p><p>The useful comparison is not whether the descendant is stronger in a vacuum. It is which cost, timing restriction, card type, or safety valve changed so the original decision could survive in another environment.</p>
+</div>
+</div>
 <p>The strategic descendants of Metalworker do not merely copy the card. They preserve the invitation to think about a three-mana creature that reveals artifacts from hand to generate two colorless mana for each as a deck-building resource. Each descendant chooses which danger to keep and which part to contain.</p>
 <p>The card survived because it teaches a transferable lesson: a drawback can become setup, a permanent can become mana, a graveyard can become a hand, or a symmetrical effect can be designed to break symmetry. Players who learn that lesson recognize it again even when the name, frame, and color change.</p>
 <p>Its descendants are answers to the same design problem under new assumptions. Some are safer, some more expensive, and some stronger because modern interaction operates on more axes. Comparison clarifies what was essential in the original: not the exact numbers, but the invitation to build and sequence differently.</p>
@@ -545,46 +760,492 @@ Sideboard · 15
 2 Crucible of Worlds
 2 Jester’s Cap
 4 Relic of Progenitus
-3 Tormod’s Crypt</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details></div></section><section id="printings"><div class="chapter-number">XIII · Material history</div><h2>Printings and sources</h2><p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p><div class="printings" data-card="Metalworker" data-original-set="uds" id="printing-grid"><figure class="printing original-printing"><img alt="Metalworker original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Metalworker&amp;set=uds&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div><ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Metalworker%22%20include%3Aextras&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Metalworker</a><span>Release dates, collector numbers, artists, images, and distinct illustration records.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[Metalworker]">Gatherer card record</a><span>Official Oracle wording and rulings reference.</span></li><li><a href="https://mtgjson.com/downloads/all-files/">MTGJSON AllPrintings</a><span>Machine-readable printing and set history used as a cross-check.</span></li><li><a href="https://www.mtgtop8.com/">MTGTop8 tournament archive</a><span>Archetype and event context for later competitive appearances.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned &amp; Restricted list</a><span>Current format policy should be checked here because legality changes over time.</span></li></ul><p class="editor-note">Compulsive Research separates a new release object from a new visual identity. The live gallery therefore keeps one representative for each illustration whenever catalog metadata allows it.</p></section></article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 187 follows the Eternal Dragon article architecture: historical argument, rules texture, format movement, design descendants, deck evidence, and a deduplicated printing gallery.</aside></div><section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Metalworker is entry 187 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-186#entry-186"><small>Previous entry · 186</small>Voltaic Key</a><a href="index.html?focus=entry-188#entry-188"><small>Next entry · 188</small>Masticore</a></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Entry 187 · Metalworker · Independent, noncommercial Magic history project.</footer><script>
-const ARTICLE_CARD = "Metalworker";
-const ORIGINAL_SET = "uds";
+3 Tormod’s Crypt</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details></div></section><section id="printings"><div class="chapter-number">XIII · Material history</div><h2>Printings and sources</h2><p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than twelve legitimate printings show every available version instead.</p><div class="printings canonical-printing-gallery" data-card="Metalworker" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="uds" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Metalworker" data-identity-status="exact-name-set-fallback" data-set="uds"><img alt="Metalworker original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Metalworker&amp;set=uds&amp;format=image&amp;version=normal"/><figcaption><b>Urza's Destiny</b><br/>Original printing</figcaption></figure></div><h3>Sources</h3><ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Metalworker%22&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Metalworker</a><span>Release dates, collector numbers, artists, images, and distinct illustration records.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[Metalworker]">Gatherer card record</a><span>Official Oracle wording and rulings reference.</span></li><li><a href="https://mtgjson.com/downloads/all-files/">MTGJSON AllPrintings</a><span>Machine-readable printing and set history used as a cross-check.</span></li><li><a href="https://www.mtgtop8.com/">MTGTop8 tournament archive</a><span>Archetype and event context for later competitive appearances.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned &amp; Restricted list</a><span>Current format policy should be checked here because legality changes over time.</span></li></ul><p class="editor-note">The gallery begins with the original printing and presents up to twelve legitimate paper printings, prioritizing distinct artwork; cards with fewer than twelve show every available version.</p></section></article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 187 follows the Eternal Dragon article architecture: historical argument, rules texture, format movement, design descendants, deck evidence, and a deduplicated printing gallery.</aside></div><section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Metalworker is entry 187 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-186#entry-186"><small>Previous entry · 186</small>Voltaic Key</a><a href="index.html?focus=entry-188#entry-188"><small>Next entry · 188</small>Masticore</a></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Entry 187 · Metalworker · Independent, noncommercial Magic history project.</footer><script>/* CR_CARD_PREVIEW_RUNTIME_START */
 const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
 function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
 function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
-function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
-function hide(){if(preview&&!pinned)preview.classList.remove('show')}
-document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
-document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+function showCard(el,x,y,p=false){if(!preview||!pimg||!el||!el.dataset.card)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
 const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
 function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script><script defer="" src="assets/artwork-spotlight.js"></script>
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
 
-function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
-function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
-function chooseIconic(cards){
-  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
-  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
-  if(!bySet.length)return [];
-  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
-  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
-  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
-  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
-  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
-  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
-  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
-  for(const c of iconic){add(c);if(selected.length>=target)break}
-  add(bySet[bySet.length-1]);
-  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
-  for(const c of bySet){if(selected.length>=target)break;add(c)}
-  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
-}
-async function loadPrintings(){
- const grid=document.getElementById('printing-grid');if(!grid)return;
- const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
- try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
-  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
-  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
- }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
-}
-loadPrintings();
-</script></body></html>
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+<script defer="" src="assets/design-echo.js"></script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+<script defer="" src="assets/printing-gallery.js"></script>
+</body></html>
