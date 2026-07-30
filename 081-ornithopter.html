@@ -267,7 +267,6 @@ p{margin:1em 0}
 .article a{overflow-wrap:anywhere;word-break:normal}
 @media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
 
-
 /* Compatibility layer for the complete Compulsive Research archive.
    Colors, spacing, typography, cards, decks, and galleries remain governed by
    Eternal Dragon's canonical stylesheet above. */
@@ -296,11 +295,8 @@ p{margin:1em 0}
 .end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
 .end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
 .end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
-.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
-.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
 .article a{overflow-wrap:anywhere;word-break:normal}
 .card-lead img,.printing img{background:#ded8cc}
-.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
 @media(max-width:750px){
   .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
   .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
@@ -321,9 +317,215 @@ p{margin:1em 0}
 .inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
 
 .rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
-</style></head><body data-article-card="Ornithopter"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Ornithopter&amp;set=atq&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Ornithopter&amp;set=atq&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
-<a class="archive-link" href="index.html?focus=entry-081#entry-081">← Wave 02 · Early Expansion Icons</a>
-<div class="eyebrow">Entry 081 · Wave 02 · Early Expansion Icons</div>
+
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_START */
+/* Eternal Dragon is the visual authority for every artwork spotlight. */
+.art-break.artwork-spotlight{
+  width:100vw!important;max-width:none!important;min-height:min(69vw,720px)!important;
+  margin:72px 0 72px calc((var(--reading) - 100vw)/2)!important;transform:none!important;
+  position:relative!important;display:flex!important;align-items:flex-end!important;overflow:hidden!important;
+  color:white!important;background:none!important;isolation:isolate;
+}
+.art-break.artwork-spotlight:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(0deg,rgba(4,8,8,.93),rgba(4,8,8,.18) 55%,transparent 76%)!important;pointer-events:none;
+}
+.artwork-spotlight .art-break-media{
+  position:absolute!important;inset:0!important;z-index:0!important;display:block!important;
+  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;
+  object-position:center 25%!important;transform:none!important;pointer-events:none;
+}
+.artwork-spotlight .art-caption{
+  position:relative!important;z-index:2!important;width:min(var(--wide),calc(100% - 32px))!important;
+  margin:auto!important;padding:35px 0!important;color:#ddd!important;
+  font:13px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72);
+}
+.artwork-spotlight .art-caption b{display:block!important;margin-bottom:5px!important;color:white!important;font-size:1rem!important;line-height:1.35!important}
+.artwork-spotlight .art-caption-excerpt{display:block}
+@media(max-width:750px){
+ .art-break.artwork-spotlight{width:100vw!important;max-width:none!important;min-height:72vh!important;margin-left:calc((100% - 100vw)/2)!important;margin-right:0!important}
+ .artwork-spotlight .art-break-media{object-position:center 25%!important}
+ .artwork-spotlight .art-caption{width:calc(100% - 48px)!important;padding:31px 0!important}
+}
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_END */
+
+/* CR_CANONICAL_DESIGN_ECHO_START */
+/* Eternal Dragon is the structural and responsive authority for every
+   Design Echo image-plus-copy panel. */
+.design-echo-section>.inline-image.canonical-inline-image,
+.inline-image.canonical-inline-image{
+  box-sizing:border-box!important;
+  width:min(980px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  background:transparent!important;
+  color:white!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:var(--radius)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+.inline-image.canonical-inline-image>.image{
+  box-sizing:border-box!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:390px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:var(--night2)!important;
+  border:0!important;
+  border-radius:var(--radius) 0 0 var(--radius)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.image:before{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  padding:28px!important;
+  color:#c7cfca!important;
+  text-align:center!important;
+  font:800 .82rem/1.5 Inter,system-ui,sans-serif!important;
+  letter-spacing:.04em!important;
+  pointer-events:none!important;
+}
+.inline-image.canonical-inline-image>.image.image-loading:before{
+  content:"Loading " attr(data-card-label) " artwork…"!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed:before{
+  content:attr(data-card-label) " artwork could not be loaded"!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded:before{content:""!important}
+.inline-image.canonical-inline-image .inline-image-media{
+  box-sizing:border-box!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:opacity .18s ease!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded .inline-image-media{
+  display:block!important;
+  opacity:1!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed .inline-image-media{
+  display:none!important;
+  opacity:0!important;
+}
+.inline-image.canonical-inline-image>.copy{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:35px!important;
+  align-self:stretch!important;
+  background:#20322f!important;
+  color:white!important;
+  border:1px solid #586963!important;
+  border-left:0!important;
+  border-radius:0 var(--radius) var(--radius) 0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.copy .eyebrow,
+.inline-image.canonical-inline-image>.copy .kicker{
+  display:block!important;
+  margin:0 0 12px!important;
+  color:#d8b878!important;
+  text-transform:uppercase!important;
+  letter-spacing:.18em!important;
+  font:900 .73rem/1.35 Inter,system-ui,sans-serif!important;
+}
+.inline-image.canonical-inline-image>.copy h3{
+  margin:0 0 16px!important;
+  color:white!important;
+  font-size:2rem!important;
+  line-height:1.12!important;
+}
+.inline-image.canonical-inline-image>.copy p{
+  margin:0 0 1em!important;
+  color:#d8d9d4!important;
+}
+.inline-image.canonical-inline-image>.copy p:last-child{margin-bottom:0!important}
+@media(max-width:750px){
+  .design-echo-section>.inline-image.canonical-inline-image,
+  .inline-image.canonical-inline-image{
+    width:100%!important;
+    max-width:100%!important;
+    margin:42px 0 48px!important;
+    padding:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .inline-image.canonical-inline-image>.image{
+    width:100%!important;
+    min-height:390px!important;
+    margin:0!important;
+    border-radius:var(--radius) var(--radius) 0 0!important;
+  }
+  .inline-image.canonical-inline-image>.copy{
+    width:100%!important;
+    margin:0!important;
+    padding:35px!important;
+    border:1px solid #586963!important;
+    border-top:0!important;
+    border-radius:0 0 var(--radius) var(--radius)!important;
+  }
+}
+/* CR_CANONICAL_DESIGN_ECHO_END */
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+</style>
+<style id="cr-printing-gallery-style">
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+</style>
+</head><body data-article-card="Ornithopter"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Ornithopter&amp;set=atq&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Ornithopter&amp;set=atq&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-081#entry-081">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry 081 · Wave 02 · Early Expansion Icons and Old-School Tournament Magic</div>
 <h1>Zero Mana Changed What a Creature Could Be</h1><p class="deckline">Ornithopter proved that a creature could cost nothing, not because it was powerful alone, but because a free permanent could carry equipment, trigger engines, enable affinity, and be sacrificed.</p>
 <div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Antiquities, 1994</span><span class="pill">Approximately 20 minute read</span></div>
 </div></header>
@@ -337,7 +539,10 @@ p{margin:1em 0}
 <div class="pullquote">Ornithopter proved that a creature could cost nothing, not because it was powerful alone, but because a free permanent could carry equipment, trigger engines, enable affinity, and be sacrificed.<small>The argument in one sentence</small></div></section>
 <section id="origin"><div class="chapter-number">II · Origin</div><h2>What the first printing made possible</h2><p>Antiquities framed Ornithopter as a curious machine: a 0/2 flier that appeared to do almost nothing. Tournament Magic eventually learned that zero is not merely a low cost but a broken kind of timing, allowing decks to add material to the battlefield without spending their turn's mana.</p><p>Its early reputation was formed in a smaller card pool, where one unusual permanent or spell could reshape an entire game. As the card pool expanded, players stopped asking whether the effect was broadly powerful and began asking which shells could make it one-sided.</p>
 <div class="article-note"><b>Editorial method.</b> This essay treats the card as a historical object rather than only as a current deck choice: rules, tournament use, artwork, later descendants, and player memory all belong to the same story.</div></section>
-<div class="art-break"><img alt="" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Ornithopter&amp;set=atq&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Ornithopter&amp;set=atq&amp;format=image&amp;version=art_crop"/><div class="art-caption"><b>Ornithopter</b>Ornithopter first appeared in Antiquities (1994). The article uses Scryfall's current catalog image for display while treating the original release as the historical starting point.</div></div>
+<div class="art-break artwork-spotlight" data-artwork-artist="Amy Weber" data-artwork-card="Ornithopter" data-artwork-set="atq" data-artwork-set-name="Antiquities">
+<img alt="Ornithopter artwork by Amy Weber" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Ornithopter&amp;set=atq&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Ornithopter&amp;set=atq&amp;format=image&amp;version=art_crop"/>
+<div class="art-caption"><b aria-live="polite" data-artwork-credit="">Amy Weber’s original Antiquities artwork</b><span class="art-caption-excerpt">Ornithopter dominates the composition through a muted palette, heavy texture, and a silhouette that crowds the edges. The background falls away just enough to make the creature feel too near and already in motion.</span></div>
+</div>
 <section id="mechanics"><div class="chapter-number">III · Rules texture</div><h2>The short text hides a resource system</h2><p>The card asks what the rest of the deck can do with a free artifact body. Equipment supplies power, ninjutsu turns evasion into a replacement creature, artifact-count mechanics use it as infrastructure, and sacrifice engines treat it as immediate fuel.</p><p>That exchange explains why Ornithopter remained interesting after raw efficiency moved elsewhere. In a deck that pays its cost accidentally, the card is awkward; in a deck built to exploit the cost, the same line of text becomes the reason the archetype exists.</p><p>The important questions are therefore contextual. What has already been spent? What can be recovered? Which player is forced to act first? The card rewards the pilot who answers those questions before simply following the most obvious line.</p></section>
 <section id="history"><div class="chapter-number">IV · Tournament evolution</div><h2>From strange object to archetype language</h2>
 <div class="timeline"><div class="timeline-item"><time>1994</time><h3>The original release</h3><p>Ornithopter enters Magic through Antiquities, carrying an effect that would help define how players understood its card type and color.</p></div>
@@ -351,7 +556,12 @@ p{margin:1em 0}
 <p>From the opponent's seat, the temptation is to answer the named card as quickly as possible. Sometimes that is correct. Sometimes it allows the surrounding deck to trade a replaceable component for the answer that was meant for the real threat. Historically effective counterplay has included sweepers, artifact hate, effects that punish low-impact cards, and attacking the payoff rather than the Ornithopter. The deeper lesson is to identify the bottleneck. If mana is scarce, attack mana. If the card requires a board state, change the board state. If it depends on a protected turn, force action early. A good opponent does not merely possess an answer; that player engineers the moment when the answer also disrupts the plan.</p>
 <p>The representative game therefore ends less cleanly than a retrospective decklist suggests. Perhaps Ornithopter generates only one favorable trade. Perhaps it never activates because the threat of activation changes combat or deployment. Perhaps the controller declines to use it and wins because the unused resource preserves a stronger response. Those outcomes belong to the card's history as much as the spectacular turns do. Tournament relevance is often the accumulation of decisions that save half a card, half a turn, or one awkward commitment at a time.</p></section><section id="migration"><div class="chapter-number">X · Format migration</div><h2>One text box, several eras</h2><p>The long history of Ornithopter is not a straight line of power. It is a sequence of card pools discovering different portions of the same text.</p><p>In one era the card may be a centerpiece; in another it becomes a tutor target, sideboard bullet, combo component, or historical curiosity. Those changes do not necessarily mean the card itself became weaker. The surrounding format may have accelerated, acquired more efficient answers, or printed a new partner that raises the ceiling again. The meaning of an old card is relational: it changes whenever the cards around it change.</p><p>That migration is visible in <span class="card-name" data-card="Memnite" tabindex="0">Memnite</span>, Phyrexian Walker, Shield Sphere, and token-producing zero-cost engines explore the same threshold. Each descendant keeps one part of the original proposition while changing another variable—mana cost, symmetry, card type, speed, vulnerability, or scale. Comparing them reveals what designers believed had to be preserved and what had to be restrained. The newer card may be cleaner, but the older one often remains stranger because it was printed before its category had settled into modern limits.</p><p>Formats also preserve different memories. Old School remembers the card in its first ecosystem. Premodern or Legacy may remember a later archetype. Commander emphasizes repeatability and table politics. Vintage cares about mana, tutors, and the most extreme interactions. Together those perspectives explain why a card can be obsolete in one competitive sense yet remain central to the game's historical language.</p></section><section id="evaluation-now"><div class="chapter-number">XI · Modern reading</div><h2>How to evaluate it now</h2><p>Evaluating Ornithopter today requires separating three questions that are often collapsed: Is it legal? Is it competitively efficient? Is it historically representative?</p><p>Legality determines the card pool but not the experience. A card may be restricted, banned, reserved, expensive, or simply absent from modern formats while remaining essential to understanding how a strategy developed. Conversely, a reprint can make the object accessible without restoring the metagame that once gave it meaning. The archive should preserve both the rules object and the environment that taught players how to value it.</p><p>Competitive efficiency is narrower. Modern decks ask whether the effect is fast enough, resilient enough, and supported by current mana and interaction. The answer can change with one new printing. A dormant card may return because a tutor, free spell, creature type, land engine, or graveyard payoff suddenly supplies the missing half. This possibility is one reason old cards continue to reward close reading. Their text remains fixed while their context keeps moving.</p><p>Historical representation asks a different question: does the card explain an era, an archetype, or a design idea better than its successors? For Ornithopter, the answer lies in the lesson that the value of a card can come from entering the battlefield, carrying a type, or enabling costs rather than from its printed stats. Even where a later card is stronger, the original may show the bargain in a purer and more revealing form.</p><p>A present-day player can therefore approach the card on several levels. It can be a tool in a legal format, a build-around in a historical gauntlet, a Commander conversation piece, a collectible illustration, or a case study in systems design. None of those uses cancels the others. Together they explain why the card remains worth a twenty-minute essay rather than a one-line ranking.</p></section><section id="legacy-deep"><div class="chapter-number">XII · Design and memory</div><h2>Why the idea survived</h2><p>The final measure of Ornithopter is not whether every modern deck wants it. It is whether later Magic still thinks in concepts the card helped establish.</p><p>Its design legacy is that the value of a card can come from entering the battlefield, carrying a type, or enabling costs rather than from its printed stats. Once players internalize that lesson, they recognize it everywhere: in new card previews, in deck-building heuristics, and in the shorthand used to describe an unfamiliar effect. A card becomes historically important when its name can stand in for an entire family of decisions.</p><p>Its cultural memory is equally concrete: a supposedly useless 0/2 becoming the first card cast in a turn that ends with an overwhelming artifact board. These details matter because players remember games through physical rituals—counters moved, lands left untapped, cards selected at random, life totals rewritten, or a single permanent placed conspicuously beside the mana base. The rules create the decision, but the table gesture preserves it.</p><p>That combination of strategic lesson and sensory memory is why the card belongs in an archive rather than merely a database. Oracle text can describe what Ornithopter does. A historical essay must also preserve what the table felt like once both players understood what it could do.</p></section>
 <section id="memory"><div class="chapter-number">XIII · Testimony</div><h2>What players remember</h2><p>Players remember Ornithopter less as a collection of words than as a change in atmosphere. Once it appeared, ordinary assumptions about the next turn stopped feeling reliable.</p><div class="memory"><div class="memory-grid"><div><blockquote>“Ornithopter made the game operate by a different rule.”</blockquote><cite>Compulsive Research · editorial shorthand for the card’s table presence</cite></div><div><blockquote>“You planned around it before it ever had to act.”</blockquote><cite>Common strategic memory across historical formats</cite></div></div></div><p>The card demanded respect before it acted: mana had to be held differently, attacks reconsidered, or a hand sequenced around the possibility that its defining exchange would occur.</p></section>
-<section id="descendant"><div class="chapter-number">XIV · Design echo</div><h2>Memnite and the inherited idea</h2><p><span class="card-name" data-card="Memnite" tabindex="0">Memnite</span> trades flying and a point of toughness for actual power, preserving the strategic value of a zero-mana artifact creature while changing what it does in combat.</p><div class="inline-image descendant-panel"><div class="image"></div><div class="copy"><div class="eyebrow">A later design echo</div><h3>Memnite</h3><p><span class="card-name" data-card="Memnite" tabindex="0">Memnite</span> trades flying and a point of toughness for actual power, preserving the strategic value of a zero-mana artifact creature while changing what it does in combat.</p><p>The comparison reveals which part of Ornithopter design considered essential and which part later sets needed to restrain.</p></div></div><p>Ornithopter became a recurring staple of Affinity, equipment decks, combo shells, and casual invention. Its many reprints demonstrate that the same tiny text can be fair or explosive depending on the surrounding mechanics.</p></section>
+<section class="design-echo-section" data-card-aliases="{}" data-card-discovery="oracle-catalog-v2" data-card-references='["Memnite"]' id="descendant"><div class="chapter-number">XIV · Design echo</div><h2>Memnite and the inherited idea</h2><p><span class="card-name" data-card="Memnite" tabindex="0">Memnite</span> trades flying and a point of toughness for actual power, preserving the strategic value of a zero-mana artifact creature while changing what it does in combat.</p><div class="inline-image canonical-inline-image" data-image-card="Memnite">
+<div class="image image-loading" data-card-label="Memnite">
+<img class="inline-image-media" alt="Memnite artwork" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-card-name="Memnite" data-api-url="https://api.scryfall.com/cards/named?exact=Memnite" data-fallback-art="https://api.scryfall.com/cards/named?exact=Memnite&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Memnite&amp;format=image&amp;version=normal" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Memnite&amp;format=image&amp;version=art_crop">
+</div>
+<div class="copy"><div class="eyebrow">A later design echo</div><h3>Memnite</h3><p><span class="card-name" data-card="Memnite" tabindex="0">Memnite</span> trades flying and a point of toughness for actual power, preserving the strategic value of a zero-mana artifact creature while changing what it does in combat.</p><p>The comparison reveals which part of Ornithopter design considered essential and which part later sets needed to restrain.</p></div>
+</div><p>Ornithopter became a recurring staple of Affinity, equipment decks, combo shells, and casual invention. Its many reprints demonstrate that the same tiny text can be fair or explosive depending on the surrounding mechanics.</p></section>
 <section id="decklists"><div class="chapter-number">XV · The evidence</div><h2>The deck archive</h2><div class="deck-intro"><p>The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p><p>Card names support desktop hover and mobile tap previews.</p></div><div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Ben Stark — Pro Tour Kobe 2004</strong><small>7th place · Mirrodin block · 2004-02-29</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from Pro Tour Kobe 2004. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Ben Stark</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-081-ornithopter-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 27</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Arcbound Ravager" tabindex="0">Arcbound Ravager</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Arcbound Worker" tabindex="0">Arcbound Worker</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disciple of the Vault" tabindex="0">Disciple of the Vault</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Frogmite" tabindex="0">Frogmite</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Myr Enforcer" tabindex="0">Myr Enforcer</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ornithopter" tabindex="0">Ornithopter</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Somber Hoverguard" tabindex="0">Somber Hoverguard</span></div></div><div class="group"><h4>Sorceries · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thoughtcast" tabindex="0">Thoughtcast</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 25</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Darksteel Citadel" tabindex="0">Darksteel Citadel</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Seat of the Synod" tabindex="0">Seat of the Synod</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tree of Tales" tabindex="0">Tree of Tales</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Vault of Whispers" tabindex="0">Vault of Whispers</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chromatic Sphere" tabindex="0">Chromatic Sphere</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Scale of Chiss-Goria" tabindex="0">Scale of Chiss-Goria</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Skullclamp" tabindex="0">Skullclamp</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tooth of Chiss-Goria" tabindex="0">Tooth of Chiss-Goria</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Welding Jar" tabindex="0">Welding Jar</span></div></div><div class="group"><h4>Lands · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Glimmervoid" tabindex="0">Glimmervoid</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Broodstar" tabindex="0">Broodstar</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Genesis Chamber" tabindex="0">Genesis Chamber</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Oxidize" tabindex="0">Oxidize</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Terror" tabindex="0">Terror</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Thirst for Knowledge" tabindex="0">Thirst for Knowledge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tree of Tales" tabindex="0">Tree of Tales</span></div></div></div></div><pre hidden="" id="deck-081-ornithopter-1">Ben Stark — Pro Tour Kobe 2004
 7th place · Mirrodin block · 2004-02-29
 
@@ -538,51 +748,496 @@ Sideboard · 15
 1 Relic of Progenitus
 2 Rest in Peace
 2 Thoughtseize</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details></div></section>
-<section id="printings"><div class="chapter-number">XVI · Material history</div><h2>Printings and sources</h2><p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p><div class="printings" data-card="Ornithopter" data-original-set="atq" id="printing-grid"><figure class="printing original-printing"><img alt="Ornithopter original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Ornithopter&amp;set=atq&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div>
-<ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Ornithopter%22+include%3Aextras&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Ornithopter</a><span>Release dates, collector numbers, artists, images, and distinct illustration records.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[Ornithopter]">Gatherer card record</a><span>Official Oracle wording and rulings reference.</span></li><li><a href="https://mtgjson.com/downloads/all-files/">MTGJSON AllPrintings</a><span>Machine-readable printing and set history used as a cross-check.</span></li><li><a href="https://www.mtgtop8.com/">MTGTop8 tournament archive</a><span>Archetype and event context for later competitive appearances.</span></li></ul>
-<p class="editor-note">Compulsive Research separates a new release object from a new visual identity. The gallery therefore keeps one representative for each illustration whenever catalog metadata allows it.</p></section>
+<section id="printings"><div class="chapter-number">XVI · Material history</div><h2>Printings and sources</h2><p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than twelve legitimate printings show every available version instead.</p><div class="printings canonical-printing-gallery" data-card="Ornithopter" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="atq" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Ornithopter" data-identity-status="exact-name-set-fallback" data-set="atq"><img alt="Ornithopter original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Ornithopter&amp;set=atq&amp;format=image&amp;version=normal"/><figcaption><b>Antiquities</b><br/>Original printing</figcaption></figure></div>
+<h3>Sources</h3><ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Ornithopter%22&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Ornithopter</a><span>Release dates, collector numbers, artists, images, and distinct illustration records.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[Ornithopter]">Gatherer card record</a><span>Official Oracle wording and rulings reference.</span></li><li><a href="https://mtgjson.com/downloads/all-files/">MTGJSON AllPrintings</a><span>Machine-readable printing and set history used as a cross-check.</span></li><li><a href="https://www.mtgtop8.com/">MTGTop8 tournament archive</a><span>Archetype and event context for later competitive appearances.</span></li></ul>
+<p class="editor-note">The gallery begins with the original printing and presents up to twelve legitimate paper printings, prioritizing distinct artwork; cards with fewer than twelve show every available version.</p></section>
 </article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 081 follows the Eternal Dragon article architecture: historical argument, rules texture, format movement, design descendants, deck evidence, and a deduplicated printing gallery.</aside></div>
-
-<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Ornithopter is entry 81 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-080#entry-080"><small>Previous entry · 080</small>Atog</a><a href="index.html?focus=entry-082#entry-082"><small>Next entry · 082</small>Feldon's Cane</a></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Entry 081 · Ornithopter · Independent, noncommercial Magic history project.</footer><script>
-const ARTICLE_CARD = "Ornithopter";
-const ORIGINAL_SET = "atq";
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Ornithopter is entry 81 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-080#entry-080"><small>Previous entry · 080</small>Atog</a><a href="index.html?focus=entry-082#entry-082"><small>Next entry · 082</small>Feldon's Cane</a></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Entry 081 · Ornithopter · Independent, noncommercial Magic history project.</footer><script>/* CR_CARD_PREVIEW_RUNTIME_START */
 const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
 function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
 function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
-function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
-function hide(){if(preview&&!pinned)preview.classList.remove('show')}
-document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
-document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+function showCard(el,x,y,p=false){if(!preview||!pimg||!el||!el.dataset.card)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
 const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
 function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script><script defer="" src="assets/artwork-spotlight.js"></script>
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
 
-function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
-function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
-function chooseIconic(cards){
-  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
-  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
-  if(!bySet.length)return [];
-  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
-  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
-  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
-  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
-  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
-  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
-  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
-  for(const c of iconic){add(c);if(selected.length>=target)break}
-  add(bySet[bySet.length-1]);
-  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
-  for(const c of bySet){if(selected.length>=target)break;add(c)}
-  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
-}
-async function loadPrintings(){
- const grid=document.getElementById('printing-grid');if(!grid)return;
- const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
- try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
-  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
-  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
- }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
-}
-loadPrintings();
-</script></body></html>
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+<script defer="" src="assets/design-echo.js"></script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+<script defer="" src="assets/printing-gallery.js"></script>
+</body></html>
