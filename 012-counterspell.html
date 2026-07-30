@@ -269,7 +269,6 @@ p{margin:1em 0}
 .article a{overflow-wrap:anywhere;word-break:normal}
 @media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
 
-
 /* Compatibility layer for the complete Compulsive Research archive.
    Colors, spacing, typography, cards, decks, and galleries remain governed by
    Eternal Dragon's canonical stylesheet above. */
@@ -298,11 +297,8 @@ p{margin:1em 0}
 .end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
 .end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
 .end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
-.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
-.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
 .article a{overflow-wrap:anywhere;word-break:normal}
 .card-lead img,.printing img{background:#ded8cc}
-.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
 @media(max-width:750px){
   .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
   .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
@@ -323,13 +319,228 @@ p{margin:1em 0}
 .inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
 
 .rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
-</style></head><body data-article-card="Counterspell"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Counterspell&amp;set=lea&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Counterspell&amp;set=lea&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
-<a class="archive-link" href="index.html?focus=entry-012#entry-012">← Wave 01 · The Foundational Canon</a>
+
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_START */
+/* Eternal Dragon is the visual authority for every artwork spotlight. */
+.art-break.artwork-spotlight{
+  width:100vw!important;max-width:none!important;min-height:min(69vw,720px)!important;
+  margin:72px 0 72px calc((var(--reading) - 100vw)/2)!important;transform:none!important;
+  position:relative!important;display:flex!important;align-items:flex-end!important;overflow:hidden!important;
+  color:white!important;background:none!important;isolation:isolate;
+}
+.art-break.artwork-spotlight:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(0deg,rgba(4,8,8,.93),rgba(4,8,8,.18) 55%,transparent 76%)!important;pointer-events:none;
+}
+.artwork-spotlight .art-break-media{
+  position:absolute!important;inset:0!important;z-index:0!important;display:block!important;
+  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;
+  object-position:center 25%!important;transform:none!important;pointer-events:none;
+}
+.artwork-spotlight .art-caption{
+  position:relative!important;z-index:2!important;width:min(var(--wide),calc(100% - 32px))!important;
+  margin:auto!important;padding:35px 0!important;color:#ddd!important;
+  font:13px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72);
+}
+.artwork-spotlight .art-caption b{display:block!important;margin-bottom:5px!important;color:white!important;font-size:1rem!important;line-height:1.35!important}
+.artwork-spotlight .art-caption-excerpt{display:block}
+@media(max-width:750px){
+ .art-break.artwork-spotlight{width:100vw!important;max-width:none!important;min-height:72vh!important;margin-left:calc((100% - 100vw)/2)!important;margin-right:0!important}
+ .artwork-spotlight .art-break-media{object-position:center 25%!important}
+ .artwork-spotlight .art-caption{width:calc(100% - 48px)!important;padding:31px 0!important}
+}
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_END */
+
+/* CR_CANONICAL_DESIGN_ECHO_START */
+/* Eternal Dragon is the structural and responsive authority for every
+   Design Echo image-plus-copy panel. */
+.design-echo-section>.inline-image.canonical-inline-image,
+.inline-image.canonical-inline-image{
+  box-sizing:border-box!important;
+  width:min(980px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  background:transparent!important;
+  color:white!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:var(--radius)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+.inline-image.canonical-inline-image>.image{
+  box-sizing:border-box!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:390px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:var(--night2)!important;
+  border:0!important;
+  border-radius:var(--radius) 0 0 var(--radius)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.image:before{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  padding:28px!important;
+  color:#c7cfca!important;
+  text-align:center!important;
+  font:800 .82rem/1.5 Inter,system-ui,sans-serif!important;
+  letter-spacing:.04em!important;
+  pointer-events:none!important;
+}
+.inline-image.canonical-inline-image>.image.image-loading:before{
+  content:"Loading " attr(data-card-label) " artwork…"!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed:before{
+  content:attr(data-card-label) " artwork could not be loaded"!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded:before{content:""!important}
+.inline-image.canonical-inline-image .inline-image-media{
+  box-sizing:border-box!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:opacity .18s ease!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded .inline-image-media{
+  display:block!important;
+  opacity:1!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed .inline-image-media{
+  display:none!important;
+  opacity:0!important;
+}
+.inline-image.canonical-inline-image>.copy{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:35px!important;
+  align-self:stretch!important;
+  background:#20322f!important;
+  color:white!important;
+  border:1px solid #586963!important;
+  border-left:0!important;
+  border-radius:0 var(--radius) var(--radius) 0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.copy .eyebrow,
+.inline-image.canonical-inline-image>.copy .kicker{
+  display:block!important;
+  margin:0 0 12px!important;
+  color:#d8b878!important;
+  text-transform:uppercase!important;
+  letter-spacing:.18em!important;
+  font:900 .73rem/1.35 Inter,system-ui,sans-serif!important;
+}
+.inline-image.canonical-inline-image>.copy h3{
+  margin:0 0 16px!important;
+  color:white!important;
+  font-size:2rem!important;
+  line-height:1.12!important;
+}
+.inline-image.canonical-inline-image>.copy p{
+  margin:0 0 1em!important;
+  color:#d8d9d4!important;
+}
+.inline-image.canonical-inline-image>.copy p:last-child{margin-bottom:0!important}
+@media(max-width:750px){
+  .design-echo-section>.inline-image.canonical-inline-image,
+  .inline-image.canonical-inline-image{
+    width:100%!important;
+    max-width:100%!important;
+    margin:42px 0 48px!important;
+    padding:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .inline-image.canonical-inline-image>.image{
+    width:100%!important;
+    min-height:390px!important;
+    margin:0!important;
+    border-radius:var(--radius) var(--radius) 0 0!important;
+  }
+  .inline-image.canonical-inline-image>.copy{
+    width:100%!important;
+    margin:0!important;
+    padding:35px!important;
+    border:1px solid #586963!important;
+    border-top:0!important;
+    border-radius:0 0 var(--radius) var(--radius)!important;
+  }
+}
+/* CR_CANONICAL_DESIGN_ECHO_END */
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+</style>
+<style id="cr-printing-gallery-style">
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+</style>
+</head><body data-article-card="Counterspell"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Counterspell&amp;set=lea&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Counterspell&amp;set=lea&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=entry-012#entry-012">← Back to Compulsive Research</a>
 <div class="eyebrow">Entry 012 · Wave 01 · The Foundational Canon</div>
 <h1>The Two Words That Defined Blue</h1>
 <p class="deckline">Counterspell does not answer a creature, artifact, enchantment, or plan after it arrives. It answers the decision to cast it—and taught Magic that permission could be a strategy.</p>
 <div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill">Approximately 20 minute read</span></div>
-</div></header><nav class="rank-nav"><a href="index.html?focus=entry-011#entry-011">← Entry 011 · Lightning Bolt</a><div class="center">Entry 012 of 1,000</div><a href="index.html?focus=entry-013#entry-013">Entry 013 · Dark Ritual →</a></nav><div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The two words that defined blue</a><a href="#origin">Alpha's perfect sentence</a><a href="#rules">From interrupts to the stack</a><a href="#permission">Permission becomes an archetype</a><a href="#window">The threat that never exists</a><a href="#mana">The price of two blue mana</a><a href="#the-deck">The doctrine of one-for-one</a><a href="#draw-go">Draw, go</a><a href="#departure">The decade-long departure</a><a href="#modern">Modern finally receives the original</a><a href="#formats">A life across formats</a><a href="#descendants">Every counterspell after Counterspell</a><a href="#art">The image and the language</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The sentence</div><h2>The two words that defined blue</h2><p class="opening dropcap">A spell is announced. Two Islands turn sideways. The spell never becomes part of the game.</p><p>Counterspell is among the rare Magic cards whose name escaped the card itself. Players use “counterspell” as a category, a verb, a threat, and a description of an entire style of play. The original card did not merely belong to blue’s identity. It supplied the ordinary language by which blue interaction is discussed.</p><p>Its current text is only three words: <em>Counter target spell.</em> There is no restriction by card type, mana value, controller, or timing beyond the rules of casting an instant. A creature can be stopped before it becomes a creature. A sweeper can be stopped before the battlefield is cleared. A combo piece, draw spell, planeswalker, artifact, enchantment, or opposing counterspell can all be denied by the same piece of cardboard.</p><p>That universality made Counterspell one of Alpha’s purest statements. It also made it a recurring design problem. For roughly a decade, two untapped blue mana meant the opponent might have the clean answer to almost anything. Later Standard environments were deliberately built without that certainty. Modern spent its first ten years without it. Yet whenever Magic wants to evoke blue in its most concentrated form, it returns to the same sentence.</p><div class="card-lead"><img alt="Counterspell original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Counterspell&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Counterspell</b> · {U}{U}<br/>Instant<br/><br/>Counter target spell.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Common</div><div class="stat"><b>Illustrated by</b>Mark Poole</div><div class="stat"><b>Historical status</b>The baseline universal counter</div></div></div></div></section><section id="origin"><div class="chapter-number">II · Limited Edition Alpha</div><h2>Alpha's perfect sentence</h2><p>Richard Garfield’s first set needed a way for one wizard to interrupt another before magic took effect. Blue received that power. The color could manipulate knowledge, time, illusion, and possibility; it could therefore say that a spell had never successfully happened.</p><p>In Alpha, the card was an <em>interrupt</em>, a vanished card type reserved for effects that had to happen inside a narrow response window. Its wording and rules presentation would change repeatedly, but the design remained almost untouched. Two blue mana bought the broadest reactive exchange available: your spell for mine.</p><p>The card’s elegance concealed a major asymmetry. Red removal generally waited for a creature to resolve. White could exile or destroy permanents once they existed. Black killed creatures and attacked hands. Counterspell did not care what permanent type a spell would become or whether it would become a permanent at all. It operated earlier, at the point when everything except a land was still a spell.</p><p>That power explains blue’s old weakness. Mark Rosewater has described the color as receiving countermagic in exchange for difficulty removing permanents that had already resolved. Blue was strongest while the opportunity remained open and markedly worse once it passed. Counterspell was therefore both a tool and a discipline: the blue player had to know which future could be allowed to become real.</p></section><section id="rules"><div class="chapter-number">III · Rules history</div><h2>From interrupts to the stack</h2><p>Early Magic did not use the modern stack. Spells and effects were organized through batches, interrupts, and timing rules that were substantially less intuitive than today’s priority system. Counterspell belonged to the special class of cards that could interfere with a spell while it was being cast.</p><p>Sixth Edition rules in 1999 removed the interrupt card type and introduced the stack. Counterspell became an instant, and counter wars became easier to explain: a spell goes on the stack; Counterspell is placed above it; another Counterspell may be placed above that; the stack resolves from the top downward.</p><p>The rules modernization did not make the card less subtle. Counterspell can stop a spell, but not an activated or triggered ability unless that ability itself causes a spell to be cast. It cannot destroy a permanent that has already resolved. It cannot counter a land play, because playing a land is a special action rather than casting a spell. It also cannot defeat text that says a spell cannot be countered.</p><p>Those boundaries became foundational knowledge. New players often read “counter target spell” as though it were universal negation. Experienced players understand that its universality occupies one precise temporal window.</p><div class="stack-sequence"><div class="stack-row"><strong>1 · Cast</strong><p>The opponent announces a spell, chooses modes and targets, and pays its costs.</p></div><div class="stack-row"><strong>2 · Priority</strong><p>The active player receives priority, then players may respond before the top object resolves.</p></div><div class="stack-row"><strong>3 · Counter</strong><p>Counterspell targets the original spell and is placed above it on the stack.</p></div><div class="stack-row"><strong>4 · Resolve</strong><p>If Counterspell resolves, the target spell is put into its owner’s graveyard without resolving.</p></div></div></section><section id="permission"><div class="chapter-number">IV · Strategy</div><h2>Permission becomes an archetype</h2><p>Counterspell created more than an exchange. It created <em>permission</em>: the strategic idea that the opponent’s meaningful plays would resolve only when the blue player allowed them to.</p><p>A removal spell answers a particular class of object. A discard spell operates before the opponent chooses what to cast. A counterspell sits between intention and consequence. That position changes the emotional and tactical structure of a game. The opponent must decide whether to lead with the most important spell, bait with a lesser one, wait until the blue player taps low, or force action at the end of a turn.</p><p>The blue player faces the mirror decision. Countering everything is impossible. Even the most extreme permission decks have a finite hand and finite mana. The skill lies in mapping the opponent’s deck: which threats are replaceable, which generate immediate value, which invalidate your future answers, and which are merely asking you to spend mana inefficiently.</p><p>This is why Counterspell is frequently experienced as control over choices rather than control over permanents. The possibility of the card changes lines even when the card is absent.</p><div class="permission-grid"><div class="permission-step"><b>Universal</b><span>It can target any spell that can legally be countered.</span></div><div class="permission-step"><b>Reactive</b><span>It must be available at the exact moment the spell is on the stack.</span></div><div class="permission-step"><b>One for one</b><span>It normally trades one card for one opposing card.</span></div><div class="permission-step"><b>Information pressure</b><span>Untapped blue mana changes what the opponent is willing to attempt.</span></div></div></section><section id="window"><div class="chapter-number">V · The answer</div><h2>The threat that never exists</h2><p>Counterspell differs from nearly every ordinary answer because the targeted card never reaches its next game state. A creature does not enter and trigger an ability. An artifact does not become available for activation. A planeswalker never receives priority protection after resolving. A sorcery produces none of its written effect.</p><p>That prevention can be more valuable than destroying the same permanent later. Cards with enters-the-battlefield abilities may already have generated value before removal becomes possible. Indestructible, ward, hexproof, death triggers, and graveyard recursion all complicate permanent-based answers. Counterspell ignores most of those defenses because it attacks the spell rather than the object the spell would create.</p><p>The same timing creates its weakness. If the blue player is tapped out, chooses the wrong target, or allows the spell to resolve, the clean answer disappears. The card is terrible against threats already on the battlefield and can be stranded against lands, uncounterable spells, or decks built from redundant low-cost actions.</p><p>Counterspell is therefore not simply “better removal.” It is an exceptionally broad answer with an exceptionally narrow window.</p></section><section id="mana"><div class="chapter-number">VI · Construction</div><h2>The price of two blue mana</h2><p>Two mana appears cheap. Two <em>blue</em> mana is a deck-building instruction.</p><p>Counterspell asks a player to produce {U}{U} on the opponent’s second turn while still developing lands that support every other color and spell in the deck. In early mono-blue Draw-Go, this was almost free. In multicolor control, the requirement shaped mana bases, opening hands, fetchland choices, and the sequencing of tapped lands.</p><p>The cost also imposes an opportunity cost every turn. A player who passes with two Islands has declined to use that mana proactively. If the opponent casts nothing worth countering, the mana can be wasted unless the deck contains instant-speed card draw, activated lands, flash threats, or another way to convert unused resources.</p><p>This is the hidden architecture of permission decks. Counterspell is strongest when passing is not a sacrifice—when the deck can counter, draw, activate, cycle, or deploy a threat at the end of the opponent’s turn. The famous phrase “draw, go” was not merely a refusal to play cards. It described a deck designed so that waiting was productive.</p><div class="blue-cost"><div><h3>The visible cost</h3><p>{U}{U}, one card, and the requirement that an opposing spell be on the stack.</p></div><div><h3>The structural cost</h3><p>A blue-heavy mana base, reactive sequencing, and enough instant-speed outlets that unused mana does not become lost tempo.</p></div></div></section><section id="the-deck"><div class="chapter-number">VII · Control theory</div><h2>The doctrine of one-for-one</h2><p>Brian Weissman’s influential control construction, universally remembered as <span class="card-name" data-card="The Deck" tabindex="0">The Deck</span>, established a doctrine that Counterspell expressed perfectly. Trade answers for threats, preserve life, use card-drawing engines to pull ahead, and win only after the opponent’s meaningful resources have been exhausted.</p><p>In that shell, Counterspell and <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span> were not flashy finishers. They were the neutral exchanges that made the rest of the machine reliable. <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> handled creatures that resolved. <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span> handled artifacts and enchantments. <span class="card-name" data-card="Moat" tabindex="0">Moat</span> blanked whole classes of attackers. Counterspell covered whatever category the permanent answers missed.</p><p>The lesson was not that every spell should be countered. It was that a control deck could be built around answer density, mana, and card advantage rather than a race to establish its own threat. The eventual <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span> mattered because the game had been reduced to a state where almost any durable win condition would suffice.</p><p>This one-for-one doctrine became the grammar of blue-white control for decades. Counterspell was the cleanest sentence in that grammar.</p></section><div class="art-break counterspell-art"><div class="art-caption"><b>Mark Poole’s original Counterspell</b>Two opposing magical forms collide around a central point of light. The image does not show a spell destroyed after the fact; it shows one act of magic meeting another at the moment of creation.</div></div><section id="draw-go"><div class="chapter-number">VIII · Pure control</div><h2>Draw, go</h2><p>Randy Buehler’s 1998 World Championship Draw-Go list became the archetype’s museum piece. It played one creature—<span class="card-name" data-card="Rainbow Efreet" tabindex="0">Rainbow Efreet</span>—and more than twenty counterspells. The deck’s normal turn was exactly what its name promised: draw a card, play a land when appropriate, and pass.</p><p>Counterspell was the center of a layered permission package. <span class="card-name" data-card="Force Spike" tabindex="0">Force Spike</span> punished opponents for spending all their mana early. <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span> remained efficient while mana was tight. <span class="card-name" data-card="Dismiss" tabindex="0">Dismiss</span> traded up on cards in the late game. <span class="card-name" data-card="Forbid" tabindex="0">Forbid</span> could be bought back when excess cards made a soft lock possible. The original Counterspell had no expiration date and no clause to manage.</p><p>The deck converted unused mana through <span class="card-name" data-card="Whispers of the Muse" tabindex="0">Whispers of the Muse</span>, <span class="card-name" data-card="Impulse" tabindex="0">Impulse</span>, creature lands, and end-step decisions. <span class="card-name" data-card="Nevinyrral's Disk" tabindex="0">Nevinyrral's Disk</span> reset any permanents that slipped through. <span class="card-name" data-card="Rainbow Efreet" tabindex="0">Rainbow Efreet</span> survived removal by phasing out and eventually ended a game that had often been strategically decided long before the final damage.</p><p>Draw-Go also became the cultural nightmare associated with countermagic: long games, repeated denial, and the sensation that nothing the opponent attempted was permitted to matter. It demonstrated both the strategic beauty of pure reaction and the play-pattern risk of making universal answers too efficient and too numerous.</p></section><section id="departure"><div class="chapter-number">IX · Eighth Edition</div><h2>The decade-long departure</h2><p>Counterspell remained in core sets from Alpha through Seventh Edition and appeared in multiple expansions. For the game’s first decade, it was not an exotic Eternal card. It was an ordinary part of Standard Magic and one of the first blue commons many players learned.</p><p>That continuity ended with Eighth Edition. The card left Standard in 2003, and later environments used conditional or more expensive replacements: <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span>, <span class="card-name" data-card="Hinder" tabindex="0">Hinder</span>, <span class="card-name" data-card="Cancel" tabindex="0">Cancel</span>, <span class="card-name" data-card="Negate" tabindex="0">Negate</span>, <span class="card-name" data-card="Essence Scatter" tabindex="0">Essence Scatter</span>, <span class="card-name" data-card="Dissipate" tabindex="0">Dissipate</span>, and countless set-specific variants.</p><p>Mark Rosewater later described <span class="card-name" data-card="Cancel" tabindex="0">Cancel</span> as a reworking of Counterspell because {U}{U} was slightly below the desired cost for the unrestricted effect, while {1}{U}{U} was the practical whole-mana alternative. That extra generic mana became one of the most consequential single-mana design adjustments in modern Magic.</p><p>The change was not an admission that countermagic should vanish. It was an attempt to create more windows. At three mana, control could not answer every relevant two-drop while also developing perfectly. Conditional two-mana counters could remain efficient but would fail in known ways. The opponent gained more opportunities to play around the answer rather than merely play into it.</p></section><section id="modern"><div class="chapter-number">X · Modern Horizons 2</div><h2>Modern finally receives the original</h2><p>Modern was created in 2011 with Eighth Edition as its starting point. Because Counterspell had disappeared immediately before that cutoff, the format inherited many descendants but not the original.</p><p>For ten years, Modern control players approximated it with <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span>, <span class="card-name" data-card="Logic Knot" tabindex="0">Logic Knot</span>, <span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span>, <span class="card-name" data-card="Remand" tabindex="0">Remand</span>, <span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span>, and specialized answers. That absence became part of the format’s identity. “Counterspell in Modern” was a recurring argument about whether clean two-mana interaction would stabilize the format or suppress too much development.</p><p>Modern Horizons 2 settled the argument by printing Counterspell directly into Modern in June 2021. The reveal was remarkable precisely because the text needed no explanation. A card from Alpha entered a format named Modern twenty-eight years after its debut.</p><p>The result was powerful but not format-breaking. Counterspell became a normal tool in Azorius, Jeskai, Dimir, and other blue control shells, competing with free counters and narrower one-mana interaction. The format’s speed, mana bases, uncounterable threats, value creatures, and alternate-cost spells all limited the fantasy that two Islands would recreate 1998 Draw-Go.</p><p>Its return demonstrated how context changes power. The card was once too efficient for the developmental goals of Standard and still entirely reasonable in a format built from decades of pushed threats and answers.</p></section><section id="formats"><div class="chapter-number">XI · Migration</div><h2>A life across formats</h2><p>Counterspell’s importance changes dramatically with the surrounding card pool.</p><p><b>Modern.</b> A clean baseline for committed blue decks since Modern Horizons 2. It is strong against expensive and high-impact spells, but competes with free interaction, <span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span>, <span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span>, and other metagame-specific tools.</p><p><b>Legacy and Vintage.</b> Legal, historically important, but often crowded out by <span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span>, <span class="card-name" data-card="Daze" tabindex="0">Daze</span>, <span class="card-name" data-card="Flusterstorm" tabindex="0">Flusterstorm</span>, <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span>, and extremely cheap specialized interaction. Paying {U}{U} can be slow when the decisive exchange begins before turn two.</p><p><b>Pauper.</b> One of the format’s defining blue cards because its original common printing makes it legal. Mono-blue, Dimir, Izzet, Faeries, Terror, and control strategies repeatedly return to four copies. In a format of efficient commons, the exact text remains exceptional.</p><p><b>Commander.</b> A reliable, inexpensive answer without the card disadvantage of pitch counters. Multiplayer politics complicate its use: stopping one opponent’s spell spends your card while two other opponents keep theirs, so target selection matters as much as efficiency.</p><p><b>Old School and Premodern.</b> A historical fixture. These formats restore the ecosystems in which double-blue permission, <span class="card-name" data-card="Ophidian" tabindex="0">Ophidian</span>, <span class="card-name" data-card="Forbid" tabindex="0">Forbid</span>, and classic control finishers shaped entire matches.</p><div class="format-strip"><div class="format-card"><span class="impact">Defining</span><h3>Pauper</h3><p>The unrestricted universal answer remains a central reward for blue mana.</p></div><div class="format-card"><span class="impact">Established</span><h3>Modern</h3><p>A normal control staple since its 2021 introduction.</p></div><div class="format-card"><span class="impact">Contextual</span><h3>Legacy and Vintage</h3><p>Powerful text competing against faster or free countermagic.</p></div></div></section><section id="descendants"><div class="chapter-number">XII · Design echo</div><h2>Every counterspell after Counterspell</h2><p>Counterspell became the reference point against which nearly every later piece of countermagic is measured. Designers weaken it by changing cost, scope, certainty, timing, or destination.</p><p><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span> keeps the two-mana efficiency but lets the opponent pay three. <span class="card-name" data-card="Negate" tabindex="0">Negate</span> and <span class="card-name" data-card="Essence Scatter" tabindex="0">Essence Scatter</span> divide the world into noncreature and creature spells. <span class="card-name" data-card="Remove Soul" tabindex="0">Remove Soul</span> established the creature half decades earlier. <span class="card-name" data-card="Cancel" tabindex="0">Cancel</span> preserves universality at three mana. <span class="card-name" data-card="Dissipate" tabindex="0">Dissipate</span> adds exile. <span class="card-name" data-card="Hinder" tabindex="0">Hinder</span> changes where the spell goes. <span class="card-name" data-card="Remand" tabindex="0">Remand</span> returns the spell and replaces itself, trading permanence for tempo.</p><p>Other descendants move above the baseline. <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span> adds a burst of mana and became one of the game’s most notorious early mistakes. <span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span> trades card advantage for the ability to interact without mana. <span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span> turns the counter into one mode of a four-mana toolbox. <span class="card-name" data-card="Daze" tabindex="0">Daze</span> makes the opponent account for permission even when the blue player appears tapped out.</p><p>The original’s influence can also be seen in restrictions that do not appear on it: “unless its controller pays,” “noncreature,” “mana value 2 or less,” “unless it was cast from a graveyard,” “counter unless,” “counter only during an opponent’s turn.” Each clause is a design conversation with the card that had none.</p><div class="inline-image mana-leak-descendant"><div class="image"></div><div class="copy"><div class="kicker">The fair two-mana descendant</div><h3>Mana Leak</h3><p><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span> preserved the early efficiency and psychological pressure of Counterspell while creating an expiration date. It was the default compromise for many Standard and Modern environments before the original arrived.</p></div></div></section><section id="art"><div class="chapter-number">XIII · The object</div><h2>The image and the language</h2><p>Mark Poole’s Alpha illustration presents countermagic as collision. Two luminous forms meet around a concentrated center, and the surrounding hands frame the contest as a duel of intention. The art is abstract enough to become universal: it is not countering one specific fireball or summoning but the act of magic itself.</p><p>Later printings repeatedly reinterpreted the same concept. Some show a spell unraveled, contained, erased, reflected, or shattered. Others depict a mage imposing intellectual control over chaos. The variety demonstrates how difficult it is to picture a negative event—something prevented from happening.</p><p>The name may be even more influential than the image. Magic could have used “negate,” “dispel,” or “interrupt” as the generic term. Instead, Counterspell became both proper noun and common noun. Players say “a counter,” “countermagic,” “counter war,” and “counter target spell” because this card established the vocabulary early enough to feel inevitable.</p><p>Its flavor text across printings often circles the same emotional territory: certainty, refusal, and the humiliation of effort made irrelevant. Few cards generate such a sharp divide between the satisfaction of the caster and the frustration of the target.</p></section><section id="memory"><div class="chapter-number">XIV · The pause</div><h2>What players remember</h2><p>Players remember Counterspell as a posture before they remember it as a card. Two untapped Islands. A hand held slightly apart from the table. The opponent asking, “Does it resolve?”</p><p>For the blue player, the pleasure is precision: identifying the one spell that matters, spending exactly two mana, and preserving an otherwise fragile position. For the opponent, the frustration is counterfactual. The card that might have changed the game produced no battlefield memory because it never resolved.</p><p>That is also why Counterspell teaches restraint. A new player often spends it on the first available target. An experienced player understands that life total, removal, future mana, and redundancy all determine whether a threat deserves permission. The strongest Counterspell can be the one still represented in hand after the opponent chooses not to test it.</p><p>The card’s cultural reputation—clever, oppressive, elegant, annoying—is inseparable from blue itself. It is simultaneously the cleanest expression of interactive play and the card most often accused of preventing play. Both descriptions contain part of the truth.</p><div class="memory"><div class="memory-grid"><blockquote>“Does it resolve?” is not merely a rules question. It is the sentence Counterspell taught every tournament player to ask.</blockquote><cite>The ritual of two open Islands</cite></div></div></section><section id="decklists"><div class="chapter-number">XV · The record</div><h2>The deck archive</h2><p class="deck-intro">The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p><div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Bo Bell — Mind Twist Control</strong><small>U.S. National Champion · Origins 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>Bo Bell’s hastily rebuilt Nationals deck used two Royal Assassins and two Sorceress Queens as a creature-control package in a field filled with large attackers. The list is preserved in the early Type I record; Bell later recalled that the improvised control creatures were much better than expected.</p><div class="deck-meta"><div><b>Bo Bell — Mind Twist Control</b><div class="small">Main deck 60</div></div><button class="copy" data-target="deck-012-counterspell-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sorceress Queen" tabindex="0">Sorceress Queen</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Royal Assassin" tabindex="0">Royal Assassin</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mahamoti Djinn" tabindex="0">Mahamoti Djinn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Phantom Monster" tabindex="0">Phantom Monster</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Badlands" tabindex="0">Badlands</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Bayou" tabindex="0">Bayou</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div></div></div><div class="deck-col"><div class="group"><h4>Other spells · 8</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="The Rack" tabindex="0">The Rack</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Forcefield" tabindex="0">Forcefield</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Interaction and draw · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div></div><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disintegrate" tabindex="0">Disintegrate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wheel of Fortune" tabindex="0">Wheel of Fortune</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div></div><div class="group"><h4>Power · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div></div></div></div><pre hidden="" id="deck-012-counterspell-1">Bo Bell — Mind Twist Control
+</div></header><nav class="rank-nav"><a href="index.html?focus=entry-011#entry-011">← Entry 011 · Lightning Bolt</a><div class="center">Entry 012 of 1,000</div><a href="index.html?focus=entry-013#entry-013">Entry 013 · Dark Ritual →</a></nav><div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The two words that defined blue</a><a href="#origin">Alpha's perfect sentence</a><a href="#rules">From interrupts to the stack</a><a href="#permission">Permission becomes an archetype</a><a href="#window">The threat that never exists</a><a href="#mana">The price of two blue mana</a><a href="#the-deck">The doctrine of one-for-one</a><a href="#draw-go">Draw, go</a><a href="#departure">The decade-long departure</a><a href="#modern">Modern finally receives the original</a><a href="#formats">A life across formats</a><a href="#descendants">Every counterspell after Counterspell</a><a href="#art">The image and the language</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The sentence</div><h2>The two words that defined blue</h2><p class="opening dropcap">A spell is announced. Two Islands turn sideways. The spell never becomes part of the game.</p><p>Counterspell is among the rare Magic cards whose name escaped the card itself. Players use “counterspell” as a category, a verb, a threat, and a description of an entire style of play. The original card did not merely belong to blue’s identity. It supplied the ordinary language by which blue interaction is discussed.</p><p>Its current text is only three words: <em>Counter target spell.</em> There is no restriction by card type, mana value, controller, or timing beyond the rules of casting an instant. A creature can be stopped before it becomes a creature. A sweeper can be stopped before the battlefield is cleared. A combo piece, draw spell, planeswalker, artifact, enchantment, or opposing counterspell can all be denied by the same piece of cardboard.</p><p>That universality made Counterspell one of Alpha’s purest statements. It also made it a recurring design problem. For roughly a decade, two untapped blue mana meant the opponent might have the clean answer to almost anything. Later Standard environments were deliberately built without that certainty. Modern spent its first ten years without it. Yet whenever Magic wants to evoke blue in its most concentrated form, it returns to the same sentence.</p><div class="card-lead"><img alt="Counterspell original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Counterspell&amp;set=lea&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Counterspell</b> · {U}{U}<br/>Instant<br/><br/>Counter target spell.</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Common</div><div class="stat"><b>Illustrated by</b>Mark Poole</div><div class="stat"><b>Historical status</b>The baseline universal counter</div></div></div></div></section><section id="origin"><div class="chapter-number">II · Limited Edition Alpha</div><h2>Alpha's perfect sentence</h2><p>Richard Garfield’s first set needed a way for one wizard to interrupt another before magic took effect. Blue received that power. The color could manipulate knowledge, time, illusion, and possibility; it could therefore say that a spell had never successfully happened.</p><p>In Alpha, the card was an <em>interrupt</em>, a vanished card type reserved for effects that had to happen inside a narrow response window. Its wording and rules presentation would change repeatedly, but the design remained almost untouched. Two blue mana bought the broadest reactive exchange available: your spell for mine.</p><p>The card’s elegance concealed a major asymmetry. Red removal generally waited for a creature to resolve. White could exile or destroy permanents once they existed. Black killed creatures and attacked hands. Counterspell did not care what permanent type a spell would become or whether it would become a permanent at all. It operated earlier, at the point when everything except a land was still a spell.</p><p>That power explains blue’s old weakness. Mark Rosewater has described the color as receiving countermagic in exchange for difficulty removing permanents that had already resolved. Blue was strongest while the opportunity remained open and markedly worse once it passed. Counterspell was therefore both a tool and a discipline: the blue player had to know which future could be allowed to become real.</p></section>
+<div class="art-break artwork-spotlight" data-artwork-artist="Mark Poole" data-artwork-card="Counterspell" data-artwork-set="lea" data-artwork-set-name="Limited Edition Alpha">
+<img alt="Counterspell artwork by Mark Poole" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Counterspell&amp;set=lea&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Counterspell&amp;set=lea&amp;format=image&amp;version=art_crop"/>
+<div class="art-caption"><b aria-live="polite" data-artwork-credit="">Mark Poole’s original Limited Edition Alpha artwork</b><span class="art-caption-excerpt">The artwork builds Counterspell around a decisive visual gesture, with mist, suspended motion, and controlled blue light concentrating attention on the center of action. The cool-toned atmosphere gives the image emotional weight and makes the effect feel immediate rather than symbolic.</span></div>
+</div><section id="rules"><div class="chapter-number">III · Rules history</div><h2>From interrupts to the stack</h2><p>Early Magic did not use the modern stack. Spells and effects were organized through batches, interrupts, and timing rules that were substantially less intuitive than today’s priority system. Counterspell belonged to the special class of cards that could interfere with a spell while it was being cast.</p><p>Sixth Edition rules in 1999 removed the interrupt card type and introduced the stack. Counterspell became an instant, and counter wars became easier to explain: a spell goes on the stack; Counterspell is placed above it; another Counterspell may be placed above that; the stack resolves from the top downward.</p><p>The rules modernization did not make the card less subtle. Counterspell can stop a spell, but not an activated or triggered ability unless that ability itself causes a spell to be cast. It cannot destroy a permanent that has already resolved. It cannot counter a land play, because playing a land is a special action rather than casting a spell. It also cannot defeat text that says a spell cannot be countered.</p><p>Those boundaries became foundational knowledge. New players often read “counter target spell” as though it were universal negation. Experienced players understand that its universality occupies one precise temporal window.</p><div class="stack-sequence"><div class="stack-row"><strong>1 · Cast</strong><p>The opponent announces a spell, chooses modes and targets, and pays its costs.</p></div><div class="stack-row"><strong>2 · Priority</strong><p>The active player receives priority, then players may respond before the top object resolves.</p></div><div class="stack-row"><strong>3 · Counter</strong><p>Counterspell targets the original spell and is placed above it on the stack.</p></div><div class="stack-row"><strong>4 · Resolve</strong><p>If Counterspell resolves, the target spell is put into its owner’s graveyard without resolving.</p></div></div></section><section id="permission"><div class="chapter-number">IV · Strategy</div><h2>Permission becomes an archetype</h2><p>Counterspell created more than an exchange. It created <em>permission</em>: the strategic idea that the opponent’s meaningful plays would resolve only when the blue player allowed them to.</p><p>A removal spell answers a particular class of object. A discard spell operates before the opponent chooses what to cast. A counterspell sits between intention and consequence. That position changes the emotional and tactical structure of a game. The opponent must decide whether to lead with the most important spell, bait with a lesser one, wait until the blue player taps low, or force action at the end of a turn.</p><p>The blue player faces the mirror decision. Countering everything is impossible. Even the most extreme permission decks have a finite hand and finite mana. The skill lies in mapping the opponent’s deck: which threats are replaceable, which generate immediate value, which invalidate your future answers, and which are merely asking you to spend mana inefficiently.</p><p>This is why Counterspell is frequently experienced as control over choices rather than control over permanents. The possibility of the card changes lines even when the card is absent.</p><div class="permission-grid"><div class="permission-step"><b>Universal</b><span>It can target any spell that can legally be countered.</span></div><div class="permission-step"><b>Reactive</b><span>It must be available at the exact moment the spell is on the stack.</span></div><div class="permission-step"><b>One for one</b><span>It normally trades one card for one opposing card.</span></div><div class="permission-step"><b>Information pressure</b><span>Untapped blue mana changes what the opponent is willing to attempt.</span></div></div></section><section id="window"><div class="chapter-number">V · The answer</div><h2>The threat that never exists</h2><p>Counterspell differs from nearly every ordinary answer because the targeted card never reaches its next game state. A creature does not enter and trigger an ability. An artifact does not become available for activation. A planeswalker never receives priority protection after resolving. A sorcery produces none of its written effect.</p><p>That prevention can be more valuable than destroying the same permanent later. Cards with enters-the-battlefield abilities may already have generated value before removal becomes possible. Indestructible, ward, hexproof, death triggers, and graveyard recursion all complicate permanent-based answers. Counterspell ignores most of those defenses because it attacks the spell rather than the object the spell would create.</p><p>The same timing creates its weakness. If the blue player is tapped out, chooses the wrong target, or allows the spell to resolve, the clean answer disappears. The card is terrible against threats already on the battlefield and can be stranded against lands, uncounterable spells, or decks built from redundant low-cost actions.</p><p>Counterspell is therefore not simply “better removal.” It is an exceptionally broad answer with an exceptionally narrow window.</p></section><section id="mana"><div class="chapter-number">VI · Construction</div><h2>The price of two blue mana</h2><p>Two mana appears cheap. Two <em>blue</em> mana is a deck-building instruction.</p><p>Counterspell asks a player to produce {U}{U} on the opponent’s second turn while still developing lands that support every other color and spell in the deck. In early mono-blue Draw-Go, this was almost free. In multicolor control, the requirement shaped mana bases, opening hands, fetchland choices, and the sequencing of tapped lands.</p><p>The cost also imposes an opportunity cost every turn. A player who passes with two Islands has declined to use that mana proactively. If the opponent casts nothing worth countering, the mana can be wasted unless the deck contains instant-speed card draw, activated lands, flash threats, or another way to convert unused resources.</p><p>This is the hidden architecture of permission decks. Counterspell is strongest when passing is not a sacrifice—when the deck can counter, draw, activate, cycle, or deploy a threat at the end of the opponent’s turn. The famous phrase “draw, go” was not merely a refusal to play cards. It described a deck designed so that waiting was productive.</p><div class="blue-cost"><div><h3>The visible cost</h3><p>{U}{U}, one card, and the requirement that an opposing spell be on the stack.</p></div><div><h3>The structural cost</h3><p>A blue-heavy mana base, reactive sequencing, and enough instant-speed outlets that unused mana does not become lost tempo.</p></div></div></section><section id="the-deck"><div class="chapter-number">VII · Control theory</div><h2>The doctrine of one-for-one</h2><p>Brian Weissman’s influential control construction, universally remembered as The Deck, established a doctrine that Counterspell expressed perfectly. Trade answers for threats, preserve life, use card-drawing engines to pull ahead, and win only after the opponent’s meaningful resources have been exhausted.</p><p>In that shell, Counterspell and <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span> were not flashy finishers. They were the neutral exchanges that made the rest of the machine reliable. <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> handled creatures that resolved. <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span> handled artifacts and enchantments. <span class="card-name" data-card="Moat" tabindex="0">Moat</span> blanked whole classes of attackers. Counterspell covered whatever category the permanent answers missed.</p><p>The lesson was not that every spell should be countered. It was that a control deck could be built around answer density, mana, and card advantage rather than a race to establish its own threat. The eventual <span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span> mattered because the game had been reduced to a state where almost any durable win condition would suffice.</p><p>This one-for-one doctrine became the grammar of blue-white control for decades. Counterspell was the cleanest sentence in that grammar.</p></section><section id="draw-go"><div class="chapter-number">VIII · Pure control</div><h2>Draw, go</h2><p>Randy Buehler’s 1998 World Championship Draw-Go list became the archetype’s museum piece. It played one creature—<span class="card-name" data-card="Rainbow Efreet" tabindex="0">Rainbow Efreet</span>—and more than twenty counterspells. The deck’s normal turn was exactly what its name promised: draw a card, play a land when appropriate, and pass.</p><p>Counterspell was the center of a layered permission package. <span class="card-name" data-card="Force Spike" tabindex="0">Force Spike</span> punished opponents for spending all their mana early. <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span> remained efficient while mana was tight. <span class="card-name" data-card="Dismiss" tabindex="0">Dismiss</span> traded up on cards in the late game. <span class="card-name" data-card="Forbid" tabindex="0">Forbid</span> could be bought back when excess cards made a soft lock possible. The original Counterspell had no expiration date and no clause to manage.</p><p>The deck converted unused mana through <span class="card-name" data-card="Whispers of the Muse" tabindex="0">Whispers of the Muse</span>, <span class="card-name" data-card="Impulse" tabindex="0">Impulse</span>, creature lands, and end-step decisions. <span class="card-name" data-card="Nevinyrral's Disk" tabindex="0">Nevinyrral's Disk</span> reset any permanents that slipped through. <span class="card-name" data-card="Rainbow Efreet" tabindex="0">Rainbow Efreet</span> survived removal by phasing out and eventually ended a game that had often been strategically decided long before the final damage.</p><p>Draw-Go also became the cultural nightmare associated with countermagic: long games, repeated denial, and the sensation that nothing the opponent attempted was permitted to matter. It demonstrated both the strategic beauty of pure reaction and the play-pattern risk of making universal answers too efficient and too numerous.</p></section><section id="departure"><div class="chapter-number">IX · Eighth Edition</div><h2>The decade-long departure</h2><p>Counterspell remained in core sets from Alpha through Seventh Edition and appeared in multiple expansions. For the game’s first decade, it was not an exotic Eternal card. It was an ordinary part of Standard Magic and one of the first blue commons many players learned.</p><p>That continuity ended with Eighth Edition. The card left Standard in 2003, and later environments used conditional or more expensive replacements: <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span>, <span class="card-name" data-card="Hinder" tabindex="0">Hinder</span>, <span class="card-name" data-card="Cancel" tabindex="0">Cancel</span>, <span class="card-name" data-card="Negate" tabindex="0">Negate</span>, <span class="card-name" data-card="Essence Scatter" tabindex="0">Essence Scatter</span>, <span class="card-name" data-card="Dissipate" tabindex="0">Dissipate</span>, and countless set-specific variants.</p><p>Mark Rosewater later described <span class="card-name" data-card="Cancel" tabindex="0">Cancel</span> as a reworking of Counterspell because {U}{U} was slightly below the desired cost for the unrestricted effect, while {1}{U}{U} was the practical whole-mana alternative. That extra generic mana became one of the most consequential single-mana design adjustments in modern Magic.</p><p>The change was not an admission that countermagic should vanish. It was an attempt to create more windows. At three mana, control could not answer every relevant two-drop while also developing perfectly. Conditional two-mana counters could remain efficient but would fail in known ways. The opponent gained more opportunities to play around the answer rather than merely play into it.</p></section><section id="modern"><div class="chapter-number">X · Modern Horizons 2</div><h2>Modern finally receives the original</h2><p>Modern was created in 2011 with Eighth Edition as its starting point. Because Counterspell had disappeared immediately before that cutoff, the format inherited many descendants but not the original.</p><p>For ten years, Modern control players approximated it with <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span>, <span class="card-name" data-card="Logic Knot" tabindex="0">Logic Knot</span>, <span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span>, <span class="card-name" data-card="Remand" tabindex="0">Remand</span>, <span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span>, and specialized answers. That absence became part of the format’s identity. “Counterspell in Modern” was a recurring argument about whether clean two-mana interaction would stabilize the format or suppress too much development.</p><p>Modern Horizons 2 settled the argument by printing Counterspell directly into Modern in June 2021. The reveal was remarkable precisely because the text needed no explanation. A card from Alpha entered a format named Modern twenty-eight years after its debut.</p><p>The result was powerful but not format-breaking. Counterspell became a normal tool in Azorius, Jeskai, Dimir, and other blue control shells, competing with free counters and narrower one-mana interaction. The format’s speed, mana bases, uncounterable threats, value creatures, and alternate-cost spells all limited the fantasy that two Islands would recreate 1998 Draw-Go.</p><p>Its return demonstrated how context changes power. The card was once too efficient for the developmental goals of Standard and still entirely reasonable in a format built from decades of pushed threats and answers.</p></section><section id="formats"><div class="chapter-number">XI · Migration</div><h2>A life across formats</h2><p>Counterspell’s importance changes dramatically with the surrounding card pool.</p><p><b>Modern.</b> A clean baseline for committed blue decks since Modern Horizons 2. It is strong against expensive and high-impact spells, but competes with free interaction, <span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span>, <span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span>, and other metagame-specific tools.</p><p><b>Legacy and Vintage.</b> Legal, historically important, but often crowded out by <span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span>, <span class="card-name" data-card="Daze" tabindex="0">Daze</span>, <span class="card-name" data-card="Flusterstorm" tabindex="0">Flusterstorm</span>, <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span>, and extremely cheap specialized interaction. Paying {U}{U} can be slow when the decisive exchange begins before turn two.</p><p><b>Pauper.</b> One of the format’s defining blue cards because its original common printing makes it legal. Mono-blue, Dimir, Izzet, Faeries, Terror, and control strategies repeatedly return to four copies. In a format of efficient commons, the exact text remains exceptional.</p><p><b>Commander.</b> A reliable, inexpensive answer without the card disadvantage of pitch counters. Multiplayer politics complicate its use: stopping one opponent’s spell spends your card while two other opponents keep theirs, so target selection matters as much as efficiency.</p><p><b>Old School and Premodern.</b> A historical fixture. These formats restore the ecosystems in which double-blue permission, <span class="card-name" data-card="Ophidian" tabindex="0">Ophidian</span>, <span class="card-name" data-card="Forbid" tabindex="0">Forbid</span>, and classic control finishers shaped entire matches.</p><div class="format-strip"><div class="format-card"><span class="impact">Defining</span><h3>Pauper</h3><p>The unrestricted universal answer remains a central reward for blue mana.</p></div><div class="format-card"><span class="impact">Established</span><h3>Modern</h3><p>A normal control staple since its 2021 introduction.</p></div><div class="format-card"><span class="impact">Contextual</span><h3>Legacy and Vintage</h3><p>Powerful text competing against faster or free countermagic.</p></div></div></section><section class="design-echo-section" data-card-aliases="{}" data-card-discovery="oracle-catalog-v2" data-card-references='["Cancel","Cryptic Command","Daze","Dissipate","Essence Scatter","Force of Will","Hinder","Mana Drain","Mana Leak","Negate","Remand","Remove Soul"]' id="descendants"><div class="chapter-number">XII · Design echo</div><h2>Every counterspell after Counterspell</h2><p>Counterspell became the reference point against which nearly every later piece of countermagic is measured. Designers weaken it by changing cost, scope, certainty, timing, or destination.</p><p><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span> keeps the two-mana efficiency but lets the opponent pay three. <span class="card-name" data-card="Negate" tabindex="0">Negate</span> and <span class="card-name" data-card="Essence Scatter" tabindex="0">Essence Scatter</span> divide the world into noncreature and creature spells. <span class="card-name" data-card="Remove Soul" tabindex="0">Remove Soul</span> established the creature half decades earlier. <span class="card-name" data-card="Cancel" tabindex="0">Cancel</span> preserves universality at three mana. <span class="card-name" data-card="Dissipate" tabindex="0">Dissipate</span> adds exile. <span class="card-name" data-card="Hinder" tabindex="0">Hinder</span> changes where the spell goes. <span class="card-name" data-card="Remand" tabindex="0">Remand</span> returns the spell and replaces itself, trading permanence for tempo.</p><p>Other descendants move above the baseline. <span class="card-name" data-card="Mana Drain" tabindex="0">Mana Drain</span> adds a burst of mana and became one of the game’s most notorious early mistakes. <span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span> trades card advantage for the ability to interact without mana. <span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span> turns the counter into one mode of a four-mana toolbox. <span class="card-name" data-card="Daze" tabindex="0">Daze</span> makes the opponent account for permission even when the blue player appears tapped out.</p><p>The original’s influence can also be seen in restrictions that do not appear on it: “unless its controller pays,” “noncreature,” “mana value 2 or less,” “unless it was cast from a graveyard,” “counter unless,” “counter only during an opponent’s turn.” Each clause is a design conversation with the card that had none.</p><div class="inline-image canonical-inline-image" data-image-card="Mana Leak">
+<div class="image image-loading" data-card-label="Mana Leak">
+<img class="inline-image-media" alt="Mana Leak artwork" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-card-name="Mana Leak" data-api-url="https://api.scryfall.com/cards/named?exact=Mana+Leak" data-fallback-art="https://api.scryfall.com/cards/named?exact=Mana+Leak&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Mana+Leak&amp;format=image&amp;version=normal" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Mana+Leak&amp;format=image&amp;version=art_crop">
+</div>
+<div class="copy"><div class="eyebrow">The fair two-mana descendant</div><h3>Mana Leak</h3><p><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span> preserved the early efficiency and psychological pressure of Counterspell while creating an expiration date. It was the default compromise for many Standard and Modern environments before the original arrived.</p></div>
+</div></section><section id="art"><div class="chapter-number">XIII · The object</div><h2>The image and the language</h2><p>Mark Poole’s Alpha illustration presents countermagic as collision. Two luminous forms meet around a concentrated center, and the surrounding hands frame the contest as a duel of intention. The art is abstract enough to become universal: it is not countering one specific fireball or summoning but the act of magic itself.</p><p>Later printings repeatedly reinterpreted the same concept. Some show a spell unraveled, contained, erased, reflected, or shattered. Others depict a mage imposing intellectual control over chaos. The variety demonstrates how difficult it is to picture a negative event—something prevented from happening.</p><p>The name may be even more influential than the image. Magic could have used “negate,” “dispel,” or “interrupt” as the generic term. Instead, Counterspell became both proper noun and common noun. Players say “a counter,” “countermagic,” “counter war,” and “counter target spell” because this card established the vocabulary early enough to feel inevitable.</p><p>Its flavor text across printings often circles the same emotional territory: certainty, refusal, and the humiliation of effort made irrelevant. Few cards generate such a sharp divide between the satisfaction of the caster and the frustration of the target.</p></section><section id="memory"><div class="chapter-number">XIV · The pause</div><h2>What players remember</h2><p>Players remember Counterspell as a posture before they remember it as a card. Two untapped Islands. A hand held slightly apart from the table. The opponent asking, “Does it resolve?”</p><p>For the blue player, the pleasure is precision: identifying the one spell that matters, spending exactly two mana, and preserving an otherwise fragile position. For the opponent, the frustration is counterfactual. The card that might have changed the game produced no battlefield memory because it never resolved.</p><p>That is also why Counterspell teaches restraint. A new player often spends it on the first available target. An experienced player understands that life total, removal, future mana, and redundancy all determine whether a threat deserves permission. The strongest Counterspell can be the one still represented in hand after the opponent chooses not to test it.</p><p>The card’s cultural reputation—clever, oppressive, elegant, annoying—is inseparable from blue itself. It is simultaneously the cleanest expression of interactive play and the card most often accused of preventing play. Both descriptions contain part of the truth.</p><div class="memory"><div class="memory-grid"><blockquote>“Does it resolve?” is not merely a rules question. It is the sentence Counterspell taught every tournament player to ask.</blockquote><cite>The ritual of two open Islands</cite></div></div></section><section id="decklists"><div class="chapter-number">XV · The record</div><h2>The deck archive</h2><p class="deck-intro">The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p><div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Bo Bell — Mind Twist Control</strong><small>U.S. National Champion · Origins 1994</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>Bo Bell’s hastily rebuilt Nationals deck used two Royal Assassins and two Sorceress Queens as a creature-control package in a field filled with large attackers. The list is preserved in the early Type I record; Bell later recalled that the improvised control creatures were much better than expected.</p><div class="deck-meta"><div><b>Bo Bell — Mind Twist Control</b><div class="small">Main deck 60</div></div><button class="copy" data-target="deck-012-counterspell-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sorceress Queen" tabindex="0">Sorceress Queen</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Royal Assassin" tabindex="0">Royal Assassin</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mahamoti Djinn" tabindex="0">Mahamoti Djinn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Phantom Monster" tabindex="0">Phantom Monster</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Badlands" tabindex="0">Badlands</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Bayou" tabindex="0">Bayou</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div></div></div><div class="deck-col"><div class="group"><h4>Other spells · 8</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Time Walk" tabindex="0">Time Walk</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="The Rack" tabindex="0">The Rack</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Forcefield" tabindex="0">Forcefield</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sol Ring" tabindex="0">Sol Ring</span></div></div><div class="group"><h4>Interaction and draw · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Braingeyser" tabindex="0">Braingeyser</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Regrowth" tabindex="0">Regrowth</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Demonic Tutor" tabindex="0">Demonic Tutor</span></div></div><div class="group"><h4>Sorceries · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mind Twist" tabindex="0">Mind Twist</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Fireball" tabindex="0">Fireball</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Disintegrate" tabindex="0">Disintegrate</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wheel of Fortune" tabindex="0">Wheel of Fortune</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Timetwister" tabindex="0">Timetwister</span></div></div><div class="group"><h4>Power · 6</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Black Lotus" tabindex="0">Black Lotus</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Emerald" tabindex="0">Mox Emerald</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Jet" tabindex="0">Mox Jet</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Pearl" tabindex="0">Mox Pearl</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Ruby" tabindex="0">Mox Ruby</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mox Sapphire" tabindex="0">Mox Sapphire</span></div></div></div></div><pre hidden="" id="deck-012-counterspell-1">Bo Bell — Mind Twist Control
 U.S. National Champion · Origins 1994
 
 Creatures · 8
@@ -539,50 +750,496 @@ Sideboard · 15
 1 Pulse of the Fields
 1 Return to Dust
 1 Slaughter Pact</pre><p class="small">Source: <a href="https://mtgdecks.net/Legacy/landstill-uwx-decklist-by-raoul-behnert-6327/visual">open the historical record</a></p></div></details></div></section><section id="printings"><div class="chapter-number">XVI · The archive</div><h2>Printings and sources</h2>
-<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p>
-<div class="printings" data-card="Counterspell" data-original-set="lea" id="printing-grid"><figure class="printing original-printing"><img alt="Counterspell original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Counterspell&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div>
-<h3>Research sources</h3><ol class="sources"><li><a href="https://magic.wizards.com/en/news/making-magic/design-times-2005-02-21">Mark Rosewater, “Design of the Times”</a><span>Blue’s access to countermagic and its corresponding weakness once permanents resolve.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/some-day-my-reprints-will-come-2020-06-22">Mark Rosewater, “Some Day, My Reprints Will Come”</a><span>Counterspell’s undercosted status and Cancel as the practical three-mana baseline.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/strictly-superior-2014-03-03">Mark Rosewater, “Strictly Superior”</a><span>The direct comparison among Counterspell, Cancel, and Dissipate.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/storming-gatecrash-part-2-2013-01-28">Mark Rosewater, “Storming the Gatecrash, Part 2”</a><span>The design rule tying universal hard counters to substantial blue commitment.</span></li><li><a href="https://magic.wizards.com/en/news/feature/top-50-blue-cards-2003-08-15">Wizards of the Coast, “The Top 50 Blue Cards”</a><span>Period evaluation of Counterspell and blue’s historical card hierarchy.</span></li><li><a href="https://magic.wizards.com/en/news/feature/no-thanks-2016-11-18">Gavin Verhey, “No Thanks”</a><span>Strategic use of countermagic, mana efficiency, and Carlos Romão’s famous mirror plan.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">Mike Flores, “The Deck”</a><span>Brian Weissman’s control doctrine and representative historical construction.</span></li><li><a href="https://mtg.wtf/deck/wc98/randy-buehler-draw-go">Randy Buehler World Championship Draw-Go archive</a><span>Exact 1998 Standard decklist.</span></li><li><a href="https://mtg.wtf/deck/wc02/carlos-rom-o-psychatog">Carlos Romão World Championship Psychatog archive</a><span>Exact 2002 World Championship decklist.</span></li><li><a href="https://magic.wizards.com/en/news/feature/card-changed-world-2017-03-02">Wizards of the Coast, “The Card That Changed the World”</a><span>Tom LaPille’s Next Level Blue list and Extended context.</span></li><li><a href="https://magic.wizards.com/en/products/modern-horizons-2">Modern Horizons 2 product archive</a><span>The set that introduced Counterspell to Modern in 2021.</span></li><li><a href="https://magic.wizards.com/en/news/card-image-gallery/modern-horizons-2-card-image-gallery">Modern Horizons 2 Card Image Gallery</a><span>Official Counterspell inclusion and set presentation.</span></li><li><a href="https://magic.gg/news/metagame-mentor-modern-winners-and-lessons-from-pro-tour-edge-of-eternities">Frank Karsten, Pro Tour Edge of Eternities Modern analysis</a><span>Francisco Sánchez’s 2025 finalist list and contemporary control context.</span></li><li><a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-june-30-2025">Banned and Restricted Announcement, June 30, 2025</a><span>Historic unban and current digital governance context.</span></li><li><a href="https://scryfall.com/search?order=released&amp;q=%21%22Counterspell%22&amp;unique=prints">Scryfall Counterspell printing archive</a><span>Oracle text, printings, artists, release records, and image references.</span></li></ol>
+<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than twelve legitimate printings show every available version instead.</p>
+<div class="printings canonical-printing-gallery" data-card="Counterspell" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="lea" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Counterspell" data-identity-status="exact-name-set-fallback" data-set="lea"><img alt="Counterspell original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Counterspell&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption><b>Limited Edition Alpha</b><br/>Original printing</figcaption></figure></div>
+<h3>Sources</h3><ol class="sources"><li><a href="https://magic.wizards.com/en/news/making-magic/design-times-2005-02-21">Mark Rosewater, “Design of the Times”</a><span>Blue’s access to countermagic and its corresponding weakness once permanents resolve.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/some-day-my-reprints-will-come-2020-06-22">Mark Rosewater, “Some Day, My Reprints Will Come”</a><span>Counterspell’s undercosted status and Cancel as the practical three-mana baseline.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/strictly-superior-2014-03-03">Mark Rosewater, “Strictly Superior”</a><span>The direct comparison among Counterspell, Cancel, and Dissipate.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/storming-gatecrash-part-2-2013-01-28">Mark Rosewater, “Storming the Gatecrash, Part 2”</a><span>The design rule tying universal hard counters to substantial blue commitment.</span></li><li><a href="https://magic.wizards.com/en/news/feature/top-50-blue-cards-2003-08-15">Wizards of the Coast, “The Top 50 Blue Cards”</a><span>Period evaluation of Counterspell and blue’s historical card hierarchy.</span></li><li><a href="https://magic.wizards.com/en/news/feature/no-thanks-2016-11-18">Gavin Verhey, “No Thanks”</a><span>Strategic use of countermagic, mana efficiency, and Carlos Romão’s famous mirror plan.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/deck-2014-02-17">Mike Flores, “The Deck”</a><span>Brian Weissman’s control doctrine and representative historical construction.</span></li><li><a href="https://mtg.wtf/deck/wc98/randy-buehler-draw-go">Randy Buehler World Championship Draw-Go archive</a><span>Exact 1998 Standard decklist.</span></li><li><a href="https://mtg.wtf/deck/wc02/carlos-rom-o-psychatog">Carlos Romão World Championship Psychatog archive</a><span>Exact 2002 World Championship decklist.</span></li><li><a href="https://magic.wizards.com/en/news/feature/card-changed-world-2017-03-02">Wizards of the Coast, “The Card That Changed the World”</a><span>Tom LaPille’s Next Level Blue list and Extended context.</span></li><li><a href="https://magic.wizards.com/en/products/modern-horizons-2">Modern Horizons 2 product archive</a><span>The set that introduced Counterspell to Modern in 2021.</span></li><li><a href="https://magic.wizards.com/en/news/card-image-gallery/modern-horizons-2-card-image-gallery">Modern Horizons 2 Card Image Gallery</a><span>Official Counterspell inclusion and set presentation.</span></li><li><a href="https://magic.gg/news/metagame-mentor-modern-winners-and-lessons-from-pro-tour-edge-of-eternities">Frank Karsten, Pro Tour Edge of Eternities Modern analysis</a><span>Francisco Sánchez’s 2025 finalist list and contemporary control context.</span></li><li><a href="https://magic.wizards.com/en/news/announcements/banned-and-restricted-june-30-2025">Banned and Restricted Announcement, June 30, 2025</a><span>Historic unban and current digital governance context.</span></li><li><a href="https://scryfall.com/search?order=released&amp;q=%21%22Counterspell%22&amp;unique=prints">Scryfall Counterspell printing archive</a><span>Oracle text, printings, artists, release records, and image references.</span></li></ol>
 <p class="editor-note"><b>Editorial note.</b> This is an independent, noncommercial fan-history project. Magic: The Gathering, card names, card images, and artwork belong to Wizards of the Coast and their respective artists. Scryfall image endpoints are used for reference and require internet access.</p>
-</section></article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 012 follows the original universal counter from Alpha’s rules vocabulary to Draw-Go, Psychatog, and its eventual arrival in Modern.</aside></div><section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Counterspell is entry 12 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-011#entry-011"><small>Previous entry · 011</small>Lightning Bolt</a><a href="index.html?focus=entry-013#entry-013"><small>Next entry · 013</small>Dark Ritual</a></nav></section><div id="preview"><img alt=""/></div><footer class="footer">Compulsive Research · Entry 012 · Counterspell · Independent, noncommercial Magic history project.</footer><script>
-const ARTICLE_CARD = "Counterspell";
-const ORIGINAL_SET = "lea";
+</section></article><aside class="sidebar-note"><b>Compulsive Research</b><br/>Entry 012 follows the original universal counter from Alpha’s rules vocabulary to Draw-Go, Psychatog, and its eventual arrival in Modern.</aside></div><section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Counterspell is entry 12 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-011#entry-011"><small>Previous entry · 011</small>Lightning Bolt</a><a href="index.html?focus=entry-013#entry-013"><small>Next entry · 013</small>Dark Ritual</a></nav></section><div id="preview"><img alt=""/></div><footer class="footer">Compulsive Research · Entry 012 · Counterspell · Independent, noncommercial Magic history project.</footer><script>/* CR_CARD_PREVIEW_RUNTIME_START */
 const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
 function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
 function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
-function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
-function hide(){if(preview&&!pinned)preview.classList.remove('show')}
-document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
-document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+function showCard(el,x,y,p=false){if(!preview||!pimg||!el||!el.dataset.card)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
 const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
 function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script><script defer="" src="assets/artwork-spotlight.js"></script>
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
 
-function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
-function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
-function chooseIconic(cards){
-  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
-  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
-  if(!bySet.length)return [];
-  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
-  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
-  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
-  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
-  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
-  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
-  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
-  for(const c of iconic){add(c);if(selected.length>=target)break}
-  add(bySet[bySet.length-1]);
-  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
-  for(const c of bySet){if(selected.length>=target)break;add(c)}
-  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
-}
-async function loadPrintings(){
- const grid=document.getElementById('printing-grid');if(!grid)return;
- const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
- try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
-  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
-  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
- }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
-}
-loadPrintings();
-</script></body></html>
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+<script defer="" src="assets/design-echo.js"></script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+<script defer="" src="assets/printing-gallery.js"></script>
+</body></html>
