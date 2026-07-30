@@ -268,7 +268,6 @@ p{margin:1em 0}
 .article a{overflow-wrap:anywhere;word-break:normal}
 @media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
 
-
 /* Compatibility layer for the complete Compulsive Research archive.
    Colors, spacing, typography, cards, decks, and galleries remain governed by
    Eternal Dragon's canonical stylesheet above. */
@@ -297,11 +296,8 @@ p{margin:1em 0}
 .end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
 .end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
 .end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
-.descendant-panel{background:var(--night);color:white;border-radius:var(--radius);padding:clamp(25px,5vw,52px);margin:38px 0;box-shadow:var(--shadow)}
-.descendant-panel h3,.descendant-panel p{color:white}.descendant-panel .chapter-number{color:#d8b878}
 .article a{overflow-wrap:anywhere;word-break:normal}
 .card-lead img,.printing img{background:#ded8cc}
-.art-break{width:min(1100px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;margin-left:50%!important;transform:translateX(-50%)!important}
 @media(max-width:750px){
   .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
   .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
@@ -322,10 +318,216 @@ p{margin:1em 0}
 .inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
 
 .rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
-</style></head>
+
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_START */
+/* Eternal Dragon is the visual authority for every artwork spotlight. */
+.art-break.artwork-spotlight{
+  width:100vw!important;max-width:none!important;min-height:min(69vw,720px)!important;
+  margin:72px 0 72px calc((var(--reading) - 100vw)/2)!important;transform:none!important;
+  position:relative!important;display:flex!important;align-items:flex-end!important;overflow:hidden!important;
+  color:white!important;background:none!important;isolation:isolate;
+}
+.art-break.artwork-spotlight:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(0deg,rgba(4,8,8,.93),rgba(4,8,8,.18) 55%,transparent 76%)!important;pointer-events:none;
+}
+.artwork-spotlight .art-break-media{
+  position:absolute!important;inset:0!important;z-index:0!important;display:block!important;
+  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;
+  object-position:center 25%!important;transform:none!important;pointer-events:none;
+}
+.artwork-spotlight .art-caption{
+  position:relative!important;z-index:2!important;width:min(var(--wide),calc(100% - 32px))!important;
+  margin:auto!important;padding:35px 0!important;color:#ddd!important;
+  font:13px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72);
+}
+.artwork-spotlight .art-caption b{display:block!important;margin-bottom:5px!important;color:white!important;font-size:1rem!important;line-height:1.35!important}
+.artwork-spotlight .art-caption-excerpt{display:block}
+@media(max-width:750px){
+ .art-break.artwork-spotlight{width:100vw!important;max-width:none!important;min-height:72vh!important;margin-left:calc((100% - 100vw)/2)!important;margin-right:0!important}
+ .artwork-spotlight .art-break-media{object-position:center 25%!important}
+ .artwork-spotlight .art-caption{width:calc(100% - 48px)!important;padding:31px 0!important}
+}
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_END */
+
+/* CR_CANONICAL_DESIGN_ECHO_START */
+/* Eternal Dragon is the structural and responsive authority for every
+   Design Echo image-plus-copy panel. */
+.design-echo-section>.inline-image.canonical-inline-image,
+.inline-image.canonical-inline-image{
+  box-sizing:border-box!important;
+  width:min(980px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  background:transparent!important;
+  color:white!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:var(--radius)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+.inline-image.canonical-inline-image>.image{
+  box-sizing:border-box!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:390px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:var(--night2)!important;
+  border:0!important;
+  border-radius:var(--radius) 0 0 var(--radius)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.image:before{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  padding:28px!important;
+  color:#c7cfca!important;
+  text-align:center!important;
+  font:800 .82rem/1.5 Inter,system-ui,sans-serif!important;
+  letter-spacing:.04em!important;
+  pointer-events:none!important;
+}
+.inline-image.canonical-inline-image>.image.image-loading:before{
+  content:"Loading " attr(data-card-label) " artwork…"!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed:before{
+  content:attr(data-card-label) " artwork could not be loaded"!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded:before{content:""!important}
+.inline-image.canonical-inline-image .inline-image-media{
+  box-sizing:border-box!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:opacity .18s ease!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded .inline-image-media{
+  display:block!important;
+  opacity:1!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed .inline-image-media{
+  display:none!important;
+  opacity:0!important;
+}
+.inline-image.canonical-inline-image>.copy{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:35px!important;
+  align-self:stretch!important;
+  background:#20322f!important;
+  color:white!important;
+  border:1px solid #586963!important;
+  border-left:0!important;
+  border-radius:0 var(--radius) var(--radius) 0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.copy .eyebrow,
+.inline-image.canonical-inline-image>.copy .kicker{
+  display:block!important;
+  margin:0 0 12px!important;
+  color:#d8b878!important;
+  text-transform:uppercase!important;
+  letter-spacing:.18em!important;
+  font:900 .73rem/1.35 Inter,system-ui,sans-serif!important;
+}
+.inline-image.canonical-inline-image>.copy h3{
+  margin:0 0 16px!important;
+  color:white!important;
+  font-size:2rem!important;
+  line-height:1.12!important;
+}
+.inline-image.canonical-inline-image>.copy p{
+  margin:0 0 1em!important;
+  color:#d8d9d4!important;
+}
+.inline-image.canonical-inline-image>.copy p:last-child{margin-bottom:0!important}
+@media(max-width:750px){
+  .design-echo-section>.inline-image.canonical-inline-image,
+  .inline-image.canonical-inline-image{
+    width:100%!important;
+    max-width:100%!important;
+    margin:42px 0 48px!important;
+    padding:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .inline-image.canonical-inline-image>.image{
+    width:100%!important;
+    min-height:390px!important;
+    margin:0!important;
+    border-radius:var(--radius) var(--radius) 0 0!important;
+  }
+  .inline-image.canonical-inline-image>.copy{
+    width:100%!important;
+    margin:0!important;
+    padding:35px!important;
+    border:1px solid #586963!important;
+    border-top:0!important;
+    border-radius:0 0 var(--radius) var(--radius)!important;
+  }
+}
+/* CR_CANONICAL_DESIGN_ECHO_END */
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+</style>
+<style id="cr-printing-gallery-style">
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+</style>
+</head>
 <body data-article-card="Memnarch">
 <header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Memnarch&amp;set=dst&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Memnarch&amp;set=dst&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
-<a class="archive-link" href="index.html?focus=honorable-memnarch#honorable-memnarch">← Honorable Mentions</a>
+<a class="archive-link" href="index.html?focus=honorable-memnarch#honorable-memnarch">← Back to Compulsive Research</a>
 <div class="honorable-badge">Beyond the Thousand · Honorable Mention 004</div>
 <div class="eyebrow">Darksteel · 2004</div>
 <h1>The Machine That Could Make Everything His</h1>
@@ -344,6 +546,10 @@ p{margin:1em 0}
 <p>Memnarch looked enormous and frightening in a preview binder. Seven mana bought a legendary villain, two repeatable activated abilities, and the theoretical power to acquire anything on the battlefield. Yet the set's genuinely broken cards did not wait for seven mana. Ravager and <span class="card-name" data-card="Skullclamp" tabindex="0">Skullclamp</span> converted cheap artifacts into immediate pressure and cards. <span class="card-name" data-card="Aether Vial" tabindex="0">Aether Vial</span> ignored mana costs. Memnarch demanded that a deck survive, develop a huge mana base, cast a vulnerable creature, and then continue spending mana before the takeover began.</p>
 <div class="pullquote">Darksteel's most dangerous cards made mana efficiency disappear. Memnarch asked what blue could do after mana efficiency no longer mattered.<small>The difference between broken and inevitable</small></div>
 <p>This distinction explains much of the card's history. Memnarch was rarely the reason a deck reached the late game. It was the reason the late game stopped being competitive once the deck had already reached it. It belonged not to the explosive artifact strategy but to the control strategy that could turn artifact-block mana engines against the rest of the format.</p></section>
+<div class="art-break artwork-spotlight" data-artwork-artist="Carl Critchlow" data-artwork-card="Memnarch" data-artwork-set="dst" data-artwork-set-name="Darksteel">
+<img alt="Memnarch artwork by Carl Critchlow" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Memnarch&amp;set=dst&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Memnarch&amp;set=dst&amp;format=image&amp;version=art_crop"/>
+<div class="art-caption"><b aria-live="polite" data-artwork-credit="">Carl Critchlow’s original Darksteel artwork</b><span class="art-caption-excerpt">Memnarch is not depicted as a clean machine or a humanoid tyrant. He sprawls across the frame like a diseased industrial organism—part crab, part tower, part exposed nervous system—embodying the card's blur between metal, flesh, and madness.</span></div>
+</div>
 <section id="warden"><div class="chapter-number">III · The story</div><h2>The Warden of Argentum</h2>
 <p>Mirrodin was originally Argentum, an artificial plane created by Karn. Its warden became Memnarch: a sentient machine charged with watching the world in its creator's absence. The deeper storyline connects that warden to the Mirari, the powerful Dominaria artifact Karn reshaped into the core of his new guardian.</p>
 <p>The assignment was protection. The result was possession. Contamination by Phyrexian oil, isolation, and resentment transformed Memnarch into a paranoid ruler. He renamed the plane Mirrodin, populated it by abducting beings from other planes, watched them from the Panopticon, and searched for a planeswalker spark he could seize for himself. The guardian's logic became totalitarian: if the plane was his responsibility, then everything on the plane could be treated as his material.</p>
@@ -356,7 +562,6 @@ p{margin:1em 0}
 <p>The sequence matters. A player cannot announce the second ability targeting a nonartifact and expect the first ability to make the target legal later. The conversion must resolve first. Once it has, the permanent remains an artifact while it stays on the battlefield, so the control ability can be activated at a later time even if Memnarch is temporarily short of mana.</p>
 <p>That delay creates interaction. An opponent can remove Memnarch after the conversion, sacrifice the newly metallic permanent, bounce it, or destroy it with artifact removal. Conversely, converting something can expose it to cards that would not otherwise affect it. <span class="card-name" data-card="Annul" tabindex="0">Annul</span> cannot retroactively counter it, but <span class="card-name" data-card="Shatter" tabindex="0">Shatter</span>, <span class="card-name" data-card="Rebuild" tabindex="0">Rebuild</span>, and later effects such as <span class="card-name" data-card="Vandalblast" tabindex="0">Vandalblast</span> may suddenly matter.</p>
 <p>Memnarch therefore rewards sequencing rather than blind activation. Against open mana, the best target may be an existing artifact because it requires only one activation. Against a sacrifice outlet, converting a permanent can be a threat that forces the sacrifice even if the theft never occurs. Against a mana-screwed opponent, stealing a land may be more decisive than stealing the largest creature.</p></section>
-<div class="art-break memnarch-art"><div class="art-caption"><b>Carl Critchlow's original Darksteel artwork</b>Memnarch is not depicted as a clean machine or a humanoid tyrant. He sprawls across the frame like a diseased industrial organism—part crab, part tower, part exposed nervous system—embodying the card's blur between metal, flesh, and madness.</div></div>
 <section id="permanent"><div class="chapter-number">V · The duration</div><h2>The theft that does not expire</h2>
 <p>The parenthetical reminder on both abilities is essential: the effects last indefinitely. They are not tied to Memnarch remaining on the battlefield. Destroying Memnarch after a permanent has been stolen does not return that permanent. The control effect continues until another effect changes control or the object leaves the battlefield.</p>
 <p>The same is true of the artifact type. A converted creature remains an artifact creature. A converted land remains an artifact land. If the permanent leaves and returns, it becomes a new object with no memory of Memnarch's effect, but merely removing Memnarch does not undo the transformation.</p>
@@ -383,14 +588,28 @@ p{margin:1em 0}
 <p>This transparency is both strength and weakness. Memnarch can dominate a game in which opponents spend resources on one another and allow the artifact player to develop. It can also make its controller the archenemy from turn zero. Theft is more emotionally provocative than removal because the victim must continue looking at their card on the other side of the table.</p>
 <p>Good Memnarch play therefore involves threat selection. Stealing the strongest permanent immediately may be correct in a high-power game. In a social game, taking a modest mana rock or an essential combo piece can control the board without convincing every opponent that nothing they cast will remain theirs. The commander supplies no diplomacy on its own; its controller must create it.</p>
 <p>That tension is part of the appeal. Memnarch decks are rarely subtle in concept, but they can be subtle in timing. The most dangerous activation is often not the first one. It is the moment the table realizes the Memnarch player can perform the sequence repeatedly and still hold up a counterspell.</p></section>
-<section id="lattice"><div class="chapter-number">X · The world machine</div><h2>When everything is already an artifact</h2>
+<section class="design-echo-section" data-card-aliases='{"Urtet":"Urtet, Remnant of Memnarch"}' data-card-discovery="oracle-catalog-v2" data-card-references='["Liquimetal Coating","Liquimetal Torque","Mycosynth Lattice","Urtet, Remnant of Memnarch"]' id="lattice"><div class="chapter-number">X · The world machine</div><h2>When everything is already an artifact</h2>
 <p><span class="card-name" data-card="Mycosynth Lattice" tabindex="0">Mycosynth Lattice</span> is Memnarch's most literal companion. If all permanents are artifacts in addition to their other types, the first ability becomes unnecessary. Every permanent can be targeted by the {3}{U} control ability immediately.</p>
 <p>The interaction is powerful, obvious, and dangerous. Lattice also makes the entire battlefield vulnerable to artifact hate. A single mass-artifact destruction spell can become land destruction. Opponents know that a resolved Lattice beside Memnarch means every land and commander is four mana away from changing sides.</p>
 <p>The flavor is almost too exact. Mirrodin's mycosynth blurred metal and flesh, the same boundary Memnarch's abilities manipulate. The card pair creates a mechanical version of the plane under his rule: everything has already been incorporated into the machine, and ownership is the only remaining question.</p>
-<div class="inline-image myr-descendant"><div class="image"></div><div class="copy"><div class="eyebrow">The remnant</div><h3>Urtet remembers the machine</h3><p><span class="card-name" data-card="Urtet, Remnant of Memnarch" tabindex="0">Urtet, Remnant of Memnarch</span> returned Memnarch's name to a modern card and tied his legacy to the Myr. The descendant does not steal the board, but its title confirms how deeply the vanished tyrant remains embedded in Mirrodin's mechanical history.</p></div></div>
+<div class="inline-image canonical-inline-image" data-image-card="Urtet, Remnant of Memnarch">
+<div class="image image-loading" data-card-label="Urtet, Remnant of Memnarch">
+<img class="inline-image-media" alt="Urtet, Remnant of Memnarch artwork" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-card-name="Urtet, Remnant of Memnarch" data-api-url="https://api.scryfall.com/cards/named?exact=Urtet%2C+Remnant+of+Memnarch" data-fallback-art="https://api.scryfall.com/cards/named?exact=Urtet%2C+Remnant+of+Memnarch&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Urtet%2C+Remnant+of+Memnarch&amp;format=image&amp;version=normal" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Urtet%2C+Remnant+of+Memnarch&amp;format=image&amp;version=art_crop">
+</div>
+<div class="copy"><div class="eyebrow">The remnant</div><h3>Urtet remembers the machine</h3><p><span class="card-name" data-card="Urtet, Remnant of Memnarch" tabindex="0">Urtet, Remnant of Memnarch</span> returned Memnarch's name to a modern card and tied his legacy to the Myr. The descendant does not steal the board, but its title confirms how deeply the vanished tyrant remains embedded in Mirrodin's mechanical history.</p></div>
+</div>
 <p>Memnarch also pairs naturally with <span class="card-name" data-card="Liquimetal Coating" tabindex="0">Liquimetal Coating</span> and <span class="card-name" data-card="Liquimetal Torque" tabindex="0">Liquimetal Torque</span>. These cards duplicate the first ability for one target while providing utility or mana. They show how Memnarch's once-bizarre type-changing effect became a reusable design tool: turning a permanent into an artifact can enable theft, removal, animation, sacrifice, or synergy.</p></section>
-<section id="descendants"><div class="chapter-number">XI · The inheritance</div><h2>The machines that followed</h2>
-<p>Memnarch sits at the intersection of several design families rather than founding only one. Blue had stolen permanents before through <span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span> and <span class="card-name" data-card="Treachery" tabindex="0">Treachery</span>. Artifacts had changed types before. Large mana sinks had existed since Alpha. Memnarch joined all three into a repeatable engine.</p>
+<section class="design-echo-section" id="descendants"><div class="chapter-number">XI · The inheritance</div><h2>The machines that followed</h2>
+<p>Memnarch sits at the intersection of several design families rather than founding only one. Blue had stolen permanents before through <span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span> and <span class="card-name" data-card="Treachery" tabindex="0">Treachery</span>. Artifacts had changed types before. Large mana sinks had existed since Alpha. Memnarch joined all three into a repeatable engine.</p><div class="inline-image canonical-inline-image" data-image-card="Control Magic">
+<div class="image image-loading" data-card-label="Control Magic">
+<img class="inline-image-media" alt="Control Magic artwork" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-card-name="Control Magic" data-api-url="https://api.scryfall.com/cards/named?exact=Control+Magic" data-fallback-art="https://api.scryfall.com/cards/named?exact=Control+Magic&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Control+Magic&amp;format=image&amp;version=normal" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Control+Magic&amp;format=image&amp;version=art_crop">
+</div>
+<div class="copy">
+<div class="eyebrow">Limited Edition Alpha · 1993</div>
+<h3>Control Magic</h3>
+<p>Blue had stolen permanents before through Control Magic and Treachery .</p>
+</div>
+</div>
 <p>Later cards separated the pieces. Liquimetal effects made permanents into artifacts. <span class="card-name" data-card="Master Thief" tabindex="0">Master Thief</span>, <span class="card-name" data-card="Thada Adel, Acquisitor" tabindex="0">Thada Adel, Acquisitor</span>, and <span class="card-name" data-card="Emry, Lurker of the Loch" tabindex="0">Emry, Lurker of the Loch</span> explored blue's relationship with opposing or reusable artifacts. <span class="card-name" data-card="Agent of Treachery" tabindex="0">Agent of Treachery</span> carried unconditional permanent theft onto a creature, though as a one-time trigger rather than a mana engine.</p>
 <p>Artifact commanders also became far more efficient. <span class="card-name" data-card="Arcum Dagsson" tabindex="0">Arcum Dagsson</span> tutors artifacts directly. <span class="card-name" data-card="Urza, Lord High Artificer" tabindex="0">Urza, Lord High Artificer</span> turns artifacts into mana and cards. <span class="card-name" data-card="Mishra, Eminent One" tabindex="0">Mishra, Eminent One</span> copies them. Memnarch remains distinct because its central resource is not merely its own artifact collection. It is everybody else's.</p>
 <p>That is why the card has not been functionally replaced. Newer commanders are cheaper, faster, or more synergistic, but few state their ambition as plainly. Memnarch does not ask the deck to build an army. It asks the deck to finance a hostile acquisition.</p></section>
@@ -534,9 +753,9 @@ Lands · 25
 5 Swamp
 2 Terramorphic Expanse</pre><p class="small">Source: <a href="https://mtg.wtf/deck/arc/assemble-the-doomsday-machine">open the complete Archenemy deck archive</a></p></div></details></div></section>
 <section id="printings"><div class="chapter-number">XVI · The archive</div><h2>Printings and sources</h2>
-<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than four legitimate printings show every available version instead.</p>
-<div class="printings" data-card="Memnarch" data-original-set="dst" id="printing-grid"><figure class="printing original-printing"><img alt="Memnarch original printing" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Memnarch&amp;set=dst&amp;format=image&amp;version=normal"/><figcaption>Original printing · loading the iconic printing gallery…</figcaption></figure><div class="printing-status">Loading at least four iconic printings when the card has that many distinct releases…</div></div>
-<ul class="sources">
+<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than twelve legitimate printings show every available version instead.</p>
+<div class="printings canonical-printing-gallery" data-card="Memnarch" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="dst" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Memnarch" data-identity-status="exact-name-set-fallback" data-set="dst"><img alt="Memnarch original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Memnarch&amp;set=dst&amp;format=image&amp;version=normal"/><figcaption><b>Darksteel</b><br/>Original printing</figcaption></figure></div>
+<h3>Sources</h3><ul class="sources">
 <li><a href="https://scryfall.com/card/dst/129/memnarch">Scryfall, Memnarch</a><span>Oracle text, original printing, artist credit, rulings, legality, and reprint archive.</span></li>
 <li><a href="https://magic.wizards.com/en/story/mirrodin-plane">Wizards of the Coast, “Mirrodin”</a><span>Official overview of Karn's artificial plane, its warden, Memnarch's instability, the abductions, and Glissa's victory.</span></li>
 <li><a href="https://magic.wizards.com/en/news/feature/indestructible-inspiration-2017-09-21">Gavin Verhey, “Indestructible Inspiration”</a><span>Wizards retrospective context for Darksteel's 2004 release and the set's famous high-impact cards and mechanic.</span></li>
@@ -551,46 +770,492 @@ Lands · 25
 </section>
 </article><aside class="margin-note sidebar-note"><b>The essential identity</b><p>Memnarch turns excess blue mana into a permanent claim on whatever the opponent believed was theirs.</p></aside></div>
 <section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The honorable archive</h2><p>Memnarch is Honorable Mention 004 in the supplemental archive. Honorable Mentions remain separate from the one thousand numbered entries.</p><nav class="end-nav"><a href="honorable-003-browbeat.html"><small>Previous honorable mention · 003</small>Browbeat</a><a href="honorable-005-nimble-mongoose.html"><small>Next honorable mention · 005</small>Nimble Mongoose</a></nav></section><div class="card-preview" id="preview"><img alt=""/></div><footer class="footer">Compulsive Research · Honorable Mention · Memnarch · Independent, noncommercial Magic history project.</footer>
-<script>
-const ARTICLE_CARD = "Memnarch";
-const ORIGINAL_SET = "dst";
+<script>/* CR_CARD_PREVIEW_RUNTIME_START */
 const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
 function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
 function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
-function show(el,x,y,p=false){if(!preview||!pimg)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
-function hide(){if(preview&&!pinned)preview.classList.remove('show')}
-document.querySelectorAll('.card-name').forEach(el=>{el.addEventListener('mouseenter',e=>show(el,e.clientX,e.clientY));el.addEventListener('mousemove',e=>place(e.clientX,e.clientY));el.addEventListener('mouseleave',hide);el.addEventListener('focus',()=>{const r=el.getBoundingClientRect();show(el,r.right,r.top)});el.addEventListener('blur',hide);el.addEventListener('click',e=>{if(matchMedia('(hover:none)').matches){e.preventDefault();show(el,innerWidth/2,innerHeight/3,true)}})});
-document.addEventListener('click',e=>{if(preview&&pinned&&!e.target.closest('.card-name')){pinned=false;preview.classList.remove('show')}});
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{const el=document.getElementById(b.dataset.target);if(!el)return;const t=el.textContent;try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)}));
+function showCard(el,x,y,p=false){if(!preview||!pimg||!el||!el.dataset.card)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
 const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
 function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script><script defer="" src="assets/artwork-spotlight.js"></script>
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
 
-function imageOf(c){return c.image_uris?.normal||c.card_faces?.[0]?.image_uris?.normal||''}
-function artKey(c){return c.illustration_id||c.artist+'|'+(c.image_uris?.art_crop||c.card_faces?.[0]?.image_uris?.art_crop||'')}
-function chooseIconic(cards){
-  const usable=cards.filter(c=>c.lang==='en'&&imageOf(c)&&(c.games||[]).includes('paper')).sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
-  const bySet=[],seenSet=new Set();for(const c of usable){if(!seenSet.has(c.set)){seenSet.add(c.set);bySet.push(c)}}
-  if(!bySet.length)return [];
-  const target=bySet.length<4?bySet.length:bySet.length<=8?4:bySet.length<=16?5:bySet.length<=35?6:8;
-  const selected=[];const add=c=>{if(c&&!selected.includes(c))selected.push(c)};
-  add(bySet.find(c=>c.set===ORIGINAL_SET)||bySet[0]);
-  let lastFrame=selected[0]?.frame,lastBorder=selected[0]?.border_color,lastArt=artKey(selected[0]||{});
-  for(const c of bySet){if(c.frame!==lastFrame||c.border_color!==lastBorder){add(c);lastFrame=c.frame;lastBorder=c.border_color;if(selected.length>=target)break}}
-  for(const c of bySet){if(artKey(c)!==lastArt){add(c);lastArt=artKey(c);if(selected.length>=target)break}}
-  const iconic=bySet.filter(c=>/(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks)/i.test((c.set_name||'')+' '+(c.promo_types||[]).join(' ')));
-  for(const c of iconic){add(c);if(selected.length>=target)break}
-  add(bySet[bySet.length-1]);
-  let i=1;while(selected.length<target&&i<target*4){const idx=Math.round(i*(bySet.length-1)/(target-1));add(bySet[idx]);i++}
-  for(const c of bySet){if(selected.length>=target)break;add(c)}
-  return selected.sort((a,b)=>(a.released_at||'').localeCompare(b.released_at||''));
-}
-async function loadPrintings(){
- const grid=document.getElementById('printing-grid');if(!grid)return;
- const q='!"'+ARTICLE_CARD+'" include:extras lang:en';let url='https://api.scryfall.com/cards/search?order=released&dir=asc&unique=prints&q='+encodeURIComponent(q);
- try{let all=[];while(url){const r=await fetch(url);if(!r.ok)throw new Error('catalog');const j=await r.json();all=all.concat(j.data||[]);url=j.has_more?j.next_page:null}
-  const chosen=chooseIconic(all);if(!chosen.length)throw new Error('empty');
-  grid.innerHTML=chosen.map((c,i)=>{const im=imageOf(c),yr=(c.released_at||'').slice(0,4),label=i===0?'Original printing':(c.set_name||'Printing');return `<figure class="printing"><img loading="lazy" src="${im}" alt="${ARTICLE_CARD} — ${c.set_name}"><figcaption><b>${label}: ${c.set_name} · ${yr}</b><br>${c.artist||'Artist not listed'} · ${c.collector_number||''}</figcaption></figure>`}).join('');
- }catch(e){const status=grid.querySelector('.printing-status');if(status)status.textContent='The live iconic-printing gallery could not load. The original printing remains visible, and the source links below open the complete catalog.'}
-}
-loadPrintings();
-</script></body></html>
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+<script defer="" src="assets/design-echo.js"></script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+<script defer="" src="assets/printing-gallery.js"></script>
+</body></html>
