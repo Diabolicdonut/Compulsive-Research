@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A long-form magazine history of Spiketail Hatchling: Prophecy, visible permission, Blue Skies, Jay Elarar at Pro Tour Chicago 2000, Terry Tsang at Canadian Nationals 2001, John Ormerod at Worlds 2001, Premodern revival, rules, artwork, printings, and decklists." name="description"/><title>Spiketail Hatchling: The Counterspell Had Wings — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:var(--night2)}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_START */
+/* Eternal Dragon is the visual authority for every artwork spotlight. */
+.art-break.artwork-spotlight{
+  width:100vw!important;max-width:none!important;min-height:min(69vw,720px)!important;
+  margin:72px 0 72px calc((var(--reading) - 100vw)/2)!important;transform:none!important;
+  position:relative!important;display:flex!important;align-items:flex-end!important;overflow:hidden!important;
+  color:white!important;background:none!important;isolation:isolate;
+}
+.art-break.artwork-spotlight:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(0deg,rgba(4,8,8,.93),rgba(4,8,8,.18) 55%,transparent 76%)!important;pointer-events:none;
+}
+.artwork-spotlight .art-break-media{
+  position:absolute!important;inset:0!important;z-index:0!important;display:block!important;
+  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;
+  object-position:center 25%!important;transform:none!important;pointer-events:none;
+}
+.artwork-spotlight .art-caption{
+  position:relative!important;z-index:2!important;width:min(var(--wide),calc(100% - 32px))!important;
+  margin:auto!important;padding:35px 0!important;color:#ddd!important;
+  font:13px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72);
+}
+.artwork-spotlight .art-caption b{display:block!important;margin-bottom:5px!important;color:white!important;font-size:1rem!important;line-height:1.35!important}
+.artwork-spotlight .art-caption-excerpt{display:block}
+@media(max-width:750px){
+ .art-break.artwork-spotlight{width:100vw!important;max-width:none!important;min-height:72vh!important;margin-left:calc((100% - 100vw)/2)!important;margin-right:0!important}
+ .artwork-spotlight .art-break-media{object-position:center 25%!important}
+ .artwork-spotlight .art-caption{width:calc(100% - 48px)!important;padding:31px 0!important}
+}
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_END */
+
+/* CR_CANONICAL_DESIGN_ECHO_START */
+/* Eternal Dragon is the structural and responsive authority for every
+   Design Echo image-plus-copy panel. */
+.design-echo-section>.inline-image.canonical-inline-image,
+.inline-image.canonical-inline-image{
+  box-sizing:border-box!important;
+  width:min(980px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  background:transparent!important;
+  color:white!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:var(--radius)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+.inline-image.canonical-inline-image>.image{
+  box-sizing:border-box!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:390px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:var(--night2)!important;
+  border:0!important;
+  border-radius:var(--radius) 0 0 var(--radius)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.image:before{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  padding:28px!important;
+  color:#c7cfca!important;
+  text-align:center!important;
+  font:800 .82rem/1.5 Inter,system-ui,sans-serif!important;
+  letter-spacing:.04em!important;
+  pointer-events:none!important;
+}
+.inline-image.canonical-inline-image>.image.image-loading:before{
+  content:"Loading " attr(data-card-label) " artwork…"!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed:before{
+  content:attr(data-card-label) " artwork could not be loaded"!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded:before{content:""!important}
+.inline-image.canonical-inline-image .inline-image-media{
+  box-sizing:border-box!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:opacity .18s ease!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded .inline-image-media{
+  display:block!important;
+  opacity:1!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed .inline-image-media{
+  display:none!important;
+  opacity:0!important;
+}
+.inline-image.canonical-inline-image>.copy{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:35px!important;
+  align-self:stretch!important;
+  background:#20322f!important;
+  color:white!important;
+  border:1px solid #586963!important;
+  border-left:0!important;
+  border-radius:0 var(--radius) var(--radius) 0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.copy .eyebrow,
+.inline-image.canonical-inline-image>.copy .kicker{
+  display:block!important;
+  margin:0 0 12px!important;
+  color:#d8b878!important;
+  text-transform:uppercase!important;
+  letter-spacing:.18em!important;
+  font:900 .73rem/1.35 Inter,system-ui,sans-serif!important;
+}
+.inline-image.canonical-inline-image>.copy h3{
+  margin:0 0 16px!important;
+  color:white!important;
+  font-size:2rem!important;
+  line-height:1.12!important;
+}
+.inline-image.canonical-inline-image>.copy p{
+  margin:0 0 1em!important;
+  color:#d8d9d4!important;
+}
+.inline-image.canonical-inline-image>.copy p:last-child{margin-bottom:0!important}
+@media(max-width:750px){
+  .design-echo-section>.inline-image.canonical-inline-image,
+  .inline-image.canonical-inline-image{
+    width:100%!important;
+    max-width:100%!important;
+    margin:42px 0 48px!important;
+    padding:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .inline-image.canonical-inline-image>.image{
+    width:100%!important;
+    min-height:390px!important;
+    margin:0!important;
+    border-radius:var(--radius) var(--radius) 0 0!important;
+  }
+  .inline-image.canonical-inline-image>.copy{
+    width:100%!important;
+    margin:0!important;
+    padding:35px!important;
+    border:1px solid #586963!important;
+    border-top:0!important;
+    border-radius:0 0 var(--radius) var(--radius)!important;
+  }
+}
+/* CR_CANONICAL_DESIGN_ECHO_END */
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+</style>
+<style id="cr-printing-gallery-style">
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+</style>
+</head>
+<body data-article-card="Spiketail Hatchling"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Spiketail%20Hatchling&amp;set=pcy&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Spiketail%20Hatchling&amp;set=pcy&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=honorable-spiketail-hatchling#honorable-spiketail-hatchling">← Back to Compulsive Research</a><div class="honorable-badge">Beyond the Thousand · Honorable Mention 008</div><div class="eyebrow">Prophecy · 2000</div><h1>The Counterspell Had Wings</h1><p class="deckline">Spiketail Hatchling made permission visible: a one-power flier that attacked until the opponent tried to spend every last mana, then turned itself into the Force Spike everyone could see coming.</p><div class="byline"><span>A Compulsive Research honorable mention</span><span>·</span><span>Prophecy, 2000</span><span class="pill">Approximately 20 minute read</span></div></div></header><nav class="rank-nav"><a href="honorable-007-ensnaring-bridge.html">← Honorable 007 · Ensnaring Bridge</a><div class="center">Honorable Mention 008 of 008</div><span aria-hidden="true" class="nav-placeholder"></span></nav>
+<div class="article-shell"><nav aria-label="Article table of contents" class="toc"><strong>In this article</strong><a href="#opening">The Counterspell Had Wings</a><a href="#prophecy">A useful survivor from Prophecy</a><a href="#two-jobs">Two jobs for two mana</a><a href="#visible-force-spike">A Force Spike everyone could see</a><a href="#rules">What the ability actually does</a><a href="#sacrifice">When the threat becomes the answer</a><a href="#priority">Timing and removal</a><a href="#mana">One mana is not one mana</a><a href="#bluff">Permission without a hidden card</a><a href="#blue-skies">Blue Skies and the airborne curve</a><a href="#chicago">Pro Tour Chicago 2000</a><a href="#tsang">Canadian Nationals 2001</a><a href="#opposition">Worlds 2001 Opposition</a><a href="#core-sets">The core-set reprints</a><a href="#limited">The Draft table</a><a href="#family">The Spiketail family</a><a href="#descendants">The descendants</a><a href="#pauper">Pauper</a><a href="#premodern">Premodern revival</a><a href="#modern">Modern and Legacy</a><a href="#commander">Commander</a><a href="#piloting">How to pilot it</a><a href="#facing">How to play through it</a><a href="#art">Greg Staples’s artwork</a><a href="#formats">A life across formats</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The Threat</div><h2>The Counterspell Had Wings</h2><p class="opening dropcap">Spiketail Hatchling was never merely a one-power creature and never merely a conditional counterspell. It was a public warning placed onto the battlefield: from this point forward, every opposing spell cost one more mana whenever the blue player decided that it mattered.</p><p>That warning could peck for one damage each turn. It could carry <span class="card-name" data-card="Curiosity" tabindex="0">Curiosity</span> or <span class="card-name" data-card="Unstable Mutation" tabindex="0">Unstable Mutation</span>. It could tap for <span class="card-name" data-card="Opposition" tabindex="0">Opposition</span>, pressure a planeswalker in later eras, trade with another small flier, or simply remain untapped while the opponent tried to decide whether the next spell was worth walking into a visible <span class="card-name" data-card="Force Spike" tabindex="0">Force Spike</span>.</p><p>The card’s importance came from combining two ordinary blue effects into one unusually complete tempo object. A small evasive creature created a clock. A sacrifice ability protected that clock. The opponent knew the protection existed, yet knowing did not make playing around it free.</p><div class="card-lead"><img alt="Spiketail Hatchling original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Spiketail%20Hatchling&amp;set=pcy&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The original creature</div><h3>Spiketail Hatchling</h3><p><b>{1}{U} · Creature — Drake</b></p><p>Flying</p><p>Sacrifice Spiketail Hatchling: Counter target spell unless its controller pays {1}.</p><div class="stats"><div class="stat"><b>First printing</b>Prophecy · 2000</div><div class="stat"><b>Original artist</b>Greg Staples</div><div class="stat"><b>Original rarity</b>Common</div><div class="stat"><b>Historical role</b>Flying tempo permission</div></div></div></div></section><section id="prophecy"><div class="chapter-number">II · The Set</div><h2>A useful survivor from Prophecy</h2><p>Prophecy arrived as the final set of the Masques block, an era remembered for restrained creature rates, alternate costs, mana denial, Rebels, and games in which a small advantage could persist for many turns. The set’s most visible named mechanic asked whether opponents would pay additional mana. Spiketail Hatchling did not use the rhystic label, but it spoke the same language more cleanly.</p><p>Its tax was not attached to a spell already on the stack. It waited in play. The opponent could see it, count it, and plan around it. That transparency was the point. The Hatchling converted future mana into a strategic constraint before its controller spent another card.</p><p>Prophecy contained louder cards and stranger experiments, but this common found the enduring competitive home. It was inexpensive, evasive, understandable, and perfectly synchronized with the free counterspells and mana-denial tools surrounding it.</p></section><div class="art-break artwork-spotlight" data-artwork-artist="Greg Staples" data-artwork-card="Spiketail Hatchling" data-artwork-set="pcy" data-artwork-set-name="Prophecy"><img alt="Spiketail Hatchling artwork by Greg Staples" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Spiketail%20Hatchling&amp;set=pcy&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Spiketail%20Hatchling&amp;set=pcy&amp;format=image&amp;version=art_crop"/><div class="art-caption"><b aria-live="polite" data-artwork-credit="">Greg Staples’s original Prophecy artwork</b><span class="art-caption-excerpt">The young drake hangs above restless water as if it belongs to the weather itself. Its small scale and alert posture make the image feel less like overwhelming force than a perfectly timed interruption.</span></div></div><section id="two-jobs"><div class="chapter-number">III · Compression</div><h2>Two jobs for two mana</h2><p>Deck construction rewards cards that remain useful in more than one phase of a game. A dedicated counterspell is excellent when an opponent presents the right target and poor when the battlefield demands pressure. A one-power flier advances the battlefield but normally cannot stop a decisive spell. Spiketail Hatchling covered both assignments.</p><p>When cast on turn two, it immediately changed the opponent’s turn-three options. If no important spell appeared, the Hatchling attacked. If the opponent tried to resolve a key play while using all available mana, the creature converted itself into interaction. Neither half was individually efficient enough to define a format, but together they reduced the number of dead draws in a tempo deck.</p><p>This is role compression in its simplest form: the same cardboard serves as threat, tax, sacrifice outlet, evasive body, and occasional combat trick. The cost is that the controller must eventually choose which role matters most.</p></section><section id="visible-force-spike"><div class="chapter-number">IV · Permission</div><h2>A Force Spike everyone could see</h2><p><span class="card-name" data-card="Force Spike" tabindex="0">Force Spike</span> is strongest when the opponent cannot know whether it is present. Spiketail Hatchling reverses that psychology. Its ability is completely visible, but it remains effective because playing around it consumes real mana.</p><p>Suppose the opponent wants to cast a four-mana spell on turn four. With a Hatchling in play, tapping all four lands invites the sacrifice. Waiting until turn five may preserve the spell, but the blue creature has now attacked an additional time and the tempo deck has drawn another card. The counterspell succeeds even when it never counters anything.</p><p>The Hatchling therefore produced what tempo players often call a virtual exchange. It might not trade for a card, yet it could delay a spell, distort a curve, force a weaker play, or make an opponent cast removal before developing the actual threat.</p></section><section id="rules"><div class="chapter-number">V · The Stack</div><h2>What the ability actually does</h2><p>The activated ability targets a spell. Sacrificing the Hatchling is part of the activation cost, so the creature is already in the graveyard before either player receives priority again. Destroying or bouncing it after the ability is activated cannot undo the activation.</p><p>When the ability resolves, the targeted spell’s controller may pay one generic mana. If that player pays, the spell remains on the stack. If the player declines or cannot pay, the spell is countered. The choice is made on resolution, not when the Hatchling is sacrificed.</p><p>Because the ability itself is not a spell, ordinary counterspells that say “counter target spell” cannot stop it. Effects that counter activated abilities can. The target must still be legal when the ability resolves; if the spell has left the stack for another reason, the Hatchling’s ability does nothing further.</p></section><section id="sacrifice"><div class="chapter-number">VI · The Decision</div><h2>When the threat becomes the answer</h2><p>The hardest Hatchling decision is not whether the ability can counter a spell. It is whether sacrificing a continuing source of damage is worth converting it into a one-time tax.</p><p>Trading it for a removal spell aimed at a larger creature is usually attractive. Trading it for a spell that can simply be recast next turn may only postpone the problem. Sacrificing it to save a few life points can be correct when the race is close, but wasteful when the flying clock is the route to victory.</p><p>Strong play requires evaluating the next several turns. The creature’s future damage, any aura or <span class="card-name" data-card="Curiosity" tabindex="0">Curiosity</span> attached to it, the opponent’s mana development, and the density of additional permission all matter. The best sacrifice often protects a position rather than answering the most expensive spell.</p></section><section id="priority"><div class="chapter-number">VII · Timing</div><h2>The opponent cannot strand the activation with removal</h2><p>A common mistake is to wait until the Hatchling activates and then attempt to kill it. The sacrifice has already been paid. Removal can force the blue player to make the decision earlier, however. Casting a removal spell at the end of the blue player’s turn asks whether the Hatchling will be cashed in for a small tax or allowed to die.</p><p>That pressure can be useful even when the removal spell is not important. If the blue player sacrifices, the opponent may untap into a turn without the tax. If the blue player declines, the creature disappears and the remaining spell resolves normally.</p><p>The interaction demonstrates why visible permission creates layered games. Both players know the available response, so the contest shifts toward timing, bait, and the value of the battlefield after the exchange.</p></section><section id="mana"><div class="chapter-number">VIII · The Resource</div><h2>One mana is not one mana</h2><p>A tax of one appears small in isolation. In a tempo deck, it often arrives beside <span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span>, <span class="card-name" data-card="Rising Waters" tabindex="0">Rising Waters</span>, <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, <span class="card-name" data-card="Daze" tabindex="0">Daze</span>, <span class="card-name" data-card="Thwart" tabindex="0">Thwart</span>, <span class="card-name" data-card="Foil" tabindex="0">Foil</span>, <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span>, or a low land count. The opponent may technically possess enough mana, yet using it to satisfy the Hatchling can prevent another spell, an activation, or a defensive play later in the turn.</p><p>The tax also grows stronger as the game becomes compressed. A control deck with eight untapped lands laughs at the ability. A player trying to operate under <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> while an evasive clock attacks may never have a truly spare mana.</p><p>Spiketail Hatchling was therefore not a universal counterspell. It was an amplifier. It made every other form of mana pressure more credible, and those cards made the Hatchling’s single point of taxation more punishing.</p></section><section id="bluff"><div class="chapter-number">IX · Information</div><h2>Permission without a hidden card</h2><p>Traditional draw-go Magic asks the opponent to infer what remains in hand. The Hatchling puts one piece of permission in plain sight and leaves the rest concealed. That combination is more difficult to navigate than either state alone.</p><p>An opponent who pays around the Hatchling may still run into <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span>. An opponent who tries to bait the creature with a lesser spell may discover that the blue player is willing to let it resolve. An opponent who waits until the tax can be paid may have surrendered several points of damage and allowed <span class="card-name" data-card="Gush" tabindex="0">Gush</span> or <span class="card-name" data-card="Thieving Magpie" tabindex="0">Thieving Magpie</span> to generate more resources.</p><p>The creature becomes a signpost for uncertainty. It shows that at least one answer exists while providing no information about how many more are hidden.</p></section><section id="blue-skies"><div class="chapter-number">X · The Archetype</div><h2>Blue Skies and the airborne curve</h2><p>Blue Skies was an aggro-control deck built from evasive creatures and permission that frequently required little or no mana on the opponent’s turn. Rishadan Airship and <span class="card-name" data-card="Troublesome Spirit" tabindex="0">Troublesome Spirit</span> supplied the heavier clock. Rootwater Thief attacked opposing libraries. <span class="card-name" data-card="Waterfront Bouncer" tabindex="0">Waterfront Bouncer</span> converted spare cards into tempo. Spiketail Hatchling occupied the crucial second turn.</p><p>The deck did not want to pass with two lands untapped every turn. It wanted to deploy a threat while preserving the possibility of interaction. The Hatchling allowed both. Free spells such as <span class="card-name" data-card="Daze" tabindex="0">Daze</span>, <span class="card-name" data-card="Foil" tabindex="0">Foil</span>, <span class="card-name" data-card="Gush" tabindex="0">Gush</span>, and <span class="card-name" data-card="Thwart" tabindex="0">Thwart</span> continued that principle by turning islands or cards in hand into tempo rather than demanding conventional mana.</p><p>The result felt less like a control deck and more like an approaching weather system. Every small flier advanced the clock, while every land the opponent tapped increased the chance that the next spell would disappear.</p></section><section id="chicago"><div class="chapter-number">XI · The Breakthrough</div><h2>Jay Elarar at Pro Tour Chicago 2000</h2><p>At Pro Tour Chicago 2000, Jay Elarar reached the Top 8 of a 332-player Standard field with four Spiketail Hatchlings in a mono-blue deck. His list used twenty-four lands, including four Rishadan Ports, and three <span class="card-name" data-card="Rising Waters" tabindex="0">Rising Waters</span> to make opposing mana unreliable.</p><p>The Hatchling sat inside a permission package of <span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span>, <span class="card-name" data-card="Daze" tabindex="0">Daze</span>, <span class="card-name" data-card="Foil" tabindex="0">Foil</span>, Misdirection, <span class="card-name" data-card="Thwart" tabindex="0">Thwart</span>, and Wash Out. Its sacrifice ability was only the most visible layer. Even when an opponent could pay one, doing so could expose a spell to <span class="card-name" data-card="Daze" tabindex="0">Daze</span> or prevent a second play under <span class="card-name" data-card="Rising Waters" tabindex="0">Rising Waters</span>.</p><p>The performance demonstrated that the card was not merely a clever Limited common. It belonged in a premier-event strategy capable of surviving a field dominated by Rebels, Fires of Yavimaya, and other defining decks of the era.</p></section><section id="tsang"><div class="chapter-number">XII · The Title</div><h2>Terry Tsang’s Canadian Nationals victory</h2><p>Terry Tsang’s 2001 Canadian Nationals deck removed nearly everything that did not attack, draw, bounce, or counter. Twenty-one Islands supported eighteen creatures and twenty-one instants or sorceries. Four Hatchlings were a full playset in the center of the plan.</p><p>Tsang’s list won the event. It showed how the creature’s modest statistics became dangerous when every other card protected tempo. <span class="card-name" data-card="Gush" tabindex="0">Gush</span> and Opt prevented the deck from running out of action. <span class="card-name" data-card="Foil" tabindex="0">Foil</span>, <span class="card-name" data-card="Thwart" tabindex="0">Thwart</span>, and Misdirection punished tap-outs. Wash Out reset creature swarms. The Hatchling made the opponent respect interaction even when the blue player had spent mana developing the board.</p><p>This was the card’s cleanest competitive identity: not a control finisher and not a value creature, but a one-power piece of permission that made an entire aggressive deck harder to race.</p></section><section id="opposition"><div class="chapter-number">XIII · The Pivot</div><h2>John Ormerod and the Opposition shell</h2><p>At the 2001 World Championship, John Ormerod reached the Top 8 with three copies in mono-blue <span class="card-name" data-card="Opposition" tabindex="0">Opposition</span>. The deck was slower and more controlling than Blue Skies, using Merfolk Looter, <span class="card-name" data-card="Thieving Magpie" tabindex="0">Thieving Magpie</span>, Glacial Wall, <span class="card-name" data-card="Waterfront Bouncer" tabindex="0">Waterfront Bouncer</span>, Static Orb, and <span class="card-name" data-card="Opposition" tabindex="0">Opposition</span>.</p><p>Here the Hatchling had an additional job. Before it was sacrificed, it could be tapped to <span class="card-name" data-card="Opposition" tabindex="0">Opposition</span> to lock an opposing permanent. Under Static Orb, every untapped resource mattered; a cheap creature that contributed to the lock and threatened to counter a spell was an efficient structural piece.</p><p>The list reveals why the card travelled beyond one archetype. Its value did not depend on dealing twenty damage alone. Any blue strategy that cared about cheap bodies, tempo, sacrifice, or mana constriction could use it.</p></section><section id="core-sets"><div class="chapter-number">XIV · The Reprints</div><h2>From common experiment to core-set lesson</h2><p>Spiketail Hatchling returned in Eighth Edition and Tenth Edition, both times at uncommon. The reprints kept Greg Staples’s original artwork and carried the design into the modern card frame.</p><p>Core sets traditionally taught evergreen rules and recognizable color-pie effects. The Hatchling was an unusually instructive blue card because it showed several concepts at once: flying, activated abilities, sacrificing as a cost, targeting a spell, and a soft counter that offers payment on resolution.</p><p>Its promotion from common to uncommon also made sense in Limited. Repeatedly drafting cheap evasive creatures that double as permission can make combat and spell sequencing oppressive, especially for inexperienced players who must learn to leave mana unused against an obvious threat.</p></section><section id="limited"><div class="chapter-number">XV · The Draft Table</div><h2>A small creature that changes every turn</h2><p>In Limited, a two-mana 1/1 flier is serviceable but not exciting. The ability changes its texture. Once on the battlefield, the opponent must consider the Hatchling before casting an expensive creature, removal spell, or combat trick on curve.</p><p>The best Limited use is often not to sacrifice immediately. One damage per turn accumulates, and the visible counter can cause the opponent to delay the exact spell the blue deck needs delayed. Eventually the creature can trade for a late-game bomb cast with no mana remaining.</p><p>The card also teaches restraint. Sacrificing it to counter a mediocre spell because the opportunity exists can leave the blue player without pressure and without an answer for the truly important card that follows.</p></section><section id="family"><div class="chapter-number">XVI · The Lineage</div><h2>The Spiketail family</h2><p>The name became a mechanical family. <span class="card-name" data-card="Spiketail Drake" tabindex="0">Spiketail Drake</span> demanded four mana from the targeted spell’s controller. <span class="card-name" data-card="Spiketail Drakeling" tabindex="0">Spiketail Drakeling</span> offered a larger flying body and a two-mana tax. <span class="card-name" data-card="Spiketail Whelp" tabindex="0">Spiketail Whelp</span> carried the idea into a more expensive creature. Each version asked the same question: how much mana must the opponent reserve to make the sacrifice ability irrelevant?</p><p>The Hatchling remains the purest version because its cost and tax are both minimal. It enters early enough to affect the curve before the opponent can casually pay. Larger relatives produce stronger late-game interaction, but they surrender the turn-two pressure that made the original historically distinctive.</p><p>The family proved that counterspells could be represented as battlefield permanents without abandoning blue’s identity. The opponent received complete information, but the blue player received a threat and a future decision.</p></section><section class="design-echo-section" data-card-aliases="{}" data-card-discovery="oracle-catalog-v2" data-card-references="[&quot;Cursecatcher&quot;,&quot;Judge's Familiar&quot;,&quot;Mausoleum Wanderer&quot;]" id="descendants"><div class="chapter-number">XVII · The Bloodline</div><h2>The descendants learned to protect themselves</h2>
+<p>Later designs refined the same visible-permission idea. <span class="card-name" data-card="Cursecatcher" tabindex="0">Cursecatcher</span> moved it into Merfolk and taxed only instants and sorceries. <span class="card-name" data-card="Judge's Familiar" tabindex="0">Judge’s Familiar</span> added white identity and flying. <span class="card-name" data-card="Mausoleum Wanderer" tabindex="0">Mausoleum Wanderer</span> scaled its tax with Spirit synergies. Siren Stormtamer protected a creature or player rather than countering every category of spell.</p>
+<div class="inline-image canonical-inline-image" data-image-card="Judge's Familiar">
+<div class="image image-loading" data-card-label="Judge's Familiar">
+<img alt="Judge's Familiar artwork" class="inline-image-media" data-api-url="https://api.scryfall.com/cards/named?exact=Judge%27s+Familiar" data-card-name="Judge's Familiar" data-fallback-art="https://api.scryfall.com/cards/named?exact=Judge%27s+Familiar&amp;format=image&amp;version=art_crop" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Judge%27s+Familiar&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Judge%27s+Familiar&amp;format=image&amp;version=normal" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw="/>
+</div>
+<div class="copy"><div class="eyebrow">The one-mana descendant</div><h3>Judge’s Familiar</h3><p><span class="card-name" data-card="Judge's Familiar" tabindex="0">Judge’s Familiar</span> compresses the Hatchling’s lesson even further: an evasive creature can attack while forcing the opponent to respect a future sacrifice. Its narrower target restriction buys the privilege of costing only one hybrid mana.</p></div>
+</div>
+<p>The descendants generally became narrower, more typal, or more protective. Spiketail Hatchling could target any spell, including creatures, artifacts, enchantments, and planeswalkers. Its universality is what made the single-mana tax matter across so many different matchups.</p></section><section id="pauper"><div class="chapter-number">XVIII · The Commons Format</div><h2>Pauper: legal, logical, but rarely dominant</h2><p>Because its original Prophecy printing was common, Spiketail Hatchling is legal in Pauper. The format supplies the ingredients it wants: cheap blue interaction, evasive threats, and games where one mana can determine whether a spell resolves.</p><p>Its limitation is efficiency. Pauper has accumulated one-mana creatures with stronger tribal support, deeper card advantage, or more immediate protection. A two-mana 1/1 must justify itself against <span class="card-name" data-card="Delver of Secrets" tabindex="0">Delver of Secrets</span>, <span class="card-name" data-card="Spellstutter Sprite" tabindex="0">Spellstutter Sprite</span>, <span class="card-name" data-card="Faerie Seer" tabindex="0">Faerie Seer</span>, <span class="card-name" data-card="Ninja of the Deep Hours" tabindex="0">Ninja of the Deep Hours</span>, and many specialized counters.</p><p>The Hatchling therefore appears more as a role-player or nostalgic tempo option than as a universal staple. Its rules text remains functional; the opportunity cost of the body is what has grown.</p></section><section id="premodern"><div class="chapter-number">XIX · The Revival</div><h2>Premodern restored the weather pattern</h2><p>Premodern reunites Fourth Edition through Scourge and therefore preserves the exact environment in which the Hatchling’s tools make sense. <span class="card-name" data-card="Daze" tabindex="0">Daze</span>, <span class="card-name" data-card="Gush" tabindex="0">Gush</span>, <span class="card-name" data-card="Foil" tabindex="0">Foil</span>, <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>, <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span>, <span class="card-name" data-card="Curiosity" tabindex="0">Curiosity</span>, <span class="card-name" data-card="Unstable Mutation" tabindex="0">Unstable Mutation</span>, Cloud of Faeries, and the Masques-era flyers can occupy the same deck again.</p><p>Contemporary results show the archetype is not merely a museum reconstruction. Finnish Premodern Nationals, webcam leagues, charity events, and regional tournaments have recorded Mono Blue Flyers and Mono Blue Tempo lists using three or four copies.</p><p>The revived deck clarifies the card’s enduring appeal. It is not powerful because contemporary Magic lacks better creatures. It is powerful inside a deliberately compressed ecosystem where a one-mana tax, a free counter, and one point of flying damage form a coherent plan.</p></section><section id="modern"><div class="chapter-number">XX · The Larger Formats</div><h2>Why Modern and Legacy moved past it</h2><p>Spiketail Hatchling is technically legal in Modern, Legacy, Vintage, and Commander, but legality is not the same as a competitive home. Modern’s threats are faster and its interaction more efficient. Legacy can play <span class="card-name" data-card="Daze" tabindex="0">Daze</span> and Force of Will without spending two mana on a one-power creature. Vintage operates on a scale where a single generic mana may be irrelevant after the opening turn.</p><p>The design still appears indirectly through descendants. <span class="card-name" data-card="Mausoleum Wanderer" tabindex="0">Mausoleum Wanderer</span> became a Spirits staple because it belonged to a supported creature type and could tax for more than one. Judge’s Familiar and <span class="card-name" data-card="Cursecatcher" tabindex="0">Cursecatcher</span> fit decks that valued their exact types and one-mana costs.</p><p>The Hatchling’s decline is therefore a story of specialization. Newer cards did one portion of its job more efficiently or attached the sacrifice ability to a stronger tribal shell.</p></section><section id="commander"><div class="chapter-number">XXI · Multiplayer</div><h2>A tax divided among three opponents</h2><p>Commander changes the arithmetic. A one-mana tax is easier to pay in a long multiplayer game, and sacrificing a card to stop one opponent may leave two others with full resources. The Hatchling is rarely a generic blue inclusion.</p><p>It becomes more interesting in decks that care about flying creatures, Drakes, sacrifice triggers, creatures entering the graveyard, or repeatable recursion. In those shells, the counter ability is an option attached to a card that already advances a theme.</p><p>Its political visibility can also matter. The creature announces that at least one fully tapped-out spell can be stopped. Opponents may sequence around it or ask the controller to preserve it for a different threat. That table leverage is real, though far less absolute than it was in two-player tempo.</p></section><section id="piloting"><div class="chapter-number">XXII · Technique</div><h2>How to pilot the Hatchling</h2><p>Cast it early when the deck is built to exploit tempo. The card loses much of its value if held until the opponent has abundant mana. Once it is in play, attack unless blocking is more important; the sacrifice ability does not require the creature to remain untapped.</p><p>Do not sacrifice automatically. Ask what happens if the targeted spell resolves, what the Hatchling is worth over the next turns, and whether the opponent can simply recast the spell. Protect the cards that sustain the clock or the mana lock rather than trading the creature for the first available target.</p><p>Use the visible tax to improve hidden permission. An opponent who leaves one mana open for the Hatchling may become vulnerable to <span class="card-name" data-card="Daze" tabindex="0">Daze</span>, <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span>, or a second spell. The best sequencing makes every method of paying for one answer expose the opponent to another.</p></section><section id="facing"><div class="chapter-number">XXIII · Counterplay</div><h2>How to play through it</h2><p>The cleanest answer is to preserve one additional mana before casting the spell that matters. That may require accepting damage for a turn, but it prevents the blue player from trading a two-mana creature for a more valuable card.</p><p>Removal can force the decision. Aim a low-priority spell or an end-step removal effect at the Hatchling, then use the opening after it dies or is sacrificed. Cheap spells can bait the activation, especially when the blue player’s life total or battlefield position makes the target appear more important than it is.</p><p>Remember that paying one does not protect the spell from other counters. Against Blue Skies, the Hatchling is rarely the entire permission suite. Sequence so that satisfying its tax does not leave the spell exposed to <span class="card-name" data-card="Daze" tabindex="0">Daze</span> or prevent you from paying for <span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span>.</p></section><section id="art"><div class="chapter-number">XXIV · The Image</div><h2>Greg Staples and the creature above the surf</h2><p>Greg Staples’s original Prophecy artwork places the young drake in open air above restless water. The creature is small against the surrounding weather, yet its posture is alert rather than fragile. Its body curves through the scene like another cresting wave.</p><p>The image fits the card’s mechanical scale. This is not a colossal dragon producing an overwhelming magical barrier. It is a hatchling surviving through timing, agility, and the threat of a single disruptive act. The creature’s size invites underestimation; the storm-dark atmosphere warns against it.</p><p>Eighth Edition and Tenth Edition retained the same artwork. The frame changed around the image, but the visual identity remained stable: a small blue flier whose relationship to the turbulent air and sea makes its magical interference feel instinctive.</p></section><section id="formats"><div class="chapter-number">XXV · The Record</div><h2>A life across formats</h2><p>In Masques-era Standard, Spiketail Hatchling was a premier-event card in Mono Blue, Blue Skies, and <span class="card-name" data-card="Opposition" tabindex="0">Opposition</span>. In later core-set Standard environments, it was more often a Limited and casual role-player because the surrounding free-counter and mana-denial package had rotated away.</p><p>Premodern restored its strongest ecosystem and remains its clearest competitive home. Pauper preserves its legality but offers intense competition at two mana. Commander and larger Eternal formats treat it as a theme card, a descendant of an old tempo philosophy, or a deliberately modest piece of interactive nostalgia.</p><p>Its history is therefore sharply contextual. The printed text never changed. What changed was the amount of spare mana opponents possessed and the number of other cards available to make that one-mana tax hurt.</p></section><section id="memory"><div class="chapter-number">XXVI · The Memory</div><h2>What players remember</h2><p>Players remember the annoyance of seeing the counterspell before casting into it. They remember leaving one land untapped, only to lose the spell to <span class="card-name" data-card="Daze" tabindex="0">Daze</span> anyway. They remember allowing the one-point attacks because spending removal on the Hatchling felt embarrassing—until the creature protected the card that actually won the game.</p><p>They also remember the peculiar dignity of the sacrifice. The Hatchling was small, common, and replaceable, but it could trade itself for the opponent’s most ambitious turn. That moment made the creature feel larger than its statistics.</p><p>The card survives because it teaches a durable lesson about tempo: interaction does not need to remain hidden, and a counterspell does not need to counter a spell to change the game.</p></section><section id="decklists"><div class="chapter-number">XXVII · The Archive</div><h2>The deck archive</h2><p class="deck-intro">The archive follows Spiketail Hatchling from its original Standard breakthrough through its modern Premodern revival. Every list below is attributed to a recorded player and event; registration totals are preserved as published.</p><div class="archive-standard-note">Decks are ordered chronologically. Tournament and organized-event records take priority, and no missing cards, sideboards, placements, or dates have been invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Jay Elarar — Mono Blue, Pro Tour Chicago 2000</strong><small>Top 8 · Standard · 332 players · 2000-12-03</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>Elarar’s 61-card mono-blue deck made the Hatchling part of a complete mana-denial system. Rishadan Port, Daze, Foil, Thwart, Rising Waters, and the visible one-mana tax forced opponents to sequence every spell under pressure.</p><div class="deck-meta"><div><b>Jay Elarar — Mono Blue, Pro Tour Chicago 2000</b><div class="small">Main deck 61 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-008-spiketail-hatchling-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 16</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Air Elemental" tabindex="0">Air Elemental</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Drake Hatchling" tabindex="0">Drake Hatchling</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rishadan Airship" tabindex="0">Rishadan Airship</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Spiketail Hatchling" tabindex="0">Spiketail Hatchling</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Troublesome Spirit" tabindex="0">Troublesome Spirit</span></div></div><div class="group"><h4>Enchantments · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Rising Waters" tabindex="0">Rising Waters</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants and sorceries · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Foil" tabindex="0">Foil</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thwart" tabindex="0">Thwart</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Wash Out" tabindex="0">Wash Out</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">20</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Chill" tabindex="0">Chill</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disrupt" tabindex="0">Disrupt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Submerge" tabindex="0">Submerge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Wash Out" tabindex="0">Wash Out</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Withdraw" tabindex="0">Withdraw</span></div></div></div></div><pre hidden="" id="deck-honorable-008-spiketail-hatchling-1">Creatures
+2 Air Elemental
+2 Drake Hatchling
+4 Rishadan Airship
+4 Spiketail Hatchling
+4 Troublesome Spirit
+Instants and sorceries
+4 Brainstorm
+3 Daze
+4 Foil
+1 Misdirection
+4 Thwart
+2 Wash Out
+Enchantments
+3 Rising Waters
+Lands
+20 Island
+4 Rishadan Port
+Sideboard
+3 Chill
+4 Disrupt
+4 Submerge
+1 Wash Out
+3 Withdraw</pre></div></details><details class="deck"><summary><span><strong>Terry Tsang — Blue Skies, Canadian Nationals 2001</strong><small>Champion · Standard · 96 players · 2001-07-19</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>Tsang won Canadian Nationals with the most distilled version of the idea: eighteen evasive or disruptive creatures, twenty-one lands, and twenty-one free or low-cost blue spells. The Hatchling attacked early and made every opposing tap-out a negotiation.</p><div class="deck-meta"><div><b>Terry Tsang — Blue Skies, Canadian Nationals 2001</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-008-spiketail-hatchling-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 18</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rishadan Airship" tabindex="0">Rishadan Airship</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rootwater Thief" tabindex="0">Rootwater Thief</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Spiketail Hatchling" tabindex="0">Spiketail Hatchling</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Troublesome Spirit" tabindex="0">Troublesome Spirit</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Waterfront Bouncer" tabindex="0">Waterfront Bouncer</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">21</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants and sorceries · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Foil" tabindex="0">Foil</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thwart" tabindex="0">Thwart</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wash Out" tabindex="0">Wash Out</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Alexi, Zephyr Mage" tabindex="0">Alexi, Zephyr Mage</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hibernation" tabindex="0">Hibernation</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Repulse" tabindex="0">Repulse</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Static Orb" tabindex="0">Static Orb</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Stinging Barrier" tabindex="0">Stinging Barrier</span></div></div></div></div><pre hidden="" id="deck-honorable-008-spiketail-hatchling-2">Creatures
+4 Rishadan Airship
+4 Rootwater Thief
+4 Spiketail Hatchling
+4 Troublesome Spirit
+2 Waterfront Bouncer
+Instants and sorceries
+4 Foil
+4 Gush
+1 Misdirection
+4 Opt
+4 Thwart
+4 Wash Out
+Lands
+21 Island
+Sideboard
+2 Alexi, Zephyr Mage
+2 Hibernation
+2 Misdirection
+2 Repulse
+2 Rushing River
+3 Static Orb
+2 Stinging Barrier</pre></div></details><details class="deck"><summary><span><strong>John Ormerod — Opposition, World Championship 2001</strong><small>Top 8 · Standard · 296 players · 2001-08-12</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>Ormerod’s Worlds deck shows the Hatchling outside pure Blue Skies. It was an evasive body for Opposition, a disposable counterspell, and another creature that could be tapped under Static Orb before eventually being sacrificed for value.</p><div class="deck-meta"><div><b>John Ormerod — Opposition, World Championship 2001</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-008-spiketail-hatchling-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 18</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blind Seer" tabindex="0">Blind Seer</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Glacial Wall" tabindex="0">Glacial Wall</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Merfolk Looter" tabindex="0">Merfolk Looter</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Spiketail Hatchling" tabindex="0">Spiketail Hatchling</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Temporal Adept" tabindex="0">Temporal Adept</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thieving Magpie" tabindex="0">Thieving Magpie</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Waterfront Bouncer" tabindex="0">Waterfront Bouncer</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Opposition" tabindex="0">Opposition</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">20</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Rishadan Port" tabindex="0">Rishadan Port</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants and sorceries · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sleight of Hand" tabindex="0">Sleight of Hand</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thwart" tabindex="0">Thwart</span></div></div><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Static Orb" tabindex="0">Static Orb</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Foil" tabindex="0">Foil</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Gainsay" tabindex="0">Gainsay</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Glacial Wall" tabindex="0">Glacial Wall</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hibernation" tabindex="0">Hibernation</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mawcor" tabindex="0">Mawcor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Rushing River" tabindex="0">Rushing River</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stinging Barrier" tabindex="0">Stinging Barrier</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Waterfront Bouncer" tabindex="0">Waterfront Bouncer</span></div></div></div></div><pre hidden="" id="deck-honorable-008-spiketail-hatchling-3">Creatures
+1 Blind Seer
+3 Glacial Wall
+4 Merfolk Looter
+3 Spiketail Hatchling
+1 Temporal Adept
+4 Thieving Magpie
+2 Waterfront Bouncer
+Instants and sorceries
+4 Counterspell
+4 Sleight of Hand
+4 Thwart
+Enchantments
+4 Opposition
+Artifacts
+4 Static Orb
+Lands
+20 Island
+2 Rishadan Port
+Sideboard
+2 Foil
+3 Gainsay
+1 Glacial Wall
+2 Hibernation
+1 Mawcor
+1 Rushing River
+4 Stinging Barrier
+1 Waterfront Bouncer</pre></div></details><details class="deck"><summary><span><strong>Juha Ihonen — Mono Blue Tempo, Finnish Premodern Nationals 2023</strong><small>Top 16 · Premodern · 54 players · 2023-06-10</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>More than two decades after Prophecy, Ihonen used the Hatchling in a lean Premodern shell built from flyers, Curiosity, Winter Orb, free counters, and Wasteland. The card’s original premise survived intact: establish a clock, then make mana itself unreliable.</p><div class="deck-meta"><div><b>Juha Ihonen — Mono Blue Tempo, Finnish Premodern Nationals 2023</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-008-spiketail-hatchling-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 14</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cloud of Faeries" tabindex="0">Cloud of Faeries</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cloud Sprite" tabindex="0">Cloud Sprite</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Spiketail Hatchling" tabindex="0">Spiketail Hatchling</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Skyshroud Condor" tabindex="0">Skyshroud Condor</span></div></div><div class="group"><h4>Instants · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Opt" tabindex="0">Opt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Foil" tabindex="0">Foil</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thwart" tabindex="0">Thwart</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">16</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Curiosity" tabindex="0">Curiosity</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tormod's Crypt" tabindex="0">Tormod's Crypt</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Masticore" tabindex="0">Masticore</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div></div></div></div><pre hidden="" id="deck-honorable-008-spiketail-hatchling-4">Creatures
+4 Cloud of Faeries
+4 Cloud Sprite
+3 Spiketail Hatchling
+3 Skyshroud Condor
+Artifacts
+3 Winter Orb
+Instants
+4 Opt
+4 Counterspell
+2 Foil
+1 Thwart
+4 Gush
+4 Daze
+Enchantments
+4 Curiosity
+Lands
+16 Island
+4 Wasteland
+Sideboard
+1 Tormod's Crypt
+4 Masticore
+3 Blue Elemental Blast
+4 Hydroblast
+3 Annul</pre></div></details><details class="deck"><summary><span><strong>Wellison Pereira — Blue Skies, Monthly Webcam Brazil 2025</strong><small>Top 4 · Premodern · 38 players · 2025-07-21</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>Pereira’s result demonstrates the revived archetype’s modern Premodern form. Sunken City and Unstable Mutation accelerate the clock, while the Hatchling joins Daze, Foil, Mana Leak, Winter Orb, and Wasteland-style mana pressure without requiring the deck to hold up an extra blue mana.</p><div class="deck-meta"><div><b>Wellison Pereira — Blue Skies, Monthly Webcam Brazil 2025</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-008-spiketail-hatchling-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 14</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cloud of Faeries" tabindex="0">Cloud of Faeries</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cloud Sprite" tabindex="0">Cloud Sprite</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Skyshroud Condor" tabindex="0">Skyshroud Condor</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Spiketail Hatchling" tabindex="0">Spiketail Hatchling</span></div></div><div class="group"><h4>Instants · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Daze" tabindex="0">Daze</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Foil" tabindex="0">Foil</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gush" tabindex="0">Gush</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div></div><div class="group"><h4>Lands · 18</h4><div class="row"><span class="qty">18</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span></div></div><div class="group"><h4>Enchantments · 10</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Curiosity" tabindex="0">Curiosity</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sigil of Sleep" tabindex="0">Sigil of Sleep</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sunken City" tabindex="0">Sunken City</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Unstable Mutation" tabindex="0">Unstable Mutation</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chill" tabindex="0">Chill</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Phyrexian Furnace" tabindex="0">Phyrexian Furnace</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Snap" tabindex="0">Snap</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Submerge" tabindex="0">Submerge</span></div></div></div></div><pre hidden="" id="deck-honorable-008-spiketail-hatchling-5">Creatures
+4 Cloud of Faeries
+4 Cloud Sprite
+3 Skyshroud Condor
+3 Spiketail Hatchling
+Artifacts
+3 Winter Orb
+Instants
+4 Counterspell
+3 Daze
+2 Foil
+4 Gush
+2 Mana Leak
+Enchantments
+2 Curiosity
+2 Sigil of Sleep
+3 Sunken City
+3 Unstable Mutation
+Lands
+18 Island
+Sideboard
+3 Annul
+2 Blue Elemental Blast
+2 Chill
+2 Hydroblast
+2 Phyrexian Furnace
+2 Snap
+2 Submerge</pre></div></details></div></section><section id="printings"><div class="chapter-number">XXVIII · The Object</div><h2>Printings and sources</h2><p>Spiketail Hatchling has a compact paper history: the original Prophecy common and core-set returns in Eighth Edition and Tenth Edition, with foil variants where those products supported them. All use Greg Staples’s original artwork, so the gallery presents the legitimate printings rather than pretending that frame changes are new illustrations.</p><div class="printings canonical-printing-gallery" data-card="Spiketail Hatchling" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="pcy" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Spiketail Hatchling" data-identity-status="exact-name-set-fallback" data-set="pcy"><img alt="Spiketail Hatchling original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Spiketail%20Hatchling&amp;set=pcy&amp;format=image&amp;version=normal"><figcaption><b>Prophecy</b><br/>Original printing</figcaption></img></figure></div><h3>Sources</h3><ol class="sources"><li><a href="https://scryfall.com/card/pcy/49/spiketail-hatchling">Scryfall — Spiketail Hatchling, Prophecy</a><span>Card identity, Oracle text, collector number, original rarity, artist, rulings note, legalities, and printing history.</span></li><li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Spiketail%20Hatchling">Wizards of the Coast Gatherer — Spiketail Hatchling</a><span>Official card text and rules reference.</span></li><li><a href="https://magic.wizards.com/en/rules">Wizards of the Coast — Comprehensive Rules</a><span>Official framework for activated abilities, sacrificing costs, targets, countering spells, and payment choices on resolution.</span></li><li><a href="https://www.mtgtop8.com/event?d=252470&amp;e=9171&amp;f=ST">MTGTop8 — Jay Elarar, Mono Blue, Pro Tour Chicago 2000</a><span>Top 8 result and complete published 61-card main deck with 15-card sideboard.</span></li><li><a href="https://www.mtgtop8.com/event?e=54322&amp;f=ST">MTGTop8 — Terry Tsang, Blue Skies, Canadian Nationals 2001</a><span>Championship result and complete 60-card main deck with 15-card sideboard.</span></li><li><a href="https://www.mtgtop8.com/event?d=253044&amp;e=9240&amp;f=ST">MTGTop8 — John Ormerod, Opposition, Worlds 2001</a><span>World Championship Top 8 result and complete 60-card main deck with 15-card sideboard.</span></li><li><a href="https://mtgdecks.net/Premodern/mono-blue-decklist-by-juha-ihonen-1672994">MTGDecks — Juha Ihonen, Finnish Premodern Nationals 2023</a><span>Organized-event record and complete Mono Blue Tempo list.</span></li><li><a href="https://mtgdecks.net/Premodern/mono-blue-decklist-by-wellison-pereira-2565039">MTGDecks — Wellison Pereira, Monthly Webcam Brazil 2025</a><span>Top 4 Premodern Blue Skies result and complete list.</span></li><li><a href="https://mtgdecks.net/prices/spiketail-hatchling">MTGDecks — Spiketail Hatchling usage</a><span>Recent Premodern archetype and deck-usage record.</span></li><li><a href="https://edhrec.com/cards/spiketail-hatchling">EDHREC — Spiketail Hatchling</a><span>Commander inclusion context and commonly associated cards.</span></li><li><a href="https://scryfall.com/card/8ed/102/spiketail-hatchling">Scryfall — Eighth Edition Spiketail Hatchling</a><span>Core-set reprint, rarity, frame, and retained Greg Staples artwork.</span></li><li><a href="https://scryfall.com/card/10e/111/spiketail-hatchling">Scryfall — Tenth Edition Spiketail Hatchling</a><span>Final paper reprint and printing record.</span></li><li><a href="https://scryfall.com/search?q=%28o%3A%22Sacrifice%22+o%3A%22Counter+target+spell+unless%22%29">Scryfall search — sacrifice-counter descendants</a><span>Comparative record for the Spiketail family and later visible-permission creatures.</span></li></ol></section></article></div>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The honorable archive</h2><p>Spiketail Hatchling is Honorable Mention 008 in the supplemental archive. Honorable Mentions remain separate from the one thousand numbered entries.</p><nav class="end-nav"><a href="honorable-007-ensnaring-bridge.html"><small>Previous honorable mention · 007</small>Ensnaring Bridge</a><span aria-hidden="true" class="nav-placeholder"></span></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Honorable Mention · Spiketail Hatchling · Independent, noncommercial Magic history project.</footer>
+<script>/* CR_CARD_PREVIEW_RUNTIME_START */
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function showCard(el,x,y,p=false){if(!preview||!pimg||!el||!el.dataset.card)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script><script defer="" src="assets/artwork-spotlight.js"></script>
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
+
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+<script defer="" src="assets/design-echo.js"></script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+<script defer="" src="assets/printing-gallery.js"></script>
+</body></html>
