@@ -1,0 +1,1187 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content="A long-form history of Sleight of Mind, Alpha text changing, Sleight Knight, protection tricks, Northern Paladin, Old School, the Teysa combo, artwork, rules, and printings."/><title>Sleight of Mind: One Blue Mana Rewrote the Color Wheel — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/00760b58-8a7d-44fa-a5e7-9df54c21c77d?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:var(--night2)}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_START */
+/* Eternal Dragon is the visual authority for every artwork spotlight. */
+.art-break.artwork-spotlight{
+  width:100vw!important;max-width:none!important;min-height:min(69vw,720px)!important;
+  margin:72px 0 72px calc((var(--reading) - 100vw)/2)!important;transform:none!important;
+  position:relative!important;display:flex!important;align-items:flex-end!important;overflow:hidden!important;
+  color:white!important;background:none!important;isolation:isolate;
+}
+.art-break.artwork-spotlight:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(0deg,rgba(4,8,8,.93),rgba(4,8,8,.18) 55%,transparent 76%)!important;pointer-events:none;
+}
+.artwork-spotlight .art-break-media{
+  position:absolute!important;inset:0!important;z-index:0!important;display:block!important;
+  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;
+  object-position:center 25%!important;transform:none!important;pointer-events:none;
+}
+.artwork-spotlight .art-caption{
+  position:relative!important;z-index:2!important;width:min(var(--wide),calc(100% - 32px))!important;
+  margin:auto!important;padding:35px 0!important;color:#ddd!important;
+  font:13px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72);
+}
+.artwork-spotlight .art-caption b{display:block!important;margin-bottom:5px!important;color:white!important;font-size:1rem!important;line-height:1.35!important}
+.artwork-spotlight .art-caption-excerpt{display:block}
+@media(max-width:750px){
+ .art-break.artwork-spotlight{width:100vw!important;max-width:none!important;min-height:72vh!important;margin-left:calc((100% - 100vw)/2)!important;margin-right:0!important}
+ .artwork-spotlight .art-break-media{object-position:center 25%!important}
+ .artwork-spotlight .art-caption{width:calc(100% - 48px)!important;padding:31px 0!important}
+}
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_END */
+
+/* CR_CANONICAL_DESIGN_ECHO_START */
+/* Eternal Dragon is the structural and responsive authority for every
+   Design Echo image-plus-copy panel. */
+.design-echo-section>.inline-image.canonical-inline-image,
+.inline-image.canonical-inline-image{
+  box-sizing:border-box!important;
+  width:min(980px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  background:transparent!important;
+  color:white!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:var(--radius)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+.inline-image.canonical-inline-image>.image{
+  box-sizing:border-box!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:390px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:var(--night2)!important;
+  border:0!important;
+  border-radius:var(--radius) 0 0 var(--radius)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.image:before{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  padding:28px!important;
+  color:#c7cfca!important;
+  text-align:center!important;
+  font:800 .82rem/1.5 Inter,system-ui,sans-serif!important;
+  letter-spacing:.04em!important;
+  pointer-events:none!important;
+}
+.inline-image.canonical-inline-image>.image.image-loading:before{
+  content:"Loading " attr(data-card-label) " artwork…"!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed:before{
+  content:attr(data-card-label) " artwork could not be loaded"!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded:before{content:""!important}
+.inline-image.canonical-inline-image .inline-image-media{
+  box-sizing:border-box!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:opacity .18s ease!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded .inline-image-media{
+  display:block!important;
+  opacity:1!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed .inline-image-media{
+  display:none!important;
+  opacity:0!important;
+}
+.inline-image.canonical-inline-image>.copy{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:35px!important;
+  align-self:stretch!important;
+  background:#20322f!important;
+  color:white!important;
+  border:1px solid #586963!important;
+  border-left:0!important;
+  border-radius:0 var(--radius) var(--radius) 0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.copy .eyebrow,
+.inline-image.canonical-inline-image>.copy .kicker{
+  display:block!important;
+  margin:0 0 12px!important;
+  color:#d8b878!important;
+  text-transform:uppercase!important;
+  letter-spacing:.18em!important;
+  font:900 .73rem/1.35 Inter,system-ui,sans-serif!important;
+}
+.inline-image.canonical-inline-image>.copy h3{
+  margin:0 0 16px!important;
+  color:white!important;
+  font-size:2rem!important;
+  line-height:1.12!important;
+}
+.inline-image.canonical-inline-image>.copy p{
+  margin:0 0 1em!important;
+  color:#d8d9d4!important;
+}
+.inline-image.canonical-inline-image>.copy p:last-child{margin-bottom:0!important}
+@media(max-width:750px){
+  .design-echo-section>.inline-image.canonical-inline-image,
+  .inline-image.canonical-inline-image{
+    width:100%!important;
+    max-width:100%!important;
+    margin:42px 0 48px!important;
+    padding:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .inline-image.canonical-inline-image>.image{
+    width:100%!important;
+    min-height:390px!important;
+    margin:0!important;
+    border-radius:var(--radius) var(--radius) 0 0!important;
+  }
+  .inline-image.canonical-inline-image>.copy{
+    width:100%!important;
+    margin:0!important;
+    padding:35px!important;
+    border:1px solid #586963!important;
+    border-top:0!important;
+    border-radius:0 0 var(--radius) var(--radius)!important;
+  }
+}
+/* CR_CANONICAL_DESIGN_ECHO_END */
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+
+
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+
+.honorable-badge{display:inline-flex;color:#f1dfb4;border:1px solid rgba(216,184,120,.45);background:rgba(0,0,0,.34);border-radius:999px;padding:6px 11px;font:850 .7rem/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+body[data-honorable-category] .rank-nav .center{font-weight:800;color:var(--green)}
+.category-continuation{scroll-margin-top:30px}
+.provenance-badge{display:inline-flex;margin-top:16px;border:1px solid #566760;border-radius:999px;padding:5px 9px;color:#d8b36a;font:800 .67rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.09em}
+</style></head><body data-article-card="Sleight of Mind" data-honorable-category="Archive Favorites" data-landing-anchor="honorable-sleight-of-mind" data-navigation-scope="category-local"><header class="hero" data-headline-card="Sleight of Mind" data-hero-card="Sleight of Mind"><img alt="Sleight of Mind artwork by Mark Poole" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/d427790c-e322-446e-8d7d-a6b48ad41a42?format=image&amp;version=normal';" src="https://api.scryfall.com/cards/d427790c-e322-446e-8d7d-a6b48ad41a42?format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=honorable-sleight-of-mind#honorable-sleight-of-mind">← Back to Compulsive Research</a><div class="honorable-badge">Beyond the Thousand · Archive Favorites</div><div class="eyebrow">Limited Edition Alpha · 1993</div><h1>One Blue Mana Rewrote the Color Wheel</h1><p class="deckline">For one blue mana, an Alpha instant could rewrite protection, color hosers, and the identity of a permanent indefinitely—the tiny rules trick that gave Sleight Knight its name.</p><div class="byline"><span class="pill">Long-form card history</span><span class="pill">Sleight Knight</span><span class="pill">Rules archaeology</span></div></div></header><nav class="rank-nav" data-navigation-scope="category-local"><a href="honorable-nimble-mongoose.html">← Previous in Archive Favorites · Nimble Mongoose</a><div class="center">Archive Favorites · Honorable Mentions</div><a href="honorable-spelljack.html">Next in Archive Favorites · Spelljack →</a></nav><div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong><a href="#opening">The card changed what the card meant</a><a href="#alpha">Alpha and editable rules text</a><a href="#sleight-knight">The Sleight Knight archetype</a><a href="#protection">Rotating protection</a><a href="#paladins">Paladins and hosers</a><a href="#rules">What the effect can change</a><a href="#stack">Targets and the stack</a><a href="#hack">Magical Hack is different</a><a href="#formats">Life across formats</a><a href="#teysa">The Teysa combo</a><a href="#design-echo">Design Echo</a><a href="#art">Artwork</a><a href="#memory">Player memory</a><a href="#honorable">Why it belongs</a><a href="#decklists">Deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · Opening</div><h2>The card did not change a color. It changed what the card meant</h2>
+<p class="opening dropcap">Sleight of Mind is one of Alpha’s purest demonstrations that Magic is a game made out of language.</p>
+<p>Most one-mana instants alter a number, move an object, or answer a threat. This one reaches into the text box of a spell or permanent and substitutes one color word for another. “Black” can become “red.” “White” can become “blue.” A creature whose protection was intended for one enemy can be reassigned to another. A permanent that destroys black cards can be retuned to destroy green cards. The alteration does not expire at the end of the turn. It lasts indefinitely.</p>
+<p>That promise was never about raw rate. The card does not draw, counter, remove, or create a body by itself. It asks the player to recognize that color-specific rules text is a resource. In early Magic, when protection creatures, Circles of Protection, Paladins, Wards, Elemental Blasts, and sweeping color hosers appeared everywhere, that resource was unusually visible. One blue mana could transform a narrow card into the exact card the matchup demanded.</p>
+<div class="card-lead"><img alt="Sleight of Mind original Limited Edition Alpha printing" data-article-card-image="" src="https://api.scryfall.com/cards/d427790c-e322-446e-8d7d-a6b48ad41a42?format=image&version=normal"/><div><div class="oracle"><b>Sleight of Mind</b> · {U}<br/>Instant<br/><br/>Change the text of target spell or permanent by replacing all instances of one color word with another. (For example, you may change &quot;target black spell&quot; to &quot;target blue spell.&quot; This effect lasts indefinitely.)</div><div class="stats"><div class="stat"><b>First printed</b>Limited Edition Alpha · August 1993</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Illustrated by</b>Mark Poole</div><div class="stat"><b>Archive shelf</b>Archive Favorites</div></div></div></div>
+<p>Its most enduring legacy is not a famous championship or a period of format dominance. It is a deck-building idea with a name players remember: <b>Sleight Knight</b>. The archetype married blue permission to white creatures whose protection and color-hating abilities could be rewritten after the opponent revealed what color actually mattered.</p></section><section id="alpha"><div class="chapter-number">II · Alpha</div><h2>An early experiment in rules text as game material</h2>
+<p>Alpha established nearly every foundational category of Magic card, but it also contained effects that treated the rules themselves as something a wizard might manipulate. <span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span> changed basic land-type words. <span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span> changed color words. <span class="card-name" data-card="Copy Artifact" tabindex="0">Copy Artifact</span>, <span class="card-name" data-card="Clone" tabindex="0">Clone</span>, and <span class="card-name" data-card="Control Magic" tabindex="0">Control Magic</span> altered identity or ownership. These cards made the game feel less like a fixed combat system and more like a duel between people capable of tampering with reality.</p>
+<p>The original environment supplied abundant targets. <span class="card-name" data-card="White Knight" tabindex="0">White Knight</span> and <span class="card-name" data-card="Black Knight" tabindex="0">Black Knight</span> had protection from their opposing colors. <span class="card-name" data-card="Northern Paladin" tabindex="0">Northern Paladin</span> destroyed black permanents. <span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span> and its siblings prevented damage from a named color. <span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span> and <span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span> were efficient only because their targets were color-bound. Alpha’s color wheel was not merely a deck-building taxonomy; it was printed repeatedly inside rules boxes.</p>
+<p>A card that could replace one color word with another therefore behaved like a compact sideboard engine. It did not make every card universally flexible—the text had to contain an actual color word—but it let a prepared deck turn several narrow permanents into adjustable tools. That is why its natural home was never generic blue control. Its home was a deck that deliberately selected cards whose value could be redirected.</p>
+<div class="pullquote">The trick was not making a weak card strong. It was making the wrong answer become the right answer.<small>Color words as movable parts</small></div>
+<p>Modern templating makes the effect look clean, but the idea remains radical. A permanent is usually understood as a stable object. This instant says that a word on the object can be permanently replaced, and every future game action must read the altered version.</p></section><div class="art-break artwork-spotlight" data-artwork-artist="Mark Poole" data-artwork-card="Sleight of Mind" data-artwork-set="lea" data-artwork-set-name="Limited Edition Alpha"><img alt="Sleight of Mind artwork by Mark Poole" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/d427790c-e322-446e-8d7d-a6b48ad41a42?format=image&version=normal';" src="https://api.scryfall.com/cards/d427790c-e322-446e-8d7d-a6b48ad41a42?format=image&version=art_crop"/><div class="art-caption"><b>Mark Poole · Limited Edition Alpha</b>The original image makes thought itself appear manipulable: a concentrated act of blue magic bends perception until the labels governing the world no longer mean what they did a moment before.</div></div><section id="sleight-knight"><div class="chapter-number">III · The archetype</div><h2>Why Sleight Knight became a name worth remembering</h2>
+<p>Sleight Knight is remembered because its plan is easy to explain and satisfying to execute. Start with efficient white creatures. Add blue for countermagic and text manipulation. Use protection and color-specific abilities as modular weapons rather than fixed matchup cards.</p>
+<p><span class="card-name" data-card="White Knight" tabindex="0">White Knight</span> was already an excellent early creature: two mana, first strike, and protection from black. Against a black deck, it could attack through blockers and ignore much of the available removal. Against a red or green opponent, the protection line might be irrelevant. Sleight of Mind let the controller replace “black” with the color that actually mattered. The body remained efficient, but its shield rotated to face the current enemy.</p>
+<p><span class="card-name" data-card="Northern Paladin" tabindex="0">Northern Paladin</span> offered an even more theatrical application. Its printed ability destroyed a black permanent. Once its color word was changed, the Paladin could become a repeatable answer to a different section of the battlefield. A player did not have to choose between registering a narrow hoser and a useful permanent; the deck was designed to rewrite the hoser after the matchup began.</p>
+<p>The blue splash also solved white aggro’s normal limitations. <span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span> protected the battlefield from sweepers and expensive stabilizers. <span class="card-name" data-card="Clone" tabindex="0">Clone</span> copied the best creature in play. <span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span> handled artifacts and enchantments. <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> removed almost anything. The result was not pure White Weenie and not conventional blue-white control. It was a tempo-minded creature deck whose signature card rewarded knowing exactly which word mattered.</p>
+<p>A recent retrospective on Knights described Sleight Knight as one of the earliest competitive deck names its author remembered, emphasizing the way the instant allowed protection creatures to function against whatever colors opponents presented. That memory is more important than any attempt to inflate the archetype into a forgotten dynasty. It had an identity. Players could hear the name and understand the trick.</p></section><section id="protection"><div class="chapter-number">IV · Protection</div><h2>Rotating the shield without changing the soldier</h2>
+<p>Protection was the cleanest interaction because the ability contains a color word and continues to matter for as long as the creature remains in play. Change “black” on White Knight to “red,” and the creature is now protected from red. That affects damage, enchanting or equipping by red objects, blocking by red creatures, and targeting by red sources under the modern protection acronym commonly summarized as DEBT.</p>
+<p>The timing creates meaningful choices. Casting the instant before combat can make a blocker unable to block. Casting it in response to a colored removal spell can cause the target to become illegal when that spell tries to resolve. Casting it proactively can protect a creature from the opponent’s most common answer, but doing so reveals the new color and may leave the creature exposed to the original one.</p>
+<p>The change is not a counter or temporary shield. It rewrites the text. If the creature leaves the battlefield and later returns, it is a new object and the change is gone. If it remains, the new word persists through turns, controller changes, tapping, combat, and most other ordinary events. This permanence gives the card a curious texture: one blue mana creates a tiny piece of customized cardboard that exists only for the rest of that game.</p>
+<p>Wards and Circles of Protection work similarly. A <span class="card-name" data-card="White Ward" tabindex="0">White Ward</span> can be changed so that the enchanted creature receives protection from a different color. A Circle can be aimed at a different source color. These are not efficient contemporary constructions, but they reveal why the card made sense in its original ecology. Early Magic printed many narrow cards because sideboarding and color hostility were central to the game’s identity. Text changing turned that narrowness into a puzzle.</p></section><section id="paladins"><div class="chapter-number">V · Paladins and hosers</div><h2>The permanent answer that learned a new enemy</h2>
+<p>Northern Paladin is the emblematic partner because its activated ability contains the phrase “Destroy target black permanent.” Replacing black with another color changes the legal targets of every future activation. A green deck that expected its creatures and enchantments to ignore the Paladin could suddenly find the entire board under threat.</p>
+<p>Other color-hating permanents invite the same analysis. <span class="card-name" data-card="Deathgrip" tabindex="0">Deathgrip</span> counters green spells. <span class="card-name" data-card="Lifeforce" tabindex="0">Lifeforce</span> counters black spells. <span class="card-name" data-card="Gloom" tabindex="0">Gloom</span> taxes white spells and activated abilities. <span class="card-name" data-card="Drought" tabindex="0">Drought</span> punishes black spells. <span class="card-name" data-card="Eastern Paladin" tabindex="0">Eastern Paladin</span>, <span class="card-name" data-card="Southern Paladin" tabindex="0">Southern Paladin</span>, and later descendants built entire identities around attacking one color. A single text-change effect can redirect those cards, though the surrounding deck must still justify playing them.</p>
+<p>This is the core deck-building tension. A text-changing instant is only as good as the text available to change. Register too few color-dependent cards and it becomes a blank. Register too many and the deck fills with narrow permanents that are poor before the instant appears. Sleight Knight succeeds as a concept because White Knight and Northern Paladin were at least plausible cards without help. The instant increased their coverage rather than creating usefulness from nothing.</p>
+<p>That lesson remains relevant for synergy decks. The best build-around cards amplify pieces that already perform acceptable jobs. They do not require every draw step to assemble a fragile two-card sentence before anything functions.</p></section><section id="rules"><div class="chapter-number">VI · Rules archaeology</div><h2>What the instant can change—and what it cannot</h2>
+<p>The current Oracle text is precise: replace all instances of one color word with another on a target spell or permanent. The five color words are white, blue, black, red, and green. The effect changes every occurrence of the chosen word in the object’s text box and, where relevant, its type line. The words are chosen as the spell resolves, not when it is cast.</p>
+<p>Several boundaries matter.</p>
+<p><b>It changes words, not actual colors.</b> Changing “red” to “green” in a creature’s protection ability does not make the creature green. The object’s color is determined normally by mana cost, color indicator, characteristic-defining abilities, or other effects.</p>
+<p><b>It does not alter proper nouns.</b> “Black” in <span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span> is part of a card name, not a color word that the effect can rewrite. Card names remain intact.</p>
+<p><b>It does not change basic land-type words.</b> “Island,” “Swamp,” and the other basic land types are handled by effects such as Magical Hack or <span class="card-name" data-card="Mind Bend" tabindex="0">Mind Bend</span>, not by this card unless a separate word in the text is a color.</p>
+<p><b>It can target an object with no useful color word.</b> The spell can legally target a textless permanent or an object whose text contains none of the chosen words. On resolution, it simply accomplishes little or nothing.</p>
+<p><b>It changes printed or copy-defined text, not every external effect.</b> If another spell granted a creature protection from red until end of turn, changing the creature’s printed text would not normally rewrite the separate continuous effect that granted that ability.</p>
+<p>Those distinctions are why the card is beloved by rules-oriented players. It is simple to read, but every application forces the table to identify exactly where a word came from and which layer of the object’s identity is being changed.</p></section><section id="stack"><div class="chapter-number">VII · The stack</div><h2>Targets are already chosen before the sentence changes</h2>
+<p>One of the easiest mistakes is to imagine that the instant can retarget a color-specific spell after it has been cast. It cannot. Targets are selected as part of casting a spell. Changing the text afterward does not allow the controller to choose new ones.</p>
+<p>Suppose a player casts <span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span> targeting a red permanent, then the text of the Blast is changed from “red” to “green.” The target remains the permanent originally selected. If that permanent is not green, the target may be illegal when the Blast resolves and the spell will fail to affect it. The same principle can be used defensively: changing the relevant color word on a removal spell may cause its existing target to become illegal.</p>
+<p>This makes the instant a strange cousin of countermagic. It can stop a spell not by countering it directly but by changing the condition that made its target legal. Yet this works only when the spell’s targeting restriction contains a color word and the new wording no longer matches. It is clever, situational, and often card-disadvantageous—the exact profile of an Alpha trick that survives because the successful moment feels like discovering a hidden door in the rules.</p>
+<p>When the targeted spell would become a permanent, the altered text carries onto the permanent it becomes. That creates another unusual use: change the words while the object is on the stack, then allow it to resolve with its rewritten identity intact.</p></section><section id="hack"><div class="chapter-number">VIII · Its sibling</div><h2>Why Magical Hack is not the same card</h2>
+<p><span class="card-name" data-card="Magical Hack" tabindex="0">Magical Hack</span> is frequently mentioned beside Sleight of Mind, and the two effects are easy to blur together. The distinction is categorical. Sleight changes color words. Magical Hack changes one basic land-type word to another. A card that says “Swamp” is not necessarily using the color word “black,” and a card that says “red” is not necessarily referring to Mountains.</p>
+<p>This division produced two related families of early decks. Color-word decks manipulated protection, Paladins, Circles, and color hosers. Land-word decks manipulated cards such as <span class="card-name" data-card="Karma" tabindex="0">Karma</span>, <span class="card-name" data-card="Conversion" tabindex="0">Conversion</span>, or landwalk abilities. Later <span class="card-name" data-card="Mind Bend" tabindex="0">Mind Bend</span> combined both possibilities, changing either a color word or a basic land type, while cards such as <span class="card-name" data-card="Alter Reality" tabindex="0">Alter Reality</span>, <span class="card-name" data-card="Glamerdye" tabindex="0">Glamerdye</span>, and <span class="card-name" data-card="Trait Doctoring" tabindex="0">Trait Doctoring</span> revisited parts of the same space.</p>
+<p>The siblings teach a larger lesson about Magic’s vocabulary. Color and land type are related conceptually but distinct mechanically. “Black” and “Swamp” often point toward the same region of the color pie, yet the rules must know whether an effect is changing a quality, a word, a subtype, or the object itself.</p></section><section id="formats"><div class="chapter-number">IX · Formats</div><h2>From early constructed tables to Old School and Commander</h2>
+<p>The card’s competitive ceiling was always limited. It needs a suitable object, a relevant word, and a game state in which changing that word matters more than drawing a card or answering the object directly. As card quality rose and color-hosing permanents became less central to main decks, the opportunity cost increased.</p>
+<p>That did not erase its cultural life. Old School players continue to build around the original interactions because the card captures the format’s experimental character. The documented 93/94 list in the deck archive uses White Knight, Northern Paladin, Wards, Circles, Clone, and classic blue-white control cards. The goal is not to impersonate a modern efficiency engine. It is to make the text box itself part of the battlefield.</p>
+<p>In casual sixty-card Magic, color-hack decks became a recognizable laboratory archetype. Players combined Sleight, Magical Hack, Mind Bend, and an assortment of hosers, then tried to engineer a board on which every narrow sentence pointed in the useful direction.</p>
+<p>Commander supplies a different reason to remember it. Multiplayer games contain more permanents, more colors, and more unusual text. The card appears in only a small fraction of eligible decks, but its interactions can be dramatic because a single changed word may govern a repeatable engine for many turns.</p>
+<div class="format-strip"><div class="format-card"><span class="impact">Old School</span><h3>Identity piece</h3><p>A build-around for protection creatures, Paladins, Wards, and the original color-hostile environment.</p></div><div class="format-card"><span class="impact">Legacy and Vintage</span><h3>Legal curiosity</h3><p>Legal, historically evocative, and far below the efficiency required for ordinary competitive play.</p></div><div class="format-card"><span class="impact">Commander</span><h3>Combo and rules tool</h3><p>A low-cost way to rewrite repeatable abilities, including the celebrated Teysa interaction.</p></div></div></section><section id="teysa"><div class="chapter-number">X · Commander</div><h2>The Teysa sentence that becomes a loop</h2>
+<p><span class="card-name" data-card="Teysa, Orzhov Scion" tabindex="0">Teysa, Orzhov Scion</span> contains two linked pieces of color-dependent text. Whenever another black creature dies, she creates a 1/1 white Spirit creature token. She can also exile a creature by sacrificing three white creatures.</p>
+<p>Cast Sleight of Mind targeting Teysa and replace every instance of “white” with “black.” Teysa now creates black Spirit tokens when other black creatures die, and her activated ability asks for three black creatures. Sacrifice three black creatures to activate the ability. Their deaths trigger Teysa three times, creating three black Spirits. Those new Spirits can be sacrificed to activate the ability again, repeating the process as long as legal targets and the game state permit. A death payoff such as <span class="card-name" data-card="Blood Artist" tabindex="0">Blood Artist</span> converts the loop into a win.</p>
+<p>The interaction is a perfect modern showcase because the instant does not merely improve a protection ability. It changes the color of the tokens named in one sentence and the sacrifice requirement in another, causing the two halves of Teysa’s design to feed each other.</p>
+<p>Commander Spellbook and EDHREC catalog the combo, but its appeal is larger than combo efficiency. It rewards the player who reads the card as editable syntax. The loop exists because the same color word appears in two strategically opposed places.</p></section><section id="design-echo"><div class="chapter-number">XI · Design Echo</div><h2>Mind Bend made the family flexible</h2>
+<p><span class="card-name" data-card="Mind Bend" tabindex="0">Mind Bend</span> is the cleanest descendant to place beside the Alpha original. Printed in Mirage, it can change either one color word or one basic land type on a permanent. It effectively combines the conceptual territory of Sleight and Magical Hack while restricting the target to a permanent.</p>
+<p>Later designs adjusted duration, recastability, or scope. <span class="card-name" data-card="Alter Reality" tabindex="0">Alter Reality</span> gained flashback. <span class="card-name" data-card="Glamerdye" tabindex="0">Glamerdye</span> gained retrace. <span class="card-name" data-card="Trait Doctoring" tabindex="0">Trait Doctoring</span> used cipher. <span class="card-name" data-card="Artificial Evolution" tabindex="0">Artificial Evolution</span> moved from colors and land types to creature types. Each successor recognized that text changing is fascinating but narrow, then added a way to obtain repeated value or broader relevance.</p>
+<div class="inline-image canonical-inline-image" data-image-card="Mind Bend"><div class="image image-loading" data-card-label="Mind Bend"><img class="inline-image-media" src="https://api.scryfall.com/cards/named?exact=Mind%20Bend&amp;format=image&amp;version=art_crop" data-card-name="Mind Bend" data-api-url="https://api.scryfall.com/cards/named?exact=Mind%20Bend" data-fallback-art="https://api.scryfall.com/cards/named?exact=Mind%20Bend&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Mind%20Bend&amp;format=image&amp;version=normal" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Mind%20Bend&amp;format=image&amp;version=art_crop" alt="Mind Bend artwork"/></div><div class="copy"><div class="eyebrow">Design Echo</div><h3>One card joined the two vocabularies</h3><p>Mind Bend can rewrite a color word or a basic land type, turning the separate Alpha experiments into one more adaptable tool.</p></div></div>
+<p>The family has become rarer because digital implementation, localization, memory, and rules complexity all make text changes expensive. That scarcity increases the original card’s historical value. It belongs to a period when Magic openly invited players to mark changed words with scraps of paper and remember that one specific permanent now said something different.</p></section><section id="art"><div class="chapter-number">XII · Artwork</div><h2>Mark Poole painted the act of changing a thought</h2>
+<p>Mark Poole’s original image is less literal than many Alpha illustrations. There is no Paladin changing allegiance and no colored shield rotating around a Knight. Instead, the picture presents mental manipulation as an intimate magical act. The composition feels like perception being grasped and redirected before it can settle into certainty.</p>
+<p>That abstraction fits the card better than a rules diagram would. The spell does not repaint an object or transmute its substance. It alters the conceptual label through which the game understands the object. The magic happens in language and thought.</p>
+<p>The Ice Age reprint introduced alternate artwork by Nicola Leonard and moved the card to uncommon. That version places the old effect inside Ice Age’s colder visual world and gives collectors the gallery’s one major artistic departure. Most later paper printings returned to Poole’s original image, making the two illustrations a compact record of how early Magic reused and recontextualized its foundational oddities.</p></section><section id="memory"><div class="chapter-number">XIII · Player memory</div><h2>The story is always the one impossible word change</h2>
+<div class="memory"><blockquote>“I changed protection from black to red, blanked the removal spell, and attacked through the blocker.”</blockquote><cite>A typical Sleight story—small in cardboard, enormous in remembered cleverness.</cite></div>
+<p>Cards like this generate stories disproportionate to their win rate. The player does not remember drawing a clean answer and trading one-for-one. The player remembers noticing that a word could be replaced, explaining the interaction, and watching the entire tactical meaning of a permanent change.</p>
+<p>That pleasure is partly theatrical. The altered card often needs a marker. Players point to the old word, announce the new one, and carry the modification forward. Everyone at the table participates in maintaining a tiny alternate reality.</p>
+<p>It is also educational. The card teaches the difference between color and color word, between printed text and granted abilities, between targets chosen during casting and legality checked during resolution, and between an object that persists and a new object that returns from another zone. Few one-mana instants contain so much of the rules engine in potential form.</p></section><section id="honorable"><div class="chapter-number">XIV · Why it belongs</div><h2>An archive needs cards that explain how players learned the game</h2>
+<p>Sleight of Mind was not one of Magic’s most powerful cards. It was one of the cards that taught players to look beyond power and ask what the rules permitted.</p>
+<p>It deserves an Honorable Mention because it created an archetype identity, embodied Alpha’s willingness to manipulate language, and remained beloved enough for Old School, casual, and Commander players to keep building around it decades later. It also connects several of the archive’s central themes: color hostility, protection creatures, sideboard culture, rules evolution, deck naming, artwork continuity, and the gap between competitive efficiency and imaginative value.</p>
+<p>The Archive Favorites shelf is the right home. This is not primarily a Legacy or Vintage pillar, and it is not a tribal card despite its association with Knights. It is a singular piece of Magic culture—the kind of card someone asks about because the remembered experience matters more than metagame share.</p></section><section id="decklists"><div class="chapter-number">XV · Deck archive</div><h2>Three ways to build around an editable color word</h2>
+<p class="deck-intro">The first list is a documented community Old School build. The second is an editorial reconstruction of classic Sleight Knight. The third demonstrates the modern Teysa text-change combo in a sixty-card casual shell. Only the first is presented as a sourced list; the others are transparent study models.</p><div class="deck-archive"><details class="deck"><summary><span><strong>Old School 93/94 Sleight of Mind</strong><small>Documented community list · exact 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Community documented list</span><p>A published Old School list built around White Knight, Northern Paladin, color wards, and four copies of the namesake instant. It is evidence of the archetype’s continuing tabletop life, not a claimed major-event finish.</p><div class="deck-meta"><div><b>Old School 93/94 Sleight of Mind</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-old-school-93-94-sleight-of-mind">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 16</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Northern Paladin" tabindex="0">Northern Paladin</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="White Knight" tabindex="0">White Knight</span></div></div><div class="group"><h4>Artifacts · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div></div><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="White Ward" tabindex="0">White Ward</span></div></div><div class="group"><h4>Instants · 16</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">6</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">13</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Black Ward" tabindex="0">Black Ward</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Blue Ward" tabindex="0">Blue Ward</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Energy Flux" tabindex="0">Energy Flux</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl&#x27;s Recall" tabindex="0">Hurkyl&#x27;s Recall</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Red Ward" tabindex="0">Red Ward</span></div></div></div></div><pre hidden id="deck-old-school-93-94-sleight-of-mind">CREATURES
+3 Clone
+4 Northern Paladin
+4 Savannah Lions
+1 Serra Angel
+4 White Knight
+
+ARTIFACTS
+1 Jayemdae Tome
+
+ENCHANTMENTS
+2 Circle of Protection: Red
+2 White Ward
+
+INSTANTS
+4 Counterspell
+4 Disenchant
+4 Sleight of Mind
+4 Swords to Plowshares
+
+LANDS
+6 Island
+13 Plains
+4 Tundra
+
+SIDEBOARD
+2 Black Ward
+4 Blue Elemental Blast
+2 Blue Ward
+4 Energy Flux
+1 Hurkyl&#x27;s Recall
+2 Red Ward</pre><p class="small">Source: <a href="https://tappedout.net/mtg-decks/old-school-9394-sleight-of-mind/">view the documented list or context</a></p></div></details><details class="deck"><summary><span><strong>Classic Sleight Knight</strong><small>Editorial historical study shell · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Editorial study shell</span><p>This reconstruction emphasizes the remembered blue-white plan: efficient white attackers, Northern Paladin, protection creatures, countermagic, and a one-mana effect that retunes color-dependent text. No tournament registration is claimed.</p><div class="deck-meta"><div><b>Classic Sleight Knight</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-classic-sleight-knight">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Savannah Lions" tabindex="0">Savannah Lions</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="White Knight" tabindex="0">White Knight</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Order of Leitbur" tabindex="0">Order of Leitbur</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Northern Paladin" tabindex="0">Northern Paladin</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Clone" tabindex="0">Clone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Serra Angel" tabindex="0">Serra Angel</span></div></div><div class="group"><h4>Artifacts · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Jayemdae Tome" tabindex="0">Jayemdae Tome</span></div></div><div class="group"><h4>Instants · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div></div><div class="group"><h4>Sorceries · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">9</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">7</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mishra&#x27;s Factory" tabindex="0">Mishra&#x27;s Factory</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blue Elemental Blast" tabindex="0">Blue Elemental Blast</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Circle of Protection: Red" tabindex="0">Circle of Protection: Red</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Circle of Protection: Black" tabindex="0">Circle of Protection: Black</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="White Ward" tabindex="0">White Ward</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Energy Flux" tabindex="0">Energy Flux</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Hurkyl&#x27;s Recall" tabindex="0">Hurkyl&#x27;s Recall</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Balance" tabindex="0">Balance</span></div></div></div></div><pre hidden id="deck-classic-sleight-knight">CREATURES
+4 Savannah Lions
+4 White Knight
+4 Order of Leitbur
+4 Northern Paladin
+2 Clone
+2 Serra Angel
+
+ARTIFACTS
+1 Jayemdae Tome
+
+INSTANTS
+4 Sleight of Mind
+4 Swords to Plowshares
+4 Counterspell
+3 Disenchant
+
+SORCERIES
+2 Armageddon
+
+LANDS
+4 Tundra
+9 Plains
+7 Island
+2 Mishra&#x27;s Factory
+
+SIDEBOARD
+4 Blue Elemental Blast
+3 Circle of Protection: Red
+2 Circle of Protection: Black
+2 White Ward
+2 Energy Flux
+1 Hurkyl&#x27;s Recall
+1 Balance</pre></div></details><details class="deck"><summary><span><strong>Esper Teysa Text-Change Combo</strong><small>Editorial casual combo shell · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Editorial study shell</span><p>This modern laboratory demonstrates the Teysa interaction. Changing “white” to “black” on Teysa allows the black Spirits she creates to replace the black creatures sacrificed to her ability, producing a repeatable loop when the prerequisites are met.</p><div class="deck-meta"><div><b>Esper Teysa Text-Change Combo</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-esper-teysa-text-change-combo">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Teysa, Orzhov Scion" tabindex="0">Teysa, Orzhov Scion</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Blood Artist" tabindex="0">Blood Artist</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Doomed Dissenter" tabindex="0">Doomed Dissenter</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Orzhov Enforcer" tabindex="0">Orzhov Enforcer</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Viscera Seer" tabindex="0">Viscera Seer</span></div></div><div class="group"><h4>Instants · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sleight of Mind" tabindex="0">Sleight of Mind</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fatal Push" tabindex="0">Fatal Push</span></div></div><div class="group"><h4>Sorceries · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Unearth" tabindex="0">Unearth</span></div></div><div class="group"><h4>Lands · 20</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Scrubland" tabindex="0">Scrubland</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Duress" tabindex="0">Duress</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disenchant" tabindex="0">Disenchant</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Rest in Peace" tabindex="0">Rest in Peace</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dovin&#x27;s Veto" tabindex="0">Dovin&#x27;s Veto</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Vindicate" tabindex="0">Vindicate</span></div></div></div></div><pre hidden id="deck-esper-teysa-text-change-combo">CREATURES
+4 Teysa, Orzhov Scion
+4 Blood Artist
+4 Doomed Dissenter
+4 Orzhov Enforcer
+4 Viscera Seer
+
+INSTANTS
+4 Sleight of Mind
+4 Brainstorm
+2 Fatal Push
+
+SORCERIES
+4 Ponder
+4 Thoughtseize
+2 Unearth
+
+LANDS
+4 Polluted Delta
+4 Flooded Strand
+2 Tundra
+2 Underground Sea
+2 Scrubland
+2 Island
+2 Swamp
+2 Plains
+
+SIDEBOARD
+3 Duress
+3 Swords to Plowshares
+2 Disenchant
+2 Rest in Peace
+2 Dovin&#x27;s Veto
+2 Surgical Extraction
+1 Vindicate</pre></div></details></div></section><section id="printings"><div class="chapter-number">XVI · Material history</div><h2>Printings and sources</h2>
+<p>The gallery begins with the verified Alpha debut, prioritizes the alternate Ice Age illustration, and then presents distinct paper printings. Exact identities and dates come from the project’s MTGJSON snapshot.</p>
+<div class="printings canonical-printing-gallery" data-card="Sleight of Mind" data-gallery-fallback-count="12" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="lea" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Sleight of Mind" data-collector-number="78" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="d427790c-e322-446e-8d7d-a6b48ad41a42" data-set="lea"><img alt="Sleight of Mind — Limited Edition Alpha" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/d427790c-e322-446e-8d7d-a6b48ad41a42?format=image&amp;version=normal"/><figcaption><b>Limited Edition Alpha · 1993</b><br/>Original printing · Mark Poole</figcaption></figure><figure class="printing" data-card-name="Sleight of Mind" data-collector-number="99" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="93dc9f02-11ad-4c4a-8199-9d20c23d31a7" data-set="ice"><img alt="Sleight of Mind — Ice Age" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/93dc9f02-11ad-4c4a-8199-9d20c23d31a7?format=image&amp;version=normal"/><figcaption><b>Ice Age · 1995</b><br/>Alternate Ice Age artwork · Nicola Leonard</figcaption></figure><figure class="printing" data-card-name="Sleight of Mind" data-collector-number="79" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="fb4da609-6c08-4a18-b7d9-fb2f9b11bab2" data-set="leb"><img alt="Sleight of Mind — Limited Edition Beta" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/fb4da609-6c08-4a18-b7d9-fb2f9b11bab2?format=image&amp;version=normal"/><figcaption><b>Limited Edition Beta · 1993</b><br/>Reprint · Mark Poole</figcaption></figure><figure class="printing" data-card-name="Sleight of Mind" data-collector-number="79" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="d1349af8-a709-4535-b532-eb769289906d" data-set="2ed"><img alt="Sleight of Mind — Unlimited Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/d1349af8-a709-4535-b532-eb769289906d?format=image&amp;version=normal"/><figcaption><b>Unlimited Edition · 1993</b><br/>Reprint · Mark Poole</figcaption></figure><figure class="printing" data-card-name="Sleight of Mind" data-collector-number="79" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="438d80aa-2bec-41f2-b50f-b1768421a1a0" data-set="ced"><img alt="Sleight of Mind — Collectors&#x27; Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/438d80aa-2bec-41f2-b50f-b1768421a1a0?format=image&amp;version=normal"/><figcaption><b>Collectors&#x27; Edition · 1993</b><br/>Reprint · Mark Poole</figcaption></figure><figure class="printing" data-card-name="Sleight of Mind" data-collector-number="79" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="9b356d20-91cf-43d4-8f6c-1c74d9608d1a" data-set="cei"><img alt="Sleight of Mind — Intl. Collectors&#x27; Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/9b356d20-91cf-43d4-8f6c-1c74d9608d1a?format=image&amp;version=normal"/><figcaption><b>Intl. Collectors&#x27; Edition · 1993</b><br/>Reprint · Mark Poole</figcaption></figure><figure class="printing" data-card-name="Sleight of Mind" data-collector-number="81" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="563194a8-e7b2-4edb-ba02-f84cfd206771" data-set="3ed"><img alt="Sleight of Mind — Revised Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/563194a8-e7b2-4edb-ba02-f84cfd206771?format=image&amp;version=normal"/><figcaption><b>Revised Edition · 1994</b><br/>Reprint · Mark Poole</figcaption></figure><figure class="printing" data-card-name="Sleight of Mind" data-collector-number="81" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="fb12be1a-d3b6-4467-b711-3693bbcdd7ab" data-set="sum"><img alt="Sleight of Mind — Summer Magic / Edgar" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/fb12be1a-d3b6-4467-b711-3693bbcdd7ab?format=image&amp;version=normal"/><figcaption><b>Summer Magic / Edgar · 1994</b><br/>Reprint · Mark Poole</figcaption></figure><figure class="printing" data-card-name="Sleight of Mind" data-collector-number="102" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="cd21dc3d-c9e6-4592-a655-1a20ee13ae73" data-set="4ed"><img alt="Sleight of Mind — Fourth Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/cd21dc3d-c9e6-4592-a655-1a20ee13ae73?format=image&amp;version=normal"/><figcaption><b>Fourth Edition · 1995</b><br/>Reprint · Mark Poole</figcaption></figure><figure class="printing" data-card-name="Sleight of Mind" data-collector-number="124" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="3cdb4f1c-6754-4269-8fac-d4edc02c8e00" data-set="5ed"><img alt="Sleight of Mind — Fifth Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/3cdb4f1c-6754-4269-8fac-d4edc02c8e00?format=image&amp;version=normal"/><figcaption><b>Fifth Edition · 1997</b><br/>Reprint · Mark Poole</figcaption></figure><figure class="printing" data-card-name="Sleight of Mind" data-collector-number="375" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="9c6149d2-92dc-4577-b600-6ccafc328a33" data-set="30a"><img alt="Sleight of Mind — 30th Anniversary Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/9c6149d2-92dc-4577-b600-6ccafc328a33?format=image&amp;version=normal"/><figcaption><b>30th Anniversary Edition · 2022</b><br/>Reprint · Mark Poole</figcaption></figure><figure class="printing" data-card-name="Sleight of Mind" data-collector-number="78" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="c9dfc21c-1336-443f-ac87-57ad1b369906" data-set="30a"><img alt="Sleight of Mind — 30th Anniversary Edition" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/c9dfc21c-1336-443f-ac87-57ad1b369906?format=image&amp;version=normal"/><figcaption><b>30th Anniversary Edition · 2022</b><br/>Reprint · Mark Poole</figcaption></figure></div>
+<h3>Sources</h3><ul class="sources">
+<li><a href="https://scryfall.com/card/lea/78/sleight-of-mind">Scryfall — Sleight of Mind, Limited Edition Alpha</a><span>Oracle text, original printing, rulings, legalities, and printing archive.</span></li>
+<li><a href="https://magic.wizards.com/en/rules">Wizards of the Coast — Comprehensive Rules</a><span>Text-changing effects, targets, continuous effects, protection, and object identity.</span></li>
+<li><a href="https://edhrec.com/articles/building-a-knight-deck-with-kwende-pride-of-femeref">EDHREC — Building a Knight Deck with Kwende</a><span>Modern retrospective describing Sleight Knight and the protection-changing plan.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/old-school-9394-sleight-of-mind/">TappedOut — Old School 93/94 Sleight of Mind</a><span>Documented community list reproduced in the deck archive.</span></li>
+<li><a href="https://commanderspellbook.com/combo/4332-4619/">Commander Spellbook — Teysa, Orzhov Scion and Sleight of Mind</a><span>Combo prerequisites and loop sequence.</span></li>
+<li><a href="https://edhrec.com/cards/sleight-of-mind">EDHREC — Sleight of Mind</a><span>Contemporary Commander usage and associated color-word cards.</span></li>
+<li><a href="https://mtgjson.com/downloads/">MTGJSON downloads</a><span>Exact card, set, artist, and Scryfall identifier data used by the local gallery.</span></li>
+</ul><p class="editor-note">Historical claims are intentionally modest. The article treats Sleight Knight as a remembered early archetype and cultural deck identity, not as a falsely reconstructed major tournament dynasty. Unsourced deck models are labeled editorial study shells.</p></section></article><aside class="sidebar-note"><b>Archive Favorites</b><br/>Singular cards whose cultural identity, deck-building stories, or rules personality matter beyond raw metagame share.</aside></div><section class="category-continuation" style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XVII · Continue reading</div><h2>More from Archive Favorites</h2><p>Sleight of Mind belongs to the Archive Favorites shelf. Previous and next links remain inside this category, so future cards can be inserted without global renumbering.</p><nav class="end-nav" data-navigation-scope="category-local"><a href="honorable-nimble-mongoose.html"><small>Previous in Archive Favorites</small>Nimble Mongoose</a><a href="honorable-spelljack.html"><small>Next in Archive Favorites</small>Spelljack</a></nav></section><div class="card-preview" id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Honorable Mentions · Archive Favorites · Sleight of Mind · Independent, noncommercial Magic history project.</footer><script>/* CR_CARD_PREVIEW_RUNTIME_START */
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function showCard(el,x,y,p=false){if(!preview||!pimg||!el||!el.dataset.card)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script>
+<script defer="" src="assets/artwork-spotlight.js"></script>
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
+
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+<script defer="" src="assets/design-echo.js"></script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+<script defer="" src="assets/printing-gallery.js"></script></body></html>
