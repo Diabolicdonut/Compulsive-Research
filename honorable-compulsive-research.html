@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A long-form magazine history of Browbeat: Judgment, punisher design, opponent choice, burn mathematics, Grand Prix Cleveland, reprints, artwork, deckbuilding debate, and player memory." name="description"/><title>Compulsive Research: The Card That Named the Archive — Compulsive Research</title>
+<style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/named?exact=Compulsive%20Research&set=rav&format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Compulsive%20Research&set=rav&format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:var(--night2)}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Compulsive%20Research&set=rav&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Compulsive%20Research&set=rav&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Compulsive%20Research&set=rav&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Compulsive%20Research&set=rav&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Compulsive%20Research&set=rav&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Compulsive%20Research&set=rav&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_START */
+/* Eternal Dragon is the visual authority for every artwork spotlight. */
+.art-break.artwork-spotlight{
+  width:100vw!important;max-width:none!important;min-height:min(69vw,720px)!important;
+  margin:72px 0 72px calc((var(--reading) - 100vw)/2)!important;transform:none!important;
+  position:relative!important;display:flex!important;align-items:flex-end!important;overflow:hidden!important;
+  color:white!important;background:none!important;isolation:isolate;
+}
+.art-break.artwork-spotlight:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(0deg,rgba(4,8,8,.93),rgba(4,8,8,.18) 55%,transparent 76%)!important;pointer-events:none;
+}
+.artwork-spotlight .art-break-media{
+  position:absolute!important;inset:0!important;z-index:0!important;display:block!important;
+  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;
+  object-position:center 25%!important;transform:none!important;pointer-events:none;
+}
+.artwork-spotlight .art-caption{
+  position:relative!important;z-index:2!important;width:min(var(--wide),calc(100% - 32px))!important;
+  margin:auto!important;padding:35px 0!important;color:#ddd!important;
+  font:13px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72);
+}
+.artwork-spotlight .art-caption b{display:block!important;margin-bottom:5px!important;color:white!important;font-size:1rem!important;line-height:1.35!important}
+.artwork-spotlight .art-caption-excerpt{display:block}
+@media(max-width:750px){
+ .art-break.artwork-spotlight{width:100vw!important;max-width:none!important;min-height:72vh!important;margin-left:calc((100% - 100vw)/2)!important;margin-right:0!important}
+ .artwork-spotlight .art-break-media{object-position:center 25%!important}
+ .artwork-spotlight .art-caption{width:calc(100% - 48px)!important;padding:31px 0!important}
+}
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_END */
+
+/* CR_CANONICAL_DESIGN_ECHO_START */
+/* Eternal Dragon is the structural and responsive authority for every
+   Design Echo image-plus-copy panel. */
+.design-echo-section>.inline-image.canonical-inline-image,
+.inline-image.canonical-inline-image{
+  box-sizing:border-box!important;
+  width:min(980px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  background:transparent!important;
+  color:white!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:var(--radius)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+.inline-image.canonical-inline-image>.image{
+  box-sizing:border-box!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:390px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:var(--night2)!important;
+  border:0!important;
+  border-radius:var(--radius) 0 0 var(--radius)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.image:before{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  padding:28px!important;
+  color:#c7cfca!important;
+  text-align:center!important;
+  font:800 .82rem/1.5 Inter,system-ui,sans-serif!important;
+  letter-spacing:.04em!important;
+  pointer-events:none!important;
+}
+.inline-image.canonical-inline-image>.image.image-loading:before{
+  content:"Loading " attr(data-card-label) " artwork…"!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed:before{
+  content:attr(data-card-label) " artwork could not be loaded"!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded:before{content:""!important}
+.inline-image.canonical-inline-image .inline-image-media{
+  box-sizing:border-box!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:opacity .18s ease!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded .inline-image-media{
+  display:block!important;
+  opacity:1!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed .inline-image-media{
+  display:none!important;
+  opacity:0!important;
+}
+.inline-image.canonical-inline-image>.copy{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:35px!important;
+  align-self:stretch!important;
+  background:#20322f!important;
+  color:white!important;
+  border:1px solid #586963!important;
+  border-left:0!important;
+  border-radius:0 var(--radius) var(--radius) 0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.copy .eyebrow,
+.inline-image.canonical-inline-image>.copy .kicker{
+  display:block!important;
+  margin:0 0 12px!important;
+  color:#d8b878!important;
+  text-transform:uppercase!important;
+  letter-spacing:.18em!important;
+  font:900 .73rem/1.35 Inter,system-ui,sans-serif!important;
+}
+.inline-image.canonical-inline-image>.copy h3{
+  margin:0 0 16px!important;
+  color:white!important;
+  font-size:2rem!important;
+  line-height:1.12!important;
+}
+.inline-image.canonical-inline-image>.copy p{
+  margin:0 0 1em!important;
+  color:#d8d9d4!important;
+}
+.inline-image.canonical-inline-image>.copy p:last-child{margin-bottom:0!important}
+@media(max-width:750px){
+  .design-echo-section>.inline-image.canonical-inline-image,
+  .inline-image.canonical-inline-image{
+    width:100%!important;
+    max-width:100%!important;
+    margin:42px 0 48px!important;
+    padding:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .inline-image.canonical-inline-image>.image{
+    width:100%!important;
+    min-height:390px!important;
+    margin:0!important;
+    border-radius:var(--radius) var(--radius) 0 0!important;
+  }
+  .inline-image.canonical-inline-image>.copy{
+    width:100%!important;
+    margin:0!important;
+    padding:35px!important;
+    border:1px solid #586963!important;
+    border-top:0!important;
+    border-radius:0 0 var(--radius) var(--radius)!important;
+  }
+}
+/* CR_CANONICAL_DESIGN_ECHO_END */
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+
+body[data-honorable-category] .rank-nav .center{font-weight:800;color:var(--green)}
+</style>
+<style id="cr-printing-gallery-style">
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+</style>
+</head>
+<body data-article-card="Compulsive Research" data-honorable-category="Archive Favorites" data-landing-anchor="honorable-compulsive-research" data-navigation-scope="category-local">
+<header class="hero" data-headline-card="Compulsive Research" data-hero-card="Compulsive Research"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Compulsive%20Research&amp;set=rav&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Compulsive%20Research&amp;set=rav&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=honorable-compulsive-research#honorable-compulsive-research">← Back to Compulsive Research</a>
+<div class="honorable-badge">Beyond the Thousand · Archive Favorites</div>
+<div class="eyebrow">Ravnica: City of Guilds · 2005</div>
+<h1>The Card That Named the Archive</h1>
+<p class="deckline">A three-mana common taught blue decks to turn excess lands, dead cards, and buried ambitions into the next useful answer—and eventually supplied the perfect name for a project devoted to digging through Magic's past.</p>
+<div class="byline"><span>A Compulsive Research honorable mention</span><span>·</span><span>Ravnica: City of Guilds, 2005</span><span class="pill">Approximately 20 minute read</span></div>
+</div></header><nav class="rank-nav" data-navigation-scope="category-local"><a href="honorable-browbeat.html">← Previous in Archive Favorites · Browbeat</a><div class="center">Archive Favorites · Honorable Mentions</div><a href="honorable-ensnaring-bridge.html">Next in Archive Favorites · Ensnaring Bridge →</a></nav>
+<div class="article-shell"><nav class="toc"><strong>In this article</strong><a href="#opening">The Card That Named the Archive</a><a href="#ravnica">A common in the city of guilds</a><a href="#choice">Draw three, then decide what matters</a><a href="#advantage">The arithmetic of one land</a><a href="#target">The strange freedom of target player</a><a href="#mana">The quiet work of fixing a hand</a><a href="#graveyard">Discard as preparation</a><a href="#solar-flare">The research behind Solar Flare</a><a href="#nationals">A national-stage control staple</a><a href="#commander">A modest multiplayer role</a><a href="#descendants">The studies that followed</a><a href="#art">An experiment without an answer</a><a href="#namesake">Why the archive bears its name</a><a href="#memory">What players remember</a><a href="#honorable">Why it belongs first</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The namesake</div><h2>The Card That Named the Archive</h2>
+<p class="opening dropcap">Compulsive Research begins with abundance. Three new cards arrive at once. Then the spell asks what the player is willing to leave behind.</p>
+<p>That sequence made it one of the defining support spells of Ravnica-era control. For {2}{U}, a player draws three cards, then discards two cards unless they discard a land. In a deck with enough lands, the apparent drawback becomes a routine exchange: spend the spell, see three new possibilities, and turn an excess land into the price of keeping the best two.</p>
+<div class="card-lead"><img alt="Compulsive Research original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Compulsive%20Research&amp;set=rav&amp;format=image&amp;version=normal"/><div><div class="oracle"><b>Compulsive Research</b> · {2}{U}<br/>Sorcery<br/><br/>Target player draws three cards. Then that player discards two cards unless they discard a land card.</div><div class="stats"><div class="stat"><b>First printed</b>Ravnica: City of Guilds · 2005</div><div class="stat"><b>Original rarity</b>Common</div><div class="stat"><b>Illustrated by</b>Michael Sutfin</div><div class="stat"><b>Historical identity</b>Card selection, land conversion, and graveyard setup</div></div></div></div>
+<p>The effect was neither as brutally efficient as <span class="card-name" data-card="Ancestral Recall" tabindex="0">Ancestral Recall</span> nor as unconditional as <span class="card-name" data-card="Concentrate" tabindex="0">Concentrate</span>. Its strength came from being exactly useful enough in exactly the games blue control decks were trying to play. It smoothed awkward draws, rewarded high land counts, fed reanimation plans, and gave slow decks something productive to do on the turn between establishing mana and taking control.</p>
+<p>Compulsive Research was a common rather than a marquee rare. It did not announce itself as the centerpiece of a set or a format. Yet it appeared across Solar Flare, Urzatron, Martyr control, Angelfire, and other Ravnica-era strategies because those decks all shared the same need: turn the wrong portion of the hand into more looks at the right portion.</p>
+<p>Years later, that rhythm made the card a natural namesake for this archive. Research is not merely accumulation. It is the repeated act of drawing more material, separating signal from noise, and deciding what deserves to remain.</p></section>
+<section id="ravnica"><div class="chapter-number">II · The setting</div><h2>A common in the city of guilds</h2>
+<p><em>Ravnica: City of Guilds</em> reorganized Magic around two-color identities, dense mana fixing, and a city-plane whose institutions gave deck building a new vocabulary. Shock lands, Signets, guild mechanics, and multicolor cards drew the immediate attention. Compulsive Research sat quietly in mono-blue, available to nearly every controlling guild combination that could support a single blue mana.</p>
+<p>That placement mattered. The set encouraged players to stretch their mana, play bounce lands, use Signets, and build decks with ambitious curves. Those choices created hands with the wrong color, duplicated legendary lands, late Signets, and more mana than an advanced game required. Compulsive Research converted those structural costs into selection.</p>
+<p>It was also unusually portable. A Dimir deck could use it to fill the graveyard. An Azorius shell could use it to find <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span> and land drops. An Izzet Tron deck could use it to assemble Urza lands or cash in pieces drawn after Tron was complete. An Esper reanimator-control deck could discard <span class="card-name" data-card="Angel of Despair" tabindex="0">Angel of Despair</span> deliberately rather than treating the discard as a tax.</p>
+<div class="pullquote">Ravnica made decks more ambitious. Compulsive Research made ambitious hands easier to survive.<small>The common beneath the guild machinery</small></div>
+<p>The card therefore became part of the format's infrastructure. It was not the reason to choose a guild. It was one of the reasons the chosen guild could keep functioning through a long tournament.</p></section>
+<div class="art-break artwork-spotlight" data-artwork-artist="Michael Sutfin" data-artwork-card="Compulsive Research" data-artwork-set="rav" data-artwork-set-name="Ravnica: City of Guilds">
+<img alt="Compulsive Research artwork by Michael Sutfin" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Compulsive%20Research&amp;set=rav&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Compulsive%20Research&amp;set=rav&amp;format=image&amp;version=art_crop"/>
+<div class="art-caption"><b aria-live="polite" data-artwork-credit="">Michael Sutfin’s original Ravnica: City of Guilds artwork</b><span class="art-caption-excerpt">The artwork builds Compulsive Research around a decisive visual gesture, with mist, suspended motion, and controlled blue light concentrating attention on the center of action. The cool-toned atmosphere gives the image emotional weight and makes the effect feel immediate rather than symbolic.</span></div>
+</div>
+<section id="choice"><div class="chapter-number">III · The instruction</div><h2>Draw three, then decide what matters</h2>
+<p>The order of operations is the card's design. The player does not discard before drawing. They first see three additional cards, then evaluate the enlarged hand. That turns the spell from a simple exchange into a small decision engine.</p>
+<div class="research-equation"><div class="research-step"><b>1 · Expand</b><span>Draw three cards and temporarily increase the range of possible lines.</span></div><div class="research-step"><b>2 · Classify</b><span>Identify an expendable land, a graveyard resource, or the two least useful cards.</span></div><div class="research-step"><b>3 · Continue</b><span>Keep the cards that best fit the next turn, matchup, and long game.</span></div></div>
+<p>The land clause creates the ideal outcome without making it automatic. A land in hand can represent future mana, a bluff, a utility effect, or the cheapest discard available. The player must judge whether the land is truly excess. A control deck that discards its fourth land to keep two spells may gain cards and still lose because it never casts them.</p>
+<p>When no land can be spared, discarding two cards changes the spell's role. It no longer creates raw card advantage, but it still sees three new cards and can exchange stranded or redundant resources for a better hand. In reanimation strategies, even that apparently inferior branch may be the desired one.</p>
+<p>This is why the card feels more skill-testing than its common rarity suggests. The resolution is short. The consequences of the discard can define the next six turns.</p></section>
+<section id="advantage"><div class="chapter-number">IV · The accounting</div><h2>The arithmetic of one land</h2>
+<p>Compulsive Research is often described as “draw three, discard a land,” but its card economy includes the spell itself. Casting it spends one card. Drawing three gains three. Discarding one land spends one. The caster finishes one card ahead of where they began.</p>
+<div class="ledger"><div class="ledger-row"><strong>Discard one land</strong><p>Cast one card, draw three, discard one: a net gain of one card, plus selection across the new cards.</p></div><div class="ledger-row"><strong>Discard two cards</strong><p>Cast one card, draw three, discard two: no net gain, but the hand has been filtered and the graveyard may have been improved.</p></div><div class="ledger-row"><strong>Discard a resource</strong><p>A dragon intended for <span class="card-name" data-card="Zombify" tabindex="0">Zombify</span>, a card with flashback, or a land wanted in the graveyard may make the “cost” function as setup.</p></div></div>
+<p>The spell's reputation rests on the first line. Three mana for a reliable one-card gain was respectable in 2005, especially when the spell helped hit land drops and required only one colored symbol. The second and third lines explain why it belonged in decks beyond generic blue control.</p>
+<p>The land condition also made deck construction part of the card. Twenty-three to twenty-five lands, Signets, and bounce lands made a turn-three land discard much more likely. The same decks wanted a high mana count for Wrath, dragons, Tron finishers, and activated abilities. Compulsive Research turned that necessity into late-game resilience.</p></section>
+<section id="target"><div class="chapter-number">V · The wording</div><h2>The strange freedom of target player</h2>
+<p>Compulsive Research targets a player rather than simply saying “you.” In almost every normal game, the caster targets themself. The spell is designed as self-directed card draw and selection.</p>
+<p>The wider wording still creates edge cases. A player with only a few cards left in their library can be forced to draw three and lose the next time state-based actions are checked if they attempted to draw from an empty library. A multiplayer ally can be given cards or helped to discard a needed graveyard piece. Effects that redirect a spell's target can turn a routine draw spell into an awkward gift or a finishing blow.</p>
+<p>The target also means the spell can fail if its only target becomes illegal. That rarely mattered in its Standard heyday, but it is an important reminder that the card is not identical to a simple instruction to its controller.</p>
+<div class="research-note"><b>The usual play is simple; the wording is not.</b> Compulsive Research is a self-targeting draw spell with enough rules flexibility to create unusual multiplayer, redirection, and decking lines.</div>
+<p>The design reflects an older willingness to leave utility on common cards even when most players would use them one way. The extra possibility costs almost nothing in ordinary play and occasionally creates a story no “draw three cards” template could produce.</p></section>
+<section id="mana"><div class="chapter-number">VI · The maintenance</div><h2>The quiet work of fixing a hand</h2>
+<p>Control decks lose games before their expensive answers matter. They miss a land drop, draw the wrong half of the deck, hold multiple copies of a legendary permanent, or find sweepers against control and counters against creatures. Compulsive Research attacked those failures without demanding a narrow synergy.</p>
+<p>On turn three, the spell could find the fourth land for <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>. Later, it could discard the ninth land and find a finisher. In Urzatron, it could search three cards deeper for the missing Urza piece. After Tron was assembled, duplicated Mines and Towers became cheap discard material.</p>
+<p>Ravnica bounce lands made the relationship even more pronounced. A single <span class="card-name" data-card="Azorius Chancery" tabindex="0">Azorius Chancery</span> represented two future mana while returning a land to hand. That returned land could become the discard to Compulsive Research, allowing the deck to preserve cards while still advancing its mana.</p>
+<p>The play rarely looked spectacular. No creature died, no combo resolved, and no opponent immediately conceded. Yet the spell made the next decisive turn more likely. It was the kind of card whose contribution became visible only when removed from the deck and replaced by games in which the correct answer remained several cards too deep.</p></section>
+<section id="graveyard"><div class="chapter-number">VII · The second hand</div><h2>Discard as preparation</h2>
+<p>Ravnica-era Magic increasingly treated the graveyard as a usable zone. Dredge made cards below the library matter. Reanimation decks wanted expensive creatures somewhere cheaper than the hand. Flashback, recover, and recursion effects rewarded players for placing resources where they could be reused.</p>
+<p>Compulsive Research fit that philosophy without requiring a dedicated graveyard deck. A normal control player could discard a land. A Solar Flare player could discard <span class="card-name" data-card="Angel of Despair" tabindex="0">Angel of Despair</span>, <span class="card-name" data-card="Kokusho, the Evening Star" tabindex="0">Kokusho, the Evening Star</span>, or <span class="card-name" data-card="Yosei, the Morning Star" tabindex="0">Yosei, the Morning Star</span> and then cast <span class="card-name" data-card="Zombify" tabindex="0">Zombify</span>.</p>
+<p>This dual identity was important. Dedicated enablers can become dead cards when the graveyard plan is disrupted. Compulsive Research remained a draw spell. If the reanimation line was unavailable, it still found Wrath, <span class="card-name" data-card="Mortify" tabindex="0">Mortify</span>, <span class="card-name" data-card="Remand" tabindex="0">Remand</span>, or land. If the hand already contained a large creature and <span class="card-name" data-card="Zombify" tabindex="0">Zombify</span>, it transformed into a setup spell.</p>
+<p>The card therefore linked two strategies that might otherwise fight each other. Control wanted enough cards to answer everything. Reanimator wanted to spend cards placing threats into the graveyard. Compulsive Research let one action serve both plans.</p></section>
+<section id="solar-flare"><div class="chapter-number">VIII · The archetype</div><h2>The research behind Solar Flare</h2>
+<p>The most famous home for Compulsive Research was Solar Flare, the blue-white-black control-reanimator deck that emerged from Japanese testing during the Ravnica era. Its early ancestor, Yama-Control, already played four copies alongside <span class="card-name" data-card="Dimir Signet" tabindex="0">Dimir Signet</span>, <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>, Yosei, and <span class="card-name" data-card="Zombify" tabindex="0">Zombify</span>.</p>
+<p>Naoki Shimizu later described Compulsive Research as the card that replaced part of the role once occupied by <span class="card-name" data-card="Gifts Ungiven" tabindex="0">Gifts Ungiven</span>. The comparison was not literal—Research did not tutor—but strategic. It kept the hand moving, found the deck's powerful four-mana spells, and placed expensive legends into the graveyard when that was more useful than casting them.</p>
+<p>Solar Flare's defining tension was that its threats were excellent in play and awkward in hand. Seven-mana <span class="card-name" data-card="Angel of Despair" tabindex="0">Angel of Despair</span> could dominate a game but clog an opening draw. Compulsive Research turned the same card into progress: draw toward <span class="card-name" data-card="Zombify" tabindex="0">Zombify</span>, discard the Angel, and bring it back before the opponent expected to face it.</p>
+<p>The spell's single blue requirement also helped a three-color deck whose mana had to produce double white for Wrath, black for <span class="card-name" data-card="Mortify" tabindex="0">Mortify</span> and <span class="card-name" data-card="Persecute" tabindex="0">Persecute</span>, and blue for <span class="card-name" data-card="Remand" tabindex="0">Remand</span>. It asked less of the mana than many alternative draw spells while helping locate the colors the deck still lacked.</p></section>
+<section id="nationals"><div class="chapter-number">IX · The stage</div><h2>A national-stage control staple</h2>
+<p>By the summer of 2006, Solar Flare had moved from a local Japanese project to one of Standard's defining control decks. Luis Scott-Vargas reached the Top 4 of the 2006 U.S. National Championship with four Compulsive Research in an Esper shell of dragons, <span class="card-name" data-card="Court Hussar" tabindex="0">Court Hussar</span>, <span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span>, <span class="card-name" data-card="Remand" tabindex="0">Remand</span>, <span class="card-name" data-card="Mortify" tabindex="0">Mortify</span>, <span class="card-name" data-card="Persecute" tabindex="0">Persecute</span>, <span class="card-name" data-card="Zombify" tabindex="0">Zombify</span>, and Signets.</p>
+<p>The list demonstrates how thoroughly the card supported the archetype. It could discard a dragon for <span class="card-name" data-card="Zombify" tabindex="0">Zombify</span>, find the fourth mana for Wrath, dig toward <span class="card-name" data-card="Persecute" tabindex="0">Persecute</span> in control mirrors, or turn an extra Signet or land into fresh spells later.</p>
+<p>Shimizu's own tournament writing also preserved the danger of treating the land discard as automatic. In a Japanese Nationals quarterfinal, he described discarding a <span class="card-name" data-card="Watery Grave" tabindex="0">Watery Grave</span> after Compulsive Research and then failing to produce the double white needed for Wrath. The mistake was memorable because it exposed the exact judgment the card demands: a land is not excess merely because the rules permit discarding it.</p>
+<div class="pullquote">Compulsive Research rewarded the high land count that control required—and punished players who mistook necessary mana for spare material.<small>The card advantage was conditional in more than rules text</small></div>
+<p>The spell's tournament history is therefore not only a story of efficiency. It is a story of small decisions made inside decks with enormous strategic range.</p></section>
+<section id="commander"><div class="chapter-number">X · The table</div><h2>A modest multiplayer role</h2>
+<p>Commander magnifies spectacular engines, and Compulsive Research is not spectacular. It draws only three cards, happens once, and lacks the repeatability of enchantments or creatures that can be blinked. Yet it retains several useful qualities.</p>
+<p>It targets a player, allowing political assistance or rare decking lines. It places a land or two cards into the graveyard, which matters in reanimator, lands, flashback, and recursion decks. It is inexpensive, easy to cast, and available in many printings.</p>
+<p>In highly optimized Commander, stronger selection and draw usually replace it. In lower-powered or thematic decks, the spell remains clean and understandable. A player draws three, chooses what the game no longer requires, and continues with a better hand.</p>
+<p>Its strongest multiplayer contribution may be aesthetic. In a deck about scholarship, Ravnica, graveyards, or the Izzet impulse to keep experimenting, the name and artwork do as much work as the rate.</p></section>
+<section class="design-echo-section" data-card-aliases="{}" data-card-discovery="oracle-catalog-v2" data-card-references='["Big Score","Careful Study","Catalog","Faithful Mending","Frantic Search","Pieces of the Puzzle","Sift","Strategic Planning","Thirst for Discovery","Thirst for Knowledge"]' id="descendants"><div class="chapter-number">XI · The lineage</div><h2>The studies that followed</h2>
+<p>Compulsive Research belongs to a broad family that includes <span class="card-name" data-card="Catalog" tabindex="0">Catalog</span>, <span class="card-name" data-card="Sift" tabindex="0">Sift</span>, <span class="card-name" data-card="Careful Study" tabindex="0">Careful Study</span>, <span class="card-name" data-card="Thirst for Knowledge" tabindex="0">Thirst for Knowledge</span>, and <span class="card-name" data-card="Frantic Search" tabindex="0">Frantic Search</span>. Each asks how card selection can be priced when discarding is not always a pure drawback.</p>
+<p>Its closest modern echo is <span class="card-name" data-card="Thirst for Discovery" tabindex="0">Thirst for Discovery</span>: both draw three and reward discarding a land rather than two cards. The later spell is an instant and specifies a basic land, a revealing update. Instant speed is stronger, so the condition becomes narrower.</p>
+<p><span class="card-name" data-card="Faithful Mending" tabindex="0">Faithful Mending</span> moved the pattern into two colors and flashback. <span class="card-name" data-card="Strategic Planning" tabindex="0">Strategic Planning</span> and <span class="card-name" data-card="Pieces of the Puzzle" tabindex="0">Pieces of the Puzzle</span> put unwanted cards directly into the graveyard from the library rather than the hand. <span class="card-name" data-card="Big Score" tabindex="0">Big Score</span> transformed discard into cards and Treasure for red.</p>
+<div class="inline-image canonical-inline-image" data-image-card="Compulsive Research">
+<div class="image image-loading" data-card-label="Compulsive Research">
+<img alt="Compulsive Research artwork" class="inline-image-media" data-api-url="https://api.scryfall.com/cards/named?exact=Compulsive+Research&amp;set=sta" data-card-name="Compulsive Research" data-card-set="sta" data-fallback-art="https://api.scryfall.com/cards/named?exact=Compulsive+Research&amp;set=sta&amp;format=image&amp;version=art_crop" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Compulsive+Research&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Compulsive+Research&amp;set=sta&amp;format=image&amp;version=normal" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw="/>
+</div>
+<div class="copy"><div class="eyebrow">A spell preserved as scholarship</div><h3>The Mystical Archive treatment</h3><p>Strixhaven elevated Compulsive Research from useful Ravnica common to a spell worth displaying in an in-world magical archive. The treatment recognized what players already knew: the card had become part of Magic's vocabulary for turning study into selection.</p></div>
+</div>
+<p>The descendants show that the central question remains fertile. How many cards may a player see? What kind of discard is rewarded? Does the spell create advantage, selection, graveyard setup, or all three? Compulsive Research answered with a land and created a template designers could revisit for decades.</p></section>
+<section id="art"><div class="chapter-number">XII · The experiment</div><h2>An experiment without an answer</h2>
+<p>Michael Sutfin's original artwork depicts research not as calm scholarship but as restless experimentation. Apparatus crowds the scene. The researcher appears absorbed in a process whose next step remains unresolved. The image is busy, technical, and slightly comic—the perfect visual counterpart to a card that draws more information and then demands immediate triage.</p>
+<p>The flavor text lists impossible materials—molten bronze and frozen mercury—before ending in uncertainty. The joke is not that the researcher knows nothing. It is that each answer has created another problem.</p>
+<p>Later artwork shifted the emphasis. Sara Winters presented a more expansive magical study for Modern Masters 2017 and Commander Legends. Kristina Collantes's Mystical Archive version treated the spell as formalized knowledge, framed by Strixhaven's ornate visual language.</p>
+<p>The original remains uniquely suited to the title. “Compulsive” is visible in the clutter and posture. “Research” is visible in the instruments. The unresolved “then what?” is the entire emotional engine.</p></section>
+<section id="namesake"><div class="chapter-number">XIII · The archive</div><h2>Why the archive bears its name</h2>
+<p>A project about one thousand influential Magic cards could have borrowed the name of a famous tutor, a library, or a piece of legendary card draw. Compulsive Research offers something more specific.</p>
+<p>The archive is built by gathering more material than any single article can contain: tournament lists, rulings, printings, artwork, contemporary commentary, player memory, and the changing judgment of later formats. The work is not finished when the material has been collected. It must be weighed, organized, and reduced to what best explains the card.</p>
+<p>That is exactly the spell's rhythm. Draw three. Keep what advances the plan. Discard what has served its purpose or belongs somewhere else. Repeat with the next card.</p>
+<div class="memory"><blockquote>Research becomes an archive only after someone decides what must not be lost.</blockquote><cite>The mission statement hidden inside a Ravnica common</cite></div>
+<p>The name also admits the project's temperament. One article suggests another. One decklist opens a forgotten metagame. One printing reveals a new artist, frame, or audience. The search does not naturally stop.</p>
+<p>For that reason, excluding Compulsive Research from the archive would leave the title floating above the project without its own history. As the namesake, it belongs before the other honorable mentions—not because it narrowly missed the thousand, but because it explains why the supplemental archive exists at all.</p></section>
+<section id="memory"><div class="chapter-number">XIV · The recollection</div><h2>What players remember</h2>
+<p>Ravnica-era control players remember the physical gesture: draw three cards, spread the hand, then slide a land toward the graveyard. The action was ordinary enough to repeat throughout a tournament and consequential enough that the wrong land could lose the game.</p>
+<p>Solar Flare players remember discarding a dragon and revealing the deck's plan. Tron players remember searching for the missing Urza land and later discarding the duplicates. Casual players remember the first time the wording “target player” became relevant in a way nobody expected.</p>
+<p>Cube and Commander players remember the feeling of turning a late land into two new possibilities. Collectors remember the Ravnica laboratory, the Sara Winters reimagining, and the Mystical Archive frame that made a familiar common look like a canonical spell.</p>
+<p>Readers of this site will remember something else: the card's name before they remember its rules text. It sits above every article as a promise that the history of Magic is worth searching, sorting, and preserving.</p></section>
+<section id="honorable"><div class="chapter-number">XV · The first appendix</div><h2>Why it belongs first</h2>
+<p>Compulsive Research is not one of the numbered one thousand entries. The list was built to preserve cards according to a separate historical order, and changing that structure would weaken the archive's integrity.</p>
+<p>But the namesake cannot remain outside the work entirely. It is a successful tournament card, a recognizable piece of Ravnica, a durable common, a design template with clear descendants, and the title through which every other article is presented.</p>
+<p>That makes it a different kind of honorable mention. Spelljack, Browbeat, and Memnarch entered the appendix because their stories deserved preservation beyond the numbered cut. Compulsive Research enters first because the appendix—and the site around it—already speaks in its name.</p>
+<p>It is the card above the archive, now finally placed inside it.</p></section>
+<section id="decklists"><div class="chapter-number">XVI · The lists</div><h2>The deck archive</h2>
+<p class="deck-intro">The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p>
+<div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Hiroaki Yamakawa — Yama-Control</strong><small>Solar Flare prototype · late 2005 · 60 main</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Published historical list</span><p>A documented historical list featuring Compulsive Research.</p><div class="deck-meta"><div><b>Hiroaki Yamakawa — Yama-Control</b><div class="small">Main deck 60</div></div><button class="copy" data-target="deck-honorable-compulsive-research-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 13</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dimir Doppelganger" tabindex="0">Dimir Doppelganger</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hokori, Dust Drinker" tabindex="0">Hokori, Dust Drinker</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Meloku the Clouded Mirror" tabindex="0">Meloku the Clouded Mirror</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Yosei, the Morning Star" tabindex="0">Yosei, the Morning Star</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ink-Eyes, Servant of Oni" tabindex="0">Ink-Eyes, Servant of Oni</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ghost-Lit Stalker" tabindex="0">Ghost-Lit Stalker</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">7</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Eiganjo Castle" tabindex="0">Eiganjo Castle</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Minamo, School at Water's Edge" tabindex="0">Minamo, School at Water's Edge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shizo, Death's Storehouse" tabindex="0">Shizo, Death's Storehouse</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Watery Grave" tabindex="0">Watery Grave</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Miren, the Moaning Well" tabindex="0">Miren, the Moaning Well</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mikokoro, Center of the Sea" tabindex="0">Mikokoro, Center of the Sea</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dimir Aqueduct" tabindex="0">Dimir Aqueduct</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Dimir Signet" tabindex="0">Dimir Signet</span></div></div><div class="group"><h4>Enchantments · 3</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Faith's Fetters" tabindex="0">Faith's Fetters</span></div></div><div class="group"><h4>Instants · 6</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Time Stop" tabindex="0">Time Stop</span></div></div><div class="group"><h4>Sorceries · 10</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Compulsive Research" tabindex="0">Compulsive Research</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Zombify" tabindex="0">Zombify</span></div></div></div></div><pre hidden="" id="deck-honorable-compulsive-research-1">Hiroaki Yamakawa — Yama-Control
+Solar Flare prototype · late 2005 · 60 main
+
+Creatures · 13
+2 Dimir Doppelganger
+2 Hokori, Dust Drinker
+2 Meloku the Clouded Mirror
+4 Yosei, the Morning Star
+1 Ink-Eyes, Servant of Oni
+2 Ghost-Lit Stalker
+
+Artifacts · 4
+4 Dimir Signet
+
+Enchantments · 3
+3 Faith's Fetters
+
+Instants · 6
+4 Mana Leak
+2 Time Stop
+
+Lands · 24
+7 Plains
+1 Eiganjo Castle
+1 Minamo, School at Water's Edge
+1 Shizo, Death's Storehouse
+4 Watery Grave
+4 Adarkar Wastes
+1 Miren, the Moaning Well
+1 Mikokoro, Center of the Sea
+4 Dimir Aqueduct
+
+Sorceries · 10
+4 Compulsive Research
+4 Wrath of God
+2 Zombify</pre><p class="small">Source: <a href="https://articles.starcitygames.com/articles/the-history-of-solar-flare/">read Naoki Shimizu’s history of Solar Flare</a></p></div></details><details class="deck"><summary><span><strong>Luis Scott-Vargas — Solar Flare</strong><small>U.S. Nationals 2006 · third place · 60 main / 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>A documented historical list featuring Compulsive Research.</p><div class="deck-meta"><div><b>Luis Scott-Vargas — Solar Flare</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-compulsive-research-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 12</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Angel of Despair" tabindex="0">Angel of Despair</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Court Hussar" tabindex="0">Court Hussar</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ink-Eyes, Servant of Oni" tabindex="0">Ink-Eyes, Servant of Oni</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Kokusho, the Evening Star" tabindex="0">Kokusho, the Evening Star</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Meloku the Clouded Mirror" tabindex="0">Meloku the Clouded Mirror</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Yosei, the Morning Star" tabindex="0">Yosei, the Morning Star</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Azorius Chancery" tabindex="0">Azorius Chancery</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Caves of Koilos" tabindex="0">Caves of Koilos</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Eiganjo Castle" tabindex="0">Eiganjo Castle</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Godless Shrine" tabindex="0">Godless Shrine</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mikokoro, Center of the Sea" tabindex="0">Mikokoro, Center of the Sea</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Minamo, School at Water's Edge" tabindex="0">Minamo, School at Water's Edge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Miren, the Moaning Well" tabindex="0">Miren, the Moaning Well</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Orzhov Basilica" tabindex="0">Orzhov Basilica</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Shizo, Death's Storehouse" tabindex="0">Shizo, Death's Storehouse</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tendo Ice Bridge" tabindex="0">Tendo Ice Bridge</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Underground River" tabindex="0">Underground River</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Watery Grave" tabindex="0">Watery Grave</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 6</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Azorius Signet" tabindex="0">Azorius Signet</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dimir Signet" tabindex="0">Dimir Signet</span></div></div><div class="group"><h4>Instants and Sorceries · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Compulsive Research" tabindex="0">Compulsive Research</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mortify" tabindex="0">Mortify</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Persecute" tabindex="0">Persecute</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Zombify" tabindex="0">Zombify</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Castigate" tabindex="0">Castigate</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Condemn" tabindex="0">Condemn</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cranial Extraction" tabindex="0">Cranial Extraction</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Descendant of Kiyomaro" tabindex="0">Descendant of Kiyomaro</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Last Gasp" tabindex="0">Last Gasp</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Persecute" tabindex="0">Persecute</span></div></div></div></div><pre hidden="" id="deck-honorable-compulsive-research-2">Luis Scott-Vargas — Solar Flare
+U.S. Nationals 2006 · third place · 60 main / 15 sideboard
+
+Creatures · 12
+3 Angel of Despair
+3 Court Hussar
+1 Ink-Eyes, Servant of Oni
+2 Kokusho, the Evening Star
+1 Meloku the Clouded Mirror
+2 Yosei, the Morning Star
+
+Artifacts · 6
+4 Azorius Signet
+2 Dimir Signet
+
+Instants and Sorceries · 19
+4 Compulsive Research
+3 Mortify
+2 Persecute
+4 Remand
+4 Wrath of God
+2 Zombify
+
+Lands · 23
+2 Azorius Chancery
+2 Caves of Koilos
+1 Eiganjo Castle
+3 Godless Shrine
+1 Island
+1 Mikokoro, Center of the Sea
+1 Minamo, School at Water's Edge
+1 Miren, the Moaning Well
+1 Orzhov Basilica
+3 Plains
+1 Shizo, Death's Storehouse
+2 Swamp
+1 Tendo Ice Bridge
+1 Underground River
+2 Watery Grave
+
+Sideboard · 15
+3 Castigate
+3 Condemn
+2 Cranial Extraction
+3 Descendant of Kiyomaro
+3 Last Gasp
+1 Persecute</pre><p class="small">Source: <a href="https://www.mtgtop8.com/event?d=544649&amp;e=46642">open the archived U.S. Nationals decklist</a></p></div></details><details class="deck"><summary><span><strong>Osyp Lebedowicz — Pro Tour Honolulu 2006</strong><small>5th place · GPT standard · 2006-03-05</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from Pro Tour Honolulu 2006. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Osyp Lebedowicz</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-compulsive-research-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Keiga, the Tide Star" tabindex="0">Keiga, the Tide Star</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Meloku the Clouded Mirror" tabindex="0">Meloku the Clouded Mirror</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Minamo, School at Water's Edge" tabindex="0">Minamo, School at Water's Edge</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Shivan Reef" tabindex="0">Shivan Reef</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Tendo Ice Bridge" tabindex="0">Tendo Ice Bridge</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Mine" tabindex="0">Urza's Mine</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Power Plant" tabindex="0">Urza's Power Plant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Urza's Tower" tabindex="0">Urza's Tower</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Izzet Signet" tabindex="0">Izzet Signet</span></div></div><div class="group"><h4>Enchantments · 2</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Confiscate" tabindex="0">Confiscate</span></div></div><div class="group"><h4>Instants · 14</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Electrolyze" tabindex="0">Electrolyze</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Telling Time" tabindex="0">Telling Time</span></div></div><div class="group"><h4>Sorceries · 9</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Blaze" tabindex="0">Blaze</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Compulsive Research" tabindex="0">Compulsive Research</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Invoke the Firemind" tabindex="0">Invoke the Firemind</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tidings" tabindex="0">Tidings</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Annex" tabindex="0">Annex</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Solifuge" tabindex="0">Giant Solifuge</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroclasm" tabindex="0">Pyroclasm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Repeal" tabindex="0">Repeal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Ryusei, the Falling Star" tabindex="0">Ryusei, the Falling Star</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Smash" tabindex="0">Smash</span></div></div></div></div><pre hidden="" id="deck-honorable-compulsive-research-3">Osyp Lebedowicz — Pro Tour Honolulu 2006
+5th place · GPT standard · 2006-03-05
+
+Creatures · 8
+4 Keiga, the Tide Star
+4 Meloku the Clouded Mirror
+
+Artifacts · 4
+4 Izzet Signet
+
+Enchantments · 2
+2 Confiscate
+
+Instants · 14
+4 Electrolyze
+4 Mana Leak
+4 Remand
+2 Telling Time
+
+Lands · 23
+1 Minamo, School at Water's Edge
+4 Shivan Reef
+4 Steam Vents
+2 Tendo Ice Bridge
+4 Urza's Mine
+4 Urza's Power Plant
+4 Urza's Tower
+
+Sorceries · 9
+1 Blaze
+4 Compulsive Research
+1 Invoke the Firemind
+2 Pyroclasm
+1 Tidings
+
+Sideboard · 15
+4 Annex
+4 Giant Solifuge
+2 Pyroclasm
+2 Repeal
+1 Ryusei, the Falling Star
+2 Smash</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Ryuichi Arita — Pro Tour Charleston 2006</strong><small>Semifinalist · Team Ravnica block · 2006-06-18</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from Pro Tour Charleston 2006. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Ryuichi Arita</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-compulsive-research-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 11</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Court Hussar" tabindex="0">Court Hussar</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Grand Arbiter Augustin IV" tabindex="0">Grand Arbiter Augustin IV</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Niv-Mizzet, the Firemind" tabindex="0">Niv-Mizzet, the Firemind</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Windreaver" tabindex="0">Windreaver</span></div></div><div class="group"><h4>Lands · 24</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Azorius Chancery" tabindex="0">Azorius Chancery</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hallowed Fountain" tabindex="0">Hallowed Fountain</span></div><div class="row"><span class="qty">5</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Izzet Boilerworks" tabindex="0">Izzet Boilerworks</span></div><div class="row"><span class="qty">5</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants · 19</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Convolute" tabindex="0">Convolute</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Electrolyze" tabindex="0">Electrolyze</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Overrule" tabindex="0">Overrule</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Repeal" tabindex="0">Repeal</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swift Silence" tabindex="0">Swift Silence</span></div></div><div class="group"><h4>Sorceries · 6</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Compulsive Research" tabindex="0">Compulsive Research</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Razia's Purification" tabindex="0">Razia's Purification</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Absolver Thrull" tabindex="0">Absolver Thrull</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Giant Solifuge" tabindex="0">Giant Solifuge</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Goblin Flectomancer" tabindex="0">Goblin Flectomancer</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Odds // Ends" tabindex="0">Odds // Ends</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Seal of Fire" tabindex="0">Seal of Fire</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Smash" tabindex="0">Smash</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Swift Silence" tabindex="0">Swift Silence</span></div></div></div></div><pre hidden="" id="deck-honorable-compulsive-research-4">Ryuichi Arita — Pro Tour Charleston 2006
+Semifinalist · Team Ravnica block · 2006-06-18
+
+Creatures · 11
+3 Court Hussar
+3 Grand Arbiter Augustin IV
+4 Niv-Mizzet, the Firemind
+1 Windreaver
+
+Instants · 19
+3 Convolute
+4 Electrolyze
+3 Lightning Helix
+2 Overrule
+4 Remand
+2 Repeal
+1 Swift Silence
+
+Lands · 24
+2 Azorius Chancery
+4 Hallowed Fountain
+5 Island
+2 Izzet Boilerworks
+5 Mountain
+1 Plains
+4 Sacred Foundry
+1 Steam Vents
+
+Sorceries · 6
+4 Compulsive Research
+2 Razia's Purification
+
+Sideboard · 15
+2 Absolver Thrull
+4 Giant Solifuge
+2 Goblin Flectomancer
+1 Lightning Helix
+2 Odds // Ends
+1 Seal of Fire
+2 Smash
+1 Swift Silence</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Tiago Chan — 2006 World Championship</strong><small>7th place · TSP standard · 2006-12-03</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from 2006 World Championship. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Tiago Chan</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-compulsive-research-5">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 10</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Bogardan Hellkite" tabindex="0">Bogardan Hellkite</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Court Hussar" tabindex="0">Court Hussar</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Angel" tabindex="0">Lightning Angel</span></div></div><div class="group"><h4>Lands · 23</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Adarkar Wastes" tabindex="0">Adarkar Wastes</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Boros Garrison" tabindex="0">Boros Garrison</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Flagstones of Trokair" tabindex="0">Flagstones of Trokair</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Hallowed Fountain" tabindex="0">Hallowed Fountain</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Izzet Boilerworks" tabindex="0">Izzet Boilerworks</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Sacred Foundry" tabindex="0">Sacred Foundry</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Shivan Reef" tabindex="0">Shivan Reef</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Steam Vents" tabindex="0">Steam Vents</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Urza's Factory" tabindex="0">Urza's Factory</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 6</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Azorius Signet" tabindex="0">Azorius Signet</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Boros Signet" tabindex="0">Boros Signet</span></div></div><div class="group"><h4>Enchantments · 1</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sacred Mesa" tabindex="0">Sacred Mesa</span></div></div><div class="group"><h4>Instants · 8</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Helix" tabindex="0">Lightning Helix</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Remand" tabindex="0">Remand</span></div></div><div class="group"><h4>Sorceries · 12</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Compulsive Research" tabindex="0">Compulsive Research</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Demonfire" tabindex="0">Demonfire</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wrath of God" tabindex="0">Wrath of God</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Annex" tabindex="0">Annex</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Condemn" tabindex="0">Condemn</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Faith's Fetters" tabindex="0">Faith's Fetters</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Giant Solifuge" tabindex="0">Giant Solifuge</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Ivory Mask" tabindex="0">Ivory Mask</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Sacred Mesa" tabindex="0">Sacred Mesa</span></div></div></div></div><pre hidden="" id="deck-honorable-compulsive-research-5">Tiago Chan — 2006 World Championship
+7th place · TSP standard · 2006-12-03
+
+Creatures · 10
+2 Bogardan Hellkite
+4 Court Hussar
+4 Lightning Angel
+
+Artifacts · 6
+3 Azorius Signet
+3 Boros Signet
+
+Enchantments · 1
+1 Sacred Mesa
+
+Instants · 8
+4 Lightning Helix
+4 Remand
+
+Lands · 23
+2 Adarkar Wastes
+2 Boros Garrison
+2 Flagstones of Trokair
+3 Hallowed Fountain
+3 Island
+2 Izzet Boilerworks
+1 Plains
+3 Sacred Foundry
+2 Shivan Reef
+2 Steam Vents
+1 Urza's Factory
+
+Sorceries · 12
+4 Compulsive Research
+4 Demonfire
+4 Wrath of God
+
+Sideboard · 15
+4 Annex
+3 Condemn
+3 Faith's Fetters
+2 Giant Solifuge
+2 Ivory Mask
+1 Sacred Mesa</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details></div></section>
+<section id="printings"><div class="chapter-number">XVII · The object</div><h2>Printings and sources</h2>
+<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than twelve legitimate printings show every available version instead.</p>
+<div class="printings canonical-printing-gallery" data-card="Compulsive Research" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="rav" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Compulsive Research" data-identity-status="exact-name-set-fallback" data-set="rav"><img alt="Compulsive Research original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Compulsive%20Research&amp;set=rav&amp;format=image&amp;version=normal"/><figcaption><b>Ravnica: City of Guilds</b><br/>Original printing</figcaption></figure></div>
+<h3>Sources</h3><ul class="sources">
+<li><a href="https://scryfall.com/card/rav/40/compulsive-research">Scryfall, Compulsive Research</a><span>Oracle text, original printing, artist credit, legality, rulings, and the current printing archive.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/ravnica-design-handoff-document">Mark Rosewater, “Ravnica Design Handoff Document”</a><span>Primary design context for the guild structure and the original Ravnica environment.</span></li>
+<li><a href="https://articles.starcitygames.com/articles/the-history-of-solar-flare/">Naoki Shimizu, “The History of Solar Flare”</a><span>First-person history of Yama-Control, Solar Flare's development, the role of Compulsive Research, and exact historical lists.</span></li>
+<li><a href="https://www.mtgtop8.com/event?d=544649&amp;e=46642">MTGTop8, Luis Scott-Vargas Solar Flare — U.S. Nationals 2006</a><span>Exact Top 4 decklist with four Compulsive Research.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/best-decks-worlds-2006-12-07">Mike Flores, “The Best Decks in the Worlds”</a><span>Official Wizards feature containing Gabriel Nassif's MartyrTron list and strategic context.</span></li>
+<li><a href="https://mtg.wiki/page/2006_World_Championships/Standard_decks">2006 World Championships Standard deck archive</a><span>TriscuitTron, MartyrTron, and red-blue Tron lists showing the card across several World Championship control shells.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/designing-ravnica-remastered">Wizards of the Coast, “Designing Ravnica Remastered”</a><span>Retrospective context for preserving iconic Ravnica cards and play patterns in the remastered set.</span></li>
+<li><a href="https://mtg.wtf/card/sta/14/Compulsive-Research">MTG.WTF, Strixhaven Mystical Archive printing</a><span>Printing reference and Kristina Collantes artist credit for the Mystical Archive treatment.</span></li>
+</ul>
+</section>
+</article><aside class="margin-note sidebar-note"><b>The essential action</b><p>Draw more than you can keep, then decide what the next stage of the game no longer needs.</p></aside></div>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>More from Archive Favorites</h2><p>Compulsive Research belongs to the Archive Favorites shelf of the Honorable Mentions archive. Previous and next links remain inside this category, so new cards can be added without renumbering or rebuilding unrelated shelves.</p><nav class="end-nav" data-navigation-scope="category-local"><a href="honorable-browbeat.html"><small>Previous in Archive Favorites</small>Browbeat</a><a href="honorable-ensnaring-bridge.html"><small>Next in Archive Favorites</small>Ensnaring Bridge</a></nav></section><div class="card-preview" id="preview"><img alt=""/></div><footer class="footer">Compulsive Research · Honorable Mentions · Archive Favorites · Compulsive Research · Independent, noncommercial Magic history project.</footer>
+<script>/* CR_CARD_PREVIEW_RUNTIME_START */
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function showCard(el,x,y,p=false){if(!preview||!pimg||!el||!el.dataset.card)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script><script defer="" src="assets/artwork-spotlight.js"></script>
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
+
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+<script defer="" src="assets/design-echo.js"></script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+<script defer="" src="assets/printing-gallery.js"></script>
+</body></html>
