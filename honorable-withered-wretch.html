@@ -1,0 +1,1085 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content="A long-form Compulsive Research article about Withered Wretch, Onslaught Block Zombies, Zombie Bidding, deck construction, artwork, and printings."/><title>Withered Wretch: The Graveyard Stayed Empty on Command — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/00760b58-8a7d-44fa-a5e7-9df54c21c77d?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:var(--night2)}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_START */
+/* Eternal Dragon is the visual authority for every artwork spotlight. */
+.art-break.artwork-spotlight{
+  width:100vw!important;max-width:none!important;min-height:min(69vw,720px)!important;
+  margin:72px 0 72px calc((var(--reading) - 100vw)/2)!important;transform:none!important;
+  position:relative!important;display:flex!important;align-items:flex-end!important;overflow:hidden!important;
+  color:white!important;background:none!important;isolation:isolate;
+}
+.art-break.artwork-spotlight:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(0deg,rgba(4,8,8,.93),rgba(4,8,8,.18) 55%,transparent 76%)!important;pointer-events:none;
+}
+.artwork-spotlight .art-break-media{
+  position:absolute!important;inset:0!important;z-index:0!important;display:block!important;
+  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;
+  object-position:center 25%!important;transform:none!important;pointer-events:none;
+}
+.artwork-spotlight .art-caption{
+  position:relative!important;z-index:2!important;width:min(var(--wide),calc(100% - 32px))!important;
+  margin:auto!important;padding:35px 0!important;color:#ddd!important;
+  font:13px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72);
+}
+.artwork-spotlight .art-caption b{display:block!important;margin-bottom:5px!important;color:white!important;font-size:1rem!important;line-height:1.35!important}
+.artwork-spotlight .art-caption-excerpt{display:block}
+@media(max-width:750px){
+ .art-break.artwork-spotlight{width:100vw!important;max-width:none!important;min-height:72vh!important;margin-left:calc((100% - 100vw)/2)!important;margin-right:0!important}
+ .artwork-spotlight .art-break-media{object-position:center 25%!important}
+ .artwork-spotlight .art-caption{width:calc(100% - 48px)!important;padding:31px 0!important}
+}
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_END */
+
+/* CR_CANONICAL_DESIGN_ECHO_START */
+/* Eternal Dragon is the structural and responsive authority for every
+   Design Echo image-plus-copy panel. */
+.design-echo-section>.inline-image.canonical-inline-image,
+.inline-image.canonical-inline-image{
+  box-sizing:border-box!important;
+  width:min(980px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  background:transparent!important;
+  color:white!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:var(--radius)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+.inline-image.canonical-inline-image>.image{
+  box-sizing:border-box!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:390px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:var(--night2)!important;
+  border:0!important;
+  border-radius:var(--radius) 0 0 var(--radius)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.image:before{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  padding:28px!important;
+  color:#c7cfca!important;
+  text-align:center!important;
+  font:800 .82rem/1.5 Inter,system-ui,sans-serif!important;
+  letter-spacing:.04em!important;
+  pointer-events:none!important;
+}
+.inline-image.canonical-inline-image>.image.image-loading:before{
+  content:"Loading " attr(data-card-label) " artwork…"!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed:before{
+  content:attr(data-card-label) " artwork could not be loaded"!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded:before{content:""!important}
+.inline-image.canonical-inline-image .inline-image-media{
+  box-sizing:border-box!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:opacity .18s ease!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded .inline-image-media{
+  display:block!important;
+  opacity:1!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed .inline-image-media{
+  display:none!important;
+  opacity:0!important;
+}
+.inline-image.canonical-inline-image>.copy{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:35px!important;
+  align-self:stretch!important;
+  background:#20322f!important;
+  color:white!important;
+  border:1px solid #586963!important;
+  border-left:0!important;
+  border-radius:0 var(--radius) var(--radius) 0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.copy .eyebrow,
+.inline-image.canonical-inline-image>.copy .kicker{
+  display:block!important;
+  margin:0 0 12px!important;
+  color:#d8b878!important;
+  text-transform:uppercase!important;
+  letter-spacing:.18em!important;
+  font:900 .73rem/1.35 Inter,system-ui,sans-serif!important;
+}
+.inline-image.canonical-inline-image>.copy h3{
+  margin:0 0 16px!important;
+  color:white!important;
+  font-size:2rem!important;
+  line-height:1.12!important;
+}
+.inline-image.canonical-inline-image>.copy p{
+  margin:0 0 1em!important;
+  color:#d8d9d4!important;
+}
+.inline-image.canonical-inline-image>.copy p:last-child{margin-bottom:0!important}
+@media(max-width:750px){
+  .design-echo-section>.inline-image.canonical-inline-image,
+  .inline-image.canonical-inline-image{
+    width:100%!important;
+    max-width:100%!important;
+    margin:42px 0 48px!important;
+    padding:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .inline-image.canonical-inline-image>.image{
+    width:100%!important;
+    min-height:390px!important;
+    margin:0!important;
+    border-radius:var(--radius) var(--radius) 0 0!important;
+  }
+  .inline-image.canonical-inline-image>.copy{
+    width:100%!important;
+    margin:0!important;
+    padding:35px!important;
+    border:1px solid #586963!important;
+    border-top:0!important;
+    border-radius:0 0 var(--radius) var(--radius)!important;
+  }
+}
+/* CR_CANONICAL_DESIGN_ECHO_END */
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+
+
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+
+.honorable-badge{display:inline-flex;color:#f1dfb4;border:1px solid rgba(216,184,120,.45);background:rgba(0,0,0,.34);border-radius:999px;padding:6px 11px;font:850 .7rem/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+body[data-honorable-category] .rank-nav .center{font-weight:800;color:var(--green)}
+</style></head><body data-article-card="Withered Wretch" data-honorable-category="Zombies" data-landing-anchor="honorable-withered-wretch" data-navigation-scope="category-local"><header class="hero" data-headline-card="Withered Wretch" data-hero-card="Withered Wretch"><img alt="Withered Wretch artwork" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/b8a82948-503f-4ad4-9e3c-c080c16afd63?format=image&amp;version=normal';" src="https://api.scryfall.com/cards/b8a82948-503f-4ad4-9e3c-c080c16afd63?format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=honorable-withered-wretch#honorable-withered-wretch">← Back to Compulsive Research</a><div class="honorable-badge">Beyond the Thousand · Zombies</div><div class="eyebrow">Legions · 2003</div><h1>The Graveyard Stayed Empty on Command</h1><p class="deckline">A two-mana zombie cleric that makes symmetrical mass reanimation function asymmetrically.</p><div class="byline"><span>A Compulsive Research honorable mention</span><span>·</span><span>Zombies</span><span class="pill">Approximately 20 minute read</span></div></div></header><nav class="rank-nav" data-navigation-scope="category-local"><a href="honorable-wilhelt-the-rotcleaver.html">← Previous in Zombies · Wilhelt, the Rotcleaver</a><div class="center">Zombies · Honorable Mentions</div><a href="honorable-yixlid-jailer.html">Next in Zombies · Yixlid Jailer →</a></nav><div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong><a href="#opening">The Graveyard Stayed Empty on Command</a><a href="#first-printing">First printing</a><a href="#identity">Zombie Bidding</a><a href="#rules">Rules and timing</a><a href="#role">Role in the deck</a><a href="#evaluation">Deck evaluation</a><a href="#candidates">Candidate cards</a><a href="#construction">Recommended tune</a><a href="#sequencing">Sequencing</a><a href="#matchups">Matchups</a><a href="#counterplay">Counterplay</a><a href="#memory">Player memory</a><a href="#echoes">Design echo</a><a href="#art">Artwork</a><a href="#decklists">Deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The card</div><h2>The Graveyard Stayed Empty on Command</h2><p class="opening"><span class="dropcap">W</span>ithered Wretch deserves a place in the Zombies shelf because it is a two-mana Zombie Cleric that makes symmetrical mass reanimation function asymmetrically. The card belongs to the same Onslaught Block ecosystem as <span class="card-name" data-card="Carrion Feeder" tabindex="0">Carrion Feeder</span>, <span class="card-name" data-card="Rotlung Reanimator" tabindex="0">Rotlung Reanimator</span>, <span class="card-name" data-card="Gempalm Polluter" tabindex="0">Gempalm Polluter</span>, and <span class="card-name" data-card="Patriarch&#x27;s Bidding" tabindex="0">Patriarch&#x27;s Bidding</span>, but it solves a distinct part of the archetype’s problem.</p><p>The body is already acceptable for two black mana, but the activated ability is the structural reason Zombie Bidding can safely resolve Patriarch’s Bidding into an opponent with creatures in the graveyard.</p><p>The submitted mono-black list provides the right lens. It contains thirty creatures, six noncreature spells, and twenty-four lands, aiming to play early Zombies, trade them profitably, and then use Bidding, Polluter, Muse, or Noxious Ghoul to convert creature density into a decisive turn. This article evaluates Withered Wretch inside that plan and within the broader history of Zombie Bidding.</p><div class="card-lead"><img alt="Withered Wretch original printing" data-article-card-image src="https://api.scryfall.com/cards/b8a82948-503f-4ad4-9e3c-c080c16afd63?format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The original card</div><h3>Withered Wretch</h3><p><b>{B}{B} · Creature — Zombie Cleric</b></p><p>{1}: Exile target card from a graveyard.</p><div class="stats"><div class="stat"><b>First printing</b>Legions · 2003</div><div class="stat"><b>Original artist</b>Tim Hildebrandt</div><div class="stat"><b>Mana cost</b>{B}{B}</div><div class="stat"><b>Power / toughness</b>2 / 2</div></div></div></div></section><section id="first-printing"><div class="chapter-number">II · The debut</div><h2>Born inside Magic’s dedicated tribal block</h2><p>Withered Wretch first appeared in Legions in 2003, with artwork by Tim Hildebrandt. Onslaught Block was built to make creature type matter at nearly every level: bodies carried overlapping types, cycling cards rewarded a specific tribe, and even lands such as <span class="card-name" data-card="Unholy Grotto" tabindex="0">Unholy Grotto</span> participated in the theme.</p><p>The result was a Zombie card pool with unusually clear internal roles. One-drops established sacrifice fodder, Zombie Clerics linked to Rotlung Reanimator, lords compressed the curve, Gempalm Polluter supplied uncounterable reach, and Patriarch’s Bidding offered mass recursion. Withered Wretch entered not as an isolated design but as one gear in that machine.</p><p>A 2003 breakdown of Zombie Bidding called Withered Wretch one of the cards found in every good build because it empties opposing graveyards before Bidding. Its Cleric subtype also joins Rotlung Reanimator’s death-trigger network.</p></section><div class="art-break artwork-spotlight" data-artwork-artist="Tim Hildebrandt" data-artwork-card="Withered Wretch" data-artwork-set="lgn" data-artwork-set-name="Legions"><img alt="Withered Wretch artwork by Tim Hildebrandt" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/b8a82948-503f-4ad4-9e3c-c080c16afd63?format=image&amp;version=normal';" src="https://api.scryfall.com/cards/b8a82948-503f-4ad4-9e3c-c080c16afd63?format=image&amp;version=art_crop"/><div class="art-caption"><b data-artwork-credit>Tim Hildebrandt’s original Legions artwork</b><span class="art-caption-excerpt">The posture and desiccated anatomy communicate a creature that consumes what should have remained buried.</span></div></div><section id="identity"><div class="chapter-number">III · The archetype</div><h2>Zombie Bidding is an engine deck wearing an aggro deck’s skin</h2><p>The submitted list can attack normally, especially when <span class="card-name" data-card="Undead Warchief" tabindex="0">Undead Warchief</span> turns small creatures into real threats. Its deeper identity, however, is recursive aggro-control. <span class="card-name" data-card="Carrion Feeder" tabindex="0">Carrion Feeder</span> converts doomed bodies into permanent power; <span class="card-name" data-card="Rotlung Reanimator" tabindex="0">Rotlung Reanimator</span> replaces dying Clerics; <span class="card-name" data-card="Withered Wretch" tabindex="0">Withered Wretch</span> removes the opponent’s graveyard; and <span class="card-name" data-card="Patriarch&#x27;s Bidding" tabindex="0">Patriarch&#x27;s Bidding</span> returns the Zombie half of the exchange.</p><p><span class="card-name" data-card="Noxious Ghoul" tabindex="0">Noxious Ghoul</span> is the bridge from recursion to board control. When several Zombies return together, each entrance gives non-Zombies -1/-1, often clearing the opposing battlefield before combat. <span class="card-name" data-card="Gempalm Polluter" tabindex="0">Gempalm Polluter</span> then turns the surviving body count into direct life loss while replacing itself.</p><p>Withered Wretch matters to the extent that it improves one of those transitions: setup into exchange, exchange into graveyard, graveyard into Bidding, or Bidding into a lethal board. That functional test is more useful than simply counting how many cards say “Zombie.”</p></section><section id="rules"><div class="chapter-number">IV · Rules</div><h2>The exact wording determines the line</h2><p>The current Oracle text reads: “{1}: Exile target card from a graveyard.” The effect should be read alongside the rules for sacrifice costs, morph, characteristic-defining abilities, graveyard targets, and simultaneous zone changes as applicable.</p><p>Patriarch’s Bidding returns all chosen creature cards simultaneously. Noxious Ghoul then triggers once for itself and once for every other Zombie that entered. Rotlung Reanimator does not trigger for every Zombie death; it triggers for itself and other <em>Clerics</em>, which makes Withered Wretch and Shepherd of Rot especially important dual-type cards.</p><p>Deploy it before the graveyards become crowded, but do not tap out exiling irrelevant cards if that prevents Smother or a better board development. Before Bidding, remove the opponent’s best creature type first, then clean up off-type value cards as mana permits.</p></section><section id="role"><div class="chapter-number">V · The role</div><h2>What this slot contributes to the sixty</h2><p>In this exact shell, Withered Wretch is a two-mana Zombie Cleric that makes symmetrical mass reanimation function asymmetrically. It should be measured by the turns it improves rather than by its best imagined battlefield.</p><p>The cost is not merely two mana; it is two black mana followed by repeated generic mana. That makes four colorless Unholy Grottos especially dangerous. The deck wants at least twenty-two black-producing lands if it expects Wretch on turn two consistently.</p><p>The card’s relationship with <span class="card-name" data-card="Graveborn Muse" tabindex="0">Graveborn Muse</span> is also important. Muse rewards a high Zombie count but punishes the player for building a board that cannot end the game. The best supporting cards either protect that board, turn it into immediate damage, or let the player sacrifice Muse before the upkeep becomes fatal.</p></section><section id="evaluation"><div class="chapter-number">VI · Deck evaluation</div><h2>A coherent sixty with three structural pressure points</h2><p>The submitted main deck is exactly sixty cards and has a real plan. Eight one-drops produce early material. Withered Wretch and Rotlung Reanimator occupy the critical two- and three-mana turns. Warchief, Polluter, Muse, Ghoul, and Bidding create multiple ways to turn creature count into inevitability.</p><p>The first weakness is the mana. Four Unholy Grottos leave only twenty black-producing lands. In a deck with Withered Wretch at BB, Warchief and Muse at 2BB, and Ghoul or Bidding at 3BB, that is an unnecessary consistency loss. In an eight-card sample, twenty black sources produce at least two black sources about 82% of the time; twenty-two black sources raise that to roughly 87%.</p><p>The second weakness is curve congestion: four Warchiefs, three Muses, and three Noxious Ghouls create ten cards costing four or five mana. The third is that Bidding is powerful but the mono-black build lacks deliberate discard or looting. The deck fills its graveyard through combat and sacrifice, which is slower but less card-disadvantageous than morph-discard or blue draw spells.</p></section><section id="candidates"><div class="chapter-number">VII · The candidate cards</div><h2>Shepherd belongs closest to the main deck</h2><p>Of the trailing cards, two copies of <span class="card-name" data-card="Shepherd of Rot" tabindex="0">Shepherd of Rot</span> are the strongest addition. Shepherd is a Zombie Cleric, so it strengthens Rotlung Reanimator while giving a stalled board a repeatable damage engine. The life loss is symmetrical, which means sequencing and race math matter, but the Zombie deck normally chooses when to activate it.</p><p><span class="card-name" data-card="Soulless One" tabindex="0">Soulless One</span> is best treated as a sideboard threat for attrition, removal-heavy matchups, and Zombie mirrors. It grows from every Zombie on the battlefield and every Zombie card in all graveyards, but it adds another four-drop without evasion or immediate value.</p><p><span class="card-name" data-card="Putrid Raptor" tabindex="0">Putrid Raptor</span> is more specialized. Discarding a Zombie to turn a face-down creature into a 4/4 can preload Bidding, but it is genuine card disadvantage. The card was more convincing in historical blue Zombie Bidding builds that already used Read the Runes and Twisted Abomination to make graveyard setup part of the plan.</p></section><section id="construction"><div class="chapter-number">VIII · Construction</div><h2>The cleanest revision changes only four slots</h2><p>The conservative tune is to remove one Graveborn Muse and one Noxious Ghoul for two Shepherds of Rot, then replace two Unholy Grottos with two Barren Moors. Creature count, spell count, and land count remain unchanged at thirty, six, and twenty-four.</p><p>This revision retains the submitted deck’s identity. It lowers the average cost, increases the number of Clerics for Rotlung, provides another direct-damage route, and raises the number of black-producing lands from twenty to twenty-two. Barren Moor enters tapped, but later copies cycle when the deck is looking for Bidding or Polluter.</p><p>The recommendation is not that the original list is wrong. It is that the deck’s strongest synergies already exist, so the best tuning improves the mana and curve instead of adding more expensive payoff cards.</p></section><section id="sequencing"><div class="chapter-number">IX · Sequencing</div><h2>Play toward the second battlefield</h2><p>Zombie Bidding games effectively have two battlefields: the creatures currently in play and the creatures being stored for the recursion turn. Early attacks and sacrifices should be judged by what they accomplish in both places.</p><p>When Carrion Feeder is available, sacrifice creatures that would otherwise be exiled or stolen. When Withered Wretch is active, spend spare mana on the opponent’s graveyard before your own end step. Hold Gempalm Polluter until cycling is meaningful unless a 4/3 creature is genuinely the best use of six mana.</p><p>Deploy it before the graveyards become crowded, but do not tap out exiling irrelevant cards if that prevents Smother or a better board development. Before Bidding, remove the opponent’s best creature type first, then clean up off-type value cards as mana permits.</p></section><section id="matchups"><div class="chapter-number">X · Matchups</div><h2>Control is the natural prey; Goblins force the test</h2><p>Historical commentary described Zombie Bidding as devastating against control because spot removal and sweepers stocked the graveyard for Patriarch’s Bidding. Withered Wretch also attacked Eternal Dragon recursion and other graveyard value.</p><p>Goblins was the harder structural matchup. Its own Warchief starts one turn earlier, its creatures produce immediate tempo, and Goblin Bidding can exploit the same mass-reanimation card. Festering Goblin, Infest, and Noxious Ghoul help, but a five-mana answer may arrive after Goblins has already established lethal pressure.</p><p>Against other creature decks, the key question is whether Bidding plus Noxious Ghoul becomes a one-sided sweeper. Against tribal opponents, Withered Wretch must remove the relevant creature type before the sorcery resolves.</p></section><section id="counterplay"><div class="chapter-number">XI · Counterplay</div><h2>Attack the graveyard, the mana, or the payoff turn</h2><p>Kill it before committing important creatures to the graveyard, or force the Zombie player to spend mana every turn until their curve becomes awkward. Instant-speed graveyard filling after the last activation can also reopen a Bidding.</p><p>Graveyard hate is the broadest answer to the deck. It weakens Bidding, Unholy Grotto, Putrid Raptor’s discard plan, and Soulless One at once. Stabilizer attacks Gempalm Polluter and the block’s cycling engines. Enchantment and artifact hate matter less than timing removal around Rotlung Reanimator and Carrion Feeder.</p><p>The opponent should also pressure the Zombie player’s life total. Graveborn Muse and Shepherd of Rot turn life into cards or damage, but both become liabilities when the race is already close.</p></section><section id="memory"><div class="chapter-number">XII · Player memory</div><h2>Why Onslaught Zombies still feels like a complete deck</h2><div class="memory"><blockquote>“Every creature was either a Zombie, helped Zombies, or needed Zombies to function.”</blockquote><cite>The design promise remembered from Onslaught Block theme decks and Zombie Bidding</cite></div><p>The deck’s appeal is architectural. The one-drops, dual-type Clerics, cycling payoff, tribal land, lord, card-draw engine, sweeper creature, and mass reanimation spell all point toward one another. Players can see the deck working before they know every matchup.</p><p>Withered Wretch deserves an article because it occupies a recognizable place in that architecture. The strongest tribal cards are not always the cards with the largest text boxes. They are the pieces that make the rest of the deck feel intentionally related.</p></section><section id="echoes" class="design-echo-section"><div class="chapter-number">XIII · Design echo</div><h2>A later or neighboring card clarifies the role</h2><p><span class="card-name" data-card="Yixlid Jailer" tabindex="0">Yixlid Jailer</span> is a useful comparison because it solves a related problem through a different cost, body, or zone. The comparison reveals what Onslaught Block expected a tribal card to sacrifice in exchange for synergy.</p><div class="inline-image canonical-inline-image" data-image-card="Yixlid Jailer"><div class="image image-loading" data-card-label="Yixlid Jailer"><img class="inline-image-media" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-card-name="Yixlid Jailer" data-api-url="https://api.scryfall.com/cards/named?exact=Yixlid%20Jailer" data-fallback-art="https://api.scryfall.com/cards/named?exact=Yixlid%20Jailer&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Yixlid%20Jailer&amp;format=image&amp;version=normal" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Yixlid%20Jailer&amp;format=image&amp;version=art_crop" alt="Yixlid Jailer artwork"/></div><div class="copy"><div class="eyebrow">A related graveyard or Zombie design</div><h3>Different rate, the same structural question</h3><p>Both cards ask whether a small individual effect becomes worthwhile when the deck is built to repeat, recycle, or count it.</p></div></div></section><section id="art"><div class="chapter-number">XIV · Artwork</div><h2>The illustration makes the mechanical role visible</h2><p>Tim Hildebrandt’s original Legions illustration gives the card a visual identity before the rules text is read. The posture and desiccated anatomy communicate a creature that consumes what should have remained buried.</p><p>Onslaught’s Zombies are not visually uniform, but they share a sense that death has become infrastructure. Bodies, graveyards, and landscapes are presented as resources being reorganized by necromancy. That visual language matches a deck where a creature dying is often preparation rather than failure.</p></section><section id="decklists"><div class="chapter-number">XV · Deck archive</div><h2>The submitted list, a conservative tune, and a historical comparator</h2><p class="deck-intro">The first list is reproduced exactly. The second is an editorial recommendation. The third is a published 2003 list that shows why Putrid Raptor becomes more attractive when the deck deliberately fills its graveyard.</p><div class="deck-archive"><details class="deck"><summary><span><strong>Submitted Onslaught Block Zombies</strong><small>User-submitted mono-black shell · exact 60</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Submitted list</span><p>The five trailing cards were supplied without a full sideboard; they are treated as candidates rather than registered sideboard slots.</p><div class="deck-meta"><div><b>Submitted Onslaught Block Zombies</b><div class="small">Main deck 60</div></div><button class="copy" data-target="deck-submitted-onslaught-block-zombies">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Carrion Feeder" tabindex="0">Carrion Feeder</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Festering Goblin" tabindex="0">Festering Goblin</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Withered Wretch" tabindex="0">Withered Wretch</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rotlung Reanimator" tabindex="0">Rotlung Reanimator</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Undead Warchief" tabindex="0">Undead Warchief</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gempalm Polluter" tabindex="0">Gempalm Polluter</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Graveborn Muse" tabindex="0">Graveborn Muse</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Noxious Ghoul" tabindex="0">Noxious Ghoul</span></div></div><div class="group"><h4>Spells</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Smother" tabindex="0">Smother</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Patriarch&#x27;s Bidding" tabindex="0">Patriarch&#x27;s Bidding</span></div></div><div class="group"><h4>Lands</h4><div class="row"><span class="qty">20</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Unholy Grotto" tabindex="0">Unholy Grotto</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row">No complete sideboard supplied.</div></div></div></div><pre hidden id="deck-submitted-onslaught-block-zombies">CREATURES
+4 Carrion Feeder
+4 Festering Goblin
+4 Withered Wretch
+4 Rotlung Reanimator
+4 Undead Warchief
+4 Gempalm Polluter
+3 Graveborn Muse
+3 Noxious Ghoul
+
+SPELLS
+3 Smother
+3 Patriarch&#x27;s Bidding
+
+LANDS
+20 Swamp
+4 Unholy Grotto
+</pre></div></details><details class="deck"><summary><span><strong>Tuned mono-black Zombie Bidding</strong><small>Conservative revision · 60 cards + 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Editorial tune</span><p>This revision preserves the original counts while improving black-source density, lowering curve pressure, and adding two Zombie Clerics.</p><div class="deck-meta"><div><b>Tuned mono-black Zombie Bidding</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-tuned-mono-black-zombie-bidding">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Carrion Feeder" tabindex="0">Carrion Feeder</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Festering Goblin" tabindex="0">Festering Goblin</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Withered Wretch" tabindex="0">Withered Wretch</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rotlung Reanimator" tabindex="0">Rotlung Reanimator</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Shepherd of Rot" tabindex="0">Shepherd of Rot</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Undead Warchief" tabindex="0">Undead Warchief</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gempalm Polluter" tabindex="0">Gempalm Polluter</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Graveborn Muse" tabindex="0">Graveborn Muse</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Noxious Ghoul" tabindex="0">Noxious Ghoul</span></div></div><div class="group"><h4>Spells</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Smother" tabindex="0">Smother</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Patriarch&#x27;s Bidding" tabindex="0">Patriarch&#x27;s Bidding</span></div></div><div class="group"><h4>Lands</h4><div class="row"><span class="qty">20</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Unholy Grotto" tabindex="0">Unholy Grotto</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Barren Moor" tabindex="0">Barren Moor</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Infest" tabindex="0">Infest</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Stabilizer" tabindex="0">Stabilizer</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cruel Revival" tabindex="0">Cruel Revival</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cabal Interrogator" tabindex="0">Cabal Interrogator</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Soulless One" tabindex="0">Soulless One</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Noxious Ghoul" tabindex="0">Noxious Ghoul</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Putrid Raptor" tabindex="0">Putrid Raptor</span></div></div></div></div><pre hidden id="deck-tuned-mono-black-zombie-bidding">CREATURES
+4 Carrion Feeder
+4 Festering Goblin
+4 Withered Wretch
+4 Rotlung Reanimator
+2 Shepherd of Rot
+4 Undead Warchief
+4 Gempalm Polluter
+2 Graveborn Muse
+2 Noxious Ghoul
+
+SPELLS
+3 Smother
+3 Patriarch&#x27;s Bidding
+
+LANDS
+20 Swamp
+2 Unholy Grotto
+2 Barren Moor
+
+SIDEBOARD
+3 Infest
+3 Stabilizer
+3 Cruel Revival
+2 Cabal Interrogator
+2 Soulless One
+1 Noxious Ghoul
+1 Putrid Raptor</pre></div></details><details class="deck"><summary><span><strong>Roland the Headless Thompson Gunner</strong><small>Historical 2003 Zombie Bidding study list</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical published list</span><p>Published in Star City Games’ “Breaking Down Zombie Bidding.” It illustrates the blue graveyard-setup version rather than the submitted mono-black build.</p><div class="deck-meta"><div><b>Roland the Headless Thompson Gunner</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-roland-the-headless-thompson-gunner">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Carrion Feeder" tabindex="0">Carrion Feeder</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Withered Wretch" tabindex="0">Withered Wretch</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Rotlung Reanimator" tabindex="0">Rotlung Reanimator</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Vengeful Dead" tabindex="0">Vengeful Dead</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Noxious Ghoul" tabindex="0">Noxious Ghoul</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Twisted Abomination" tabindex="0">Twisted Abomination</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Putrid Raptor" tabindex="0">Putrid Raptor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Gempalm Polluter" tabindex="0">Gempalm Polluter</span></div></div><div class="group"><h4>Spells</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Read the Runes" tabindex="0">Read the Runes</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Patriarch&#x27;s Bidding" tabindex="0">Patriarch&#x27;s Bidding</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Smother" tabindex="0">Smother</span></div></div><div class="group"><h4>Lands</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">14</span><span class="card-name" data-card="Swamp" tabindex="0">Swamp</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Unholy Grotto" tabindex="0">Unholy Grotto</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Infest" tabindex="0">Infest</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Festering Goblin" tabindex="0">Festering Goblin</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cruel Revival" tabindex="0">Cruel Revival</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chain of Vapor" tabindex="0">Chain of Vapor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Stabilizer" tabindex="0">Stabilizer</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Smother" tabindex="0">Smother</span></div></div></div></div><pre hidden id="deck-roland-the-headless-thompson-gunner">CREATURES
+3 Carrion Feeder
+4 Withered Wretch
+4 Rotlung Reanimator
+3 Vengeful Dead
+4 Noxious Ghoul
+4 Twisted Abomination
+3 Putrid Raptor
+1 Gempalm Polluter
+
+SPELLS
+4 Read the Runes
+4 Patriarch&#x27;s Bidding
+2 Smother
+
+LANDS
+4 Island
+14 Swamp
+4 Polluted Delta
+2 Unholy Grotto
+
+SIDEBOARD
+4 Infest
+2 Festering Goblin
+2 Cruel Revival
+2 Chain of Vapor
+4 Stabilizer
+1 Smother</pre></div></details></div></section><section id="printings"><div class="chapter-number">XVI · Material history</div><h2>Printings and sources</h2><p>The gallery begins with the verified debut printing and favors distinct artwork before later duplicates. Exact identities use Scryfall IDs from the MTGJSON snapshot.</p><div class="printings canonical-printing-gallery" data-card="Withered Wretch" data-gallery-fallback-count="6" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="lgn" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Withered Wretch" data-collector-number="12" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="691135e8-1c41-41c4-9426-48bffe23bfd8" data-set="f03"><img alt="Withered Wretch — Friday Night Magic 2003" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/691135e8-1c41-41c4-9426-48bffe23bfd8?format=image&amp;version=normal"/><figcaption><b>Friday Night Magic 2003 · 2003</b><br/>Original printing · Tim Hildebrandt · 12</figcaption></figure><figure class="printing" data-card-name="Withered Wretch" data-collector-number="86" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="b8a82948-503f-4ad4-9e3c-c080c16afd63" data-set="lgn"><img alt="Withered Wretch — Legions" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/b8a82948-503f-4ad4-9e3c-c080c16afd63?format=image&amp;version=normal"/><figcaption><b>Legions · 2003</b><br/>Tim Hildebrandt · 86</figcaption></figure><figure class="printing" data-card-name="Withered Wretch" data-collector-number="54" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="29190989-77af-44af-a757-2a3b63fe9e77" data-set="tsb"><img alt="Withered Wretch — Time Spiral Timeshifted" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/29190989-77af-44af-a757-2a3b63fe9e77?format=image&amp;version=normal"/><figcaption><b>Time Spiral Timeshifted · 2006</b><br/>Tim Hildebrandt · 54</figcaption></figure><figure class="printing" data-card-name="Withered Wretch" data-collector-number="45" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="235f15f5-1a5a-4eff-b0db-262f777e2b66" data-set="hop"><img alt="Withered Wretch — Planechase" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/235f15f5-1a5a-4eff-b0db-262f777e2b66?format=image&amp;version=normal"/><figcaption><b>Planechase · 2009</b><br/>Tim Hildebrandt · 45</figcaption></figure><figure class="printing" data-card-name="Withered Wretch" data-collector-number="LGN-86" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="cf018484-8c7e-4e45-a4cd-cdc9d03b0aad" data-set="plst"><img alt="Withered Wretch — The List" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/cf018484-8c7e-4e45-a4cd-cdc9d03b0aad?format=image&amp;version=normal"/><figcaption><b>The List · 2020</b><br/>Tim Hildebrandt · LGN-86</figcaption></figure><figure class="printing" data-card-name="Withered Wretch" data-collector-number="120" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="f5ec82d7-b29f-4e38-833d-f9943ecfaec1" data-set="scd"><img alt="Withered Wretch — Starter Commander Decks" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/f5ec82d7-b29f-4e38-833d-f9943ecfaec1?format=image&amp;version=normal"/><figcaption><b>Starter Commander Decks · 2022</b><br/>Tim Hildebrandt · 120</figcaption></figure></div><h3>Sources</h3><ul class="sources"><li><a href="https://articles.starcitygames.com/articles/breaking-down-zombie-bidding/">Star City Games — Breaking Down Zombie Bidding</a><span>Contemporary 2003 strategy discussion and the historical blue Zombie Bidding list.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/tribals-your-court-2002-09-23">Wizards of the Coast — Tribal’s in Your Court</a><span>Onslaught’s creature-type design goals and the block’s concentrated tribal structure.</span></li><li><a href="https://scryfall.com/search?q=%21%22Withered%20Wretch%22&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Withered Wretch</a><span>Oracle text, card images, and printing chronology.</span></li><li><a href="https://mtgjson.com/downloads/">MTGJSON card data</a><span>Set, artist, type, and exact printing identifiers.</span></li><li><a href="https://magic.wizards.com/en/rules">Magic Comprehensive Rules</a><span>Zone changes, morph, triggered abilities, sacrifice costs, and characteristic-defining abilities.</span></li></ul><p class="editor-note">The article uses a 2026-08-01 MTGJSON metadata snapshot. The submitted deck is evaluated as an Onslaught Block card-pool exercise; the tuned list is editorial rather than a claimed historical tournament registration.</p></section></article><aside class="sidebar-note"><b>Zombies</b><br/>Graveyards, sacrifice outlets, recursive bodies, and lords turn death into a second resource.</aside></div><section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XVII · Continue reading</div><h2>More from Zombies</h2><p>Withered Wretch belongs to the Zombies shelf of the Honorable Mentions archive. Previous and next links remain inside this category.</p><nav class="end-nav" data-navigation-scope="category-local"><a href="honorable-wilhelt-the-rotcleaver.html"><small>Previous in Zombies</small>Wilhelt, the Rotcleaver</a><a href="honorable-yixlid-jailer.html"><small>Next in Zombies</small>Yixlid Jailer</a></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Honorable Mentions · Zombies · Withered Wretch · Independent, noncommercial Magic history project.</footer><script>/* CR_CARD_PREVIEW_RUNTIME_START */
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function showCard(el,x,y,p=false){if(!preview||!pimg||!el||!el.dataset.card)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script>
+<script defer="" src="assets/artwork-spotlight.js"></script>
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
+
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+<script defer="" src="assets/design-echo.js"></script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+<script defer="" src="assets/printing-gallery.js"></script></body></html>
