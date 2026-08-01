@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="A long-form magazine history of Back to Basics: Urza’s Saga, nonbasic-land prison, rules and basic land types, Forbidian, Vintage mono-blue control, Legacy Miracles, modern Jeskai control, Commander, artwork, printings, and decklists." name="description"/><title>Back to Basics: The Lands Worked Once — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&set=usg&format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&set=usg&format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:var(--night2)}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&set=usg&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&set=usg&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&set=usg&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&set=usg&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&set=usg&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&set=usg&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_START */
+/* Eternal Dragon is the visual authority for every artwork spotlight. */
+.art-break.artwork-spotlight{
+  width:100vw!important;max-width:none!important;min-height:min(69vw,720px)!important;
+  margin:72px 0 72px calc((var(--reading) - 100vw)/2)!important;transform:none!important;
+  position:relative!important;display:flex!important;align-items:flex-end!important;overflow:hidden!important;
+  color:white!important;background:none!important;isolation:isolate;
+}
+.art-break.artwork-spotlight:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(0deg,rgba(4,8,8,.93),rgba(4,8,8,.18) 55%,transparent 76%)!important;pointer-events:none;
+}
+.artwork-spotlight .art-break-media{
+  position:absolute!important;inset:0!important;z-index:0!important;display:block!important;
+  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;
+  object-position:center 25%!important;transform:none!important;pointer-events:none;
+}
+.artwork-spotlight .art-caption{
+  position:relative!important;z-index:2!important;width:min(var(--wide),calc(100% - 32px))!important;
+  margin:auto!important;padding:35px 0!important;color:#ddd!important;
+  font:13px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72);
+}
+.artwork-spotlight .art-caption b{display:block!important;margin-bottom:5px!important;color:white!important;font-size:1rem!important;line-height:1.35!important}
+.artwork-spotlight .art-caption-excerpt{display:block}
+@media(max-width:750px){
+ .art-break.artwork-spotlight{width:100vw!important;max-width:none!important;min-height:72vh!important;margin-left:calc((100% - 100vw)/2)!important;margin-right:0!important}
+ .artwork-spotlight .art-break-media{object-position:center 25%!important}
+ .artwork-spotlight .art-caption{width:calc(100% - 48px)!important;padding:31px 0!important}
+}
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_END */
+
+/* CR_CANONICAL_DESIGN_ECHO_START */
+/* Eternal Dragon is the structural and responsive authority for every
+   Design Echo image-plus-copy panel. */
+.design-echo-section>.inline-image.canonical-inline-image,
+.inline-image.canonical-inline-image{
+  box-sizing:border-box!important;
+  width:min(980px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  background:transparent!important;
+  color:white!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:var(--radius)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+.inline-image.canonical-inline-image>.image{
+  box-sizing:border-box!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:390px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:var(--night2)!important;
+  border:0!important;
+  border-radius:var(--radius) 0 0 var(--radius)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.image:before{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  padding:28px!important;
+  color:#c7cfca!important;
+  text-align:center!important;
+  font:800 .82rem/1.5 Inter,system-ui,sans-serif!important;
+  letter-spacing:.04em!important;
+  pointer-events:none!important;
+}
+.inline-image.canonical-inline-image>.image.image-loading:before{
+  content:"Loading " attr(data-card-label) " artwork…"!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed:before{
+  content:attr(data-card-label) " artwork could not be loaded"!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded:before{content:""!important}
+.inline-image.canonical-inline-image .inline-image-media{
+  box-sizing:border-box!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:opacity .18s ease!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded .inline-image-media{
+  display:block!important;
+  opacity:1!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed .inline-image-media{
+  display:none!important;
+  opacity:0!important;
+}
+.inline-image.canonical-inline-image>.copy{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:35px!important;
+  align-self:stretch!important;
+  background:#20322f!important;
+  color:white!important;
+  border:1px solid #586963!important;
+  border-left:0!important;
+  border-radius:0 var(--radius) var(--radius) 0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.copy .eyebrow,
+.inline-image.canonical-inline-image>.copy .kicker{
+  display:block!important;
+  margin:0 0 12px!important;
+  color:#d8b878!important;
+  text-transform:uppercase!important;
+  letter-spacing:.18em!important;
+  font:900 .73rem/1.35 Inter,system-ui,sans-serif!important;
+}
+.inline-image.canonical-inline-image>.copy h3{
+  margin:0 0 16px!important;
+  color:white!important;
+  font-size:2rem!important;
+  line-height:1.12!important;
+}
+.inline-image.canonical-inline-image>.copy p{
+  margin:0 0 1em!important;
+  color:#d8d9d4!important;
+}
+.inline-image.canonical-inline-image>.copy p:last-child{margin-bottom:0!important}
+@media(max-width:750px){
+  .design-echo-section>.inline-image.canonical-inline-image,
+  .inline-image.canonical-inline-image{
+    width:100%!important;
+    max-width:100%!important;
+    margin:42px 0 48px!important;
+    padding:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .inline-image.canonical-inline-image>.image{
+    width:100%!important;
+    min-height:390px!important;
+    margin:0!important;
+    border-radius:var(--radius) var(--radius) 0 0!important;
+  }
+  .inline-image.canonical-inline-image>.copy{
+    width:100%!important;
+    margin:0!important;
+    padding:35px!important;
+    border:1px solid #586963!important;
+    border-top:0!important;
+    border-radius:0 0 var(--radius) var(--radius)!important;
+  }
+}
+/* CR_CANONICAL_DESIGN_ECHO_END */
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+
+body[data-honorable-category] .rank-nav .center{font-weight:800;color:var(--green)}
+</style>
+<style id="cr-printing-gallery-style">
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+</style>
+</head>
+<body data-article-card="Back to Basics" data-honorable-category="Archive Favorites" data-landing-anchor="honorable-back-to-basics" data-navigation-scope="category-local"><header class="hero" data-headline-card="Back to Basics" data-hero-card="Back to Basics"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&amp;set=usg&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&amp;set=usg&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
+<a class="archive-link" href="index.html?focus=honorable-back-to-basics#honorable-back-to-basics">← Back to Compulsive Research</a>
+<div class="honorable-badge">Beyond the Thousand · Archive Favorites</div>
+<div class="eyebrow">Urza’s Saga · 1998</div>
+<h1>The Lands Worked Once</h1>
+<p class="deckline">Back to Basics rewarded Islands and punished ambition, turning duals, utility lands, and entire multicolor mana bases into resources that could be spent once and then left tapped indefinitely.</p>
+<div class="byline"><span>A Compulsive Research honorable mention</span><span>·</span><span>Urza’s Saga, 1998</span><span class="pill">Approximately 20 minute read</span></div>
+</div></header><nav class="rank-nav" data-navigation-scope="category-local"><span aria-hidden="true" class="nav-placeholder"></span><div class="center">Archive Favorites · Honorable Mentions</div><a href="honorable-browbeat.html">Next in Archive Favorites · Browbeat →</a></nav>
+<div class="article-shell"><nav aria-label="Article table of contents" class="toc"><strong>In this article</strong><a href="#opening">The Lands Worked Once</a><a href="#saga">Urza’s Saga punishes sophistication</a><a href="#nonbasic">What counts as nonbasic</a><a href="#rules">What Back to Basics actually does</a><a href="#first-use">Every land still gets one use</a><a href="#fetchlands">Fetch basics before the door closes</a><a href="#duals">An Island is not necessarily a basic Island</a><a href="#symmetry">The controller must build around it too</a><a href="#bloodmoon">Back to Basics versus Blood Moon</a><a href="#winterorb">A descendant of Winter Orb</a><a href="#forbidian">Forbidian’s transformational lock</a><a href="#vintage">The mono-blue answer to five-color power</a><a href="#legacy">Why Legacy became its natural home</a><a href="#kronenberger">A first-place mono-blue finish in 2011</a><a href="#miracles">Miracles turns one enchantment into a plan</a><a href="#modern-control">Jeskai control with eleven basics</a><a href="#escape">How opponents escape</a><a href="#commander">The multiplayer punishment</a><a href="#design">The color-pie question</a><a href="#descendants">The descendants and relatives</a><a href="#art">Civilization returned to wilderness</a><a href="#formats">A life across formats</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
+<section id="opening"><div class="chapter-number">I · The Lock</div><h2>The Lands Worked Once</h2>
+<p class="opening dropcap">Back to Basics does not stop a nonbasic land from producing mana. It permits the land to function exactly once. The dual taps, the utility land activates, the <span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span> produces two colorless mana—and then the card remains sideways while every ordinary <span class="card-name" data-card="Island" tabindex="0">Island</span> rises again.</p>
+<p>The enchantment punishes a specific kind of confidence. A sophisticated mana base is built to provide more colors, more abilities, and more options than basic lands can offer. Back to Basics turns those advantages into liabilities without changing a single line of text on the lands themselves.</p>
+<p>Its controller wins the exchange before the game begins. The deck contains Islands, <span class="card-name" data-card="Plains" tabindex="0">Plains</span>, <span class="card-name" data-card="Prismatic Vista" tabindex="0">Prismatic Vista</span>, and only the minimum number of exposed nonbasics. The opponent discovers the restriction while looking at a battlefield assembled for a different game.</p>
+<div class="card-lead"><img alt="Back to Basics original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&amp;set=usg&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The original object</div><h3>Back to Basics</h3><p><b>{2}{U} · Enchantment</b></p><p>Nonbasic lands don’t untap during their controllers’ untap steps.</p><div class="stats"><div class="stat"><b>First printing</b>Urza’s Saga · 1998</div><div class="stat"><b>Original artist</b>Andrew Robinson</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Nonbasic-land prison</div></div></div></div>
+</section>
+<section id="saga"><div class="chapter-number">II · The Correction</div><h2>Urza’s Saga punishes sophistication</h2>
+<p>Urza’s Saga is remembered for artifact mana, explosive combo engines, free spells, and some of the most powerful cards ever printed. Back to Basics approached excess from another direction. It asked what happened when a player’s mana base itself became too ambitious.</p>
+<p>Earlier land punishment often destroyed individual cards through <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span>, <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span>, or Stone Rain. Back to Basics allowed the lands to remain. Their colors and abilities were still visible, but tapping one became a commitment that might last until the enchantment left play.</p>
+<p>The effect was especially suited to blue control. A patient deck could resolve it with countermagic available, then use basic Islands to defend the enchantment while the opponent’s ability to cast answers deteriorated.</p>
+</section>
+<div class="art-break artwork-spotlight" data-artwork-artist="Andrew Robinson" data-artwork-card="Back to Basics" data-artwork-set="usg" data-artwork-set-name="Urza’s Saga">
+<img alt="Back to Basics artwork by Andrew Robinson" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&amp;set=usg&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&amp;set=usg&amp;format=image&amp;version=art_crop"/>
+<div class="art-caption"><b aria-live="polite" data-artwork-credit="">Andrew Robinson’s original Urza’s Saga artwork</b><span class="art-caption-excerpt">Ruined stone structures disappear beneath water, moss, and foliage. The image treats the card’s title as ecological correction: elaborate construction returns to the simpler landscape beneath it.</span></div>
+</div>
+<div class="pullquote">The mana base still contained every color. The untap step simply stopped returning them.<small>Greed punished through time rather than destruction</small></div>
+<section id="nonbasic"><div class="chapter-number">III · The Supertype</div><h2>What counts as nonbasic</h2>
+<p>A land is basic only if its type line includes the supertype “Basic.” The five familiar basic lands—and cards explicitly printed with that supertype—untap normally.</p>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Basic</span><h3>The supertype matters</h3><p><span class="card-name" data-card="Island" tabindex="0">Island</span>, <span class="card-name" data-card="Plains" tabindex="0">Plains</span>, Swamp, <span class="card-name" data-card="Mountain" tabindex="0">Mountain</span>, Forest, and other lands printed as Basic ignore Back to Basics.</p></div>
+<div class="format-card"><span class="impact">Nonbasic</span><h3>Everything else is restrained</h3><p>Dual lands, fetch lands, utility lands, artifact lands, creature-lands, and lands with no basic supertype remain tapped.</p></div>
+<div class="format-card"><span class="impact">Changing land types</span><h3>Type is not supertype</h3><p>Giving a nonbasic land the <span class="card-name" data-card="Island" tabindex="0">Island</span> type does not make it basic. Giving a basic land another land type does not remove its Basic supertype.</p></div>
+</div>
+<p>This distinction is one of the card’s most important rules lessons. “Produces blue mana” and “is an <span class="card-name" data-card="Island" tabindex="0">Island</span>” do not mean “is a basic land.”</p>
+</section>
+<section id="rules"><div class="chapter-number">IV · The Untap</div><h2>What Back to Basics actually does</h2>
+<p>Back to Basics creates a static restriction. Nonbasic lands do not untap during their controllers’ untap steps while the enchantment remains on the battlefield.</p>
+<p>The card does not tap lands when it enters. It does not remove their abilities, change their types, prevent them from producing mana, or stop effects from untapping them outside the normal untap step.</p>
+<p>If Back to Basics leaves the battlefield after a player’s untap step has already passed, the lands do not retroactively untap. They must wait for another spell or ability—or the next untap step after the enchantment is gone.</p>
+<div class="article-note"><b>No trigger and no target.</b> Nothing goes on the stack during the untap step. The affected lands simply remain tapped, and hexproof or protection does not matter.</div>
+</section>
+<section id="first-use"><div class="chapter-number">V · The Expenditure</div><h2>Every land still gets one use</h2>
+<p>A nonbasic land that is untapped when Back to Basics resolves can still be tapped for mana or activate an ability. The enchantment matters only when that land would next untap during its controller’s untap step.</p>
+<p>This creates a final-use economy. The opponent must decide whether to spend the land immediately, preserve it for an answer, or leave it untapped as a continuing threat of interaction.</p>
+<p>New nonbasic lands entering later also work once if they enter untapped. Back to Basics is not <span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span>, <span class="card-name" data-card="Root Maze" tabindex="0">Root Maze</span>, or a card that prevents land abilities. It is a promise that every activation may be the last for several turns.</p>
+</section>
+<section id="fetchlands"><div class="chapter-number">VI · The Search</div><h2>Fetch basics before the door closes</h2>
+<p>Fetch lands are nonbasic, but they can be sacrificed before becoming trapped. In response to Back to Basics—or before the opponent receives the opportunity to resolve it—a fetch land can find a basic <span class="card-name" data-card="Island" tabindex="0">Island</span>, <span class="card-name" data-card="Plains" tabindex="0">Plains</span>, Swamp, <span class="card-name" data-card="Mountain" tabindex="0">Mountain</span>, or Forest.</p>
+<p>The strategic answer is therefore not merely “play basics.” It is “play enough fetches capable of finding those basics before the enchantment resolves.”</p>
+<p>Once the lock is established, drawing a fetch land still provides one search if it enters untapped. Finding another dual land may solve an immediate color problem but creates another land that will not untap. Finding a basic preserves the future.</p>
+</section>
+<section id="duals"><div class="chapter-number">VII · The Name</div><h2>An Island is not necessarily a basic Island</h2>
+<p><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span>, <span class="card-name" data-card="Underground Sea" tabindex="0">Underground Sea</span>, <span class="card-name" data-card="Tropical Island" tabindex="0">Tropical Island</span>, and the other original dual lands possess basic land types. They can be found by fetch lands and interact with cards that refer to Islands or <span class="card-name" data-card="Plains" tabindex="0">Plains</span>.</p>
+<p>They do not possess the Basic supertype. Back to Basics therefore restrains them normally.</p>
+<p>The same is true of shock lands, surveil lands, typed Triomes, and other modern nonbasics with basic land types. Their elegant compatibility with fetch lands is one reason they are powerful—and one reason Back to Basics can punish them so efficiently.</p>
+</section>
+<section id="symmetry"><div class="chapter-number">VIII · The Construction</div><h2>The controller must build around it too</h2>
+<p>Back to Basics affects every nonbasic land, including those controlled by the player who cast it. A deck filled with duals cannot treat the enchantment as a free sideboard card.</p>
+<p>Mono-blue control naturally breaks the symmetry through Islands. Blue-white and Jeskai control can use basic Islands and <span class="card-name" data-card="Plains" tabindex="0">Plains</span>, fetch lands, <span class="card-name" data-card="Prismatic Vista" tabindex="0">Prismatic Vista</span>, and only a few dual lands needed for emergency colors.</p>
+<p>The enchantment rewards a mana base that appears less powerful on paper. Each basic gives up utility and color flexibility in exchange for functioning every turn after the lock begins.</p>
+</section>
+<section id="bloodmoon"><div class="chapter-number">IX · The Comparison</div><h2>Back to Basics versus Blood Moon</h2>
+<p><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span> changes nonbasic lands into Mountains. Back to Basics leaves them unchanged and prevents normal untapping.</p>
+<p><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span> can remove utility abilities and colored production immediately, but it also grants red mana and allows the lands to untap. Back to Basics preserves every ability, meaning an untapped land may still produce exactly the color or effect needed to escape—but once spent, it remains down.</p>
+<p><span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span> is usually more immediate. Back to Basics can be more complete over time. A deck capable of using red mana may function beneath the Moon; a deck dependent on repeatedly untapping nonbasics may eventually stop casting spells altogether.</p>
+</section>
+<section id="winterorb"><div class="chapter-number">X · The Ancestor</div><h2>A descendant of Winter Orb</h2>
+<p><span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> restricts every player to untapping one land while it remains untapped. Back to Basics narrows the affected class but removes the one-land allowance.</p>
+<p>The newer enchantment is easier to make asymmetric. A deck does not need Icy Manipulator or artifact mana. It simply needs basics.</p>
+<p>The tradeoff is matchup dependence. <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> affects nearly every conventional mana base. Back to Basics may be almost blank against mono-colored decks or opponents already built around basic lands.</p>
+</section>
+<section id="forbidian"><div class="chapter-number">XI · The Transformation</div><h2>Forbidian’s transformational lock</h2>
+<p>Classic Forbidian used <span class="card-name" data-card="Ophidian" tabindex="0">Ophidian</span> to draw cards, <span class="card-name" data-card="Forbid" tabindex="0">Forbid</span> to convert excess cards into recurring countermagic, and <span class="card-name" data-card="Morphling" tabindex="0">Morphling</span> as a nearly untouchable finisher.</p>
+<p>The official historical list places four Back to Basics in the sideboard. Against multicolor control or mana bases built from duals, <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span>, <span class="card-name" data-card="Dust Bowl" tabindex="0">Dust Bowl</span>, and <span class="card-name" data-card="Thawing Glaciers" tabindex="0">Thawing Glaciers</span>, the mono-blue deck could become a prison strategy after sideboarding.</p>
+<p>The transformation was clean because fifteen Islands already supported the core plan. Back to Basics asked Forbidian to change several card slots, not rebuild its mana base.</p>
+</section>
+<section id="vintage"><div class="chapter-number">XII · The Power</div><h2>The mono-blue answer to five-color power</h2>
+<p>Vintage mana bases historically combined dual lands, Library of Alexandria, Tolarian Academy, Mishra’s Workshop, Bazaar of Baghdad, <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span> effects, and a small number of basics.</p>
+<p>Mono-blue control could use Back to Basics as a proactive answer to that diversity. The enchantment did not need to trade one-for-one with each special land. It converted the entire category into a shared weakness.</p>
+<p>Artifact mana complicated the lock. Moxen, Sol Ring, and Mana Crypt continue operating, and Workshop decks may cast crucial artifacts before their lands freeze. Back to Basics was devastating, not universally sufficient.</p>
+</section>
+<section id="legacy"><div class="chapter-number">XIII · The Format</div><h2>Why Legacy became its natural home</h2>
+<p>Legacy combines powerful nonbasic lands with enough time for a three-mana enchantment to matter. Duals and fetches support three- and four-color decks. <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span>, <span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span>, <span class="card-name" data-card="City of Traitors" tabindex="0">City of Traitors</span>, Dark Depths, Urza’s Saga, Cloudpost, and utility lands support entire archetypes.</p>
+<p>Blue control decks already want basic Islands to resist <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span> and cast spells through opposing mana denial. Back to Basics turns that defensive preference into an offensive plan.</p>
+<p>Its effectiveness rises and falls with the metagame. It is extraordinary against Lands, Cloudpost, greedy control, and some <span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span> decks; modest against combo operating through artifacts; and nearly irrelevant against Burn, mono-blue strategies, or basic-heavy opponents.</p>
+</section>
+<section id="kronenberger"><div class="chapter-number">XIV · The Victory</div><h2>A first-place mono-blue finish in 2011</h2>
+<p>Chris Kronenberger won the 203-player StarCityGames Legacy Open in Louisville in 2011 with two main-deck Back to Basics.</p>
+<p>The list used sixteen Islands, six fetch lands, <span class="card-name" data-card="Vedalken Shackles" tabindex="0">Vedalken Shackles</span>, Sensei’s Divining Top, Jace, <span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span>, <span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span>, and a small creature package. The fetch lands found Islands; the Islands powered Shackles; Back to Basics attacked opponents for relying on lands more ambitious than his own.</p>
+<p>The result represents the card in its purest Legacy form. The deck did not splash white for removal or red for sideboard cards. Every ordinary land was an <span class="card-name" data-card="Island" tabindex="0">Island</span>, and the enchantment made that simplicity a weapon.</p>
+</section>
+<section id="miracles"><div class="chapter-number">XV · The Miracle</div><h2>Miracles turns one enchantment into a plan</h2>
+<p>Legacy Miracles often played Back to Basics as a one- or two-copy sideboard card rather than a full set. <span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span>, <span class="card-name" data-card="Ponder" tabindex="0">Ponder</span>, and Sensei’s Divining Top made small numbers findable, while countermagic protected the enchantment once it resolved.</p>
+<p>Terminus removed the creatures already deployed before the lock. Jace and Entreat the Angels supplied win conditions that basic Islands and <span class="card-name" data-card="Plains" tabindex="0">Plains</span> could cast over a long game.</p>
+<p>The card became what control players sometimes call a “game plan by itself.” In the correct matchup, resolving it on a stable battlefield could matter more than drawing several ordinary answers.</p>
+</section>
+<section id="modern-control"><div class="chapter-number">XVI · The Present</div><h2>Jeskai control with eleven basics</h2>
+<p>In May 2026, the Magic Online player jankyb won a Legacy Challenge with two main-deck Back to Basics inside Jeskai control.</p>
+<p>The mana base contained four Islands, two <span class="card-name" data-card="Plains" tabindex="0">Plains</span>, one <span class="card-name" data-card="Mountain" tabindex="0">Mountain</span>, four Prismatic Vistas, four Flooded Strands, two Scalding Tarns, one <span class="card-name" data-card="Tundra" tabindex="0">Tundra</span>, and one <span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span>. The deck was three colors, but most of its battlefield could continue functioning under its own enchantment.</p>
+<p>Tamiyo, <span class="card-name" data-card="Murktide Regent" tabindex="0">Murktide Regent</span>, <span class="card-name" data-card="Loch Mare" tabindex="0">Loch Mare</span>, efficient removal, and free counters supplied the modern pressure and interaction. The strategic bargain remained the one established in 1998: accept slightly less flexible mana so the opponent may lose access to nearly all of theirs.</p>
+</section>
+<section id="escape"><div class="chapter-number">XVII · The Answer</div><h2>How opponents escape</h2>
+<p>The simplest answer is enchantment removal. If the spell can be cast before the remaining lands are spent, the next untap step restores them normally.</p>
+<p>Other exits include basic lands, mana rocks, creatures that produce mana, Treasures, free spells, alternate-cost spells, and effects that untap lands outside the untap step. An opponent can also float mana while Back to Basics is on the stack and use it after resolution.</p>
+<p>Sequencing matters. Spending the final untapped green source on a creature may concede the ability to cast an enchantment answer later. Preserving that land may mean taking damage or falling behind on the battlefield.</p>
+</section>
+<section id="commander"><div class="chapter-number">XVIII · The Table</div><h2>The multiplayer punishment</h2>
+<p>Commander mana bases often contain utility lands, duals, Triomes, fetches, shock lands, command lands, and very few basics. Back to Basics can therefore restrain three players at once.</p>
+<p>Its controller may use mono-blue, basic-heavy two-color construction, mana rocks, or an untap engine to break parity. The card’s low mana cost allows it to enter before expensive commanders and engines are cast.</p>
+<p>The social effect resembles <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span>. A deck that resolves Back to Basics with a clear route to victory is executing a prison plan. A deck that merely freezes the table without a clock may extend the game far beyond the point where strategic decisions remain interesting.</p>
+</section>
+<section id="design"><div class="chapter-number">XIX · The Color</div><h2>The color-pie question</h2>
+<p>Blue traditionally manipulates tapping and untapping, delays resources, and imposes rules through enchantments. Back to Basics uses that language to create land denial severe enough to resemble red or colorless prison.</p>
+<p>Contemporary design is cautious with effects that prevent players from using mana repeatedly. The card has never been reintroduced through a Standard- or Modern-legal expansion, despite receiving premium reprints.</p>
+<p>Its continued homes—Legacy, Vintage, Commander, Oathbreaker, Premodern, and Cube—are environments where players consciously accept older cards with sharper resource-denial edges.</p>
+</section>
+<section class="design-echo-section" data-card-aliases="{}" data-card-discovery="oracle-catalog-v2" data-card-references="[&quot;Blood Moon&quot;,&quot;Harbinger of the Seas&quot;,&quot;Price of Progress&quot;,&quot;Root Maze&quot;,&quot;Ruination&quot;,&quot;Tsabo's Web&quot;,&quot;Winter Moon&quot;]" id="descendants"><div class="chapter-number">XX · The Bloodline</div><h2>The descendants and relatives</h2>
+<p>Back to Basics has no exact modern replacement, but several cards occupy neighboring territory. <span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span> rewrites nonbasic lands. <span class="card-name" data-card="Ruination" tabindex="0">Ruination</span> destroys them. <span class="card-name" data-card="Price of Progress" tabindex="0">Price of Progress</span> turns each one into damage.</p>
+<div class="inline-image canonical-inline-image" data-image-card="Harbinger of the Seas">
+<div class="image image-loading" data-card-label="Harbinger of the Seas">
+<img alt="Harbinger of the Seas artwork" class="inline-image-media" data-api-url="https://api.scryfall.com/cards/named?exact=Harbinger+of+the+Seas" data-card-name="Harbinger of the Seas" data-fallback-art="https://api.scryfall.com/cards/named?exact=Harbinger+of+the+Seas&amp;format=image&amp;version=art_crop" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Harbinger+of+the+Seas&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Harbinger+of+the+Seas&amp;format=image&amp;version=normal" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw="/>
+</div>
+<div class="copy"><div class="eyebrow">The creature relative</div><h3>Harbinger of the Seas</h3><p><span class="card-name" data-card="Harbinger of the Seas" tabindex="0">Harbinger of the Seas</span> places a <span class="card-name" data-card="Blood Moon" tabindex="0">Blood Moon</span>-style effect on a blue creature, turning nonbasic lands into Islands. It attacks similar mana bases while remaining vulnerable to creature removal and allowing the lands to untap.</p></div>
+</div>
+<p><span class="card-name" data-card="Winter Moon" tabindex="0">Winter Moon</span> limits players controlling nonbasics to untapping one nonbasic land. <span class="card-name" data-card="Root Maze" tabindex="0">Root Maze</span> makes lands and artifacts enter tapped. <span class="card-name" data-card="Tsabo's Web" tabindex="0">Tsabo's Web</span> punishes nonbasics with activated abilities while replacing itself.</p>
+<p>Each relative changes the balance between breadth and escape. Back to Basics remains unusually clean: three mana, one sentence, and no assistance for a nonbasic land after its first use.</p>
+</section>
+<section id="art"><div class="chapter-number">XXI · The Image</div><h2>Civilization returned to wilderness</h2>
+<p>Andrew Robinson’s Urza’s Saga artwork shows architecture disappearing beneath water and vegetation. The “basics” are not basic lands rendered literally. They are the natural world reclaiming complexity.</p>
+<p>Terese Nielsen’s Ultimate Masters version approaches the idea through a luminous, almost ceremonial landscape. The return feels less like collapse and more like revelation.</p>
+<p>Helvetica Blanc’s Secret Lair interpretation, released in the Peach Momoko-themed Tome of the Astral Sorceress drop, removes the original flavor text and gives the card a graphic premium identity. Mystery Booster 2 returned Robinson’s original image in a Future Sight frame.</p>
+</section>
+<section id="formats"><div class="chapter-number">XXII · The Habitats</div><h2>A life across formats</h2>
+<div class="format-strip">
+<div class="format-card"><span class="impact">Premodern and Vintage</span><h3>The mono-blue transformation</h3><p>Forbidian and related control decks use Islands to make Back to Basics a one-sided answer to ambitious mana and utility lands.</p></div>
+<div class="format-card"><span class="impact">Legacy</span><h3>The natural competitive home</h3><p>Dual lands, fetches, <span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span>, <span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span>, Dark Depths, and multicolor control keep the enchantment strategically relevant.</p></div>
+<div class="format-card"><span class="impact">Commander</span><h3>A global nonbasic prison</h3><p>It scales across several opponents and rewards decks prepared to function from basics, rocks, or nonland mana.</p></div>
+</div>
+<p>Back to Basics is currently legal in Legacy, Vintage, Commander, and Oathbreaker. It is not legal in Standard, Pioneer, Modern, Pauper, Historic, Timeless, or Brawl.</p>
+</section>
+<section id="memory"><div class="chapter-number">XXIII · The Feeling</div><h2>What players remember</h2>
+<div class="memory"><blockquote>The dual land still produced every color it promised. It simply never stood up again.</blockquote><cite>Back to Basics made the mana base’s sophistication visible as a line of increasingly expensive tapped cards.</cite></div>
+<p>Players remember fetching the wrong land before it resolved, spending the last green source, and realizing the enchantment answer remaining in hand could no longer be cast.</p>
+<p>They remember the apparent contradiction of a three-color control deck playing it successfully because the deck contained more basics than the opponent’s two-color deck. Most of all, they remember the title becoming an instruction: stop relying on everything printed after <span class="card-name" data-card="Island" tabindex="0">Island</span>.</p>
+</section>
+<section id="decklists"><div class="chapter-number">XXIV · The Archive</div><h2>The deck archive</h2>
+<p class="deck-intro">The archive prioritizes complete tournament registrations and attributed historical records. When fewer than three documentary lists survive, clearly labeled supplemental historical models fill the remaining slots; no player, finish, event, or missing sideboard is invented.</p>
+<div class="archive-standard-note">Decks are ordered chronologically where dates survive. Tournament registrations and attributed historical records take priority; a clearly labeled supplemental model appears only when fewer than three complete documentary lists could be assembled. Missing sideboards are never invented.</div><div class="deck-archive"><details class="deck" open=""><summary><span><strong>Alan Comer — Pro Tour Chicago 1999</strong><small>5th place · extended thru MMQ · 1999-12-05</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Tournament registration</span><p>A published elimination-round registration from Pro Tour Chicago 1999. The list is preserved at its registered size: 60 cards in the main deck and 15 in the sideboard.</p><div class="deck-meta"><div><b>Alan Comer</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-back-to-basics-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 6</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Masticore" tabindex="0">Masticore</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Phyrexian Colossus" tabindex="0">Phyrexian Colossus</span></div></div><div class="group"><h4>Instants · 4</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Arcane Denial" tabindex="0">Arcane Denial</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div></div><div class="group"><h4>Lands · 21</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Ancient Tomb" tabindex="0">Ancient Tomb</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="City of Traitors" tabindex="0">City of Traitors</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dust Bowl" tabindex="0">Dust Bowl</span></div><div class="row"><span class="qty">12</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 25</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Crumbling Sanctuary" tabindex="0">Crumbling Sanctuary</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Cursed Scroll" tabindex="0">Cursed Scroll</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Grim Monolith" tabindex="0">Grim Monolith</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mana Vault" tabindex="0">Mana Vault</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Null Brooch" tabindex="0">Null Brooch</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Phyrexian Processor" tabindex="0">Phyrexian Processor</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thran Dynamo" tabindex="0">Thran Dynamo</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Voltaic Key" tabindex="0">Voltaic Key</span></div></div><div class="group"><h4>Sorceries · 4</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tinker" tabindex="0">Tinker</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Back to Basics" tabindex="0">Back to Basics</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Caltrops" tabindex="0">Caltrops</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Crumbling Sanctuary" tabindex="0">Crumbling Sanctuary</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Disrupting Scepter" tabindex="0">Disrupting Scepter</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mana Leak" tabindex="0">Mana Leak</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Null Brooch" tabindex="0">Null Brooch</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Phyrexian Furnace" tabindex="0">Phyrexian Furnace</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Thran Foundry" tabindex="0">Thran Foundry</span></div></div></div></div><pre hidden="" id="deck-honorable-back-to-basics-1">Alan Comer — Pro Tour Chicago 1999
+5th place · extended thru MMQ · 1999-12-05
+
+Creatures · 6
+4 Masticore
+2 Phyrexian Colossus
+
+Artifacts · 25
+3 Crumbling Sanctuary
+1 Cursed Scroll
+4 Grim Monolith
+4 Mana Vault
+1 Null Brooch
+4 Phyrexian Processor
+4 Thran Dynamo
+4 Voltaic Key
+
+Instants · 4
+1 Arcane Denial
+3 Mana Leak
+
+Lands · 21
+3 Ancient Tomb
+4 City of Traitors
+2 Dust Bowl
+12 Island
+
+Sorceries · 4
+4 Tinker
+
+Sideboard · 15
+3 Annul
+2 Back to Basics
+1 Caltrops
+1 Crumbling Sanctuary
+2 Disrupting Scepter
+1 Mana Leak
+3 Null Brooch
+1 Phyrexian Furnace
+1 Thran Foundry</pre><p class="small">Source: <a href="https://github.com/ajlvi/pt-decks-csv">Open the published tournament-deck compilation</a></p></div></details><details class="deck"><summary><span><strong>Chris Kronenberger — Mono-Blue Control</strong><small>StarCityGames Legacy Louisville 2011 · 1st place · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>Kronenberger brought two main-deck copies to a 203-player Legacy event and won it. Sixteen Islands supported Vedalken Shackles, Counterspell, Cryptic Command, and Back to Basics, while the deck's few fetch lands could find basics before the enchantment converted opposing duals and utility lands into one-use resources.</p><div class="deck-meta"><div><b>Chris Kronenberger — Mono-Blue Control</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-back-to-basics-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 4</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sower of Temptation" tabindex="0">Sower of Temptation</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Vendilion Clique" tabindex="0">Vendilion Clique</span></div></div><div class="group"><h4>Other spells · 13</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Back to Basics" tabindex="0">Back to Basics</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Energy Field" tabindex="0">Energy Field</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Jace, the Mind Sculptor" tabindex="0">Jace, the Mind Sculptor</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Oblivion Stone" tabindex="0">Oblivion Stone</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Sensei's Divining Top" tabindex="0">Sensei's Divining Top</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Vedalken Shackles" tabindex="0">Vedalken Shackles</span></div></div><div class="group"><h4>Lands · 22</h4><div class="row"><span class="qty">16</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Misty Rainforest" tabindex="0">Misty Rainforest</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Polluted Delta" tabindex="0">Polluted Delta</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div></div></div><div class="deck-col"><div class="group"><h4>Instants and Sorceries · 21</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Cryptic Command" tabindex="0">Cryptic Command</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Echoing Truth" tabindex="0">Echoing Truth</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Mental Misstep" tabindex="0">Mental Misstep</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Spell Snare" tabindex="0">Spell Snare</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Chalice of the Void" tabindex="0">Chalice of the Void</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Energy Flux" tabindex="0">Energy Flux</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Llawan, Cephalid Empress" tabindex="0">Llawan, Cephalid Empress</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Mind Harness" tabindex="0">Mind Harness</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Misdirection" tabindex="0">Misdirection</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Surgical Extraction" tabindex="0">Surgical Extraction</span></div></div></div></div><pre hidden="" id="deck-honorable-back-to-basics-2">Chris Kronenberger — Mono-Blue Control
+StarCityGames Legacy Louisville 2011 · 1st place · 60/15
+
+Creatures · 4
+2 Sower of Temptation
+2 Vendilion Clique
+
+Instants and Sorceries · 21
+4 Brainstorm
+2 Counterspell
+2 Cryptic Command
+2 Echoing Truth
+4 Force of Will
+4 Mental Misstep
+3 Spell Snare
+
+Other spells · 13
+2 Back to Basics
+3 Energy Field
+3 Jace, the Mind Sculptor
+1 Oblivion Stone
+2 Sensei's Divining Top
+2 Vedalken Shackles
+
+Lands · 22
+16 Island
+2 Misty Rainforest
+2 Polluted Delta
+2 Scalding Tarn
+
+Sideboard · 15
+2 Chalice of the Void
+2 Energy Flux
+3 Llawan, Cephalid Empress
+2 Mind Harness
+3 Misdirection
+3 Surgical Extraction</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>jankyb — Jeskai Control</strong><small>Magic Online Legacy Challenge 32, May 2026 · 1st place · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Organized event record</span><p>The 2026 list demonstrates how the card survives inside a nominally three-color deck. Eleven basic lands and Prismatic Vista carry most of the mana burden, while only Tundra and Volcanic Island risk remaining tapped. Back to Basics punishes opponents built around far denser nonbasic infrastructure.</p><div class="deck-meta"><div><b>jankyb — Jeskai Control</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-back-to-basics-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 9</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Loch Mare" tabindex="0">Loch Mare</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Murktide Regent" tabindex="0">Murktide Regent</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Tamiyo, Inquisitive Student" tabindex="0">Tamiyo, Inquisitive Student</span></div></div><div class="group"><h4>Lands · 19</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flooded Strand" tabindex="0">Flooded Strand</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Mountain" tabindex="0">Mountain</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Plains" tabindex="0">Plains</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Prismatic Vista" tabindex="0">Prismatic Vista</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Scalding Tarn" tabindex="0">Scalding Tarn</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Tundra" tabindex="0">Tundra</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Volcanic Island" tabindex="0">Volcanic Island</span></div></div></div><div class="deck-col"><div class="group"><h4>Enchantments · 4</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Back to Basics" tabindex="0">Back to Basics</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dress Down" tabindex="0">Dress Down</span></div></div><div class="group"><h4>Instants and Sorceries · 28</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flow State" tabindex="0">Flow State</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ponder" tabindex="0">Ponder</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Preordain" tabindex="0">Preordain</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Prismatic Ending" tabindex="0">Prismatic Ending</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Consign to Memory" tabindex="0">Consign to Memory</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Containment Priest" tabindex="0">Containment Priest</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Fire Magic" tabindex="0">Fire Magic</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Force of Negation" tabindex="0">Force of Negation</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Null Rod" tabindex="0">Null Rod</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Pyroblast" tabindex="0">Pyroblast</span></div><div class="row"><span class="qty">1</span><span class="card-name" data-card="Red Elemental Blast" tabindex="0">Red Elemental Blast</span></div></div></div></div><pre hidden="" id="deck-honorable-back-to-basics-3">jankyb — Jeskai Control
+Magic Online Legacy Challenge 32, May 2026 · 1st place · 60/15
+
+Creatures · 9
+3 Loch Mare
+2 Murktide Regent
+4 Tamiyo, Inquisitive Student
+
+Enchantments · 4
+2 Back to Basics
+2 Dress Down
+
+Instants and Sorceries · 28
+4 Brainstorm
+4 Flow State
+2 Force of Negation
+4 Force of Will
+4 Ponder
+2 Preordain
+4 Prismatic Ending
+4 Swords to Plowshares
+
+Lands · 19
+4 Flooded Strand
+4 Island
+1 Mountain
+2 Plains
+4 Prismatic Vista
+2 Scalding Tarn
+1 Tundra
+1 Volcanic Island
+
+Sideboard · 15
+4 Consign to Memory
+2 Containment Priest
+2 Fire Magic
+1 Force of Negation
+2 Hydroblast
+1 Null Rod
+2 Pyroblast
+1 Red Elemental Blast</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details><details class="deck"><summary><span><strong>Forbidian — Canonical Mono-Blue Control</strong><small>Official Wizards historical list · 60/15</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Historical list record</span><p>This official archive list places four copies of Back to Basics in the sideboard of a mono-blue permission deck. Fifteen Islands and a patient counterspell plan let Forbidian transform against multicolor mana bases, replacing ordinary interaction with an enchantment capable of invalidating several opposing lands at once.</p><div class="deck-meta"><div><b>Forbidian — Canonical Mono-Blue Control</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="deck-honorable-back-to-basics-4">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Creatures · 7</h4><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ophidian" tabindex="0">Ophidian</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Morphling" tabindex="0">Morphling</span></div></div><div class="group"><h4>Lands · 25</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Dust Bowl" tabindex="0">Dust Bowl</span></div><div class="row"><span class="qty">15</span><span class="card-name" data-card="Island" tabindex="0">Island</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Thawing Glaciers" tabindex="0">Thawing Glaciers</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Wasteland" tabindex="0">Wasteland</span></div></div></div><div class="deck-col"><div class="group"><h4>Artifacts · 6</h4><div class="row"><span class="qty">2</span><span class="card-name" data-card="Nevinyrral's Disk" tabindex="0">Nevinyrral's Disk</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Powder Keg" tabindex="0">Powder Keg</span></div></div><div class="group"><h4>Instants · 22</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Brainstorm" tabindex="0">Brainstorm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Counterspell" tabindex="0">Counterspell</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Forbid" tabindex="0">Forbid</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Force of Will" tabindex="0">Force of Will</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Impulse" tabindex="0">Impulse</span></div></div><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">1</span><span class="card-name" data-card="Annul" tabindex="0">Annul</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Back to Basics" tabindex="0">Back to Basics</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Flash" tabindex="0">Flash</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Hydroblast" tabindex="0">Hydroblast</span></div><div class="row"><span class="qty">2</span><span class="card-name" data-card="Treachery" tabindex="0">Treachery</span></div></div></div></div><pre hidden="" id="deck-honorable-back-to-basics-4">Forbidian — Canonical Mono-Blue Control
+Official Wizards historical list · 60/15
+
+Creatures · 7
+4 Ophidian
+3 Morphling
+
+Artifacts · 6
+2 Nevinyrral's Disk
+4 Powder Keg
+
+Instants · 22
+3 Annul
+4 Brainstorm
+4 Counterspell
+3 Forbid
+4 Force of Will
+4 Impulse
+
+Lands · 25
+2 Dust Bowl
+15 Island
+4 Thawing Glaciers
+4 Wasteland
+
+Sideboard · 15
+1 Annul
+4 Back to Basics
+4 Flash
+4 Hydroblast
+2 Treachery</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details></div></section>
+<section id="printings"><div class="chapter-number">XXV · The Object</div><h2>Printings and sources</h2>
+<p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than twelve legitimate printings show every available version instead.</p>
+<div class="printings canonical-printing-gallery" data-card="Back to Basics" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="usg" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Back to Basics" data-identity-status="exact-name-set-fallback" data-set="usg"><img alt="Back to Basics original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Back%20to%20Basics&amp;set=usg&amp;format=image&amp;version=normal"/><figcaption><b>Urza’s Saga</b><br/>Original printing</figcaption></figure></div>
+<h3>Sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/usg/62/back-to-basics">Scryfall — Back to Basics, Urza’s Saga</a><span>Card identity, collector number, Oracle text, original artist, rarity, current legalities, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/UZ/en-us/62/back-to-basics">Wizards of the Coast Gatherer — Back to Basics</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/top-50-card-drawing-cards-2003-03-21-0">Wizards of the Coast — The Top 50 Card Drawing Cards</a><span>Official archived Forbidian list containing four Back to Basics in the sideboard.</span></li>
+<li><a href="https://articles.starcitygames.com/articles/you-can-play-type-i-50-boot-the-back-to-basics/">Stephen Menendian — Boot the Back to Basics?</a><span>Contemporary discussion of mono-blue control, Forbidian, and Back to Basics in early-2000s Type I.</span></li>
+<li><a href="https://www.eternalcentral.com/schools-of-magic-history-of-vintage-2001/">Eternal Central — Schools of Magic: Vintage 2001</a><span>Historical context for mono-blue control using Back to Basics against multicolor control and powered mana bases.</span></li>
+<li><a href="https://www.mtgtop8.com/event?d=212259&amp;e=1606">MTGTop8 — Chris Kronenberger, Mono-Blue Control</a><span>Complete first-place list from the 203-player 2011 StarCityGames Legacy Open in Louisville.</span></li>
+<li><a href="https://www.tcgplayer.com/content/article/Legacy-Oko-Miracles-Deck-Guide/e1f5c471-016d-4c64-8fa3-f7e67a482703/">Rich Cali — Legacy Oko Miracles Deck Guide</a><span>Detailed explanation of Back to Basics as an independent game plan in Legacy control matchups.</span></li>
+<li><a href="https://www.mtgo.com/decklist/legacy-challenge-32-2026-05-2012842880">Magic Online — Legacy Challenge 32, May 20, 2026</a><span>Official event results and jankyb’s first-place Back to Basics control list.</span></li>
+<li><a href="https://mtgdecks.net/Legacy/jeskai-murktide-decklist-by-jankyb-2969211">MTGDecks — jankyb, Jeskai Murktide</a><span>Complete 60-card main deck and 15-card sideboard preserving the Challenge-era construction.</span></li>
+<li><a href="https://scryfall.com/card/uma/46/back-to-basics">Scryfall — Ultimate Masters Back to Basics</a><span>Terese Nielsen artwork, first foil treatment, and modern reprint reference.</span></li>
+<li><a href="https://scryfall.com/card/mb2/154/back-to-basics">Scryfall — Mystery Booster 2 Back to Basics</a><span>Andrew Robinson artwork and Future Sight-frame printing reference.</span></li>
+<li><a href="https://scryfall.com/card/sld/1718/back-to-basics">Scryfall — Secret Lair Back to Basics</a><span>Helvetica Blanc artwork and borderless premium printing reference.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Back+to+Basics%22&amp;unique=prints">Scryfall — Back to Basics printing search</a><span>Complete paper printing, artwork, frame, rarity, and date reference.</span></li>
+</ol>
+<div class="editor-note"><b>Editorial note.</b> Back to Basics is not present among the numbered one thousand and is therefore added as Honorable Mention. The Forbidian list follows Wizards’ official historical archive; Kronenberger’s and jankyb’s lists preserve documented tournament results.</div>
+</section>
+</article>
+<aside class="sidebar-note"><b>Honorable Mention</b><br/>Back to Basics transformed basic-land discipline into a prison strategy and made every ambitious nonbasic mana base explain how it intended to untap.</aside></div>
+<section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>More from Archive Favorites</h2><p>Back to Basics belongs to the Archive Favorites shelf of the Honorable Mentions archive. Previous and next links remain inside this category, so new cards can be added without renumbering or rebuilding unrelated shelves.</p><nav class="end-nav" data-navigation-scope="category-local"><span aria-hidden="true" class="nav-placeholder"></span><a href="honorable-browbeat.html"><small>Next in Archive Favorites</small>Browbeat</a></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Honorable Mentions · Archive Favorites · Back to Basics · Independent, noncommercial Magic history project.</footer>
+<script>/* CR_CARD_PREVIEW_RUNTIME_START */
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function showCard(el,x,y,p=false){if(!preview||!pimg||!el||!el.dataset.card)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script><script defer="" src="assets/artwork-spotlight.js"></script>
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
+
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+<script defer="" src="assets/design-echo.js"></script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+<script defer="" src="assets/printing-gallery.js"></script>
+</body></html>
