@@ -1,0 +1,1065 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content="A long-form Compulsive Research honorable mention about Hulking Raptor: The Lost Caverns of Ixalan, rules, Dinosaurs deck building, sequencing, artwork, printings, and editorial study shells."/><title>Hulking Raptor: The Curve Collapsed Into a Single Turn — Inside the Combat Step — Compulsive Research</title><style>
+:root{
+  --paper:#f4f0e7;
+  --paper2:#e9e2d4;
+  --ink:#161918;
+  --muted:#686a65;
+  --night:#09100f;
+  --night2:#111b19;
+  --green:#355f52;
+  --teal:#679b91;
+  --gold:#b78b44;
+  --rust:#9a5442;
+  --line:#cbc3b4;
+  --white:#fffdf7;
+  --reading:760px;
+  --wide:1160px;
+  --radius:18px;
+  --shadow:0 18px 50px rgba(22,25,24,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0,rgba(183,139,68,.09),transparent 27rem),
+    var(--paper);
+  font:17.5px/1.79 Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;left:0;top:0;z-index:10000;
+  width:var(--progress,0%);height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--teal));
+}
+a{color:#276b68;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:#123e3c}
+img{max-width:100%}
+h1,h2,h3,h4,.sans,.eyebrow,.byline,.toc,.caption,.deck,.pill,.stat,.kicker,.archive-link{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+h1{font-size:clamp(3.4rem,9.7vw,8.7rem);line-height:.88;letter-spacing:-.075em;margin:.18em 0 .22em;max-width:980px}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.045em;margin:0 0 .55em}
+h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.022em;margin:1.6em 0 .45em}
+p{margin:1em 0}
+.hero{
+  min-height:93vh;
+  color:var(--white);
+  display:flex;align-items:flex-end;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--night);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(https://api.scryfall.com/cards/00760b58-8a7d-44fa-a5e7-9df54c21c77d?format=image&version=art_crop) center 27%/cover no-repeat;
+  transform:scale(1.018);
+}
+.hero:after{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(4,8,8,.96) 0%,rgba(4,8,8,.85) 41%,rgba(4,8,8,.17) 79%),
+    linear-gradient(0deg,rgba(4,8,8,.96),transparent 54%),
+    radial-gradient(circle at 72% 28%,transparent,rgba(4,8,8,.34));
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(#000,transparent 80%);
+}
+.hero-inner{width:min(var(--wide),calc(100% - 38px));margin:auto;padding:90px 0 70px}
+.archive-link{
+  display:inline-flex;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:8px 13px;background:rgba(5,10,10,.52);
+  font-size:.78rem;font-weight:800;margin-bottom:32px
+}
+.eyebrow,.kicker{
+  color:#d8b878;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.73rem;font-weight:900
+}
+.deckline{font-size:clamp(1.08rem,2vw,1.42rem);line-height:1.5;max-width:780px;color:#e7e6df}
+.byline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:#d4d4cd;margin-top:27px}
+.pill{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;background:rgba(0,0,0,.22)}
+.article-shell{width:min(var(--wide),calc(100% - 30px));margin:0 auto;display:grid;grid-template-columns:240px minmax(0,var(--reading)) 1fr;gap:44px;padding:52px 0 100px}
+.toc{
+  position:sticky;top:24px;align-self:start;padding:17px 0;
+  border-top:3px solid var(--ink);border-bottom:1px solid var(--line);
+  font-size:.79rem
+}
+.toc strong{display:block;text-transform:uppercase;letter-spacing:.14em;margin-bottom:9px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0;line-height:1.25}
+.toc a.active,.toc a:hover{color:var(--ink);font-weight:800}
+.article{min-width:0}
+.article section{margin:0 0 76px;scroll-margin-top:25px}
+.article p{max-width:var(--reading)}
+.article .opening{font-size:1.23rem;line-height:1.75}
+.dropcap:first-letter{
+  float:left;font-size:6.3rem;line-height:.69;padding:.11em .1em 0 0;
+  color:var(--green);font-weight:700
+}
+.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.sidebar-note b{color:var(--ink)}
+.divider{width:100%;height:1px;background:var(--line);margin:48px 0}
+.pullquote{
+  width:min(980px,calc(100vw - 32px));
+  margin:60px 0 60px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:36px clamp(24px,5vw,60px);
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  font:700 clamp(2rem,4.7vw,4rem)/1.08 Georgia,serif;
+  letter-spacing:-.035em;color:var(--green)
+}
+.pullquote small{display:block;margin-top:15px;font:700 .72rem/1.4 Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.card-lead{
+  display:grid;grid-template-columns:290px minmax(0,1fr);gap:32px;
+  width:min(1020px,calc(100vw - 32px));
+  margin:38px 0 50px calc((var(--reading) - min(1020px,calc(100vw - 32px)))/2);
+  align-items:start
+}
+.card-lead img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28))}
+.oracle{
+  background:#fffaf0;border:1px solid var(--line);padding:23px;border-radius:14px;
+  box-shadow:var(--shadow);font-size:1.05rem
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.stat{border-top:1px solid var(--line);padding:10px 0;font-size:.8rem;color:var(--muted)}
+.stat b{display:block;color:var(--ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.art-break{
+  width:100vw;margin:72px 0 72px calc((var(--reading) - 100vw)/2);
+  min-height:min(69vw,720px);position:relative;display:flex;align-items:flex-end;
+  color:white;background:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop) center 25%/cover no-repeat;
+}
+.art-break:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,8,8,.93),transparent 55%)}
+.art-caption{position:relative;width:min(var(--wide),calc(100% - 32px));margin:auto;padding:35px 0;font:13px/1.55 Inter,sans-serif;color:#ddd}
+.art-caption b{display:block;color:white;font-size:1rem;margin-bottom:5px}
+.chapter-number{font:900 .75rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:10px}
+.timeline{border-left:1px solid var(--line);padding-left:24px;margin:30px 0}
+.timeline-item{position:relative;margin:0 0 32px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:.46em;width:11px;height:11px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.timeline-item time{font:900 .73rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--rust)}
+.timeline-item h3{margin:.4em 0}
+.format-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  width:min(980px,calc(100vw - 32px));margin:30px 0 45px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)
+}
+.format-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 8px 28px rgba(22,25,24,.06)}
+.format-card h3{font-size:1rem;margin:0 0 7px}.format-card p{font:14px/1.55 Inter,sans-serif;color:var(--muted);margin:0}
+.format-card .impact{display:inline-block;margin-bottom:9px;color:var(--rust);font:900 .68rem/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.inline-image{
+  width:min(980px,calc(100vw - 32px));margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  display:grid;grid-template-columns:1.4fr 1fr;background:var(--night);color:white;overflow:hidden;border-radius:var(--radius)
+}
+.inline-image .image{min-height:390px;background:var(--night2)}
+.inline-image .copy{padding:35px}.inline-image h3{font-size:2rem;margin-top:0}.inline-image p{color:#d8d9d4}
+.memory{
+  background:var(--night);color:white;
+  width:min(980px,calc(100vw - 32px));margin:50px 0 50px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2);
+  padding:clamp(25px,5vw,58px);border-radius:var(--radius)
+}
+.memory blockquote{font-size:clamp(1.45rem,3.4vw,2.65rem);line-height:1.25;margin:0 0 24px}
+.memory cite{font:13px/1.5 Inter,sans-serif;color:#bfc4bf;font-style:normal}
+.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.deck-archive{
+  width:min(1050px,calc(100vw - 32px));margin-left:calc((var(--reading) - min(1050px,calc(100vw - 32px)))/2)
+}
+.deck-intro{max-width:var(--reading);margin-left:auto;margin-right:auto}
+.deck{font-family:Inter,system-ui,sans-serif;border:1px solid #2f3b38;border-radius:15px;background:#101917;color:#f1eee5;overflow:hidden;margin:18px 0;box-shadow:0 13px 32px rgba(0,0,0,.14)}
+.deck summary{list-style:none;cursor:pointer;padding:17px 19px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(183,139,68,.15),rgba(103,155,145,.08))}
+.deck summary::-webkit-details-marker{display:none}.deck summary strong{font-family:Georgia,serif;font-size:1.12rem}.deck summary small{display:block;color:#aaa;margin-top:3px}
+.plus{font-size:1.5rem;color:#d7b36d;transition:.2s}.deck[open] .plus{transform:rotate(45deg)}
+.deck-body{padding:0 19px 19px}.deck-meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin:17px 0}
+.copy{border:1px solid #586963;border-radius:9px;background:#20322f;color:white;padding:8px 11px;font-weight:800;cursor:pointer}.copy:hover{background:#2a4540}
+.deck-columns{display:grid;grid-template-columns:1fr 1fr;border:1px solid #34433f;border-radius:14px;overflow:hidden;background:#060a0a}
+.deck-col{padding:18px}.deck-col+.deck-col{border-left:1px solid #34433f}
+.group{margin-bottom:18px}.group h4{font:850 .76rem/1.2 Inter,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#d8b36a;margin:0 0 8px}
+.row{padding:3px 0;border-bottom:1px dotted rgba(255,255,255,.08)}.qty{display:inline-block;min-width:1.55em;color:#8bc7cf;font-variant-numeric:tabular-nums}
+.card-name{border-bottom:1px dotted currentColor;cursor:help;outline:none}.card-name:hover,.card-name:focus{color:#276b68}.deck .card-name:hover,.deck .card-name:focus{color:white;border-color:#d8b36a}
+.printings{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  width:min(1000px,calc(100vw - 32px));margin:28px 0 38px calc((var(--reading) - min(1000px,calc(100vw - 32px)))/2)
+}
+.printing{margin:0;background:var(--white);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.printing img{display:block;width:100%;height:auto;aspect-ratio:488/680;object-fit:contain;background:#ddd}
+.printing figcaption{font:12.5px/1.45 Inter,sans-serif;color:var(--muted);padding:10px;text-align:center}
+.sources{font-size:.95rem;padding-left:1.2em}.sources li{margin:.75em 0}.sources span{display:block;color:var(--muted);font:13px/1.45 Inter,sans-serif}
+.editor-note{border-top:3px solid var(--ink);padding-top:16px;color:var(--muted);font:13px/1.6 Inter,sans-serif}
+#preview{position:fixed;z-index:9999;width:min(305px,72vw);opacity:0;pointer-events:none;transform:translateY(7px) scale(.98);transition:.12s;filter:drop-shadow(0 18px 30px rgba(0,0,0,.7))}
+#preview.show{opacity:1;transform:translateY(0) scale(1)}#preview img{display:block;width:100%;max-height:88vh;object-fit:contain;border-radius:4.8%;background:#111}
+.footer{background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;font:13px/1.6 Inter,sans-serif}
+.landing{width:min(var(--wide),calc(100% - 32px));margin:60px auto 90px}
+.archive-card{display:grid;grid-template-columns:minmax(270px,430px) minmax(0,1fr);background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;box-shadow:var(--shadow)}
+.archive-art{min-height:500px;background:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop) center/cover}
+.archive-copy{padding:clamp(28px,5vw,65px);align-self:center}.archive-copy h2{font-size:clamp(2.6rem,6vw,5.7rem)}
+@media(max-width:1050px){
+  .article-shell{grid-template-columns:minmax(0,var(--reading));justify-content:center}
+  .toc{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}
+  .sidebar-note{display:none}
+}
+@media(max-width:750px){
+  body{font-size:17px}.hero{min-height:82vh}.hero-inner{width:calc(100% - 24px)}
+  .article-shell{width:calc(100% - 24px);padding-top:30px}.toc{grid-template-columns:1fr}
+  .pullquote,.card-lead,.format-strip,.inline-image,.memory,.deck-archive,.printings{width:100%;margin-left:0}
+  .card-lead,.inline-image,.archive-card{grid-template-columns:1fr}
+  .card-lead img{max-width:280px;margin:auto}.stats,.memory-grid{grid-template-columns:1fr}
+  .format-strip{grid-template-columns:1fr}.printings{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .art-break{margin-left:calc((100% - 100vw)/2);min-height:72vh}
+  .deck-columns{grid-template-columns:1fr}.deck-col+.deck-col{border-left:0;border-top:1px solid #34433f}
+  .deck-meta{flex-direction:column}.archive-art{min-height:370px}
+  #preview{width:min(280px,78vw);left:50%!important;top:50%!important;transform:translate(-50%,-46%) scale(.98)}
+  #preview.show{transform:translate(-50%,-50%) scale(1)}
+}
+
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.lotus-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Black%20Lotus&set=lea&format=image&version=art_crop)!important
+}
+.lotus-descendant .image{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Lion%27s%20Eye%20Diamond&format=image&version=art_crop)!important
+}
+.article-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif
+}
+.article-note b{color:var(--ink)}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}.end-nav a:last-child{text-align:left}
+}
+
+.dragon-art{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+.hero.dragon-art:before{
+  background-image:url(https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop)!important;
+  background-position:center 27%!important
+}
+
+/* Compulsive Research canonical-format audit — Eternal Dragon template */
+.article-shell > aside.sidebar-note{
+  align-self:start;border-top:3px solid var(--gold);padding-top:13px;
+  color:var(--muted);font:13.5px/1.55 Inter,system-ui,sans-serif
+}
+.article-shell > aside.sidebar-note b{color:var(--ink)}
+.footer{
+  background:var(--night);color:#aeb5b0;padding:38px 18px;text-align:center;
+  font:13px/1.6 Inter,system-ui,sans-serif
+}
+.continue-reading{
+  width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px
+}
+.article a{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:1050px){.article-shell > aside.sidebar-note{display:none}}
+
+/* Compatibility layer for the complete Compulsive Research archive.
+   Colors, spacing, typography, cards, decks, and galleries remain governed by
+   Eternal Dragon's canonical stylesheet above. */
+.rank-nav{
+  width:min(var(--wide),calc(100% - 30px));margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;padding:18px 0;
+  font:800 .76rem/1.35 Inter,system-ui,sans-serif
+}
+.rank-nav a{display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--white);border-radius:12px;padding:11px 13px}
+.rank-nav a:last-child{text-align:right}.rank-nav .center{text-align:center;color:var(--muted);padding:11px 8px}
+.article-note,.archive-standard-note{
+  border-left:4px solid var(--gold);background:rgba(183,139,68,.08);
+  padding:17px 19px;margin:28px 0;color:var(--muted);
+  font:13.5px/1.62 Inter,system-ui,sans-serif;border-radius:0 13px 13px 0
+}
+.article-note b,.archive-standard-note b{color:var(--ink)}
+.provenance-badge{
+  display:inline-flex;align-items:center;gap:.35rem;margin:0 0 12px;padding:7px 11px;
+  border:1px solid #8fc3b8;border-radius:999px;background:#e8f6f1;color:#123d38;
+  font:850 .72rem/1.1 Inter,system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase
+}
+.provenance-badge.supplement{background:#fff0c9;border-color:#d6a64e;color:#4c3510}
+.small{font-size:.82rem;color:#b8c2bd}
+.printing-status{grid-column:1/-1;padding:22px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font:14px/1.55 Inter,sans-serif;text-align:center;background:var(--white)}
+.continue-reading{width:min(var(--reading),calc(100% - 24px));margin:0 auto 70px}
+.end-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.end-nav a{display:block;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:17px;font-family:Inter,system-ui,sans-serif}
+.end-nav a:last-child{text-align:right}.end-nav small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.article a{overflow-wrap:anywhere;word-break:normal}
+.card-lead img,.printing img{background:#ded8cc}
+@media(max-width:750px){
+  .rank-nav{grid-template-columns:1fr}.rank-nav .center{order:-1}
+  .rank-nav a:last-child,.end-nav a:last-child{text-align:left}.end-nav{grid-template-columns:1fr}
+}
+
+/* Card-specific original artwork */
+.hero:before{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important;background-position:center 30%!important}
+.art-break{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important;background-position:center 30%!important}
+.archive-art,.artwork-showcase{background-image:url("https://api.scryfall.com/cards/named?exact=Ensnaring%20Bridge&set=sth&format=image&version=art_crop")!important}
+
+.hero-media,.art-break-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.hero-media{z-index:-3;transform:scale(1.018)}
+.art-break-media{z-index:0}
+.hero > :not(.hero-media){position:relative}
+.art-break > :not(.art-break-media){position:relative}
+
+.inline-image .image{overflow:hidden}
+.inline-image-media{width:100%;height:100%;object-fit:cover;display:block}
+
+.rank-nav .nav-placeholder,.end-nav .nav-placeholder{display:block}
+
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_START */
+/* Eternal Dragon is the visual authority for every artwork spotlight. */
+.art-break.artwork-spotlight{
+  width:100vw!important;max-width:none!important;min-height:min(69vw,720px)!important;
+  margin:72px 0 72px calc((var(--reading) - 100vw)/2)!important;transform:none!important;
+  position:relative!important;display:flex!important;align-items:flex-end!important;overflow:hidden!important;
+  color:white!important;background:none!important;isolation:isolate;
+}
+.art-break.artwork-spotlight:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(0deg,rgba(4,8,8,.93),rgba(4,8,8,.18) 55%,transparent 76%)!important;pointer-events:none;
+}
+.artwork-spotlight .art-break-media{
+  position:absolute!important;inset:0!important;z-index:0!important;display:block!important;
+  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;
+  object-position:center 25%!important;transform:none!important;pointer-events:none;
+}
+.artwork-spotlight .art-caption{
+  position:relative!important;z-index:2!important;width:min(var(--wide),calc(100% - 32px))!important;
+  margin:auto!important;padding:35px 0!important;color:#ddd!important;
+  font:13px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72);
+}
+.artwork-spotlight .art-caption b{display:block!important;margin-bottom:5px!important;color:white!important;font-size:1rem!important;line-height:1.35!important}
+.artwork-spotlight .art-caption-excerpt{display:block}
+@media(max-width:750px){
+ .art-break.artwork-spotlight{width:100vw!important;max-width:none!important;min-height:72vh!important;margin-left:calc((100% - 100vw)/2)!important;margin-right:0!important}
+ .artwork-spotlight .art-break-media{object-position:center 25%!important}
+ .artwork-spotlight .art-caption{width:calc(100% - 48px)!important;padding:31px 0!important}
+}
+/* CR_CANONICAL_ARTWORK_SPOTLIGHT_END */
+
+/* CR_CANONICAL_DESIGN_ECHO_START */
+/* Eternal Dragon is the structural and responsive authority for every
+   Design Echo image-plus-copy panel. */
+.design-echo-section>.inline-image.canonical-inline-image,
+.inline-image.canonical-inline-image{
+  box-sizing:border-box!important;
+  width:min(980px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  margin:42px 0 48px calc((var(--reading) - min(980px,calc(100vw - 32px)))/2)!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  background:transparent!important;
+  color:white!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:var(--radius)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+.inline-image.canonical-inline-image>.image{
+  box-sizing:border-box!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  min-height:390px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:var(--night2)!important;
+  border:0!important;
+  border-radius:var(--radius) 0 0 var(--radius)!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.image:before{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  padding:28px!important;
+  color:#c7cfca!important;
+  text-align:center!important;
+  font:800 .82rem/1.5 Inter,system-ui,sans-serif!important;
+  letter-spacing:.04em!important;
+  pointer-events:none!important;
+}
+.inline-image.canonical-inline-image>.image.image-loading:before{
+  content:"Loading " attr(data-card-label) " artwork…"!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed:before{
+  content:attr(data-card-label) " artwork could not be loaded"!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded:before{content:""!important}
+.inline-image.canonical-inline-image .inline-image-media{
+  box-sizing:border-box!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  opacity:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:opacity .18s ease!important;
+}
+.inline-image.canonical-inline-image>.image.image-loaded .inline-image-media{
+  display:block!important;
+  opacity:1!important;
+}
+.inline-image.canonical-inline-image>.image.image-failed .inline-image-media{
+  display:none!important;
+  opacity:0!important;
+}
+.inline-image.canonical-inline-image>.copy{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:35px!important;
+  align-self:stretch!important;
+  background:#20322f!important;
+  color:white!important;
+  border:1px solid #586963!important;
+  border-left:0!important;
+  border-radius:0 var(--radius) var(--radius) 0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.inline-image.canonical-inline-image>.copy .eyebrow,
+.inline-image.canonical-inline-image>.copy .kicker{
+  display:block!important;
+  margin:0 0 12px!important;
+  color:#d8b878!important;
+  text-transform:uppercase!important;
+  letter-spacing:.18em!important;
+  font:900 .73rem/1.35 Inter,system-ui,sans-serif!important;
+}
+.inline-image.canonical-inline-image>.copy h3{
+  margin:0 0 16px!important;
+  color:white!important;
+  font-size:2rem!important;
+  line-height:1.12!important;
+}
+.inline-image.canonical-inline-image>.copy p{
+  margin:0 0 1em!important;
+  color:#d8d9d4!important;
+}
+.inline-image.canonical-inline-image>.copy p:last-child{margin-bottom:0!important}
+@media(max-width:750px){
+  .design-echo-section>.inline-image.canonical-inline-image,
+  .inline-image.canonical-inline-image{
+    width:100%!important;
+    max-width:100%!important;
+    margin:42px 0 48px!important;
+    padding:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:0!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .inline-image.canonical-inline-image>.image{
+    width:100%!important;
+    min-height:390px!important;
+    margin:0!important;
+    border-radius:var(--radius) var(--radius) 0 0!important;
+  }
+  .inline-image.canonical-inline-image>.copy{
+    width:100%!important;
+    margin:0!important;
+    padding:35px!important;
+    border:1px solid #586963!important;
+    border-top:0!important;
+    border-radius:0 0 var(--radius) var(--radius)!important;
+  }
+}
+/* CR_CANONICAL_DESIGN_ECHO_END */
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+
+
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+
+.honorable-badge{display:inline-flex;color:#f1dfb4;border:1px solid rgba(216,184,120,.45);background:rgba(0,0,0,.34);border-radius:999px;padding:6px 11px;font:850 .7rem/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+body[data-honorable-category] .rank-nav .center{font-weight:800;color:var(--green)}
+</style></head><body data-article-card="Hulking Raptor" data-honorable-category="Dinosaurs" data-landing-anchor="honorable-hulking-raptor" data-navigation-scope="category-local"><header class="hero" data-headline-card="Hulking Raptor" data-hero-card="Hulking Raptor"><img alt="Hulking Raptor artwork" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/45f763af-5a6a-404c-8e8c-4dbed71277bc?format=image&amp;version=normal';" src="https://api.scryfall.com/cards/45f763af-5a6a-404c-8e8c-4dbed71277bc?format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner"><a class="archive-link" href="index.html?focus=honorable-hulking-raptor#honorable-hulking-raptor">← Back to Compulsive Research</a><div class="honorable-badge">Beyond the Thousand · Dinosaurs</div><div class="eyebrow">The Lost Caverns of Ixalan · 2023</div><h1>The Curve Collapsed Into a Single Turn — Inside the Combat Step</h1><p class="deckline">Creature that converted tribal development into the mana needed for the next play.</p><div class="byline"><span>A Compulsive Research honorable mention</span><span>·</span><span>Dinosaurs</span><span class="pill">Approximately 20 minute read</span></div></div></header><nav class="rank-nav" data-navigation-scope="category-local"><a href="honorable-gishath-suns-avatar.html">← Previous in Dinosaurs · Gishath, Sun&#x27;s Avatar</a><div class="center">Dinosaurs · Honorable Mentions</div><a href="honorable-kinjallis-caller.html">Next in Dinosaurs · Kinjalli&#x27;s Caller →</a></nav><div class="article-shell"><nav class="toc" aria-label="Article table of contents"><strong>In this article</strong><a href="#opening">The Curve Collapsed Into a Single Turn — Inside the Combat Step</a><a href="#first-printing">First printing</a><a href="#identity">Typal identity</a><a href="#rules">Rules and timing</a><a href="#role">Role in the tribe</a><a href="#construction">Deck construction</a><a href="#sequencing">Sequencing</a><a href="#formats">Across formats</a><a href="#interaction">Interactions</a><a href="#counterplay">Counterplay</a><a href="#memory">Player memory</a><a href="#echoes">Design echoes</a><a href="#art">Artwork</a><a href="#decklists">Deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article"><section id="opening"><div class="chapter-number">I · The card</div><h2>The Curve Collapsed Into a Single Turn — Inside the Combat Step</h2><p class="opening"><span class="dropcap">H</span>ulking Raptor belongs in the Honorable Mentions archive because it is a creature that converted tribal development into the mana needed for the next play. The card is not merely popular because it carries a beloved creature type. It gives that type a recognizable job, changes what surrounding cards are worth, and creates the kind of table story that players remember after the exact decklist has changed.</p><p>Within Dinosaurs decks, the important question is not whether the effect is powerful in isolation. It is whether the card helps connect cost reduction, enrage, discover, and oversized combat bodies. That connection is what turns a themed pile into a functioning strategy: the card must advance the board, reward the tribe, and leave enough room for interaction and mana.</p><p>This article follows the card from The Lost Caverns of Ixalan in 2023 through its rules texture, typal role, deck-building demands, sequencing, counterplay, artwork, material history, and the broader design lesson it offers. The emphasis is preservation rather than a claim that one list or format owns the card forever.</p><div class="card-lead"><img alt="Hulking Raptor original printing" data-article-card-image src="https://api.scryfall.com/cards/45f763af-5a6a-404c-8e8c-4dbed71277bc?format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The original card</div><h3>Hulking Raptor</h3><p><b>{2}{G}{G} · Creature — Dinosaur</b></p><p>Ward {2}<br/>At the beginning of your first main phase, add {G}{G}.</p><div class="stats"><div class="stat"><b>First printing</b>The Lost Caverns of Ixalan · 2023</div><div class="stat"><b>Original artist</b>Néstor Ossandón Leal</div><div class="stat"><b>Mana cost</b>{2}{G}{G}</div><div class="stat"><b>Power / toughness</b>5 / 3</div></div></div></div></section><section id="first-printing"><div class="chapter-number">II · The debut</div><h2>The printed object before the reputation</h2><p>The first verified paper printing appeared in The Lost Caverns of Ixalan in 2023, with artwork credited to Néstor Ossandón Leal. Its type line—Creature — Dinosaur—matters before any synergy is considered. It determines which tutors can find it, which lords can strengthen it, which removal spells can answer it, and which deck-building restrictions or Commander identities can contain it.</p><p>The visible price is {2}{G}{G}, with a mana value of 4.0. That rate explains where the card sits on a curve, but it does not explain the entire appeal. Typal cards are evaluated in networks. A body that looks ordinary alone may become essential when it repeats an ability, increases creature density, or lets a deck spend fewer noncreature slots on support.</p><p>Its debut also placed it inside a particular design era. The Lost Caverns of Ixalan supplied the original frame, wording, rarity, and visual identity, while later printings and formats changed the contexts in which players encountered it. The card’s reputation therefore belongs both to the object printed in 2023 and to the communities that kept finding new homes for it.</p></section><div class="art-break artwork-spotlight" data-artwork-artist="Néstor Ossandón Leal" data-artwork-card="Hulking Raptor" data-artwork-set="lci" data-artwork-set-name="The Lost Caverns of Ixalan"><img alt="Hulking Raptor artwork by Néstor Ossandón Leal" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/45f763af-5a6a-404c-8e8c-4dbed71277bc?format=image&amp;version=normal';" src="https://api.scryfall.com/cards/45f763af-5a6a-404c-8e8c-4dbed71277bc?format=image&amp;version=art_crop"/><div class="art-caption"><b data-artwork-credit aria-live="polite">Néstor Ossandón Leal’s original The Lost Caverns of Ixalan artwork</b><span class="art-caption-excerpt">Weight, texture, and low-angle scale make the creature’s physical presence the dominant fact of the scene.</span></div></div><section id="identity"><div class="chapter-number">III · Typal identity</div><h2>Why the creature type changes the evaluation</h2><p>Dinosaurs decks are built from overlapping incentives rather than a single keyword. They care about cost reduction, enrage, discover, and oversized combat bodies, and a new card earns its place by strengthening more than one of those lines at once. Hulking Raptor is especially revealing because its printed text and its type line pull in the same direction: it can be evaluated as an individual spell, but its ceiling emerges only when the surrounding deck gives the text repeated opportunities to matter.</p><p>Compare that role with <span class="card-name" data-card="Etali, Primal Conqueror" tabindex="0">Etali, Primal Conqueror</span> and <span class="card-name" data-card="Etali, Primal Storm" tabindex="0">Etali, Primal Storm</span>. The cards may occupy different points on the curve or reward different resources, yet all three ask the builder to decide how much synergy is enough. Too few tribal cards leave the payoff stranded. Too many payoffs can create a hand that celebrates the tribe without actually developing a board.</p><p>The healthiest construction treats type as a layer, not an excuse. The deck still needs mana, interaction, a plan for opposing engines, and a way to recover after a sweeper. The typal card succeeds when it lets those ordinary responsibilities reinforce the theme rather than compete with it.</p></section><section id="rules"><div class="chapter-number">IV · Rules</div><h2>The exact text creates the strategic ceiling</h2><p>The current Oracle text reads: “Ward {2} At the beginning of your first main phase, add {G}{G}.” Every cost, trigger condition, target, duration, and zone matters. If the effect uses a sacrifice as a cost, the permanent is gone before an opponent can respond to that activation. If it creates a triggered ability, the trigger can be answered separately from the permanent. If it modifies other creatures, the timestamp and layer system may matter when type-changing effects enter the picture.</p><p>Typal decks magnify small rules errors because several continuous effects and triggers often coexist. Announce the source of each bonus, separate “enters” triggers from cast triggers, and keep token characteristics distinct from the card that created them. When Hulking Raptor interacts with <span class="card-name" data-card="Ghalta and Mavren" tabindex="0">Ghalta and Mavren</span>, the best line is usually the one that identifies which resource is being exchanged and which piece must remain on the battlefield.</p><p>The card’s floor is determined by what it does on an empty board. Its ceiling is determined by how many legal opportunities the deck can create for the text to repeat. That distinction is the bridge between reading the card and building around it responsibly.</p></section><section id="role"><div class="chapter-number">V · The role</div><h2>The job it performs inside the tribe</h2><p>In practical terms, Hulking Raptor is a creature that converted tribal development into the mana needed for the next play. That role matters because Dinosaurs decks often contain many cards competing for the same thematic slots. The best build-around is not necessarily the flashiest one; it is the one that solves a structural problem such as card flow, mana, interaction, resilience, or closing speed.</p><p>The card should therefore be judged by the turns it improves. Does it make an opening hand keepable? Does it convert a wide board into a clock? Does it make the second spell in a turn possible? Does it leave value after removal? These questions prevent nostalgia from becoming poor construction while still respecting the reason the card is beloved.</p><p>At its best, the card helps the deck express prehistoric scale, impact, and damage as a resource without abandoning ordinary fundamentals. The tribe feels more like itself, but the game plan also becomes clearer to pilot and harder for an opponent to disrupt with a single answer.</p></section><section id="construction"><div class="chapter-number">VI · Construction</div><h2>Building the shell around the effect</h2><p>The first construction constraint is ramp, red-green-white fixing, and a curve that reaches the large threats. A tribal payoff can be powerful and still fail if the mana base cannot cast the early enablers or if the curve contains too many cards that require an established board. Start with the turns on which the deck must act, then decide how many copies of each role are necessary to make those turns repeatable.</p><p>Hulking Raptor competes with <span class="card-name" data-card="Ghalta, Primal Hunger" tabindex="0">Ghalta, Primal Hunger</span> and <span class="card-name" data-card="Ghalta, Stampede Tyrant" tabindex="0">Ghalta, Stampede Tyrant</span> for space, but the comparison should be functional rather than sentimental. Redundant effects can protect a strategy from removal; redundant expensive effects can instead produce uncastable hands. Count enablers, payoffs, interaction, and recovery separately before deciding that every card with the right creature type belongs.</p><p>Sideboard construction follows the same logic. Preserve enough of the core that the deck remains coherent after boarding, then replace the slowest or most conditional pieces with answers. A successful tribal deck should still look like itself in game two, even when it has made room for graveyard hate, artifact removal, countermagic, or sweepers.</p></section><section id="sequencing"><div class="chapter-number">VII · Sequencing</div><h2>The order of operations is part of the power</h2><p>Sequencing begins with identifying whether Hulking Raptor is an enabler, a payoff, or a bridge between the two. Enablers usually enter before the turn that matters; payoffs are often held until they produce immediate value; bridge cards may need to be exposed early because the rest of the hand cannot function without them. The printed mana cost gives a clue, but the board and matchup decide the actual timing.</p><p>When several tribal triggers are available, put them on the stack deliberately. Attack with the creatures that preserve the best postcombat board, and spend removal only when it protects a profitable exchange. The goal is not to maximize the number of visible synergies in one turn. It is to leave the opponent with fewer clean answers on the next turn.</p><p>Against open mana, ask which piece you can afford to lose. Against a tapped-out opponent, ask whether the card creates enough immediate value to justify committing further. The strongest pilots make Hulking Raptor look inevitable because they choose the turn on which its text is hardest to interrupt.</p></section><section id="formats"><div class="chapter-number">VIII · Across formats</div><h2>Different formats ask different questions</h2><div class="format-strip"><div class="format-card"><span class="impact">Commander</span><h3>Identity and repetition</h3><p>Singleton construction rewards redundancy, broad synergy, and effects that scale with several opponents.</p></div><div class="format-card"><span class="impact">Sixty-card play</span><h3>Rate and consistency</h3><p>Four copies demand a clean curve, a focused matchup plan, and enough interaction to survive efficient opposition.</p></div><div class="format-card"><span class="impact">Casual and Cube</span><h3>Story and texture</h3><p>The card can be chosen for resonance, draft signals, and the way it makes a creature type feel distinct.</p></div></div><p>In Commander, Hulking Raptor may be a leader, a lieutenant, or a narrow engine, but the central question is how often the deck can reproduce the condition in its text. Multiplayer also changes threat assessment: a visible tribal engine can attract removal before it has generated enough value, so protection and timing become part of deck construction.</p><p>In sixty-card environments, the card must compete directly on rate. The surrounding list cannot rely on drawing one legendary copy or on opponents giving the deck several setup turns. In casual play and Cube, meanwhile, the card’s cultural meaning matters more. A beloved typal card can signal an archetype, reward a drafter, or make an old collection feel connected to a new deck.</p></section><section id="interaction"><div class="chapter-number">IX · Interaction</div><h2>What the card asks from its partners</h2><p>The obvious partners are cards that share the type, but the more important partners are those that solve the card’s practical limitations. Cheap interaction protects setup turns. Card selection finds the missing half of a synergy. Sacrifice outlets convert a threatened creature into value. Recursion lets the deck rebuild without drawing another copy of every payoff.</p><p><span class="card-name" data-card="Gishath, Sun&#x27;s Avatar" tabindex="0">Gishath, Sun&#x27;s Avatar</span> represents one direction the shell can take, while <span class="card-name" data-card="Kinjalli&#x27;s Caller" tabindex="0">Kinjalli&#x27;s Caller</span> represents another. The point is not to include both automatically. Each additional synergy card should be measured against the number of hands in which it functions without Hulking Raptor. The strongest tribal decks contain cards that overlap, so losing one engine does not turn the rest of the hand into blanks.</p><p>Mana is also interaction with your own plan. A land entering tapped, a missing color, or an overloaded three-mana slot can defeat the deck before the opponent does. Typal enthusiasm should therefore be expressed through disciplined ratios rather than through the maximum possible number of themed cards.</p></section><section id="counterplay"><div class="chapter-number">X · Counterplay</div><h2>How opponents keep the engine honest</h2><p>The cleanest counterplay is exile removal, counterspells, and attacking the mana before the herd arrives. Which answer is best depends on whether the card creates value immediately, whether its ability is static or triggered, and whether the graveyard can recover it. Opponents should aim at the point where the tribal network has the fewest redundant pieces rather than simply removing the largest creature.</p><p>Timing matters. If Hulking Raptor must survive until combat, remove it before attackers are declared. If it has an enters-the-battlefield trigger, countering it may be better than destroying it afterward. If the deck is built around death triggers, exile and replacement effects are worth more than ordinary destruction.</p><p>The tribal pilot can respond by varying threats, holding back one rebuilding piece, and sideboarding without dismantling the deck’s identity. Good counterplay does not prove the card was weak. It reveals what the card made important enough for the opponent to respect.</p></section><section id="memory"><div class="chapter-number">XI · Player memory</div><h2>Why players keep returning to it</h2><div class="memory"><blockquote>“The favorite tribal cards are rarely just the biggest creatures. They are the cards that make every other creature in the box feel newly connected.”</blockquote><cite>Compulsive Research editorial synthesis</cite></div><p>Hulking Raptor earns affection because it gives a collection a center of gravity. A player can discover the card in a booster, inherit it from an older deck, or choose it as a commander and then begin noticing every related creature printed before and after it. The card becomes an invitation to curate rather than merely optimize.</p><p>That emotional function is not separate from game design. Clear tribal rewards teach deck building, create recognizable board states, and let players express preference through mechanical choices. The card’s popularity is evidence that identity can be a genuine strategic resource when the rules give it enough structure.</p></section><section id="echoes" class="design-echo-section"><div class="chapter-number">XII · Design echo</div><h2>A neighboring card reveals the design space</h2><p><span class="card-name" data-card="Bonehoard Dracosaur" tabindex="0">Bonehoard Dracosaur</span> is a useful comparison because it shows another way to reward the same community of cards. The comparison is not about declaring one version superior. It is about seeing what each design asks the deck to count, protect, or repeat.</p><div class="inline-image canonical-inline-image" data-image-card="Bonehoard Dracosaur"><div class="image image-loading" data-card-label="Bonehoard Dracosaur"><img class="inline-image-media" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-card-name="Bonehoard Dracosaur" data-api-url="https://api.scryfall.com/cards/named?exact=Bonehoard%20Dracosaur" data-fallback-art="https://api.scryfall.com/cards/named?exact=Bonehoard%20Dracosaur&amp;format=image&amp;version=art_crop" data-fallback-normal="https://api.scryfall.com/cards/named?exact=Bonehoard%20Dracosaur&amp;format=image&amp;version=normal" data-fallback-fuzzy="https://api.scryfall.com/cards/named?fuzzy=Bonehoard%20Dracosaur&amp;format=image&amp;version=art_crop" alt="Bonehoard Dracosaur artwork"/></div><div class="copy"><div class="eyebrow">A related Dinosaurs design</div><h3>Different text, the same deck-building question</h3><p>Both cards become more meaningful as the surrounding deck commits to the tribe, but they reward different resources and produce different sequencing pressures.</p></div></div><p>Later designs can preserve a tribe’s identity while shifting the reward from combat to cards, from lords to tokens, or from battlefield presence to the graveyard. Hulking Raptor remains worth studying because it marks one particular answer to that larger design problem.</p></section><section id="art"><div class="chapter-number">XIII · Artwork</div><h2>The illustration carries the typal promise</h2><p>Néstor Ossandón Leal’s original The Lost Caverns of Ixalan illustration gives the card a visual identity before the rules text is read. Weight, texture, and low-angle scale make the creature’s physical presence the dominant fact of the scene. That framing matters in a tribal card: players need to recognize both the individual character and the larger family of visual cues that connects it to neighboring cards.</p><p>Reprints can change the costume, angle, environment, or mood, but the original art remains the point at which the card first entered memory. The printing gallery below treats artwork as part of the card’s history rather than decoration around the mechanical record.</p></section><section id="decklists"><div class="chapter-number">XIV · Deck archive</div><h2>Three editorial study shells</h2><p class="deck-intro">These lists are construction exercises designed to make the card’s role visible. They are deliberately labeled as editorial shells and should not be mistaken for historical tournament registrations or current legality recommendations.</p><div class="deck-archive"><details class="deck"><summary><span><strong>The focused tribal core</strong><small>Editorial typal study shell · 60 cards + 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Editorial study shell</span><p>This list is a teaching model for role, curve, and interaction. It is not presented as a tournament registration, exact historical list, or current legality recommendation.</p><div class="deck-meta"><div><b>Dinosaurs study shell</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="hm-hulking-raptor-1">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Core and support</h4><div class="row"><span class="qty">4</span>Hulking Raptor</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Bonehoard Dracosaur" tabindex="0">Bonehoard Dracosaur</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Etali, Primal Conqueror" tabindex="0">Etali, Primal Conqueror</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Etali, Primal Storm" tabindex="0">Etali, Primal Storm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghalta and Mavren" tabindex="0">Ghalta and Mavren</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghalta, Primal Hunger" tabindex="0">Ghalta, Primal Hunger</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghalta, Stampede Tyrant" tabindex="0">Ghalta, Stampede Tyrant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gishath, Sun&#x27;s Avatar" tabindex="0">Gishath, Sun&#x27;s Avatar</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kinjalli&#x27;s Caller" tabindex="0">Kinjalli&#x27;s Caller</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Otepec Huntmaster" tabindex="0">Otepec Huntmaster</span></div><div class="row"><span class="qty">20</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Kinjalli&#x27;s Caller" tabindex="0">Kinjalli&#x27;s Caller</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Otepec Huntmaster" tabindex="0">Otepec Huntmaster</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cultivate" tabindex="0">Cultivate</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Command Tower" tabindex="0">Command Tower</span></div></div></div></div><pre hidden id="hm-hulking-raptor-1">4 Hulking Raptor
+4 Bonehoard Dracosaur
+4 Etali, Primal Conqueror
+4 Etali, Primal Storm
+4 Ghalta and Mavren
+4 Ghalta, Primal Hunger
+4 Ghalta, Stampede Tyrant
+4 Gishath, Sun&#x27;s Avatar
+4 Kinjalli&#x27;s Caller
+4 Otepec Huntmaster
+20 Forest
+
+Sideboard
+3 Kinjalli&#x27;s Caller
+3 Otepec Huntmaster
+3 Cultivate
+3 Lightning Bolt
+3 Command Tower</pre></div></details><details class="deck"><summary><span><strong>The redundancy and interaction build</strong><small>Editorial typal study shell · 60 cards + 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Editorial study shell</span><p>This list is a teaching model for role, curve, and interaction. It is not presented as a tournament registration, exact historical list, or current legality recommendation.</p><div class="deck-meta"><div><b>Dinosaurs study shell</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="hm-hulking-raptor-2">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Core and support</h4><div class="row"><span class="qty">4</span>Hulking Raptor</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Etali, Primal Conqueror" tabindex="0">Etali, Primal Conqueror</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Etali, Primal Storm" tabindex="0">Etali, Primal Storm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghalta and Mavren" tabindex="0">Ghalta and Mavren</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghalta, Primal Hunger" tabindex="0">Ghalta, Primal Hunger</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghalta, Stampede Tyrant" tabindex="0">Ghalta, Stampede Tyrant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gishath, Sun&#x27;s Avatar" tabindex="0">Gishath, Sun&#x27;s Avatar</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kinjalli&#x27;s Caller" tabindex="0">Kinjalli&#x27;s Caller</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Otepec Huntmaster" tabindex="0">Otepec Huntmaster</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cultivate" tabindex="0">Cultivate</span></div><div class="row"><span class="qty">20</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Kinjalli&#x27;s Caller" tabindex="0">Kinjalli&#x27;s Caller</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Otepec Huntmaster" tabindex="0">Otepec Huntmaster</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cultivate" tabindex="0">Cultivate</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Command Tower" tabindex="0">Command Tower</span></div></div></div></div><pre hidden id="hm-hulking-raptor-2">4 Hulking Raptor
+4 Etali, Primal Conqueror
+4 Etali, Primal Storm
+4 Ghalta and Mavren
+4 Ghalta, Primal Hunger
+4 Ghalta, Stampede Tyrant
+4 Gishath, Sun&#x27;s Avatar
+4 Kinjalli&#x27;s Caller
+4 Otepec Huntmaster
+4 Cultivate
+20 Forest
+
+Sideboard
+3 Kinjalli&#x27;s Caller
+3 Otepec Huntmaster
+3 Cultivate
+3 Lightning Bolt
+3 Command Tower</pre></div></details><details class="deck"><summary><span><strong>The wider synergy experiment</strong><small>Editorial typal study shell · 60 cards + 15 sideboard</small></span><span class="plus">+</span></summary><div class="deck-body"><span class="provenance-badge">Editorial study shell</span><p>This list is a teaching model for role, curve, and interaction. It is not presented as a tournament registration, exact historical list, or current legality recommendation.</p><div class="deck-meta"><div><b>Dinosaurs study shell</b><div class="small">Main deck 60 · Sideboard 15</div></div><button class="copy" data-target="hm-hulking-raptor-3">Copy decklist</button></div><div class="deck-columns"><div class="deck-col"><div class="group"><h4>Core and support</h4><div class="row"><span class="qty">4</span>Hulking Raptor</div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Etali, Primal Storm" tabindex="0">Etali, Primal Storm</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghalta and Mavren" tabindex="0">Ghalta and Mavren</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghalta, Primal Hunger" tabindex="0">Ghalta, Primal Hunger</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Ghalta, Stampede Tyrant" tabindex="0">Ghalta, Stampede Tyrant</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Gishath, Sun&#x27;s Avatar" tabindex="0">Gishath, Sun&#x27;s Avatar</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Kinjalli&#x27;s Caller" tabindex="0">Kinjalli&#x27;s Caller</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Otepec Huntmaster" tabindex="0">Otepec Huntmaster</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Cultivate" tabindex="0">Cultivate</span></div><div class="row"><span class="qty">4</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">20</span><span class="card-name" data-card="Forest" tabindex="0">Forest</span></div></div></div><div class="deck-col"><div class="group"><h4>Sideboard · 15</h4><div class="row"><span class="qty">3</span><span class="card-name" data-card="Kinjalli&#x27;s Caller" tabindex="0">Kinjalli&#x27;s Caller</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Otepec Huntmaster" tabindex="0">Otepec Huntmaster</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Cultivate" tabindex="0">Cultivate</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Lightning Bolt" tabindex="0">Lightning Bolt</span></div><div class="row"><span class="qty">3</span><span class="card-name" data-card="Command Tower" tabindex="0">Command Tower</span></div></div></div></div><pre hidden id="hm-hulking-raptor-3">4 Hulking Raptor
+4 Etali, Primal Storm
+4 Ghalta and Mavren
+4 Ghalta, Primal Hunger
+4 Ghalta, Stampede Tyrant
+4 Gishath, Sun&#x27;s Avatar
+4 Kinjalli&#x27;s Caller
+4 Otepec Huntmaster
+4 Cultivate
+4 Lightning Bolt
+20 Forest
+
+Sideboard
+3 Kinjalli&#x27;s Caller
+3 Otepec Huntmaster
+3 Cultivate
+3 Lightning Bolt
+3 Command Tower</pre></div></details></div></section><section id="printings"><div class="chapter-number">XV · Material history</div><h2>Printings and sources</h2><p>The gallery begins with the verified debut printing and then favors distinct artwork before filling remaining slots chronologically. Exact printings are identified by Scryfall ID rather than by a name-only image request.</p><div class="printings canonical-printing-gallery" data-card="Hulking Raptor" data-gallery-fallback-count="5" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="lci" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Hulking Raptor" data-collector-number="191" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="45f763af-5a6a-404c-8e8c-4dbed71277bc" data-set="lci"><img alt="Hulking Raptor — The Lost Caverns of Ixalan" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/45f763af-5a6a-404c-8e8c-4dbed71277bc?format=image&amp;version=normal"/><figcaption><b>The Lost Caverns of Ixalan · 2023</b><br/>Original printing · Néstor Ossandón Leal · 191</figcaption></figure><figure class="printing" data-card-name="Hulking Raptor" data-collector-number="2026-9" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="f2e5c81f-1c82-4378-bfd0-db35796f7390" data-set="pmei"><img alt="Hulking Raptor — Media and Collaboration Promos" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/f2e5c81f-1c82-4378-bfd0-db35796f7390?format=image&amp;version=normal"/><figcaption><b>Media and Collaboration Promos · 1995</b><br/>Néstor Ossandón Leal · 2026-9</figcaption></figure><figure class="printing" data-card-name="Hulking Raptor" data-collector-number="327" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="27b95a76-688c-4bd9-a759-f83f1aa18e2a" data-set="lci"><img alt="Hulking Raptor — The Lost Caverns of Ixalan" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/27b95a76-688c-4bd9-a759-f83f1aa18e2a?format=image&amp;version=normal"/><figcaption><b>The Lost Caverns of Ixalan · 2023</b><br/>Sidharth Chaturvedi · 327</figcaption></figure><figure class="printing" data-card-name="Hulking Raptor" data-collector-number="191p" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="0b7061dd-8c20-43ce-b09f-86c81384de34" data-set="plci"><img alt="Hulking Raptor — The Lost Caverns of Ixalan Promos" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/0b7061dd-8c20-43ce-b09f-86c81384de34?format=image&amp;version=normal"/><figcaption><b>The Lost Caverns of Ixalan Promos · 2023</b><br/>Néstor Ossandón Leal · 191p</figcaption></figure><figure class="printing" data-card-name="Hulking Raptor" data-collector-number="191s" data-identity-status="verified-mtgjson-snapshot" data-scryfall-id="47fed56b-c45f-4802-ad4c-652f3b458a41" data-set="plci"><img alt="Hulking Raptor — The Lost Caverns of Ixalan Promos" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/47fed56b-c45f-4802-ad4c-652f3b458a41?format=image&amp;version=normal"/><figcaption><b>The Lost Caverns of Ixalan Promos · 2023</b><br/>Néstor Ossandón Leal · 191s</figcaption></figure></div><h3>Sources</h3><ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Hulking%20Raptor%22&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Hulking Raptor</a><span>Card identity, printing chronology, images, and Oracle record.</span></li><li><a href="https://mtgjson.com/downloads/">MTGJSON daily card data</a><span>Set, printing, artist, type, and identifier metadata.</span></li><li><a href="https://magic.wizards.com/en/rules">Magic Comprehensive Rules</a><span>Timing, costs, targets, zones, card types, and keyword rules.</span></li><li><a href="https://edhrec.com/tags/dinosaurs">EDHREC Dinosaurs theme pages</a><span>Community deck-building context and recurring typal associations.</span></li></ul><p class="editor-note">The article uses a 2026-08-01 MTGJSON metadata snapshot. Strategic discussion is an editorial synthesis; the deck shells above are not represented as historical registrations.</p></section></article><aside class="sidebar-note"><b>Dinosaurs</b><br/>Enrage, discover, colossal commanders, cost reduction, and the stomping heart of modern creature battlecruiser decks.</aside></div><section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XVI · Continue reading</div><h2>More from Dinosaurs</h2><p>Hulking Raptor belongs to the Dinosaurs shelf of the Honorable Mentions archive. Previous and next links remain inside this category, so new cards can be added without renumbering or rebuilding unrelated shelves.</p><nav class="end-nav" data-navigation-scope="category-local"><a href="honorable-gishath-suns-avatar.html"><small>Previous in Dinosaurs</small>Gishath, Sun&#x27;s Avatar</a><a href="honorable-kinjallis-caller.html"><small>Next in Dinosaurs</small>Kinjalli&#x27;s Caller</a></nav></section><div id="preview"><img alt="Card preview"/></div><footer class="footer">Compulsive Research · Honorable Mentions · Dinosaurs · Hulking Raptor · Independent, noncommercial Magic history project.</footer><script>/* CR_CARD_PREVIEW_RUNTIME_START */
+const preview=document.getElementById('preview'),pimg=preview?preview.querySelector('img'):null;let pinned=false;
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function showCard(el,x,y,p=false){if(!preview||!pimg||!el||!el.dataset.card)return;pimg.src=imgURL(el.dataset.card);pimg.alt=el.dataset.card;preview.classList.add('show');place(x,y);pinned=p}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script>
+<script defer="" src="assets/artwork-spotlight.js"></script>
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
+
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+<script defer="" src="assets/design-echo.js"></script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+<script defer="" src="assets/printing-gallery.js"></script></body></html>
