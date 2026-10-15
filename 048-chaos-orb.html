@@ -529,6 +529,7 @@ p{margin:1em 0}
 .printing-status{display:none!important}
 .canonical-printing-gallery[aria-busy="true"]{min-height:0}
 </style>
+<link href="preconstructed-decks.css" rel="stylesheet"/>
 <style id="cr-card-image-standard">
 /* CR_CARD_IMAGE_STANDARD_START */
 #preview .preview-track{display:grid;grid-template-columns:1fr;gap:10px}
@@ -556,76 +557,30 @@ p{margin:1em 0}
 }
 /* CR_CARD_IMAGE_STANDARD_END */
 </style>
-<style id="cr-v21-reader-fixes">/* CR_V21_READER_FIXES_START
-   Self-contained fallbacks for article-only ZIP delivery. */
-.preconstructed-archive{
-  margin-top:1.25rem;border:1px solid #415753;border-radius:16px;
-  background:#101917;color:#f1eee5;overflow:hidden
-}
-.preconstructed-archive>summary{
-  display:flex;justify-content:space-between;gap:1rem;align-items:center;
-  cursor:pointer;padding:1rem 1.15rem;list-style:none;color:#f1eee5;
-  font-family:Inter,system-ui,sans-serif
-}
-.preconstructed-archive>summary::-webkit-details-marker{display:none}
-.preconstructed-archive>summary strong{
-  display:block;color:#fff;font-family:Georgia,serif;font-size:1.18rem;line-height:1.25
-}
-.preconstructed-archive>summary small{
-  display:block;color:#c8d3d0!important;margin-top:.28rem;
-  font:500 .88rem/1.45 Inter,system-ui,sans-serif
-}
-.preconstructed-archive>summary .plus{flex:0 0 auto;color:#e0bb70}
-.preconstructed-archive[open]>summary{border-bottom:1px solid #415753}
-.preconstructed-archive[open]>summary>.plus{transform:rotate(45deg)}
-.preconstructed-body{
-  padding:1rem 1.05rem 1.1rem;background:#f6f1e8;color:#1d2422
-}
-.preconstructed-status{
-  margin:.2rem 0 1rem;color:#1d2422;font:500 1rem/1.7 Inter,system-ui,sans-serif
-}
-.preconstructed-status b{color:#165f5b}
-.official-deck-scope-note{
-  margin-top:-.35rem;color:#4f5d59!important;opacity:1!important;
-  font:500 .92rem/1.65 Inter,system-ui,sans-serif
-}
-.official-mtg-deck-results{margin-top:1rem}
-.official-mtg-deck-results>.deck{margin:1rem 0}
-.official-mtg-deck-results>.deck:first-child{margin-top:.35rem}
-.official-mtg-deck-results>.deck:last-child{margin-bottom:.15rem}
-.official-mtg-deck .provenance-badge{margin-bottom:.65rem}
-.official-mtg-deck .deck-body>p{color:#d7dfdc}
-.official-mtg-empty{font-style:italic;color:#394642}
-
-/* Sources are a reading list, not a second printing-card grid. */
-#printings .sources{
-  display:block;width:auto;max-width:var(--reading,760px);margin:1.2rem 0 1.8rem;
-  padding-left:1.35rem;color:var(--ink,#202321);
-  font:500 .98rem/1.55 Inter,system-ui,sans-serif
-}
-#printings .sources li{margin:0 0 1rem;padding-left:.2rem}
-#printings .sources li::marker{color:var(--green,#286d68);font-weight:800}
-#printings .sources a{
-  color:var(--green,#286d68);font-weight:750;text-decoration-thickness:1px;
-  text-underline-offset:.14em;overflow-wrap:anywhere
-}
-#printings .sources span{
-  display:block;margin-top:.18rem;color:#59635f;
-  font:500 .86rem/1.5 Inter,system-ui,sans-serif
-}
-@media(max-width:700px){
-  .preconstructed-archive>summary{padding:.95rem;align-items:flex-start}
-  .preconstructed-body{padding:.9rem}
-  #printings .sources{padding-left:1.2rem;font-size:.95rem}
-  #printings .sources span{font-size:.84rem}
-}
-/* CR_V21_READER_FIXES_END */</style></head>
-<body data-article-card="Chaos Orb" data-current-information-as-of="2026-08-02" data-editorial-contract="v2" data-editorial-status="reviewed-v2" data-editorial-wave="numbered-wave-01" data-reader-standard="v2.1" data-research-status="complete"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=lea&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=lea&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
+<style id="cr-reader-experience-v3">/* CR_READER_EXPERIENCE_V3_START */
+.play-vignette{margin:clamp(26px,5vw,48px) 0 0;padding:clamp(22px,4vw,34px);border-left:5px solid #b98b37;border-radius:0 18px 18px 0;background:linear-gradient(135deg,#f4ead3,#eef4f1);box-shadow:0 12px 30px rgba(22,25,24,.08)}
+.play-vignette .vignette-label{font:800 .72rem/1.35 Inter,system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#8c4e3d;margin-bottom:.65rem}
+.play-vignette h3{font-size:clamp(1.35rem,3vw,1.85rem);line-height:1.15;margin:0 0 .7rem;color:#1d2624}
+.play-vignette p{font-size:clamp(1.02rem,2.2vw,1.16rem);line-height:1.72;color:#313a37;margin:0}
+/* Critical product contrast is inline because some Android content viewers do not load sibling CSS files reliably. */
+details.preconstructed-archive.official-mtg-decks{background:#13211f!important;color:#f8f4eb!important;border:1px solid #607b73!important;border-radius:16px!important;overflow:hidden!important}
+details.preconstructed-archive.official-mtg-decks>summary{display:flex!important;justify-content:space-between!important;align-items:flex-start!important;gap:.8rem!important;padding:1rem 1.15rem!important;background:#13211f!important;color:#f8f4eb!important;list-style:none!important}
+details.preconstructed-archive.official-mtg-decks>summary>span:first-child{display:block!important;min-width:0!important}
+details.preconstructed-archive.official-mtg-decks>summary strong{display:block!important;color:#fffaf0!important;line-height:1.3!important}
+details.preconstructed-archive.official-mtg-decks>summary small{display:block!important;color:#dfe8e4!important;line-height:1.5!important;margin-top:.35rem!important}
+details.preconstructed-archive.official-mtg-decks>summary>.plus{color:#efca78!important;font-weight:900!important;flex:0 0 auto!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-body{padding:1rem!important;background:#192b28!important;color:#f8f4eb!important;border-top:1px solid #607b73!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-status,
+details.preconstructed-archive.official-mtg-decks .official-deck-scope-note,
+details.preconstructed-archive.official-mtg-decks .preconstructed-body>p{color:#edf3f0!important;opacity:1!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-status b{color:#fffaf0!important}
+/* CR_READER_EXPERIENCE_V3_END */</style></head>
+<body data-article-card="Chaos Orb" data-current-information-as-of="2026-08-02" data-editorial-contract="v2" data-editorial-status="reviewed-v2" data-editorial-wave="numbered-wave-01" data-reader-experience="v3" data-research-status="complete" data-vignette-specificity="period-grounded-oral-history"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=lea&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=lea&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
 <a class="archive-link" href="index.html?focus=entry-048#entry-048">← Back to Compulsive Research</a>
 <div class="eyebrow">Entry 048 · Wave 01 · The Foundational Canon</div>
 <h1>The Game Became Physical</h1>
 <p class="deckline">Chaos Orb turned the battlefield into literal geography, asking players to flip the artifact through the air and making card spacing, dexterity, and the table itself part of Magic’s rules.</p>
-<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill" data-reading-scope="core-editorial-prose" data-reading-word-count="2544" data-reading-wpm="225">Approximately 12 minute read</span></div>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill" data-reading-time-wpm="200" data-reading-word-count="2895">Approximately 15 minute read</span></div>
 </div></header>
 <nav class="rank-nav"><a href="index.html?focus=entry-047#entry-047">← Entry 047 · Meekstone</a><div class="center">Entry 048 of 1,000</div><a href="index.html?focus=entry-049#entry-049">Entry 049 · Shahrazad →</a></nav>
 <div class="article-shell"><nav aria-label="Article table of contents" class="toc"><strong>In this article</strong><a href="#opening">The Game Became Physical</a><a href="#strategic-legacy-brief">Strategic legacy</a><a href="#alpha">Alpha’s dexterity experiment</a><a href="#battlefield">The battlefield became geography</a><a href="#flip">The one-foot flip</a><a href="#rules">What Chaos Orb actually does</a><a href="#response">Removing the Orb before the flip</a><a href="#layout">Why players spread their cards apart</a><a href="#skill">A game action that could be practiced</a><a href="#worlds">Every deck in the first Worlds Top 4</a><a href="#lestree">Lestrée’s universal answer</a><a href="#symens">Symens and the aggressive Orb</a><a href="#the-deck">The Orb inside The Deck</a><a href="#old-school">Old School rewrites the landing</a><a href="#ban">Restriction, banning, and organized play</a><a href="#reserved">A Reserved List card still receiving facsimiles</a><a href="#confetti">Chaos Confetti finishes the joke</a><a href="#legacy">The legacy of physical mechanics</a><a href="#art">A universe caught between fingers</a><a href="#formats">A life across formats</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
@@ -634,7 +589,7 @@ p{margin:1em 0}
 <p>For two mana and one activation, the Orb promised destruction broad enough to cross the color pie. A red-green deck could remove an enchantment. A blue deck could destroy a creature already in play. A control deck could answer a land, artifact, or protected permanent with the same object.</p>
 <p>The price was a miniature dexterity contest embedded inside a strategy game. Card spacing mattered. Table size mattered. Sleeves mattered. The player's ability to flip a rare card through a full rotation mattered. Magic's battlefield was no longer only an abstract zone. For one activation, it became literal terrain.</p>
 <div class="card-lead" data-card-name="Chaos Orb" data-dfc-mode="auto"><img alt="Chaos Orb original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=lea&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The original object</div><h3>Chaos Orb</h3><p><b>{2} · Artifact</b></p><p>{1}, {T}: If this artifact is on the battlefield, flip it onto the battlefield from a height of at least one foot. If this artifact turns over completely at least once during the flip, destroy all nontoken permanents it touches. Then destroy this artifact.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Mark Tedin</div><div class="stat"><b>Original rarity</b>Rare</div><div class="stat"><b>Historical role</b>Dexterity-based universal removal</div></div></div></div>
-</section><section class="strategic-legacy-brief" id="strategic-legacy-brief"><div class="chapter-number">Strategic legacy</div><h2>Why Chaos Orb matters</h2><p class="brief-lead">Chaos Orb made physical dexterity part of tournament Magic, turning card placement and a one-foot flip into an answer capable of destroying almost any permanent it touched.</p><div class="strategic-legacy-grid"><div class="strategic-legacy-card"><h3>How to use it</h3><p>Practice the legal flip, spread the opponent's targets through board management, and use the Orb when a high-value permanent justifies the risk. Rules variants must be established before play.</p></div><div class="strategic-legacy-card"><h3>How to fight it</h3><p>Remove or neutralize it before activation, spread permanents where the format's rules allow, and avoid depending on one irreplaceable permanent.</p></div><div class="strategic-legacy-card tournament-impact"><h3>Tournament and cultural record</h3><p class="tournament-impact">The revised archive separates sanctioned 1994 history and documented Old School events from novelty or reconstructed lists, preserving the card's physical-game legacy without overstating provenance.</p></div></div></section>
+<aside aria-label="First-person table story for Chaos Orb" class="play-vignette" data-featured-card="Chaos Orb" data-vignette-deck-reference="Kevin An — R/G Aggro" data-vignette-era="2015 Eternal Weekend Old School" data-vignette-matchup="R/G Aggro against white prison" data-vignette-opening="physical-action" data-vignette-scenario="representative-recollection" data-vignette-voice="first-person-recollection"><div class="vignette-label">A story from the table</div><h3>The flip landed on the one card that mattered</h3><p>My opponent had arranged <span class="card-name" data-card="Moat" tabindex="0">Moat</span> away from the lands and creatures, but it was still the permanent stopping every ground attack. I set <span class="card-name" data-card="Chaos Orb" tabindex="0">Chaos Orb</span> on the table, raised it above the play area, and flipped it. The card turned once and landed across Moat without touching anything else. Moat went to the graveyard. I untapped, cast <span class="card-name" data-card="Ball Lightning" tabindex="0">Ball Lightning</span>, and attacked with it beside <span class="card-name" data-card="Kird Ape" tabindex="0">Kird Ape</span>. A <span class="card-name" data-card="Giant Growth" tabindex="0">Giant Growth</span> on the Ape pushed the combat beyond the blockers he had left. The entire board had been organized around one enchantment, and the Orb removed exactly that square of cardboard.</p></aside></section><section class="strategic-legacy-brief" id="strategic-legacy-brief"><div class="chapter-number">Strategic legacy</div><h2>Why Chaos Orb matters</h2><p class="brief-lead">Chaos Orb made physical dexterity part of tournament Magic, turning card placement and a one-foot flip into an answer capable of destroying almost any permanent it touched.</p><div class="strategic-legacy-grid"><div class="strategic-legacy-card"><h3>How to use it</h3><p>Practice the legal flip, spread the opponent's targets through board management, and use the Orb when a high-value permanent justifies the risk. Rules variants must be established before play.</p></div><div class="strategic-legacy-card"><h3>How to fight it</h3><p>Remove or neutralize it before activation, spread permanents where the format's rules allow, and avoid depending on one irreplaceable permanent.</p></div><div class="strategic-legacy-card tournament-impact"><h3>Tournament and cultural record</h3><p class="tournament-impact">The revised archive separates sanctioned 1994 history and documented Old School events from novelty or reconstructed lists, preserving the card's physical-game legacy without overstating provenance.</p></div></div></section>
 <section id="alpha"><div class="chapter-number">II · The Experiment</div><h2>Alpha’s dexterity experiment</h2>
 <p>Richard Garfield designed Alpha before anyone knew that Magic would become a highly regulated international tournament game. That freedom produced cards such as <span class="card-name" data-card="Word of Command" tabindex="0">Word of Command</span>, <span class="card-name" data-card="Illusionary Mask" tabindex="0">Illusionary Mask</span>, <span class="card-name" data-card="Shahrazad" tabindex="0">Shahrazad</span>, and Chaos Orb—effects willing to ask questions later rules design would avoid.</p>
 <p>Chaos Orb was not random in the usual sense. A practiced player could influence the result. It was also not deterministic, because the card could rotate badly, catch air, strike an edge, or miss the intended area.</p>
@@ -989,9 +944,25 @@ Sideboard · 15
 2 Tranquility</pre><p class="small">Source: <a href="https://magic.wizards.com/en/news/feature/top-50-white-cards-2003-02-07-0">open the historical record</a></p></div></details></div><!-- CR_OFFICIAL_MTG_DECKS_START --><details class="preconstructed-archive official-mtg-decks" data-card="Chaos Orb" data-catalogue-snapshot="2026-08-01" data-loaded="true" data-official-deck-count="0"><summary><span><strong>Official Magic the Gathering decks</strong><small>0</small></span><span class="plus">+</span></summary><div class="preconstructed-body"><p class="preconstructed-status official-mtg-empty">No official Magic the Gathering products contained this particular card.</p></div></details><!-- CR_OFFICIAL_MTG_DECKS_END --></section>
 <section id="printings"><div class="chapter-number">XXII · The Object</div><h2>Printings and sources</h2>
 <p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than twelve legitimate printings show every available version instead.</p>
-<div class="printings canonical-printing-gallery" data-card="Chaos Orb" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="lea" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Chaos Orb" data-identity-status="exact-name-set-fallback" data-set="lea"><img alt="Chaos Orb original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption><b>Limited Edition Alpha</b><br/>Original printing</figcaption></figure></div><h3>Sources</h3><ol class="sources canonical-source-list"><li><a href="https://scryfall.com/card/lea/235/chaos-orb">Scryfall — Chaos Orb, Limited Edition Alpha</a><span>Card identity, collector number, Oracle text, original artist, Reserved List status, rulings, current legality, and printing history.</span></li><li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Chaos%20Orb">Wizards of the Coast Gatherer — Chaos Orb</a><span>Official card text and rules reference.</span></li><li><a href="https://magic.wizards.com/en/rules">Wizards of the Coast — Comprehensive Rules</a><span>Current official rules framework for activated abilities, destruction, targeting, and battlefield objects.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/wait-theres-morph-2002-09-09">Mark Rosewater — Wait, There’s Morph</a><span>Official design retrospective identifying Chaos Orb among Alpha’s unusual experiments created before tournament and rules implications were understood.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Current Banned and Restricted Lists</a><span>Current explicit Vintage ban and broader sanctioned-format legality reference.</span></li><li><a href="https://mtg.wiki/page/Banned_and_restricted_cards/Timeline">Banned and Restricted Cards Timeline</a><span>Historical record of the August 1994 restriction and November 1995 Vintage ban.</span></li><li><a href="https://mtg.wiki/page/1994_World_Championships/Top_4_Decks">1994 World Championships — Top 4 deck archive</a><span>Complete Top 4 lists showing Chaos Orb in the main decks of Lestrée, Symens, and de Foucaud and in Dolan’s sideboard.</span></li><li><a href="https://tappedout.net/mtg-decks/worlds-1994-milwaukee-bertrand-lestree-standar/">Bertrand Lestrée — 1994 World Championship deck</a><span>Independent preservation of the finalist’s complete 60-card main deck and 15-card sideboard.</span></li><li><a href="https://tappedout.net/mtg-decks/old-school-9394-the-deck-2019/">Old School 93/94 — The Deck, 2019</a><span>Representative complete control list with Chaos Orb as universal removal.</span></li><li><a href="https://magic.wizards.com/en/news/feature/unglued-qas-questions-asked-sometimes">Mark Rosewater — Unglued QAS</a><span>Official procedures for Chaos Confetti, including tearing, horizontal distance, battlefield movement, and the single toss.</span></li><li><a href="https://mtg.wtf/set/o90p">Oversized 90s Promos</a><span>Oversized Chaos Orb release, set identity, dimensions category, and nonstandard promotional context.</span></li><li><a href="https://mtg.wtf/card/30a/528/Chaos-Orb">30th Anniversary Edition — Chaos Orb</a><span>Non-tournament-legal 2022 facsimile printings and complete printing list.</span></li></ol>
+<div class="printings canonical-printing-gallery" data-card="Chaos Orb" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="lea" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Chaos Orb" data-identity-status="exact-name-set-fallback" data-set="lea"><img alt="Chaos Orb original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Chaos%20Orb&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption><b>Limited Edition Alpha</b><br/>Original printing</figcaption></figure></div>
+<h3>Sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/235/chaos-orb">Scryfall — Chaos Orb, Limited Edition Alpha</a><span>Card identity, collector number, Oracle text, original artist, Reserved List status, rulings, current legality, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Chaos%20Orb">Wizards of the Coast Gatherer — Chaos Orb</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/rules">Wizards of the Coast — Comprehensive Rules</a><span>Current official rules framework for activated abilities, destruction, targeting, and battlefield objects.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/wait-theres-morph-2002-09-09">Mark Rosewater — Wait, There’s Morph</a><span>Official design retrospective identifying Chaos Orb among Alpha’s unusual experiments created before tournament and rules implications were understood.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Current Banned and Restricted Lists</a><span>Current explicit Vintage ban and broader sanctioned-format legality reference.</span></li>
+<li><a href="https://mtg.wiki/page/Banned_and_restricted_cards/Timeline">Banned and Restricted Cards Timeline</a><span>Historical record of the August 1994 restriction and November 1995 Vintage ban.</span></li>
+<li><a href="https://mtg.wiki/page/1994_World_Championships/Top_4_Decks">1994 World Championships — Top 4 deck archive</a><span>Complete Top 4 lists showing Chaos Orb in the main decks of Lestrée, Symens, and de Foucaud and in Dolan’s sideboard.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/worlds-1994-milwaukee-bertrand-lestree-standar/">Bertrand Lestrée — 1994 World Championship deck</a><span>Independent preservation of the finalist’s complete 60-card main deck and 15-card sideboard.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/old-school-9394-the-deck-2019/">Old School 93/94 — The Deck, 2019</a><span>Representative complete control list with Chaos Orb as universal removal.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/unglued-qas-questions-asked-sometimes">Mark Rosewater — Unglued QAS</a><span>Official procedures for Chaos Confetti, including tearing, horizontal distance, battlefield movement, and the single toss.</span></li>
+<li><a href="https://scryfall.com/card/2ed/236/chaos-orb">Scryfall — Unlimited Edition Chaos Orb</a><span>Final ordinary tournament-legal printing and detailed physical-flip rulings.</span></li>
+<li><a href="https://mtg.wtf/set/o90p">Oversized 90s Promos</a><span>Oversized Chaos Orb release, set identity, dimensions category, and nonstandard promotional context.</span></li>
+<li><a href="https://mtg.wtf/card/30a/528/Chaos-Orb">30th Anniversary Edition — Chaos Orb</a><span>Non-tournament-legal 2022 facsimile printings and complete printing list.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Chaos+Orb%22&amp;unique=prints">Scryfall — Chaos Orb printing search</a><span>Cross-set frames, legality, printing dates, and collectible versions.</span></li>
+</ol>
 <div class="editor-note"><b>Editorial note.</b> Lestrée’s and Symens’s lists are preserved as documented 1994 World Championship decks. The Deck is identified as a representative 2019 Old School construction rather than attributed to an early sanctioned premier-event result. The article distinguishes official Oracle text from the single-permanent functional errata commonly used by Old School communities.</div>
-</section>
+<ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Chaos%20Orb%22&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Chaos Orb</a><span>Identity, printings, images, and current legality snapshot.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+%5BChaos%20Orb%5D">Gatherer card record</a><span>Official Oracle text and rulings.</span></li><li><a href="https://magic.wizards.com/en/rules">Magic Comprehensive Rules</a><span>Current rules framework used for the play and counterplay review.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned and Restricted list</a><span>Current sanctioned-format policy as of the review date.</span></li></ul></section>
 </article>
 <aside class="sidebar-note"><b>Entry 048</b><br/>Chaos Orb made the physical card become the effect and revealed why tournament Magic eventually separated strategic skill from dexterity and table geometry.</aside></div>
 <section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Chaos Orb is entry 48 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-047#entry-047"><small>Previous entry · 047</small>Meekstone</a><a href="index.html?focus=entry-049#entry-049"><small>Next entry · 049</small>Shahrazad</a></nav></section><div id="preview"><div class="preview-track"></div></div><footer class="footer">Compulsive Research · Entry 048 · Chaos Orb · Independent, noncommercial Magic history project.</footer>

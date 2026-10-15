@@ -2,13 +2,13 @@
 
 An editorial archive of 1,000 numbered Magic cards and 505 active Honorable Mentions across 22 categories. The site entry point is `index.html`.
 
-> **Migration notice (October 15, 2026):** The GitHub `main` branch was last updated on August 3, 2026, and is **not** yet synchronized with the newer, validated Reader V3.1 project. Do not edit or regenerate articles from this older branch as though it were the latest editorial state.
+> **Recovery completed (October 15, 2026):** The accepted September 24 Reader V3.1 project has been restored to this repository and validated. Read `CURRENT-STATE.json`, `audit.md`, and `audit/github-migration/REPORT.md` before continuing. Newer validated GitHub commits take precedence over older ZIP snapshots.
 
 ## Authoritative project checkpoint
 
-The most recently verified complete package is `Compulsive-Research-Reader-V3.1-Audit-Checkpoint-01-2026-09-24.zip` (September 24, 2026). Its `Compulsive-Research-main/` directory is the authoritative working source until a newer validated checkpoint replaces it. That package contains the complete 1,505-article site, editorial contracts, testing scripts, research, audit reports, and corrected historical articles. **The ZIP itself is not checked into this older branch.**
+The recovery source is `Compulsive-Research-Reader-V3.1-Audit-Checkpoint-01-2026-09-24.zip` (September 24, 2026). Its complete source tree is now checked in: the 1,505-article site, editorial contracts, testing scripts, research, audit reports, and corrected historical articles. The ZIP is retained externally as a recovery source; it is not duplicated in Git.
 
-Before continuing editorial work, synchronize from the latest accepted complete package; do not overwrite newer edits with the stale website here. See `AGENTS.md` for Work-session safeguards.
+Future Work sessions should start from current GitHub `main`, inspect the state and audit, and preserve newer validated commits. See `AGENTS.md` for safeguards.
 
 ## Publishing architecture
 
@@ -18,7 +18,7 @@ Before continuing editorial work, synchronize from the latest accepted complete 
 - Landing page: `index.html`.
 - Structural benchmark: `250-eternal-dragon.html`.
 
-The September checkpoint reports a passing quick suite, 11/11 full release checks, and 54 Reader V3.1 article validations. That validation **does not apply to this older GitHub branch**.
+The recovery passed the 10-check quick suite, nine archive-refresh stages, and all 11 full release checks. The navigation validator also checks every local link and manifest-derived previous/next/return target. Browser checks run in GitHub Actions at desktop and mobile widths. Existing deck-evidence and legacy migration warnings remain separate review queues.
 
 ## GitHub Work sessions
 

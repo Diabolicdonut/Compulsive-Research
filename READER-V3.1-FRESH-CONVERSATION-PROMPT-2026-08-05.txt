@@ -1,0 +1,59 @@
+Continue the Compulsive Research Magic: The Gathering card-history website from the uploaded Reader V3.1 current-project ZIP.
+
+Treat the extracted `Compulsive-Research-main` folder as the sole source of truth. Do not reconstruct the site from older packages and do not revert approved Reader V3.1 work.
+
+First read:
+
+1. `audit.md` (September 24 checkpoint and outstanding corrections)
+2. `READER-V3.1-CURRENT-HANDOFF-2026-08-05.md`
+3. `READER-V3.1-START-HERE-2026-08-05.md`
+4. `CURRENT-STATE.json`
+5. `canonical/READER-FACING-EDITORIAL-POLICY.md`
+6. `canonical/EDITORIAL-V2-CONTRACT.md`
+7. `canonical/GENERATION-PROMPT.md`
+8. `canonical/DECK-ARCHIVE-CONTRACT.md`
+9. `tools/validate_reader_experience_v3.py`
+10. `tools/validate_reader_layout_contract.py`
+
+Numbered Wave 1, entries 001–050, is complete under Reader V3.1 and received targeted gameplay corrections on September 24. The exact next task is to retrofit numbered entries 051–060, Juzám Djinn through Mishra's Factory. Validate and save this ten-article checkpoint, then continue in groups of ten through entry 100. Keep each checkpoint independently reviewable.
+
+Use entries 001–010 as the primary approved pilot, entries 011–050 as the completed sequential continuation, and these four supplementary examples:
+
+- `248-astral-slide.html`
+- `250-eternal-dragon.html`
+- `417-stoneforge-mystic.html`
+- `425-emrakul-the-aeons-torn.html`
+
+Preserve the following standard:
+
+- Introduce the card image, rules text, original printing, and identity before Strategic Legacy.
+- End the opening with one first-person vignette labeled exactly `A story from the table`.
+- Show only the label, a card-specific story title, and the raw story. No visible era or matchup caption and no explanatory coda.
+- Write one speaker recounting one opponent and one concrete game. Use exact cards, mana, turns, stack interactions, attacks, and board states that fit the relevant era and card pool.
+- Ground tournament-card stories in an exact historical Deck Archive registration whenever possible. Keep source deck, era, matchup, and representative-reconstruction status in hidden metadata.
+- Vary story openings across the wave. Do not repeatedly start with `I remember`, `I still remember`, `There I was`, or the same six-word opening. No more than one stock memory cue per fifty-card wave.
+- End each story on the decisive play, reaction, reversal, punchline, or board state. Do not explain the meaning afterward.
+- Place Strategic Legacy immediately after the completed opening. Remove any highlighted thesis immediately before it that repeats the same point.
+- Calculate read time from actual editorial prose at 200 words per minute. Never hard-code 20 minutes.
+- Keep Official Magic product text readable using inline critical contrast and shared CSS.
+- Use one Continue Reading navigation block outside article content, notes, and Sources.
+- Give every Design Echo a card-specific title and use correct comparison art.
+- Preserve genuine tournament decks and official Wizards product decks. Never invent tournament registrations.
+- Clearly label curated examples and representative constructions.
+- Do not shorten strong existing articles or expose internal editorial workflow labels to readers.
+- Expand toward or beyond 4,000 words only where card-specific evidence supports it; never pad.
+
+Research and write every story individually. Do not use a generic mass-story generator or reuse the same narrative skeleton.
+
+After each internal ten-card group run:
+
+python tools/validate_reader_experience_v3.py
+python tools/validate_reader_layout_contract.py
+python tools/run_validation_suite.py --quick
+
+Before delivery run:
+
+python tools/run_validation_suite.py --refresh-v2
+python tools/run_validation_suite.py --full
+
+Package the fifty changed articles, updated infrastructure and dossiers, a review index, reports, manifest, checksums, and an updated current-project ZIP. State unresolved warnings honestly.

@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://compulsive-research.local/research-dossier-v2.schema.json",
+  "title": "Compulsive Research approved research dossier V2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "cardName",
+    "articleClass",
+    "thesis",
+    "canonicalIdentity",
+    "originalContext",
+    "loreContext",
+    "competitiveTimeline",
+    "playbook",
+    "counterplay",
+    "deckEvidence",
+    "claims",
+    "sources",
+    "researchStatus",
+    "review"
+  ],
+  "properties": {
+    "schemaVersion": {"const": "2.0"},
+    "cardName": {"type": "string", "minLength": 1},
+    "articleClass": {
+      "enum": [
+        "tournament-pillar",
+        "character-or-story-object",
+        "combo-or-engine-piece",
+        "design-landmark",
+        "casual-icon",
+        "banned-or-restricted-card",
+        "collector-object"
+      ]
+    },
+    "secondaryClasses": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "thesis": {"type": "string", "minLength": 80},
+    "canonicalIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["oracleId", "oracleName", "firstPrintingSetCode", "firstPrintingSetName", "releaseDate", "scryfallId", "illustrationId", "originalArtist", "currentOracleText", "promotionalDebut"],
+      "properties": {
+        "oracleId": {"type": "string", "minLength": 1},
+        "oracleName": {"type": "string", "minLength": 1},
+        "firstPrintingSetCode": {"type": "string", "minLength": 1},
+        "firstPrintingSetName": {"type": "string", "minLength": 1},
+        "releaseDate": {"type": "string", "format": "date"},
+        "scryfallId": {"type": "string", "minLength": 1},
+        "illustrationId": {"type": "string"},
+        "originalArtist": {"type": "string", "minLength": 1},
+        "originalPrintedText": {"type": "string"},
+        "currentOracleText": {"type": "string"},
+        "promotionalDebut": {"type": "boolean"},
+        "identityNotes": {"type": "string"}
+      }
+    },
+    "originalContext": {
+      "type": "object",
+      "required": ["setEnvironment", "designPurpose", "initialReception", "sourceIds"],
+      "properties": {
+        "setEnvironment": {"type": "string", "minLength": 1},
+        "designPurpose": {"type": "string", "minLength": 1},
+        "initialReception": {"type": "string", "minLength": 1},
+        "sourceIds": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "loreContext": {
+      "type": "object",
+      "required": ["scope", "summary", "sourceIds"],
+      "properties": {
+        "scope": {"enum": ["full", "flavor-only", "none-documented"]},
+        "summary": {"type": "string", "minLength": 1},
+        "depictedMoment": {"type": "string"},
+        "relatedStoryCards": {"type": "array", "items": {"type": "string"}},
+        "sourceIds": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "competitiveTimeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "significance", "sourceIds"],
+        "properties": {
+          "date": {"type": "string", "minLength": 4},
+          "format": {"type": "string"},
+          "event": {"type": "string"},
+          "player": {"type": "string"},
+          "result": {"type": "string"},
+          "archetype": {"type": "string"},
+          "significance": {"type": "string", "minLength": 1},
+          "sourceIds": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "playbook": {
+      "type": "object",
+      "required": ["role", "deckRequirements", "copyCount", "mulligans", "sequencing", "sideboarding", "commonMistakes"],
+      "properties": {
+        "role": {"type": "string", "minLength": 1},
+        "deckRequirements": {"type": "string", "minLength": 1},
+        "copyCount": {"type": "string", "minLength": 1},
+        "mulligans": {"type": "string", "minLength": 1},
+        "sequencing": {"type": "string", "minLength": 1},
+        "sideboarding": {"type": "string", "minLength": 1},
+        "commonMistakes": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "counterplay": {
+      "type": "object",
+      "required": ["directAnswers", "engineDisruption", "timingWindows", "racing", "sideboarding"],
+      "properties": {
+        "directAnswers": {"type": "string", "minLength": 1},
+        "engineDisruption": {"type": "string", "minLength": 1},
+        "timingWindows": {"type": "string", "minLength": 1},
+        "racing": {"type": "string", "minLength": 1},
+        "sideboarding": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "deckEvidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["deckKind", "deckName", "format", "date", "sourceId"],
+        "properties": {
+          "deckKind": {"enum": ["tournament-registration", "official-digital-deck", "curated-example"]},
+          "player": {"type": "string"},
+          "deckName": {"type": "string", "minLength": 1},
+          "event": {"type": "string"},
+          "placement": {"type": "string"},
+          "format": {"type": "string", "minLength": 1},
+          "date": {"type": "string", "minLength": 4},
+          "sourceId": {"type": "string", "minLength": 1},
+          "reviewedBy": {"type": "string"},
+          "legalityAsOf": {"type": "string", "format": "date"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["claimId", "summary", "sourceIds", "confidence"],
+        "properties": {
+          "claimId": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "summary": {"type": "string", "minLength": 1},
+          "sourceIds": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "confidence": {"enum": ["high", "medium", "disputed"]},
+          "asOf": {"type": "string", "format": "date"},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["sourceId", "title", "url", "sourceType", "accessedDate", "supports"],
+        "properties": {
+          "sourceId": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "title": {"type": "string", "minLength": 1},
+          "url": {"type": "string", "format": "uri"},
+          "sourceType": {"enum": ["primary", "contemporary-secondary", "retrospective-secondary", "database", "player-recollection"]},
+          "publicationDate": {"type": "string"},
+          "accessedDate": {"type": "string", "format": "date"},
+          "supports": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "researchStatus": {"enum": ["scaffold", "in-research", "draft", "fact-checked", "complete"]},
+    "review": {
+      "type": "object",
+      "required": ["historicalReviewDate", "editorialReviewer", "openQuestions"],
+      "properties": {
+        "historicalReviewDate": {"type": "string", "format": "date"},
+        "currentInformationAsOf": {"type": "string", "format": "date"},
+        "editorialReviewer": {"type": "string", "minLength": 1},
+        "openQuestions": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

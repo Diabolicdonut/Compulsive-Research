@@ -1,0 +1,1227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://compulsive-research.local/article-content.schema-v2.json",
+  "title": "Compulsive Research numbered article content — Editorial V2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "articleClass",
+    "thesis",
+    "classicPlayVignette",
+    "canonicalIdentity",
+    "originalContext",
+    "loreContext",
+    "competitiveTimeline",
+    "playbook",
+    "counterplay",
+    "claims",
+    "mechanicalStatus",
+    "editorialStatus",
+    "researchStatus",
+    "releaseStatus",
+    "lastHistoricallyReviewed",
+    "currentInformationAsOf",
+    "entry",
+    "slug",
+    "cardName",
+    "wave",
+    "articleTitle",
+    "deckline",
+    "release",
+    "readingTimeMinutes",
+    "readingWordCount",
+    "hero",
+    "artworkSpotlight",
+    "sections",
+    "designEcho",
+    "decklists",
+    "originalSetCode",
+    "printings",
+    "sources",
+    "preconstructedDeckArchive",
+    "cardImageStandard"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "2.0"
+    },
+    "articleClass": {
+      "type": "string",
+      "enum": [
+        "tournament-pillar",
+        "character-or-story-object",
+        "combo-or-engine-piece",
+        "design-landmark",
+        "casual-icon",
+        "banned-or-restricted-card",
+        "collector-object"
+      ]
+    },
+    "secondaryClasses": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "tournament-pillar",
+          "character-or-story-object",
+          "combo-or-engine-piece",
+          "design-landmark",
+          "casual-icon",
+          "banned-or-restricted-card",
+          "collector-object"
+        ]
+      }
+    },
+    "thesis": {
+      "type": "string",
+      "minLength": 80,
+      "description": "Card-specific claim explaining why this card belongs in the archive."
+    },
+    "strategicLegacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Reader-facing synthesis rendered immediately after the opening card introduction, never before it.",
+      "required": [
+        "heading",
+        "lead",
+        "use",
+        "counterplay",
+        "record"
+      ],
+      "properties": {
+        "heading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lead": {
+          "type": "string",
+          "minLength": 1
+        },
+        "use": {
+          "type": "string",
+          "minLength": 1
+        },
+        "counterplay": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recordLabel": {
+          "type": "string",
+          "enum": [
+            "Tournament record",
+            "Cultural record",
+            "Tournament and cultural record"
+          ]
+        }
+      }
+    },
+    "canonicalIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "oracleId",
+        "oracleName",
+        "firstPrintingSetCode",
+        "firstPrintingSetName",
+        "releaseDate",
+        "scryfallId",
+        "illustrationId",
+        "originalArtist",
+        "currentOracleText",
+        "promotionalDebut"
+      ],
+      "properties": {
+        "oracleId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "oracleName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "firstPrintingSetCode": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "firstPrintingSetName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "releaseDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "scryfallId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "illustrationId": {
+          "type": "string"
+        },
+        "originalArtist": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalPrintedText": {
+          "type": "string"
+        },
+        "currentOracleText": {
+          "type": "string"
+        },
+        "faces": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "oracleText": {
+                "type": "string"
+              },
+              "scryfallId": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "promotionalDebut": {
+          "type": "boolean"
+        },
+        "identityNotes": {
+          "type": "string"
+        }
+      }
+    },
+    "originalContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "setEnvironment",
+        "designPurpose",
+        "initialReception"
+      ],
+      "properties": {
+        "setEnvironment": {
+          "type": "string",
+          "minLength": 1
+        },
+        "designPurpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "initialReception": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "loreContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope",
+        "summary",
+        "sourceIds"
+      ],
+      "properties": {
+        "scope": {
+          "type": "string",
+          "enum": [
+            "full",
+            "flavor-only",
+            "none-documented"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "depictedMoment": {
+          "type": "string"
+        },
+        "relatedStoryCards": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "competitiveTimeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "date",
+          "significance",
+          "sourceIds"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "minLength": 4
+          },
+          "format": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string"
+          },
+          "player": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          },
+          "archetype": {
+            "type": "string"
+          },
+          "significance": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "playbook": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "deckRequirements",
+        "copyCount",
+        "mulligans",
+        "sequencing",
+        "sideboarding",
+        "commonMistakes"
+      ],
+      "properties": {
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deckRequirements": {
+          "type": "string",
+          "minLength": 1
+        },
+        "copyCount": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mulligans": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sequencing": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sideboarding": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commonMistakes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "counterplay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "directAnswers",
+        "engineDisruption",
+        "timingWindows",
+        "racing",
+        "sideboarding"
+      ],
+      "properties": {
+        "directAnswers": {
+          "type": "string",
+          "minLength": 1
+        },
+        "engineDisruption": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timingWindows": {
+          "type": "string",
+          "minLength": 1
+        },
+        "racing": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sideboarding": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claimId",
+          "summary",
+          "sourceIds",
+          "confidence"
+        ],
+        "properties": {
+          "claimId": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "disputed"
+            ]
+          },
+          "asOf": {
+            "type": "string",
+            "format": "date"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "mechanicalStatus": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "warning",
+        "fail"
+      ]
+    },
+    "editorialStatus": {
+      "type": "string",
+      "enum": [
+        "benchmark",
+        "reviewed",
+        "audit-required",
+        "rewrite-required"
+      ]
+    },
+    "researchStatus": {
+      "type": "string",
+      "enum": [
+        "scaffold",
+        "in-research",
+        "draft",
+        "fact-checked",
+        "complete"
+      ]
+    },
+    "releaseStatus": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "staging",
+        "production"
+      ]
+    },
+    "lastHistoricallyReviewed": {
+      "type": "string",
+      "format": "date"
+    },
+    "currentInformationAsOf": {
+      "type": "string",
+      "format": "date"
+    },
+    "reviewNotes": {
+      "type": "string"
+    },
+    "entry": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000,
+      "description": "Archive entry number; must match archive-manifest.json."
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[0-9]{3,4}-[a-z0-9-]+\\.html$"
+    },
+    "cardName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "wave": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "number",
+        "title",
+        "landingAnchor"
+      ],
+      "properties": {
+        "number": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Wave number copied from archive-manifest.json."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact landing-page wave title copied verbatim from archive-manifest.json; never replace with an editorial lens."
+        },
+        "landingAnchor": {
+          "type": "string",
+          "pattern": "^entry-[0-9]{3,4}$",
+          "description": "Exact landing anchor copied from archive-manifest.json."
+        }
+      }
+    },
+    "articleTitle": {
+      "type": "string",
+      "minLength": 12,
+      "description": "Unique, card-relevant editorial headline. It must not duplicate any other numbered article or reuse a shared category heading."
+    },
+    "deckline": {
+      "type": "string",
+      "minLength": 1
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "set",
+        "year"
+      ],
+      "properties": {
+        "set": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1993,
+          "maximum": 2100
+        }
+      }
+    },
+    "readingTimeMinutes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 120,
+      "description": "Derived, never hand-entered: ceiling of readingWordCount / 200."
+    },
+    "hero": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artUrl",
+        "position"
+      ],
+      "properties": {
+        "artUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "position": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "chapter",
+          "title",
+          "bodyHtml"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "chapter": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bodyHtml": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "decklists": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "deckKind",
+          "player",
+          "deckName",
+          "event",
+          "format",
+          "date",
+          "mainDeck",
+          "sideboard",
+          "source"
+        ],
+        "properties": {
+          "deckKind": {
+            "type": "string",
+            "enum": [
+              "tournament-registration",
+              "official-digital-deck",
+              "curated-example"
+            ],
+            "description": "Production decks must be sourced historical registrations, documented official digital lists, or manually reviewed legal curated examples. editorial-study is forbidden."
+          },
+          "player": {
+            "type": "string",
+            "minLength": 1
+          },
+          "deckName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "event": {
+            "type": "string",
+            "minLength": 1
+          },
+          "placement": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string",
+            "minLength": 1
+          },
+          "date": {
+            "type": "string",
+            "minLength": 4
+          },
+          "mainDeck": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "count"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "count": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 999
+                },
+                "setCode": {
+                  "type": "string"
+                },
+                "collectorNumber": {
+                  "type": "string"
+                },
+                "foil": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "description": "Authoritative rows. Main-deck totals are always computed with integer addition; never supply a display total string."
+          },
+          "sideboard": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "count"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "count": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 999
+                },
+                "setCode": {
+                  "type": "string"
+                },
+                "collectorNumber": {
+                  "type": "string"
+                },
+                "foil": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "description": "May be empty when the historical source has no sideboard. The displayed total is derived from counts."
+          },
+          "source": {
+            "type": "string",
+            "format": "uri"
+          },
+          "sourceSizeException": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional documented exception when a published tournament source explicitly records a nonstandard or incomplete sideboard. Never use this to coerce or conceal a counting error."
+          },
+          "sourceResolution": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional note identifying how conflicting or incomplete historical transcriptions were resolved."
+          },
+          "sourceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reviewedBy": {
+            "type": "string",
+            "minLength": 1
+          },
+          "legalityAsOf": {
+            "type": "string",
+            "format": "date"
+          },
+          "formatLegalityNote": {
+            "type": "string"
+          }
+        },
+        "description": "Documentary registrations, official digital records, or reviewed curated examples. An empty array is valid when no reliable list is available."
+      }
+    },
+    "printings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "cardName",
+          "oracleId",
+          "scryfallId",
+          "illustrationId",
+          "setCode",
+          "collectorNumber",
+          "caption",
+          "imageUrl"
+        ],
+        "properties": {
+          "cardName": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Must exactly equal the article subject card name."
+          },
+          "oracleId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "All gallery records must share this exact Scryfall Oracle ID."
+          },
+          "scryfallId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Unique Scryfall printing ID; duplicates are forbidden."
+          },
+          "illustrationId": {
+            "type": "string",
+            "description": "Used to prioritize different artworks before same-art reprints."
+          },
+          "setCode": {
+            "type": "string",
+            "minLength": 1
+          },
+          "collectorNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "caption": {
+            "type": "string",
+            "minLength": 1
+          },
+          "imageUrl": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "description": "One to twelve verified English paper printings rendered before Sources. Every record must have the exact article card name and the same Oracle ID. Choose distinct illustration IDs first, then fill remaining slots with other legitimate printings. If fewer than twelve printings exist, include all of them.",
+      "maxItems": 12
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "url",
+          "note",
+          "sourceId",
+          "sourceType",
+          "accessedDate"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceId": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "sourceType": {
+            "type": "string",
+            "enum": [
+              "primary",
+              "contemporary-secondary",
+              "retrospective-secondary",
+              "database",
+              "player-recollection"
+            ]
+          },
+          "publicationDate": {
+            "type": "string"
+          },
+          "accessedDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "claimIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "description": "Source records rendered as <ol class=\"sources\"> immediately after the exact <h3>Sources</h3> heading, which must immediately follow the printing gallery."
+    },
+    "artworkSpotlight": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artist",
+        "setName",
+        "setCode",
+        "imageUrl",
+        "fallbackUrl",
+        "position",
+        "excerpt",
+        "afterSectionId"
+      ],
+      "properties": {
+        "artist": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Required static artist credit verified against the exact original printing shown. Do not leave blank or depend on runtime lookup."
+        },
+        "setName": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact display name of the original set represented by the artwork."
+        },
+        "setCode": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "imageUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Original-printing art_crop image."
+        },
+        "fallbackUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Normal card image used only if the art crop fails."
+        },
+        "position": {
+          "type": "string",
+          "const": "center 25%",
+          "description": "Locked to the Eternal Dragon crop convention."
+        },
+        "excerpt": {
+          "type": "string",
+          "minLength": 55,
+          "description": "One or two card-specific sentences about the visible artwork itself. Identify a subject, object, action, or setting and discuss at least one visual quality such as composition, framing, palette, light, shadow, gesture, motion, texture, scale, or atmosphere. Do not discuss strategy, tournament history, rules function, publication logistics, Scryfall/catalog display, the article, or the artwork merely establishing a strategic/visual identity."
+        },
+        "afterSectionId": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "description": "Place the spotlight after the second substantive article section, matching Eternal Dragon."
+        }
+      }
+    },
+    "designEcho": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "chapter",
+        "heading",
+        "introHtml",
+        "cardName",
+        "setLabel",
+        "panelTitle",
+        "panelHtml",
+        "closingHtml",
+        "apiUrl",
+        "fallbackArtUrl",
+        "fallbackNormalUrl",
+        "fallbackFuzzyUrl"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "chapter": {
+          "type": "string",
+          "minLength": 1
+        },
+        "heading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "introHtml": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cardName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "setLabel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "panelTitle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "panelHtml": {
+          "type": "string",
+          "minLength": 1
+        },
+        "closingHtml": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fallbackNormalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "fallbackFuzzyUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "apiUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Exact-card JSON endpoint used lazily by the queued runtime to obtain direct static image URLs."
+        },
+        "fallbackArtUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Sequential last-resort art_crop image endpoint; never used as the initial img src."
+        },
+        "cardReferences": {
+          "type": "array",
+          "minItems": 0,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Optional editorial hints for ambiguous card names. The final exhaustive list is discovered from rendered prose by tools/canonicalize_card_links.py and written to data-card-references."
+        },
+        "cardAliases": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Optional shortened display text mapped to exact Oracle names. Use only when prose intentionally abbreviates a card title; automatic exact-name discovery remains authoritative."
+        }
+      }
+    },
+    "originalSetCode": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+$",
+      "description": "Original Scryfall set code used by the canonical printing-gallery metadata and fallback runtime."
+    },
+    "tournamentImpact": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event",
+          "result",
+          "cardCopies",
+          "source",
+          "wording"
+        ],
+        "properties": {
+          "event": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "type": "string",
+            "minLength": 1
+          },
+          "player": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "cardCopies": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "source": {
+            "type": "string",
+            "format": "uri"
+          },
+          "wording": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Use 'appeared in' or 'was part of'; do not claim the card alone caused a finish."
+          },
+          "factCheckNote": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Significant, sourced tournament appearances for the article card. Omit only when no meaningful result exists."
+    },
+    "preconstructedDeckArchive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "mode",
+        "catalogueSnapshot",
+        "sectionLabel",
+        "includeAllMatches",
+        "allowNoSideboard",
+        "collapsedByDefault",
+        "productDecksCollapsedByDefault",
+        "emptyState"
+      ],
+      "properties": {
+        "enabled": {
+          "const": true
+        },
+        "mode": {
+          "const": "static-embedded",
+          "description": "Decklists are compiled into article HTML at build time. Browser-side catalogue fetching is forbidden."
+        },
+        "catalogueSnapshot": {
+          "type": "string",
+          "pattern": "^data/official-mtg-deck-catalogue\\.json$"
+        },
+        "sectionLabel": {
+          "const": "Official Magic the Gathering decks"
+        },
+        "includeAllMatches": {
+          "const": true,
+          "description": "Embed every qualifying official deck product containing the article card."
+        },
+        "allowNoSideboard": {
+          "const": true,
+          "description": "Products without sideboards remain without sideboards."
+        },
+        "collapsedByDefault": {
+          "const": true
+        },
+        "productDecksCollapsedByDefault": {
+          "const": true
+        },
+        "emptyState": {
+          "const": "No official Magic the Gathering products contained this particular card."
+        }
+      },
+      "description": "Static, offline official-product deck archive generated from the committed catalogue snapshot. Counts and contents are derived from integer card rows."
+    },
+    "cardImageStandard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "deckRowsLinked",
+        "doubleFacedPolicy",
+        "leadFaceRules",
+        "emptyOfficialDeckCountLabel"
+      ],
+      "properties": {
+        "deckRowsLinked": {
+          "const": true,
+          "description": "Every rendered quantity row wraps the exact card name in canonical .card-name markup."
+        },
+        "doubleFacedPolicy": {
+          "const": "scryfall-card-faces",
+          "description": "Use Scryfall card_faces image_uris so physical front and back faces are distinct."
+        },
+        "leadFaceRules": {
+          "const": "one-panel-per-physical-face",
+          "description": "A physical double-faced namesake displays both face images and a separate rules panel for each face."
+        },
+        "emptyOfficialDeckCountLabel": {
+          "const": "0",
+          "description": "A zero-result Official Magic the Gathering decks summary displays the numeral 0."
+        }
+      }
+    },
+    "classicPlayVignette": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "A period-grounded first-person table story placed late in the opening after the card image, rules text, and original identity. The visible article uses the label A story from the table and prints only the scene; era, matchup, reconstruction status, and opening mode remain in structured metadata.",
+      "required": [
+        "scenarioType",
+        "voice",
+        "era",
+        "matchup",
+        "deckReference",
+        "namedCards",
+        "openingMode",
+        "title",
+        "body"
+      ],
+      "properties": {
+        "scenarioType": {
+          "type": "string",
+          "const": "representative-recollection"
+        },
+        "era": {
+          "type": "string",
+          "pattern": "(^|.*\\b)(19|20)\\d{2}\\b.*",
+          "description": "A dated format or tournament-era frame, such as 1994 Type I or 2005 Vintage Championship."
+        },
+        "matchup": {
+          "type": "string",
+          "minLength": 8,
+          "description": "One deck against one opposing archetype; never a multiplayer table."
+        },
+        "deckReference": {
+          "type": "string",
+          "minLength": 4,
+          "description": "Exact title of a documentary or clearly labeled curated deck in the article archive that contains the featured card and supports the line."
+        },
+        "namedCards": {
+          "type": "array",
+          "minItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "title": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 90
+        },
+        "body": {
+          "type": "string",
+          "minLength": 600,
+          "maxLength": 2200,
+          "description": "A 70–170 word first-person table story using I/me/my rather than second-person instruction. It depicts one opponent and exact card sequencing, but it does not need to begin with a memory cue. Openings must vary naturally across the wave and may begin with action, dialogue, a board state, a life total, a revealed hand, an opening hand, or another card-specific detail. End on the decisive play, reaction, reversal, or immediate board state without an explanatory coda."
+        },
+        "historicalFrame": {
+          "type": "string",
+          "minLength": 1
+        },
+        "voice": {
+          "type": "string",
+          "const": "first-person-recollection"
+        },
+        "openingMode": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 60,
+          "description": "Hidden description of the story entry point, such as opponent-action, table-dialogue, board-state, life-total, revealed-information, opening-hand, or counterintuitive-play. Rotate modes within each 50-article wave."
+        }
+      }
+    },
+    "readingWordCount": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Derived continuous-prose count. Excludes expandable decklists, printing galleries, source records, hidden copy buffers, scripts, and styles."
+    }
+  }
+}

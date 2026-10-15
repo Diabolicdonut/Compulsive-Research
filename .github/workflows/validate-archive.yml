@@ -1,0 +1,37 @@
+name: Validate Compulsive Research archive
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Verify Editorial V2 release state
+        run: python tools/run_validation_suite.py --full
+      - name: Check every local link and archive navigation target
+        run: python tools/validate_internal_navigation.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser validation dependencies
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.1
+          npx playwright install --with-deps chromium
+      - name: Check article rendering and archive returns on desktop and mobile
+        run: node tools/browser_smoke.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: archive-validation
+          path: |
+            audit/handoff-validation/
+            audit/internal-navigation/
+            audit/github-migration/browser.json
+            audit/reader-v31-051-060/browser.json

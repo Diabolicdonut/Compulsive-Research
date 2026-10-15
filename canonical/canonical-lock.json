@@ -1,0 +1,143 @@
+{
+  "canonical_article": "250-eternal-dragon.html",
+  "snapshot": "canonical/250-eternal-dragon.canonical.html",
+  "sha256": "9fa69ceaefa12624740dbb7b84128ee0254be71aaa1ee395ded52d34e5f2a587",
+  "frozen_on": "2026-08-05",
+  "policy": "Future article generation must preserve locked visual/component systems and satisfy the separate Editorial V2 research and evidence contracts.",
+  "locked_systems": [
+    "header_and_hero",
+    "numbered_navigation",
+    "table_of_contents",
+    "section_formatting",
+    "design_echo",
+    "card_reference_markup",
+    "artwork_spotlight",
+    "deck_archive",
+    "printings",
+    "sources",
+    "previous_and_next_entries",
+    "landing_page_return_link",
+    "javascript_behavior",
+    "mobile_behavior",
+    "deck_card_image_links",
+    "double_faced_card_previews",
+    "editorial_status_metadata"
+  ],
+  "allowed_article_specific_changes": [
+    "entry metadata",
+    "wave metadata",
+    "subject card and title",
+    "hero and supporting artwork URLs",
+    "section IDs and prose",
+    "deck records",
+    "printing records",
+    "source records",
+    "previous and next entry data from archive-manifest.json"
+  ],
+  "canonical_source_heading": "Sources",
+  "canonical_card_reference_markup": "<span class=\"card-name\" data-card=\"ORACLE CARD NAME\" tabindex=\"0\">DISPLAY NAME</span>",
+  "last_canonical_migration": "2026-08-05-reader-v3.1-14-page-validation",
+  "canonical_numbered_identity": {
+    "archive_link": "\u2190 Back to Compulsive Research",
+    "archive_link_href": "index.html?focus=ENTRY_ANCHOR#ENTRY_ANCHOR",
+    "eyebrow": "Entry NNN \u00b7 Wave XX \u00b7 EXACT WAVE TITLE",
+    "source": "archive-manifest.json / index.html"
+  },
+  "canonical_return_link_text": "\u2190 Back to Compulsive Research",
+  "canonical_artwork_spotlight": {
+    "selector": ".art-break.artwork-spotlight",
+    "placement": "after the second substantive article section",
+    "image_selector": ".art-break-media",
+    "image_mode": "art_crop / object-fit cover",
+    "object_position": "center 25%",
+    "desktop_height": "min(69vw, 720px)",
+    "mobile_height": "72vh",
+    "credit_selector": "[data-artwork-credit]",
+    "excerpt_selector": ".art-caption-excerpt",
+    "artist_policy": "required static artist verified for the exact original printing; runtime-only artist lookup is noncanonical",
+    "generic_excerpt_forbidden": [
+      "The original illustration became inseparable from the card\u2019s first strategic identity.",
+      "The article uses Scryfall\u2019s current catalog image for display.",
+      "The original illustration and frame established the visual identity preserved throughout this article."
+    ],
+    "credit_format": "ARTIST\u2019S original SET artwork",
+    "excerpt_policy": "one or two card-specific sentences about visible subject/action/setting and composition, palette/light, motion/gesture, texture, scale, or atmosphere; strategy, rules, publication/catalog notes, and generic identity boilerplate are forbidden"
+  },
+  "canonical_sha256": "9fa69ceaefa12624740dbb7b84128ee0254be71aaa1ee395ded52d34e5f2a587",
+  "canonical_article_sha256": "9fa69ceaefa12624740dbb7b84128ee0254be71aaa1ee395ded52d34e5f2a587",
+  "design_echo_component": {
+    "authority": "250-eternal-dragon.html#descendant",
+    "class": "inline-image canonical-inline-image",
+    "initial_src": "local data-image placeholder",
+    "image_runtime": "inline queued resolver; obsolete external script reference removed",
+    "copy_background": "#20322f",
+    "outer_frame": "transparent; no inset or black border",
+    "fallbacks": [
+      "cached/direct static URL",
+      "exact art_crop",
+      "exact normal",
+      "fuzzy art_crop",
+      "readable failure label"
+    ]
+  },
+  "canonical_card_reference_system": {
+    "scope": "Final rendered Design Echo prose plus existing article-wide canonical references",
+    "markup": "<span class=\"card-name\" data-card=\"ORACLE CARD NAME\" tabindex=\"0\">DISPLAY NAME</span>",
+    "authority": "final rendered prose scanned against canonical/card-name-catalog.json",
+    "declaration": "data-card-references is regenerated output; designEcho.cardReferences is only an optional ambiguity hint",
+    "aliases": "data-card-aliases JSON object for intentional shortened display names",
+    "postprocessor": "tools/canonicalize_card_links.py",
+    "validator": "tools/validate_card_links.py independently unwraps and rescans prose",
+    "catalog_refresh": "tools/refresh_card_name_catalog.py",
+    "regression_test": "tools/test_card_reference_discovery.py",
+    "preview_binding": "document-level event delegation"
+  },
+  "canonical_source_system": {
+    "heading_html": "<h3>Sources</h3>",
+    "order": "printing gallery \u2192 Sources heading \u2192 source records",
+    "placement": "heading immediately follows gallery and immediately precedes source-record container",
+    "canonicalizer": "tools/canonicalize_sources_heading.py",
+    "contract": "canonical/SOURCES-CONTRACT.md"
+  },
+  "canonical_printing_gallery": {
+    "authority": "250-eternal-dragon.html#printings",
+    "contract": "canonical/PRINTING-GALLERY-CONTRACT.md",
+    "maximum": 12,
+    "identity": "exact normalized name plus one shared Scryfall oracle_id",
+    "selection": "distinct illustration_id first, then legitimate same-art printings",
+    "fewer_than_max": "show every available English paper printing",
+    "include_extras": "forbidden",
+    "runtime_version": 5,
+    "validator": "tools/canonicalize_printing_galleries.py --check",
+    "unit_test": "node tools/test_printing_gallery_identity.js"
+  },
+  "official_mtg_deck_component": {
+    "label": "Official Magic the Gathering decks",
+    "mode": "static-embedded",
+    "catalogue": "data/official-mtg-deck-catalogue.json",
+    "outer_collapsed_by_default": true,
+    "product_decks_collapsed_by_default": true,
+    "empty_state": "No official Magic the Gathering products contained this particular card.",
+    "renderer": "tools/render_official_mtg_deck_sections.py",
+    "validator": "tools/validate_official_mtg_decks.py",
+    "runtime_loader_permitted": false
+  },
+  "canonical_card_image_system": {
+    "deck_row_markup": "<span class=\"card-name\" data-card=\"ORACLE CARD NAME\" tabindex=\"0\">DISPLAY NAME</span>",
+    "all_quantity_rows_linked": true,
+    "double_faced_source": "Scryfall card_faces.image_uris",
+    "namesake_lead": "both physical face images plus one rules panel per face",
+    "empty_official_summary": "0",
+    "canonicalizer": "tools/canonicalize_card_image_links.py",
+    "validator": "tools/validate_card_image_links.py"
+  },
+  "editorial_v2": {
+    "contract": "canonical/EDITORIAL-V2-CONTRACT.md",
+    "evidence_contract": "canonical/EVIDENCE-CONTRACT.md",
+    "identity_contract": "canonical/CANONICAL-IDENTITY-V2-CONTRACT.md",
+    "deck_semantics_contract": "canonical/DECK-SEMANTICS-CONTRACT.md",
+    "dossier_schema": "templates/research-dossier-v2.schema.json",
+    "mechanical_status_separate_from_editorial_status": true,
+    "synthetic_production_decks_forbidden": true
+  }
+}

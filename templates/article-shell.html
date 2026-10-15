@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="{{META_DESCRIPTION}}" name="description"/>
+<title>{{CARD_NAME}}: {{ARTICLE_TITLE}} — Compulsive Research</title>
+<link href="assets/compulsive-research.css" rel="stylesheet"/>
+<link href="preconstructed-decks.css" rel="stylesheet"/>
+<!-- ARTICLE IDENTITY ONLY. Do not place component styling here. -->
+<style>
+.hero:before{background-image:url({{HERO_ART_URL}});background-position:{{HERO_POSITION}}}
+
+/* CR_CARD_LINK_DESIGN_ECHO_STYLES */
+.design-echo-section .card-name,
+.inline-image.canonical-inline-image .copy .card-name{
+  color:inherit;border-bottom:2px dotted #d8b878;cursor:help;outline:none;
+  text-decoration:none;font-weight:inherit
+}
+.design-echo-section .card-name:hover,
+.design-echo-section .card-name:focus,
+.inline-image.canonical-inline-image .copy .card-name:hover,
+.inline-image.canonical-inline-image .copy .card-name:focus{
+  color:#d8b878;border-color:#d8b878
+}
+</style>
+<style id="cr-printing-gallery-style">
+/* Canonical printings: verified exact-card hydration with a clean offline fallback. */
+.printing-status{display:none!important}
+.canonical-printing-gallery[aria-busy="true"]{min-height:0}
+</style>
+<style id="cr-card-image-standard">
+/* CR_CARD_IMAGE_STANDARD_START */
+#preview .preview-track{display:grid;grid-template-columns:1fr;gap:10px}
+#preview.double-faced{width:min(620px,86vw)}
+#preview.double-faced .preview-track{grid-template-columns:repeat(2,minmax(0,1fr))}
+#preview .preview-face{min-width:0}
+#preview .preview-face-label{display:block;padding:7px 9px 8px;text-align:center;background:#101917;color:#f1eee5;border-radius:0 0 10px 10px;font:800 11px/1.35 Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+#preview.double-faced img{border-radius:4.8% 4.8% 0 0}
+.card-face-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+.card-face-pair figure{margin:0;min-width:0}
+.card-face-pair img{width:100%;border-radius:4.8%;filter:drop-shadow(0 22px 28px rgba(0,0,0,.28));background:#ded8cc}
+.card-face-pair figcaption{margin-top:10px;text-align:center;font:12.5px/1.4 Inter,sans-serif;color:var(--muted);letter-spacing:.03em;text-transform:uppercase}
+.card-face-pair .face-label{display:block;color:var(--ink);font-weight:800;font-size:.78rem;letter-spacing:.12em}
+.card-lead.dfc-lead{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);width:min(1120px,calc(100vw - 32px))}
+.dfc-rules-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.oracle.face-rules{margin:0}
+.oracle.face-rules h3{margin:.35em 0 .45em}
+.oracle.face-rules .face-oracle-text{white-space:pre-line}
+.card-name{touch-action:manipulation}
+@media(max-width:750px){
+  #preview.double-faced{width:min(94vw,620px)}
+  .card-face-pair{grid-template-columns:1fr 1fr;gap:10px}
+  .card-lead.dfc-lead{grid-template-columns:1fr}
+  .dfc-rules-grid{grid-template-columns:1fr}
+}
+/* CR_CARD_IMAGE_STANDARD_END */
+</style>
+
+<style id="cr-reader-experience-v3">
+/* CR_READER_EXPERIENCE_V3_START */
+.play-vignette{margin:clamp(26px,5vw,48px) 0 0;padding:clamp(22px,4vw,34px);border-left:5px solid #b98b37;border-radius:0 18px 18px 0;background:linear-gradient(135deg,#f4ead3,#eef4f1);box-shadow:0 12px 30px rgba(22,25,24,.08)}
+.play-vignette .vignette-label{font:800 .72rem/1.35 Inter,system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#8c4e3d;margin-bottom:.65rem}
+.play-vignette h3{font-size:clamp(1.35rem,3vw,1.85rem);line-height:1.15;margin:0 0 .7rem;color:#1d2624}
+.play-vignette p{font-size:clamp(1.02rem,2.2vw,1.16rem);line-height:1.72;color:#313a37;margin:0}
+/* Critical product contrast is inline because some Android content viewers do not load sibling CSS files reliably. */
+details.preconstructed-archive.official-mtg-decks{background:#13211f!important;color:#f8f4eb!important;border:1px solid #607b73!important;border-radius:16px!important;overflow:hidden!important}
+details.preconstructed-archive.official-mtg-decks>summary{display:flex!important;justify-content:space-between!important;align-items:flex-start!important;gap:.8rem!important;padding:1rem 1.15rem!important;background:#13211f!important;color:#f8f4eb!important;list-style:none!important}
+details.preconstructed-archive.official-mtg-decks>summary>span:first-child{display:block!important;min-width:0!important}
+details.preconstructed-archive.official-mtg-decks>summary strong{display:block!important;color:#fffaf0!important;line-height:1.3!important}
+details.preconstructed-archive.official-mtg-decks>summary small{display:block!important;color:#dfe8e4!important;line-height:1.5!important;margin-top:.35rem!important}
+details.preconstructed-archive.official-mtg-decks>summary>.plus{color:#efca78!important;font-weight:900!important;flex:0 0 auto!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-body{padding:1rem!important;background:#192b28!important;color:#f8f4eb!important;border-top:1px solid #607b73!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-status,
+details.preconstructed-archive.official-mtg-decks .official-deck-scope-note,
+details.preconstructed-archive.official-mtg-decks .preconstructed-body>p{color:#edf3f0!important;opacity:1!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-status b{color:#fffaf0!important}
+/* CR_READER_EXPERIENCE_V3_END */
+</style>
+</head>
+<body data-article-card="{{CARD_NAME}}" data-editorial-status="{{EDITORIAL_STATUS}}" data-research-status="{{RESEARCH_STATUS}}" data-editorial-contract="v2" data-reader-experience="v3" data-vignette-specificity="period-grounded-oral-history">
+<header class="hero">
+<div class="hero-grid"></div>
+<div class="hero-inner">
+<!-- CANONICAL IDENTITY: values come verbatim from archive-manifest.json. -->
+<a class="archive-link" href="index.html?focus={{LANDING_ANCHOR}}#{{LANDING_ANCHOR}}">← Back to Compulsive Research</a>
+<div class="eyebrow">Entry {{ENTRY_PADDED}} · Wave {{WAVE_NUMBER_PADDED}} · {{WAVE_TITLE}}</div>
+<h1>{{ARTICLE_TITLE}}</h1>
+<p class="deckline">{{DECKLINE}}</p>
+<div class="byline">
+<span>A Compulsive Research essay</span><span>·</span><span>{{SET_NAME}}, {{YEAR}}</span>
+<span class="pill">Approximately {{READING_TIME}} minute read</span>
+</div>
+</div>
+</header>
+<nav class="rank-nav">
+  {{TOP_PREVIOUS_LINK}}
+  <div class="center">Entry {{ENTRY}} of 1,000</div>
+  {{TOP_NEXT_LINK}}
+</nav>
+<div class="article-shell">
+<nav aria-label="Article table of contents" class="toc">
+<strong>In this article</strong>
+    {{TOC_LINKS}}
+  </nav>
+<article class="article">
+<section id="opening">
+<div class="chapter-number">{{OPENING_CHAPTER}}</div>
+<h2>{{OPENING_HEADING}}</h2>
+      <!-- OPENING_HTML must include exactly one namesake .card-lead with
+           data-card-name="{{CARD_NAME}}", data-dfc-mode="auto", and the
+           original-printing data-scryfall-id when available. The runtime
+           replaces that single-face lead with both physical faces and one
+           rules panel per face when Scryfall card_faces supplies per-face images. -->
+      {{OPENING_HTML}}
+      <!-- CLASSIC PLAY VIGNETTE: a short, first-person table story showing the namesake card at its historical best. Vary the opening across the wave; do not default to a stock “I remember” cue. It follows the card image/rules introduction and must not repeat the Strategic Legacy lead. -->
+      {{CLASSIC_PLAY_VIGNETTE_HTML}}
+    </section>
+
+    <!-- STRATEGIC LEGACY belongs after the opening introduction. The reader
+         must encounter the featured card, its wording, and its original
+         identity before use, counterplay, or long-term evaluation. -->
+    {{STRATEGIC_LEGACY_HTML}}
+
+    {{BODY_SECTIONS_BEFORE_ARTWORK}}
+
+    <!-- CANONICAL ARTWORK SPOTLIGHT: structure and classes are immutable.
+         Credit must be exactly “ARTIST’S original SET artwork.”
+         Excerpt must describe the visible image (subject/action/setting plus
+         composition, palette/light, motion/gesture, texture, scale, or mood),
+         never strategy, rules, publication history, or catalog logistics. -->
+<div class="art-break artwork-spotlight" data-artwork-artist="{{ARTWORK_ARTIST}}" data-artwork-card="{{CARD_NAME}}" data-artwork-set="{{ARTWORK_SET_CODE}}" data-artwork-set-name="{{ARTWORK_SET_NAME}}">
+<img alt="{{CARD_NAME}} artwork by {{ARTWORK_ARTIST}}" class="art-break-media" loading="lazy" onerror="this.onerror=null;this.src='{{ARTWORK_FALLBACK_URL}}';" src="{{ARTWORK_IMAGE_URL}}"/>
+<div class="art-caption">
+<b aria-live="polite" data-artwork-credit="">{{ARTWORK_ARTIST}}’s original {{ARTWORK_SET_NAME}} artwork</b>
+<span class="art-caption-excerpt">{{ARTWORK_EXCERPT}}</span>
+</div>
+</div>
+
+    {{BODY_SECTIONS_AFTER_ARTWORK_BEFORE_DESIGN_ECHO}}
+
+    <!-- CANONICAL DESIGN ECHO: structure/classes are immutable.  The image is
+         a real <img>, never a CSS-only background, and carries exact/normal/
+         fuzzy recovery paths so a missing crop cannot leave a black panel. --> CARD REFERENCE BUILD STEP: cardReferences are optional hints. After all prose is rendered, run tools/canonicalize_card_links.py; it discovers exact Oracle names, writes data-card-references, and must be followed by tools/validate_card_links.py. <section class="design-echo-section" data-card-aliases="{{DESIGN_ECHO_CARD_ALIASES_JSON}}" data-card-discovery="oracle-catalog-v2" data-card-references="[]" id="{{DESIGN_ECHO_ID}}">
+<div class="chapter-number">{{DESIGN_ECHO_CHAPTER}}</div>
+<h2>{{DESIGN_ECHO_HEADING}}</h2>
+      {{DESIGN_ECHO_INTRO_HTML}}
+      <div class="inline-image canonical-inline-image" data-image-card="{{DESIGN_ECHO_CARD_NAME}}">
+        <div class="image image-loading" data-card-label="{{DESIGN_ECHO_CARD_NAME}}">
+          <img class="inline-image-media"
+               alt="{{DESIGN_ECHO_CARD_NAME}} artwork"
+               decoding="async" referrerpolicy="no-referrer"
+               src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+               data-card-name="{{DESIGN_ECHO_CARD_NAME}}"
+               data-api-url="{{DESIGN_ECHO_API_URL}}"
+               data-fallback-art="{{DESIGN_ECHO_FALLBACK_ART_URL}}"
+               data-fallback-normal="{{DESIGN_ECHO_FALLBACK_NORMAL_URL}}"
+               data-fallback-fuzzy="{{DESIGN_ECHO_FALLBACK_FUZZY_URL}}">
+        </div>
+        <div class="copy">
+          <div class="eyebrow">{{DESIGN_ECHO_SET_LABEL}}</div>
+          <h3>{{DESIGN_ECHO_PANEL_TITLE}}</h3>
+          {{DESIGN_ECHO_PANEL_HTML}}
+        </div>
+      </div>
+      {{DESIGN_ECHO_CLOSING_HTML}}
+    </section>
+
+    {{BODY_SECTIONS_AFTER_DESIGN_ECHO}}
+
+    <section id="decklists">
+<div class="chapter-number">{{DECK_CHAPTER}}</div>
+<h2>The deck archive</h2>
+{{TOURNAMENT_IMPACT_HTML}}
+<div class="deck-intro">{{DECK_INTRO_HTML}}</div>
+{{DECK_RESEARCH_STATUS_HTML}}
+<!-- DECK TOTALS ARE DERIVED: sum integer .qty rows for every group, main deck, sideboard, metadata line, provenance sentence, data attribute, and hidden copy list. Never concatenate quantity strings. -->
+<div class="deck-archive">{{DECK_DETAILS_HTML}}</div>
+<!-- CR_OFFICIAL_MTG_DECKS_START -->
+{{OFFICIAL_MTG_DECKS_HTML}}
+<!-- CR_OFFICIAL_MTG_DECKS_END -->
+</section>
+<section id="printings">
+<div class="chapter-number">{{PRINTINGS_CHAPTER}}</div>
+<h2>Printings, artwork, and sources</h2>
+      {{PRINTINGS_INTRO_HTML}}
+      <div class="printings canonical-printing-gallery" data-card="{{CARD_NAME}}" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="{{ORIGINAL_SET_CODE}}" data-selection-policy="unique-artwork-first" id="printing-grid">{{PRINTING_FIGURES_HTML}}</div>
+<!-- CANONICAL SOURCES: this exact h3 follows the gallery immediately and
+     directly precedes the source-record list. Do not rename, move, or omit. -->
+<h3>Sources</h3>
+<ol class="sources">{{SOURCE_ITEMS_HTML}}</ol>
+      {{EDITOR_NOTE_HTML}}
+    </section>
+</article>
+<aside class="sidebar-note">
+<b>Compulsive Research</b><br/>
+    A series about cards as historical objects: how they were designed, how players used them, what displaced them, and what remains in memory after the metagame moves on.
+  </aside>
+</div>
+<section class="continue-reading">
+<div class="chapter-number">Continue reading</div>
+<h2>The numbered archive</h2>
+<p>{{CARD_NAME}} is entry {{ENTRY}} in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p>
+<nav class="end-nav">{{END_NAV_LINKS}}</nav>
+</section>
+<div id="preview"><div class="preview-track"></div></div>
+<footer class="footer">Compulsive Research · Entry {{ENTRY}} · {{CARD_NAME}} · Independent, noncommercial Magic history project. Card images and artwork © Wizards of the Coast.</footer>
+
+<script id="cr-design-echo-runtime">
+/* CR_DESIGN_ECHO_RUNTIME_START */
+(function(){
+  "use strict";
+  if(window.__CR_DESIGN_ECHO_RUNTIME__){
+    window.__CR_DESIGN_ECHO_RUNTIME__.scan(document);
+    return;
+  }
+
+  var queue=[];
+  var working=false;
+  var observer=null;
+  var CACHE_PREFIX="cr-design-echo:v2:";
+
+  function delay(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});}
+  function cacheKey(img){return CACHE_PREFIX+(img.dataset.cardName||"").toLowerCase()+"|"+(img.dataset.cardSet||"").toLowerCase();}
+  function readCache(img){
+    try{
+      var raw=localStorage.getItem(cacheKey(img));
+      if(!raw)return null;
+      var data=JSON.parse(raw);
+      return data&&data.art?data:null;
+    }catch(_){return null;}
+  }
+  function writeCache(img,data){
+    if(!data||!data.art)return;
+    try{localStorage.setItem(cacheKey(img),JSON.stringify(data));}catch(_){}
+  }
+  function imageUris(card){
+    var uris=card&&card.image_uris;
+    if(!uris&&card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        if(card.card_faces[i]&&card.card_faces[i].image_uris){uris=card.card_faces[i].image_uris;break;}
+      }
+    }
+    if(!uris)return null;
+    return {art:uris.art_crop||uris.large||uris.normal||"",normal:uris.normal||uris.large||uris.art_crop||""};
+  }
+  function setState(img,state){
+    var well=img.parentElement;
+    if(!well)return;
+    well.classList.remove("image-loading","image-loaded","image-failed");
+    well.classList.add("image-"+state);
+    if(state==="failed"){
+      img.style.setProperty("display","none","important");
+      img.style.setProperty("opacity","0","important");
+    }else{
+      img.style.removeProperty("display");
+    }
+  }
+  function loadUrl(img,url){
+    return new Promise(function(resolve){
+      if(!url){resolve(false);return;}
+      var settled=false;
+      function finish(ok){
+        if(settled)return;
+        settled=true;
+        img.onload=null;
+        img.onerror=null;
+        resolve(ok);
+      }
+      img.onload=function(){finish(true);};
+      img.onerror=function(){finish(false);};
+      img.src=url;
+      if(img.complete&&img.naturalWidth>0)finish(true);
+    });
+  }
+  async function fetchCard(img){
+    var api=img.dataset.apiUrl;
+    if(!api)return null;
+    for(var attempt=0;attempt<3;attempt++){
+      try{
+        var response=await fetch(api,{mode:"cors",credentials:"omit",cache:"force-cache"});
+        if(response.ok)return imageUris(await response.json());
+        if(response.status!==429&&response.status<500)return null;
+      }catch(_){}
+      await delay(500*Math.pow(2,attempt));
+    }
+    return null;
+  }
+  async function resolveImage(img){
+    if(img.dataset.crResolved==="1")return;
+    img.dataset.crResolved="1";
+    setState(img,"loading");
+
+    var candidates=[];
+    function add(url){if(url&&candidates.indexOf(url)===-1)candidates.push(url);}
+    add(img.dataset.directArt);
+    add(img.dataset.directNormal);
+
+    var cached=readCache(img);
+    if(cached){add(cached.art);add(cached.normal);}
+
+    var resolved=await fetchCard(img);
+    if(resolved){
+      writeCache(img,resolved);
+      add(resolved.art);
+      add(resolved.normal);
+    }
+
+    /* Independent last-resort paths.  They are attempted sequentially only
+       after the JSON resolver/direct CDN path fails, never in a page-load burst. */
+    add(img.dataset.fallbackArt);
+    add(img.dataset.fallbackNormal);
+    add(img.dataset.fallbackFuzzy);
+
+    for(var i=0;i<candidates.length;i++){
+      if(await loadUrl(img,candidates[i])){
+        setState(img,"loaded");
+        img.classList.add("image-loaded");
+        return;
+      }
+    }
+    setState(img,"failed");
+  }
+  async function pump(){
+    if(working)return;
+    working=true;
+    while(queue.length){
+      await resolveImage(queue.shift());
+      await delay(175);
+    }
+    working=false;
+  }
+  function enqueue(img){
+    if(!img||img.dataset.crQueued==="1"||img.dataset.crResolved==="1")return;
+    img.dataset.crQueued="1";
+    queue.push(img);
+    pump();
+  }
+  function observe(img){
+    if(!("IntersectionObserver" in window)){enqueue(img);return;}
+    if(!observer){
+      observer=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}
+        });
+      },{rootMargin:"900px 0px"});
+    }
+    observer.observe(img);
+  }
+  function scan(root){
+    (root||document).querySelectorAll(".inline-image.canonical-inline-image .inline-image-media[data-card-name]").forEach(function(img){
+      var well=img.parentElement;
+      if(well&&!well.classList.contains("image-loaded")&&!well.classList.contains("image-failed"))well.classList.add("image-loading");
+      observe(img);
+    });
+  }
+
+  window.__CR_DESIGN_ECHO_RUNTIME__={scan:scan,enqueue:enqueue};
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){scan(document);},{once:true});
+  else scan(document);
+})();
+/* CR_DESIGN_ECHO_RUNTIME_END */
+</script>
+
+<script defer="" src="assets/compulsive-research.js"></script>
+<script>/* CR_CARD_PREVIEW_RUNTIME_START */
+const preview=document.getElementById('preview'),previewTrack=preview?preview.querySelector('.preview-track'):null;let pinned=false;const cardObjectCache=new Map();
+function imgURL(n){return 'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(n)+'&format=image&version=normal'}
+function idImgURL(id,back=false){return 'https://api.scryfall.com/cards/'+encodeURIComponent(id)+'?format=image&version=normal'+(back?'&face=back':'')}
+function cardApiURL(name,id){return id?'https://api.scryfall.com/cards/'+encodeURIComponent(id):'https://api.scryfall.com/cards/named?exact='+encodeURIComponent(name)}
+function place(x,y){if(!preview)return;if(matchMedia('(max-width:750px)').matches){preview.style.left='50%';preview.style.top='50%';return}const pad=14,w=preview.offsetWidth||305,h=preview.offsetHeight||425;let l=x+18,t=y+18;if(l+w>innerWidth-pad)l=x-w-18;if(t+h>innerHeight-pad)t=innerHeight-h-pad;l=Math.max(pad,Math.min(l,innerWidth-w-pad));t=Math.max(pad,Math.min(t,innerHeight-h-pad));preview.style.left=l+'px';preview.style.top=t+'px'}
+function imageFaces(card,fallbackName,fallbackId){const faces=(card&&card.card_faces||[]).map(face=>({name:face.name,url:face.image_uris&&face.image_uris.normal})).filter(face=>face.url);if(faces.length>1)return faces;const direct=card&&card.image_uris&&card.image_uris.normal;if(direct)return[{name:card.name||fallbackName,url:direct}];return[{name:fallbackName,url:fallbackId?idImgURL(fallbackId,false):imgURL(fallbackName)}]}
+async function resolveCardObject(name,id){const key=id||name;if(cardObjectCache.has(key))return cardObjectCache.get(key);const promise=fetch(cardApiURL(name,id),{headers:{Accept:'application/json'}}).then(r=>{if(!r.ok)throw new Error('card lookup failed');return r.json()});cardObjectCache.set(key,promise);try{return await promise}catch(err){cardObjectCache.delete(key);throw err}}
+function renderFaces(faces){if(!previewTrack)return;previewTrack.innerHTML='';faces.forEach((face,index)=>{const wrap=document.createElement('div');wrap.className='preview-face';const img=document.createElement('img');img.src=face.url;img.alt=face.name||'Card face';wrap.appendChild(img);if(faces.length>1){const label=document.createElement('span');label.className='preview-face-label';label.textContent=(index===0?'Front · ':'Back · ')+(face.name||'Card face');wrap.appendChild(label)}previewTrack.appendChild(wrap)});preview.classList.toggle('double-faced',faces.length>1)}
+async function resolveFaces(el){const name=el.dataset.card,id=el.dataset.scryfallId||'';try{return imageFaces(await resolveCardObject(name,id),name,id)}catch(_){return[{name:name,url:id?idImgURL(id,false):imgURL(name)}]}}
+function showCard(el,x,y,p=false){if(!preview||!previewTrack||!el||!el.dataset.card)return;const name=el.dataset.card,id=el.dataset.scryfallId||'';const token=name+'|'+Date.now();preview.dataset.request=token;renderFaces([{name:name,url:id?idImgURL(id,false):imgURL(name)}]);preview.classList.add('show');place(x,y);pinned=p;resolveFaces(el).then(faces=>{if(preview.dataset.request!==token)return;renderFaces(faces);place(x,y)})}
+function hideCard(){if(preview&&!pinned)preview.classList.remove('show')}
+function cardTarget(event){return event.target&&event.target.closest?event.target.closest('.card-name'):null}
+document.addEventListener('mouseover',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;showCard(el,event.clientX,event.clientY)});
+document.addEventListener('mousemove',event=>{if(cardTarget(event))place(event.clientX,event.clientY)});
+document.addEventListener('mouseout',event=>{const el=cardTarget(event);if(!el||el.contains(event.relatedTarget))return;hideCard()});
+document.addEventListener('focusin',event=>{const el=cardTarget(event);if(!el)return;const r=el.getBoundingClientRect();showCard(el,r.right,r.top)});
+document.addEventListener('focusout',event=>{if(cardTarget(event))hideCard()});
+document.addEventListener('click',event=>{const el=cardTarget(event);if(el&&matchMedia('(hover:none)').matches){event.preventDefault();showCard(el,innerWidth/2,innerHeight/3,true);return}if(preview&&pinned&&!el){pinned=false;preview.classList.remove('show')}});
+document.addEventListener('click',async event=>{const b=event.target&&event.target.closest?event.target.closest('.copy[data-target]'):null;if(!b)return;const target=document.getElementById(b.dataset.target);if(!target)return;const text=target.textContent;try{await navigator.clipboard.writeText(text)}catch(_){const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1200)});
+function faceStat(container,label,value){if(value===undefined||value===null||value==='')return;const item=document.createElement('div');item.className='stat';const strong=document.createElement('b');strong.textContent=label;item.appendChild(strong);item.appendChild(document.createTextNode(String(value)));container.appendChild(item)}
+function buildFaceRules(face,index,card){const panel=document.createElement('div');panel.className='oracle face-rules '+(index===0?'front-rules':'back-rules');const eye=document.createElement('div');eye.className='eyebrow';eye.textContent=(index===0?'Front face':'Back face')+(card.set_name?' · '+card.set_name:'');panel.appendChild(eye);const h=document.createElement('h3');h.textContent=face.name||card.name;panel.appendChild(h);if(face.type_line){const type=document.createElement('p');const b=document.createElement('b');b.textContent=face.type_line;type.appendChild(b);panel.appendChild(type)}const rules=document.createElement('p');rules.className='face-oracle-text';rules.textContent=face.oracle_text||'No rules text.';panel.appendChild(rules);const stats=document.createElement('div');stats.className='stats';faceStat(stats,'Mana cost',face.mana_cost||'None');faceStat(stats,'Mana value',card.cmc);if(face.power!==undefined||face.toughness!==undefined)faceStat(stats,'Power / toughness',(face.power||'—')+' / '+(face.toughness||'—'));if(face.loyalty!==undefined)faceStat(stats,'Loyalty',face.loyalty);if(face.defense!==undefined)faceStat(stats,'Defense',face.defense);faceStat(stats,'Face',index===0?'Front':'Back');panel.appendChild(stats);return panel}
+async function hydrateLeadCard(){const lead=document.querySelector('.card-lead[data-card-name]');if(!lead||lead.querySelector('.card-face-pair'))return;const name=lead.dataset.cardName,id=lead.dataset.scryfallId||'';if(!name)return;let card;try{card=await resolveCardObject(name,id)}catch(_){return}const faces=(card.card_faces||[]).filter(face=>face.image_uris&&face.image_uris.normal);if(faces.length<2)return;lead.classList.add('dfc-lead');const pair=document.createElement('div');pair.className='card-face-pair';faces.slice(0,2).forEach((face,index)=>{const figure=document.createElement('figure');const img=document.createElement('img');img.src=face.image_uris.normal;img.alt=(face.name||name)+' '+(index===0?'front':'back')+' face';img.loading=index===0?'eager':'lazy';figure.appendChild(img);const cap=document.createElement('figcaption');const label=document.createElement('span');label.className='face-label';label.textContent=index===0?'Front face':'Back face';cap.appendChild(label);cap.appendChild(document.createTextNode(face.name||name));figure.appendChild(cap);pair.appendChild(figure)});const oldImage=Array.from(lead.children).find(child=>child.tagName==='IMG');if(oldImage)oldImage.replaceWith(pair);else lead.insertBefore(pair,lead.firstChild);const grid=document.createElement('div');grid.className='dfc-rules-grid';faces.slice(0,2).forEach((face,index)=>grid.appendChild(buildFaceRules(face,index,card)));const oldOracle=Array.from(lead.children).find(child=>child.classList&&child.classList.contains('oracle'));if(oldOracle)oldOracle.replaceWith(grid);else lead.appendChild(grid)}
+hydrateLeadCard();
+const sections=[...document.querySelectorAll('.article section[id]')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver' in window){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-16% 0px -72% 0px'});sections.forEach(s=>ob.observe(s))}
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-innerHeight,pct=max>0?(scrollY/max)*100:0;document.body.style.setProperty('--progress',pct+'%')}addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+/* CR_CARD_PREVIEW_RUNTIME_END */</script>
+<script id="cr-printing-gallery-runtime">
+/* CR_PRINTING_GALLERY_RUNTIME_START */
+(function(global){
+  "use strict";
+
+  var VERSION="5";
+  var MAX_PRINTINGS=12;
+  var queue=[];
+  var working=false;
+  var observer=null;
+
+  function normalizeName(value){
+    return String(value||"")
+      .normalize("NFKC")
+      .replace(/[\u2018\u2019\u02BC]/g,"'")
+      .replace(/[\u201C\u201D]/g,'"')
+      .replace(/[\u2013\u2014]/g,"-")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLocaleLowerCase("en-US");
+  }
+  function sameName(a,b){return normalizeName(a)===normalizeName(b);}
+  function imageOf(card){
+    if(card&&card.image_uris&&card.image_uris.normal)return card.image_uris.normal;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.normal)return face.image_uris.normal;
+      }
+    }
+    return "";
+  }
+  function artImageOf(card){
+    if(card&&card.image_uris&&card.image_uris.art_crop)return card.image_uris.art_crop;
+    if(card&&card.card_faces){
+      for(var i=0;i<card.card_faces.length;i++){
+        var face=card.card_faces[i];
+        if(face.image_uris&&face.image_uris.art_crop)return face.image_uris.art_crop;
+      }
+    }
+    return "";
+  }
+  function artKey(card){
+    return String(card&&card.illustration_id||artImageOf(card)||((card&&card.artist)||"")+"|"+imageOf(card));
+  }
+  function released(card){return card&&card.released_at||"9999-99-99";}
+  function printingKey(card){return String(card&&card.id||((card&&card.set)||"")+"|"+((card&&card.collector_number)||""));}
+  function isPaperEnglish(card){
+    return !!(card&&card.object==="card"&&card.lang==="en"&&!card.digital&&imageOf(card)&&
+      (!card.games||card.games.indexOf("paper")!==-1)&&
+      card.layout!=="art_series"&&card.layout!=="token"&&card.layout!=="double_faced_token"&&card.layout!=="emblem");
+  }
+  function exactIdentity(card,canonical){
+    return !!(isPaperEnglish(card)&&canonical&&canonical.oracle_id&&card.oracle_id===canonical.oracle_id&&sameName(card.name,canonical.name));
+  }
+  function uniquePrintings(cards){
+    var seen=new Set(),out=[];
+    cards.forEach(function(card){
+      var key=printingKey(card);
+      if(!key||seen.has(key))return;
+      seen.add(key);out.push(card);
+    });
+    return out;
+  }
+  function byRelease(a,b){
+    var date=released(a).localeCompare(released(b));
+    if(date)return date;
+    var set=String(a.set||"").localeCompare(String(b.set||""));
+    if(set)return set;
+    return String(a.collector_number||"").localeCompare(String(b.collector_number||""),undefined,{numeric:true});
+  }
+  function chooseOriginal(cards,originalSet){
+    var inSet=cards.filter(function(card){return String(card.set||"").toLowerCase()===String(originalSet||"").toLowerCase();});
+    var pool=inSet.length?inSet:cards;
+    return pool.slice().sort(function(a,b){
+      var promo=(a.promo?1:0)-(b.promo?1:0);
+      if(promo)return promo;
+      return byRelease(a,b);
+    })[0]||null;
+  }
+  function evenlySample(items,count){
+    if(count<=0||!items.length)return [];
+    if(items.length<=count)return items.slice();
+    var out=[],used=new Set();
+    for(var i=0;i<count;i++){
+      var index=Math.round(i*(items.length-1)/Math.max(1,count-1));
+      if(!used.has(index)){used.add(index);out.push(items[index]);}
+    }
+    for(var j=0;out.length<count&&j<items.length;j++)if(!used.has(j)){used.add(j);out.push(items[j]);}
+    return out;
+  }
+  function selectPrintings(cards,originalSet,maxCount,canonical){
+    var limit=Math.max(1,Math.min(MAX_PRINTINGS,Number(maxCount)||MAX_PRINTINGS));
+    var source=canonical?(cards||[]).filter(function(card){return exactIdentity(card,canonical);}):(cards||[]);
+    var usable=uniquePrintings(source.filter(isPaperEnglish)).sort(byRelease);
+    if(usable.length<=limit)return usable;
+
+    var selected=[];
+    var selectedIds=new Set();
+    function add(card){
+      if(!card)return;
+      var key=printingKey(card);
+      if(!key||selectedIds.has(key)||selected.length>=limit)return;
+      selectedIds.add(key);selected.push(card);
+    }
+
+    var original=chooseOriginal(usable,originalSet);
+    add(original);
+
+    var artGroups=new Map();
+    usable.forEach(function(card){
+      var key=artKey(card);
+      if(!artGroups.has(key))artGroups.set(key,[]);
+      artGroups.get(key).push(card);
+    });
+    var artRepresentatives=[];
+    artGroups.forEach(function(group){
+      group.sort(byRelease);
+      var representative=group[0];
+      if(original&&artKey(original)===artKey(representative))return;
+      artRepresentatives.push(representative);
+    });
+    artRepresentatives.sort(byRelease);
+
+    var artSlots=limit-selected.length;
+    var artChoices=artRepresentatives.length<=artSlots?artRepresentatives:evenlySample(artRepresentatives,artSlots);
+    artChoices.forEach(add);
+
+    if(selected.length<limit){
+      var remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      var notable=remaining.filter(function(card){
+        return /(masters|remastered|commander|from the vault|secret lair|judge|promo|anniversary|timeshifted|duel decks|mystery booster|the list)/i.test(
+          String(card.set_name||"")+" "+String((card.promo_types||[]).join(" "))
+        );
+      });
+      notable.forEach(add);
+      if(selected.length<limit)add(remaining[remaining.length-1]);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      evenlySample(remaining,limit-selected.length).forEach(add);
+      remaining=usable.filter(function(card){return !selectedIds.has(printingKey(card));});
+      remaining.forEach(add);
+    }
+
+    return selected.slice(0,limit).sort(byRelease);
+  }
+  function compact(card,canonical,original){
+    return {
+      cardName:canonical.name||card.name||"",
+      oracleId:canonical.oracle_id||card.oracle_id||"",
+      scryfallId:card.id||"",
+      illustrationId:card.illustration_id||"",
+      set:card.set||"",
+      setName:card.set_name||"Printing",
+      released:card.released_at||"",
+      artist:card.artist||"Artist not listed",
+      collector:card.collector_number||"",
+      image:imageOf(card),
+      original:!!original
+    };
+  }
+  function cacheKey(grid){return "cr-printings:"+VERSION+":"+normalizeName(grid.dataset.card||"");}
+  function recordsAreValid(grid,records){
+    if(!Array.isArray(records)||!records.length||records.length>MAX_PRINTINGS)return false;
+    var requested=grid.dataset.card||"";
+    var oracle="";
+    var ids=new Set();
+    for(var i=0;i<records.length;i++){
+      var record=records[i];
+      if(!record||!sameName(record.cardName,requested)||!record.oracleId||!record.scryfallId||!record.image)return false;
+      if(!oracle)oracle=record.oracleId;
+      if(record.oracleId!==oracle||ids.has(record.scryfallId))return false;
+      ids.add(record.scryfallId);
+    }
+    return true;
+  }
+  function readCache(grid){
+    try{
+      var raw=global.localStorage&&global.localStorage.getItem(cacheKey(grid));
+      if(!raw)return null;
+      var parsed=JSON.parse(raw);
+      return recordsAreValid(grid,parsed)?parsed:null;
+    }catch(_){return null;}
+  }
+  function writeCache(grid,records){
+    try{if(global.localStorage)global.localStorage.setItem(cacheKey(grid),JSON.stringify(records));}catch(_){}
+  }
+  function figure(record,index,doc){
+    var fig=doc.createElement("figure");
+    fig.className="printing"+(record.original||index===0?" original-printing":"");
+    fig.dataset.cardName=record.cardName;
+    fig.dataset.oracleId=record.oracleId;
+    fig.dataset.scryfallId=record.scryfallId;
+    fig.dataset.illustrationId=record.illustrationId||"";
+    fig.dataset.set=record.set||"";
+    fig.dataset.collectorNumber=record.collector||"";
+    var img=doc.createElement("img");
+    img.loading="lazy";img.decoding="async";img.src=record.image;
+    img.alt=record.cardName+" — "+record.setName;
+    var cap=doc.createElement("figcaption");
+    var strong=doc.createElement("b");
+    var year=(record.released||"").slice(0,4);
+    strong.textContent=record.setName+(year?" · "+year:"");
+    cap.appendChild(strong);cap.appendChild(doc.createElement("br"));
+    cap.appendChild(doc.createTextNode((record.original||index===0?"Original printing · ":"")+record.artist+(record.collector?" · "+record.collector:"")));
+    fig.appendChild(img);fig.appendChild(cap);return fig;
+  }
+  function render(grid,records){
+    if(!recordsAreValid(grid,records))return false;
+    var doc=grid.ownerDocument||global.document;
+    var fragment=doc.createDocumentFragment();
+    records.forEach(function(record,index){fragment.appendChild(figure(record,index,doc));});
+    grid.replaceChildren(fragment);
+    grid.dataset.galleryState="ready";
+    grid.dataset.galleryCount=String(records.length);
+    grid.dataset.oracleId=records[0].oracleId;
+    grid.setAttribute("aria-busy","false");
+    return true;
+  }
+  async function fetchJson(url){
+    var controller=("AbortController" in global)?new global.AbortController():null;
+    var timer=controller?global.setTimeout(function(){controller.abort();},15000):null;
+    var response;
+    try{response=await global.fetch(url,{headers:{Accept:"application/json;q=0.9,*/*;q=0.8"},signal:controller?controller.signal:undefined});}
+    finally{if(timer)global.clearTimeout(timer);}
+    if(!response.ok)throw new Error("catalog "+response.status);
+    return response.json();
+  }
+  async function resolveCanonical(grid){
+    var requested=grid.dataset.card;
+    if(!requested)throw new Error("missing card name");
+    var exact="https://api.scryfall.com/cards/named?exact="+encodeURIComponent(requested);
+    var originalSet=grid.dataset.originalSet||"";
+    var canonical=null;
+    if(originalSet){
+      try{canonical=await fetchJson(exact+"&set="+encodeURIComponent(originalSet));}catch(_){}
+    }
+    if(!canonical)canonical=await fetchJson(exact);
+    if(!sameName(canonical.name,requested)||!canonical.oracle_id||!canonical.prints_search_uri){
+      throw new Error("exact identity could not be established");
+    }
+    return canonical;
+  }
+  function withSearchOptions(uri){
+    var url=new URL(uri,global.location&&global.location.href||undefined);
+    url.searchParams.set("unique","prints");
+    url.searchParams.set("order","released");
+    url.searchParams.set("dir","asc");
+    return url.toString();
+  }
+  async function fetchCatalog(grid){
+    var canonical=await resolveCanonical(grid);
+    var url=withSearchOptions(canonical.prints_search_uri);
+    var all=[];
+    while(url){
+      var payload=await fetchJson(url);
+      all=all.concat(payload.data||[]);
+      url=payload.has_more?payload.next_page:null;
+    }
+    var exact=uniquePrintings(all.filter(function(card){return exactIdentity(card,canonical);})).sort(byRelease);
+    if(!exact.length)throw new Error("no exact printings");
+    var max=Math.min(MAX_PRINTINGS,Math.max(1,Number(grid.dataset.galleryMax)||MAX_PRINTINGS));
+    var chosen=selectPrintings(exact,grid.dataset.originalSet||"",max,canonical);
+    if(!chosen.length)throw new Error("empty exact gallery");
+    var original=chooseOriginal(exact,grid.dataset.originalSet||"");
+    return chosen.map(function(card){return compact(card,canonical,!!(original&&printingKey(card)===printingKey(original)));});
+  }
+  async function hydrate(grid){
+    if(!grid||grid.dataset.galleryState==="ready")return;
+    grid.dataset.galleryState="loading";grid.setAttribute("aria-busy","true");
+    var cached=readCache(grid);
+    if(cached&&render(grid,cached))return;
+    try{
+      var records=await fetchCatalog(grid);
+      writeCache(grid,records);render(grid,records);
+    }catch(_){
+      grid.dataset.galleryState="fallback";
+      grid.setAttribute("aria-busy","false");
+      /* Existing verified fallback remains; no incorrect search result is rendered. */
+    }
+  }
+  async function pump(){
+    if(working)return;working=true;
+    while(queue.length){await hydrate(queue.shift());await new Promise(function(resolve){global.setTimeout(resolve,175);});}
+    working=false;
+  }
+  function enqueue(grid){
+    if(!grid||grid.dataset.crPrintingQueued==="1")return;
+    grid.dataset.crPrintingQueued="1";queue.push(grid);pump();
+  }
+  function observe(grid){
+    if(!("IntersectionObserver" in global)){enqueue(grid);return;}
+    if(!observer){observer=new global.IntersectionObserver(function(entries){
+      entries.forEach(function(entry){if(entry.isIntersecting){observer.unobserve(entry.target);enqueue(entry.target);}});
+    },{rootMargin:"1000px 0px"});}
+    observer.observe(grid);
+  }
+  function scan(root){
+    (root||global.document).querySelectorAll(".canonical-printing-gallery[data-gallery-mode='hydrate']").forEach(observe);
+  }
+
+  var api={
+    scan:scan,hydrate:hydrate,normalizeName:normalizeName,sameName:sameName,
+    exactIdentity:exactIdentity,selectPrintings:selectPrintings,recordsAreValid:recordsAreValid,
+    MAX_PRINTINGS:MAX_PRINTINGS
+  };
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+  if(!global||!global.document)return;
+  if(global.__CR_PRINTING_GALLERY_RUNTIME__)return;
+  global.__CR_PRINTING_GALLERY_RUNTIME__=api;
+  if(global.document.readyState==="loading")global.document.addEventListener("DOMContentLoaded",function(){scan(global.document);},{once:true});
+  else scan(global.document);
+})(typeof window!=="undefined"?window:globalThis);
+/* CR_PRINTING_GALLERY_RUNTIME_END */
+</script>
+
+</body>
+</html>
