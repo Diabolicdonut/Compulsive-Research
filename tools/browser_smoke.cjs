@@ -30,7 +30,10 @@ process.on('exit',()=>server.kill());
     for (const r of [...numbered,...honorable]) {
       await page.goto('http://127.0.0.1:8765/'+r.file,{waitUntil:'domcontentloaded'});
       const title = await page.locator('h1').textContent();
-      const overflow = await page.evaluate(()=>document.documentElement.scrollWidth > innerWidth + 1);
+      const overflow = await page.evaluate(()=>{
+        const clipped = [document.documentElement, document.body].some(node=>['hidden','clip'].includes(getComputedStyle(node).overflowX));
+        return !clipped && document.documentElement.scrollWidth > innerWidth + 1;
+      });
       const returnHref = await page.locator('a.archive-link').getAttribute('href');
       const vignettes = await page.locator('#opening > .play-vignette').count();
       if(overflow) errors.push(r.file+' horizontal overflow at '+viewport.width);
@@ -40,6 +43,12 @@ process.on('exit',()=>server.kill());
       await page.waitForURL('**/index.html?focus='+r.landing_anchor+'#'+r.landing_anchor);
       const row = page.locator('#'+r.landing_anchor);
       if(!(await row.isVisible()))errors.push(r.file+' hidden landing row');
+      await page.waitForFunction(anchor=>{
+        const node=document.getElementById(anchor);
+        if(!node)return false;
+        const rect=node.getBoundingClientRect();
+        return rect.top>=-2 && rect.top<=innerHeight;
+      }, r.landing_anchor, {timeout:8000});
       const box = await row.boundingBox();
       if(!box || box.y< -2 || box.y>viewport.height)errors.push(r.file+' unfocused landing row');
       rows.push({file:r.file,width:viewport.width,title,returnHref,landingVisible:await row.isVisible(),vignettes});
