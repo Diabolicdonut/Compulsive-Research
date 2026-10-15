@@ -529,6 +529,7 @@ p{margin:1em 0}
 .printing-status{display:none!important}
 .canonical-printing-gallery[aria-busy="true"]{min-height:0}
 </style>
+<link href="preconstructed-decks.css" rel="stylesheet"/>
 <style id="cr-card-image-standard">
 /* CR_CARD_IMAGE_STANDARD_START */
 #preview .preview-track{display:grid;grid-template-columns:1fr;gap:10px}
@@ -556,76 +557,30 @@ p{margin:1em 0}
 }
 /* CR_CARD_IMAGE_STANDARD_END */
 </style>
-<style id="cr-v21-reader-fixes">/* CR_V21_READER_FIXES_START
-   Self-contained fallbacks for article-only ZIP delivery. */
-.preconstructed-archive{
-  margin-top:1.25rem;border:1px solid #415753;border-radius:16px;
-  background:#101917;color:#f1eee5;overflow:hidden
-}
-.preconstructed-archive>summary{
-  display:flex;justify-content:space-between;gap:1rem;align-items:center;
-  cursor:pointer;padding:1rem 1.15rem;list-style:none;color:#f1eee5;
-  font-family:Inter,system-ui,sans-serif
-}
-.preconstructed-archive>summary::-webkit-details-marker{display:none}
-.preconstructed-archive>summary strong{
-  display:block;color:#fff;font-family:Georgia,serif;font-size:1.18rem;line-height:1.25
-}
-.preconstructed-archive>summary small{
-  display:block;color:#c8d3d0!important;margin-top:.28rem;
-  font:500 .88rem/1.45 Inter,system-ui,sans-serif
-}
-.preconstructed-archive>summary .plus{flex:0 0 auto;color:#e0bb70}
-.preconstructed-archive[open]>summary{border-bottom:1px solid #415753}
-.preconstructed-archive[open]>summary>.plus{transform:rotate(45deg)}
-.preconstructed-body{
-  padding:1rem 1.05rem 1.1rem;background:#f6f1e8;color:#1d2422
-}
-.preconstructed-status{
-  margin:.2rem 0 1rem;color:#1d2422;font:500 1rem/1.7 Inter,system-ui,sans-serif
-}
-.preconstructed-status b{color:#165f5b}
-.official-deck-scope-note{
-  margin-top:-.35rem;color:#4f5d59!important;opacity:1!important;
-  font:500 .92rem/1.65 Inter,system-ui,sans-serif
-}
-.official-mtg-deck-results{margin-top:1rem}
-.official-mtg-deck-results>.deck{margin:1rem 0}
-.official-mtg-deck-results>.deck:first-child{margin-top:.35rem}
-.official-mtg-deck-results>.deck:last-child{margin-bottom:.15rem}
-.official-mtg-deck .provenance-badge{margin-bottom:.65rem}
-.official-mtg-deck .deck-body>p{color:#d7dfdc}
-.official-mtg-empty{font-style:italic;color:#394642}
-
-/* Sources are a reading list, not a second printing-card grid. */
-#printings .sources{
-  display:block;width:auto;max-width:var(--reading,760px);margin:1.2rem 0 1.8rem;
-  padding-left:1.35rem;color:var(--ink,#202321);
-  font:500 .98rem/1.55 Inter,system-ui,sans-serif
-}
-#printings .sources li{margin:0 0 1rem;padding-left:.2rem}
-#printings .sources li::marker{color:var(--green,#286d68);font-weight:800}
-#printings .sources a{
-  color:var(--green,#286d68);font-weight:750;text-decoration-thickness:1px;
-  text-underline-offset:.14em;overflow-wrap:anywhere
-}
-#printings .sources span{
-  display:block;margin-top:.18rem;color:#59635f;
-  font:500 .86rem/1.5 Inter,system-ui,sans-serif
-}
-@media(max-width:700px){
-  .preconstructed-archive>summary{padding:.95rem;align-items:flex-start}
-  .preconstructed-body{padding:.9rem}
-  #printings .sources{padding-left:1.2rem;font-size:.95rem}
-  #printings .sources span{font-size:.84rem}
-}
-/* CR_V21_READER_FIXES_END */</style></head>
-<body data-article-card="The Rack" data-current-information-as-of="2026-08-02" data-editorial-contract="v2" data-editorial-status="reviewed-v2" data-editorial-wave="numbered-wave-01" data-reader-standard="v2.1" data-research-status="complete"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=The%20Rack&amp;set=atq&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=The%20Rack&amp;set=atq&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
+<style id="cr-reader-experience-v3">/* CR_READER_EXPERIENCE_V3_START */
+.play-vignette{margin:clamp(26px,5vw,48px) 0 0;padding:clamp(22px,4vw,34px);border-left:5px solid #b98b37;border-radius:0 18px 18px 0;background:linear-gradient(135deg,#f4ead3,#eef4f1);box-shadow:0 12px 30px rgba(22,25,24,.08)}
+.play-vignette .vignette-label{font:800 .72rem/1.35 Inter,system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#8c4e3d;margin-bottom:.65rem}
+.play-vignette h3{font-size:clamp(1.35rem,3vw,1.85rem);line-height:1.15;margin:0 0 .7rem;color:#1d2624}
+.play-vignette p{font-size:clamp(1.02rem,2.2vw,1.16rem);line-height:1.72;color:#313a37;margin:0}
+/* Critical product contrast is inline because some Android content viewers do not load sibling CSS files reliably. */
+details.preconstructed-archive.official-mtg-decks{background:#13211f!important;color:#f8f4eb!important;border:1px solid #607b73!important;border-radius:16px!important;overflow:hidden!important}
+details.preconstructed-archive.official-mtg-decks>summary{display:flex!important;justify-content:space-between!important;align-items:flex-start!important;gap:.8rem!important;padding:1rem 1.15rem!important;background:#13211f!important;color:#f8f4eb!important;list-style:none!important}
+details.preconstructed-archive.official-mtg-decks>summary>span:first-child{display:block!important;min-width:0!important}
+details.preconstructed-archive.official-mtg-decks>summary strong{display:block!important;color:#fffaf0!important;line-height:1.3!important}
+details.preconstructed-archive.official-mtg-decks>summary small{display:block!important;color:#dfe8e4!important;line-height:1.5!important;margin-top:.35rem!important}
+details.preconstructed-archive.official-mtg-decks>summary>.plus{color:#efca78!important;font-weight:900!important;flex:0 0 auto!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-body{padding:1rem!important;background:#192b28!important;color:#f8f4eb!important;border-top:1px solid #607b73!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-status,
+details.preconstructed-archive.official-mtg-decks .official-deck-scope-note,
+details.preconstructed-archive.official-mtg-decks .preconstructed-body>p{color:#edf3f0!important;opacity:1!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-status b{color:#fffaf0!important}
+/* CR_READER_EXPERIENCE_V3_END */</style></head>
+<body data-article-card="The Rack" data-current-information-as-of="2026-08-02" data-editorial-contract="v2" data-editorial-status="reviewed-v2" data-editorial-wave="numbered-wave-01" data-reader-experience="v3" data-research-status="complete" data-vignette-specificity="period-grounded-oral-history"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=The%20Rack&amp;set=atq&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=The%20Rack&amp;set=atq&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
 <a class="archive-link" href="index.html?focus=entry-045#entry-045">← Back to Compulsive Research</a>
 <div class="eyebrow">Entry 045 · Wave 01 · The Foundational Canon</div>
 <h1>Nothing Left to Hold</h1>
 <p class="deckline">The Rack turned an empty hand into a recurring source of damage, giving discard decks a permanent clock from the first U.S. Nationals and the 1995 World Championship to Modern’s 8-Rack.</p>
-<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Antiquities, 1994</span><span class="pill" data-reading-scope="core-editorial-prose" data-reading-word-count="2564" data-reading-wpm="225">Approximately 12 minute read</span></div>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Antiquities, 1994</span><span class="pill" data-reading-time-wpm="200" data-reading-word-count="2956">Approximately 15 minute read</span></div>
 </div></header>
 <nav class="rank-nav"><a href="index.html?focus=entry-044#entry-044">← Entry 044 · Black Vise</a><div class="center">Entry 045 of 1,000</div><a href="index.html?focus=entry-046#entry-046">Entry 046 · Winter Orb →</a></nav>
 <div class="article-shell"><nav aria-label="Article table of contents" class="toc"><strong>In this article</strong><a href="#opening">Nothing Left to Hold</a><a href="#strategic-legacy-brief">Strategic legacy</a><a href="#antiquities">Antiquities builds a punishment machine</a><a href="#inverse">The inverse of Black Vise</a><a href="#three">Why zero cards means three damage</a><a href="#rules">What The Rack actually does</a><a href="#upkeep">The damage arrives before the draw</a><a href="#discard">Discard becomes a win condition</a><a href="#bell">Bo Bell and the first U.S. Nationals</a><a href="#revised">The Revised copies that saved a championship</a><a href="#blumke">The 1995 World Champion</a><a href="#topdeck">The prison of topdeck mode</a><a href="#eight-rack">Why the deck became 8-Rack</a><a href="#liliana">Liliana, Smallpox, and Raven’s Crime</a><a href="#weakness">The opponent can draw out</a><a href="#graveyard">When discard helps the opponent</a><a href="#descendants">The descendants of The Rack</a><a href="#art">Mishra’s feared creation</a><a href="#formats">A life across formats</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
@@ -634,7 +589,7 @@ p{margin:1em 0}
 <p>An empty hand appears to be the end of the discard player’s work. There are no more cards for <span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span> to remove, no choices for <span class="card-name" data-card="Thoughtseize" tabindex="0">Thoughtseize</span> to inspect, and no hidden answers left to fear. Without The Rack, the empty-handed opponent may simply begin drawing one card per turn and slowly return to the game.</p>
 <p>The Rack turns that recovery into a clock. Zero cards means three damage during upkeep. One card means two. Two cards mean one. The opponent is forced to choose between holding a newly drawn answer and accepting more damage, or spending the card immediately and remaining fully inside the machine.</p>
 <div class="card-lead" data-card-name="The Rack" data-dfc-mode="auto"><img alt="The Rack original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=The%20Rack&amp;set=atq&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The original object</div><h3>The Rack</h3><p><b>{1} · Artifact</b></p><p>As this artifact enters, choose an opponent.</p><p>At the beginning of the chosen player’s upkeep, this artifact deals X damage to that player, where X is 3 minus the number of cards in their hand.</p><div class="stats"><div class="stat"><b>First printing</b>Antiquities · 1994</div><div class="stat"><b>Original artist</b>Richard Thomas</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Historical role</b>Discard-deck finisher</div></div></div></div>
-</section><section class="strategic-legacy-brief" id="strategic-legacy-brief"><div class="chapter-number">Strategic legacy</div><h2>Why The Rack matters</h2><p class="brief-lead">The Rack converts an empty opposing hand into recurring damage, reversing Black Vise by rewarding discard rather than punishing card accumulation.</p><div class="strategic-legacy-grid"><div class="strategic-legacy-card"><h3>How to use it</h3><p>Strip the hand with efficient discard, then protect the Rack while denying topdecked answers. Effects that set hand size or duplicate the damage improve consistency.</p></div><div class="strategic-legacy-card"><h3>How to fight it</h3><p>Keep expendable cards, use instant-speed draw before upkeep, remove the artifact, and deploy recursive or graveyard-based threats that function after discard.</p></div><div class="strategic-legacy-card tournament-impact"><h3>Tournament and cultural record</h3><p class="tournament-impact">Historical lists connect early Mind Twist control, Rack championship decks, Pox, and Modern 8-Rack.</p></div></div></section>
+<aside aria-label="First-person table story for The Rack" class="play-vignette" data-featured-card="The Rack" data-vignette-deck-reference="Tom Ross — 8-Rack" data-vignette-era="2017 Modern" data-vignette-matchup="8-Rack against Jund" data-vignette-opening="upkeep-triggers" data-vignette-scenario="representative-recollection" data-vignette-voice="first-person-recollection"><div class="vignette-label">A story from the table</div><h3>Two empty-hand triggers ended it</h3><p>My opponent was at six with two cards in hand. <span class="card-name" data-card="Liliana of the Veil" tabindex="0">Liliana of the Veil</span> made both of us discard; I put <span class="card-name" data-card="Raven's Crime" tabindex="0">Raven's Crime</span> into my graveyard. I then played a land, retraced Raven's Crime, and took his final card. <span class="card-name" data-card="The Rack" tabindex="0">The Rack</span> and <span class="card-name" data-card="Shrieking Affliction" tabindex="0">Shrieking Affliction</span> were already on the battlefield. At the beginning of his upkeep, The Rack saw zero cards and dealt three. Shrieking Affliction saw one or fewer and dealt three more. He never reached the draw step. The last land in my hand had become the discard spell that turned both permanents on at once.</p></aside></section><section class="strategic-legacy-brief" id="strategic-legacy-brief"><div class="chapter-number">Strategic legacy</div><h2>Why The Rack matters</h2><p class="brief-lead">The Rack converts an empty opposing hand into recurring damage, reversing Black Vise by rewarding discard rather than punishing card accumulation.</p><div class="strategic-legacy-grid"><div class="strategic-legacy-card"><h3>How to use it</h3><p>Strip the hand with efficient discard, then protect the Rack while denying topdecked answers. Effects that set hand size or duplicate the damage improve consistency.</p></div><div class="strategic-legacy-card"><h3>How to fight it</h3><p>Keep expendable cards, use instant-speed draw before upkeep, remove the artifact, and deploy recursive or graveyard-based threats that function after discard.</p></div><div class="strategic-legacy-card tournament-impact"><h3>Tournament and cultural record</h3><p class="tournament-impact">Historical lists connect early Mind Twist control, Rack championship decks, Pox, and Modern 8-Rack.</p></div></div></section>
 <section id="antiquities"><div class="chapter-number">II · The Machine</div><h2>Antiquities builds a punishment machine</h2>
 <p>Antiquities was Magic’s first expansion devoted to artifacts and the ancient war between Urza and Mishra. The Rack belonged perfectly to that world. It was not a spell of temporary pain but a constructed instrument—something invented, refined, and left operating on the battlefield.</p>
 <p>The set also gave artifact decks and control decks a language of machinery: <span class="card-name" data-card="Mishra's Workshop" tabindex="0">Mishra's Workshop</span>, <span class="card-name" data-card="Candelabra of Tawnos" tabindex="0">Candelabra of Tawnos</span>, <span class="card-name" data-card="Ashnod's Transmogrant" tabindex="0">Ashnod's Transmogrant</span>, and the destructive relics of the Brothers’ War. The Rack was smaller than the great engines but more intimate. Its subject was not a city or an army. It was one captive mind and body.</p>
@@ -1042,9 +997,25 @@ Main deck · 60
 2 Demon's Horn</pre><p class="small">Product-list source: <a href="https://mtg.wiki/wiki/Salvat_2011/Preconstructed_decks">open the documented deck record</a></p></div></details></div></div></details><!-- CR_OFFICIAL_MTG_DECKS_END --></section>
 <section id="printings"><div class="chapter-number">XXI · The Object</div><h2>Printings and sources</h2>
 <p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than twelve legitimate printings show every available version instead.</p>
-<div class="printings canonical-printing-gallery" data-card="The Rack" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="atq" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="The Rack" data-identity-status="exact-name-set-fallback" data-set="atq"><img alt="The Rack original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=The%20Rack&amp;set=atq&amp;format=image&amp;version=normal"/><figcaption><b>Antiquities</b><br/>Original printing</figcaption></figure></div><h3>Sources</h3><ol class="sources canonical-source-list"><li><a href="https://scryfall.com/card/atq/72/the-rack">Scryfall — The Rack, Antiquities</a><span>Card identity, collector number, Oracle text, artist, rarity, legalities, rulings, and printing history.</span></li><li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=The%20Rack">Wizards of the Coast Gatherer — The Rack</a><span>Official card text and rules reference.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/when-going-gets-bluff-2007-02-12">Mark Rosewater — When the Going Gets Bluff</a><span>Firsthand account of Bo Bell urgently acquiring Revised copies of The Rack before winning the 1994 U.S. National Championship.</span></li><li><a href="https://www.mtggoldfish.com/deck/4812052">Bo Bell — Mind Twist/Rack Control</a><span>Documented archival list, historical notes, and source trail for the inaugural U.S. National Champion.</span></li><li><a href="https://www.classicdojo.org/history/type1.html">Classic Dojo — The Early Days of Type I</a><span>Early tournament history, Bo Bell commentary, and the recorded Rack/Mind Twist shell.</span></li><li><a href="https://www.magic.gg/news/metagame-mentor-how-leyline-of-the-guildpact-transformed-modern">Magic.gg — Metagame Mentor and the 1995 World Championship</a><span>Official modern retrospective on Alexander Blumke’s discard plan, The Rack, the 63-card list, and the later 8-Rack naming convention.</span></li><li><a href="https://mtgtop8.com/event.php?e=9185">MTGTop8 — 1995 World Championship</a><span>Complete Alexander Blumke 63-card main deck, 15-card sideboard, result, and tournament context.</span></li><li><a href="https://articles.starcitygames.com/articles/the-rack-is-back/">Tom Ross — The Rack Is Back</a><span>Complete 2017 Modern Open fourth-place 8-Rack list and detailed archetype analysis.</span></li><li><a href="https://articles.starcitygames.com/articles/paint-it-black-the-complete-guide-to-8-rack/">Tom Ross — Paint It Black: The Complete Guide to 8-Rack</a><span>Strategic history and construction principles for the Modern archetype.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/design-files-urzas-destiny-part-3">Mark Rosewater — Design Files: Urza’s Destiny, Part 3</a><span>Official design note identifying The Rack as the source for a later creature concept that became Viseling.</span></li><li><a href="https://magic.wizards.com/en/rules">Magic Comprehensive Rules</a><span>Current rules framework used for the play and counterplay review.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned and Restricted list</a><span>Current sanctioned-format policy as of the review date.</span></li></ol>
+<div class="printings canonical-printing-gallery" data-card="The Rack" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="atq" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="The Rack" data-identity-status="exact-name-set-fallback" data-set="atq"><img alt="The Rack original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=The%20Rack&amp;set=atq&amp;format=image&amp;version=normal"/><figcaption><b>Antiquities</b><br/>Original printing</figcaption></figure></div>
+<h3>Sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/atq/72/the-rack">Scryfall — The Rack, Antiquities</a><span>Card identity, collector number, Oracle text, artist, rarity, legalities, rulings, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=The%20Rack">Wizards of the Coast Gatherer — The Rack</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/when-going-gets-bluff-2007-02-12">Mark Rosewater — When the Going Gets Bluff</a><span>Firsthand account of Bo Bell urgently acquiring Revised copies of The Rack before winning the 1994 U.S. National Championship.</span></li>
+<li><a href="https://www.mtggoldfish.com/deck/4812052">Bo Bell — Mind Twist/Rack Control</a><span>Documented archival list, historical notes, and source trail for the inaugural U.S. National Champion.</span></li>
+<li><a href="https://www.classicdojo.org/history/type1.html">Classic Dojo — The Early Days of Type I</a><span>Early tournament history, Bo Bell commentary, and the recorded Rack/Mind Twist shell.</span></li>
+<li><a href="https://www.magic.gg/news/metagame-mentor-how-leyline-of-the-guildpact-transformed-modern">Magic.gg — Metagame Mentor and the 1995 World Championship</a><span>Official modern retrospective on Alexander Blumke’s discard plan, The Rack, the 63-card list, and the later 8-Rack naming convention.</span></li>
+<li><a href="https://mtgtop8.com/event.php?e=9185">MTGTop8 — 1995 World Championship</a><span>Complete Alexander Blumke 63-card main deck, 15-card sideboard, result, and tournament context.</span></li>
+<li><a href="https://articles.starcitygames.com/articles/the-rack-is-back/">Tom Ross — The Rack Is Back</a><span>Complete 2017 Modern Open fourth-place 8-Rack list and detailed archetype analysis.</span></li>
+<li><a href="https://articles.starcitygames.com/articles/paint-it-black-the-complete-guide-to-8-rack/">Tom Ross — Paint It Black: The Complete Guide to 8-Rack</a><span>Strategic history and construction principles for the Modern archetype.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/design-files-urzas-destiny-part-3">Mark Rosewater — Design Files: Urza’s Destiny, Part 3</a><span>Official design note identifying The Rack as the source for a later creature concept that became Viseling.</span></li>
+<li><a href="https://scryfall.com/card/3ed/278/the-rack">Scryfall — Revised Edition The Rack</a><span>Revised printing and tournament-version reference.</span></li>
+<li><a href="https://scryfall.com/card/4ed/352/the-rack">Scryfall — Fourth Edition The Rack</a><span>Fourth Edition frame, flavor text, and 1995-era printing reference.</span></li>
+<li><a href="https://scryfall.com/card/tsb/113/the-rack">Scryfall — Time Spiral Timeshifted The Rack</a><span>Timeshifted printing, original-frame presentation, and Modern card-pool reference.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22The+Rack%22&amp;unique=prints">Scryfall — The Rack printing search</a><span>Cross-set frames, dates, languages, and digital printings.</span></li>
+</ol>
 <div class="editor-note"><b>Editorial note.</b> Bo Bell’s surviving archival deck is preserved at its documented 65-card size; no reliable sideboard is attached to that version. Alexander Blumke’s championship deck is preserved at its documented 63-card size. Tom Ross’s list is a conventional 60-card main deck with a 15-card sideboard.</div>
-</section>
+<ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22The%20Rack%22&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for The Rack</a><span>Identity, printings, images, and current legality snapshot.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+%5BThe%20Rack%5D">Gatherer card record</a><span>Official Oracle text and rulings.</span></li><li><a href="https://magic.wizards.com/en/rules">Magic Comprehensive Rules</a><span>Current rules framework used for the play and counterplay review.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned and Restricted list</a><span>Current sanctioned-format policy as of the review date.</span></li></ul></section>
 </article>
 <aside class="sidebar-note"><b>Entry 045</b><br/>The Rack completed discard’s strategic loop by converting the opponent’s empty hand from a temporary advantage into a lethal and repeatable game state.</aside></div>
 <section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>The Rack is entry 45 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-044#entry-044"><small>Previous entry · 044</small>Black Vise</a><a href="index.html?focus=entry-046#entry-046"><small>Next entry · 046</small>Winter Orb</a></nav></section><div id="preview"><div class="preview-track"></div></div><footer class="footer">Compulsive Research · Entry 045 · The Rack · Independent, noncommercial Magic history project.</footer>

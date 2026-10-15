@@ -1,0 +1,114 @@
+{
+  "mode": "refresh-v2-direct",
+  "started": "20260805T154859Z",
+  "commandsPlanned": 9,
+  "commandsRun": 9,
+  "passed": 9,
+  "failed": 0,
+  "skipped": 0,
+  "status": "PASS",
+  "executionNote": "The suite runner repeatedly stalled while launching its final subprocess in this container. Each constituent command was therefore executed directly, in the same order, and passed. This is an execution-environment runner issue, not a validator or corpus failure.",
+  "results": [
+    {
+      "index": 1,
+      "command": [
+        "python",
+        "tools/validate_editorial_quality.py",
+        "--output-dir",
+        "audit/editorial-v2"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "index": 2,
+      "command": [
+        "python",
+        "tools/validate_canonical_identity.py",
+        "--output-dir",
+        "audit/canonical-identity-v2"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "index": 3,
+      "command": [
+        "python",
+        "tools/validate_deck_semantics.py",
+        "--output-dir",
+        "audit/deck-semantics"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "index": 4,
+      "command": [
+        "python",
+        "tools/validate_archive_core_v2.py",
+        "--output-dir",
+        "audit/archive-core-v2"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "index": 5,
+      "command": [
+        "python",
+        "tools/validate_historical_decks_only.py"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "index": 6,
+      "command": [
+        "python",
+        "tools/validate_deck_archives.py",
+        "--jobs",
+        "4",
+        "--output-dir",
+        "audit/deck-archives"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "index": 7,
+      "command": [
+        "python",
+        "tools/validate_official_mtg_decks.py",
+        "--jobs",
+        "4",
+        "--output-dir",
+        "audit/official-mtg-decks"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "index": 8,
+      "command": [
+        "python",
+        "tools/validate_card_image_links.py",
+        "--jobs",
+        "4",
+        "--output-dir",
+        "audit/card-image-links"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "index": 9,
+      "command": [
+        "python",
+        "tools/stamp_release_v2_state.py"
+      ],
+      "status": "PASS",
+      "returncode": 0
+    }
+  ]
+}

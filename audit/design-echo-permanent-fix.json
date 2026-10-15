@@ -1,0 +1,28 @@
+{
+  "completed_on": "2026-07-29",
+  "canonical_authority": "250-eternal-dragon.html#descendant",
+  "articles_scanned": 408,
+  "articles_with_at_least_one_canonical_design_echo_panel": 408,
+  "canonical_panels": 420,
+  "preexisting_inline_panels_migrated": 298,
+  "legacy_descendant_panel_elements_eliminated": 138,
+  "standalone_legacy_descendant_boxes_converted": 97,
+  "text_only_design_echo_sections_given_panels": 25,
+  "legacy_descendant_css_files_remaining": 0,
+  "validation_failures": 0,
+  "root_causes": [
+    "Several articles used an empty .image div whose artwork existed only as a CSS background.",
+    "CSS background images do not expose an image-element error event, so a bad or missing URL left an empty black image well.",
+    "Legacy .descendant-panel rules introduced alternate padding, borders, heights, and mobile geometry.",
+    "Some articles used a kicker, no top line, or a differently classified parent section instead of Eternal Dragon’s canonical structure."
+  ],
+  "permanent_fixes": [
+    "Every Design Echo image is now a real img.inline-image-media element.",
+    "Every image uses an art_crop primary URL, exact-card normal fallback, fuzzy art_crop fallback, and readable final failure state.",
+    "Every panel uses .inline-image.canonical-inline-image inside section.design-echo-section.",
+    "Every copy field uses div.eyebrow, h3, and explanatory paragraph content.",
+    "All .descendant-panel elements and CSS rules were removed.",
+    "The template, schema, canonical contract, generation prompt, migration tools, validator, shared CSS/JS, and GitHub workflow enforce the component."
+  ],
+  "mechanical_audit": "A=1, B=407, with no new mechanical issue signatures introduced"
+}

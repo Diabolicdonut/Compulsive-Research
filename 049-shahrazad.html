@@ -529,6 +529,7 @@ p{margin:1em 0}
 .printing-status{display:none!important}
 .canonical-printing-gallery[aria-busy="true"]{min-height:0}
 </style>
+<link href="preconstructed-decks.css" rel="stylesheet"/>
 <style id="cr-card-image-standard">
 /* CR_CARD_IMAGE_STANDARD_START */
 #preview .preview-track{display:grid;grid-template-columns:1fr;gap:10px}
@@ -556,76 +557,30 @@ p{margin:1em 0}
 }
 /* CR_CARD_IMAGE_STANDARD_END */
 </style>
-<style id="cr-v21-reader-fixes">/* CR_V21_READER_FIXES_START
-   Self-contained fallbacks for article-only ZIP delivery. */
-.preconstructed-archive{
-  margin-top:1.25rem;border:1px solid #415753;border-radius:16px;
-  background:#101917;color:#f1eee5;overflow:hidden
-}
-.preconstructed-archive>summary{
-  display:flex;justify-content:space-between;gap:1rem;align-items:center;
-  cursor:pointer;padding:1rem 1.15rem;list-style:none;color:#f1eee5;
-  font-family:Inter,system-ui,sans-serif
-}
-.preconstructed-archive>summary::-webkit-details-marker{display:none}
-.preconstructed-archive>summary strong{
-  display:block;color:#fff;font-family:Georgia,serif;font-size:1.18rem;line-height:1.25
-}
-.preconstructed-archive>summary small{
-  display:block;color:#c8d3d0!important;margin-top:.28rem;
-  font:500 .88rem/1.45 Inter,system-ui,sans-serif
-}
-.preconstructed-archive>summary .plus{flex:0 0 auto;color:#e0bb70}
-.preconstructed-archive[open]>summary{border-bottom:1px solid #415753}
-.preconstructed-archive[open]>summary>.plus{transform:rotate(45deg)}
-.preconstructed-body{
-  padding:1rem 1.05rem 1.1rem;background:#f6f1e8;color:#1d2422
-}
-.preconstructed-status{
-  margin:.2rem 0 1rem;color:#1d2422;font:500 1rem/1.7 Inter,system-ui,sans-serif
-}
-.preconstructed-status b{color:#165f5b}
-.official-deck-scope-note{
-  margin-top:-.35rem;color:#4f5d59!important;opacity:1!important;
-  font:500 .92rem/1.65 Inter,system-ui,sans-serif
-}
-.official-mtg-deck-results{margin-top:1rem}
-.official-mtg-deck-results>.deck{margin:1rem 0}
-.official-mtg-deck-results>.deck:first-child{margin-top:.35rem}
-.official-mtg-deck-results>.deck:last-child{margin-bottom:.15rem}
-.official-mtg-deck .provenance-badge{margin-bottom:.65rem}
-.official-mtg-deck .deck-body>p{color:#d7dfdc}
-.official-mtg-empty{font-style:italic;color:#394642}
-
-/* Sources are a reading list, not a second printing-card grid. */
-#printings .sources{
-  display:block;width:auto;max-width:var(--reading,760px);margin:1.2rem 0 1.8rem;
-  padding-left:1.35rem;color:var(--ink,#202321);
-  font:500 .98rem/1.55 Inter,system-ui,sans-serif
-}
-#printings .sources li{margin:0 0 1rem;padding-left:.2rem}
-#printings .sources li::marker{color:var(--green,#286d68);font-weight:800}
-#printings .sources a{
-  color:var(--green,#286d68);font-weight:750;text-decoration-thickness:1px;
-  text-underline-offset:.14em;overflow-wrap:anywhere
-}
-#printings .sources span{
-  display:block;margin-top:.18rem;color:#59635f;
-  font:500 .86rem/1.5 Inter,system-ui,sans-serif
-}
-@media(max-width:700px){
-  .preconstructed-archive>summary{padding:.95rem;align-items:flex-start}
-  .preconstructed-body{padding:.9rem}
-  #printings .sources{padding-left:1.2rem;font-size:.95rem}
-  #printings .sources span{font-size:.84rem}
-}
-/* CR_V21_READER_FIXES_END */</style></head>
-<body data-article-card="Shahrazad" data-current-information-as-of="2026-08-02" data-editorial-contract="v2" data-editorial-status="reviewed-v2" data-editorial-wave="numbered-wave-01" data-reader-standard="v2.1" data-research-status="complete"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Shahrazad&amp;set=arn&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Shahrazad&amp;set=arn&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
+<style id="cr-reader-experience-v3">/* CR_READER_EXPERIENCE_V3_START */
+.play-vignette{margin:clamp(26px,5vw,48px) 0 0;padding:clamp(22px,4vw,34px);border-left:5px solid #b98b37;border-radius:0 18px 18px 0;background:linear-gradient(135deg,#f4ead3,#eef4f1);box-shadow:0 12px 30px rgba(22,25,24,.08)}
+.play-vignette .vignette-label{font:800 .72rem/1.35 Inter,system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#8c4e3d;margin-bottom:.65rem}
+.play-vignette h3{font-size:clamp(1.35rem,3vw,1.85rem);line-height:1.15;margin:0 0 .7rem;color:#1d2624}
+.play-vignette p{font-size:clamp(1.02rem,2.2vw,1.16rem);line-height:1.72;color:#313a37;margin:0}
+/* Critical product contrast is inline because some Android content viewers do not load sibling CSS files reliably. */
+details.preconstructed-archive.official-mtg-decks{background:#13211f!important;color:#f8f4eb!important;border:1px solid #607b73!important;border-radius:16px!important;overflow:hidden!important}
+details.preconstructed-archive.official-mtg-decks>summary{display:flex!important;justify-content:space-between!important;align-items:flex-start!important;gap:.8rem!important;padding:1rem 1.15rem!important;background:#13211f!important;color:#f8f4eb!important;list-style:none!important}
+details.preconstructed-archive.official-mtg-decks>summary>span:first-child{display:block!important;min-width:0!important}
+details.preconstructed-archive.official-mtg-decks>summary strong{display:block!important;color:#fffaf0!important;line-height:1.3!important}
+details.preconstructed-archive.official-mtg-decks>summary small{display:block!important;color:#dfe8e4!important;line-height:1.5!important;margin-top:.35rem!important}
+details.preconstructed-archive.official-mtg-decks>summary>.plus{color:#efca78!important;font-weight:900!important;flex:0 0 auto!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-body{padding:1rem!important;background:#192b28!important;color:#f8f4eb!important;border-top:1px solid #607b73!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-status,
+details.preconstructed-archive.official-mtg-decks .official-deck-scope-note,
+details.preconstructed-archive.official-mtg-decks .preconstructed-body>p{color:#edf3f0!important;opacity:1!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-status b{color:#fffaf0!important}
+/* CR_READER_EXPERIENCE_V3_END */</style></head>
+<body data-article-card="Shahrazad" data-current-information-as-of="2026-08-02" data-editorial-contract="v2" data-editorial-status="reviewed-v2" data-editorial-wave="numbered-wave-01" data-reader-experience="v3" data-research-status="complete" data-vignette-specificity="period-grounded-oral-history"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Shahrazad&amp;set=arn&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Shahrazad&amp;set=arn&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
 <a class="archive-link" href="index.html?focus=entry-049#entry-049">← Back to Compulsive Research</a>
 <div class="eyebrow">Entry 049 · Wave 01 · The Foundational Canon</div>
 <h1>The Story That Would Not End</h1>
 <p class="deckline">Shahrazad suspended the game on the table, created another Magic game inside it, and turned the literary structure of a story within a story into one of the strangest rules objects ever printed.</p>
-<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Arabian Nights, 1993</span><span class="pill" data-reading-scope="core-editorial-prose" data-reading-word-count="2785" data-reading-wpm="225">Approximately 13 minute read</span></div>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Arabian Nights, 1993</span><span class="pill" data-reading-time-wpm="200" data-reading-word-count="3148">Approximately 16 minute read</span></div>
 </div></header>
 <nav class="rank-nav"><a href="index.html?focus=entry-048#entry-048">← Entry 048 · Chaos Orb</a><div class="center">Entry 049 of 1,000</div><a href="index.html?focus=entry-050#entry-050">Entry 050 · Stasis →</a></nav>
 <div class="article-shell"><nav aria-label="Article table of contents" class="toc"><strong>In this article</strong><a href="#opening">The Story That Would Not End</a><a href="#strategic-legacy-brief">Strategic legacy</a><a href="#arabian">Arabian Nights becomes a game within the game</a><a href="#storyteller">Why Shahrazad tells another story</a><a href="#rules">What Shahrazad actually does</a><a href="#zones">Only the libraries enter the subgame</a><a href="#starting">A new game begins from the remaining decks</a><a href="#result">Winning half the opponent’s life</a><a href="#draw">What happens when nobody wins</a><a href="#return">How the main game resumes</a><a href="#nested">A subgame can contain another subgame</a><a href="#copy">Forking the story</a><a href="#concede">Concession becomes a strategic option</a><a href="#burn">Why Storytime treats it as burn</a><a href="#west">Back-to-back Player’s Ball victories</a><a href="#dreams">Underworld Dreams in both worlds</a><a href="#tournament">The tournament-clock problem</a><a href="#history">Banned, unbanned, and banned again</a><a href="#oldschool">Old School keeps telling the story</a><a href="#design">Richard Garfield’s favorite design</a><a href="#unsets">The subgame lineage moves to Un-sets</a><a href="#art">Kaja Foglio’s storyteller</a><a href="#formats">A life outside sanctioned formats</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
@@ -634,7 +589,7 @@ p{margin:1em 0}
 <p>The battlefield remains where it is. The hands, graveyards, exiled cards, and spells waiting in the main game are suspended like a scene abandoned at the end of a chapter. The players shuffle the remaining libraries, draw new hands, and begin again inside the unresolved sorcery.</p>
 <p>When the second game ends, the loser returns to the first game and loses half of their remaining life. The cards used in the story are gathered and shuffled back into the original libraries. Then the sorcery finally finishes resolving, and the first game continues as though an entire other game had been a single effect on the stack.</p>
 <div class="card-lead" data-card-name="Shahrazad" data-dfc-mode="auto"><img alt="Shahrazad original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Shahrazad&amp;set=arn&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The original object</div><h3>Shahrazad</h3><p><b>{W}{W} · Sorcery</b></p><p>Players play a Magic subgame, using their libraries as their decks. Each player who doesn’t win the subgame loses half their life, rounded up.</p><div class="stats"><div class="stat"><b>First printing</b>Arabian Nights · 1993</div><div class="stat"><b>Original artist</b>Kaja Foglio</div><div class="stat"><b>Original rarity</b>Rare · U2 sheet frequency</div><div class="stat"><b>Historical role</b>Game-within-a-game effect</div></div></div></div>
-</section><section class="strategic-legacy-brief" id="strategic-legacy-brief"><div class="chapter-number">Strategic legacy</div><h2>Why Shahrazad matters</h2><p class="brief-lead">Shahrazad changes the structure of a match by creating a subgame whose result halves a player's remaining life, making time, logistics, and tournament policy as important as ordinary card advantage.</p><div class="strategic-legacy-grid"><div class="strategic-legacy-card"><h3>How to use it</h3><p>Use it only under a clearly agreed rules framework and with enough time and space to complete the subgame. In casual Old School, build the subdeck plan so both the main game and subgame advance the same pressure.</p></div><div class="strategic-legacy-card"><h3>How to fight it</h3><p>Counter the spell, pressure the caster's life total so halving is less meaningful, and establish event policy before play. In sanctioned Magic the card is not a normal competitive option, so counterplay is principally relevant to community formats.</p></div><div class="strategic-legacy-card tournament-impact"><h3>Tournament and cultural record</h3><p class="tournament-impact">No credible sanctioned tournament archive exists for Shahrazad. The article now labels Groundhog Day and Storytime as curated historical constructions rather than tournament registrations and binds the documented Groundhog Day source.</p></div></div></section>
+<aside aria-label="First-person table story for Shahrazad" class="play-vignette" data-featured-card="Shahrazad" data-vignette-deck-reference="B/W Shahrazad — Dreams and Pestilence" data-vignette-era="1994 Old School representative play" data-vignette-matchup="B/W Shahrazad against red-green aggression" data-vignette-opening="game-within-game" data-vignette-scenario="representative-recollection" data-vignette-voice="first-person-recollection"><div class="vignette-label">A story from the table</div><h3>The subgame cut five life to two</h3><p>My opponent was at five life in the main game when I cast <span class="card-name" data-card="Shahrazad" tabindex="0">Shahrazad</span>. We set the main battlefield aside and began the subgame with the cards remaining in our libraries. <span class="card-name" data-card="White Knight" tabindex="0">White Knight</span> held off his early creatures, <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> removed the largest attacker, and <span class="card-name" data-card="Underworld Dreams" tabindex="0">Underworld Dreams</span> punished the extra cards he drew while trying to recover. He conceded the subgame rather than play through the lock. We returned to the original table, and Shahrazad made him lose half his life rounded up, dropping five to two. I untapped in the main game and cast <span class="card-name" data-card="Drain Life" tabindex="0">Drain Life</span> for the last two.</p></aside></section><section class="strategic-legacy-brief" id="strategic-legacy-brief"><div class="chapter-number">Strategic legacy</div><h2>Why Shahrazad matters</h2><p class="brief-lead">Shahrazad changes the structure of a match by creating a subgame whose result halves a player's remaining life, making time, logistics, and tournament policy as important as ordinary card advantage.</p><div class="strategic-legacy-grid"><div class="strategic-legacy-card"><h3>How to use it</h3><p>Use it only under a clearly agreed rules framework and with enough time and space to complete the subgame. In casual Old School, build the subdeck plan so both the main game and subgame advance the same pressure.</p></div><div class="strategic-legacy-card"><h3>How to fight it</h3><p>Counter the spell, pressure the caster's life total so halving is less meaningful, and establish event policy before play. In sanctioned Magic the card is not a normal competitive option, so counterplay is principally relevant to community formats.</p></div><div class="strategic-legacy-card tournament-impact"><h3>Tournament and cultural record</h3><p class="tournament-impact">No credible sanctioned tournament archive exists for Shahrazad. The article now labels Groundhog Day and Storytime as curated historical constructions rather than tournament registrations and binds the documented Groundhog Day source.</p></div></div></section>
 <section id="arabian"><div class="chapter-number">II · The Expansion</div><h2>Arabian Nights becomes a game within the game</h2>
 <p>Arabian Nights was Magic’s first expansion and Richard Garfield’s direct adaptation of stories, people, places, and objects from <i>One Thousand and One Nights</i>. Rather than merely naming familiar figures, the set repeatedly attempted to translate their narrative identities into rules.</p>
 <p><span class="card-name" data-card="Flying Carpet" tabindex="0">Flying Carpet</span> granted flying. <span class="card-name" data-card="Aladdin" tabindex="0">Aladdin</span> stole artifacts. <span class="card-name" data-card="Sindbad" tabindex="0">Sindbad</span> drew a card and discarded it if the revealed discovery was not land. Shahrazad told a story so compelling that the current reality had to wait for its conclusion.</p>
@@ -903,9 +858,27 @@ Sideboard · 15
 1 Swords to Plowshares</pre><p class="small">Historical list record preserved in the Compulsive Research archive.</p></div></details></div><!-- CR_OFFICIAL_MTG_DECKS_START --><details class="preconstructed-archive official-mtg-decks" data-card="Shahrazad" data-catalogue-snapshot="2026-08-01" data-loaded="true" data-official-deck-count="0"><summary><span><strong>Official Magic the Gathering decks</strong><small>0</small></span><span class="plus">+</span></summary><div class="preconstructed-body"><p class="preconstructed-status official-mtg-empty">No official Magic the Gathering products contained this particular card.</p></div></details><!-- CR_OFFICIAL_MTG_DECKS_END --></section>
 <section id="printings"><div class="chapter-number">XXV · The Object</div><h2>Printings and sources</h2>
 <p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than twelve legitimate printings show every available version instead.</p>
-<div class="printings canonical-printing-gallery" data-card="Shahrazad" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="arn" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Shahrazad" data-identity-status="exact-name-set-fallback" data-set="arn"><img alt="Shahrazad original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Shahrazad&amp;set=arn&amp;format=image&amp;version=normal"/><figcaption><b>Arabian Nights</b><br/>Original printing</figcaption></figure></div><h3>Sources</h3><ol class="sources canonical-source-list"><li><a href="https://scryfall.com/card/arn/10/shahrazad">Scryfall — Shahrazad, Arabian Nights</a><span>Oracle text, collector number, artist, rarity, Reserved List status, rulings, current legalities, and paper printing history.</span></li><li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Shahrazad">Wizards of the Coast Gatherer — Shahrazad</a><span>Official card text and card-specific rulings.</span></li><li><a href="https://media.wizards.com/2026/downloads/MagicCompRules%2020260619.pdf">Wizards of the Coast — Magic Comprehensive Rules, June 2026</a><span>Current section 724 procedures for beginning, playing, ending, and restoring a Magic subgame.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/it-happened-one-nights-2002-08-05">Mark Rosewater — It Happened One Nights</a><span>Official design retrospective on Arabian Nights and Richard Garfield’s willingness to translate source stories into unprecedented mechanics.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/get-it-unhinged-edition-part-2-2017-08-21">Mark Rosewater — Get It? Unhinged Edition, Part 2</a><span>Official statement that Shahrazad was the first subgame card and Richard Garfield’s favorite Magic design.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/unstable-scraps-part-1-2017-11-27">Mark Rosewater — Unstable Scraps, Part 1</a><span>Official discussion of Shahrazad’s flavor and R&amp;D’s decision not to create further black-bordered subgame cards.</span></li><li><a href="https://magic.wizards.com/en/news/making-magic/twenty-things-were-going-kill-magic-2013-08-05">Mark Rosewater — Twenty Things That Were Going to Kill Magic</a><span>Official history of the original banned list, on which Shahrazad appeared beside the ante cards.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Current Banned and Restricted Lists</a><span>Current explicit Vintage and Legacy bans.</span></li><li><a href="https://mtg.wiki/page/Banned_and_restricted_cards/Timeline">Banned and Restricted Cards Timeline</a><span>Historical unbanning in 1999 and the September 2007 Legacy and Vintage bans.</span></li><li><a href="https://www.eternalcentral.com/old-school-magic-93-94-shahrazads-sick-burn/">Eternal Central — Old School Magic 93–94: Story Time</a><span>Detailed explanation of Shahrazad as burn and tempo, tournament-state preservation, and Eternal Central’s unrestricted policy.</span></li><li><a href="https://www.eternalcentral.com/ospb19/">Eternal Central — Old School Player’s Ball 2019</a><span>Aaron West’s second consecutive championship with Storytime in a 103-player event.</span></li><li><a href="https://moxfield.com/decks/CNoqc2uBLUeg2E_a9Oz_MA">Moxfield — Storytime</a><span>Complete representative 60-card UWR Shahrazad main deck and 15-card sideboard.</span></li><li><a href="https://tappedout.net/mtg-decks/old-school-9394-bw-shahrazad/">TappedOut — Old School B/W Shahrazad</a><span>Complete 60-card Dreams, Pestilence, and Mirror Universe construction.</span></li><li><a href="https://tappedout.net/mtg-decks/old-school-9394-groundhog-day/">TappedOut — Old School Groundhog Day</a><span>Documented 63-card main deck and 15-card sideboard built around Shahrazad, Divine Intervention, Eureka, and Time Vault.</span></li><li><a href="https://mtg.wtf/card/arn/10/Shahrazad">MTG.WTF — Shahrazad</a><span>Release date, U2 rarity notation, legality, Oracle text, and confirmation of the single paper printing.</span></li><li><a href="https://mtg.wtf/set/me4">MTG.WTF — Masters Edition IV</a><span>Digital-only Magic Online set context and 2011 release.</span></li><li><a href="https://magic.wizards.com/en/rules">Magic Comprehensive Rules</a><span>Current rules framework used for the play and counterplay review.</span></li></ol>
+<div class="printings canonical-printing-gallery" data-card="Shahrazad" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="arn" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Shahrazad" data-identity-status="exact-name-set-fallback" data-set="arn"><img alt="Shahrazad original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Shahrazad&amp;set=arn&amp;format=image&amp;version=normal"/><figcaption><b>Arabian Nights</b><br/>Original printing</figcaption></figure></div>
+<h3>Sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/arn/10/shahrazad">Scryfall — Shahrazad, Arabian Nights</a><span>Oracle text, collector number, artist, rarity, Reserved List status, rulings, current legalities, and paper printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Shahrazad">Wizards of the Coast Gatherer — Shahrazad</a><span>Official card text and card-specific rulings.</span></li>
+<li><a href="https://media.wizards.com/2026/downloads/MagicCompRules%2020260619.pdf">Wizards of the Coast — Magic Comprehensive Rules, June 2026</a><span>Current section 724 procedures for beginning, playing, ending, and restoring a Magic subgame.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/it-happened-one-nights-2002-08-05">Mark Rosewater — It Happened One Nights</a><span>Official design retrospective on Arabian Nights and Richard Garfield’s willingness to translate source stories into unprecedented mechanics.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/get-it-unhinged-edition-part-2-2017-08-21">Mark Rosewater — Get It? Unhinged Edition, Part 2</a><span>Official statement that Shahrazad was the first subgame card and Richard Garfield’s favorite Magic design.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/unstable-scraps-part-1-2017-11-27">Mark Rosewater — Unstable Scraps, Part 1</a><span>Official discussion of Shahrazad’s flavor and R&amp;D’s decision not to create further black-bordered subgame cards.</span></li>
+<li><a href="https://magic.wizards.com/en/news/making-magic/twenty-things-were-going-kill-magic-2013-08-05">Mark Rosewater — Twenty Things That Were Going to Kill Magic</a><span>Official history of the original banned list, on which Shahrazad appeared beside the ante cards.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Current Banned and Restricted Lists</a><span>Current explicit Vintage and Legacy bans.</span></li>
+<li><a href="https://mtg.wiki/page/Banned_and_restricted_cards/Timeline">Banned and Restricted Cards Timeline</a><span>Historical unbanning in 1999 and the September 2007 Legacy and Vintage bans.</span></li>
+<li><a href="https://www.eternalcentral.com/old-school-magic-93-94-shahrazads-sick-burn/">Eternal Central — Old School Magic 93–94: Story Time</a><span>Detailed explanation of Shahrazad as burn and tempo, tournament-state preservation, and Eternal Central’s unrestricted policy.</span></li>
+<li><a href="https://www.eternalcentral.com/ospb19/">Eternal Central — Old School Player’s Ball 2019</a><span>Aaron West’s second consecutive championship with Storytime in a 103-player event.</span></li>
+<li><a href="https://moxfield.com/decks/CNoqc2uBLUeg2E_a9Oz_MA">Moxfield — Storytime</a><span>Complete representative 60-card UWR Shahrazad main deck and 15-card sideboard.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/old-school-9394-bw-shahrazad/">TappedOut — Old School B/W Shahrazad</a><span>Complete 60-card Dreams, Pestilence, and Mirror Universe construction.</span></li>
+<li><a href="https://tappedout.net/mtg-decks/old-school-9394-groundhog-day/">TappedOut — Old School Groundhog Day</a><span>Documented 63-card main deck and 15-card sideboard built around Shahrazad, Divine Intervention, Eureka, and Time Vault.</span></li>
+<li><a href="https://mtg.wtf/card/arn/10/Shahrazad">MTG.WTF — Shahrazad</a><span>Release date, U2 rarity notation, legality, Oracle text, and confirmation of the single paper printing.</span></li>
+<li><a href="https://mtg.wtf/set/me4">MTG.WTF — Masters Edition IV</a><span>Digital-only Magic Online set context and 2011 release.</span></li>
+</ol>
 <div class="editor-note"><b>Editorial note.</b> Storytime and the black-white list are preserved as documented 60-card constructions. The black-white source has no attached sideboard. Groundhog Day is preserved at its documented 63-card size rather than normalized and is presented as a novelty-control construction rather than a premier-event result. Shahrazad has only two distinct official implementations available to illustrate: its sole paper printing and its Magic Online version.</div>
-</section>
+<ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Shahrazad%22&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Shahrazad</a><span>Identity, printings, images, and current legality snapshot.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+%5BShahrazad%5D">Gatherer card record</a><span>Official Oracle text and rulings.</span></li><li><a href="https://magic.wizards.com/en/rules">Magic Comprehensive Rules</a><span>Current rules framework used for the play and counterplay review.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned and Restricted list</a><span>Current sanctioned-format policy as of the review date.</span></li></ul></section>
 </article>
 <aside class="sidebar-note"><b>Entry 049</b><br/>Shahrazad made narrative structure into game structure, pausing one Magic game so another could be played inside the unresolved spell.</aside></div>
 <section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Shahrazad is entry 49 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-048#entry-048"><small>Previous entry · 048</small>Chaos Orb</a><a href="index.html?focus=entry-050#entry-050"><small>Next entry · 050</small>Stasis</a></nav></section><div id="preview"><div class="preview-track"></div></div><footer class="footer">Compulsive Research · Entry 049 · Shahrazad · Independent, noncommercial Magic history project.</footer>

@@ -529,6 +529,7 @@ p{margin:1em 0}
 .printing-status{display:none!important}
 .canonical-printing-gallery[aria-busy="true"]{min-height:0}
 </style>
+<link href="preconstructed-decks.css" rel="stylesheet"/>
 <style id="cr-card-image-standard">
 /* CR_CARD_IMAGE_STANDARD_START */
 #preview .preview-track{display:grid;grid-template-columns:1fr;gap:10px}
@@ -556,76 +557,30 @@ p{margin:1em 0}
 }
 /* CR_CARD_IMAGE_STANDARD_END */
 </style>
-<style id="cr-v21-reader-fixes">/* CR_V21_READER_FIXES_START
-   Self-contained fallbacks for article-only ZIP delivery. */
-.preconstructed-archive{
-  margin-top:1.25rem;border:1px solid #415753;border-radius:16px;
-  background:#101917;color:#f1eee5;overflow:hidden
-}
-.preconstructed-archive>summary{
-  display:flex;justify-content:space-between;gap:1rem;align-items:center;
-  cursor:pointer;padding:1rem 1.15rem;list-style:none;color:#f1eee5;
-  font-family:Inter,system-ui,sans-serif
-}
-.preconstructed-archive>summary::-webkit-details-marker{display:none}
-.preconstructed-archive>summary strong{
-  display:block;color:#fff;font-family:Georgia,serif;font-size:1.18rem;line-height:1.25
-}
-.preconstructed-archive>summary small{
-  display:block;color:#c8d3d0!important;margin-top:.28rem;
-  font:500 .88rem/1.45 Inter,system-ui,sans-serif
-}
-.preconstructed-archive>summary .plus{flex:0 0 auto;color:#e0bb70}
-.preconstructed-archive[open]>summary{border-bottom:1px solid #415753}
-.preconstructed-archive[open]>summary>.plus{transform:rotate(45deg)}
-.preconstructed-body{
-  padding:1rem 1.05rem 1.1rem;background:#f6f1e8;color:#1d2422
-}
-.preconstructed-status{
-  margin:.2rem 0 1rem;color:#1d2422;font:500 1rem/1.7 Inter,system-ui,sans-serif
-}
-.preconstructed-status b{color:#165f5b}
-.official-deck-scope-note{
-  margin-top:-.35rem;color:#4f5d59!important;opacity:1!important;
-  font:500 .92rem/1.65 Inter,system-ui,sans-serif
-}
-.official-mtg-deck-results{margin-top:1rem}
-.official-mtg-deck-results>.deck{margin:1rem 0}
-.official-mtg-deck-results>.deck:first-child{margin-top:.35rem}
-.official-mtg-deck-results>.deck:last-child{margin-bottom:.15rem}
-.official-mtg-deck .provenance-badge{margin-bottom:.65rem}
-.official-mtg-deck .deck-body>p{color:#d7dfdc}
-.official-mtg-empty{font-style:italic;color:#394642}
-
-/* Sources are a reading list, not a second printing-card grid. */
-#printings .sources{
-  display:block;width:auto;max-width:var(--reading,760px);margin:1.2rem 0 1.8rem;
-  padding-left:1.35rem;color:var(--ink,#202321);
-  font:500 .98rem/1.55 Inter,system-ui,sans-serif
-}
-#printings .sources li{margin:0 0 1rem;padding-left:.2rem}
-#printings .sources li::marker{color:var(--green,#286d68);font-weight:800}
-#printings .sources a{
-  color:var(--green,#286d68);font-weight:750;text-decoration-thickness:1px;
-  text-underline-offset:.14em;overflow-wrap:anywhere
-}
-#printings .sources span{
-  display:block;margin-top:.18rem;color:#59635f;
-  font:500 .86rem/1.5 Inter,system-ui,sans-serif
-}
-@media(max-width:700px){
-  .preconstructed-archive>summary{padding:.95rem;align-items:flex-start}
-  .preconstructed-body{padding:.9rem}
-  #printings .sources{padding-left:1.2rem;font-size:.95rem}
-  #printings .sources span{font-size:.84rem}
-}
-/* CR_V21_READER_FIXES_END */</style></head>
-<body data-article-card="Black Vise" data-current-information-as-of="2026-08-02" data-editorial-contract="v2" data-editorial-status="reviewed-v2" data-editorial-wave="numbered-wave-01" data-reader-standard="v2.1" data-research-status="complete"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=lea&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=lea&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
+<style id="cr-reader-experience-v3">/* CR_READER_EXPERIENCE_V3_START */
+.play-vignette{margin:clamp(26px,5vw,48px) 0 0;padding:clamp(22px,4vw,34px);border-left:5px solid #b98b37;border-radius:0 18px 18px 0;background:linear-gradient(135deg,#f4ead3,#eef4f1);box-shadow:0 12px 30px rgba(22,25,24,.08)}
+.play-vignette .vignette-label{font:800 .72rem/1.35 Inter,system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#8c4e3d;margin-bottom:.65rem}
+.play-vignette h3{font-size:clamp(1.35rem,3vw,1.85rem);line-height:1.15;margin:0 0 .7rem;color:#1d2624}
+.play-vignette p{font-size:clamp(1.02rem,2.2vw,1.16rem);line-height:1.72;color:#313a37;margin:0}
+/* Critical product contrast is inline because some Android content viewers do not load sibling CSS files reliably. */
+details.preconstructed-archive.official-mtg-decks{background:#13211f!important;color:#f8f4eb!important;border:1px solid #607b73!important;border-radius:16px!important;overflow:hidden!important}
+details.preconstructed-archive.official-mtg-decks>summary{display:flex!important;justify-content:space-between!important;align-items:flex-start!important;gap:.8rem!important;padding:1rem 1.15rem!important;background:#13211f!important;color:#f8f4eb!important;list-style:none!important}
+details.preconstructed-archive.official-mtg-decks>summary>span:first-child{display:block!important;min-width:0!important}
+details.preconstructed-archive.official-mtg-decks>summary strong{display:block!important;color:#fffaf0!important;line-height:1.3!important}
+details.preconstructed-archive.official-mtg-decks>summary small{display:block!important;color:#dfe8e4!important;line-height:1.5!important;margin-top:.35rem!important}
+details.preconstructed-archive.official-mtg-decks>summary>.plus{color:#efca78!important;font-weight:900!important;flex:0 0 auto!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-body{padding:1rem!important;background:#192b28!important;color:#f8f4eb!important;border-top:1px solid #607b73!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-status,
+details.preconstructed-archive.official-mtg-decks .official-deck-scope-note,
+details.preconstructed-archive.official-mtg-decks .preconstructed-body>p{color:#edf3f0!important;opacity:1!important}
+details.preconstructed-archive.official-mtg-decks .preconstructed-status b{color:#fffaf0!important}
+/* CR_READER_EXPERIENCE_V3_END */</style></head>
+<body data-article-card="Black Vise" data-current-information-as-of="2026-08-02" data-editorial-contract="v2" data-editorial-status="reviewed-v2" data-editorial-wave="numbered-wave-01" data-reader-experience="v3" data-research-status="complete" data-vignette-specificity="period-grounded-oral-history"><header class="hero"><img alt="" class="hero-media" loading="eager" onerror="this.onerror=null;this.src='https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=lea&amp;format=image&amp;version=normal';" src="https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=lea&amp;format=image&amp;version=art_crop"/><div class="hero-grid"></div><div class="hero-inner">
 <a class="archive-link" href="index.html?focus=entry-044#entry-044">← Back to Compulsive Research</a>
 <div class="eyebrow">Entry 044 · Wave 01 · The Foundational Canon</div>
 <h1>The Opening Hand Was Already Burning</h1>
 <p class="deckline">Black Vise turned seven cards into three damage, made card abundance dangerous, and supplied the clock for prison decks that filled the opponent’s hand while removing every way to empty it.</p>
-<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill" data-reading-scope="core-editorial-prose" data-reading-word-count="2570" data-reading-wpm="225">Approximately 12 minute read</span></div>
+<div class="byline"><span>A Compulsive Research essay</span><span>·</span><span>Limited Edition Alpha, 1993</span><span class="pill" data-reading-time-wpm="200" data-reading-word-count="2982">Approximately 15 minute read</span></div>
 </div></header>
 <nav class="rank-nav"><a href="index.html?focus=entry-043#entry-043">← Entry 043 · Jayemdae Tome</a><div class="center">Entry 044 of 1,000</div><a href="index.html?focus=entry-045#entry-045">Entry 045 · The Rack →</a></nav>
 <div class="article-shell"><nav aria-label="Article table of contents" class="toc"><strong>In this article</strong><a href="#opening">The Opening Hand Was Already Burning</a><a href="#strategic-legacy-brief">Strategic legacy</a><a href="#alpha">Alpha’s one-mana punishment</a><a href="#seven">Why seven cards meant three damage</a><a href="#choice">Choosing the victim</a><a href="#rules">What Black Vise actually does</a><a href="#pressure">The hand as a life total</a><a href="#howling">Howling Mine fills the trap</a><a href="#orb">Winter Orb prevents the escape</a><a href="#geddon">Armageddon leaves the cards stranded</a><a href="#worlds">The Vise at the 1995 World Championship</a><a href="#sligh">The Vise inside Sligh</a><a href="#weakness">The dead topdeck problem</a><a href="#restriction">Restriction, banning, and fear</a><a href="#legacy">The 2015 Legacy unbanning</a><a href="#multiplayer">One chosen opponent</a><a href="#descendants">The descendants of Black Vise</a><a href="#art">The instrument and its victim</a><a href="#formats">A life across formats</a><a href="#memory">What players remember</a><a href="#decklists">The deck archive</a><a href="#printings">Printings and sources</a></nav><article class="article">
@@ -634,7 +589,7 @@ p{margin:1em 0}
 <p>The card reverses one of Magic's most basic comforts. A full hand normally means safety: lands, threats, answers, and several possible futures. Black Vise turns those possibilities into a second life total. Every card above four becomes another point of pressure, and every turn spent planning becomes another upkeep spent inside the machine.</p>
 <p>Its greatest decks did not wait for the opponent to empty the hand naturally. They supplied more cards with <span class="card-name" data-card="Howling Mine" tabindex="0">Howling Mine</span>, removed mana with <span class="card-name" data-card="Winter Orb" tabindex="0">Winter Orb</span> and <span class="card-name" data-card="Strip Mine" tabindex="0">Strip Mine</span>, and destroyed lands with <span class="card-name" data-card="Armageddon" tabindex="0">Armageddon</span> or <span class="card-name" data-card="Stone Rain" tabindex="0">Stone Rain</span>. The opponent was not punished for refusing to play. The opponent was prevented from playing, then punished for the evidence.</p>
 <div class="card-lead" data-card-name="Black Vise" data-dfc-mode="auto"><img alt="Black Vise original printing" data-article-card-image="" src="https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=lea&amp;format=image&amp;version=normal"/><div class="oracle"><div class="kicker">The original object</div><h3>Black Vise</h3><p><b>{1} · Artifact</b></p><p>As this artifact enters, choose an opponent.</p><p>At the beginning of the chosen player's upkeep, this artifact deals X damage to that player, where X is the number of cards in their hand minus 4.</p><div class="stats"><div class="stat"><b>First printing</b>Limited Edition Alpha · 1993</div><div class="stat"><b>Original artist</b>Richard Thomas</div><div class="stat"><b>Original rarity</b>Uncommon</div><div class="stat"><b>Historical role</b>Hand-size punishment</div></div></div></div>
-</section><section class="strategic-legacy-brief" id="strategic-legacy-brief"><div class="chapter-number">Strategic legacy</div><h2>Why Black Vise matters</h2><p class="brief-lead">Black Vise punishes the resource most players normally want—cards in hand—making it strongest when mana denial or a fast clock prevents those cards from being deployed.</p><div class="strategic-legacy-grid"><div class="strategic-legacy-card"><h3>How to use it</h3><p>Play it early and pair it with land destruction, bounce, or draw effects that keep the opponent above four cards. Multiple Vises reward exact upkeep arithmetic.</p></div><div class="strategic-legacy-card"><h3>How to fight it</h3><p>Empty the hand quickly, remove the artifact before upkeep, or use cheap spells and mana acceleration to get below the damage threshold.</p></div><div class="strategic-legacy-card tournament-impact"><h3>Tournament and cultural record</h3><p class="tournament-impact">The archive follows Vise through early aggro-control, prison, Necropotence-era sideboards, Old School, and its long policy history.</p></div></div></section>
+<aside aria-label="First-person table story for Black Vise" class="play-vignette" data-featured-card="Black Vise" data-vignette-deck-reference="Dennis Bentley — Necropotence" data-vignette-era="1996 U.S. National Championship" data-vignette-matchup="Necropotence against white-blue control" data-vignette-opening="opening-hand-punishment" data-vignette-scenario="representative-recollection" data-vignette-voice="first-person-recollection"><div class="vignette-label">A story from the table</div><h3>The opening hand dealt damage before combat</h3><p>I used my first <span class="card-name" data-card="Swamp" tabindex="0">Swamp</span> to cast <span class="card-name" data-card="Black Vise" tabindex="0">Black Vise</span> and named my opponent. His seven-card hand dealt three damage during the first upkeep. On turn two I cast <span class="card-name" data-card="Dark Ritual" tabindex="0">Dark Ritual</span> into <span class="card-name" data-card="Hypnotic Specter" tabindex="0">Hypnotic Specter</span>. The Specter connected once, then <span class="card-name" data-card="Hymn to Tourach" tabindex="0">Hymn to Tourach</span> removed two more cards. Black Vise stopped dealing damage as the hand shrank, but by then it had already turned the keep itself into a liability and helped force my opponent to cast <span class="card-name" data-card="Swords to Plowshares" tabindex="0">Swords to Plowshares</span> before he wanted to. The artifact had done its work before either player reached the middle game.</p></aside></section><section class="strategic-legacy-brief" id="strategic-legacy-brief"><div class="chapter-number">Strategic legacy</div><h2>Why Black Vise matters</h2><p class="brief-lead">Black Vise punishes the resource most players normally want—cards in hand—making it strongest when mana denial or a fast clock prevents those cards from being deployed.</p><div class="strategic-legacy-grid"><div class="strategic-legacy-card"><h3>How to use it</h3><p>Play it early and pair it with land destruction, bounce, or draw effects that keep the opponent above four cards. Multiple Vises reward exact upkeep arithmetic.</p></div><div class="strategic-legacy-card"><h3>How to fight it</h3><p>Empty the hand quickly, remove the artifact before upkeep, or use cheap spells and mana acceleration to get below the damage threshold.</p></div><div class="strategic-legacy-card tournament-impact"><h3>Tournament and cultural record</h3><p class="tournament-impact">The archive follows Vise through early aggro-control, prison, Necropotence-era sideboards, Old School, and its long policy history.</p></div></div></section>
 <section id="alpha"><div class="chapter-number">II · The Instrument</div><h2>Alpha’s one-mana punishment</h2>
 <p>Alpha contained several artifacts that transformed abstract game resources into pressure. <span class="card-name" data-card="The Rack" tabindex="0">The Rack</span> punished an empty hand. <span class="card-name" data-card="Iron Star" tabindex="0">Iron Star</span> and its cycle converted colored spells into life. <span class="card-name" data-card="Meekstone" tabindex="0">Meekstone</span> restrained large creatures. Black Vise attacked the opposite end of the hand-size spectrum from <span class="card-name" data-card="The Rack" tabindex="0">The Rack</span>.</p>
 <p>At one generic mana, the artifact could enter almost any deck and begin operating before colored strategy mattered. A red deck, white prison deck, blue artifact deck, or multicolor control shell could all make the same opening play.</p>
@@ -1031,9 +986,22 @@ Sideboard · 15
 2 Shatter</pre><p class="small">Product-list source: <a href="https://mtg.wiki/wiki/Pro_Tour_Collector_Set">open the documented deck record</a></p></div></details></div></div></details><!-- CR_OFFICIAL_MTG_DECKS_END --></section>
 <section id="printings"><div class="chapter-number">XXI · The Object</div><h2>Printings and sources</h2>
 <p>The gallery begins with the original printing and then selects the most historically distinctive releases—new artwork, major frame changes, celebrated reprint sets, and important premium editions. Cards with fewer than twelve legitimate printings show every available version instead.</p>
-<div class="printings canonical-printing-gallery" data-card="Black Vise" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="lea" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Black Vise" data-identity-status="exact-name-set-fallback" data-set="lea"><img alt="Black Vise original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption><b>Limited Edition Alpha</b><br/>Original printing</figcaption></figure></div><h3>Sources</h3><ol class="sources canonical-source-list"><li><a href="https://scryfall.com/card/lea/233/black-vise">Scryfall — Black Vise, Limited Edition Alpha</a><span>Card identity, collector number, Oracle text, original artist, rarity, rulings, legalities, and printing history.</span></li><li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Black%20Vise">Wizards of the Coast Gatherer — Black Vise</a><span>Official card text and rules reference.</span></li><li><a href="https://magic.wizards.com/en/news/announcements/september-28-2015-banned-and-restricted-announcement-2015-09-28">Wizards of the Coast — September 2015 Banned and Restricted Announcement</a><span>Official Legacy unbanning and explanation of Black Vise's historical role against card-drawing decks.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Current Banned and Restricted Lists</a><span>Current format legality and Vintage restriction reference.</span></li><li><a href="https://mtg.wiki/page/Banned_and_restricted_cards/Timeline">Banned and Restricted Cards Timeline</a><span>Historical chronology of the 1996 Standard restriction, the retirement of Standard's restricted list, and early format policy.</span></li><li><a href="https://mtg.wiki/page/1995_World_Championships/Top_8_decks">1995 World Championships — Top 8 deck archive</a><span>Marc Hernandez's and Andrea Redi's complete lists and tournament context.</span></li><li><a href="https://www.mtggoldfish.com/deck/4455483">Marc Hernandez — Vise-Orb Prison/Control</a><span>Independent preservation of the 1995 World Championship finalist deck.</span></li><li><a href="https://magic.wizards.com/en/news/feature/famous-red-decks-magic-history-2004-07-22-0">Wizards of the Coast — Famous Red Decks in Magic History</a><span>Official history of Jay Schneider and Paul Sligh's deck, the mana-curve concept, and the complete documented 61-card list.</span></li><li><a href="https://magic.wizards.com/en/rules">Magic Comprehensive Rules</a><span>Current rules framework used for the play and counterplay review.</span></li></ol>
+<div class="printings canonical-printing-gallery" data-card="Black Vise" data-gallery-fallback-count="1" data-gallery-max="12" data-gallery-mode="hydrate" data-identity-policy="exact-name-and-oracle-id" data-original-set="lea" data-selection-policy="unique-artwork-first" id="printing-grid"><figure class="printing original-printing" data-card-name="Black Vise" data-identity-status="exact-name-set-fallback" data-set="lea"><img alt="Black Vise original printing" decoding="async" loading="lazy" src="https://api.scryfall.com/cards/named?exact=Black%20Vise&amp;set=lea&amp;format=image&amp;version=normal"/><figcaption><b>Limited Edition Alpha</b><br/>Original printing</figcaption></figure></div>
+<h3>Sources</h3><ol class="sources">
+<li><a href="https://scryfall.com/card/lea/233/black-vise">Scryfall — Black Vise, Limited Edition Alpha</a><span>Card identity, collector number, Oracle text, original artist, rarity, rulings, legalities, and printing history.</span></li>
+<li><a href="https://gatherer.wizards.com/Pages/Card/Details.aspx?name=Black%20Vise">Wizards of the Coast Gatherer — Black Vise</a><span>Official card text and rules reference.</span></li>
+<li><a href="https://magic.wizards.com/en/news/announcements/september-28-2015-banned-and-restricted-announcement-2015-09-28">Wizards of the Coast — September 2015 Banned and Restricted Announcement</a><span>Official Legacy unbanning and explanation of Black Vise's historical role against card-drawing decks.</span></li>
+<li><a href="https://magic.wizards.com/en/banned-restricted-list">Wizards of the Coast — Current Banned and Restricted Lists</a><span>Current format legality and Vintage restriction reference.</span></li>
+<li><a href="https://mtg.wiki/page/Banned_and_restricted_cards/Timeline">Banned and Restricted Cards Timeline</a><span>Historical chronology of the 1996 Standard restriction, the retirement of Standard's restricted list, and early format policy.</span></li>
+<li><a href="https://mtg.wiki/page/1995_World_Championships/Top_8_decks">1995 World Championships — Top 8 deck archive</a><span>Marc Hernandez's and Andrea Redi's complete lists and tournament context.</span></li>
+<li><a href="https://www.mtggoldfish.com/deck/4455483">Marc Hernandez — Vise-Orb Prison/Control</a><span>Independent preservation of the 1995 World Championship finalist deck.</span></li>
+<li><a href="https://magic.wizards.com/en/news/feature/famous-red-decks-magic-history-2004-07-22-0">Wizards of the Coast — Famous Red Decks in Magic History</a><span>Official history of Jay Schneider and Paul Sligh's deck, the mana-curve concept, and the complete documented 61-card list.</span></li>
+<li><a href="https://scryfall.com/card/v10/2/black-vise">Scryfall — From the Vault: Relics Black Vise</a><span>Dan Murayama Scott artwork and premium reprint reference.</span></li>
+<li><a href="https://scryfall.com/card/mb2/139/black-vise">Scryfall — Mystery Booster 2 Black Vise</a><span>Future Sight frame, artist, and 2024 printing reference.</span></li>
+<li><a href="https://scryfall.com/search?q=%21%22Black+Vise%22&amp;unique=prints">Scryfall — Black Vise printing search</a><span>Cross-set frame, artwork, date, rarity, and artist reference.</span></li>
+</ol>
 <div class="editor-note"><b>Editorial note.</b> Marc Hernandez's finalist deck is preserved at its documented 62-card size, and Paul Sligh's original deck at its documented 61-card size. Andrea Redi's list is a conventional 60-card main deck.</div>
-</section>
+<ul class="sources"><li><a href="https://scryfall.com/search?q=%21%22Black%20Vise%22&amp;unique=prints&amp;as=grid&amp;order=released">Scryfall printing catalog for Black Vise</a><span>Identity, printings, images, and current legality snapshot.</span></li><li><a href="https://gatherer.wizards.com/Pages/Search/Default.aspx?name=+%5BBlack%20Vise%5D">Gatherer card record</a><span>Official Oracle text and rulings.</span></li><li><a href="https://magic.wizards.com/en/rules">Magic Comprehensive Rules</a><span>Current rules framework used for the play and counterplay review.</span></li><li><a href="https://magic.wizards.com/en/banned-restricted-list">Official Banned and Restricted list</a><span>Current sanctioned-format policy as of the review date.</span></li></ul></section>
 </article>
 <aside class="sidebar-note"><b>Entry 044</b><br/>Black Vise made the opening hand itself a source of damage and taught prison and aggressive decks to punish opponents for possessing cards they could not deploy.</aside></div>
 <section style="width:min(760px,calc(100% - 24px));margin:0 auto 70px"><div class="chapter-number">XIII · Continue reading</div><h2>The numbered archive</h2><p>Black Vise is entry 44 in the archive’s reading sequence. The number preserves the archive’s reading and publication order.</p><nav class="end-nav"><a href="index.html?focus=entry-043#entry-043"><small>Previous entry · 043</small>Jayemdae Tome</a><a href="index.html?focus=entry-045#entry-045"><small>Next entry · 045</small>The Rack</a></nav></section><div id="preview"><div class="preview-track"></div></div>
