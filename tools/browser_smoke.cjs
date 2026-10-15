@@ -4,6 +4,7 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 const {spawn} = require('child_process');
 const server = spawn('python3', ['-m','http.server','8765','--bind','127.0.0.1'], {cwd:root, stdio:'ignore'});
+server.unref();
 process.on('exit',()=>server.kill());
 (async () => {
   for(let attempt=0;attempt<40;attempt++) {
@@ -50,6 +51,7 @@ process.on('exit',()=>server.kill());
   const out=root+(process.argv.includes('--editorial')?'/audit/reader-v31-051-060/browser.json':'/audit/github-migration/browser.json');
   fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify({status:report.status,visits:report.visits,articles:report.articles,errors},null,2));
+  server.kill();
   process.exitCode=errors.length?1:0;
-})().catch(e=>{console.error(e);process.exitCode=1});
+})().catch(e=>{console.error(e);server.kill();process.exit(1)});
 
