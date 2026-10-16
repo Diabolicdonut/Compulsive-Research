@@ -17,6 +17,8 @@ jobs:
         run: python tools/run_validation_suite.py --full
       - name: Check every local link and archive navigation target
         run: python tools/validate_internal_navigation.py
+      - name: Check Reader V3.1 checkpoint ledgers and research dossiers
+        run: python tools/validate_reader_v31_checkpoint.py
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -25,7 +27,9 @@ jobs:
           npm install --no-save --package-lock=false playwright@1.55.1
           npx playwright install --with-deps chromium
       - name: Check article rendering and archive returns on desktop and mobile
-        run: node tools/browser_smoke.cjs
+        run: |
+          node tools/browser_smoke.cjs
+          node tools/browser_smoke.cjs --editorial
       - uses: actions/upload-artifact@v4
         if: always()
         with:

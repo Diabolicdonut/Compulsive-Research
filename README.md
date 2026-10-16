@@ -4,6 +4,8 @@ An editorial archive of 1,000 numbered Magic cards and 505 active Honorable Ment
 
 > **Recovery completed (October 15, 2026):** The accepted September 24 Reader V3.1 project has been restored to this repository and validated. Read `CURRENT-STATE.json`, `audit.md`, and `audit/github-migration/REPORT.md` before continuing. Newer validated GitHub commits take precedence over older ZIP snapshots.
 
+The latest Reader V3.1 editorial checkpoint is **051–060**. It preserves the first 50 articles and all 505 Honorable Mentions, adds ten individually grounded table stories, and corrects rules, chronology, and deck provenance in the ten features. See `audit/reader-v31-051-060/REPORT.md`, the migration ledger, and the new review index. The exact next article is **061 — Maze of Ith**, beginning the 061–070 checkpoint. A checkpoint becomes accepted when its reviewed PR reaches `main` with passing Actions; an unmerged branch is a candidate.
+
 ## Authoritative project checkpoint
 
 The recovery source is `Compulsive-Research-Reader-V3.1-Audit-Checkpoint-01-2026-09-24.zip` (September 24, 2026). Its complete source tree is now checked in: the 1,505-article site, editorial contracts, testing scripts, research, audit reports, and corrected historical articles. The ZIP is retained externally as a recovery source; it is not duplicated in Git.

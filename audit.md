@@ -1,3 +1,13 @@
+# Accepted-on-main Reader V3.1 continuation — 051–060
+
+**Checkpoint:** `reader-v31-051-060-2026-10-16`. This entry describes the 051–060 PR; it is accepted only after its reviewed branch reaches `main` with successful Actions. **Next: 061 — Maze of Ith (061–070).**
+
+Ten features modernized with sourced corrections and individually validated gameplay stories. Local final quick **10/10**, refresh **9/9**, full **11/11**, Reader V3.1 **64/64**, and **31,781 local links with zero failures**. All **1,495 articles outside this batch remain byte-identical**; counts remain 1,000 numbered, 505 HMs, 22 HM categories. Current deck warning counts: **1,440 / 349 / 5**. Browser checks are required in the PR’s Actions; external media is stubbed.
+
+Exact article changes, source treatment, failures and repairs, test paths, and preservation evidence: [checkpoint report](audit/reader-v31-051-060/REPORT.md). The earlier audit below is retained as history; its old next-range instruction does not supersede `CURRENT-STATE.json`.
+
+---
+
 # Compulsive Research — audit checkpoint 1
 
 **Date:** September 24, 2026  
