@@ -2,12 +2,15 @@
 """Regression tests for reader-facing mechanics and vignette chronology guards."""
 from __future__ import annotations
 
+import json
 from bs4 import BeautifulSoup
 
 from validate_reader_experience_v3 import (
     article_subject_integrity_errors,
+    card_name_key,
     primary_mechanics_claim_errors,
     vignette_chronology_errors,
+    vignette_mana_errors,
 )
 
 
@@ -105,6 +108,34 @@ def main() -> int:
     wrong_card.select_one(".card-lead .stat b").next_sibling.replace_with("Daniel Gelon")
     if article_subject_integrity_errors(wrong_card, "Wheel of Fortune"):
         failures.append("corrected subject images, product data, and artist were rejected")
+    if card_name_key('Mishra’s Workshop') != card_name_key("Mishra's Workshop"):
+        failures.append('typographic apostrophe incorrectly changes the card identity')
+
+    def payment_findings(card, kind, cost, payments):
+        cards = {card} | {source for source, amount in payments}
+        story = " ".join(f'<span class="card-name" data-card="{name}">{name}</span>' for name in cards)
+        ledger = {'schema_version':1, 'costs':[{'object':card, 'kind':kind, 'cost':cost,
+                  'payments':[{'source':source, 'amount':amount} for source, amount in payments]}]}
+        node, _ = vignette_fixture(story, '<script type="application/json" class="vignette-mana-data">'+json.dumps(ledger)+'</script>')
+        return vignette_mana_errors(node)
+
+    if not any('supplies 3 mana' in e for e in payment_findings('Juzám Djinn', 'nonartifact-spell', 4, [('Dark Ritual',3)])):
+        failures.append('a Ritual alone incorrectly pays for the four-mana Djinn')
+    if payment_findings('Juzám Djinn', 'nonartifact-spell', 4, [('Dark Ritual',3),('Swamp',1)]):
+        failures.append('the fourth mana from a separate Swamp was rejected')
+    for card, kind in [('Goblin Welder','nonartifact-spell'), ("Mishra's Factory",'activated-ability')]:
+        cost = 3 if card == 'Goblin Welder' else 1
+        if not any('restricted Workshop mana' in e for e in payment_findings(card,kind,cost,[("Mishra's Workshop",cost)])):
+            failures.append(f'restricted Workshop mana incorrectly pays for {card}')
+    for card, kind, cost, payments in [
+        ('Goblin Welder','nonartifact-spell',3,[('Black Lotus',3)]),
+        ('Tangle Wire','artifact-spell',3,[("Mishra's Workshop",3)]),
+        ("Mishra's Factory",'activated-ability',1,[('Swamp',1)]),
+        ('Basking Rootwalla','nonartifact-spell',0,[]),
+        ('Hollow One','artifact-spell',0,[]),
+    ]:
+        if payment_findings(card,kind,cost,payments):
+            failures.append(f'legal reviewed payment for {card} was rejected')
 
     if failures:
         print(f"Reader Experience V3 regression tests: FAIL ({len(failures)} finding(s))")
@@ -112,7 +143,7 @@ def main() -> int:
             print(f"- {failure}")
         return 1
 
-    print("Reader Experience V3 regression tests: PASS (mechanics, chronology, and article subject identity)")
+    print("Reader Experience V3 regression tests: PASS (mechanics, chronology, payments, and article subject identity)")
     return 0
 
 

@@ -33,6 +33,11 @@ STOCK_MEMORY_OPENING = re.compile(
 )
 
 
+def card_name_key(name: str) -> str:
+    """Allow typographic apostrophes in inherited display metadata."""
+    return name.replace("’", "'").casefold()
+
+
 def article_subject_integrity_errors(soup: BeautifulSoup, card: str) -> list[str]:
     """Check subject-bearing components that can inherit a previous article's card."""
     findings = []
@@ -44,10 +49,10 @@ def article_subject_integrity_errors(soup: BeautifulSoup, card: str) -> list[str
         if image is None:
             continue
         exact = parse_qs(urlparse(image.get("src", "")).query).get("exact", [""])[0]
-        if exact and unquote_plus(exact).casefold() != card.casefold():
+        if exact and card_name_key(unquote_plus(exact)) != card_name_key(card):
             findings.append(f"{label} resolves {exact!r} rather than {card!r}")
     official = soup.select_one("details.official-mtg-decks")
-    if official is not None and official.get("data-card") != card:
+    if official is not None and card_name_key(official.get("data-card", "")) != card_name_key(card):
         findings.append(f"official-product section declares {official.get('data-card')!r} rather than {card!r}")
     spotlight = soup.select_one(".artwork-spotlight[data-artwork-artist]")
     if spotlight is not None:
@@ -291,6 +296,67 @@ def opening_prefix(text: str, words: int = 6) -> str:
     return " ".join(tokens[:words])
 
 
+def vignette_mana_errors(vignette: Tag) -> list[str]:
+    """Check declared payments, not an inferred or complete Magic game state.
+
+    The optional ledger makes reviewed total costs and restricted Workshop mana
+    auditable. Colored requirements, available sources across turns, discounts,
+    and legality still require the separate manual sequence review.
+    """
+    nodes = vignette.select("script.vignette-mana-data[type='application/json']")
+    if not nodes:
+        return []
+    if len(nodes) != 1:
+        return ["vignette must contain at most one mana ledger"]
+    try:
+        ledger = json.loads(nodes[0].string or nodes[0].get_text("", strip=False))
+    except json.JSONDecodeError:
+        return ["vignette mana ledger is invalid JSON"]
+    if not isinstance(ledger, dict) or ledger.get("schema_version") != 1:
+        return ["vignette mana ledger must declare schema_version 1"]
+    costs = ledger.get("costs")
+    if not isinstance(costs, list) or not costs:
+        return ["vignette mana ledger must contain a non-empty costs array"]
+    findings = []
+    visible_cards = {n.get("data-card") for n in vignette.select("p .card-name[data-card]")}
+    for index, action in enumerate(costs, start=1):
+        label = f"vignette mana payment {index}"
+        if not isinstance(action, dict):
+            findings.append(f"{label} must be an object")
+            continue
+        if action.get("object") not in visible_cards:
+            findings.append(f"{label} object must be a marked card in the visible story")
+        kind = action.get("kind")
+        if kind not in {"artifact-spell", "nonartifact-spell", "activated-ability"}:
+            findings.append(f"{label} has an invalid payment kind")
+        cost = action.get("cost")
+        if type(cost) is not int or cost < 0:
+            findings.append(f"{label} cost must be a nonnegative integer")
+            continue
+        payments = action.get("payments")
+        if not isinstance(payments, list):
+            findings.append(f"{label} payments must be an array")
+            continue
+        total = 0
+        for payment in payments:
+            if not isinstance(payment, dict):
+                findings.append(f"{label} source must be an object")
+                continue
+            source = payment.get("source")
+            amount = payment.get("amount")
+            if source not in visible_cards:
+                findings.append(f"{label} source must be a marked card in the visible story")
+            if type(amount) is not int or amount <= 0:
+                findings.append(f"{label} amount must be a positive integer")
+                continue
+            total += amount
+            if isinstance(source, str) and source.replace("’", "'").casefold() == "mishra's workshop" and kind != "artifact-spell":
+                findings.append(f"{label} spends restricted Workshop mana on a {kind}; only artifact spells are permitted")
+        if total != cost:
+            findings.append(f"{label} declares cost {cost} but supplies {total} mana")
+    return findings
+
+
 def migration_batch(path: Path) -> str:
     match = re.match(r"^(\d{3,4})-", path.name)
     if match:
@@ -345,7 +411,7 @@ def main() -> int:
             vignette = vignettes[0]
             if opening.find_all(recursive=False)[-1] is not vignette:
                 errors.append(f"{path.name}: play vignette must be the final opening component")
-            if vignette.get("data-featured-card") != card:
+            if card_name_key(vignette.get("data-featured-card", "")) != card_name_key(card):
                 errors.append(f"{path.name}: vignette card {vignette.get('data-featured-card')!r} does not match {card!r}")
 
             # Period-grounded specificity contract.
@@ -367,6 +433,8 @@ def main() -> int:
             paragraph = vignette.find("p")
             paragraph_text = paragraph.get_text(" ", strip=True) if paragraph else ""
             for finding in vignette_chronology_errors(vignette, paragraph_text):
+                errors.append(f"{path.name}: {finding}")
+            for finding in vignette_mana_errors(vignette):
                 errors.append(f"{path.name}: {finding}")
             vignette_words = len(re.findall(r"\b[\w’'-]+\b", paragraph_text))
             if not 70 <= vignette_words <= 170:
@@ -394,7 +462,7 @@ def main() -> int:
                 errors.append(f"{path.name}: vignette lacks concrete turn/phase/action sequencing")
             named_cards = [n.get("data-card") for n in vignette.select(".card-name[data-card]") if n.get("data-card")]
             unique_cards = set(named_cards)
-            if card not in unique_cards:
+            if card_name_key(card) not in {card_name_key(name) for name in unique_cards}:
                 errors.append(f"{path.name}: vignette does not mark the featured card as a named card")
             if len(unique_cards) < 3:
                 errors.append(f"{path.name}: vignette names only {len(unique_cards)} unique cards; expected at least 3")

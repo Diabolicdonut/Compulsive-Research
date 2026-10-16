@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
+import argparse
 import csv
 import json
 from pathlib import Path
@@ -33,7 +34,13 @@ def counter_difference(left: Counter[str], right: Counter[str]) -> list[str]:
 
 
 def main() -> int:
-    paths = article_paths()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--article', type=Path, action='append', help='Limit validation to a canonical article (repeatable)')
+    parser.add_argument('--output-dir', type=Path, default=ROOT / 'audit')
+    args = parser.parse_args()
+    paths = sorted({(ROOT / path).resolve() for path in args.article}) if args.article else article_paths()
+    if args.article and not set(paths).issubset(set(article_paths())):
+        parser.error('--article must name an existing canonical production article')
     subjects = manifest_subjects()
     catalog = load_catalog([])
     _, supplement_aliases = load_supplement()
@@ -164,8 +171,8 @@ def main() -> int:
             "declared_unique": len(declared),
         })
 
-    audit = ROOT / "audit"
-    audit.mkdir(exist_ok=True)
+    audit = args.output_dir
+    audit.mkdir(parents=True, exist_ok=True)
     fields = ["file", "status", "issues", "discovered_unique", "discovered_occurrences", "linked_occurrences", "declared_unique"]
     with (audit / "card-link-validation.csv").open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields)
