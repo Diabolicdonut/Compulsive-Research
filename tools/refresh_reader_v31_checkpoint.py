@@ -87,8 +87,15 @@ def main():
              '|---:|---|---|---:|---:|---:|']
     lines += [f'| {r["entry"]:03d} | {r["card"]} | {r["storyTitle"]} | {r["storyWords"]} | {r["articleEditorialWords"]} | {r["readTimeMinutes"]} |' for r in rows]
     (ROOT / f'validation/reader-v3.1-entries-{scope}-metrics.md').write_text('\n'.join(lines) + '\n')
-    write_json(ROOT / f'research-dossiers/READER-V3.1-NUMBERED-WAVE-02-STORY-LEDGER.json',
-               dict(range=scope, method='Representative reconstructions, not match transcripts or eyewitness quotations.', stories=stories))
+    story_path = ROOT / 'research-dossiers/READER-V3.1-NUMBERED-WAVE-02-STORY-LEDGER.json'
+    story_ledger = json.loads(story_path.read_text()) if story_path.exists() else {}
+    by_entry = {r['entry']:r for r in story_ledger.get('stories', [])}
+    by_entry.update({r['entry']:r for r in stories})
+    cumulative = [by_entry[n] for n in sorted(by_entry)]
+    story_ledger.update(range=f'{cumulative[0]["entry"]:03d}-{cumulative[-1]["entry"]:03d}',
+                        method='Representative reconstructions, not match transcripts or eyewitness quotations.',
+                        stories=cumulative)
+    write_json(story_path, story_ledger)
     ledger_path = ROOT / 'READER-V3.1-MIGRATION-LEDGER.json'
     ledger = json.loads(ledger_path.read_text())
     continuations = [x for x in ledger.get('continuationCheckpoints', []) if x.get('range') != scope]
