@@ -22,6 +22,18 @@ Changed article: `061-maze-of-ith.html` only, preserving navigation, deck archiv
 
 The approved release checks remain the project's current quick, V2-refresh, full, navigation and desktop/mobile browser suites. **Only mark any of these as passing once GitHub Actions has actually completed successfully.** Retain the incumbent warning queues separately.
 
+## Verified candidate metrics and successful release refresh
+
+The branch-local refresh on October 27, 2026 **passed** its read-time refresh, source/dossier consistency check, quick and V2-refresh suites, complete release suite, internal navigation and retained 051–060 checkpoint verification. See [successful GitHub Actions refresh run](https://github.com/Diabolicdonut/Compulsive-Research/actions/runs/40568283043). The temporary write-enabled refresh workflow was subsequently removed.
+
+- Reader 061 article: **3,432 derived editorial words**; **18-minute** reading time at 200 wpm.
+- First-person opening: **92 words**, one exact documentary deck-reference title.
+- Source-verification records: **4 individually scoped checks**.
+- Candidate file SHA-256: `120bc1e9fa093dc1e66cd1bfd9e2d33647ada3aca757fc3a0baeafb7adf36f4e`.
+- Generated `validation/reader-v3.1-061-candidate-metrics.json` and `061-story-candidate.json` encode this candidate; they do **not** modify the accepted 051–060 ledger.
+
+This reflects candidate acceptance only. PR CI must still validate the reviewable candidate before merging; neither the 061–070 wave nor the whole-site research backlog is complete.
+
 ## Remaining gates
 
 1. Source-review any unverified claims inherited in the rest of 061, particularly alternate deck-archive registrations and printings (no generic link qualifies as event attribution).
