@@ -53,7 +53,7 @@ for path, requirements in CASES:
 maze = (ROOT / CASES[0][0]).read_text(encoding="utf-8")
 if "after combat damage to remove it from combat" in maze:
     errors.append("061: Maze must not be claimed to remove an attacker from combat")
-if "does not remove" not in maze or "cannot tap for mana" not in maze:
+if not any(s in maze for s in ("does not remove", "not removed from combat")) or not any(s in maze for s in ("cannot tap for mana", "has no mana ability")):
     errors.append("061: exact Maze combat/mana safeguards must be present")
 
 tabernacle = (ROOT / CASES[1][0]).read_text(encoding="utf-8")
