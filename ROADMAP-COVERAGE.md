@@ -1,6 +1,6 @@
 # Compulsive Research — Authoritative Development Roadmap
 
-**Roadmap revision:** 1.2 (October 27, 2026)  
+**Roadmap revision:** 1.3 (October 27, 2026)  
 **Authority:** This document governs the finite current Compulsive Research archive program. `site-progress.json` is the machine-readable mirror of its weighted acceptance gates; `CURRENT-STATE.json` is authoritative for the latest accepted editorial checkpoint. See [`AGENTS.md`](AGENTS.md) for mandatory worker procedure.  
 **Recovered baseline:** GitHub `main` commit `40bdf22c8f61959da4284663be1fe0b7198f4a7d`; the October 27 status-widget implementation at `b20f944769372d5129f5261ce0f5dfd5566e58f9` is retained, not replaced.
 
@@ -49,6 +49,8 @@ Honor the existing `canonical/` contracts and don't regenerate accepted prose fr
 5. Reconcile archive-wide deck, source, art, accessibility and residual validator warnings; complete a final full-corpus acceptance sweep.
 
 Work on M2–M6 can proceed in parallel if a change is safely isolated and reported; a worker may not declare an entire milestone accepted from an isolated success.
+
+**October 27 Reader 061 single-article modernization candidate:** Maze of Ith now has a source-grounded opening and first-person reconstruction using Mark Arce's 2015 published Mono Black registration, original The Dark artist/set identity, corrected official combat rules, a reviewable zero-mana activation ledger, and a tightened article-specific research dossier. See `audit/reader-v31-061-070/061-CANDIDATE.md` and `tools/validate_reader_061_candidate.py`. **This does not promote the ten-article 061–070 checkpoint**: articles 062–070 still require individual migrations, and archived secondary lists/history remain review queues. Accepted Reader metric stays **60/100** and overall weighted acceptance **51/100**. The exact next production article is **062 — The Tabernacle at Pendrell Vale**, with 061 reopened if its source review uncovers defects.
 
 **October 27 Reader 061–070 mechanics preparation:** Ten inherited interchangeable case studies have been replaced with card-specific, mechanically auditable examples. Confirmed material corrections include Maze not removing attackers from combat, Tabernacle using controller-upkeep destruction triggers rather than activation or sacrifice, Nether Void's triggered counter rather than a casting-cost increase, The Abyss's targeted one-at-a-time destruction, and Candelabra's **June 29, 2026 Legacy ban**. See `audit/reader-v31-061-070/PREPARATION.md` and `tools/validate_reader_061_070_mechanics.py`. **This is only a partial preparatory pass:** none of articles 061–070 is yet accepted as a complete Reader V3.1 migration; full story dossiers, first-person reconstructions, source/deck audits, reading-time updates, release fingerprint refresh and batch acceptance remain. The accepted Reader indicator therefore remains **60/100**, and the overall weighted roadmap remains **51/100**.
 
@@ -108,7 +110,7 @@ An editorial change that leaves overall weighted points unchanged **still requir
 - **Accepted editorial content baseline:** Reader V3.1 **051–060**, October 16, 2026; `40bdf22c8f61959da4284663be1fe0b7198f4a7d`.
 - **Roadmap + live status baseline:** `b20f944769372d5129f5261ce0f5dfd5566e58f9`, October 27, 2026; Actions passed.
 - **This governance revision:** formalizes long-range completion conditions and routine roadmap/status updates without modifying article prose, the accepted article corpus or gate weighting.
-- **Immediate next article:** **061 — Maze of Ith**, in the isolated **061–070** Reader V3.1 checkpoint.
+- **Immediate next article:** **062 — The Tabernacle at Pendrell Vale** after completing a source-audited **061 Maze of Ith candidate**; no accepted 061–070 wave yet.
 - **Required handoff:** state the exact accepted main commit and checkpoint, validations actually run, accepted vs pending work, warning changes and next isolated task.
 
 See `README.md`, `AGENTS.md`, `CURRENT-STATE.json`, `audit.md` and the relevant checkpoint dossier for the complete working context.
