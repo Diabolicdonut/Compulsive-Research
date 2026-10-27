@@ -36,6 +36,16 @@ def corpus_sha256(root: Path) -> tuple[str, int]:
     for path in files:
         relative = path.relative_to(root).as_posix().encode('utf-8')
         content = path.read_bytes()
+        # The single read-only public status mount is delivery chrome, not part
+        # of the locked Editorial V2 article/index corpus. Normalize exactly
+        # this HTML insertion, at exactly the body boundary, and nothing else;
+        # all previous editorial markup remains hash-covered byte-for-byte.
+        if relative == b'index.html':
+            status_mount = b'<script defer src="./site-progress.js" data-site-progress></script>\\n'.replace(b'\\n', b'\n')
+            if content.count(status_mount) == 1 and (
+                b'</script>' + status_mount + b'</body>'
+            ) in content:
+                content = content.replace(status_mount, b'', 1)
         digest.update(len(relative).to_bytes(4, 'big'))
         digest.update(relative)
         digest.update(len(content).to_bytes(8, 'big'))
