@@ -1,5 +1,8 @@
 # Compulsive Research — Magic: The Gathering card-history archive
 
+> **Current approved project-wide roadmap (2026-10-27):** [Full active-archive/Reader V3.1 delivery scope and evidence](ROADMAP-COVERAGE.md) tracks **51/100 accepted weighted points (51%)**, independently of the narrower **60/100 opening Reader V3.1 article checkpoint**. The next authorized content remains article 061 Maze of Ith; source and protected 1,505-article archive remain unchanged.
+
+
 An editorial archive of 1,000 numbered Magic cards and 505 active Honorable Mentions across 22 categories. The site entry point is `index.html`.
 
 > **Recovery completed (October 15, 2026):** The accepted September 24 Reader V3.1 project has been restored to this repository and validated. Read `CURRENT-STATE.json`, `audit.md`, and `audit/github-migration/REPORT.md` before continuing. Newer validated GitHub commits take precedence over older ZIP snapshots.
