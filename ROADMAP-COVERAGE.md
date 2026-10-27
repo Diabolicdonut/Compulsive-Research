@@ -1,6 +1,6 @@
 # Compulsive Research — Authoritative Development Roadmap
 
-**Roadmap revision:** 1.1 (October 27, 2026)  
+**Roadmap revision:** 1.2 (October 27, 2026)  
 **Authority:** This document governs the finite current Compulsive Research archive program. `site-progress.json` is the machine-readable mirror of its weighted acceptance gates; `CURRENT-STATE.json` is authoritative for the latest accepted editorial checkpoint. See [`AGENTS.md`](AGENTS.md) for mandatory worker procedure.  
 **Recovered baseline:** GitHub `main` commit `40bdf22c8f61959da4284663be1fe0b7198f4a7d`; the October 27 status-widget implementation at `b20f944769372d5129f5261ce0f5dfd5566e58f9` is retained, not replaced.
 
@@ -50,6 +50,9 @@ Honor the existing `canonical/` contracts and don't regenerate accepted prose fr
 
 Work on M2–M6 can proceed in parallel if a change is safely isolated and reported; a worker may not declare an entire milestone accepted from an isolated success.
 
+**October 27 Reader 061–070 mechanics preparation:** Ten inherited interchangeable case studies have been replaced with card-specific, mechanically auditable examples. Confirmed material corrections include Maze not removing attackers from combat, Tabernacle using controller-upkeep destruction triggers rather than activation or sacrifice, Nether Void's triggered counter rather than a casting-cost increase, The Abyss's targeted one-at-a-time destruction, and Candelabra's **June 29, 2026 Legacy ban**. See `audit/reader-v31-061-070/PREPARATION.md` and `tools/validate_reader_061_070_mechanics.py`. **This is only a partial preparatory pass:** none of articles 061–070 is yet accepted as a complete Reader V3.1 migration; full story dossiers, first-person reconstructions, source/deck audits, reading-time updates, release fingerprint refresh and batch acceptance remain. The accepted Reader indicator therefore remains **60/100**, and the overall weighted roadmap remains **51/100**.
+
+
 ## 4. Weighted total-project acceptance gates
 
 These weights reflect **current approved delivery scope**, including the substantial preserved and functional foundation. The existing percentages are deliberately held stable pending a reviewed rebaseline. A full gate earns its weight only on acceptance; a **partial** gate earns **zero** overall points, but can report detailed evidence and subprogress in audit records. This is a conservative *delivery milestone* measure, not a percentage of fact-checked sentences or a simple number of HTML files. The machine-readable mirror must contain the exact same gates, weights and status.
@@ -60,7 +63,7 @@ These weights reflect **current approved delivery scope**, including the substan
 | Full navigation/link and canonical page identity validation | 10 | accepted | `audit.md; audit/reader-v31-051-060/REPORT.md` |
 | Canonical 22 Honorable Mention categories and safe navigation | 8 | accepted | `CURRENT-STATE.json` |
 | Source-reviewed Reader V3.1 migrations through article 060 | 10 | accepted | `audit/reader-v31-051-060/REPORT.md; READER-V3.1-MIGRATION-LEDGER.json` |
-| Modernize Reader V3.1 articles 061–100 without restarting 001–060 | 12 | planned | `CURRENT-STATE.json immediateNextTask` |
+| Modernize Reader V3.1 articles 061–100 without restarting 001–060 | 12 | partial | `CURRENT-STATE.json immediateNextTask` |
 | Evidence-check and normalize remaining numbered/HM article histories | 17 | partial | `canonical/; research/; audit.md` |
 | Resolve documented deck evidence, attribution and migration warnings | 8 | partial | `CURRENT-STATE.json; audit.md` |
 | Maintain legally sourced art links, rights notices and accessible embeds | 6 | partial | `audit.md; README.md` |
