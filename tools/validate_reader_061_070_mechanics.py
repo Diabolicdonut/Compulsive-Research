@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES = [
-    ("061-maze-of-ith.html", ["untapped", "remains attacking", "no mana"]),
+    ("061-maze-of-ith.html", ["untapped", "remains attacking", "mana source"]),
     ("062-the-tabernacle-at-pendrell-vale.html", ["four creatures", "two lands", "upkeep"]),
     ("063-moat.html", ["could not be declared", "cannot be declared", "blocks"]),
     ("064-nether-void.html", ["triggered ability", "another {3}", "countered"]),
