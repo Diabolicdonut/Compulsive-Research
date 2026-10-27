@@ -1,0 +1,47 @@
+name: Refresh Reader 061 candidate and release evidence
+
+on:
+  push:
+    branches:
+      - work/reader-v31-061-maze-2026-10-27
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Refresh single-page Reader metrics and story ledger
+        run: |
+          python tools/validate_reader_061_candidate.py --apply
+          python tools/validate_reader_061_candidate.py
+          python tools/validate_site_progress.py
+      - name: Check migration and rebuild source-bound release evidence
+        run: |
+          python tools/run_validation_suite.py --quick
+          python tools/run_validation_suite.py --refresh-v2
+          python tools/run_validation_suite.py --full
+          python tools/validate_internal_navigation.py
+          python tools/validate_reader_v31_checkpoint.py
+      - name: Commit derived artifacts only after all tests pass
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 061-maze-of-ith.html research-dossiers/reader-v31-061-070/061-story-candidate.json validation/reader-v3.1-061-candidate-metrics.json
+          git add audit/editorial-v2 audit/canonical-identity-v2 audit/deck-semantics audit/archive-core-v2 audit/deck-archives audit/official-mtg-decks audit/card-image-links audit/release-v2-validation-state.json
+          if git diff --cached --quiet; then
+            echo "No updated derived files"
+          else
+            git commit -m "Bind Maze Reader 061 candidate to passing archive evidence"
+            git push origin HEAD:work/reader-v31-061-maze-2026-10-27
+          fi
