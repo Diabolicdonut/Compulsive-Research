@@ -13,6 +13,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
+      - name: Verify authoritative roadmap and published project status
+        run: python tools/validate_site_progress.py
       - name: Verify Editorial V2 release state
         run: python tools/run_validation_suite.py --full
       - name: Check every local link and archive navigation target

@@ -15,6 +15,14 @@ The recovery source is `Compulsive-Research-Reader-V3.1-Audit-Checkpoint-01-2026
 
 Future Work sessions should start from current GitHub `main`, inspect the state and audit, and preserve newer validated commits. See `AGENTS.md` for safeguards.
 
+## Long-term roadmap and live progress
+
+[`ROADMAP-COVERAGE.md`](ROADMAP-COVERAGE.md) is the governing project development roadmap. It covers the preserved full archive, future Reader V3.1 modernization through the remaining 900 numbered articles and 505 Honorable Mentions, historical fact-checking, deck provenance, artwork/rights/accessibility, site experience and full release acceptance. Milestone acceptance conditions and evidence are defined there; no future worker should substitute an old one-wave handoff for this scope.
+
+The landing page displays an expandable read-only **Rev / Roadmap** indicator. Its structured source is `site-progress.json`; `site-progress.js` calculates the weighted overall percentage and separately reports progress on the initial Reader 001–100 phase. The current published baseline is **51/100 accepted roadmap points** and **60/100 initial Reader features**. Overall weighted progress intentionally stays unchanged while a gate is partial; a passing structural suite is not evidence every historical claim has been individually verified.
+
+Every accepted milestone or scope change must review and update the roadmap, audit/checkpoint and the published status together. Run `python tools/validate_site_progress.py` to verify the roadmap gate table, published manifest, accepted Reader checkpoint and site mount agree; GitHub Actions runs this same check before archive/browser validation.
+
 ## Publishing architecture
 
 - Numbered pages: `001-*.html` through `1000-*.html`, exactly 1,000 files.

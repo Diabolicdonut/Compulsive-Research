@@ -1,10 +1,58 @@
-# Compulsive Research — Full Current Editorial and Site Roadmap
+# Compulsive Research — Authoritative Development Roadmap
 
-**Recovered October 27, 2026** from exact GitHub `main` `40bdf22c8f61959da4284663be1fe0b7198f4a7d` and `CURRENT-STATE.json`. The latest accepted Reader V3.1 wave is **051–060**, with **061 Maze of Ith** the next item in planned 061–070. Do not replay earlier article work or overwrite newer accepted research.
+**Roadmap revision:** 1.1 (October 27, 2026)  
+**Authority:** This document governs the finite current Compulsive Research archive program. `site-progress.json` is the machine-readable mirror of its weighted acceptance gates; `CURRENT-STATE.json` is authoritative for the latest accepted editorial checkpoint. See [`AGENTS.md`](AGENTS.md) for mandatory worker procedure.  
+**Recovered baseline:** GitHub `main` commit `40bdf22c8f61959da4284663be1fe0b7198f4a7d`; the October 27 status-widget implementation at `b20f944769372d5129f5261ce0f5dfd5566e58f9` is retained, not replaced.
 
-**Scope:** A preserved, usable and editorially trustworthy historical Magic: The Gathering archive of **1,000 numbered entries**, **505 canonical Honorable Mentions**, **22 HM categories**, and 1,505 active article pages. The overall roadmap measures the finite **current accepted archival/Reader V3.1 release scope**, not the limitless universe of all MTG cards. The project's editorial policy, canonical status, source evidence, corrected gameplay stories and link integrity remain unchanged.
+## 1. North-star vision and scope
 
-**Authority:** `CURRENT-STATE.json`, `audit.md`, `READER-V3.1-MIGRATION-LEDGER.json`, `audit/reader-v31-051-060/REPORT.md`, `canonical/` and CI validators. Read newest accepted main, not older ZIP handoffs. The accepted 051–060 wave verified **31,781 local links, zero failed** and retained 1,495 pages unchanged outside its ten-item batch. Structural validation **is not** proof that every article's historical fact has been personally checked.
+**Compulsive Research is a lasting, historically grounded, readable Magic: The Gathering card-history encyclopedia:** the story of why individual cards mattered, from design and first printing through tournament adoption, changing formats, characteristic interactions, art and presentation, memorable play experiences and their continuing legacy. Every entry should be recognizable as an independently researched feature rather than generated template prose. The site should let readers find, browse, compare and return to individual features reliably, on desktop or mobile.
+
+The **current finite approved release** comprises **1,000 numbered features**, **505 canonical unnumbered Honorable Mentions**, **22 Honorable Mention categories**, and **1,505 active article pages** plus the landing page. It does **not** purport to include every Magic card ever printed. The roadmap encompasses both the already working archive and **all remaining editorial, evidence, user-experience and release-quality work** necessary to bring this corpus to publication quality—not merely the next 10 or 100 Reader V3.1 articles.
+
+Future card additions, new editorial collections, translations, interactive features, or a different total article count are potential extensions, **not silently included in the present 100-point denominator**. Approve such scope explicitly, record the decision here, and revise the weights and status manifest transparently before claiming a new percentage.
+
+## 2. Recovery, preservation and source of truth
+
+Before any work, fetch the latest GitHub `main`, its recent commits, open PRs, Issues and Actions. Inspect `CURRENT-STATE.json`, the newest `audit.md` entry, `READER-V3.1-MIGRATION-LEDGER.json`, `audit/reader-v31-051-060/REPORT.md`, `canonical/`, `research/`, `tools/`, `validation/` and `AGENTS.md`. An accepted newer checkpoint always supersedes any older instructions or ZIP snapshot; dated handoffs remain historical evidence, not a reason to roll back.
+
+Preserve **exactly 1,000 numbered pages and 505 active `honorable-<slug>.html` pages** during the current program, with category-local HM navigation and one live link per canonical page. Do not recreate retired `honorable-NNN-*.html` duplicates. `250-eternal-dragon.html` remains a structural Reader benchmark. Accepted repairs—including Hypnotic Specter chronology, Wheel of Fortune identity, validated gameplay scenes and Reader 051–060—are protected. Changes to a document outside the approved work range need an explicit source-backed justification and a preservation report.
+
+The last accepted Reader V3.1 checkpoint is **051–060** (October 16, 2026); the next source-reviewed item is **061 — Maze of Ith**. Accepted 051–060 work preserved **1,495 articles byte-identically** outside its ten-entry batch; navigation checked **31,781 local links with zero failures**. These structural checks do **not** prove every historical claim in all 1,505 articles.
+
+## 3. Milestone sequence and completion definition
+
+The full program is not complete merely because the articles exist. Milestones may overlap in implementation but cannot be **accepted** until their stated evidence and quality criteria are met. Work proceeds in small, reviewable, independently validated waves.
+
+| Milestone | Objective and remaining acceptance work | Completion evidence |
+|---|---|---|
+| M0 — Archive preservation | Maintain the complete 1,505-page canonical corpus and all 22 HM categories; eliminate broken canonical identities, navigation and return links | Archive manifest, canonical identity, link validation, CI and browser checks |
+| M1 — Reader V3.1 initial conversion | Retain accepted 001–060; convert **061–070**, **071–080**, **081–090**, **091–100** as four distinct reviewed checkpoints | Each wave: source dossier, legal gameplay scene, corrected page, revised ledger, diff-based preservation proof, release tests |
+| M2 — Archive-wide historical/editorial review | Review remaining numbered features **101–1000**, while respecting previously modernized exceptions; then review all **505 HMs**. Prioritize the 590 rewrite-required and 792 audit-required records, accounting for overlap instead of adding counts; use research-backed waves | Per-page claim audit and signoff, updated warnings/defect ledger, accepted category- and range-scoped batches |
+| M3 — Deck provenance and gameplay truth | Reconcile deck fingerprints, unbound source URLs and monobasic-color anomalies; check lists, dates, format legality and tournament attribution | Bound primary sources or explicitly labeled curated examples; resolved or justified warning ledger |
+| M4 — Artwork, rights and media | Verify subject, original illustrator, first printing, image identity, accessibility, rights/link notices and resilient image failure states | Media audit and targeted negative tests; no invented provenance or copyrighted asset scraping |
+| M5 — Reader/site experience | Preserve browse/search/filter, wave and HM collapsibles, per-article table-of-contents links, return-to-entry behavior, responsive typography and accessible controls | Desktop and 390px browser smoke tests, keyboard checks, readable fallback/error states |
+| M6 — Release and archival durability | Complete full-corpus evidence review, release fingerprints, correct repair histories, no regressions, stable Pages deployment, reproducible documentation and contributor instructions | Accepted full/refresh/quick suites, release stamp, GitHub Actions and reviewed release note |
+
+### Editorial contract for every article
+
+An article should establish the card's actual printed identity and first release, essential rules and interactions **in the correct historical rules context**, the design or strategic reason it mattered, format/tournament and deck-history evidence with dates, illustrative play, art/artist identity, and lasting influence. A representative first-person table scene must be explicitly identifiable as reconstruction rather than a real quotation or exact match transcript. The scene's game state must be legal: one land play per turn absent an effect, sufficient colored and generic mana, correct timing, stack, priority, summoning sickness, targeting, combat math, board state and period card availability. Claims and named decks must distinguish documented registrations from editorial examples.
+
+Honor the existing `canonical/` contracts and don't regenerate accepted prose from generic templates. Defects in card identity, sources, deck records or historical claims outrank cosmetics. Preserve source citations and changes to the migration ledger and audit alongside the article itself.
+
+### Next authorized editorial batches
+
+1. **061–070** beginning with Maze of Ith; accept only after ten researched features, story/source checks and CI/browser gates.
+2. **071–080**, **081–090**, **091–100**, each as a separate accepted checkpoint.
+3. Continue **101–1000** in rational, independently reviewable waves, prioritized by editorial defects and card prominence rather than presumed numerical completeness.
+4. Complete **all 505 HM articles** with the same historical/mechanical standards, maintaining category navigation.
+5. Reconcile archive-wide deck, source, art, accessibility and residual validator warnings; complete a final full-corpus acceptance sweep.
+
+Work on M2–M6 can proceed in parallel if a change is safely isolated and reported; a worker may not declare an entire milestone accepted from an isolated success.
+
+## 4. Weighted total-project acceptance gates
+
+These weights reflect **current approved delivery scope**, including the substantial preserved and functional foundation. The existing percentages are deliberately held stable pending a reviewed rebaseline. A full gate earns its weight only on acceptance; a **partial** gate earns **zero** overall points, but can report detailed evidence and subprogress in audit records. This is a conservative *delivery milestone* measure, not a percentage of fact-checked sentences or a simple number of HTML files. The machine-readable mirror must contain the exact same gates, weights and status.
 
 | Current finite approved delivery gate | Weight | Status | Authority |
 |---|---:|---|---|
@@ -19,8 +67,45 @@
 | Desktop/mobile archive browse, filter and UX acceptance coverage | 7 | accepted | `README.md; .github/workflows/validate-archive.yml` |
 | Full archive editorial acceptance with negative regression protections | 6 | partial | `audit.md; validation/` |
 
-**Overall accepted: 51/100 = 51%**. Separate Reader V3.1 **opening-100 phase: 60/100 = 60%**. The overall 51% is an explicit weighted planning judgement and does not claim 51% of every article's assertions are correct. Partial gates yield zero until their full acceptance conditions and protected-baseline checks pass.
+**Overall accepted: 51/100 = 51%**. **Reader V3.1 initial hundred: 60/100 = 60%**, after articles 001–060. The overall number may stay constant across a successful intermediate editorial wave until one of the explicitly approved weighted gates has been fully accepted. The separate Reader progress is intended to show the incremental 061–100 work.
 
-**Next sequence:** Continue exactly **061–070**, then 071–080, 081–090 and 091–100; validate each single-wave PR against the accepted 1,505-article manifest, unchanged outside-scope pages, gameplay story quality, deck provenance, browser navigation and research source references. After the first hundred, the remainder of the site continues under the approved archive-wide editorial program. Do not accidentally restore retired numbered Honorable Mentions or overwrite the already canonical records.
+**Do not equate 51% weighted acceptance with 51% of research or factual claims independently verified.** A displayed 100% will mean **all stated current release gates have accepted evidence**, not that future Magic publications and optional enhancements are finished.
 
-**Publishing:** The status widget only injects read-only revision and roadmap disclosure on the public landing page. It neither edits any article content nor changes the archive's HTML/text data, source metadata, canonical identity or citations. Update the roadmap gates only with accepted reviewer/CI evidence.
+## 5. Worker governance and mandatory roadmap maintenance
+
+Every AI development worker must treat this file as the governing *future scope and sequence*, `CURRENT-STATE.json` as the **current accepted checkpoint**, `site-progress.json` as the **published structured progress**, and `audit.md` plus wave-specific reports as acceptance evidence. On conflict with older handoffs, use newest accepted GitHub state and update stale references rather than restarting work. Do not let parallel workers overwrite each other's branch changes.
+
+**For every implementation, scope change, newly accepted batch or milestone:**
+
+1. Recover GitHub head and confirm the requested work appears in this roadmap; if not, first document the scope decision, affected gates and acceptance evidence here.
+2. Implement on a fresh feature branch in a minimal diff; preserve accepted articles outside the authorized batch and document any necessary exception.
+3. Run quick validation during work, refresh-V2 after content changes, full suite and navigation before release, plus Reader checkpoint and browser validations as applicable.
+4. Update `CURRENT-STATE.json`, the relevant migration ledger, `audit.md`, reports and metrics **to reflect only work actually accepted**. Record the next exact resumable task and known unresolved warnings.
+5. Review and update **this roadmap** (revision, milestone status, acceptance evidence, open issues, and next steps). Synchronize the matching weights/statuses, review date, revision fallback and phase counts in `site-progress.json`. Keep the real checkpoint data authoritative: the widget reads `CURRENT-STATE.json` when possible.
+6. Run `python tools/validate_site_progress.py` and all applicable existing checks. Confirm the site shows correct revision, overall weighted percent, explanatory basis and the separate Reader phase. Do not mark gates accepted merely because code was authored or a PR was opened.
+7. Open a PR describing changes, evidence, preservation checks, effect on the overall percentage, new risks and exact next task. Merge only after review and successful Actions; then verify the accepted branch and Pages result.
+
+An editorial change that leaves overall weighted points unchanged **still requires a checkpoint, roadmap/status review, and an updated phase metric where applicable**. Similarly, changes to the long-term vision must not be hidden in a local chat prompt; amend this file and record the decision. If a milestone is split for finer progress reporting, preserve its parent's weight so the total stays exactly 100 unless the user approves a new baseline.
+
+## 6. Open backlog and evidence limitations
+
+- The currently inherited review queues include approximately **590 rewrite-required** and **792 audit-required** pages (potentially overlapping), **1,440 reused deck-fingerprint warnings**, **349 unbound-source warnings** and **5 monobasic-color warnings**, as reported at accepted checkpoint 051–060. These are not failures in all cases; investigate individually.
+- Earlier exhaustive legacy hero/title/artwork validators yielded unresolved or outdated contract findings; those *do not* automatically prove current pages are wrong. Triage with original source evidence before changing images, headlines or metadata.
+- Browser tests exercise desktop/mobile rendering with stubbed external artwork. They do not prove live third-party image delivery or correctness of every historical assertion.
+- Continuously improve negative regression fixtures for the actual errors previously found (mana, land drops, story chronology, identity, deck attributions, nav/TOC). Maintain per-article source review instead of treating green CI as historical verification.
+
+## 7. Published revision and progress architecture
+
+`index.html` loads the **read-only** `site-progress.js` status widget. The script fetches `site-progress.json`, resolves the latest editorial revision via `CURRENT-STATE.json`, calculates accepted gate weights (100 total), shows a separate Reader 001–100 progress bar, and links back to this roadmap. The same manifest can be read by future tools; do not hard-code percentages into the HTML. The mount is isolated from article content and site navigation to preserve the accepted archive/release fingerprint.
+
+**Current public display:** `Rev Reader V3.1 051-060`, `Roadmap 51%`; inside the disclosure: 60/100 Reader V3.1 initial features. GitHub Actions checks the manifest's agreement with this roadmap and the canonical state. An unavailable source must not lead to a fabricated completion figure. Changes to layout/style should preserve keyboard accessibility, mobile readability and the canonical landing-page content.
+
+## 8. Acceptance record and next action
+
+- **Accepted editorial content baseline:** Reader V3.1 **051–060**, October 16, 2026; `40bdf22c8f61959da4284663be1fe0b7198f4a7d`.
+- **Roadmap + live status baseline:** `b20f944769372d5129f5261ce0f5dfd5566e58f9`, October 27, 2026; Actions passed.
+- **This governance revision:** formalizes long-range completion conditions and routine roadmap/status updates without modifying article prose, the accepted article corpus or gate weighting.
+- **Immediate next article:** **061 — Maze of Ith**, in the isolated **061–070** Reader V3.1 checkpoint.
+- **Required handoff:** state the exact accepted main commit and checkpoint, validations actually run, accepted vs pending work, warning changes and next isolated task.
+
+See `README.md`, `AGENTS.md`, `CURRENT-STATE.json`, `audit.md` and the relevant checkpoint dossier for the complete working context.
