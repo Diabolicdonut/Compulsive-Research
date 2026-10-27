@@ -1,3 +1,11 @@
+# Reader V3.1 article 061 candidate — Maze of Ith (October 27, 2026)
+
+Single-page, source-grounded Reader V3.1 migration candidate for 061. New first-person vignette is a representative reconstruction anchored to Mark Arce's published 2015 Old School Mono Black registration; opponent is hypothetical, not an actual match. Official Wizards combat rulings and the August 1994 Anson Maddocks original printing are individually verified. The targeted source/dossier review, zero-mana activation evidence, derived reading-time metadata and hash record are documented in [061 candidate report](audit/reader-v31-061-070/061-CANDIDATE.md).
+
+**Important:** this entry does NOT supersede the accepted editorial checkpoint 051–060. The current overall accepted weighted project score remains **51/100** and Reader initial-100 phase remains **60/100**. No 061–070 checkpoint or full historical archive review has been accepted yet. Next article for single-page work: **062 The Tabernacle at Pendrell Vale**. Keep the prior accepted audit history below.
+
+---
+
 # Accepted-on-main Reader V3.1 continuation — 051–060
 
 **Checkpoint:** `reader-v31-051-060-2026-10-16`. This entry describes the 051–060 PR; it is accepted only after its reviewed branch reaches `main` with successful Actions. **Next: 061 — Maze of Ith (061–070).**
