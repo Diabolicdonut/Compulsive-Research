@@ -41,7 +41,7 @@ def corpus_sha256(root: Path) -> tuple[str, int]:
         # this HTML insertion, at exactly the body boundary, and nothing else;
         # all previous editorial markup remains hash-covered byte-for-byte.
         if relative == b'index.html':
-            status_mount = b'<script defer src="./site-progress.js" data-site-progress></script>\\n'.replace(b'\\n', b'\n')
+            status_mount = b'<script defer src="./site-progress.js" data-site-progress></script>' + bytes([10])
             if content.count(status_mount) == 1 and (
                 b'</script>' + status_mount + b'</body>'
             ) in content:
