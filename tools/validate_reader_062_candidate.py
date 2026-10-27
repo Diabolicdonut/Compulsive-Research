@@ -22,7 +22,7 @@ ARTICLE = ROOT / "062-the-tabernacle-at-pendrell-vale.html"
 REVIEW = ROOT / "research-dossiers/reader-v31-061-070/062-review.json"
 STORY = ROOT / "research-dossiers/reader-v31-061-070/062-story-candidate.json"
 METRICS = ROOT / "validation/reader-v3.1-062-candidate-metrics.json"
-DOSSIER = ROOT / "research-dossiers/numbered-wave-02/061-the-tabernacle-at-pendrell-vale.json"
+DOSSIER = ROOT / "research-dossiers/numbered-wave-02/062-the-tabernacle-at-pendrell-vale.json"
 SCHEMA = ROOT / "templates/research-dossier-v2.schema.json"
 SOURCE_VERIFICATION = ROOT / "research-dossiers/reader-v31-061-070/062-source-verification.json"
 
