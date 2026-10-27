@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Review candidate Reader V3.1 article 061 without promoting 061-070 as accepted.
+"""Review candidate Reader V3.1 article 062 without promoting 061-070 as accepted.
 
 --apply updates derived read time, generated candidate metadata, and source-bound
 story record. Default --check is read-only and fails on stale artifacts.
@@ -18,7 +18,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 from reader_experience_v3 import editorial_word_count, reading_time_minutes
 
 ROOT = Path(__file__).resolve().parents[1]
-ARTICLE = ROOT / "061-the-tabernacle-at-pendrell-vale.html"
+ARTICLE = ROOT / "062-the-tabernacle-at-pendrell-vale.html"
 REVIEW = ROOT / "research-dossiers/reader-v31-061-070/062-review.json"
 STORY = ROOT / "research-dossiers/reader-v31-061-070/062-story-candidate.json"
 METRICS = ROOT / "validation/reader-v3.1-062-candidate-metrics.json"
@@ -147,7 +147,7 @@ def main():
     if errors:
         for problem in errors: print("FAIL:", problem)
         return 1
-    print(f"PASS 061 {'refreshed' if args.apply else 'verified'}: {words} words, {minutes} min, "
+    print(f"PASS 062 {'refreshed' if args.apply else 'verified'}: {words} words, {minutes} min, "
           f"{story_record['storyWords']} vignette words; accepted Reader still 60/100")
     return 0
 
