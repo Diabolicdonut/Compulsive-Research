@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES = [
-    ("061-maze-of-ith.html", ["untapped", "remains attacking", "mana source"]),
+    ("061-maze-of-ith.html", ["does not tap", "remains attacking", "mana source"]),
     ("062-the-tabernacle-at-pendrell-vale.html", ["four creatures", "two lands", "upkeep"]),
     ("063-moat.html", ["could not be declared", "cannot be declared", "blocks"]),
     ("064-nether-void.html", ["triggered ability", "another {3}", "countered"]),
@@ -71,7 +71,7 @@ if "the sacrifice effect is asymmetrical" in abyss:
     errors.append("065: Abyss causes destruction rather than sacrifice")
 
 candelabra = (ROOT / CASES[-1][0]).read_text(encoding="utf-8")
-for needle in ("June 29, 2026", "Candelabra was banned in Legacy", "magic.wizards.com/en/news/announcements/banned-and-restricted-june-29-2026"):
+for needle in ("June 29, 2026", "banned Candelabra of Tawnos in Legacy", "magic.wizards.com/en/news/announcements/banned-and-restricted-june-29-2026"):
     if needle.casefold() not in candelabra.casefold():
         errors.append(f"070: dated Legacy legality evidence missing: {needle}")
 
