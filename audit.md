@@ -1,3 +1,11 @@
+# Reader V3.1 061–070 audit and 073–082 continuation — October 28, 2026
+
+An independent wave-level **acceptance audit** now covers Reader 061–070 with exact article hashes, original-source classification and inherited tournament/event deck-verification gaps. It intentionally reports **BLOCKED** because earlier article candidate passes and clean CI cannot substantiate every inherited game/history/source claim. See [audited blockers](audit/reader-v31-061-070/ACCEPTANCE-AUDIT.md); do not promote a new ten-article Reader checkpoint until those gaps are remediated.
+
+The next ten article candidates **073–082** receive individual Reader V3.1 stories, core mechanics correction and data-bound research records, including a clearly fictional 1994 red-defense deck for Ali from Cairo. The accepted Reader progress remains **60/100**, whole-roadmap weighted progress **51/100**. Next untouched article 083 Millstone; highest-priority acceptance dependency is 061–070 historical verification.
+
+---
+
 # Reader V3.1 numbered articles 063–072 candidate implementation (October 27, 2026)
 
 The ten articles from **Moat** (063) through **Power Artifact** (072) received differentiated Reader V3.1 opening scenarios, targeted identity/mechanics/source reviews, and machine-checkable article/story evidence. High-risk fixes include Transmute Artifact's sacrifice **on resolution**, not when cast; Power Artifact/Basalt Monolith {3}→{1} untap payment; 2026 Legacy prohibition of Candelabra; and precise triggered restrictions for the Legends world enchantments. The 072 teaching deck is an explicitly invented 60-card rules model without an attributed event or result. See [063–072 candidate report](audit/reader-v31-063-072/REPORT.md).

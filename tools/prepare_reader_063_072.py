@@ -181,7 +181,7 @@ def candidate(s):
       {"sourceId":"original-printing","title":card+" original printing and rulings","url":s["url"],"sourceType":"database","accessedDate":"2026-10-27","supports":"Original date, printed card, artist and explicit rulings."},
       {"sourceId":"official-rules","title":"Magic Comprehensive Rules","url":"https://magic.wizards.com/en/rules","sourceType":"primary","accessedDate":"2026-10-27","supports":"Current triggered ability, costs, timing, targeting, casting and resolution mechanics."}
     ]
-    if s.get("extraSource"):dossier["sources"].append({"sourceId":"dated-primary","title":card+" dated historical ruling / policy","url":s["extraSource"],"sourceType":"primary","accessedDate":"2026-10-27","supports":"Specifically dated historical update, not general deck provenance."})
+    if s.get("extraSource"):dossier["sources"].append({"sourceId":"dated-primary","title":card+" dated historical ruling / policy","url":s["extraSource"],"sourceType":"contemporary-secondary" if "mtgprintrun.com" in s["extraSource"] else "primary","accessedDate":"2026-10-27","supports":"Specifically dated historical update, not general deck provenance."})
     # Point inherited lists to *their own internal archive snapshot*, never to
     # the original-printing/rules source as fake proof of tournament attribution.
     dossier["sources"].append({"sourceId":"archived-deck-candidate",
