@@ -82,7 +82,7 @@ def main():
          "", "| Entry | Card | Words | Decks | Event source gaps | SHA-256 |",
          "|---:|---|---:|---:|---:|---|"]
        for x in result["articles"]:
-          l.append(f"| {x['entry']:03d} | {x['card']} | {x['editorialWords']} | {x['visibleArchiveDecks']} | {x['unverifiedInheritedDeckRows']} | \`{x['articleSha256']}\` |")
+          l.append(f"| {x['entry']:03d} | {x['card']} | {x['editorialWords']} | {x['visibleArchiveDecks']} | {x['unverifiedInheritedDeckRows']} | `{x['articleSha256']}` |")
        l+=["","## Blockers"]
        for b in result["blockers"]:
           l.append(f"- **{b['entry']:03d}: {b['kind']}** — {b['reason']}"+(" ("+", ".join(b["names"])+")" if b.get("names") else ""))
