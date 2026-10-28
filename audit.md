@@ -1,3 +1,13 @@
+# Reader V3.1 083–092 candidate modernization and user approval (October 28, 2026)
+
+The user explicitly **approved published articles 073–082**. This editorial sign-off is recorded in the current project state separately from the source-based, contiguous wave acceptance gate; it does not erase the 061–070 wave's **16 blocker records/24 inherited deck-event provenance gaps**.
+
+The next ten Reader 083–092 manuscripts include exact-era first-person illustrative card play, source-specific original art and rules identity, curated Goblin Grenade 1994 study deck (not a tournament registration), authoritative mechanics and individual review/hash metadata. Preserve 1,505 active articles and all prior 001–082 work. See [083–092 report](audit/reader-v31-083-092/REPORT.md).
+
+**Formally accepted counts unchanged:** Reader 60/100, weighted roadmap 51/100 pending full wave sign-off. Next untouched **093 Merchant Scroll**.
+
+---
+
 # Reader V3.1 061–070 audit and 073–082 continuation — October 28, 2026
 
 An independent wave-level **acceptance audit** now covers Reader 061–070 with exact article hashes, original-source classification and inherited tournament/event deck-verification gaps. It intentionally reports **BLOCKED** because earlier article candidate passes and clean CI cannot substantiate every inherited game/history/source claim. See [audited blockers](audit/reader-v31-061-070/ACCEPTANCE-AUDIT.md); do not promote a new ten-article Reader checkpoint until those gaps are remediated.

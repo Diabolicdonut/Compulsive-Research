@@ -1,8 +1,8 @@
 # Deck semantics validation
 
 - Articles: **1505**
-- Decks: **1604**
-- Pass: **102**
+- Decks: **1605**
+- Pass: **103**
 - Warn: **1502**
 - Fail: **0**
 
