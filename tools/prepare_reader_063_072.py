@@ -60,7 +60,7 @@ def curated_power_deck():
     for title,cards in groups:
        lines.append(title+' · '+str(sum(q for _,q in cards)))
        for name,q in cards: lines.append(str(q)+' '+name)
-    details+=['<pre id="deck-072-power-artifact-study" hidden>'+html.escape('\\n'.join(lines))+'</pre></div></details>']
+    details+=['<pre id="deck-072-power-artifact-study" hidden>'+html.escape(chr(10).join(lines))+'</pre></div></details>']
     return ''.join(details)
 
 def candidate(s):
