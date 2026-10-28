@@ -1,0 +1,54 @@
+name: Build Reader 083-092 and refresh archive evidence
+
+on:
+  push:
+    branches:
+      - work/reader-v31-083-092-2026-10-28
+permissions:
+  contents: write
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Generate ten candidate pages and review exact acceptance boundaries
+        run: |
+          python -m py_compile tools/prepare_reader_083_092.py
+          python tools/prepare_reader_083_092.py --apply
+          python tools/prepare_reader_083_092.py
+          python tools/prepare_reader_073_082.py
+          python tools/prepare_reader_063_072.py
+          python tools/audit_reader_061_070_acceptance.py
+          python tools/validate_reader_061_candidate.py
+          python tools/validate_reader_062_candidate.py
+          python tools/validate_site_progress.py
+          python tools/validate_reader_experience_v3.py
+          python tools/validate_historical_decks_only.py
+      - name: Refresh and validate protected archive release fingerprints
+        run: |
+          python tools/run_validation_suite.py --quick
+          python tools/run_validation_suite.py --refresh-v2
+          python tools/run_validation_suite.py --full
+          python tools/validate_internal_navigation.py
+          python tools/validate_reader_v31_checkpoint.py
+      - name: Commit newly derived metrics and publication evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 083-millstone.html 084-ivory-tower.html 085-zuran-orb.html 086-hymn-to-tourach.html 087-order-of-leitbur.html 088-order-of-the-ebon-hand.html 089-icatian-javelineers.html 090-aeolipile.html 091-goblin-grenade.html 092-high-tide.html
+          git add research-dossiers/numbered-wave-02 research-dossiers/reader-v31-083-092 validation/reader-v3.1-083-092-candidate-metrics.json
+          git add audit/editorial-v2 audit/canonical-identity-v2 audit/deck-semantics audit/archive-core-v2 audit/deck-archives audit/official-mtg-decks audit/card-image-links audit/release-v2-validation-state.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Build and validate ten Reader 083-092 editorial candidates"
+            git push origin HEAD:work/reader-v31-083-092-2026-10-28
+          fi
