@@ -1,8 +1,8 @@
 # Editorial V2 quality audit
 
 - Articles: **1505**
-- Paragraph instances: **71941**
-- Exact unique paragraphs: **44834**
+- Paragraph instances: **71943**
+- Exact unique paragraphs: **44845**
 - Hard failures: **0**
 
 ## Editorial status

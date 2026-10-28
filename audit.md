@@ -1,3 +1,11 @@
+# Reader V3.1 article 062 candidate — The Tabernacle at Pendrell Vale (October 27, 2026)
+
+Single-page, source-specific Reader V3.1 candidate, following reviewed 061 Maze of Ith without promoting the full 061–070 wave. The reconstructed first-person vignette uses Jarvis Yu's published winning 2015 Legacy Lands card pool but does not claim to reenact the Grand Prix final. Four independently controlled upkeep triggers, correct two-mana payment arithmetic, Crop Rotation's green mana plus Forest sacrifice cost, and the fact that Tabernacle never taps or sacrifices creatures are recorded in [062 candidate report](audit/reader-v31-061-070/062-CANDIDATE.md).
+
+The actual accepted Reader checkpoint remains 051–060. Published completion stays **51/100 overall** and **60/100 Reader**. The next isolated individual article is **063 Moat**; complete the remaining eight migrations and release acceptance before advancing the Reader 061–070 checkpoint.
+
+---
+
 # Reader V3.1 article 061 candidate — Maze of Ith (October 27, 2026)
 
 Single-page, source-grounded Reader V3.1 migration candidate for 061. New first-person vignette is a representative reconstruction anchored to Mark Arce's published 2015 Old School Mono Black registration; opponent is hypothetical, not an actual match. Official Wizards combat rulings and the August 1994 Anson Maddocks original printing are individually verified. The targeted source/dossier review, zero-mana activation evidence, derived reading-time metadata and hash record are documented in [061 candidate report](audit/reader-v31-061-070/061-CANDIDATE.md).
