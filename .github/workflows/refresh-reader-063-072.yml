@@ -29,6 +29,8 @@ jobs:
           python tools/validate_site_progress.py
       - name: Print complete Reader V3.1 migration validation findings
         run: python tools/validate_reader_experience_v3.py
+      - name: Print detailed historical deck-archive validation findings
+        run: python tools/validate_historical_decks_only.py
       - name: Refresh protected release fingerprints and full release QA
         run: |
           python tools/run_validation_suite.py --quick
