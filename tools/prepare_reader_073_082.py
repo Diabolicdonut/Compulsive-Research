@@ -53,6 +53,11 @@ def bootstrap(s):
        raw=raw.replace(old,'<div class="deck-archive">'+ali_curated_deck()+'</div>')
        raw=raw.replace("No verified historical tournament registration is currently included in this article. The documentary archive remains open for sourced additions.",
          "No verified historical tournament registration is included. The original 60-card study model is clearly curated and makes no claim of event results.")
+    if s['n']==79:
+        original='Flying. Tetravus enters the battlefield with three +1/+1 counters on it. At the beginning of your upkeep, you may remove any number of those counters to create that many 1/1 flying Tetravite artifact creature tokens; or sacrifice Tetravites to put counters back on Tetravus.'
+        corrected='Flying. Tetravus enters the battlefield with three +1/+1 counters on it. At the beginning of your upkeep, you may remove any number of +1/+1 counters from Tetravus. If you do, create that many 1/1 colorless Tetravite artifact creature tokens. They each have flying and "This token cannot be enchanted." At the beginning of your upkeep, you may exile any number of tokens created with Tetravus. If you do, put that many +1/+1 counters on Tetravus.'
+        if original not in raw:raise ValueError("Tetravus original incorrect Oracle lead was not found")
+        raw=raw.replace(original,html.escape(corrected,quote=False))
     # Replace the inherited templated case studies, 073-082, with specific
     # legal game-state sequences from the editorial plan.
     id="case-study"
@@ -80,6 +85,11 @@ def main():
       for s in specs:
         bootstrap(s)
         records.append(impl.candidate(s))
+        if s['n']==79:
+            dossier=ROOT/"research-dossiers/numbered-wave-02/079-tetravus.json"
+            record=json.loads(dossier.read_text(encoding="utf-8"))
+            record["canonicalIdentity"]["currentOracleText"]="Flying. This creature enters with three +1/+1 counters on it. At the beginning of your upkeep, you may remove any number of +1/+1 counters from this creature. If you do, create that many 1/1 colorless Tetravite artifact creature tokens. They each have flying and \\"This token can't be enchanted.\\" At the beginning of your upkeep, you may exile any number of tokens created with this creature. If you do, put that many +1/+1 counters on this creature."
+            dossier.write_text(json.dumps(record,indent=2,ensure_ascii=False)+"\\n",encoding="utf-8")
       impl.write(METRICS,{"scope":"073-082","date":"2026-10-28",
           "status":"ten individual candidate drafts; NOT approved 071-080 or 081-090 checkpoint",
           "acceptedReader":60,"weightedRoadmapPoints":51,"articles":records})
