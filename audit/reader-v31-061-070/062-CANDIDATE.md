@@ -34,6 +34,18 @@ Editorial rewriting replaces inherited generic origin/history/format/technical/m
 
 Remaining gates: independently verify inherited secondary archival registrations and deeper article claims; convert 063–070 with story/dossier/sources; create and validate a single 061–070 checkpoint, update migration ledger and accepted Reader progress only after full signed-off QA. The inherited site-wide research warnings remain open.
 
+## Verified production candidate metrics and release validation
+
+The [October 27 successful full refresh run](https://github.com/Diabolicdonut/Compulsive-Research/actions/runs/40605584478) completed the individual 062 metadata derivation, both 061/062 candidate validators, roadmap consistency, quick suite, refreshed V2 report and release fingerprint, full release suite, internal navigation, and prior 051–060 checkpoint validation. Its temporary write-enabled workflow is removed before the PR is eligible for merge.
+
+- **Article 062:** 3,391 derived editorial words; **17-minute read** at 200 words/minute.
+- **First-person reconstructed scene:** 98 words, source-bound to exact Deck Archive title `Jarvis Yu — Lands`.
+- **Source evidence:** five individually scoped claims with links.
+- **Final article SHA-256:** `a5ce21e2ee1f88ee606c17131d35ca4663a35a3f070d7c4813b020dd14e37e74`.
+- Generated records: `research-dossiers/reader-v31-061-070/062-story-candidate.json` and `validation/reader-v3.1-062-candidate-metrics.json`.
+
+Normal PR CI must still pass the complete desktop/mobile browser and release checks before merge. These results are **single-page candidate evidence**, not ten-article batch acceptance; the accepted 051–060 Reader and project weights are unchanged.
+
 ## Exact next action
 
 Begin **063 — Moat**, preserving the accepted 001–060 checkpoint and the individual 061/062 candidates. Keep the authoritative roadmap, current state and site-progress manifest in sync.
