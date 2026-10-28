@@ -1,7 +1,7 @@
 # Deck archive validation
 
 - Articles: **1143**
-- Decks: **1604**
+- Decks: **1605**
 - Pass: **1143**
 - Warn: **0**
 - Fail: **0**

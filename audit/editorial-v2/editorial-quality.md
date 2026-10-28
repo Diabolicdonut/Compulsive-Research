@@ -1,8 +1,8 @@
 # Editorial V2 quality audit
 
 - Articles: **1505**
-- Paragraph instances: **71901**
-- Exact unique paragraphs: **44770**
+- Paragraph instances: **71881**
+- Exact unique paragraphs: **44712**
 - Hard failures: **0**
 
 ## Editorial status
@@ -12,6 +12,6 @@
 - `benchmark`: 3
 
 ## Findings
-- `HIGH_EXACT_DUPLICATION`: 1186
+- `HIGH_EXACT_DUPLICATION`: 1196
 - `GENERIC_DOSSIER_LANGUAGE`: 590
 - `NO_PRIMARY_SOURCE_SIGNAL`: 1
