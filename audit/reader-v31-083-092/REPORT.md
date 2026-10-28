@@ -31,6 +31,29 @@ Every new opening story is a **first-person representative gameplay reconstructi
 - `research-dossiers/numbered-wave-02/083-092-*.json` contain scoped card-printing and rules evidence; `research-dossiers/reader-v31-083-092/NNN-review.json` and `NNN-story-candidate.json` hold manual action/source assessments.
 - The Goblin Grenade deck meets the established 60-card, copy-buffer, group total, no-sideboard and explicitly-curated deck validators, with 1994-printed creature/spell/land pool only.
 
+## Verified candidate metrics and full release evidence
+
+The isolated [GitHub Actions run 40727377754](https://github.com/Diabolicdonut/Compulsive-Research/actions/runs/40727377754) **completed successfully** after generating and validating all ten Reader 083–092 candidates, applying the source-specific dossier/scene/metrics rules, confirming previous 061/062, 063–072 and 073–082 records, auditing blocked wave 061–070, checking the Reader layout contract, checking historical deck archives, refreshing V2 release fingerprints, and passing the full publication and navigation suites.
+
+**28,216 derived editorial words**, with approximate reading time at 200 words per minute:
+
+| # | Card | Editorial words | Read time | Scene words |
+|---:|---|---:|---:|---:|
+| 083 | Millstone | 2,722 | 14 min | 93 |
+| 084 | Ivory Tower | 2,783 | 14 min | 95 |
+| 085 | Zuran Orb | 2,834 | 15 min | 94 |
+| 086 | Hymn to Tourach | 2,864 | 15 min | 101 |
+| 087 | Order of Leitbur | 2,920 | 15 min | 95 |
+| 088 | Order of the Ebon Hand | 2,909 | 15 min | 98 |
+| 089 | Icatian Javelineers | 2,778 | 14 min | 95 |
+| 090 | Aeolipile | 2,771 | 14 min | 94 |
+| 091 | Goblin Grenade | 2,808 | 15 min | 100 |
+| 092 | High Tide | 2,827 | 15 min | 101 |
+
+Individual current article SHA-256 values and the exact source/deck references are in `validation/reader-v3.1-083-092-candidate-metrics.json`; ten hidden story records and ten review notes are under `research-dossiers/reader-v31-083-092`. The new Goblin Grenade 1994 deck is expressly categorized as **curated-example**, passes group/main/copy metadata, and does not pretend to be a tournament registration.
+
+This validation **does not** accept previously blocked 061–070 documentary provenance or waive separate acceptance of the 081–090 and 091–100 checkpoints. The temporary write-enabled refresh workflow must be removed before the PR merges; the standard desktop/mobile browser CI must pass on its final head.
+
 ## Acceptance and QA
 
 The next ten are split by formal editorial checkpoint boundary: **083–090** finish the source-scoped **081–090** candidate set; **091–092** begin **091–100**. The user's previous 073–082 editorial approval is honored, but neither this approval nor candidate source/structural validation automatically closes any wave's historical attribution blockers.
