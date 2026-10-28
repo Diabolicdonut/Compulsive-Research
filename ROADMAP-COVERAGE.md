@@ -1,6 +1,6 @@
 # Compulsive Research — Authoritative Development Roadmap
 
-**Roadmap revision:** 1.6 (October 28, 2026)  
+**Roadmap revision:** 1.7 (October 28, 2026)  
 **Authority:** This document governs the finite current Compulsive Research archive program. `site-progress.json` is the machine-readable mirror of its weighted acceptance gates; `CURRENT-STATE.json` is authoritative for the latest accepted editorial checkpoint. See [`AGENTS.md`](AGENTS.md) for mandatory worker procedure.  
 **Recovered baseline:** GitHub `main` commit `40bdf22c8f61959da4284663be1fe0b7198f4a7d`; the October 27 status-widget implementation at `b20f944769372d5129f5261ce0f5dfd5566e58f9` is retained, not replaced.
 
@@ -49,6 +49,12 @@ Honor the existing `canonical/` contracts and don't regenerate accepted prose fr
 5. Reconcile archive-wide deck, source, art, accessibility and residual validator warnings; complete a final full-corpus acceptance sweep.
 
 Work on M2–M6 can proceed in parallel if a change is safely isolated and reported; a worker may not declare an entire milestone accepted from an isolated success.
+
+**October 28 explicit reader editorial approval:** The user reviewed and **accepted the published 073–082 articles**. Preserve this editorial sign-off in `CURRENT-STATE.json` and `audit.md`. This does not by itself satisfy independent event-deck provenance, contiguous Reader 071–080/081–090 migration ledger, or the still-blocked 061–070 source-audit requirements; therefore the formally accepted Reader counter remains **60/100**, with weighted roadmap **51/100**.
+
+**October 28 Reader 083–092 ten-article implementation:** Produce period-anchored first-person Reader V3.1 scenes, corrected origin/rules/tournament explanations, independent dossier reviews and derived metrics for **083 Millstone; 084 Ivory Tower; 085 Zuran Orb; 086 Hymn to Tourach; 087 Order of Leitbur; 088 Order of the Ebon Hand; 089 Icatian Javelineers; 090 Aeolipile; 091 Goblin Grenade; 092 High Tide**. The 091 article had no documented historical deck, so its 60-card original 1994 red-Goblin model must be labeled a **curated example**, never a tournament registration. Rules-critical checks: mill ≠ discard or automatic decking loss, Ivory Tower counts hand before draw, Orb sacrifices lands as activation costs, Hymn random discard, first-strike pump sequencing, Javelineers tap and javelin activation costs, Aeolipile's sacrifice before response, Goblin Grenade's **additional casting-cost sacrifice**, and High Tide's symmetrical Island mana triggers. See `audit/reader-v31-083-092/REPORT.md`, `research-dossiers/reader-v31-083-092/editorial-candidates.json` and `tools/prepare_reader_083_092.py`.
+
+**Wave boundaries:** 083–090 finishes candidate drafts of 081–090; 091–092 are advance drafts in 091–100. User editorial sign-off is recorded separately and no formal wave acceptance or weighted milestone is awarded solely for completing drafts. Next untouched article **093 — Merchant Scroll**. Before advancing any Reader count, resolve source evidence and cumulative wave acceptance blockers with repeatable preservation tests.
 
 **October 28 Reader 061–070 evidence-based wave acceptance review:** The ten page candidates pass existing structural/gameplay and release tests but have retained inherited deck registrations without event-specific source binding and deeper historical claims that were never independently signed off. The new `tools/audit_reader_061_070_acceptance.py` produces reproducible page hashes, source classification, unresolved deck-entry counts and explicit acceptance gates in `audit/reader-v31-061-070/ACCEPTANCE-AUDIT.md`. **Acceptance is blocked, not granted.** The latest authoritative accepted checkpoint therefore remains **051–060** (60/100). Publication-quality provenance cannot be replaced by a clean build or an automatic source-count metric.
 
@@ -120,7 +126,7 @@ An editorial change that leaves overall weighted points unchanged **still requir
 - **Accepted editorial content baseline:** Reader V3.1 **051–060**, October 16, 2026; `40bdf22c8f61959da4284663be1fe0b7198f4a7d`.
 - **Roadmap + live status baseline:** `b20f944769372d5129f5261ce0f5dfd5566e58f9`, October 27, 2026; Actions passed.
 - **This governance revision:** formalizes long-range completion conditions and routine roadmap/status updates without modifying article prose, the accepted article corpus or gate weighting.
-- **Next acceptance task:** clear the documented **061–070 provenance and full historical-review blockers**, then generate signed-off ten-page migration ledger; **next untouched article:** **083 Millstone** after drafting 073–082. Reader accepted remains 60/100.
+- **Next acceptance task:** clear **061–070 event provenance and inherited historical claims** and formally sign off that wave; **next untouched article:** **093 Merchant Scroll**, following independently revised 083–092. User has editorially accepted 073–082; formal Reader accepted remains 60/100.
 - **Required handoff:** state the exact accepted main commit and checkpoint, validations actually run, accepted vs pending work, warning changes and next isolated task.
 
 See `README.md`, `AGENTS.md`, `CURRENT-STATE.json`, `audit.md` and the relevant checkpoint dossier for the complete working context.
