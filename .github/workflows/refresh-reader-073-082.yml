@@ -1,0 +1,56 @@
+name: Build Reader 073-082 and audit blocked 061-070 acceptance
+
+on:
+  push:
+    branches:
+      - work/reader-v31-061-070-audit-073-082-2026-10-28
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Generate 073-082 Reader manuscripts, metrics and acceptance blocker audit
+        run: |
+          python -m py_compile tools/prepare_reader_073_082.py tools/audit_reader_061_070_acceptance.py
+          python tools/prepare_reader_073_082.py --apply
+          python tools/prepare_reader_073_082.py
+          python tools/audit_reader_061_070_acceptance.py --apply
+          python tools/audit_reader_061_070_acceptance.py
+          python tools/prepare_reader_063_072.py
+          python tools/validate_reader_061_candidate.py
+          python tools/validate_reader_062_candidate.py
+          python tools/validate_site_progress.py
+          python tools/validate_reader_experience_v3.py
+          python tools/validate_historical_decks_only.py
+      - name: Full publication preservation and release fingerprint refresh
+        run: |
+          python tools/run_validation_suite.py --quick
+          python tools/run_validation_suite.py --refresh-v2
+          python tools/run_validation_suite.py --full
+          python tools/validate_internal_navigation.py
+          python tools/validate_reader_v31_checkpoint.py
+      - name: Commit generated manuscripts and validation evidence after success
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 073-ali-from-cairo.html 074-drop-of-honey.html 075-old-man-of-the-sea.html 076-serendib-efreet.html 077-su-chi.html 078-triskelion.html 079-tetravus.html 080-atog.html 081-ornithopter.html 082-feldons-cane.html
+          git add research-dossiers/numbered-wave-02 research-dossiers/reader-v31-073-082 audit/reader-v31-061-070/ACCEPTANCE-AUDIT.json audit/reader-v31-061-070/ACCEPTANCE-AUDIT.md validation/reader-v3.1-073-082-candidate-metrics.json
+          git add audit/editorial-v2 audit/canonical-identity-v2 audit/deck-semantics audit/archive-core-v2 audit/deck-archives audit/official-mtg-decks audit/card-image-links audit/release-v2-validation-state.json
+          if git diff --cached --quiet; then
+            echo "No source-bound updates"
+          else
+            git commit -m "Review 061-070 acceptance blockers and build Reader candidates 073-082"
+            git push origin HEAD:work/reader-v31-061-070-audit-073-082-2026-10-28
+          fi
