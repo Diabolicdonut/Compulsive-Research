@@ -34,6 +34,29 @@ Documentary source levels are deliberately distinguished. Original-printing iden
 - `research-dossiers/reader-v31-063-072/NNN-story-candidate.json` and `NNN-review.json`: individual review of every scene and exact payment declaration.
 - `audit/release-v2-validation-state.json` and dependent validation reports regenerated after article HTML changes, not bypassed.
 
+## Actual passing candidate metrics and archive refresh
+
+The isolated full refresh [GitHub Actions run 40614371151](https://github.com/Diabolicdonut/Compulsive-Research/actions/runs/40614371151) **completed successfully**, regenerating protected V2 fingerprints and detailed reports. The job ran the ten-page candidate generator, source/dossier validator, original 061/062 candidate validators, full Reader V3.1 experience checks, historical deck-archive check (exactly **1,505 numbered and canonical HM pages in corpus**), quick and V2 refresh suites, full release suite, internal navigation checks and preserved checkpoint verification. These tests passed as a candidate preparation run; permanent PR CI and desktop/mobile browser testing must still pass before merge.
+
+Derived **editorial prose total for these ten articles: 27,697 words**, excluding deck archive/reference-only components:
+
+| Entry | Card | Editorial words | Derived read time | Opening vignette words |
+|---:|---|---:|---:|---:|
+| 063 | Moat | 2,688 | 14 minutes | 92 |
+| 064 | Nether Void | 2,766 | 14 minutes | 92 |
+| 065 | The Abyss | 2,714 | 14 minutes | 93 |
+| 066 | Land Tax | 2,847 | 15 minutes | 95 |
+| 067 | Sylvan Library | 2,914 | 15 minutes | 109 |
+| 068 | Concordant Crossroads | 2,721 | 14 minutes | 94 |
+| 069 | Eureka | 2,680 | 14 minutes | 93 |
+| 070 | Candelabra of Tawnos | 2,833 | 15 minutes | 94 |
+| 071 | Transmute Artifact | 2,777 | 14 minutes | 100 |
+| 072 | Power Artifact | 2,757 | 14 minutes | 99 |
+
+Per-page SHA-256 hashes, word metrics and exact deck binding are stored in `validation/reader-v3.1-063-072-candidate-metrics.json`. Ten new story records and ten review files are stored beside the candidate editorial plan. The added Power Artifact deck passes all main-deck, group total, copy-buffer and provenance checks, explicitly labeled as a constructed study model. The temporary write-permitted Actions workflow is deleted from the PR after recording these artifacts.
+
+**No new wave was promoted:** Reader acceptance remains 60/100 and weighted whole-product progress remains 51/100 pending formal 061–070 sign-off.
+
 ## Source leads for decisive claims
 
 The individual card records at [mtg.wtf](https://mtg.wtf) identify the original 1994 printings and official Oracle/rulings. Independent high-impact checks are the [official June 29, 2026 Legacy ban](https://magic.wizards.com/en/news/announcements/banned-and-restricted-june-29-2026); [Wizards' 2006 Basalt Monolith errata correction](https://magic.wizards.com/en/news/feature/power-level-errata-b-gone-2006-07-14); [Wizards' 2003 Power Artifact combo retrospective](https://magic.wizards.com/en/news/feature/top-50-blue-cards-2003-08-15); [Transmute Artifact's 2011 sacrifice-on-resolution Oracle ruling](https://mtg.wtf/card/atq/14/Transmute-Artifact); and the [Eureka 2004 spell-resolution rules](https://mtg.wtf/card/leg/185/Eureka).
