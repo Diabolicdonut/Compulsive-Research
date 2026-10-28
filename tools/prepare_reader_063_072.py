@@ -48,14 +48,19 @@ def curated_power_deck():
     details=['<details class="deck" data-deck-kind="curated-example" data-main-count="60" data-sideboard-count="0" data-legality-as-of="2000" data-reviewed-by="Compulsive Research" open="">',
       '<summary><span><strong>Power Artifact — Basalt Monolith study deck</strong><small>2000-era casual blue artifact model · 60 cards · no tournament registration</small></span><span class="plus">+</span></summary>',
       '<div class="deck-body"><span class="provenance-badge">Curated illustrative model, not historical result</span>',
-      '<p>An explicitly authored 60-card demonstration of Power Artifact with Basalt Monolith and Grim Monolith using cards available by 2000. No historical pilot, event, placement or sideboard is asserted.</p>',
+      '<p>An explicitly authored demonstration of 60 cards in the main deck with Power Artifact, Basalt Monolith and Grim Monolith, using cards available by 2000. No historical pilot, event, placement or sideboard is asserted.</p>',
       '<div class="deck-meta"><div><b>Power Artifact — Basalt Monolith study deck</b><div class="small">Main deck 60 · No sideboard</div></div></div>',
       '<div class="deck-columns"><div class="deck-col">']
     for title,cards in groups:
-       details.append('<div class="group"><h4>'+title+'</h4>')
+       details.append('<div class="group"><h4>'+title+' · '+str(sum(q for _,q in cards))+'</h4>')
        for name,q in cards: details.append('<div class="row"><span class="qty">'+str(q)+'</span><span class="card-name" data-card="'+name+'" tabindex="0">'+name+'</span></div>')
        details.append('</div>')
-    details+=['</div></div></div></details>']
+    details+=['</div></div>']
+    lines=[]
+    for title,cards in groups:
+       lines.append(title+' · '+str(sum(q for _,q in cards)))
+       for name,q in cards: lines.append(str(q)+' '+name)
+    details+=['<pre id="deck-072-power-artifact-study" hidden>'+html.escape('\\n'.join(lines))+'</pre></div></details>']
     return ''.join(details)
 
 def candidate(s):
@@ -177,11 +182,18 @@ def candidate(s):
       {"sourceId":"official-rules","title":"Magic Comprehensive Rules","url":"https://magic.wizards.com/en/rules","sourceType":"primary","accessedDate":"2026-10-27","supports":"Current triggered ability, costs, timing, targeting, casting and resolution mechanics."}
     ]
     if s.get("extraSource"):dossier["sources"].append({"sourceId":"dated-primary","title":card+" dated historical ruling / policy","url":s["extraSource"],"sourceType":"primary","accessedDate":"2026-10-27","supports":"Specifically dated historical update, not general deck provenance."})
-    # Older deck archive documentary claims are not erased: keep their source IDs identifiable.
+    # Point inherited lists to *their own internal archive snapshot*, never to
+    # the original-printing/rules source as fake proof of tournament attribution.
+    dossier["sources"].append({"sourceId":"archived-deck-candidate",
+       "title":"Preserved Compulsive Research deck-archive entry — external verification pending",
+       "url":"https://github.com/Diabolicdonut/Compulsive-Research/blob/main/"+article.name,
+       "sourceType":"database","accessedDate":"2026-10-27",
+       "supports":"Only the text of a preserved candidate deck list, NOT verification of player, date, registration or placement."})
     for deck in dossier.get("deckEvidence",[]):
-       if deck.get("sourceId") not in {x["sourceId"] for x in dossier["sources"]}:
-          deck["sourceId"]="original-printing"
-          deck["reviewedBy"]="Inherited candidate deck archive; EVENT attribution requires independent historical source check"
+       deck["sourceId"]="archived-deck-candidate"
+       deck["reviewedBy"]="Inherited or newly authored candidate; independent historical attribution is unverified"
+    if n==72:
+       dossier["deckEvidence"][0]["reviewedBy"]="Explicitly authored 60-card demonstration, NOT an actual historical registration"
     dossier["researchStatus"]="in-research"
     dossier["review"]={"historicalReviewDate":"2026-10-27","currentInformationAsOf":"2026-10-27",
       "editorialReviewer":"Compulsive Research focused 063-072 candidate preparation",
