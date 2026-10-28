@@ -1,6 +1,6 @@
 # Compulsive Research — Authoritative Development Roadmap
 
-**Roadmap revision:** 1.4 (October 27, 2026)  
+**Roadmap revision:** 1.5 (October 27, 2026)  
 **Authority:** This document governs the finite current Compulsive Research archive program. `site-progress.json` is the machine-readable mirror of its weighted acceptance gates; `CURRENT-STATE.json` is authoritative for the latest accepted editorial checkpoint. See [`AGENTS.md`](AGENTS.md) for mandatory worker procedure.  
 **Recovered baseline:** GitHub `main` commit `40bdf22c8f61959da4284663be1fe0b7198f4a7d`; the October 27 status-widget implementation at `b20f944769372d5129f5261ce0f5dfd5566e58f9` is retained, not replaced.
 
@@ -49,6 +49,10 @@ Honor the existing `canonical/` contracts and don't regenerate accepted prose fr
 5. Reconcile archive-wide deck, source, art, accessibility and residual validator warnings; complete a final full-corpus acceptance sweep.
 
 Work on M2–M6 can proceed in parallel if a change is safely isolated and reported; a worker may not declare an entire milestone accepted from an isolated success.
+
+**October 27 Reader 063–072 ten-article candidate production:** Implement a ten-article Reader V3.1 opening-story, mechanics and research-evidence pass on articles **063 Moat** through **072 Power Artifact**, continuing the prior source-backed 061/062 candidates. Each receives a distinctive first-person illustrative scene anchored in an exact Deck Archive title; 072 gains an explicitly curated, non-tournament Power Artifact/Basalt Monolith demonstration (there is no verified tournament deck in its inherited article). Correct high-risk historical/rules errors, especially **Transmute Artifact sacrifice during resolution, not as an additional casting cost**, and document the **June 29, 2026 Legacy ban of Candelabra of Tawnos**. Generate exact per-page word counts, article hashes, story reviews and a separate ten-article report. See `audit/reader-v31-063-072/REPORT.md`, `research-dossiers/reader-v31-063-072/editorial-candidates.json` and `tools/prepare_reader_063_072.py`.
+
+**Acceptance accounting:** completion of 063–072 as *candidate pages* means **061–070 has ten candidate articles**, not an accepted checkpoint. The 061–070 batch still needs research dossier provenance clearance, original-document validation, preservation reports, and a wave-level acceptance ledger. 071–072 belong to the following 071–080 wave. **Do not** report 70/100 accepted until the batch review passes. Both current published counters remain **Reader 60/100**, **weighted project 51/100**. The next individual article is **073 — Ali from Cairo**, while the most urgent acceptance work is 061–070 consolidated review.
 
 **October 27 Reader 062 individual modernization candidate:** The Tabernacle at Pendrell Vale has a Reader V3.1 story grounded in Jarvis Yu's November 2015 Legacy Lands winning card pool, a carefully labeled hypothetical Grixis Delver upkeep, correct independent creature triggers and {1} payments, verified Legends/Nicola Leonard identity and source-specific evidence. See `audit/reader-v31-061-070/062-CANDIDATE.md`, `research-dossiers/reader-v31-061-070/062-review.json` and `tools/validate_reader_062_candidate.py`. Both 061 and 062 remain **individual migration candidates**, not a signed-off ten-article batch. The exact next authoring entry is **063 — Moat**. Full Reader remains **60/100 accepted** and whole-product **51/100 weighted**.
 
@@ -112,7 +116,7 @@ An editorial change that leaves overall weighted points unchanged **still requir
 - **Accepted editorial content baseline:** Reader V3.1 **051–060**, October 16, 2026; `40bdf22c8f61959da4284663be1fe0b7198f4a7d`.
 - **Roadmap + live status baseline:** `b20f944769372d5129f5261ce0f5dfd5566e58f9`, October 27, 2026; Actions passed.
 - **This governance revision:** formalizes long-range completion conditions and routine roadmap/status updates without modifying article prose, the accepted article corpus or gate weighting.
-- **Immediate next article:** **063 — Moat**, following separately source-audited **061 Maze of Ith** and **062 Tabernacle** candidate files. The 061–070 wave is not accepted.
+- **Next batch acceptance task:** consolidate **061–070** source provenance, preservation checks, Reader migration ledger and sign-off; **next unstarted article:** **073 Ali from Cairo**. New 071–072 candidates are part of a later wave; 061–070 not yet accepted.
 - **Required handoff:** state the exact accepted main commit and checkpoint, validations actually run, accepted vs pending work, warning changes and next isolated task.
 
 See `README.md`, `AGENTS.md`, `CURRENT-STATE.json`, `audit.md` and the relevant checkpoint dossier for the complete working context.

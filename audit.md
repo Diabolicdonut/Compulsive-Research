@@ -1,3 +1,11 @@
+# Reader V3.1 numbered articles 063–072 candidate implementation (October 27, 2026)
+
+The ten articles from **Moat** (063) through **Power Artifact** (072) received differentiated Reader V3.1 opening scenarios, targeted identity/mechanics/source reviews, and machine-checkable article/story evidence. High-risk fixes include Transmute Artifact's sacrifice **on resolution**, not when cast; Power Artifact/Basalt Monolith {3}→{1} untap payment; 2026 Legacy prohibition of Candelabra; and precise triggered restrictions for the Legends world enchantments. The 072 teaching deck is an explicitly invented 60-card rules model without an attributed event or result. See [063–072 candidate report](audit/reader-v31-063-072/REPORT.md).
+
+**Accepted full-Reader checkpoint is still 051–060.** The 061–070 wave now has ten individually reviewed candidate pages but remains **unaccepted pending wave-level proof and older deck-list checks**; 071 and 072 are advance draft candidates. Preserve prior accepted progress **60/100 Reader** and **51/100 overall weighted** and do not erase previous audit history. Next task: wave 061–070 formal acceptance, with next individual article 073 Ali from Cairo.
+
+---
+
 # Reader V3.1 article 062 candidate — The Tabernacle at Pendrell Vale (October 27, 2026)
 
 Single-page, source-specific Reader V3.1 candidate, following reviewed 061 Maze of Ith without promoting the full 061–070 wave. The reconstructed first-person vignette uses Jarvis Yu's published winning 2015 Legacy Lands card pool but does not claim to reenact the Grand Prix final. Four independently controlled upkeep triggers, correct two-mana payment arithmetic, Crop Rotation's green mana plus Forest sacrifice cost, and the fact that Tabernacle never taps or sacrifices creatures are recorded in [062 candidate report](audit/reader-v31-061-070/062-CANDIDATE.md).
