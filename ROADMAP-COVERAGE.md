@@ -1,6 +1,6 @@
 # Compulsive Research — Authoritative Development Roadmap
 
-**Roadmap revision:** 1.5 (October 27, 2026)  
+**Roadmap revision:** 1.6 (October 28, 2026)  
 **Authority:** This document governs the finite current Compulsive Research archive program. `site-progress.json` is the machine-readable mirror of its weighted acceptance gates; `CURRENT-STATE.json` is authoritative for the latest accepted editorial checkpoint. See [`AGENTS.md`](AGENTS.md) for mandatory worker procedure.  
 **Recovered baseline:** GitHub `main` commit `40bdf22c8f61959da4284663be1fe0b7198f4a7d`; the October 27 status-widget implementation at `b20f944769372d5129f5261ce0f5dfd5566e58f9` is retained, not replaced.
 
@@ -49,6 +49,10 @@ Honor the existing `canonical/` contracts and don't regenerate accepted prose fr
 5. Reconcile archive-wide deck, source, art, accessibility and residual validator warnings; complete a final full-corpus acceptance sweep.
 
 Work on M2–M6 can proceed in parallel if a change is safely isolated and reported; a worker may not declare an entire milestone accepted from an isolated success.
+
+**October 28 Reader 061–070 evidence-based wave acceptance review:** The ten page candidates pass existing structural/gameplay and release tests but have retained inherited deck registrations without event-specific source binding and deeper historical claims that were never independently signed off. The new `tools/audit_reader_061_070_acceptance.py` produces reproducible page hashes, source classification, unresolved deck-entry counts and explicit acceptance gates in `audit/reader-v31-061-070/ACCEPTANCE-AUDIT.md`. **Acceptance is blocked, not granted.** The latest authoritative accepted checkpoint therefore remains **051–060** (60/100). Publication-quality provenance cannot be replaced by a clean build or an automatic source-count metric.
+
+**October 28 Reader 073–082 ten-article continuation:** Prepare focused Reader V3.1 source/rules and distinct first-person vignette candidates for **073 Ali from Cairo, 074 Drop of Honey, 075 Old Man of the Sea, 076 Serendib Efreet, 077 Su-Chi, 078 Triskelion, 079 Tetravus, 080 Atog, 081 Ornithopter and 082 Feldon's Cane**. For 073, an explicitly curated 60-card 1994 red-defense study replaces no historical registration; the sole purpose is a truthful Reader archive example. 073–080 complete the candidate set for 071–080 and 081–082 begin 081–090. A ten-article manuscript report, detailed per-page hash and source-scoped research records are required; do not invent historical matches, dates or event decks. Next untouched 083 Millstone. **Neither wave's accepted progress advances.** Overall roadmap remains **51/100** under the unchanged weights.
 
 **October 27 Reader 063–072 ten-article candidate production:** Implement a ten-article Reader V3.1 opening-story, mechanics and research-evidence pass on articles **063 Moat** through **072 Power Artifact**, continuing the prior source-backed 061/062 candidates. Each receives a distinctive first-person illustrative scene anchored in an exact Deck Archive title; 072 gains an explicitly curated, non-tournament Power Artifact/Basalt Monolith demonstration (there is no verified tournament deck in its inherited article). Correct high-risk historical/rules errors, especially **Transmute Artifact sacrifice during resolution, not as an additional casting cost**, and document the **June 29, 2026 Legacy ban of Candelabra of Tawnos**. Generate exact per-page word counts, article hashes, story reviews and a separate ten-article report. See `audit/reader-v31-063-072/REPORT.md`, `research-dossiers/reader-v31-063-072/editorial-candidates.json` and `tools/prepare_reader_063_072.py`.
 
@@ -116,7 +120,7 @@ An editorial change that leaves overall weighted points unchanged **still requir
 - **Accepted editorial content baseline:** Reader V3.1 **051–060**, October 16, 2026; `40bdf22c8f61959da4284663be1fe0b7198f4a7d`.
 - **Roadmap + live status baseline:** `b20f944769372d5129f5261ce0f5dfd5566e58f9`, October 27, 2026; Actions passed.
 - **This governance revision:** formalizes long-range completion conditions and routine roadmap/status updates without modifying article prose, the accepted article corpus or gate weighting.
-- **Next batch acceptance task:** consolidate **061–070** source provenance, preservation checks, Reader migration ledger and sign-off; **next unstarted article:** **073 Ali from Cairo**. New 071–072 candidates are part of a later wave; 061–070 not yet accepted.
+- **Next acceptance task:** clear the documented **061–070 provenance and full historical-review blockers**, then generate signed-off ten-page migration ledger; **next untouched article:** **083 Millstone** after drafting 073–082. Reader accepted remains 60/100.
 - **Required handoff:** state the exact accepted main commit and checkpoint, validations actually run, accepted vs pending work, warning changes and next isolated task.
 
 See `README.md`, `AGENTS.md`, `CURRENT-STATE.json`, `audit.md` and the relevant checkpoint dossier for the complete working context.
