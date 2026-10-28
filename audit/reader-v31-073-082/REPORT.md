@@ -17,7 +17,7 @@ The user requested the next ten articles after 072. Exact scope: **073 Ali from 
 | 077 Su-Chi | Curated Old School Workshop Prison list (not tournament) | Opponent uses **Disenchant** (not Terror, which cannot target artifact creatures) during active player's main phase; death trigger produces four colorless spent on Juggernaut, with pre-2009 mana-burn context. |
 | 078 Triskelion | Antonino De Rosa Mono-Blue Tron archival 2005 deck | Three counters make Triskelion 4/4; removing two counters destroys two 1/1s and leaves 2/2. |
 | 079 Tetravus | Curated Workshop Prison model | Remove two of three +1/+1 counters at upkeep, create two 1/1 flying tokens and leave a 2/2 flyer; no instant-speed reassembly. |
-| 080 Atog | Kamiel Cornelissen 2004 Worlds archive | Sacrificing Ornithopter and Seat of the Synod pumps 1/2 to 5/6 during combat for five lethal damage; no bonus land drop. |
+| 080 Atog | Kamiel Cornelissen 2004 Worlds archive | Sacrificing Frogmite and Seat of the Synod pumps 1/2 to 5/6 during combat for five lethal damage; no bonus land drop. |
 | 081 Ornithopter | Ben Stark 2004 Pro Tour Kobe Affinity archive | Two artifact lands plus resolved zero-mana Ornithopter reduce Frogmite from {4} to {1}; tapping an artifact land does not stop its affinity count. |
 | 082 Feldon's Cane | Matt Place 1996 Turbo Stasis archival list | Exile Cane as tap-activation cost, then shuffle controller's graveyard into library; no immediate bonus draw and Cane itself does not return. |
 
