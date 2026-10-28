@@ -88,8 +88,8 @@ def main():
         if s['n']==79:
             dossier=ROOT/"research-dossiers/numbered-wave-02/079-tetravus.json"
             record=json.loads(dossier.read_text(encoding="utf-8"))
-            record["canonicalIdentity"]["currentOracleText"]="Flying. This creature enters with three +1/+1 counters on it. At the beginning of your upkeep, you may remove any number of +1/+1 counters from this creature. If you do, create that many 1/1 colorless Tetravite artifact creature tokens. They each have flying and \\"This token can't be enchanted.\\" At the beginning of your upkeep, you may exile any number of tokens created with this creature. If you do, put that many +1/+1 counters on this creature."
-            dossier.write_text(json.dumps(record,indent=2,ensure_ascii=False)+"\\n",encoding="utf-8")
+            record["canonicalIdentity"]["currentOracleText"]="""Flying. This creature enters with three +1/+1 counters on it. At the beginning of your upkeep, you may remove any number of +1/+1 counters from this creature. If you do, create that many 1/1 colorless Tetravite artifact creature tokens. They each have flying and "This token can't be enchanted." At the beginning of your upkeep, you may exile any number of tokens created with this creature. If you do, put that many +1/+1 counters on this creature."""
+            dossier.write_text(json.dumps(record,indent=2,ensure_ascii=False)+chr(10),encoding="utf-8")
       impl.write(METRICS,{"scope":"073-082","date":"2026-10-28",
           "status":"ten individual candidate drafts; NOT approved 071-080 or 081-090 checkpoint",
           "acceptedReader":60,"weightedRoadmapPoints":51,"articles":records})
