@@ -31,6 +31,31 @@ Each article uses an original **first-person representative reconstruction**, wi
 - Ten per-article `NNN-story-candidate.json` and `NNN-review.json`, retaining the full manuscript source.
 - `audit/reader-v31-061-070/ACCEPTANCE-AUDIT.md`: separate structured review of the previously outstanding wave. Formal wave promotion is **blocked** by historically unbound source claims.
 
+## Verified candidate metrics and production validation
+
+[GitHub Actions full refresh run 40703002021](https://github.com/Diabolicdonut/Compulsive-Research/actions/runs/40703002021) **completed successfully** on October 28, 2026. It generated the ten manuscripts and source-bound review records, completed the blocked-wave audit, passed Reader V3.1 and all existing historical deck-archive validators, rebuilt the V2 fingerprint, passed the full publication suite and internal navigation, and preserved the accepted 051–060 checkpoint.
+
+Derived **27,297 editorial words** across entries 073–082:
+
+| Entry | Card | Editorial words | Reading time | Vignette words |
+|---:|---|---:|---:|---:|
+| 073 | Ali from Cairo | 2,721 | 14 min | 93 |
+| 074 | Drop of Honey | 2,698 | 14 min | 92 |
+| 075 | Old Man of the Sea | 2,866 | 15 min | 100 |
+| 076 | Serendib Efreet | 2,808 | 15 min | 105 |
+| 077 | Su-Chi | 2,658 | 14 min | 90 |
+| 078 | Triskelion | 2,678 | 14 min | 99 |
+| 079 | Tetravus | 2,736 | 14 min | 95 |
+| 080 | Atog | 2,663 | 14 min | 94 |
+| 081 | Ornithopter | 2,719 | 14 min | 95 |
+| 082 | Feldon's Cane | 2,750 | 14 min | 103 |
+
+The **Tetravus** review was corrected against Oracle: its second upkeep trigger **exiles** the tokens it created to restore counters, and the Tetravites cannot be enchanted. The **Atog** scene uses **Frogmite**, which actually appears in its selected 2004 archive registration, rather than an unsupported Ornithopter. The latter is the subject of article 081 and appears in that separate Ben Stark list. These corrections are bound to the individual story/dossier records.
+
+See `validation/reader-v3.1-073-082-candidate-metrics.json` for exact article SHA-256 values. The 061–070 wave blocker audit finds **16 actionable blocker records**, including **24 inherited deck rows** lacking independently bound event records. It does not award a new accepted checkpoint.
+
+The temporary write-enabled build workflow is removed before the merge. Standard permanent PR CI including desktop/mobile browser tests must independently finish green.
+
 ## Acceptance restrictions
 
 The prepared articles cross wave boundaries: 073–080 belongs to the **071–080** acceptance unit, while 081–082 begins **081–090**. They cannot be accepted as a stand-alone mixed ten-page batch merely because the implementation is complete. In particular, the earlier 061–070 wave still has inherited historical claim/provenance blockers.
